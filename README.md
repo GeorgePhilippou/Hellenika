@@ -6,6 +6,8 @@ time, space, relationships and evidence.
 Not an encyclopaedia. A connected graph of 300+ entities where every factual claim
 carries the kind of evidence it rests on and how confident anyone is entitled to be.
 
+**Live:** <https://georgephilippou.github.io/Hellenika/>
+
 ---
 
 ## Running it
