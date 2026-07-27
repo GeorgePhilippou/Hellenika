@@ -1,0 +1,173 @@
+/* ============================================================
+   Hellenika — Design tokens
+   A single source of truth for colour, type, space, motion.
+   ============================================================ */
+
+:root {
+  /* ---- Palette: warm marble & Aegean ---- */
+  --marble-50:  #fbfaf7;
+  --marble-100: #f5f2ec;
+  --marble-200: #ece7dd;
+  --marble-300: #ddd6c8;
+  --marble-400: #bdb3a1;
+  --stone-500:  #8b8172;
+  --stone-600:  #675f53;
+  --stone-700:  #443f37;
+  --stone-800:  #2b2823;
+  --stone-900:  #1a1815;
+  --ink:        #14120f;
+
+  --aegean-300: #7fb8cf;
+  --aegean-500: #2b7ea1;
+  --aegean-600: #1f6180;
+  --aegean-700: #17495f;
+
+  --terra-300:  #e0a184;
+  --terra-500:  #c0603a;
+  --terra-600:  #a04b2b;
+
+  --olive-500:  #6f7d42;
+  --gold-400:   #d8a93f;
+  --gold-500:   #b9862a;
+  --wine-500:   #8a3243;
+  --laurel-500: #5c7a4a;
+
+  /* ---- Semantic ---- */
+  --bg:            var(--marble-50);
+  --bg-sunk:       var(--marble-100);
+  --surface:       #ffffff;
+  --surface-2:     var(--marble-100);
+  --surface-hover: var(--marble-200);
+  --border:        rgba(20, 18, 15, 0.10);
+  --border-strong: rgba(20, 18, 15, 0.20);
+
+  --text:      var(--ink);
+  --text-2:    var(--stone-700);
+  --text-3:    var(--stone-500);
+  --text-inv:  var(--marble-50);
+
+  --accent:       var(--terra-500);
+  --accent-soft:  rgba(192, 96, 58, 0.10);
+  --accent-text:  var(--terra-600);
+  --link:         var(--aegean-600);
+
+  /* ---- Period colours (used by timeline, map, chips) ---- */
+  --p-earlybronze:  #9a8c78;
+  --p-minoan:       #2b7ea1;
+  --p-mycenaean:    #b9862a;
+  --p-collapse:     #6b5a52;
+  --p-darkage:      #575f6b;
+  --p-archaic:      #7b6bab;
+  --p-classical:    #c0603a;
+  --p-macedon:      #4f7a5e;
+  --p-alexander:    #8a3243;
+  --p-hellenistic:  #3f8f8a;
+  --p-roman:        #7a4b8f;
+
+  /* ---- Confidence colours ---- */
+  --c-established:  #3f7d54;
+  --c-strong:       #58862f;
+  --c-probable:     #b9862a;
+  --c-debated:      #c0603a;
+  --c-speculative:  #8a5a9a;
+  --c-legendary:    #7a6f88;
+
+  /* ---- Typography ---- */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text",
+                  "New York", Georgia, "Times New Roman", serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Inter,
+             system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --font-greek: "GFS Didot", "Iowan Old Style", Palatino, Georgia, serif;
+
+  --fs-display: clamp(2.6rem, 6.2vw, 4.5rem);
+  --fs-h1: clamp(1.9rem, 3.6vw, 2.75rem);
+  --fs-h2: clamp(1.35rem, 2.2vw, 1.75rem);
+  --fs-h3: 1.125rem;
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.78rem;
+  --fs-xxs: 0.7rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-body: 1.65;
+
+  /* ---- Space (4pt grid) ---- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px;  --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+
+  /* ---- Radius ---- */
+  --r-sm: 8px;  --r-md: 12px; --r-lg: 18px; --r-xl: 26px; --r-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --sh-1: 0 1px 2px rgba(20,18,15,.05), 0 1px 1px rgba(20,18,15,.04);
+  --sh-2: 0 2px 6px rgba(20,18,15,.06), 0 4px 14px rgba(20,18,15,.05);
+  --sh-3: 0 8px 24px rgba(20,18,15,.09), 0 2px 6px rgba(20,18,15,.05);
+  --sh-4: 0 18px 50px rgba(20,18,15,.16), 0 4px 12px rgba(20,18,15,.08);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-fast: 120ms;
+  --t-med: 240ms;
+  --t-slow: 420ms;
+
+  /* ---- Layout ---- */
+  --topbar-h: 58px;
+  --maxw: 1240px;
+  --maxw-read: 720px;
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   Dark theme — "lamplit gallery"
+   ============================================================ */
+:root[data-theme="dark"] {
+  --bg:            #12110f;
+  --bg-sunk:       #0d0c0b;
+  --surface:       #1c1a17;
+  --surface-2:     #232019;
+  --surface-hover: #2c2822;
+  --border:        rgba(245, 242, 236, 0.10);
+  --border-strong: rgba(245, 242, 236, 0.22);
+
+  --text:      #f0ece4;
+  --text-2:    #c3bcae;
+  --text-3:    #8d8577;
+  --text-inv:  #12110f;
+
+  --accent:      #dd7f55;
+  --accent-soft: rgba(221, 127, 85, 0.14);
+  --accent-text: #eb9a74;
+  --link:        #7fb8cf;
+
+  --p-minoan:      #4b9fc2;
+  --p-mycenaean:   #d8a93f;
+  --p-classical:   #dd7f55;
+  --p-hellenistic: #56b0aa;
+  --p-archaic:     #9b8bcb;
+  --p-alexander:   #b5566a;
+  --p-roman:       #a06fb5;
+  --p-macedon:     #6f9a7e;
+  --p-darkage:     #77808d;
+  --p-collapse:    #8b7a72;
+  --p-earlybronze: #b3a692;
+
+  --c-established: #5fa878;
+  --c-strong:      #86b153;
+  --c-probable:    #d8a93f;
+  --c-debated:     #dd7f55;
+  --c-speculative: #ab84bb;
+  --c-legendary:   #9c92aa;
+
+  --sh-1: 0 1px 2px rgba(0,0,0,.4);
+  --sh-2: 0 2px 8px rgba(0,0,0,.45);
+  --sh-3: 0 10px 28px rgba(0,0,0,.5);
+  --sh-4: 0 20px 56px rgba(0,0,0,.6);
+
+  color-scheme: dark;
+}

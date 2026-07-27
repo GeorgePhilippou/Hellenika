@@ -1,0 +1,487 @@
+/* ============================================================
+   Hellenika — Historical periods
+   Period boundaries are scholarly conventions, not events. Where a
+   boundary is genuinely contested the `boundaryNote` says so.
+   Dates use the signed-year convention (negative = BC).
+   ============================================================ */
+
+export const periods = [
+  {
+    id: 'early-bronze-age',
+    name: 'Early Bronze Age',
+    altNames: ['Early Helladic', 'Early Minoan', 'Early Cycladic'],
+    type: 'period',
+    tint: 'earlybronze',
+    start: -3200, end: -2000,
+    approx: true,
+    lane: 0,
+    summary:
+      'The first metal-using societies of the Aegean: fortified coastal towns, long-distance trade in obsidian and metals, and the marble figurines of the Cyclades.',
+    significance:
+      'Establishes the maritime networks and settlement patterns on which every later Aegean civilisation is built.',
+    overview:
+      'Between roughly 3200 and 2000 BC the Aegean shifts from scattered Neolithic villages to a connected world of small, competitive coastal communities. Bronze — copper alloyed with tin or arsenic — arrives alongside the sailing ship, the potter\'s wheel and the donkey. None of these societies is yet a state: there are no palaces, no writing, and no evidence of kings. What there is, abundantly, is trade. Melian obsidian, Cycladic marble, Anatolian silver and Cypriot copper move across the same sea lanes that Minoan and Mycenaean fleets will later use.\n\nThe period ends unevenly. Many mainland sites, including the House of the Tiles at Lerna, are destroyed around 2200–2000 BC, while Crete continues without comparable disruption — a divergence that helps explain why the first Aegean palaces appear on Crete rather than the mainland.',
+    politics:
+      'No states. Authority appears to rest with households and lineages; the largest buildings — "corridor houses" like the House of the Tiles — are communal or elite storage centres rather than royal residences.',
+    warfare:
+      'Fortification walls at Lerna, Chalandriani and Troy show organised violence, but there are no standing armies. Weapons in graves are few and often ceremonial.',
+    culture:
+      'Cycladic marble figurines — mostly slender, folded-arm females — are the period\'s signature artefacts. Originally painted, they were made for burial. Their meaning is unknown; every interpretation from goddess to grave-marker remains speculative.',
+    boundaryNote:
+      'The 3200 BC start follows the appearance of Early Bronze pottery phases; it varies by region by up to two centuries.',
+    keyEvents: ['obsidian-trade', 'lerna-destruction', 'cycladic-figurines-peak'],
+    people: [],
+    sites: ['knossos', 'lerna', 'troy', 'akrotiri', 'poliochni', 'chalandriani'],
+    artefacts: ['cycladic-figurine', 'harp-player-keros'],
+    texts: [],
+    claims: [
+      { text: 'Melian obsidian was traded across the Aegean from the Neolithic onward, requiring open-sea voyaging.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'Cycladic figurines were made primarily for funerary use.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'The figurines represent a mother goddess.', evidence: 'tradition', confidence: 'speculative' },
+      { text: 'Widespread mainland destructions around 2200 BC reflect a single invasion.', evidence: 'debate', confidence: 'debated' },
+    ],
+    relations: [
+      { id: 'minoan-civilisation', rel: 'followed by' },
+      { id: 'cyclades', rel: 'region' },
+    ],
+    sources: ['renfrew1972', 'broodbank2000', 'cline2021'],
+  },
+
+  {
+    id: 'minoan-civilisation',
+    name: 'Minoan Civilisation',
+    altNames: ['Minoans', 'Bronze Age Crete'],
+    type: 'period',
+    tint: 'minoan',
+    start: -3100, end: -1100,
+    peakStart: -1900, peakEnd: -1450,
+    approx: true,
+    lane: 1,
+    summary:
+      'Europe\'s first literate palace civilisation, centred on Crete: vast redistributive complexes, fresco-painted towns, a thalassocracy of trade, and a script we still cannot read.',
+    significance:
+      'The first complex state society in Europe, and the cultural template — architecture, art, administration, religion — that the Mycenaeans inherited and transmitted to later Greece.',
+    overview:
+      'Around 1900 BC the first "palaces" appear at Knossos, Phaistos, Malia and Zakros. They are not palaces in the modern sense but multi-functional centres: storage magazines holding tens of thousands of litres of oil and grain, workshops, shrines, archives and ceremonial courts. Their administration is recorded first in Cretan Hieroglyphic and then in Linear A, an undeciphered script written in an unknown language.\n\nMinoan art is unmistakable — leaping bulls, marine life, blue monkeys, women in flounced skirts — and it spread far beyond Crete. Minoan-style frescoes have been excavated at Avaris in Egypt and Tel Kabri in Israel, which shows Cretan artists or their techniques working at foreign courts.\n\nThe civilisation is disrupted twice. The Theran eruption around 1600 BC buries Akrotiri and damages northern Crete; then, around 1450 BC, almost every Cretan site except Knossos is destroyed. Knossos continues under administrators writing Linear B — Greek — which is the clearest evidence for Mycenaean control of the island.',
+    politics:
+      'Contested. Arthur Evans imagined a priest-king ruling from Knossos; most scholars now see a network of regional centres with overlapping authority, and no securely identified image of a Minoan ruler has ever been found.',
+    warfare:
+      'Minoan towns are strikingly unfortified, which fed a long-lived image of a peaceful society. That image has eroded: weapons are common in graves, the Silver Siege Rhyton shows a fortified town under attack, and the Akrotiri miniature frieze depicts warriors and shipwrecked men.',
+    culture:
+      'Bull-leaping, peak sanctuaries, double axes (labrys) and horns of consecration dominate the religious record. Female figures are prominent in ritual scenes, but whether this reflects a female-led religion or simply female religious specialists is debated.',
+    boundaryNote:
+      'Two chronologies compete. The "high" chronology, supported by radiocarbon and the Greenland ice cores, dates the Theran eruption to c. 1620–1600 BC; the "low" chronology, based on Egyptian synchronisms, prefers c. 1500 BC. This site uses the high chronology.',
+    keyEvents: ['first-palaces', 'theran-eruption', 'minoan-destructions-1450', 'linear-b-knossos'],
+    people: ['arthur-evans', 'minos', 'spyridon-marinatos'],
+    sites: ['knossos', 'phaistos', 'malia', 'zakros', 'akrotiri', 'gournia', 'ayia-triada'],
+    artefacts: ['phaistos-disc', 'bull-leaping-fresco', 'snake-goddess', 'harvester-vase', 'octopus-flask', 'hagia-triada-sarcophagus'],
+    texts: [],
+    claims: [
+      { text: 'Linear A records a language that is not Greek and remains undeciphered.', evidence: 'linguistic', confidence: 'established' },
+      { text: 'The Theran eruption occurred c. 1620–1600 BC.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'Mycenaean Greeks controlled Knossos after c. 1450 BC.', evidence: 'epigraphic', confidence: 'strong' },
+      { text: 'The Theran eruption directly caused the collapse of Minoan civilisation.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Minoan Crete was ruled by a single priest-king at Knossos.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Minoan society was matriarchal.', evidence: 'debate', confidence: 'speculative' },
+    ],
+    relations: [
+      { id: 'mycenaean-civilisation', rel: 'succeeded by' },
+      { id: 'linear-a', rel: 'writing system' },
+      { id: 'knossos', rel: 'principal centre' },
+      { id: 'crete', rel: 'homeland' },
+    ],
+    sources: ['evans1921', 'cline2010', 'castleden1990', 'macdonald2005'],
+  },
+
+  {
+    id: 'mycenaean-civilisation',
+    name: 'Mycenaean Civilisation',
+    altNames: ['Late Helladic', 'Achaeans'],
+    type: 'period',
+    tint: 'mycenaean',
+    start: -1750, end: -1050,
+    peakStart: -1400, peakEnd: -1200,
+    approx: true,
+    lane: 2,
+    summary:
+      'Warrior kingdoms of the Greek mainland: cyclopean citadels, shaft graves stacked with gold, bureaucratic Linear B archives — and the first written Greek.',
+    significance:
+      'The earliest attested Greek-speaking civilisation, and the historical substrate of Homeric epic and much of Greek myth.',
+    overview:
+      'The Mycenaean world announces itself around 1650 BC with the shaft graves at Mycenae: gold masks, inlaid daggers, amber from the Baltic, and more weaponry than any Minoan burial. Over the next two centuries these chiefdoms become states centred on fortified citadels at Mycenae, Tiryns, Pylos, Thebes and Athens.\n\nWhat makes them legible is Linear B, adapted from Minoan Linear A to write Greek, and deciphered by Michael Ventris in 1952. The tablets are not literature: they are inventories — sheep counts, bronze rations, offerings to Poseidon, lists of women textile workers and their children. They reveal a palace economy of extraordinary bureaucratic reach, headed by a figure called the *wanax*.\n\nBetween about 1200 and 1180 BC every major palace is destroyed or abandoned. Literacy disappears. The citadels survive in memory as the work of giants.',
+    politics:
+      'A *wanax* (king) heads each palace state, with a *lawagetas* (war leader), regional officials called *korete*, and a distinctive local assembly, the *damos*, that holds land against the palace — a rare glimpse of non-palatial power.',
+    warfare:
+      'Chariots, boar\'s-tusk helmets, figure-of-eight shields and the Dendra panoply. Cyclopean walls up to 8 m thick at Tiryns and Mycenae, with concealed spring-fed cisterns built late in the period — a strong hint of anticipated siege.',
+    culture:
+      'Megaron-plan halls with central hearths, tholos tombs, frescoes derived from Minoan models but redirected towards hunting and battle. Many Olympian gods are already named on the tablets: Poseidon, Zeus, Hera, Athena, Dionysus, Artemis.',
+    boundaryNote:
+      'The end date is placed at the abandonment of the last citadels, but Mycenaean material culture persists in the sub-Mycenaean phase to c. 1050 BC.',
+    keyEvents: ['shaft-graves-mycenae', 'linear-b-knossos', 'trojan-war-traditional', 'palace-destructions-1200', 'ventris-decipherment'],
+    people: ['agamemnon', 'heinrich-schliemann', 'michael-ventris', 'carl-blegen', 'nestor'],
+    sites: ['mycenae', 'tiryns', 'pylos', 'thebes', 'dendra', 'orchomenos', 'gla'],
+    artefacts: ['mask-of-agamemnon', 'linear-b-tablet', 'dendra-panoply', 'vaphio-cups', 'warrior-vase', 'nestors-cup-pylos', 'lion-gate'],
+    texts: ['iliad', 'odyssey'],
+    claims: [
+      { text: 'Linear B records an early form of Greek.', evidence: 'linguistic', confidence: 'established' },
+      { text: 'Mycenaean palace states ran centralised redistributive economies.', evidence: 'epigraphic', confidence: 'established' },
+      { text: 'The Hittite kingdom of Ahhiyawa refers to a Mycenaean Greek power.', evidence: 'epigraphic', confidence: 'strong' },
+      { text: 'A single Mycenaean overlord ruled all mainland kingdoms.', evidence: 'debate', confidence: 'debated' },
+      { text: 'The Trojan War of legend reflects a real Mycenaean campaign against Troy.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Agamemnon was a historical king.', evidence: 'tradition', confidence: 'legendary' },
+    ],
+    relations: [
+      { id: 'minoan-civilisation', rel: 'drew upon' },
+      { id: 'linear-b', rel: 'writing system' },
+      { id: 'mycenae', rel: 'principal centre' },
+      { id: 'bronze-age-collapse', rel: 'ended by' },
+    ],
+    sources: ['chadwick1976', 'shelmerdine2008', 'cline2021', 'ventris1956'],
+  },
+
+  {
+    id: 'bronze-age-collapse',
+    name: 'Bronze Age Collapse',
+    altNames: ['Late Bronze Age Collapse', 'the Catastrophe'],
+    type: 'period',
+    tint: 'collapse',
+    start: -1200, end: -1130,
+    approx: true,
+    lane: 0,
+    summary:
+      'Within two generations the palace civilisations of the eastern Mediterranean fail together: Mycenaean Greece, the Hittite Empire, Ugarit and the Levantine city-states.',
+    significance:
+      'The most severe systems collapse in ancient history. It ends literacy in Greece for roughly three centuries and resets the entire political map of the eastern Mediterranean.',
+    overview:
+      'Around 1200 BC, a densely interconnected world comes apart. Hattusa, the Hittite capital, is burned and abandoned. Ugarit is destroyed while its last king is writing letters begging for help — tablets found still in the kiln. Every Mycenaean palace on the Greek mainland is destroyed or abandoned. Egypt survives, but Ramesses III fights off two waves of invaders he calls the Sea Peoples and never recovers its imperial reach.\n\nNo single cause explains it. The leading synthesis is a cascade: severe multi-decade drought attested in pollen cores from the Sea of Galilee and Cyprus; earthquake storms along the Anatolian fault systems; disruption of the tin and copper trade on which bronze depended; internal revolt; and the movement of displaced populations. Highly connected systems fail in exactly this way — the interdependence that made them rich made them fragile.',
+    politics:
+      'Palace bureaucracies vanish entirely. The Greek world reverts to small chiefdoms; the wanax disappears, leaving only the humbler title *basileus* — originally a local palace official — which becomes the Greek word for king.',
+    warfare:
+      'The Medinet Habu reliefs of Ramesses III record land and sea battles against the Sea Peoples, including the Peleset, commonly identified with the Philistines.',
+    culture:
+      'Linear B literacy ends. Monumental building stops. Fine painted pottery narrows to a few regional styles. Long-distance trade contracts sharply but never entirely stops — Cyprus and the Levant retain some connections.',
+    boundaryNote:
+      'Destruction dates are known from pottery phases and a small number of radiocarbon sequences; individual site dates carry uncertainties of several decades.',
+    keyEvents: ['palace-destructions-1200', 'sea-peoples-invasion', 'hattusa-destruction', 'ugarit-destruction'],
+    people: ['ramesses-iii'],
+    sites: ['mycenae', 'pylos', 'tiryns', 'troy', 'hattusa-ref'],
+    artefacts: ['medinet-habu-relief', 'ugarit-letters'],
+    texts: [],
+    claims: [
+      { text: 'Nearly all major eastern Mediterranean palace centres were destroyed or abandoned c. 1200–1150 BC.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'A severe, prolonged drought affected the eastern Mediterranean in this window.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'The collapse had multiple interacting causes rather than one.', evidence: 'consensus', confidence: 'strong' },
+      { text: 'The "Sea Peoples" were a single unified invading nation.', evidence: 'debate', confidence: 'debated' },
+      { text: 'A Dorian invasion destroyed the Mycenaean palaces.', evidence: 'debate', confidence: 'speculative' },
+    ],
+    relations: [
+      { id: 'mycenaean-civilisation', rel: 'ended' },
+      { id: 'greek-dark-age', rel: 'led to' },
+    ],
+    sources: ['cline2021', 'drews1993', 'kaniewski2013'],
+  },
+
+  {
+    id: 'greek-dark-age',
+    name: 'Greek Dark Age',
+    altNames: ['Early Iron Age', 'Geometric Period'],
+    type: 'period',
+    tint: 'darkage',
+    start: -1100, end: -800,
+    approx: true,
+    lane: 1,
+    summary:
+      'Three centuries without writing or palaces — but also the age that forges iron, the alphabet, the polis, and the oral tradition that becomes Homer.',
+    significance:
+      'Not an interlude but a foundation: nearly everything distinctive about later Greece — the city-state, the alphabet, Panhellenic sanctuaries, epic poetry — takes shape here.',
+    overview:
+      'The label is a nineteenth-century judgement about evidence, not about people. Population and settlement fall sharply, monumental architecture stops, and literacy disappears. But the period is inventive. Iron replaces bronze for tools and weapons, partly because the tin trade never recovered. Around 800 BC Greeks adapt the Phoenician consonantal script and add vowel signs — creating the first true alphabet, and one far easier to learn than any syllabary.\n\nThe archaeology repeatedly punctures the "dark" label. At Lefkandi on Euboea, a monumental apsidal building of c. 1000 BC covers the burials of a cremated man in a bronze urn, a richly adorned woman, and four sacrificed horses — wealth and ceremony a century before anything comparable elsewhere. Meanwhile the sanctuaries at Olympia and Delphi begin receiving dedications, and Greeks are trading again with Al Mina on the Syrian coast.',
+    politics:
+      'The palace gives way to the *oikos* (household) and to local chiefs. Over three centuries these communities coalesce into the *polis* — a self-governing city-state with a defined territory, communal cults and citizen assemblies.',
+    warfare:
+      'Small-scale raiding by aristocratic warriors with iron weapons. The disciplined hoplite phalanx does not appear until the eighth and seventh centuries.',
+    culture:
+      'Protogeometric and Geometric pottery — compass-drawn circles, then meanders and, by the eighth century, human figures in funeral scenes. Oral epic transmits Mycenaean memories forward through generations of singers.',
+    boundaryNote:
+      'Many specialists now prefer "Early Iron Age", arguing that "Dark Age" overstates both the discontinuity and the poverty.',
+    keyEvents: ['ionian-migration', 'lefkandi-burial', 'greek-alphabet-adopted', 'first-olympiad'],
+    people: ['homer', 'hesiod'],
+    sites: ['lefkandi', 'athens', 'olympia', 'delphi', 'al-mina'],
+    artefacts: ['dipylon-amphora', 'lefkandi-centaur', 'dipylon-oinochoe'],
+    texts: ['iliad', 'odyssey', 'theogony', 'works-and-days'],
+    claims: [
+      { text: 'Greek literacy in Linear B ceased and was not resumed for roughly three centuries.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'The Greek alphabet was adapted from a Phoenician consonantal script.', evidence: 'epigraphic', confidence: 'established' },
+      { text: 'Greek settlement in western Anatolia (the Ionian migration) occurred during this period.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'Population across Greece declined sharply after 1100 BC.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'The alphabet was adopted specifically in order to write down Homeric epic.', evidence: 'debate', confidence: 'speculative' },
+    ],
+    relations: [
+      { id: 'bronze-age-collapse', rel: 'followed' },
+      { id: 'archaic-greece', rel: 'led to' },
+      { id: 'greek-alphabet', rel: 'writing system' },
+    ],
+    sources: ['snodgrass1971', 'osborne2009', 'lemos2002'],
+  },
+
+  {
+    id: 'archaic-greece',
+    name: 'Archaic Greece',
+    altNames: ['Archaic Period'],
+    type: 'period',
+    tint: 'archaic',
+    start: -800, end: -480,
+    lane: 2,
+    summary:
+      'Colonies from Spain to the Black Sea, coinage, monumental temples, lyric poetry, the first philosophers, tyrants — and the birth of Athenian democracy.',
+    significance:
+      'The formative age of the Greek world. Almost every institution later called "classical" — the polis, hoplite warfare, coined money, drama, philosophy, democracy — originates or matures here.',
+    overview:
+      'From about 750 BC Greeks begin founding settlements around the Mediterranean and Black Sea on such a scale that Cicero would later say they had sewn a fringe onto barbarian lands. Syracuse, Massalia (Marseille), Cyrene, Byzantion and Naukratis all date from this movement, driven by land hunger, trade and political conflict at home.\n\nCoinage arrives from Lydia in the late seventh century and spreads fast. Monumental stone temples in the Doric and Ionic orders replace timber. In Ionia, Thales, Anaximander and Anaximenes begin explaining the world without recourse to gods — the start of natural philosophy.\n\nPolitically, the age is turbulent. Aristocracies are challenged by lawgivers such as Draco and Solon, then by tyrants like Peisistratus who rule outside constitutional norms while often broadening participation. In 508/7 BC Cleisthenes restructures the Athenian citizen body into ten artificial tribes and creates the institutional core of democracy. The period closes with the Persian invasions.',
+    politics:
+      'A sequence from aristocracy through lawgivers and tyrants to, in some poleis, broad citizen government. Sparta develops a distinct mixed constitution with two kings, a council of elders and the ephorate.',
+    warfare:
+      'The hoplite phalanx — heavy infantry in close ranks behind interlocking *aspis* shields — becomes decisive, tying military service to the property-owning citizen and reshaping politics along with it.',
+    culture:
+      'Kouroi and korai statues; black-figure then red-figure vase painting; Sappho and Archilochus turning poetry towards individual voice; the Panhellenic festivals at Olympia, Delphi, Nemea and Isthmia binding a competitive, fragmented world together.',
+    keyEvents: ['first-olympiad', 'greek-colonisation', 'invention-coinage', 'solon-reforms', 'peisistratus-tyranny', 'cleisthenes-reforms', 'ionian-revolt'],
+    people: ['homer', 'hesiod', 'solon', 'cleisthenes', 'peisistratus', 'sappho', 'thales', 'pythagoras', 'lycurgus', 'draco', 'croesus', 'cyrus-the-great', 'darius-i'],
+    sites: ['delphi', 'olympia', 'athens', 'corinth', 'sparta', 'miletus', 'paestum', 'samos-heraion', 'syracuse'],
+    artefacts: ['kroisos-kouros', 'francois-vase', 'euphronios-krater', 'chigi-vase', 'peplos-kore', 'lydian-electrum-coin'],
+    texts: ['iliad', 'odyssey', 'theogony', 'works-and-days', 'sappho-fragments', 'homeric-hymns'],
+    claims: [
+      { text: 'Greek settlements were founded across the Mediterranean and Black Sea between c. 750 and 550 BC.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'Coinage was invented in Lydia in the late 7th century BC and adopted rapidly by Greek states.', evidence: 'numismatic', confidence: 'established' },
+      { text: 'Cleisthenes reorganised the Athenian citizen body into ten tribes in 508/7 BC.', evidence: 'literary', confidence: 'strong' },
+      { text: 'The hoplite phalanx emerged gradually over the 7th century rather than in a single "hoplite reform".', evidence: 'debate', confidence: 'debated' },
+      { text: 'Lycurgus was a single historical lawgiver who designed the Spartan constitution.', evidence: 'tradition', confidence: 'legendary' },
+    ],
+    relations: [
+      { id: 'classical-greece', rel: 'led to' },
+      { id: 'greek-alphabet', rel: 'writing system' },
+      { id: 'achaemenid-empire', rel: 'confronted' },
+    ],
+    sources: ['osborne2009', 'hall2013', 'boardman1999'],
+  },
+
+  {
+    id: 'classical-greece',
+    name: 'Classical Greece',
+    altNames: ['Classical Period'],
+    type: 'period',
+    tint: 'classical',
+    start: -480, end: -323,
+    lane: 0,
+    summary:
+      'The age of the Parthenon, Athenian democracy and empire, Greek tragedy, Socrates, Plato and Aristotle — and of the long war between Athens and Sparta that ended it.',
+    significance:
+      'The most intensely studied period in Greek history, and the source of most Western reference points for democracy, drama, philosophy and classical art.',
+    overview:
+      'Victory over Persia at Salamis (480) and Plataea (479) leaves Athens with a fleet, prestige and an alliance — the Delian League — that it converts within a generation into an empire. Under Pericles the tribute funds the Parthenon and the buildings of the Acropolis, while the assembly and the law courts give ordinary citizens direct power unmatched anywhere in the ancient world.\n\nThat democracy was narrow: women, resident foreigners and a very large enslaved population were excluded. It was also aggressive — the destruction of Melos in 416 and the disastrous Sicilian Expedition belong to the same system as the Funeral Oration.\n\nThe Peloponnesian War (431–404) ends Athenian hegemony. Sparta\'s dominance collapses at Leuctra in 371 when Epaminondas of Thebes breaks the Spartan line. Thebes in turn falls at Mantinea in 362. The exhausted city-states are then absorbed by Macedon at Chaeronea in 338.',
+    politics:
+      'Radical Athenian democracy: an assembly open to all citizens, a Council of 500 chosen by lot, magistrates selected by lot, jury courts of hundreds, and ostracism. Sparta retains its mixed constitution; oligarchy prevails in much of the rest of Greece.',
+    warfare:
+      'Hoplite battle plus, decisively, sea power. The trireme — 170 rowers, a bronze ram — makes Athens an empire. Later innovations include Iphicrates\' light peltasts and the Theban deep left wing and Sacred Band.',
+    culture:
+      'Tragedy and comedy at the City Dionysia; the histories of Herodotus and Thucydides; Socrates, Plato and Aristotle; Hippocratic medicine; Polykleitos\' canon of proportion and Pheidias\' chryselephantine statues.',
+    keyEvents: ['battle-marathon', 'battle-thermopylae', 'battle-salamis', 'battle-plataea', 'delian-league', 'parthenon-built', 'peloponnesian-war', 'plague-of-athens', 'sicilian-expedition', 'trial-of-socrates', 'battle-leuctra', 'battle-chaeronea'],
+    people: ['pericles', 'themistocles', 'leonidas', 'herodotus', 'thucydides', 'socrates', 'plato', 'aristotle', 'sophocles', 'aeschylus', 'euripides', 'aristophanes', 'pheidias', 'hippocrates', 'alcibiades', 'epaminondas', 'xerxes-i', 'xenophon', 'lysander', 'aspasia'],
+    sites: ['athens', 'sparta', 'delphi', 'olympia', 'corinth', 'thebes', 'delos', 'epidaurus', 'thermopylae', 'marathon'],
+    artefacts: ['parthenon-frieze', 'discobolus', 'doryphoros', 'riace-bronzes', 'charioteer-delphi', 'ostraka', 'athenian-owl-tetradrachm'],
+    texts: ['histories-herodotus', 'peloponnesian-war-thucydides', 'oresteia', 'oedipus-rex', 'antigone', 'medea', 'republic', 'poetics', 'nicomachean-ethics'],
+    claims: [
+      { text: 'Athens operated a direct democracy in which citizen assemblies made binding policy decisions.', evidence: 'literary', confidence: 'established' },
+      { text: 'The Parthenon was built between 447 and 432 BC.', evidence: 'epigraphic', confidence: 'established' },
+      { text: 'Delian League tribute was moved from Delos to Athens in 454 BC.', evidence: 'epigraphic', confidence: 'strong' },
+      { text: 'The plague of 430 BC killed roughly a quarter of the Athenian population.', evidence: 'literary', confidence: 'probable' },
+      { text: 'The plague was typhoid fever.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Athenian democracy directly inspired modern representative democracy.', evidence: 'debate', confidence: 'debated' },
+    ],
+    relations: [
+      { id: 'archaic-greece', rel: 'followed' },
+      { id: 'rise-of-macedon', rel: 'ended by' },
+      { id: 'athens', rel: 'principal centre' },
+      { id: 'achaemenid-empire', rel: 'fought' },
+    ],
+    sources: ['thucydides-src', 'herodotus-src', 'hornblower2011', 'osborne2009'],
+  },
+
+  {
+    id: 'rise-of-macedon',
+    name: 'Rise of Macedon',
+    altNames: ['Macedonian Ascendancy', 'Age of Philip II'],
+    type: 'period',
+    tint: 'macedon',
+    start: -359, end: -336,
+    lane: 1,
+    summary:
+      'In twenty-three years Philip II turns a marginal northern kingdom into the master of Greece — through a reformed army, patient diplomacy, and the sarissa.',
+    significance:
+      'Creates the military and financial instrument that Alexander will use to conquer Persia. Without Philip there is no Hellenistic world.',
+    overview:
+      'Philip II inherits a kingdom in 359 BC that has just lost 4,000 men and its king in battle against the Illyrians. He rebuilds the army around the *sarissa*, a pike up to six metres long wielded in both hands, which gives a Macedonian phalanx far greater reach than any hoplite line. He pairs it with the Companion Cavalry as a decisive strike arm — the hammer-and-anvil tactic Alexander inherits intact.\n\nThe gold mines at Pangaeum fund the rest: mercenaries, siege engineers and bribery, which Philip used freely. Greek city-states were divided; Demosthenes\' *Philippics* warned Athens repeatedly and largely in vain.\n\nAt Chaeronea in 338 BC, Philip defeats a Theban-Athenian coalition; the eighteen-year-old Alexander commands the cavalry that destroys the Sacred Band. Philip then founds the League of Corinth and is elected its *hegemon* to lead a Panhellenic war against Persia. In 336 BC he is assassinated at his daughter\'s wedding.',
+    politics:
+      'A traditional Macedonian warrior monarchy, legitimised by an army assembly, projected over Greece through the League of Corinth — nominally an alliance of free states, practically a garrison-backed hegemony.',
+    warfare:
+      'The Macedonian phalanx with the sarissa; the Companion Cavalry; professional siege trains with torsion catapults; and year-round campaigning by a standing, salaried army.',
+    culture:
+      'Aristotle tutors Alexander at Mieza. Royal tombs at Vergina display gold larnakes, painted friezes and ivory portrait heads of a quality rivalling anything in Greece.',
+    keyEvents: ['philip-accession', 'battle-chaeronea', 'league-of-corinth', 'philip-assassination'],
+    people: ['philip-ii', 'alexander-the-great', 'demosthenes', 'olympias', 'aristotle', 'parmenion', 'isocrates'],
+    sites: ['pella', 'vergina', 'chaeronea', 'thebes', 'athens'],
+    artefacts: ['vergina-larnax', 'philip-ii-tomb-facade', 'sarissa', 'alexander-sarcophagus'],
+    texts: ['philippics', 'library-of-history'],
+    claims: [
+      { text: 'Philip II reformed the Macedonian army around the sarissa phalanx and Companion cavalry.', evidence: 'literary', confidence: 'established' },
+      { text: 'Macedon defeated the Greek coalition at Chaeronea in 338 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'Tomb II at Vergina contains a Macedonian king of the mid-4th century BC.', evidence: 'archaeological', confidence: 'strong' },
+      { text: 'Tomb II at Vergina is the tomb of Philip II specifically.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Olympias or Alexander was complicit in Philip\'s assassination.', evidence: 'debate', confidence: 'speculative' },
+    ],
+    relations: [
+      { id: 'alexander-empire', rel: 'led to' },
+      { id: 'classical-greece', rel: 'ended' },
+      { id: 'philip-ii', rel: 'ruler' },
+    ],
+    sources: ['worthington2008', 'hammond1994', 'diodorus-src'],
+  },
+
+  {
+    id: 'alexander-empire',
+    name: 'Alexander the Great',
+    altNames: ['Alexander\'s Empire', 'Macedonian Conquest of Persia'],
+    type: 'period',
+    tint: 'alexander',
+    start: -336, end: -323,
+    lane: 2,
+    summary:
+      'Thirteen years, never a battle lost: from Macedon to the Indus, the destruction of the Achaemenid Empire, and the founding of dozens of Greek cities across Asia.',
+    significance:
+      'Ends the Persian Empire and spreads Greek language, urban forms and institutions from Egypt to Central Asia — creating the conditions for the Hellenistic world.',
+    overview:
+      'Alexander crosses the Hellespont in 334 BC with roughly 40,000 men and wins at the Granicus. At Issus in 333 he defeats Darius III personally and captures the Persian royal family. He takes Tyre after a seven-month siege, is welcomed in Egypt and founds Alexandria in 331. At Gaugamela that October he shatters the main Persian army; Babylon, Susa and Persepolis follow. Persepolis burns — whether by drunken accident or deliberate policy, the sources disagree.\n\nDarius is murdered by his own satrap Bessus in 330. Alexander pushes on through Bactria and Sogdiana into the Punjab, defeating Porus at the Hydaspes in 326 in his hardest-fought battle. At the Hyphasis his army refuses to go further. The return through the Gedrosian desert costs him more men than any battle.\n\nHe dies in Babylon in June 323 BC, aged 32, leaving no viable heir. Asked to whom he left his kingdom, he is reported to have said "to the strongest".',
+    politics:
+      'Increasingly a fusion monarchy: Alexander retained Persian satraps, adopted elements of Persian court dress and ceremonial, and arranged mass Greco-Persian marriages at Susa. This alienated many Macedonians, and the attempt to introduce *proskynesis* — ritual prostration — failed outright.',
+    warfare:
+      'Combined arms at a level not seen again for centuries: the sarissa phalanx pins, the Companion cavalry breaks through at an angle, hypaspists hold the join, and engineers reduce fortresses like Tyre and the Sogdian Rock.',
+    culture:
+      'Some seventy foundations bearing his name, of which Alexandria in Egypt became the intellectual capital of the Mediterranean. Greek becomes the administrative and elite language from the Nile to the Oxus.',
+    keyEvents: ['battle-granicus', 'battle-issus', 'siege-of-tyre', 'founding-alexandria', 'battle-gaugamela', 'burning-persepolis', 'battle-hydaspes', 'death-of-alexander'],
+    people: ['alexander-the-great', 'darius-iii', 'olympias', 'parmenion', 'hephaestion', 'ptolemy-i', 'seleucus-i', 'porus', 'aristotle', 'philip-ii'],
+    sites: ['pella', 'alexandria', 'persepolis', 'babylon', 'tyre', 'gaugamela', 'issus'],
+    artefacts: ['alexander-mosaic', 'alexander-sarcophagus', 'alexander-tetradrachm', 'porus-medallion'],
+    texts: ['anabasis-alexandri', 'life-of-alexander', 'library-of-history'],
+    claims: [
+      { text: 'Alexander defeated Darius III at Gaugamela on 1 October 331 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'Alexander founded Alexandria in Egypt in 331 BC.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'Alexander died in Babylon in June 323 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'The Alexander Mosaic copies a Hellenistic painting of the battle of Issus.', evidence: 'consensus', confidence: 'strong' },
+      { text: 'Alexander was poisoned.', evidence: 'debate', confidence: 'debated' },
+      { text: 'Alexander pursued a deliberate policy of racial fusion between Greeks and Persians.', evidence: 'debate', confidence: 'debated' },
+      { text: 'The location of Alexander\'s tomb in Alexandria is known.', evidence: 'debate', confidence: 'speculative' },
+    ],
+    relations: [
+      { id: 'rise-of-macedon', rel: 'followed' },
+      { id: 'hellenistic-period', rel: 'led to' },
+      { id: 'achaemenid-empire', rel: 'destroyed' },
+      { id: 'alexander-the-great', rel: 'ruler' },
+    ],
+    sources: ['arrian-src', 'plutarch-src', 'bosworth1988', 'cartledge2004'],
+  },
+
+  {
+    id: 'hellenistic-period',
+    name: 'Hellenistic Period',
+    altNames: ['Age of the Successors', 'Diadochi Period'],
+    type: 'period',
+    tint: 'hellenistic',
+    start: -323, end: -30,
+    lane: 0,
+    summary:
+      'Alexander\'s generals carve his empire into kingdoms. Greek culture becomes cosmopolitan; Alexandria\'s Library and Museum make science a profession.',
+    significance:
+      'The most scientifically productive period of antiquity, and the age in which Greek culture becomes a shared international idiom rather than an ethnic possession.',
+    overview:
+      'The wars of the Diadochi (323–281 BC) resolve into three great kingdoms: Ptolemaic Egypt, the Seleucid Empire across Asia, and Antigonid Macedon, with smaller powers at Pergamon and Bactria. Kings compete through patronage as much as war.\n\nThe Library and Museum of Alexandria assemble the largest collection of texts in the ancient world and salary the scholars who use it. Euclid systematises geometry; Archimedes works out the principles of hydrostatics and the method of exhaustion; Eratosthenes measures the Earth\'s circumference to within a few percent using shadows at Syene and Alexandria; Aristarchus proposes that the Earth orbits the Sun; Herophilus dissects the human body. The Antikythera mechanism — a geared bronze calculator of astronomical cycles — shows this knowledge was engineered, not just written.\n\nArt turns dramatic and psychological: the Pergamon Altar, the Laocoön, the Dying Gaul, the Winged Victory of Samothrace. Rome absorbs the kingdoms one by one, ending with Egypt in 30 BC.',
+    politics:
+      'Personal monarchies legitimated by victory and ruler cult, administered in Greek by a Greco-Macedonian elite over vastly larger indigenous populations. Federal leagues — Achaean and Aetolian — offer a genuine alternative in mainland Greece.',
+    warfare:
+      'Escalation: pike phalanxes of 20,000, war elephants, torsion artillery, and siege towers such as Demetrius Poliorcetes\' *Helepolis*. Roman legionary flexibility eventually defeats the phalanx at Cynoscephalae and Pydna.',
+    culture:
+      'Koine Greek becomes a lingua franca from Marseille to Kandahar; the Hebrew Bible is translated into Greek as the Septuagint. Philosophy turns to how to live: Stoicism, Epicureanism, Scepticism, Cynicism.',
+    keyEvents: ['wars-of-diadochi', 'founding-library-alexandria', 'battle-ipsus', 'eratosthenes-measures-earth', 'battle-cynoscephalae', 'battle-pydna', 'sack-of-corinth', 'battle-actium', 'death-of-cleopatra'],
+    people: ['ptolemy-i', 'seleucus-i', 'cleopatra-vii', 'archimedes', 'euclid', 'eratosthenes', 'aristarchus', 'zeno-of-citium', 'epicurus', 'pyrrhus', 'antiochus-iii', 'hipparchus'],
+    sites: ['alexandria', 'pergamon', 'delos', 'rhodes', 'ai-khanoum', 'antioch', 'samothrace'],
+    artefacts: ['antikythera-mechanism', 'winged-victory-samothrace', 'venus-de-milo', 'pergamon-altar', 'dying-gaul', 'laocoon', 'rosetta-stone'],
+    texts: ['elements-euclid', 'argonautica', 'septuagint', 'idylls-theocritus'],
+    claims: [
+      { text: 'Alexander\'s empire fragmented into rival successor kingdoms after 323 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'The Antikythera mechanism modelled astronomical cycles using bronze gearing.', evidence: 'archaeological', confidence: 'established' },
+      { text: 'Eratosthenes calculated the Earth\'s circumference to within a few percent.', evidence: 'literary', confidence: 'strong' },
+      { text: 'Aristarchus proposed a heliocentric model of the cosmos.', evidence: 'literary', confidence: 'strong' },
+      { text: 'The Library of Alexandria was destroyed in a single catastrophic fire.', evidence: 'debate', confidence: 'debated' },
+      { text: 'The Antikythera mechanism had a lost tradition of comparable devices behind it.', evidence: 'debate', confidence: 'probable' },
+    ],
+    relations: [
+      { id: 'alexander-empire', rel: 'followed' },
+      { id: 'roman-conquest', rel: 'ended by' },
+      { id: 'ptolemaic-kingdom', rel: 'successor state' },
+      { id: 'seleucid-empire', rel: 'successor state' },
+    ],
+    sources: ['greenwalt2013', 'shipley2000', 'errington2008'],
+  },
+
+  {
+    id: 'roman-conquest',
+    name: 'Roman Conquest',
+    altNames: ['Roman Greece', 'Macedonian Wars'],
+    type: 'period',
+    tint: 'roman',
+    start: -214, end: -30,
+    lane: 1,
+    summary:
+      'Rome absorbs the Greek world over two centuries — Macedon, then Greece, then Asia, and finally Ptolemaic Egypt at Actium.',
+    significance:
+      'Ends Greek political independence while making Greek culture the prestige idiom of the Roman elite: "captive Greece took captive her savage conqueror".',
+    overview:
+      'Rome enters the Greek world through Philip V\'s alliance with Hannibal. Four Macedonian Wars follow. At Cynoscephalae (197 BC) and decisively at Pydna (168 BC), the legion defeats the phalanx — flexible maniples exploiting the gaps that a pike line cannot avoid opening on broken ground. Macedon becomes a province in 146 BC, the same year Rome destroys Corinth to make an example of Greek resistance.\n\nThe Attalid king of Pergamon bequeaths his kingdom to Rome in 133 BC. Mithridates VI of Pontus mounts the last serious challenge; Sulla sacks Athens in 86 BC in response. Pompey annexes the Seleucid remnant in 63 BC.\n\nThe end comes at Actium in 31 BC, where Octavian\'s fleet defeats Antony and Cleopatra VII. Egypt is annexed in 30 BC. With Cleopatra\'s death the last Hellenistic kingdom, and the Ptolemaic dynasty, ends.',
+    politics:
+      'Greece is reorganised as the provinces of Macedonia and later Achaea. Cities keep local self-government but foreign policy passes to Rome; Athens and Sparta retain privileged "free city" status.',
+    warfare:
+      'The manipular legion with *pilum* and *gladius* against the Macedonian phalanx. Polybius, an eyewitness hostage in Rome, wrote the classic analysis of why the legion won.',
+    culture:
+      'Greek art is looted to Rome by the shipload; Greek tutors educate Roman aristocrats; Greek remains the language of the eastern Mediterranean for another millennium under Rome and Byzantium.',
+    keyEvents: ['battle-cynoscephalae', 'battle-pydna', 'sack-of-corinth', 'sulla-sacks-athens', 'battle-actium', 'death-of-cleopatra'],
+    people: ['cleopatra-vii', 'polybius', 'philip-v', 'mithridates-vi', 'antiochus-iii'],
+    sites: ['corinth', 'athens', 'pergamon', 'delos', 'actium', 'pydna'],
+    artefacts: ['rosetta-stone', 'antikythera-mechanism', 'cleopatra-tetradrachm'],
+    texts: ['histories-polybius', 'parallel-lives'],
+    claims: [
+      { text: 'Rome destroyed Corinth in 146 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'Octavian defeated Antony and Cleopatra at Actium in 31 BC.', evidence: 'literary', confidence: 'established' },
+      { text: 'Egypt was annexed by Rome in 30 BC, ending the Ptolemaic kingdom.', evidence: 'literary', confidence: 'established' },
+      { text: 'The Roman legion\'s tactical flexibility was decisive against the phalanx.', evidence: 'literary', confidence: 'strong' },
+      { text: 'Cleopatra died by the bite of an asp.', evidence: 'debate', confidence: 'debated' },
+    ],
+    relations: [
+      { id: 'hellenistic-period', rel: 'ended' },
+      { id: 'ptolemaic-kingdom', rel: 'annexed' },
+    ],
+    sources: ['polybius-src', 'errington2008', 'gruen1984'],
+  },
+];
+
+/** Fast lookup by id. */
+export const periodById = new Map(periods.map((p) => [p.id, p]));
+
+/** Periods active in a given year, most specific first. */
+export function periodsAt(year) {
+  return periods.filter((p) => year >= p.start && year <= p.end);
+}
+
+/** The single best period label for a year (narrowest span wins). */
+export function primaryPeriodAt(year) {
+  const active = periodsAt(year);
+  if (!active.length) return null;
+  return active.reduce((a, b) => (b.end - b.start < a.end - a.start ? b : a));
+}

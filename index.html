@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hellenika — The Interactive History of the Ancient Greek World</title>
+  <meta name="description" content="Explore Ancient Greece through time, space, relationships and evidence. An interactive atlas of the Greek world from 3200 BC to 30 BC.">
+  <meta name="theme-color" content="#fbfaf7">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#127963;</text></svg>">
+
+  <script>
+    // Apply the stored theme before first paint to avoid a flash.
+    try {
+      const t = JSON.parse(localStorage.getItem('hellenika:theme'));
+      const dark = t === 'dark' || (t == null && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="Hellenika home">
+      <span id="brand-mark"></span>
+      <span>Hellenika</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary"></nav>
+
+    <div class="spacer"></div>
+
+    <button class="search-trigger" id="search-trigger" aria-label="Search (press slash)">
+      <span id="search-icon"></span>
+      <span>Search the Greek world</span>
+      <span class="kbd-hint"><span class="kbd">/</span></span>
+    </button>
+
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle colour theme"></button>
+    <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false"></button>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom:var(--s-3)">
+            <span id="brand-mark-foot"></span><span>Hellenika</span>
+          </div>
+          <p class="small muted" style="max-width:44ch">
+            An interactive atlas of the Ancient Greek world, 3200 BC to 30 BC —
+            explored through time, space, relationships and evidence.
+          </p>
+        </div>
+        <nav aria-label="Footer">
+          <h3 class="eyebrow">Explore</h3>
+          <ul class="foot-links">
+            <li><a href="#/timeline">Timeline</a></li>
+            <li><a href="#/map">Interactive map</a></li>
+            <li><a href="#/explore">Explore entities</a></li>
+            <li><a href="#/collections">Collections</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Footer secondary">
+          <h3 class="eyebrow">Study</h3>
+          <ul class="foot-links">
+            <li><a href="#/compare">Compare</a></li>
+            <li><a href="#/learn">Learning mode</a></li>
+            <li><a href="#/sources">Sources</a></li>
+            <li><a href="#/about">About &amp; method</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-base small muted">
+        <span>Every claim on this site carries an evidence type and a confidence level.</span>
+        <span id="foot-stats"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <noscript>
+    <div class="wrap" style="padding-block:var(--s-16)">
+      <h1>Hellenika</h1>
+      <p class="lede">This interactive atlas requires JavaScript to display timelines, maps and relationship graphs.</p>
+    </div>
+  </noscript>
+</body>
+</html>
