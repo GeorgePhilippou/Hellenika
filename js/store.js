@@ -29,7 +29,7 @@ const state = {
   /** Map layer toggles. */
   layers: persist.get('layers', {
     territories: true, cities: true, sites: true, battles: true,
-    routes: false, labels: true,
+    routes: true, labels: true,
   }),
   /** Map basemap: 'relief' | 'physical' | 'plain' | 'none'. */
   basemap: persist.get('basemap', 'relief'),

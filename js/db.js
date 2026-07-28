@@ -19,12 +19,13 @@ import { events } from '../data/events.js';
 import { artefacts } from '../data/artefacts.js';
 import { texts } from '../data/texts.js';
 import { mythology } from '../data/myth.js';
+import { odysseyPlaces } from '../data/odyssey-places.js';
 import { culture } from '../data/culture.js';
 import { sources } from '../data/sources.js';
 import { collections } from '../data/collections.js';
 import { fold, sortBy, unique, groupBy } from './util.js';
 
-const SOURCES_OF_TRUTH = [periods, people, places, events, artefacts, texts, mythology, culture];
+const SOURCES_OF_TRUTH = [periods, people, places, events, artefacts, texts, mythology, odysseyPlaces, culture];
 
 /* ---------- Type metadata ---------- */
 export const TYPE_META = {

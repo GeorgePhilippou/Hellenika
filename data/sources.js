@@ -196,6 +196,8 @@ export const sources = Object.fromEntries([
   M('burgess2009', 'Jonathan Burgess', 2009, 'The Death and Afterlife of Achilles'),
   M('blondell2013', 'Ruby Blondell', 2013, 'Helen of Troy: Beauty, Myth, Devastation'),
   M('stanford1954', 'W. B. Stanford', 1954, 'The Ulysses Theme'),
+  M('bradford1963', 'Ernle Bradford', 1963, 'Ulysses Found', 'A sailor\'s case for real-world Mediterranean sites behind the Odyssey\'s stops — engaging, but a minority/popular position, not a scholarly consensus.'),
+  M('severin1987', 'Tim Severin', 1987, 'The Ulysses Voyage: Sea Search for the Odyssey', 'Retraced a proposed route by replica Bronze Age galley; documents the tradition without claiming it as established fact.'),
   M('campbell1982', 'David A. Campbell', 1982, 'Greek Lyric I: Sappho and Alcaeus'),
   M('obbink2014', 'Dirk Obbink', 2014, 'Two New Poems by Sappho', 'ZPE 189 — provenance subsequently disputed.'),
   M('carson2002', 'Anne Carson', 2002, 'If Not, Winter: Fragments of Sappho'),

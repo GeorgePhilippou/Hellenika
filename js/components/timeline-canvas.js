@@ -23,9 +23,13 @@ const LANE_GAP = 8;
 const cssVar = (name) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888';
 
+const WORLD_LANE_TINTS = ['world-egypt', 'world-neareast', 'world-rome', 'world-carthage', 'world-india', 'world-china'];
+
 export function createTimeline(canvas, {
   periods,
   markers = [],       // [{ year, entity }]
+  worldPeriods = [],  // lightweight "rest of the world" context bands
+  worldEvents = [],   // [{ id, name, year, lane, note }]
   onPeriodClick,
   onMarkerClick,
   onHover,
@@ -61,20 +65,98 @@ export function createTimeline(canvas, {
     return 1000;
   }
 
-  /* ---------- Layout: assign period bands to lanes ---------- */
-  function layoutPeriods() {
-    // Periods carry an authored lane so overlapping eras stay legible
-    // (Minoan and Mycenaean genuinely coexist for three centuries).
-    const laneCount = Math.max(...periods.map((p) => p.lane ?? 0)) + 1;
-    const top = 14;
-    const avail = H - AXIS_H - top - 58;
-    const laneH = Math.max(26, (avail - LANE_GAP * (laneCount - 1)) / laneCount);
-    return periods.map((p) => ({
+  /* ---------- Layout: assign bands to lanes within a vertical budget ----------
+     Shared by the Greek period ribbon and the World-context band below it —
+     both are "items with a lane number get stacked into equal-height rows
+     inside some (topY, availHeight) box." Only the budget differs. */
+  function layoutBand(items, laneCount, topY, availHeight, minLaneH, gap = LANE_GAP) {
+    const laneH = Math.max(minLaneH, (availHeight - gap * (laneCount - 1)) / laneCount);
+    return items.map((p) => ({
       p,
       lane: p.lane ?? 0,
-      y: top + (p.lane ?? 0) * (laneH + LANE_GAP),
+      y: topY + (p.lane ?? 0) * (laneH + gap),
       h: laneH,
     }));
+  }
+
+  const GREEK_LANES = Math.max(...periods.map((p) => p.lane ?? 0)) + 1;
+  const WORLD_LANES_N = WORLD_LANE_TINTS.length;
+
+  // Bar rows are flat and fixed-height now (no more stretch-to-fit blocks),
+  // so the vertical budget is a straightforward top-to-bottom stack rather
+  // than a flexible 70/30 split.
+  const GREEK_LANE_H = 24, GREEK_LANE_GAP = 4;
+  const WORLD_LANE_H = 12, WORLD_LANE_GAP = 3;
+  const GREEK_EVENTS_H = 70;   // spine + up to 3 stacked label tiers
+  const WORLD_EVENTS_H = 48;   // spine + up to 2 stacked label tiers
+
+  /**
+   * Vertical budget for the whole canvas, top to bottom:
+   *   top gap → Greek period bars → Greek events (own line) → divider →
+   *   World period bars → World events → axis.
+   * Each section has a fixed height; any extra canvas height becomes
+   * breathing room between sections rather than stretching the bars.
+   */
+  function layoutMetrics() {
+    const greekRibbonH = GREEK_LANES * GREEK_LANE_H + (GREEK_LANES - 1) * GREEK_LANE_GAP;
+    const worldRibbonH = WORLD_LANES_N * WORLD_LANE_H + (WORLD_LANES_N - 1) * WORLD_LANE_GAP;
+    const dividerH = 20;
+
+    const contentH = greekRibbonH + GREEK_EVENTS_H + dividerH + worldRibbonH + WORLD_EVENTS_H;
+    const available = Math.max(contentH, H - AXIS_H - 16);
+    const slack = Math.max(0, available - contentH);
+    // Distribute slack across the four gaps between sections.
+    const gap = 14 + slack / 4;
+
+    let y = Math.max(10, gap * 0.5);
+    const greekTop = y;
+    y += greekRibbonH + gap;
+    const greekEventsTop = y;
+    const greekSpineY = greekEventsTop + GREEK_EVENTS_H - 10;
+    y += GREEK_EVENTS_H + gap;
+    const dividerY = y + dividerH * 0.6;
+    y += dividerH + gap * 0.6;
+    const worldTop = y;
+    y += worldRibbonH + gap * 0.7;
+    const worldEventsTop = y;
+    const worldSpineY = worldEventsTop + WORLD_EVENTS_H - 8;
+
+    return {
+      greekTop, greekRibbonH,
+      greekEventsTop, greekSpineY,
+      dividerY,
+      worldTop, worldRibbonH,
+      worldEventsTop, worldSpineY,
+    };
+  }
+
+  /**
+   * Places dated markers on a single labelled "events line": a spine with
+   * a dot per marker, and — where there's room — a short leader up to a
+   * text label stacked into whichever of `tiers` vertical rows doesn't
+   * collide with a label already placed there. Markers that don't fit
+   * any tier still get their dot, just no label (same degrade-gracefully
+   * approach as the period band labels).
+   */
+  function placeEventLabels(sorted, { tiers, lineH, fmt }) {
+    const rowsRight = new Array(tiers).fill(-Infinity);
+    const placed = [];
+    for (const item of sorted) {
+      const label = fmt(item);
+      const tw = ctx.measureText(label).width;
+      const half = tw / 2;
+      let tier = -1;
+      for (let t = 0; t < tiers; t++) {
+        if (item.x - half - 6 >= rowsRight[t]) { tier = t; break; }
+      }
+      if (tier >= 0) {
+        rowsRight[tier] = item.x + half;
+        placed.push({ ...item, label, tier, tw });
+      } else {
+        placed.push({ ...item, label: null, tier: -1, tw: 0 });
+      }
+    }
+    return placed;
   }
 
   /* ---------- Draw ---------- */
@@ -105,8 +187,16 @@ export function createTimeline(canvas, {
     }
     ctx.stroke();
 
-    /* --- period bands --- */
-    const laid = layoutPeriods();
+    const metrics = layoutMetrics();
+    const uiFont = cssVar('--font-ui') || 'system-ui';
+
+    /* --- Greek period bars: a flat, clean line of segments --- */
+    ctx.font = `700 10px ${uiFont}`;
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = text3;
+    ctx.fillText('ANCIENT GREECE', PAD_L, metrics.greekTop - 6);
+
+    const laid = layoutBand(periods, GREEK_LANES, metrics.greekTop, metrics.greekRibbonH, GREEK_LANE_H, GREEK_LANE_GAP);
     for (const { p, y, h } of laid) {
       const x0 = xOf(p.start), x1 = xOf(p.end);
       if (x1 < -40 || x0 > W + 40) continue;
@@ -114,28 +204,18 @@ export function createTimeline(canvas, {
       const colour = cssVar(`--p-${p.tint}`);
       const isHot = hot?.kind === 'period' && hot.id === p.id;
 
-      // Band
+      // Flat, solid segment — no gradient, no drop shadow. The clean
+      // colour-block-in-a-row is the whole point of this redesign.
       ctx.save();
-      roundRect(ctx, x0, y, w, h, 7);
-      const grad = ctx.createLinearGradient(x0, y, x0, y + h);
-      grad.addColorStop(0, shade(colour, 0.1));
-      grad.addColorStop(1, shade(colour, -0.14));
-      ctx.fillStyle = grad;
-      ctx.globalAlpha = isHot ? 1 : 0.94;
+      roundRect(ctx, x0, y, w, h, 3);
+      ctx.fillStyle = colour;
+      ctx.globalAlpha = isHot ? 1 : 0.92;
       ctx.fill();
-
-      // Peak (florescence) marker, where the data defines one
-      if (p.peakStart != null && p.peakEnd != null) {
-        const px0 = xOf(p.peakStart), px1 = xOf(p.peakEnd);
-        ctx.globalAlpha = 0.28;
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(Math.max(x0, px0), y + 3, Math.max(1, Math.min(x1, px1) - Math.max(x0, px0)), h - 6);
-      }
       ctx.restore();
 
       if (isHot) {
         ctx.save();
-        roundRect(ctx, x0, y, w, h, 7);
+        roundRect(ctx, x0, y, w, h, 3);
         ctx.strokeStyle = text;
         ctx.lineWidth = 2;
         ctx.stroke();
@@ -147,7 +227,7 @@ export function createTimeline(canvas, {
       // bug; the hover tooltip covers the narrow cases instead.
       if (w > 54) {
         ctx.save();
-        ctx.font = `600 ${Math.min(13, h * 0.42)}px ${cssVar('--font-ui') || 'system-ui'}`;
+        ctx.font = `600 ${Math.min(12, h * 0.46)}px ${uiFont}`;
         ctx.textBaseline = 'middle';
         // Degrade gracefully: full name → shortest alias → first word → none.
         const PAD = 10;
@@ -162,11 +242,9 @@ export function createTimeline(canvas, {
         if (label) {
           // Keep the label inside the visible portion of a part-scrolled band.
           const visL = Math.max(x0, 4), visR = Math.min(x1, W - 4);
-          const lx = clamp(visL + 10, visL + 10, Math.max(visL + 10, visR - tw - 10));
+          const lx = clamp(visL + 9, visL + 9, Math.max(visL + 9, visR - tw - 9));
           ctx.fillStyle = '#fff';
-          ctx.shadowColor = 'rgba(0,0,0,.5)';
-          ctx.shadowBlur = 4;
-          ctx.fillText(label, lx, y + h / 2);
+          ctx.fillText(label, lx, y + h / 2 + 0.5);
         }
         ctx.restore();
       }
@@ -174,54 +252,178 @@ export function createTimeline(canvas, {
       hitRegions.push({ kind: 'period', id: p.id, x0, x1, y0: y, y1: y + h, data: p });
     }
 
-    /* --- event markers --- */
-    const markerY = H - AXIS_H - 26;
-    const shown = new Map(); // collision map keyed by rounded x
-    for (const m of markers) {
-      const x = xOf(m.year);
-      if (x < -6 || x > W + 6) continue;
-      const key = Math.round(x / 11);
-      if (shown.has(key)) { shown.get(key).n++; continue; }
-      shown.set(key, { x, m, n: 1 });
-    }
-    // When markers are densely packed the "+n" counts collide into noise.
-    const dense = shown.size > 0 && (W / shown.size) < 26;
+    /* --- Greek events: a separate labelled line beneath the periods --- */
+    drawEventRow({
+      items: markers.map((m) => ({ year: m.year, entity: m.entity })),
+      spineY: metrics.greekSpineY,
+      tiers: 3,
+      lineH: 15,
+      dotR: 3.5,
+      hotKind: 'marker',
+      colorOf: (e) => cssVar(`--p-${e.tint}`),
+      fmt: (it) => `${fmtYear(it.entity.start)} ${it.entity.name}`,
+    });
 
-    for (const { x, m, n } of shown.values()) {
-      const isHot = hot?.kind === 'marker' && hot.id === m.entity.id;
-      const colour = cssVar(`--p-${m.entity.tint}`);
-      const r = isHot ? 6 : 4;
-
-      ctx.beginPath();
-      ctx.moveTo(x, markerY - 9);
-      ctx.lineTo(x, markerY + 5);
-      ctx.strokeStyle = colour;
-      ctx.globalAlpha = 0.5;
+    /* --- World context: divider --- */
+    if (worldPeriods.length) {
+      ctx.save();
+      ctx.strokeStyle = border;
       ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-
       ctx.beginPath();
-      ctx.arc(x, markerY, r, 0, Math.PI * 2);
-      ctx.fillStyle = colour;
-      ctx.fill();
-      ctx.strokeStyle = surface;
-      ctx.lineWidth = 1.5;
+      ctx.moveTo(PAD_L, metrics.dividerY - 6);
+      ctx.lineTo(W - PAD_R, metrics.dividerY - 6);
       ctx.stroke();
+      ctx.fillStyle = text3;
+      ctx.font = `700 10px ${uiFont}`;
+      ctx.textBaseline = 'alphabetic';
+      const label = 'WORLD EMPIRES AND KINGDOMS';
+      const tw = ctx.measureText(label).width;
+      ctx.fillStyle = surface;
+      ctx.fillRect(PAD_L, metrics.dividerY - 6 - 7, tw + 12, 14);
+      ctx.fillStyle = text3;
+      ctx.fillText(label, PAD_L + 6, metrics.dividerY + 1);
+      ctx.restore();
 
-      if (n > 1 && !dense) {
-        ctx.fillStyle = text3;
-        ctx.font = `600 9px ${cssVar('--font-ui') || 'system-ui'}`;
-        ctx.textAlign = 'center';
-        ctx.fillText(String(n), x, markerY + 16);
-        ctx.textAlign = 'left';
+      /* --- World context: period bars (thinner, muted, same flat style) --- */
+      const worldLaid = layoutBand(worldPeriods, WORLD_LANES_N, metrics.worldTop, metrics.worldRibbonH, WORLD_LANE_H, WORLD_LANE_GAP);
+      for (const { p, y, h } of worldLaid) {
+        const x0 = xOf(p.start), x1 = xOf(p.end);
+        if (x1 < -40 || x0 > W + 40) continue;
+        const w = Math.max(2, x1 - x0);
+        const colour = cssVar(`--p-${WORLD_LANE_TINTS[p.lane ?? 0]}`);
+        const isHot = hot?.kind === 'world-period' && hot.id === p.id;
+
+        ctx.save();
+        roundRect(ctx, x0, y, w, h, 2);
+        ctx.fillStyle = colour;
+        ctx.globalAlpha = isHot ? 0.9 : 0.62;
+        ctx.fill();
+        ctx.restore();
+
+        if (w > 46) {
+          ctx.save();
+          ctx.font = `600 ${Math.min(11, h * 0.6)}px ${uiFont}`;
+          ctx.textBaseline = 'middle';
+          const PAD = 8;
+          const fits = (s) => ctx.measureText(s).width + PAD <= w;
+          const label = [p.name, p.name.split(' ')[0]].find(fits);
+          if (label) {
+            const visL = Math.max(x0, 4), visR = Math.min(x1, W - 4);
+            const tw2 = ctx.measureText(label).width;
+            const lx = clamp(visL + 7, visL + 7, Math.max(visL + 7, visR - tw2 - 7));
+            ctx.fillStyle = '#fff';
+            ctx.fillText(label, lx, y + h / 2 + 0.5);
+          }
+          ctx.restore();
+        }
+
+        hitRegions.push({ kind: 'world-period', id: p.id, x0, x1, y0: y, y1: y + h, data: p });
       }
 
-      hitRegions.push({
-        kind: 'marker', id: m.entity.id,
-        x0: x - 7, x1: x + 7, y0: markerY - 10, y1: markerY + 10,
-        data: m.entity,
+      /* --- World context: labelled events line --- */
+      drawEventRow({
+        items: worldEvents.map((e) => ({ year: e.year, entity: e })),
+        spineY: metrics.worldSpineY,
+        tiers: 2,
+        lineH: 13,
+        dotR: 2.5,
+        hotKind: 'world-marker',
+        muted: true,
+        colorOf: (e) => cssVar(`--p-${WORLD_LANE_TINTS[e.lane ?? 0]}`),
+        fmt: (it) => `${fmtYear(it.entity.year)} ${it.entity.name}`,
       });
+    }
+
+    /**
+     * Shared renderer for both the Greek and World "events line": a thin
+     * spine, a dot per marker, and — where a marker survives collision
+     * placement — a short leader up to a stacked text label.
+     */
+    function drawEventRow({ items, spineY, tiers, lineH, dotR, hotKind, fmt, colorOf, muted = false }) {
+      // Collapse near-duplicate x positions so the spine doesn't look like
+      // static at low zoom; keep the earliest of each cluster as the anchor.
+      const visible = [];
+      const seen = new Map();
+      for (const it of items) {
+        const x = xOf(it.year);
+        if (x < -6 || x > W + 6) continue;
+        const key = Math.round(x / 10);
+        if (seen.has(key)) { seen.get(key).n++; continue; }
+        const rec = { ...it, x, n: 1 };
+        seen.set(key, rec);
+        visible.push(rec);
+      }
+      visible.sort((a, b) => a.x - b.x);
+
+      ctx.save();
+      ctx.strokeStyle = border;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(PAD_L, spineY);
+      ctx.lineTo(W - PAD_R, spineY);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.font = `${muted ? 500 : 600} ${muted ? 9.5 : 10.5}px ${uiFont}`;
+      const placed = placeEventLabels(visible, { tiers, lineH, fmt });
+
+      for (const it of placed) {
+        const isHot = hot?.kind === hotKind && hot.id === it.entity.id;
+        const colour = colorOf(it.entity);
+        const legendary = it.entity.legendary === true || it.entity.type === 'myth';
+
+        if (it.label != null) {
+          const labelY = spineY - 6 - it.tier * lineH;
+          ctx.save();
+          ctx.strokeStyle = colour;
+          ctx.globalAlpha = isHot ? 0.85 : 0.45;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(it.x, spineY - dotR);
+          ctx.lineTo(it.x, labelY + 3);
+          ctx.stroke();
+          ctx.restore();
+
+          ctx.save();
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'alphabetic';
+          ctx.fillStyle = isHot ? text : (muted ? text3 : text);
+          ctx.fillText(it.label, it.x, labelY);
+          ctx.textAlign = 'left';
+          ctx.restore();
+        }
+
+        ctx.beginPath();
+        ctx.arc(it.x, spineY, isHot ? dotR + 1.5 : dotR, 0, Math.PI * 2);
+        if (legendary) {
+          ctx.strokeStyle = colour;
+          ctx.lineWidth = 1.4;
+          ctx.fillStyle = surface;
+          ctx.fill();
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = colour;
+          ctx.fill();
+          ctx.strokeStyle = surface;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+
+        if (it.n > 1) {
+          ctx.fillStyle = text3;
+          ctx.font = `600 8.5px ${uiFont}`;
+          ctx.textAlign = 'center';
+          ctx.fillText(`+${it.n - 1}`, it.x, spineY + dotR + 10);
+          ctx.textAlign = 'left';
+          ctx.font = `${muted ? 500 : 600} ${muted ? 9.5 : 10.5}px ${uiFont}`;
+        }
+
+        hitRegions.push({
+          kind: hotKind, id: it.entity.id,
+          x0: it.x - 7, x1: it.x + 7, y0: spineY - 10, y1: spineY + 10,
+          data: it.n > 1 ? { ...it.entity, n: it.n } : it.entity,
+        });
+      }
     }
 
     /* --- playhead (the year scrubber position) --- */
@@ -290,6 +492,15 @@ export function createTimeline(canvas, {
     }
     for (const r of hitRegions) {
       if (r.kind !== 'period') continue;
+      if (px >= r.x0 && px <= r.x1 && py >= r.y0 && py <= r.y1) return r;
+    }
+    // World context — hover-only, checked last (lowest priority).
+    for (const r of hitRegions) {
+      if (r.kind !== 'world-marker') continue;
+      if (px >= r.x0 && px <= r.x1 && py >= r.y0 && py <= r.y1) return r;
+    }
+    for (const r of hitRegions) {
+      if (r.kind !== 'world-period') continue;
       if (px >= r.x0 && px <= r.x1 && py >= r.y0 && py <= r.y1) return r;
     }
     return null;
@@ -370,7 +581,8 @@ export function createTimeline(canvas, {
     const h = hitAt(px, py);
     const changed = h?.id !== hot?.id;
     hot = h;
-    canvas.style.cursor = h ? 'pointer' : 'grab';
+    const clickable = h?.kind === 'period' || h?.kind === 'marker';
+    canvas.style.cursor = clickable ? 'pointer' : 'grab';
     if (changed) onHover?.(h, { x: px, y: py });
     schedule();
   });
@@ -381,7 +593,7 @@ export function createTimeline(canvas, {
     if (pointers.size === 0 && dragging) {
       dragging = false;
       canvas.classList.remove('dragging');
-      canvas.style.cursor = hot ? 'pointer' : 'grab';
+      canvas.style.cursor = (hot?.kind === 'period' || hot?.kind === 'marker') ? 'pointer' : 'grab';
       schedule();
     }
   };
@@ -400,8 +612,9 @@ export function createTimeline(canvas, {
     const rect = canvas.getBoundingClientRect();
     const h = hitAt(e.clientX - rect.left, e.clientY - rect.top);
     if (!h) return;
+    // World context is hover-only — it isn't a real page to open.
     if (h.kind === 'period') onPeriodClick?.(h.data);
-    else onMarkerClick?.(h.data);
+    else if (h.kind === 'marker') onMarkerClick?.(h.data);
   });
 
   canvas.addEventListener('wheel', (e) => {
@@ -476,16 +689,4 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.arcTo(x, y + h, x, y, rr);
   ctx.arcTo(x, y, x + w, y, rr);
   ctx.closePath();
-}
-
-/** Lighten (amount > 0) or darken (< 0) a hex colour. */
-function shade(hex, amount) {
-  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim());
-  if (!m) return hex;
-  const adj = (v) => {
-    const n = parseInt(v, 16);
-    const out = amount >= 0 ? n + (255 - n) * amount : n * (1 + amount);
-    return Math.round(clamp(out, 0, 255)).toString(16).padStart(2, '0');
-  };
-  return `#${adj(m[1])}${adj(m[2])}${adj(m[3])}`;
 }

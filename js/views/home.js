@@ -44,14 +44,25 @@ export async function renderHome() {
   const pool = db.ALL.filter((e) => e.body && e.claims.length >= 3 && !e.modern);
   const featured = pool[day % pool.length];
 
-  const gallery = ['knossos', 'dendra-panoply', 'helen-of-troy'].map(db.get).filter(Boolean);
+  const heroMask = db.get('mask-of-agamemnon');
 
   root.innerHTML = `
     <section class="hero">
-      <div class="wrap hero-layout">
+      <div class="wrap">
+        <div class="hero-title-row">
+          <div class="hero-title-col">
+            <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
+            <h1>The complete interactive history of the Ancient Greek world.</h1>
+          </div>
+          ${heroMask ? `
+          <div class="hero-mask">
+            <a href="${entityHref(heroMask.id)}" aria-label="${esc(heroMask.name)}">
+              <img src="assets/mask-of-agamemnon.webp" alt="${esc(heroMask.name)}" loading="lazy">
+            </a>
+          </div>` : ''}
+        </div>
+
         <div class="hero-text">
-        <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
-        <h1>The complete interactive history of the Ancient Greek world.</h1>
         <p class="lede">
           Not an encyclopaedia. A connected atlas you explore through time, space,
           relationships and evidence — where every claim tells you what it rests on
@@ -64,35 +75,23 @@ export async function renderHome() {
           <button class="btn btn-lg" id="home-random">${icon('shuffle', { size: 18 })} Take me somewhere</button>
         </div>
 
-        <div class="ribbon" role="list" aria-label="Historical periods"
-             style="grid-template-columns:${periods
-               .map((p) => `minmax(42px, ${p.end - p.start}fr)`).join(' ')}">
-          ${periods.map((p) => {
-            const span = p.end - p.start;
-            // Only the genuinely long periods have room for horizontal text.
-            // Everything else rotates, so every band carries its name rather
-            // than being an unexplained colour.
-            const size = span >= 1000 ? 'wide' : 'narrow';
-            return `
-            <a role="listitem" href="#/timeline/${p.id}" class="rb rb-${size}"
-               style="--tint:var(--p-${p.tint})"
-               title="${esc(p.name)} · ${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}">
-              <span class="rb-name">${esc(p.name)}</span>
-              <span class="rb-date">${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}</span>
-            </a>`;
-          }).join('')}
-        </div>
-        <div class="ribbon-key">
-          ${periods.map((p) => `
-            <a href="#/timeline/${p.id}" style="--tint:var(--p-${p.tint})">
-              <i></i><b>${esc(p.name)}</b>
-              <span class="num">${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}</span>
-            </a>`).join('')}
+        <div class="mt-scroll">
+          <div class="mini-timeline" role="list" aria-label="Historical periods">
+            <div class="mt-line" aria-hidden="true"></div>
+            ${periods.map((p, i) => `
+              <a role="listitem" href="#/timeline/${p.id}" class="mt-step ${i % 2 ? 'below' : 'above'}"
+                 style="--tint:var(--p-${p.tint})"
+                 title="${esc(p.name)} · ${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}">
+                <span class="mt-label">
+                  <span class="mt-name">${esc(p.name)}</span>
+                  <span class="mt-date">${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}</span>
+                </span>
+                <span class="mt-dot"></span>
+              </a>`).join('')}
+          </div>
         </div>
         <p class="xs muted" style="margin-top:var(--s-3)">
-          Eleven periods, each block scaled by its duration — with a minimum width so the
-          shortest stay readable. Laid end to end here; on the timeline they overlap,
-          because Minoan and Mycenaean civilisation genuinely coexisted for three centuries.
+          Eleven periods, 3200 BC to 30 BC — hover or tap any point for its dates.
         </p>
 
         <div class="hero-stats">
@@ -105,14 +104,6 @@ export async function renderHome() {
           ].map(([n, l]) => `
             <div class="hero-stat"><div class="n">${n}</div><div class="l">${esc(l)}</div></div>`).join('')}
         </div>
-        </div>
-
-        <div class="hero-gallery">
-          ${gallery.map((e) => `
-            <a class="hero-gallery-item" href="${entityHref(e.id)}" data-img-id="${esc(e.id)}"
-               style="--tint:${db.tintVar(e.tint)}" aria-label="${esc(e.name)}">
-              ${icon(TYPE_ICON[e.type] || 'sparkle', { size: 26 })}
-            </a>`).join('')}
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import * as store from '../store.js';
 import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
 import { periods, primaryPeriodAt } from '../../data/periods.js';
+import { worldPeriods, worldEvents } from '../../data/world.js';
 import { createTimeline } from '../components/timeline-canvas.js';
 import { hydrateImages } from '../components/images.js';
 import { go, entityHref } from '../router.js';
@@ -18,8 +19,11 @@ import {
   entityDate, emptyState, block,
 } from '../components/ui.js';
 
-/* Entities that deserve a marker on the timeline. */
-const MARKER_TYPES = ['event', 'battle', 'war', 'artefact', 'text'];
+/* Entities that deserve a marker on the timeline. 'myth' brings in the
+   legendary figures and episodes (Achilles, the Trojan War tradition,
+   Theseus...) alongside attested events — drawn hollow on the events
+   line to keep the evidence-honesty distinction visible. */
+const MARKER_TYPES = ['event', 'battle', 'war', 'artefact', 'text', 'myth'];
 
 export async function renderTimeline(params) {
   const root = el('div', { class: 'view' });
@@ -87,17 +91,29 @@ function mount(root, openId) {
   const tl = createTimeline(canvas, {
     periods,
     markers,
+    worldPeriods,
+    worldEvents,
     onPeriodClick: (p) => openPeriod(p.id),
     onMarkerClick: (e) => go(`/e/${e.id}`),
     onHover: (h, pos) => {
       if (!h) { tip.classList.remove('on'); return; }
       const d = h.data;
-      tip.innerHTML = h.kind === 'period'
-        ? `<div class="t">${esc(d.name)}</div>
+      if (h.kind === 'period') {
+        tip.innerHTML = `<div class="t">${esc(d.name)}</div>
            <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
-           <div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>`
-        : `<div class="t">${esc(d.name)}</div>
+           <div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>`;
+      } else if (h.kind === 'world-period') {
+        tip.innerHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
+           <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
+           <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
+      } else if (h.kind === 'world-marker') {
+        tip.innerHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
+           <div class="d">${esc(fmtYear(d.year))}${d.n > 1 ? ` · +${d.n - 1} more nearby` : ''}</div>
+           <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
+      } else {
+        tip.innerHTML = `<div class="t">${esc(d.name)}</div>
            <div class="d">${esc(entityDate(d))} · ${esc(d.typeLabel)}</div>`;
+      }
       tip.classList.add('on');
       // Keep the tooltip inside the canvas.
       const w = 280;

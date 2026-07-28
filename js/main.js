@@ -231,6 +231,7 @@ route('/', mount(renderHome));
 route('/timeline', mount(renderTimeline));
 route('/timeline/:id', mount(renderTimeline));
 route('/map', mount(renderMap));
+route('/map/:mode', mount(renderMap));
 route('/explore', mount(renderExplore));
 route('/e/:id', mount(renderEntity));
 route('/compare', mount(renderCompare));

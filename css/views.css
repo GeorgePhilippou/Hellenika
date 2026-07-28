@@ -47,36 +47,29 @@
 }
 .hero-stat .l { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--s-1); }
 
-/* --- Home: hero layout + photo gallery ---
-   Below ~1150px the gallery column has no room to breathe alongside the
-   ribbon, so it drops out entirely rather than cramping either. */
-.hero-layout { display: grid; grid-template-columns: 1fr; gap: var(--s-10); align-items: start; }
-.hero-text { min-width: 0; }
-.hero-gallery { display: none; }
+/* --- Home: title row + cutout image ---
+   The mask sits beside the eyebrow+H1 specifically (not centred against
+   the whole hero column, which used to leave it floating oddly low once
+   the lede/buttons/ribbon stacked up beneath). Below ~1150px there's no
+   room for it beside the title, so it drops out entirely. */
+.hero-title-row { display: block; }
+.hero-title-col { min-width: 0; }
+.hero-mask { display: none; }
 @media (min-width: 1150px) {
-  .hero-layout { grid-template-columns: minmax(0, 1fr) 300px; }
-  .hero-gallery {
-    display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3);
-    margin-top: var(--s-6);
+  .hero-title-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-8);
   }
-  .hero-gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-  .hero-gallery-item:not(:first-child) { aspect-ratio: 1; }
+  .hero-mask { display: flex; align-items: center; justify-content: center; flex: none; }
 }
-.hero-gallery-item {
-  position: relative; overflow: hidden; border-radius: var(--r-lg);
-  display: grid; place-items: center;
-  background: linear-gradient(150deg,
-    color-mix(in srgb, var(--tint) 30%, var(--surface)),
-    color-mix(in srgb, var(--tint) 9%, var(--surface)));
-  border: 1px solid var(--border);
-  box-shadow: var(--sh-2);
-  color: var(--tint);
+/* No card, no border, no background box — a transparent-cutout image
+   just overlaid on the hero, per the reference the user gave us. */
+.hero-mask img {
+  width: 100%; max-width: 320px; height: auto;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,.35));
   transition: transform var(--t-med) var(--ease-out);
 }
-.hero-gallery-item:hover { transform: translateY(-2px); }
-.hero-gallery-item svg { opacity: .85; transition: opacity var(--t-med); }
-.hero-gallery-item.has-photo svg { opacity: 0; }
-.hero-gallery-item.has-photo .ecard-photo { opacity: 1; }
+.hero-mask:hover img { transform: translateY(-2px); }
 
 /* Exactly 4 preview cards are always shown here — fixed column counts
    that divide 4 evenly, rather than auto-fill, so a card is never
@@ -107,81 +100,61 @@
 .start-card-media.has-photo svg { opacity: 0; }
 .start-card-media.has-photo .hero-photo { opacity: 1; }
 
-/* --- Home: period ribbon --- */
-/* Columns are sized from each period's duration in the view, so the
-   ribbon is a true proportional strip rather than eleven equal blocks.
-   Labels are always visible: wide bands read horizontally, narrow ones
-   rotate, so no period is reduced to an unexplained colour. */
-.ribbon {
-  display: grid; gap: 3px; margin-top: var(--s-6);
-  grid-template-columns: repeat(11, 1fr);
-  border-radius: var(--r-md); overflow: hidden;
+/* --- Home: mini timeline ---
+   A single line with evenly-spaced points, alternating labels above/below
+   so nothing collides — deliberately not proportional to duration (that
+   was the old ribbon design, where a 13-year period and a 2000-year one
+   had to share the same visual language of "block width", squeezing the
+   short ones into unreadable slivers). The real proportional timeline
+   lives on /timeline; this is just a clean, minimal index into it. */
+.mini-timeline {
+  position: relative; display: flex; margin-top: var(--s-10);
+  height: 132px;
 }
-.ribbon .rb {
-  display: flex; position: relative;
-  /* Tall enough that the longest rotated name ("Mycenaean Civilisation",
-     ~130px at this size) fits without clipping. */
-  height: 158px; padding: var(--s-3) 7px;
-  background: var(--tint); overflow: hidden;
-  color: #fff;
-  transition: filter var(--t-med) var(--ease-out), box-shadow var(--t-med);
+.mt-line {
+  position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: var(--border); transform: translateY(-0.5px);
 }
-.ribbon .rb::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(0,0,0,.16));
-  pointer-events: none;
+.mt-step {
+  position: relative; flex: 1; min-width: 0;
+  color: inherit;
 }
-.ribbon .rb:hover { filter: saturate(1.35) brightness(1.06); text-decoration: none; z-index: 2; }
-.ribbon .rb:hover::after { background: linear-gradient(180deg, rgba(255,255,255,.26), rgba(0,0,0,.1)); }
+.mt-step:hover { text-decoration: none; }
+.mt-dot {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--tint); border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tint) 55%, transparent);
+  z-index: 1; transition: transform var(--t-fast) var(--ease-out);
+}
+.mt-step:hover .mt-dot { transform: translate(-50%, -50%) scale(1.3); }
+.mt-label {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: max-content; max-width: 112px;
+  display: flex; flex-direction: column; gap: 2px; text-align: center;
+}
+.mt-step.above .mt-label { bottom: calc(50% + 12px); }
+.mt-step.below .mt-label { top: calc(50% + 12px); }
+.mt-name {
+  font-size: var(--fs-xs); font-weight: 650; color: var(--text-2);
+  line-height: 1.3; transition: color var(--t-fast);
+}
+.mt-step:hover .mt-name { color: var(--accent-text); }
+.mt-date { font-size: var(--fs-xxs); color: var(--text-3); white-space: nowrap; }
 
-.ribbon .rb-name {
-  font-weight: 700; letter-spacing: .02em; line-height: 1.2;
-  text-shadow: 0 1px 3px rgba(0,0,0,.55);
-  overflow-wrap: anywhere; hyphens: auto;
-}
-.ribbon .rb-date {
-  font-size: 10px; font-variant-numeric: tabular-nums; opacity: .85;
-  text-shadow: 0 1px 3px rgba(0,0,0,.55); white-space: nowrap;
-}
-
-/* Wide: stacked at the top-left, full name and dates. */
-.ribbon .rb-wide { flex-direction: column; justify-content: flex-start; gap: 3px; }
-.ribbon .rb-wide .rb-name { font-size: 13px; }
-
-/* Narrow: rotate so even a 13-year band is labelled. */
-.ribbon .rb-narrow { align-items: center; justify-content: center; padding: var(--s-2) 0; }
-.ribbon .rb-narrow .rb-name {
-  writing-mode: vertical-rl; transform: rotate(180deg);
-  font-size: 10.5px; white-space: nowrap; overflow-wrap: normal;
-}
-.ribbon .rb-narrow .rb-date { display: none; }
-
-/* Below ~900px the bands are too narrow to carry text at all. Rather than
-   clip it, the strip becomes a pure proportional colour key and the legend
-   underneath does the labelling. */
-@media (max-width: 900px) {
-  .ribbon .rb { height: 56px; padding: 0; }
-  .ribbon .rb-name, .ribbon .rb-date { display: none; }
-}
-
-/* A permanent key beneath the strip. The ribbon carries the proportions,
-   the key carries the names and dates — so nothing depends on hovering. */
-.ribbon-key {
-  display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4);
-  margin-top: var(--s-4);
-}
-.ribbon-key a {
-  display: inline-flex; align-items: baseline; gap: 6px;
-  font-size: var(--fs-xs); color: var(--text-2);
-  padding: 2px 0;
-}
-.ribbon-key a:hover { color: var(--accent-text); text-decoration: none; }
-.ribbon-key a b { font-weight: 600; color: var(--text); }
-.ribbon-key a:hover b { color: var(--accent-text); }
-.ribbon-key a .num { font-size: var(--fs-xxs); color: var(--text-3); }
-.ribbon-key i {
-  width: 9px; height: 9px; border-radius: 3px; background: var(--tint);
-  align-self: center; flex-shrink: 0;
+/* Below ~700px, 11 labelled points can't fit un-cramped in the viewport
+   width — rather than let neighbouring labels collide, the strip scrolls
+   horizontally at a width where each point has real breathing room. */
+@media (max-width: 700px) {
+  .mt-scroll {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    margin: 0 calc(var(--s-4) * -1); padding: 0 var(--s-4) var(--s-2);
+  }
+  .mini-timeline { height: 108px; min-width: 920px; }
+  .mt-step { flex: 0 0 84px; }
+  .mt-date { font-size: 9px; }
+  .mt-label { max-width: 78px; }
+  .mt-name { font-size: var(--fs-xxs); }
 }
 
 /* --- Home: feature cards --- */
@@ -240,10 +213,10 @@
   box-shadow: var(--sh-1);
   overflow: hidden;
 }
-.tl-canvas { display: block; width: 100%; height: 420px; cursor: grab; touch-action: none; }
+.tl-canvas { display: block; width: 100%; height: 600px; cursor: grab; touch-action: none; }
 .tl-canvas.dragging { cursor: grabbing; }
 @media (max-width: 760px) {
-  .tl-canvas { height: 340px; }
+  .tl-canvas { height: 480px; }
   /* The hint competes with the axis on a phone; the gesture is discoverable. */
   .tl-hint { display: none; }
 }
@@ -368,9 +341,15 @@
   border: 1px solid var(--border); border-radius: var(--r-md);
   padding: var(--s-2) var(--s-4); box-shadow: var(--sh-2);
   pointer-events: none;
+  max-width: min(280px, 60vw);
 }
 .map-era .y { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .map-era .p { font-size: var(--fs-xs); color: var(--text-3); }
+.map-era .s {
+  font-size: var(--fs-xxs); color: var(--text-3); line-height: 1.4;
+  margin-top: var(--s-1); padding-top: var(--s-1); border-top: 1px solid var(--border);
+}
+.map-era .s:empty { display: none; }
 
 .map-legend {
   position: absolute; left: var(--s-4); bottom: var(--s-3);
@@ -412,6 +391,34 @@
 }
 .map-list a:hover { background: var(--surface-hover); text-decoration: none; }
 .map-list .r { margin-left: auto; font-size: var(--fs-xs); color: var(--text-3); flex-shrink: 0; }
+
+/* ---------- Journey stop list (Odysseus / Alexander map modes) ---------- */
+.journey-stops {
+  display: flex; flex-direction: column; gap: 2px;
+  max-height: 520px; overflow-y: auto;
+  margin: 0 calc(var(--s-3) * -1); padding: 0 var(--s-3);
+}
+.journey-stop {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  width: 100%; text-align: left; padding: var(--s-2); border-radius: var(--r-md);
+  border: 1px solid transparent;
+}
+.journey-stop:hover { background: var(--surface-hover); }
+.journey-stop.active { background: var(--surface-hover); border-color: var(--border-strong); }
+.journey-stop-n {
+  flex: none; width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center; margin-top: 1px;
+  background: var(--tint); color: #fff;
+  font-size: var(--fs-xxs); font-weight: 700;
+}
+.journey-stop-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.journey-stop-name { font-size: var(--fs-sm); font-weight: 600; color: var(--text); }
+.journey-stop-note { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.4; }
+.journey-stop-open {
+  flex: none; display: grid; place-items: center; width: 26px; height: 26px;
+  border-radius: var(--r-sm); color: var(--text-3); margin-top: 1px;
+}
+.journey-stop-open:hover { background: var(--surface-2); color: var(--accent-text); }
 
 /* ============================================================
    EXPLORE
@@ -622,16 +629,23 @@
 }
 
 /* --- Related entity groups --- */
-.rel-group + .rel-group { margin-top: var(--s-5); }
+/* One row per category — a label-then-pills layout reads far more
+   compactly than a heading on its own line when most categories here
+   hold only one or two connections. */
+.rel-group {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--s-1) var(--s-3);
+}
+.rel-group + .rel-group { margin-top: var(--s-2); padding-top: var(--s-2); border-top: 1px solid var(--border); }
 .rel-group h3 {
+  flex: 0 0 auto; width: 104px;
   font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--text-3);
-  margin-bottom: var(--s-3);
+  margin-bottom: 0;
 }
-.rel-list { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.rel-list { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); }
 .rel-pill {
-  display: inline-flex; align-items: center; gap: var(--s-2);
-  padding: 6px 12px 6px 8px; border-radius: var(--r-pill);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px 4px 7px; border-radius: var(--r-pill);
   border: 1px solid var(--border); background: var(--surface);
   font-size: var(--fs-sm); color: var(--text);
   transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast), box-shadow var(--t-fast);

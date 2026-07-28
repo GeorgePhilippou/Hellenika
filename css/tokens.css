@@ -64,6 +64,26 @@
   --p-hellenistic:  #3f8f8a;
   --p-roman:        #7a4b8f;
 
+  /* ---- World-context colours (timeline "rest of the world" band) ----
+     Deliberately muted/neutral relative to the vivid Greek palette
+     above, so the context rows read as clearly secondary. */
+  --p-world-egypt:     #b08a4e;
+  --p-world-neareast:  #9c6b52;
+  --p-world-rome:      #7d7690;
+  --p-world-carthage:  #96604f;
+  --p-world-india:     #a8763f;
+  --p-world-china:     #6d7d5a;
+
+  /* ---- Map route colours ----
+     Deliberately NOT drawn from the period-tint palette above: a route
+     active in, say, the Alexander period would otherwise render in the
+     exact same colour as an Alexander-period territory it crosses and
+     visually disappear into it. Routes get one fixed, always-contrasting
+     pair instead — warm red for campaigns/marches, cool teal for trade
+     and migration — regardless of which era they belong to. */
+  --route-campaign: #b5342a;
+  --route-trade:    #1f7f8c;
+
   /* ---- Confidence colours ---- */
   --c-established:  #3f7d54;
   --c-strong:       #58862f;
@@ -156,6 +176,16 @@
   --p-darkage:     #77808d;
   --p-collapse:    #8b7a72;
   --p-earlybronze: #b3a692;
+
+  --p-world-egypt:     #c9a262;
+  --p-world-neareast:  #b6816a;
+  --p-world-rome:      #9891ab;
+  --p-world-carthage:  #b98170;
+  --p-world-india:     #c99862;
+  --p-world-china:     #8ea073;
+
+  --route-campaign: #e2685a;
+  --route-trade:    #4fc3d4;
 
   --c-established: #5fa878;
   --c-strong:      #86b153;

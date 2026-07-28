@@ -20,6 +20,7 @@
 import { clamp, fitCanvas, animate, easeOutCubic, prefersReducedMotion } from '../util.js';
 import { seas, islands, rivers, territories, routes, EXTENT } from '../../data/geo.js';
 import { PROVIDERS, TILE_SIZE, lonLatToWorld, worldToLonLat, drawTiles } from './tiles.js';
+import { projectPath, pathLength, pointAtFraction, drawArrowHead } from './map-draw-utils.js';
 
 const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
 
@@ -52,6 +53,7 @@ export function createMap(canvas, {
   let pendingFly = null;
   let hot = null;
   let hitRegions = [];
+  let routeHitRegions = [];
   let raf = null;
   let onLegend = null;
   let current = { year, layers, markers, basemap };
@@ -144,21 +146,33 @@ export function createMap(canvas, {
       }
     }
 
-    /* --- territories --- */
+    /* --- territories ---
+       Two passes rather than fill-then-stroke-per-territory: transitional
+       years can have 3-4 overlapping claims, and stacking opaque-ish fills
+       compounds (two 0.5-alpha fills already cover a pixel at ~0.75) into
+       an unreadable blended wash. Lighter fills plus a dedicated outline
+       pass drawn on top of every fill keeps every boundary crisp no
+       matter how many territories overlap. */
     const legend = [];
     if (L.territories !== false) {
-      for (const t of territories) {
-        const a = territoryAlpha(t, y);
-        if (a <= 0.01) continue;
-        const colour = cssVar(`--p-${t.tint}`);
+      const active = territories
+        .map((t) => ({ t, a: territoryAlpha(t, y) }))
+        .filter(({ a }) => a > 0.01);
+
+      for (const { t, a } of active) {
         ctx.save();
         tracePath(t.ring);
-        ctx.globalAlpha = a * (tiled ? 0.42 : 0.55);
-        ctx.fillStyle = colour;
+        ctx.globalAlpha = a * (tiled ? 0.22 : 0.28);
+        ctx.fillStyle = cssVar(`--p-${t.tint}`);
         ctx.fill();
-        ctx.globalAlpha = Math.min(1, a * 1.15);
-        ctx.strokeStyle = colour;
-        ctx.lineWidth = 1.8;
+        ctx.restore();
+      }
+      for (const { t, a } of active) {
+        ctx.save();
+        tracePath(t.ring);
+        ctx.globalAlpha = Math.min(1, a * 1.2);
+        ctx.strokeStyle = cssVar(`--p-${t.tint}`);
+        ctx.lineWidth = 2;
         ctx.stroke();
         ctx.restore();
         if (a > 0.35) legend.push({ name: t.name, tint: t.tint });
@@ -166,11 +180,18 @@ export function createMap(canvas, {
     }
 
     /* --- routes --- */
+    routeHitRegions = [];
     if (L.routes) {
       for (const r of routes) {
         if (y < r.from || y > r.to) continue;
+        const pts = projectPath(r.path, toScreen);
+        // A fixed pair, not the period-tint palette: a route drawn in its
+        // own period's colour can land on same-tinted territory and vanish
+        // into it (e.g. Alexander's route crossing "Alexander"-tint land).
+        const colour = cssVar(r.dashed ? '--route-trade' : '--route-campaign');
+
         ctx.save();
-        ctx.strokeStyle = cssVar(`--p-${r.tint}`);
+        ctx.strokeStyle = colour;
         ctx.lineWidth = 2.2;
         ctx.globalAlpha = 0.9;
         ctx.lineJoin = 'round';
@@ -179,9 +200,29 @@ export function createMap(canvas, {
         // A dark halo keeps routes readable over busy terrain.
         ctx.shadowColor = dark ? 'rgba(0,0,0,.7)' : 'rgba(255,255,255,.75)';
         ctx.shadowBlur = 3;
-        tracePath(r.path, false);
+        ctx.beginPath();
+        pts.forEach(([px, py], i) => { i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); });
         ctx.stroke();
         ctx.restore();
+
+        // Directional arrowheads — routes are journeys, not just lines.
+        const len = pathLength(pts);
+        if (len > 30) {
+          ctx.save();
+          for (const frac of [0.42, 0.82]) {
+            const p = pointAtFraction(pts, frac);
+            drawArrowHead(ctx, p.x, p.y, p.angle, 6, colour);
+          }
+          ctx.restore();
+        }
+
+        // Sparse hover targets along the path (checked after markers, so
+        // a marker sitting on a route always wins the hit test).
+        const step = 16;
+        for (let d = 0; d <= len; d += step) {
+          const p = pointAtFraction(pts, len ? d / len : 0);
+          routeHitRegions.push({ route: r, x: p.x, y: p.y, r: 7 });
+        }
       }
     }
 
@@ -413,9 +454,20 @@ export function createMap(canvas, {
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left, py = e.clientY - rect.top;
     const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    if (h?.id !== hot?.id) {
-      hot = h ? h.entity : null;
-      canvas.style.cursor = h ? 'pointer' : 'grab';
+    let nextHot = h ? h.entity : null;
+    let clickable = !!h;
+    if (!h) {
+      const rh = routeHitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+      if (rh) {
+        nextHot = {
+          id: `route:${rh.route.id}`, name: rh.route.name, typeLabel: 'Route',
+          start: rh.route.from, end: rh.route.to, region: null,
+        };
+      }
+    }
+    if (nextHot?.id !== hot?.id) {
+      hot = nextHot;
+      canvas.style.cursor = clickable ? 'pointer' : 'grab';
       onHover?.(hot, { x: px, y: py });
       schedule();
     }
