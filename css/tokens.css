@@ -74,6 +74,15 @@
   --p-world-india:     #a8763f;
   --p-world-china:     #6d7d5a;
 
+  /* ---- Timeline ribbon colours ----
+     The main /timeline canvas uses two flat hues, not the rainbow
+     period/world palettes above — one for the Ancient Greece row, one
+     for World Empires — with light/dark shade alternation per segment
+     for separation, matching the printed reference the timeline redesign
+     is based on. */
+  --p-ribbon-greece: #5f9a80;
+  --p-ribbon-world:  #6f8fc4;
+
   /* ---- Map route colours ----
      Deliberately NOT drawn from the period-tint palette above: a route
      active in, say, the Alexander period would otherwise render in the
@@ -183,6 +192,9 @@
   --p-world-carthage:  #b98170;
   --p-world-india:     #c99862;
   --p-world-china:     #8ea073;
+
+  --p-ribbon-greece: #5fa588;
+  --p-ribbon-world:  #7c9fd6;
 
   --route-campaign: #e2685a;
   --route-trade:    #4fc3d4;

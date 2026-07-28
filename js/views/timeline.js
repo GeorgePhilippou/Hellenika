@@ -12,7 +12,7 @@ import * as db from '../db.js';
 import { periods, primaryPeriodAt } from '../../data/periods.js';
 import { worldPeriods, worldEvents } from '../../data/world.js';
 import { createTimeline } from '../components/timeline-canvas.js';
-import { hydrateImages } from '../components/images.js';
+import { hydrateImages, peek, ensureLoaded } from '../components/images.js';
 import { go, entityHref } from '../router.js';
 import {
   entityCard, entityPill, claimsList, paragraphs, sectionHead,
@@ -52,7 +52,6 @@ export async function renderTimeline(params) {
         </div>
 
         <div class="scrubber">
-          <button class="icon-btn" id="tl-play" aria-label="Play through time"></button>
           <div>
             <div class="tl-readout num" id="tl-year"></div>
             <div class="tl-readout-sub" id="tl-era"></div>
@@ -83,6 +82,11 @@ function mount(root, openId) {
   const range = $('#tl-range', root);
   if (!canvas) return;
 
+  // Bumped on every hover change so a slow image fetch from an earlier
+  // hover can't paint itself into the tooltip after the pointer has
+  // already moved on to something else.
+  let hoverToken = 0;
+
   /* ---------- Markers ---------- */
   const markers = db.ofType(...MARKER_TYPES)
     .filter((e) => e.start != null && !e.modern)
@@ -96,36 +100,53 @@ function mount(root, openId) {
     onPeriodClick: (p) => openPeriod(p.id),
     onMarkerClick: (e) => go(`/e/${e.id}`),
     onHover: (h, pos) => {
+      hoverToken++;
       if (!h) { tip.classList.remove('on'); return; }
       const d = h.data;
+      let bodyHTML;
       if (h.kind === 'period') {
-        tip.innerHTML = `<div class="t">${esc(d.name)}</div>
+        bodyHTML = `<div class="t">${esc(d.name)}</div>
            <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
            <div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>`;
       } else if (h.kind === 'world-period') {
-        tip.innerHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
+        bodyHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
            <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
            <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
       } else if (h.kind === 'world-marker') {
-        tip.innerHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
+        bodyHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
            <div class="d">${esc(fmtYear(d.year))}${d.n > 1 ? ` · +${d.n - 1} more nearby` : ''}</div>
            <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
       } else {
-        tip.innerHTML = `<div class="t">${esc(d.name)}</div>
-           <div class="d">${esc(entityDate(d))} · ${esc(d.typeLabel)}</div>`;
+        bodyHTML = `<div class="t">${esc(d.name)}</div>
+           <div class="d">${esc(entityDate(d))} · ${esc(d.typeLabel)}</div>
+           ${d.summary ? `<div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>` : ''}`;
       }
+
+      tip.innerHTML = `<div class="tl-tip-media" data-tip-media></div><div class="tl-tip-body">${bodyHTML}</div>`;
       tip.classList.add('on');
       // Keep the tooltip inside the canvas.
       const w = 280;
       tip.style.left = `${clamp(pos.x + 14, 8, canvas.clientWidth - w - 8)}px`;
-      tip.style.top = `${clamp(pos.y + 14, 8, canvas.clientHeight - 90)}px`;
+      tip.style.top = `${clamp(pos.y + 14, 8, canvas.clientHeight - 200)}px`;
+
+      // Image loads async (it's fetched from Wikipedia, not bundled) — paint
+      // it in if already cached from an earlier hover, otherwise fetch and
+      // fill it in only if the pointer is still over this same thing.
+      const token = hoverToken;
+      const paint = (img) => {
+        if (hoverToken !== token || !img?.src) return;
+        const el2 = tip.querySelector('[data-tip-media]');
+        if (el2) el2.innerHTML = `<img src="${img.src}" alt="" loading="lazy" decoding="async">`;
+      };
+      const cached = peek(d);
+      if (cached !== undefined) paint(cached);
+      else ensureLoaded([d]).then(() => paint(peek(d)));
     },
   });
 
   /* ---------- Year scrubber ---------- */
   const yearOut = $('#tl-year', root);
   const eraOut = $('#tl-era', root);
-  const playBtn = $('#tl-play', root);
 
   const paintYear = (y) => {
     yearOut.textContent = fmtYear(y);
@@ -141,19 +162,10 @@ function mount(root, openId) {
   const unbindYear = store.bind('year', (y) => { paintYear(y); paintSnapshot(y); });
 
   range.addEventListener('input', () => {
+    // Defensive: stops an auto-play run started from the map before
+    // navigating here, since 'playing' is a global store flag.
     store.togglePlay(false);
     store.setYear(Number(range.value));
-  });
-
-  const paintPlay = (playing) => {
-    playBtn.innerHTML = icon(playing ? 'pause' : 'play');
-    playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play through time');
-  };
-  const unbindPlay = store.bind('playing', paintPlay);
-  playBtn.addEventListener('click', () => {
-    // Restarting from the end feels better than refusing to play.
-    if (!store.get('playing') && store.get('year') >= TIME_MAX - 1) store.setYear(TIME_MIN);
-    store.togglePlay();
   });
 
   /* ---------- Toolbar ---------- */
@@ -184,7 +196,7 @@ function mount(root, openId) {
   // Clean up when the view is replaced.
   const observer = new MutationObserver(() => {
     if (!document.contains(canvas)) {
-      unbindYear(); unbindPlay(); tl.destroy();
+      unbindYear(); tl.destroy();
       store.togglePlay(false);
       observer.disconnect();
     }

@@ -31,8 +31,10 @@ const state = {
     territories: true, cities: true, sites: true, battles: true,
     routes: true, labels: true,
   }),
-  /** Map basemap: 'relief' | 'physical' | 'plain' | 'none'. */
-  basemap: persist.get('basemap', 'relief'),
+  /** Map basemap: 'relief' | 'plain' | 'none'. 'none' is the hand-drawn
+      atlas look and the default — 'relief'/'plain' are live satellite
+      tiles, kept as alternate options. */
+  basemap: persist.get('basemap', 'none'),
   /** Compare tray: up to 2 entity ids. */
   compare: persist.get('compare', []),
 };

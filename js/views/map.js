@@ -27,9 +27,9 @@ const LAYERS = [
 ];
 
 const BASEMAPS = [
+  ['none', 'Atlas'],
   ['relief', 'Terrain'],
   ['plain', 'Plain'],
-  ['none', 'Vector'],
 ];
 
 const JUMPS = [
@@ -209,8 +209,9 @@ function mount(root, initialMode) {
             <button data-basemap="${k}" aria-pressed="${store.get('basemap') === k}" style="flex:1">${esc(label)}</button>`).join('')}
         </div>
         <p class="xs muted" style="margin-top:var(--s-3)">
-          Terrain and Plain load live satellite-derived tiles (Esri, CARTO) with no
-          modern borders or labels. Vector uses the built-in offline coastline.
+          Atlas is a hand-drawn historical style, built entirely offline. Terrain
+          and Plain load live satellite-derived tiles (Esri, CARTO) instead, with
+          no modern borders or labels.
         </p>
       </div>
       <div class="panel">

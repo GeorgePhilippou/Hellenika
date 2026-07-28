@@ -27,6 +27,47 @@ const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValu
 /** Years over which a territory fades in and out. */
 const FADE = 12;
 
+/* ---------- Atlas palette ----------
+   The offline vector fallback is the map's default look now — a hand-
+   drawn historical atlas rather than a gap-filler for when tiles fail —
+   so it gets its own warm, aged-paper palette rather than reusing the
+   plain light/dark surface colours. */
+const ATLAS = {
+  light: {
+    land: '#e6d8b8', landEdge: '#a9803f', sea: '#6f9a9c', seaEdge: '#3f6b6e',
+    river: '#4f7d80', grain: 'rgba(107,74,42,0.05)', vignette: 'rgba(59,41,20,0.16)',
+  },
+  dark: {
+    land: '#3a3122', landEdge: '#8a6f3c', sea: '#16333a', seaEdge: '#274f56',
+    river: '#3f6266', grain: 'rgba(0,0,0,0.12)', vignette: 'rgba(0,0,0,0.4)',
+  },
+};
+
+/** A small tiled paper-grain pattern, built once per canvas 2D context
+    and reused every frame — cheap texture without per-frame cost. */
+const grainPatterns = new WeakMap();
+function grainPattern(ctx, colour) {
+  const key = colour;
+  let byColour = grainPatterns.get(ctx);
+  if (!byColour) { byColour = new Map(); grainPatterns.set(ctx, byColour); }
+  if (byColour.has(key)) return byColour.get(key);
+
+  const size = 96;
+  const off = document.createElement('canvas');
+  off.width = size; off.height = size;
+  const octx = off.getContext('2d');
+  octx.fillStyle = colour;
+  let seed = 1337;
+  const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+  for (let i = 0; i < 260; i++) {
+    octx.globalAlpha = 0.3 + rand() * 0.7;
+    octx.fillRect(rand() * size, rand() * size, 1, 1);
+  }
+  const pattern = ctx.createPattern(off, 'repeat');
+  byColour.set(key, pattern);
+  return pattern;
+}
+
 // scale = 2**zoom, in "world pixels per zoom-0 world unit" (world is 256px
 // at zoom 0). The full Mediterranean extent naturally fits at scale ~20;
 // the floor must sit well below that or fitBounds() gets clamped into an
@@ -123,27 +164,46 @@ export function createMap(canvas, {
     }
 
     if (!tiled) {
-      // Offline / provider-down fallback: the hand-built vector world.
-      const landCol = dark ? '#33302a' : '#eae4d7';
-      const seaCol = dark ? '#0e1a24' : '#d3e6f0';
-      ctx.fillStyle = landCol;
+      // The map's default look: a hand-drawn historical atlas, not just
+      // an offline gap-filler — warm parchment, ink coastlines, a paper
+      // grain, and a soft vignette toward the edges.
+      const pal = dark ? ATLAS.dark : ATLAS.light;
+      ctx.fillStyle = pal.land;
       ctx.fillRect(0, 0, W, H);
-      ctx.fillStyle = seaCol;
+      ctx.fillStyle = pal.sea;
       for (const s of seas) { tracePath(s.ring); ctx.fill(); }
-      ctx.fillStyle = landCol;
-      ctx.strokeStyle = dark ? '#454037' : '#dcd4c2';
-      ctx.lineWidth = 0.6;
+      ctx.fillStyle = pal.land;
+      ctx.strokeStyle = pal.landEdge;
+      ctx.lineWidth = 0.8;
       for (const i of islands) { tracePath(i.ring); ctx.fill(); ctx.stroke(); }
-      ctx.strokeStyle = dark ? '#4a6274' : '#8fb2c4';
-      ctx.lineWidth = 1.1;
+      ctx.strokeStyle = pal.seaEdge;
+      ctx.lineWidth = 1.3;
       for (const s of seas) { tracePath(s.ring); ctx.stroke(); }
 
       if (scale > 2200) {
-        ctx.strokeStyle = dark ? '#22384a' : '#b6d5e5';
+        ctx.strokeStyle = pal.river;
         ctx.lineWidth = 1.4;
         ctx.lineJoin = 'round';
         for (const r of rivers) { tracePath(r.path, false); ctx.stroke(); }
       }
+
+      // Paper grain and a soft vignette over the whole scene. (The canvas
+      // is created with alpha:false, so clearRect paints opaque black
+      // rather than transparent — there's no cheap way to mask the grain
+      // to land only, and grain over the sea reads fine anyway.)
+      ctx.save();
+      ctx.fillStyle = grainPattern(ctx, pal.grain);
+      ctx.fillRect(0, 0, W, H);
+      ctx.restore();
+
+      ctx.save();
+      const vr = Math.max(W, H) * 0.75;
+      const vg = ctx.createRadialGradient(W / 2, H / 2, vr * 0.55, W / 2, H / 2, vr);
+      vg.addColorStop(0, 'rgba(0,0,0,0)');
+      vg.addColorStop(1, pal.vignette);
+      ctx.fillStyle = vg;
+      ctx.fillRect(0, 0, W, H);
+      ctx.restore();
     }
 
     /* --- territories ---

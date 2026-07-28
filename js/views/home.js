@@ -8,16 +8,8 @@ import * as db from '../db.js';
 import * as store from '../store.js';
 import { periods } from '../../data/periods.js';
 import { collections } from '../../data/collections.js';
-import { entityCard, sectionHead, entityPill, entityDate } from '../components/ui.js';
+import { sectionHead, entityPill, entityDate } from '../components/ui.js';
 import { entityHref } from '../router.js';
-
-/* The connection trail on the home page — the spec's own example
-   chain, which doubles as a demonstration that the graph is real. */
-const TRAIL = [
-  'minoan-civilisation', 'knossos', 'linear-a', 'mycenaean-civilisation',
-  'linear-b', 'homer', 'trojan-war-traditional', 'mycenae', 'agamemnon',
-  'mask-of-agamemnon', 'heinrich-schliemann',
-];
 
 const FEATURES = [
   { href: '#/timeline', icon: 'timeline', tint: 'classical', title: 'Travel through time',
@@ -36,7 +28,6 @@ export async function renderHome() {
   const root = el('div');
   const s = db.stats;
 
-  const recent = store.get('recent').map(db.get).filter(Boolean).slice(0, 6);
   const saved = store.get('bookmarks').map(db.get).filter(Boolean).slice(0, 6);
 
   // A stable daily pick rather than a random one on every render.
@@ -58,6 +49,10 @@ export async function renderHome() {
           <div class="hero-mask">
             <a href="${entityHref(heroMask.id)}" aria-label="${esc(heroMask.name)}">
               <img src="assets/mask-of-agamemnon.webp" alt="${esc(heroMask.name)}" loading="lazy">
+            </a>
+            <a class="mask-plaque" href="${entityHref(heroMask.id)}">
+              <span class="mask-plaque-title">${esc(heroMask.name)}</span>
+              <span class="mask-plaque-meta">${esc(heroMask.material)} · c. 1550–1500 BC · Mycenae</span>
             </a>
           </div>` : ''}
         </div>
@@ -93,17 +88,6 @@ export async function renderHome() {
         <p class="xs muted" style="margin-top:var(--s-3)">
           Eleven periods, 3200 BC to 30 BC — hover or tap any point for its dates.
         </p>
-
-        <div class="hero-stats">
-          ${[
-            [s.entities, 'entities'],
-            [Math.round(s.relations), 'relationships'],
-            [s.claims, 'evidence-tagged claims'],
-            [s.sources, 'sources cited'],
-            [s.withCoords, 'mapped locations'],
-          ].map(([n, l]) => `
-            <div class="hero-stat"><div class="n">${n}</div><div class="l">${esc(l)}</div></div>`).join('')}
-        </div>
         </div>
       </div>
     </section>
@@ -116,16 +100,6 @@ export async function renderHome() {
             <h3>${esc(f.title)}</h3>
             <p>${esc(f.body)}</p>
           </a>`).join('')}
-      </div>
-    </section>
-
-    <section class="wrap" style="padding-block:var(--s-8)">
-      ${sectionHead('Everything connects', 'One chain, eleven hops, followed entirely through the dataset.')}
-      <div class="trail">
-        ${TRAIL.map(db.get).filter(Boolean).map((e, i) => `
-          ${i ? `<span class="arrow">${icon('arrowRight', { size: 15 })}</span>` : ''}
-          ${entityPill(e)}
-        `).join('')}
       </div>
     </section>
 
@@ -168,12 +142,6 @@ export async function renderHome() {
           </a>`).join('')}
       </div>
     </section>
-
-    ${recent.length ? `
-    <section class="wrap" style="padding-block:var(--s-8)">
-      ${sectionHead('Where you were', 'Recently viewed.')}
-      <div class="rel-list">${recent.map((e) => entityPill(e)).join('')}</div>
-    </section>` : ''}
 
     ${saved.length ? `
     <section class="wrap" style="padding-block:var(--s-8)">

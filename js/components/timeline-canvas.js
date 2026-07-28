@@ -5,6 +5,11 @@
    thousands of markers without the browser building thousands
    of elements, and dragging stays at 60fps.
 
+   Layout follows a printed "history spread" convention: a single
+   Ancient Greece ribbon with dated events called out above it,
+   a shared axis, and a World Empires ribbon with its own dated
+   events called out below it.
+
    Interaction model
      · drag horizontally to pan
      · wheel / pinch to zoom about the pointer
@@ -16,8 +21,7 @@ import { clamp, fitCanvas, animate, easeOutCubic, fmtYear, prefersReducedMotion 
 import { TIME_MIN, TIME_MAX } from '../store.js';
 
 const PAD_L = 14, PAD_R = 14;
-const AXIS_H = 30;
-const LANE_GAP = 8;
+const WORLD_LANE_GAP = 4;
 
 /** Read a CSS custom property from the document root. */
 const cssVar = (name) =>
@@ -65,11 +69,43 @@ export function createTimeline(canvas, {
     return 1000;
   }
 
-  /* ---------- Layout: assign bands to lanes within a vertical budget ----------
-     Shared by the Greek period ribbon and the World-context band below it —
-     both are "items with a lane number get stacked into equal-height rows
-     inside some (topY, availHeight) box." Only the budget differs. */
-  function layoutBand(items, laneCount, topY, availHeight, minLaneH, gap = LANE_GAP) {
+  /**
+   * Collapse the 11 real (and genuinely overlapping) Greek periods into a
+   * single non-overlapping sequence for the ribbon — a printed timeline
+   * has one row, not three. Periods are walked in start order and each
+   * one owns the ribbon from where the previous one left off until the
+   * *next* period begins — whether that next period cuts it short (a
+   * real overlap, e.g. Bronze Age Collapse interrupting Mycenaean) or
+   * starts later (a gap, e.g. the ~30 years between the Collapse ending
+   * and the Dark Age's own start date, which the Collapse's segment
+   * simply absorbs). Once a period has been superseded it is never
+   * revisited — earlier logic picked "whichever period is narrowest at
+   * this point in time" independently at every instant, which let a
+   * period reappear after something later had already taken over, which
+   * read as a chronology error even though the underlying dates were
+   * correct.
+   */
+  function ribbonSegments(items) {
+    const sorted = [...items].sort((a, b) => a.start - b.start);
+    const segs = [];
+    let cursor = sorted.length ? sorted[0].start : 0;
+    for (let i = 0; i < sorted.length; i++) {
+      const p = sorted[i];
+      const next = sorted[i + 1];
+      const start = Math.max(p.start, cursor);
+      const end = next ? next.start : p.end;
+      if (end <= start) continue; // fully swallowed by an earlier, later-starting period
+      segs.push({ start, end, period: p });
+      cursor = end;
+    }
+    return segs;
+  }
+  const GREEK_RIBBON = ribbonSegments(periods);
+
+  const WORLD_LANES_N = WORLD_LANE_TINTS.length;
+
+  /* ---------- Layout: assign world bands to lanes within a vertical budget --------- */
+  function layoutBand(items, laneCount, topY, availHeight, minLaneH, gap = WORLD_LANE_GAP) {
     const laneH = Math.max(minLaneH, (availHeight - gap * (laneCount - 1)) / laneCount);
     return items.map((p) => ({
       p,
@@ -79,84 +115,47 @@ export function createTimeline(canvas, {
     }));
   }
 
-  const GREEK_LANES = Math.max(...periods.map((p) => p.lane ?? 0)) + 1;
-  const WORLD_LANES_N = WORLD_LANE_TINTS.length;
-
-  // Bar rows are flat and fixed-height now (no more stretch-to-fit blocks),
-  // so the vertical budget is a straightforward top-to-bottom stack rather
-  // than a flexible 70/30 split.
-  const GREEK_LANE_H = 24, GREEK_LANE_GAP = 4;
-  const WORLD_LANE_H = 12, WORLD_LANE_GAP = 3;
-  const GREEK_EVENTS_H = 70;   // spine + up to 3 stacked label tiers
-  const WORLD_EVENTS_H = 48;   // spine + up to 2 stacked label tiers
+  const GREEK_RIBBON_H = 46;
+  const GREEK_LINE_H = 21;
+  const AXIS_BAND_H = 30;      // shared rule + year labels, between the two ribbons
+  const WORLD_LANE_H = 13;
+  const WORLD_RIBBON_H = WORLD_LANES_N * WORLD_LANE_H + (WORLD_LANES_N - 1) * WORLD_LANE_GAP;
+  const WORLD_LINE_H = 14;
+  const DIVIDER_H = 20;
 
   /**
    * Vertical budget for the whole canvas, top to bottom:
-   *   top gap → Greek period bars → Greek events (own line) → divider →
-   *   World period bars → World events → axis.
-   * Each section has a fixed height; any extra canvas height becomes
-   * breathing room between sections rather than stretching the bars.
+   *   Greek events (called out upward) → Greek ribbon → shared axis →
+   *   World divider → World ribbon → World events (called out downward).
+   * Every section but the two event zones is a fixed height; the event
+   * zones absorb whatever canvas height is left over and turn it into
+   * more tiers, so a tall canvas spreads events out further rather than
+   * sitting on empty margin.
    */
   function layoutMetrics() {
-    const greekRibbonH = GREEK_LANES * GREEK_LANE_H + (GREEK_LANES - 1) * GREEK_LANE_GAP;
-    const worldRibbonH = WORLD_LANES_N * WORLD_LANE_H + (WORLD_LANES_N - 1) * WORLD_LANE_GAP;
-    const dividerH = 20;
+    const gap = 22;
+    const fixedH = GREEK_RIBBON_H + gap + AXIS_BAND_H + gap + DIVIDER_H + WORLD_RIBBON_H;
+    const margin = 20;
+    const flexible = Math.max(160, H - fixedH - margin);
+    const greekEventsH = Math.max(90, flexible * 0.6);
+    const worldEventsH = Math.max(56, flexible * 0.4);
+    const greekTiers = Math.max(3, Math.floor((greekEventsH - 14) / GREEK_LINE_H));
+    const worldTiers = Math.max(2, Math.floor((worldEventsH - 12) / WORLD_LINE_H));
 
-    const contentH = greekRibbonH + GREEK_EVENTS_H + dividerH + worldRibbonH + WORLD_EVENTS_H;
-    const available = Math.max(contentH, H - AXIS_H - 16);
-    const slack = Math.max(0, available - contentH);
-    // Distribute slack across the four gaps between sections.
-    const gap = 14 + slack / 4;
-
-    let y = Math.max(10, gap * 0.5);
+    let y = Math.max(10, margin / 2);
+    y += greekEventsH;
+    const greekEventsBaseline = y - 10;
     const greekTop = y;
-    y += greekRibbonH + gap;
-    const greekEventsTop = y;
-    const greekSpineY = greekEventsTop + GREEK_EVENTS_H - 10;
-    y += GREEK_EVENTS_H + gap;
-    const dividerY = y + dividerH * 0.6;
-    y += dividerH + gap * 0.6;
+    y += GREEK_RIBBON_H + gap;
+    const axisY = y;
+    y += AXIS_BAND_H + gap;
+    const dividerY = y + DIVIDER_H * 0.6;
+    y += DIVIDER_H;
     const worldTop = y;
-    y += worldRibbonH + gap * 0.7;
-    const worldEventsTop = y;
-    const worldSpineY = worldEventsTop + WORLD_EVENTS_H - 8;
+    y += WORLD_RIBBON_H;
+    const worldEventsBaseline = y + 8;
 
-    return {
-      greekTop, greekRibbonH,
-      greekEventsTop, greekSpineY,
-      dividerY,
-      worldTop, worldRibbonH,
-      worldEventsTop, worldSpineY,
-    };
-  }
-
-  /**
-   * Places dated markers on a single labelled "events line": a spine with
-   * a dot per marker, and — where there's room — a short leader up to a
-   * text label stacked into whichever of `tiers` vertical rows doesn't
-   * collide with a label already placed there. Markers that don't fit
-   * any tier still get their dot, just no label (same degrade-gracefully
-   * approach as the period band labels).
-   */
-  function placeEventLabels(sorted, { tiers, lineH, fmt }) {
-    const rowsRight = new Array(tiers).fill(-Infinity);
-    const placed = [];
-    for (const item of sorted) {
-      const label = fmt(item);
-      const tw = ctx.measureText(label).width;
-      const half = tw / 2;
-      let tier = -1;
-      for (let t = 0; t < tiers; t++) {
-        if (item.x - half - 6 >= rowsRight[t]) { tier = t; break; }
-      }
-      if (tier >= 0) {
-        rowsRight[tier] = item.x + half;
-        placed.push({ ...item, label, tier, tw });
-      } else {
-        placed.push({ ...item, label: null, tier: -1, tw: 0 });
-      }
-    }
-    return placed;
+    return { greekEventsBaseline, greekTiers, greekTop, axisY, dividerY, worldTop, worldEventsBaseline, worldTiers };
   }
 
   /* ---------- Draw ---------- */
@@ -166,143 +165,158 @@ export function createTimeline(canvas, {
 
     const surface = cssVar('--surface');
     const text = cssVar('--text');
+    const text2 = cssVar('--text-2');
     const text3 = cssVar('--text-3');
     const border = cssVar('--border');
+    const uiFont = cssVar('--font-ui') || 'system-ui';
 
     ctx.fillStyle = surface;
     ctx.fillRect(0, 0, W, H);
 
     hitRegions = [];
 
-    /* --- vertical grid --- */
+    const metrics = layoutMetrics();
+
+    /* --- vertical grid: full height, one shared scale for both ribbons --- */
     const step = tickStep();
     const first = Math.ceil(vStart / step) * step;
     ctx.strokeStyle = border;
     ctx.lineWidth = 1;
     ctx.beginPath();
-    for (let y = first; y <= vEnd; y += step) {
-      const x = Math.round(xOf(y)) + 0.5;
+    for (let yr = first; yr <= vEnd; yr += step) {
+      const x = Math.round(xOf(yr)) + 0.5;
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, H - AXIS_H);
+      ctx.lineTo(x, H);
     }
     ctx.stroke();
 
-    const metrics = layoutMetrics();
-    const uiFont = cssVar('--font-ui') || 'system-ui';
-
-    /* --- Greek period bars: a flat, clean line of segments --- */
     ctx.font = `700 10px ${uiFont}`;
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = text3;
-    ctx.fillText('ANCIENT GREECE', PAD_L, metrics.greekTop - 6);
+    ctx.fillText('ANCIENT GREECE', PAD_L, metrics.greekTop - 8);
 
-    const laid = layoutBand(periods, GREEK_LANES, metrics.greekTop, metrics.greekRibbonH, GREEK_LANE_H, GREEK_LANE_GAP);
-    for (const { p, y, h } of laid) {
-      const x0 = xOf(p.start), x1 = xOf(p.end);
-      if (x1 < -40 || x0 > W + 40) continue;
-      const w = Math.max(2, x1 - x0);
-      const colour = cssVar(`--p-${p.tint}`);
-      const isHot = hot?.kind === 'period' && hot.id === p.id;
-
-      // Flat, solid segment — no gradient, no drop shadow. The clean
-      // colour-block-in-a-row is the whole point of this redesign.
-      ctx.save();
-      roundRect(ctx, x0, y, w, h, 3);
-      ctx.fillStyle = colour;
-      ctx.globalAlpha = isHot ? 1 : 0.92;
-      ctx.fill();
-      ctx.restore();
-
-      if (isHot) {
-        ctx.save();
-        roundRect(ctx, x0, y, w, h, 3);
-        ctx.strokeStyle = text;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        ctx.restore();
-      }
-
-      // Label — only when the full name genuinely fits inside the band.
-      // A clipped half-word ("ellenistic Period") reads as a rendering
-      // bug; the hover tooltip covers the narrow cases instead.
-      if (w > 54) {
-        ctx.save();
-        ctx.font = `600 ${Math.min(12, h * 0.46)}px ${uiFont}`;
-        ctx.textBaseline = 'middle';
-        // Degrade gracefully: full name → shortest alias → first word → none.
-        const PAD = 10;
-        const fits = (s) => ctx.measureText(s).width + PAD <= w;
-        const candidates = [
-          p.name,
-          ...(p.altNames || []).slice().sort((a, b) => a.length - b.length),
-          p.name.split(' ')[0],
-        ];
-        const label = candidates.find(fits);
-        const tw = label ? ctx.measureText(label).width : 0;
-        if (label) {
-          // Keep the label inside the visible portion of a part-scrolled band.
-          const visL = Math.max(x0, 4), visR = Math.min(x1, W - 4);
-          const lx = clamp(visL + 9, visL + 9, Math.max(visL + 9, visR - tw - 9));
-          ctx.fillStyle = '#fff';
-          ctx.fillText(label, lx, y + h / 2 + 0.5);
-        }
-        ctx.restore();
-      }
-
-      hitRegions.push({ kind: 'period', id: p.id, x0, x1, y0: y, y1: y + h, data: p });
-    }
-
-    /* --- Greek events: a separate labelled line beneath the periods --- */
-    drawEventRow({
+    /* --- Greek events: dated callouts stacked upward off the ribbon --- */
+    const eventColour = cssVar('--text-2');
+    drawBulletEvents({
       items: markers.map((m) => ({ year: m.year, entity: m.entity })),
-      spineY: metrics.greekSpineY,
-      tiers: 3,
-      lineH: 15,
-      dotR: 3.5,
+      baselineY: metrics.greekEventsBaseline,
+      dir: -1, tiers: metrics.greekTiers, lineH: GREEK_LINE_H,
       hotKind: 'marker',
-      colorOf: (e) => cssVar(`--p-${e.tint}`),
-      fmt: (it) => `${fmtYear(it.entity.start)} ${it.entity.name}`,
+      colorOf: () => eventColour,
+      fmt: (it) => `${fmtYear(it.entity.start)}  ${it.entity.name}`,
     });
 
-    /* --- World context: divider --- */
-    if (worldPeriods.length) {
-      ctx.save();
-      ctx.strokeStyle = border;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(PAD_L, metrics.dividerY - 6);
-      ctx.lineTo(W - PAD_R, metrics.dividerY - 6);
-      ctx.stroke();
-      ctx.fillStyle = text3;
-      ctx.font = `700 10px ${uiFont}`;
-      ctx.textBaseline = 'alphabetic';
-      const label = 'WORLD EMPIRES AND KINGDOMS';
-      const tw = ctx.measureText(label).width;
-      ctx.fillStyle = surface;
-      ctx.fillRect(PAD_L, metrics.dividerY - 6 - 7, tw + 12, 14);
-      ctx.fillStyle = text3;
-      ctx.fillText(label, PAD_L + 6, metrics.dividerY + 1);
-      ctx.restore();
+    /* --- Greek ribbon: a single non-overlapping row --- */
+    const greekBase = cssVar('--p-ribbon-greece');
+    GREEK_RIBBON.forEach((seg, idx) => {
+      const x0 = xOf(seg.start), x1 = xOf(seg.end);
+      if (x1 < -40 || x0 > W + 40) return;
+      const w = Math.max(1, x1 - x0);
+      const p = seg.period;
+      const colour = shade(greekBase, idx % 2 === 0 ? 0.14 : -0.16);
+      const isHot = hot?.kind === 'period' && hot.id === p.id;
 
-      /* --- World context: period bars (thinner, muted, same flat style) --- */
-      const worldLaid = layoutBand(worldPeriods, WORLD_LANES_N, metrics.worldTop, metrics.worldRibbonH, WORLD_LANE_H, WORLD_LANE_GAP);
+      ctx.fillStyle = colour;
+      ctx.globalAlpha = isHot ? 1 : 0.92;
+      ctx.fillRect(x0, metrics.greekTop, w, GREEK_RIBBON_H);
+      ctx.globalAlpha = 1;
+
+      // A hairline seam between segments — sharp, chart-like divisions
+      // rather than the soft rounded blocks this replaced.
+      ctx.strokeStyle = surface;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x1 + 0.5, metrics.greekTop);
+      ctx.lineTo(x1 + 0.5, metrics.greekTop + GREEK_RIBBON_H);
+      ctx.stroke();
+
+      if (isHot) {
+        ctx.strokeStyle = text;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x0 + 1, metrics.greekTop + 1, w - 2, GREEK_RIBBON_H - 2);
+      }
+
+      // Two-line label — dates over name — degrading to name-only, then
+      // nothing, exactly as the width allows. The date shown is this
+      // *segment's* visible span, not the period's own full date range —
+      // where an earlier, longer period is interrupted by a later one
+      // (Mycenaean, cut short by the Bronze Age Collapse) the ribbon
+      // itself is showing only its first part, so the date should say so.
+      const visL = Math.max(x0, 4), visR = Math.min(x1, W - 4);
+      const avail = visR - visL;
+      if (avail > 58) {
+        const dateStr = `${fmtYear(seg.start)} – ${fmtYear(seg.end)}`;
+        ctx.font = `600 9px ${uiFont}`;
+        const fitsDate = ctx.measureText(dateStr).width + 16 <= avail;
+
+        ctx.font = `700 12px ${uiFont}`;
+        const nameFits = (s) => ctx.measureText(s).width + 16 <= avail;
+        const nameCandidates = [p.name, ...(p.altNames || []).slice().sort((a, b) => a.length - b.length), p.name.split(' ')[0]];
+        const name = nameCandidates.find(nameFits);
+
+        if (name) {
+          const lx = clamp(visL + 8, visL + 8, Math.max(visL + 8, visR - 8));
+          ctx.fillStyle = '#fff';
+          if (fitsDate) {
+            ctx.font = `600 9px ${uiFont}`;
+            ctx.globalAlpha = 0.85;
+            ctx.fillText(dateStr, lx, metrics.greekTop + 17);
+            ctx.globalAlpha = 1;
+            ctx.font = `700 12px ${uiFont}`;
+            ctx.fillText(name, lx, metrics.greekTop + 33);
+          } else {
+            ctx.fillText(name, lx, metrics.greekTop + GREEK_RIBBON_H / 2 + 4);
+          }
+        }
+      }
+
+      hitRegions.push({ kind: 'period', id: p.id, x0, x1, y0: metrics.greekTop, y1: metrics.greekTop + GREEK_RIBBON_H, data: p });
+    });
+
+    /* --- Shared axis: one scale read by both ribbons --- */
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, metrics.axisY + 0.5);
+    ctx.lineTo(W, metrics.axisY + 0.5);
+    ctx.stroke();
+
+    ctx.fillStyle = text2;
+    ctx.font = `600 11px ${uiFont}`;
+    ctx.textBaseline = 'alphabetic';
+    ctx.textAlign = 'center';
+    for (let yr = first; yr <= vEnd; yr += step) {
+      const x = xOf(yr);
+      if (x < 24 || x > W - 24) continue;
+      ctx.fillText(fmtYear(yr), x, metrics.axisY + 18);
+    }
+    ctx.textAlign = 'left';
+
+    /* --- World context --- */
+    if (worldPeriods.length) {
+      ctx.font = `700 10px ${uiFont}`;
+      ctx.fillStyle = text3;
+      ctx.fillText('WORLD EMPIRES AND KINGDOMS', PAD_L, metrics.dividerY + 3);
+
+      /* --- World ribbon: multi-lane, same flat sharp-cornered style --- */
+      const worldBase = cssVar('--p-ribbon-world');
+      const worldLaid = layoutBand(worldPeriods, WORLD_LANES_N, metrics.worldTop, WORLD_RIBBON_H, WORLD_LANE_H, WORLD_LANE_GAP);
+      const laneSeen = {};
       for (const { p, y, h } of worldLaid) {
         const x0 = xOf(p.start), x1 = xOf(p.end);
         if (x1 < -40 || x0 > W + 40) continue;
-        const w = Math.max(2, x1 - x0);
-        const colour = cssVar(`--p-${WORLD_LANE_TINTS[p.lane ?? 0]}`);
+        const w = Math.max(1, x1 - x0);
+        const laneIdx = laneSeen[p.lane ?? 0] = (laneSeen[p.lane ?? 0] ?? -1) + 1;
+        const colour = shade(worldBase, laneIdx % 2 === 0 ? 0.12 : -0.16);
         const isHot = hot?.kind === 'world-period' && hot.id === p.id;
 
-        ctx.save();
-        roundRect(ctx, x0, y, w, h, 2);
         ctx.fillStyle = colour;
         ctx.globalAlpha = isHot ? 0.9 : 0.62;
-        ctx.fill();
-        ctx.restore();
+        ctx.fillRect(x0, y, w, h);
+        ctx.globalAlpha = 1;
 
         if (w > 46) {
-          ctx.save();
-          ctx.font = `600 ${Math.min(11, h * 0.6)}px ${uiFont}`;
+          ctx.font = `600 ${Math.min(11, h * 0.62)}px ${uiFont}`;
           ctx.textBaseline = 'middle';
           const PAD = 8;
           const fits = (s) => ctx.measureText(s).width + PAD <= w;
@@ -314,131 +328,112 @@ export function createTimeline(canvas, {
             ctx.fillStyle = '#fff';
             ctx.fillText(label, lx, y + h / 2 + 0.5);
           }
-          ctx.restore();
         }
 
         hitRegions.push({ kind: 'world-period', id: p.id, x0, x1, y0: y, y1: y + h, data: p });
       }
 
-      /* --- World context: labelled events line --- */
-      drawEventRow({
+      /* --- World events: dated callouts stacked downward off the ribbon --- */
+      drawBulletEvents({
         items: worldEvents.map((e) => ({ year: e.year, entity: e })),
-        spineY: metrics.worldSpineY,
-        tiers: 2,
-        lineH: 13,
-        dotR: 2.5,
-        hotKind: 'world-marker',
-        muted: true,
-        colorOf: (e) => cssVar(`--p-${WORLD_LANE_TINTS[e.lane ?? 0]}`),
-        fmt: (it) => `${fmtYear(it.entity.year)} ${it.entity.name}`,
+        baselineY: metrics.worldEventsBaseline,
+        dir: 1, tiers: metrics.worldTiers, lineH: WORLD_LINE_H,
+        hotKind: 'world-marker', muted: true,
+        colorOf: () => text3,
+        fmt: (it) => `${fmtYear(it.entity.year)}  ${it.entity.name}`,
       });
     }
 
     /**
-     * Shared renderer for both the Greek and World "events line": a thin
-     * spine, a dot per marker, and — where a marker survives collision
-     * placement — a short leader up to a stacked text label.
+     * A printed-page convention: a small bullet at the event's exact year,
+     * the date-and-name text running rightward from it — no leader line,
+     * no shared spine. Tiers stack away from the ribbon (upward for Greek,
+     * downward for World); an event that doesn't fit any tier at the
+     * current zoom is simply dropped, the same "zoom in to see more"
+     * degrade the period labels already use, rather than clutter.
      */
-    function drawEventRow({ items, spineY, tiers, lineH, dotR, hotKind, fmt, colorOf, muted = false }) {
-      // Collapse near-duplicate x positions so the spine doesn't look like
-      // static at low zoom; keep the earliest of each cluster as the anchor.
+    function drawBulletEvents({ items, baselineY, dir, tiers, lineH, hotKind, fmt, colorOf, muted = false }) {
       const visible = [];
-      const seen = new Map();
+      const seen = new Set();
       for (const it of items) {
         const x = xOf(it.year);
         if (x < -6 || x > W + 6) continue;
         const key = Math.round(x / 10);
-        if (seen.has(key)) { seen.get(key).n++; continue; }
-        const rec = { ...it, x, n: 1 };
-        seen.set(key, rec);
-        visible.push(rec);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        visible.push({ ...it, x });
       }
       visible.sort((a, b) => a.x - b.x);
 
-      ctx.save();
-      ctx.strokeStyle = border;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(PAD_L, spineY);
-      ctx.lineTo(W - PAD_R, spineY);
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.font = `${muted ? 500 : 600} ${muted ? 9.5 : 10.5}px ${uiFont}`;
-      const placed = placeEventLabels(visible, { tiers, lineH, fmt });
+      ctx.font = `${muted ? 500 : 600} ${muted ? 9.5 : 11.5}px ${uiFont}`;
+      const BULLET_GAP = 11, GUTTER = 20;
+      const rowsRight = new Array(tiers).fill(-Infinity);
+      const placed = [];
+      for (const it of visible) {
+        const label = fmt(it);
+        const tw = ctx.measureText(label).width;
+        // Never let a label's text run past the canvas edge.
+        if (it.x + BULLET_GAP + tw > W - PAD_R) continue;
+        let tier = -1;
+        for (let t = 0; t < tiers; t++) {
+          if (it.x - 4 >= rowsRight[t]) { tier = t; break; }
+        }
+        if (tier < 0) continue;
+        rowsRight[tier] = it.x + BULLET_GAP + tw + GUTTER;
+        placed.push({ ...it, label, tw, tier });
+      }
 
       for (const it of placed) {
         const isHot = hot?.kind === hotKind && hot.id === it.entity.id;
         const colour = colorOf(it.entity);
         const legendary = it.entity.legendary === true || it.entity.type === 'myth';
-
-        if (it.label != null) {
-          const labelY = spineY - 6 - it.tier * lineH;
-          ctx.save();
-          ctx.strokeStyle = colour;
-          ctx.globalAlpha = isHot ? 0.85 : 0.45;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(it.x, spineY - dotR);
-          ctx.lineTo(it.x, labelY + 3);
-          ctx.stroke();
-          ctx.restore();
-
-          ctx.save();
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'alphabetic';
-          ctx.fillStyle = isHot ? text : (muted ? text3 : text);
-          ctx.fillText(it.label, it.x, labelY);
-          ctx.textAlign = 'left';
-          ctx.restore();
-        }
+        const y = baselineY + dir * (8 + it.tier * lineH);
 
         ctx.beginPath();
-        ctx.arc(it.x, spineY, isHot ? dotR + 1.5 : dotR, 0, Math.PI * 2);
+        ctx.arc(it.x, y - 3.5, isHot ? 3.6 : 2.8, 0, Math.PI * 2);
         if (legendary) {
           ctx.strokeStyle = colour;
-          ctx.lineWidth = 1.4;
+          ctx.lineWidth = 1.3;
           ctx.fillStyle = surface;
           ctx.fill();
           ctx.stroke();
         } else {
           ctx.fillStyle = colour;
           ctx.fill();
-          ctx.strokeStyle = surface;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
         }
 
-        if (it.n > 1) {
-          ctx.fillStyle = text3;
-          ctx.font = `600 8.5px ${uiFont}`;
-          ctx.textAlign = 'center';
-          ctx.fillText(`+${it.n - 1}`, it.x, spineY + dotR + 10);
-          ctx.textAlign = 'left';
-          ctx.font = `${muted ? 500 : 600} ${muted ? 9.5 : 10.5}px ${uiFont}`;
-        }
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = isHot ? text : (muted ? text3 : text);
+        ctx.fillText(it.label, it.x + BULLET_GAP, y);
 
         hitRegions.push({
           kind: hotKind, id: it.entity.id,
-          x0: it.x - 7, x1: it.x + 7, y0: spineY - 10, y1: spineY + 10,
-          data: it.n > 1 ? { ...it.entity, n: it.n } : it.entity,
+          x0: it.x - 5, x1: it.x + BULLET_GAP + it.tw + 4,
+          y0: Math.min(y - 12, y + 4), y1: Math.max(y - 12, y + 4),
+          data: it.entity,
         });
       }
     }
 
-    /* --- playhead (the year scrubber position) --- */
+    /* --- playhead (the year scrubber position) ---
+       A thin, translucent guide rather than a hard line, so it marks the
+       current year without cutting through bar and event labels it
+       happens to cross. */
     if (playhead != null && playhead >= vStart && playhead <= vEnd) {
       const x = xOf(playhead);
       ctx.save();
       ctx.strokeStyle = cssVar('--accent');
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1.25;
+      ctx.globalAlpha = 0.4;
       ctx.setLineDash([]);
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, H - AXIS_H);
+      ctx.lineTo(x, H);
       ctx.stroke();
+      ctx.globalAlpha = 1;
       ctx.beginPath();
-      ctx.arc(x, 8, 4.5, 0, Math.PI * 2);
+      ctx.arc(x, 8, 4, 0, Math.PI * 2);
       ctx.fillStyle = cssVar('--accent');
       ctx.fill();
       ctx.restore();
@@ -453,30 +448,10 @@ export function createTimeline(canvas, {
       ctx.setLineDash([3, 4]);
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, H - AXIS_H);
+      ctx.lineTo(x, H);
       ctx.stroke();
       ctx.restore();
     }
-
-    /* --- axis --- */
-    ctx.fillStyle = surface;
-    ctx.fillRect(0, H - AXIS_H, W, AXIS_H);
-    ctx.strokeStyle = border;
-    ctx.beginPath();
-    ctx.moveTo(0, H - AXIS_H + 0.5);
-    ctx.lineTo(W, H - AXIS_H + 0.5);
-    ctx.stroke();
-
-    ctx.fillStyle = text3;
-    ctx.font = `500 11px ${cssVar('--font-ui') || 'system-ui'}`;
-    ctx.textBaseline = 'middle';
-    ctx.textAlign = 'center';
-    for (let y = first; y <= vEnd; y += step) {
-      const x = xOf(y);
-      if (x < 24 || x > W - 24) continue;
-      ctx.fillText(fmtYear(y), x, H - AXIS_H / 2);
-    }
-    ctx.textAlign = 'left';
   }
 
   function schedule() {
@@ -680,13 +655,14 @@ export function createTimeline(canvas, {
 
 /* ---------- Canvas helpers ---------- */
 
-function roundRect(ctx, x, y, w, h, r) {
-  const rr = Math.min(r, Math.abs(w) / 2, Math.abs(h) / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + rr, y);
-  ctx.arcTo(x + w, y, x + w, y + h, rr);
-  ctx.arcTo(x + w, y + h, x, y + h, rr);
-  ctx.arcTo(x, y + h, x, y, rr);
-  ctx.arcTo(x, y, x + w, y, rr);
-  ctx.closePath();
+/** Lighten (amount > 0) or darken (< 0) a hex colour. */
+function shade(hex, amount) {
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim());
+  if (!m) return hex;
+  const adj = (v) => {
+    const n = parseInt(v, 16);
+    const out = amount >= 0 ? n + (255 - n) * amount : n * (1 + amount);
+    return Math.round(clamp(out, 0, 255)).toString(16).padStart(2, '0');
+  };
+  return `#${adj(m[1])}${adj(m[2])}${adj(m[3])}`;
 }

@@ -32,6 +32,7 @@ export const imageOverrides = {
 
   // Cities & sites (disambiguation pages, or a modern-city article split from the ancient one)
   'akrotiri': 'Akrotiri (prehistoric city)',
+  'akrotiri-frescoes': 'Akrotiri (prehistoric city)',
   'thebes': 'Thebes, Greece',
   'orchomenos': 'Orchomenus (Boeotia)',
   'corinth': 'Ancient Corinth',
@@ -41,6 +42,11 @@ export const imageOverrides = {
   'cyrene': 'Cyrene, Libya',
   'tyre': 'Tyre, Lebanon',
   'issus': 'Issus (Cilicia)',
+  // "Malia" alone doesn't resolve; the Cretan town's own article does.
+  'malia': 'Malia, Crete',
+  // Persepolis's own article carries no flagged lead image; its most
+  // photographed surviving structure does.
+  'persepolis': 'Gate of All Nations',
   // "Byzantion" itself resolves to a bare locator-dot map; the Theodosian
   // walls are the site's most recognisable surviving remains.
   'byzantion': 'Walls of Constantinople',
@@ -60,6 +66,7 @@ export const imageOverrides = {
   'idylls-theocritus': 'Theocritus',
   'life-of-alexander': 'Parallel Lives',
   'nestors-cup-pithekoussai': "Nestor's Cup (Pithekoussai)",
+  'sappho-fragments': 'Sappho',
 
   // Mythology & deities
   'helen-of-troy': 'Helen of Troy',
@@ -75,6 +82,9 @@ export const imageOverrides = {
   'medinet-habu-relief': 'Medinet Habu',
   'lefkandi-centaur': 'Lefkandi',
   'vergina-larnax': 'Vergina Sun',
+  // "Athenian owl tetradrachm" itself doesn't resolve; the coinage
+  // article it redirects from carries a real photo of one.
+  'athenian-owl-tetradrachm': 'Athenian coinage',
   'cleopatra-tetradrachm': 'Cleopatra',
 
   // Events — mapped to the clearest illustrated Wikipedia article for
@@ -108,6 +118,10 @@ export const imageOverrides = {
   // Without the year, this title silently resolved to the famous 480 BC
   // battle near Athens instead of the 306 BC one off Cyprus.
   'battle-salamis-cyprus-306bc': 'Battle of Salamis (306 BC)',
+  // "Cyprus" itself resolves to the modern Republic's flag — wrong era
+  // entirely for a region entity in an ancient-history atlas. The
+  // island's own history article leads with a 17th-century map instead.
+  'cyprus': 'History of Cyprus',
 };
 
 /**
@@ -126,6 +140,4 @@ export const imageSkip = new Set([
   'chaeronea',            // resolves to a low-quality municipal diagram
   'cyclades',            // resolves to a modern Greek administrative district map;
                          // no clean photographic alternative was found
-  'cyprus',              // resolves to the modern Republic of Cyprus's coat of arms;
-                         // no single photo represents the whole island fairly
 ]);

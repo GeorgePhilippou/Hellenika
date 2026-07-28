@@ -36,17 +36,6 @@
 .hero .lede { max-width: 56ch; font-size: clamp(1.05rem, 1.7vw, 1.28rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-8); }
 
-.hero-stats {
-  display: flex; flex-wrap: wrap; gap: var(--s-8);
-  margin-top: var(--s-12); padding-top: var(--s-6);
-  border-top: 1px solid var(--border);
-}
-.hero-stat .n {
-  font-family: var(--font-display); font-size: 1.7rem; font-weight: 600;
-  font-variant-numeric: tabular-nums; line-height: 1;
-}
-.hero-stat .l { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--s-1); }
-
 /* --- Home: title row + cutout image ---
    The mask sits beside the eyebrow+H1 specifically (not centred against
    the whole hero column, which used to leave it floating oddly low once
@@ -60,16 +49,35 @@
     display: flex; align-items: center; justify-content: space-between;
     gap: var(--s-8);
   }
-  .hero-mask { display: flex; align-items: center; justify-content: center; flex: none; }
+  .hero-mask {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    flex: none;
+  }
 }
 /* No card, no border, no background box — a transparent-cutout image
    just overlaid on the hero, per the reference the user gave us. */
 .hero-mask img {
-  width: 100%; max-width: 320px; height: auto;
+  width: 100%; max-width: 420px; height: auto;
   filter: drop-shadow(0 12px 28px rgba(0,0,0,.35));
   transition: transform var(--t-med) var(--ease-out);
 }
 .hero-mask:hover img { transform: translateY(-2px); }
+
+/* A small museum-label plaque under the mask — brief, since this is
+   the homepage, not the entity page. */
+.mask-plaque {
+  display: block; text-align: center; margin-top: var(--s-3); padding-top: var(--s-2);
+  border-top: 1px solid var(--border-strong);
+  max-width: 260px;
+}
+.mask-plaque-title {
+  display: block; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2);
+}
+.mask-plaque-meta {
+  display: block; font-size: var(--fs-xxs); color: var(--text-3); margin-top: 2px;
+}
+.mask-plaque:hover .mask-plaque-title { color: var(--accent-text); }
 
 /* Exactly 4 preview cards are always shown here — fixed column counts
    that divide 4 evenly, rather than auto-fill, so a card is never
@@ -182,15 +190,6 @@
 @media (max-width: 900px) { .feature, .feature.wide { grid-column: span 6; } }
 @media (max-width: 620px) { .feature, .feature.wide, .feature.full { grid-column: span 12; } }
 
-/* --- Home: connection trail --- */
-.trail {
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2);
-  padding: var(--s-5); border-radius: var(--r-lg);
-  background: var(--surface-2); border: 1px solid var(--border);
-}
-.trail .arrow { color: var(--text-3); flex-shrink: 0; display: grid; place-items: center; }
-.trail .arrow svg { width: 15px; height: 15px; }
-
 /* ============================================================
    TIMELINE
    ============================================================ */
@@ -234,12 +233,18 @@
   position: absolute; z-index: 5; pointer-events: none;
   background: var(--surface); border: 1px solid var(--border-strong);
   border-radius: var(--r-md); box-shadow: var(--sh-3);
-  padding: var(--s-3) var(--s-4); max-width: 280px;
+  max-width: 280px; overflow: hidden;
   font-size: var(--fs-sm);
   opacity: 0; transform: translateY(4px);
   transition: opacity var(--t-fast), transform var(--t-fast);
 }
 .tl-tip.on { opacity: 1; transform: none; }
+.tl-tip-media:empty { display: none; }
+.tl-tip-media img {
+  display: block; width: 100%; height: 110px; object-fit: cover;
+  background: var(--surface-2);
+}
+.tl-tip-body { padding: var(--s-3) var(--s-4); }
 .tl-tip .t { font-weight: 620; margin-bottom: 2px; }
 .tl-tip .d { color: var(--text-3); font-size: var(--fs-xs); }
 
