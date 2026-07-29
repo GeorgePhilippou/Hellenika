@@ -26,6 +26,8 @@ claims:
     evidence: literary
     confidence: probable
 relations:
+  - id: greco-persian-wars
+    rel: part of
   - id: themistocles
     rel: commanded
   - id: xerxes-i

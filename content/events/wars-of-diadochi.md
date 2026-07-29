@@ -33,6 +33,10 @@ relations:
     rel: combatant
   - id: battle-ipsus
     rel: included
+  - id: battle-corupedium
+    rel: included
+  - id: siege-of-rhodes
+    rel: included
   - id: hellenistic-period
     rel: began
   - id: olympias

@@ -29,6 +29,8 @@ claims:
 relations:
   - id: battle-leuctra
     rel: commanded at
+  - id: battle-mantinea-362
+    rel: killed at
   - id: thebes
     rel: led
   - id: sparta

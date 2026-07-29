@@ -22,6 +22,9 @@ claims:
   - text: He served as a hoplite at Potidaea, Delium and Amphipolis.
     evidence: literary
     confidence: strong
+  - text: As a member of the presiding council in 406 BC, he alone refused to allow the illegal mass trial of the Arginusae generals to proceed.
+    evidence: literary
+    confidence: strong
   - text: Plato's dialogues accurately report Socrates' own philosophy.
     evidence: debate
     confidence: debated
@@ -29,6 +32,10 @@ claims:
     evidence: debate
     confidence: probable
 relations:
+  - id: battle-delium
+    rel: fought at
+  - id: battle-arginusae
+    rel: involved in
   - id: plato
     rel: taught
   - id: xenophon

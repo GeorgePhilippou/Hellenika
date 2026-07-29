@@ -28,6 +28,8 @@ claims:
     evidence: literary
     confidence: strong
 relations:
+  - id: demetrius-i
+    rel: father of
   - id: alexander-the-great
     rel: served
   - id: wars-of-diadochi

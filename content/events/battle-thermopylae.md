@@ -29,6 +29,8 @@ claims:
     evidence: debate
     confidence: debated
 relations:
+  - id: greco-persian-wars
+    rel: part of
   - id: thermopylae
     rel: site
   - id: leonidas

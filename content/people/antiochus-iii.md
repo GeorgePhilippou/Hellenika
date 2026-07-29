@@ -26,6 +26,8 @@ claims:
     evidence: literary
     confidence: strong
 relations:
+  - id: battle-magnesia
+    rel: defeated at
   - id: seleucid-empire
     rel: ruled
   - id: roman-conquest

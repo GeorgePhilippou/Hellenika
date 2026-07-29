@@ -26,6 +26,8 @@ claims:
     evidence: debate
     confidence: debated
 relations:
+  - id: greco-persian-wars
+    rel: part of
   - id: marathon
     rel: site
   - id: miltiades

@@ -32,6 +32,8 @@ relations:
     rel: based at
   - id: pericles
     rel: directed by
+  - id: cimon
+    rel: led
   - id: peloponnesian-war
     rel: led to
   - id: parthenon-built

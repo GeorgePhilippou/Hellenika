@@ -28,6 +28,8 @@ claims:
 relations:
   - id: epaminondas
     rel: commanded
+  - id: battle-mantinea-362
+    rel: tactics repeated at
   - id: thebes
     rel: victor
   - id: sparta

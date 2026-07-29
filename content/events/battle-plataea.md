@@ -26,6 +26,10 @@ claims:
     evidence: literary
     confidence: probable
 relations:
+  - id: greco-persian-wars
+    rel: part of
+  - id: battle-mycale
+    rel: coincided with
   - id: sparta
     rel: led
   - id: pausanias-regent

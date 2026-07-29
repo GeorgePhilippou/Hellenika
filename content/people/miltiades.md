@@ -27,6 +27,8 @@ claims:
     evidence: literary
     confidence: strong
 relations:
+  - id: cimon
+    rel: father of
   - id: battle-marathon
     rel: commanded at
   - id: athens

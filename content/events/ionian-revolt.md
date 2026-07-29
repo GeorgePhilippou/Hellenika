@@ -23,6 +23,8 @@ claims:
     evidence: archaeological
     confidence: strong
 relations:
+  - id: greco-persian-wars
+    rel: part of
   - id: miletus
     rel: led by
   - id: aristagoras

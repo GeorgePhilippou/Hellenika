@@ -39,6 +39,14 @@ relations:
     rel: chronicled by
   - id: plague-of-athens
     rel: included
+  - id: battle-sphacteria
+    rel: included
+  - id: battle-delium
+    rel: included
+  - id: battle-mantinea-418
+    rel: included
+  - id: battle-arginusae
+    rel: included
   - id: sicilian-expedition
     rel: included
   - id: battle-aegospotami

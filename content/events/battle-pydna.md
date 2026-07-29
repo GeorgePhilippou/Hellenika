@@ -26,6 +26,8 @@ claims:
     evidence: literary
     confidence: strong
 relations:
+  - id: macedonian-wars
+    rel: part of
   - id: pydna
     rel: site
   - id: aemilius-paullus

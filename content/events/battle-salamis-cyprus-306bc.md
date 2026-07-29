@@ -26,6 +26,8 @@ claims:
     evidence: consensus
     confidence: strong
 relations:
+  - id: demetrius-i
+    rel: commanded at
   - id: salamis-cyprus
     rel: site
   - id: ptolemy-i

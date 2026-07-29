@@ -30,6 +30,10 @@ claims:
     evidence: debate
     confidence: debated
 relations:
+  - id: anaxagoras
+    rel: taught by
+  - id: cimon
+    rel: rival of
   - id: athens
     rel: led
   - id: parthenon-built
