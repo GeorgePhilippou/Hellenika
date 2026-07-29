@@ -193,8 +193,18 @@ function paintCard(node, img) {
   node.append(photo);
 }
 
+// Clamp how far the hero box will stretch to match a photo's own shape,
+// so a panoramic landscape or a very tall crop still leaves a sane column
+// width in the two-column hero layout, rather than resizing without limit.
+const HERO_MIN_RATIO = 0.62; // tallest allowed (portrait)
+const HERO_MAX_RATIO = 1.9;  // widest allowed (landscape)
+
 function paintHero(node, img) {
   if (node.querySelector('img')) return;
+  if (img.w && img.h) {
+    const ratio = Math.min(HERO_MAX_RATIO, Math.max(HERO_MIN_RATIO, img.w / img.h));
+    node.style.aspectRatio = String(ratio);
+  }
   const wrap = document.createElement('a');
   wrap.className = 'hero-photo';
   wrap.href = img.page;
