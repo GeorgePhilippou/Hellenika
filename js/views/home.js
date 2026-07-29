@@ -2,7 +2,7 @@
    Hellenika — Home
    ============================================================ */
 
-import { el, $, esc, fmtYear } from '../util.js';
+import { el, $, esc, fmtYear, fmtRange } from '../util.js';
 import { icon, TYPE_ICON } from '../icons.js';
 import * as db from '../db.js';
 import * as store from '../store.js';
@@ -10,6 +10,17 @@ import { periods } from '../../data/periods.js';
 import { collections } from '../../data/collections.js';
 import { sectionHead, entityPill, entityDate } from '../components/ui.js';
 import { entityHref } from '../router.js';
+
+// Rotating hero cutouts: transparent-background museum photos, so the
+// object reads as a physical thing sitting on the page rather than a
+// framed photo. One is picked at random on every visit so the homepage
+// doesn't go stale. Add an entry here whenever a matching cutout exists
+// at assets/<id>.webp -- the caption itself is still driven live from
+// the entity's own material/date data, only the source image and the
+// short "found at" label are hardcoded per entry.
+const HERO_OBJECTS = [
+  { id: 'mask-of-agamemnon', asset: 'assets/mask-of-agamemnon.webp', place: 'Mycenae' },
+];
 
 const FEATURES = [
   { href: '#/timeline', icon: 'timeline', tint: 'classical', title: 'Travel through time',
@@ -35,7 +46,10 @@ export async function renderHome() {
   const pool = db.ALL.filter((e) => e.body && e.claims.length >= 3 && !e.modern);
   const featured = pool[day % pool.length];
 
-  const heroMask = db.get('mask-of-agamemnon');
+  // A fresh random pick each visit (not the stable daily pick above) --
+  // this one is decorative, so there's no reason to hold it steady.
+  const heroPick = HERO_OBJECTS[Math.floor(Math.random() * HERO_OBJECTS.length)];
+  const heroMask = heroPick ? db.get(heroPick.id) : null;
 
   root.innerHTML = `
     <section class="hero">
@@ -48,11 +62,11 @@ export async function renderHome() {
           ${heroMask ? `
           <div class="hero-mask">
             <a href="${entityHref(heroMask.id)}" aria-label="${esc(heroMask.name)}">
-              <img src="assets/mask-of-agamemnon.webp" alt="${esc(heroMask.name)}" loading="lazy">
+              <img src="${heroPick.asset}" alt="${esc(heroMask.name)}" loading="lazy">
             </a>
             <a class="mask-plaque" href="${entityHref(heroMask.id)}">
               <span class="mask-plaque-title">${esc(heroMask.name)}</span>
-              <span class="mask-plaque-meta">${esc(heroMask.material)} · c. 1550–1500 BC · Mycenae</span>
+              <span class="mask-plaque-meta">${esc(heroMask.material || '')} · ${fmtRange(heroMask.start, heroMask.end, heroMask.approx)} · ${esc(heroPick.place)}</span>
             </a>
           </div>` : ''}
         </div>
