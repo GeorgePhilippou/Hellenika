@@ -8,8 +8,8 @@ mapCoords:
   - 12.55
 mapPlacement: Diagrammatic south-west of Sicily, following the reference map
 via:
-  - - 36.75
-    - 15.05
+  - - 36.55
+    - 14.7
   - - 35.8
     - 14.1
 _order: 11

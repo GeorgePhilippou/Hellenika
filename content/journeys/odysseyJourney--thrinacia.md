@@ -4,8 +4,8 @@ order: 11
 label: Cattle of the Sun
 curve: 0.06
 via:
-  - - 37.95
-    - 15.55
+  - - 37.9
+    - 15.75
 _order: 10
 ---
 

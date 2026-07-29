@@ -166,10 +166,25 @@ export function createJourneyMap(canvas, {
     ctx.restore();
   }
 
+  /**
+   * Rotating an icon by its raw heading makes it flip fully upside-down
+   * whenever travel points generally leftward (heading ~180°) — a boat's
+   * mast/sail ends up pointing into the sea instead of the sky. Mirroring
+   * horizontally for leftward headings, instead of continuing the spin
+   * past vertical, keeps the mast pointing up no matter which way the
+   * route runs.
+   */
+  function uprightTransform(angle) {
+    const flip = Math.cos(angle) < 0;
+    return { flip, rotated: flip ? Math.PI - angle : angle };
+  }
+
   function drawShip(position, dark) {
     ctx.save();
     ctx.translate(position.x, position.y);
-    ctx.rotate(position.angle);
+    const { flip, rotated } = uprightTransform(position.angle);
+    if (flip) ctx.scale(-1, 1);
+    ctx.rotate(rotated);
     ctx.shadowColor = 'rgba(0,0,0,.45)';
     ctx.shadowBlur = 8;
     ctx.fillStyle = dark ? '#f8efe0' : '#28160f';
@@ -198,7 +213,9 @@ export function createJourneyMap(canvas, {
   function drawStandard(position, dark) {
     ctx.save();
     ctx.translate(position.x, position.y);
-    ctx.rotate(position.angle);
+    const { flip, rotated } = uprightTransform(position.angle);
+    if (flip) ctx.scale(-1, 1);
+    ctx.rotate(rotated);
     ctx.shadowColor = 'rgba(0,0,0,.45)';
     ctx.shadowBlur = 8;
     ctx.strokeStyle = dark ? '#f8efe0' : '#28160f';

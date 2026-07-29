@@ -4,8 +4,8 @@ order: 5
 label: Aeolia
 curve: -0.08
 via:
-  - - 37.95
-    - 15.65
+  - - 38.05
+    - 15.85
 _order: 4
 ---
 
