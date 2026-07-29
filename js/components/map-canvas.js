@@ -95,6 +95,12 @@ export function createMap(canvas, {
   onTerritoryClick,
   territoryEntityId,
   onHover,
+  /** Small preview maps (e.g. an entity page's Location panel) shouldn't
+      capture drag/wheel/keyboard input -- a wheel-zoomable canvas sitting
+      in a scrollable sidebar hijacks the page's own scroll the moment the
+      cursor passes over it, leaving the map panned or zoomed to some
+      confusing, unrequested view. Set false for a static, look-only map. */
+  interactive = true,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
   const eventScope = new AbortController();
@@ -679,117 +685,6 @@ export function createMap(canvas, {
   const pointers = new Map();
   let pinch = 0;
 
-  canvas.addEventListener('pointerdown', (e) => {
-    canvas.setPointerCapture(e.pointerId);
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.size === 1) {
-      dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
-      canvas.classList.add('dragging');
-    } else if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      pinch = Math.hypot(a.x - b.x, a.y - b.y);
-    }
-  }, { signal: eventScope.signal });
-
-  canvas.addEventListener('pointermove', (e) => {
-    if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-
-    if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      const d = Math.hypot(a.x - b.x, a.y - b.y);
-      if (pinch > 0 && d > 0) {
-        const rect = canvas.getBoundingClientRect();
-        zoomAbout((a.x + b.x) / 2 - rect.left, (a.y + b.y) / 2 - rect.top, d / pinch);
-        pinch = d;
-      }
-      return;
-    }
-
-    if (dragging) {
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      moved += Math.abs(dx) + Math.abs(dy);
-      lastX = e.clientX; lastY = e.clientY;
-      tx += dx; ty += dy;
-      schedule();
-      return;
-    }
-
-    const rect = canvas.getBoundingClientRect();
-    const px = e.clientX - rect.left, py = e.clientY - rect.top;
-    const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    let nextHot = h ? h.entity : null;
-    let clickable = !!h;
-    if (!h) {
-      const rh = routeHitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-      if (rh) {
-        nextHot = {
-          id: `route:${rh.route.id}`, name: rh.route.name, typeLabel: 'Route',
-          start: rh.route.from, end: rh.route.to, region: null,
-        };
-      }
-    }
-    if (!nextHot) {
-      const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
-      if (th) {
-        const t = th.territory;
-        const entityId = territoryEntityId?.(t) ?? t.entityId ?? null;
-        const typeLabel = t.kind === 'culture' ? 'Archaeological culture zone'
-          : t.kind === 'league' ? 'Alliance / hegemony'
-          : t.kind === 'regional' ? 'Regional reconstruction'
-          : 'Political territory';
-        nextHot = {
-          id: `territory:${t.id}`, name: t.name, typeLabel,
-          start: t.from, end: t.to, region: null, entityId,
-          certainty: t.certainty,
-        };
-        clickable = Boolean(entityId);
-      }
-    }
-    if (nextHot?.id !== hot?.id) {
-      hot = nextHot;
-      canvas.style.cursor = clickable ? 'pointer' : 'grab';
-      onHover?.(hot, { x: px, y: py });
-      schedule();
-    }
-  }, { signal: eventScope.signal });
-
-  const end = (e) => {
-    pointers.delete(e.pointerId);
-    if (pointers.size < 2) pinch = 0;
-    if (pointers.size === 0) { dragging = false; canvas.classList.remove('dragging'); }
-  };
-  canvas.addEventListener('pointerup', end, { signal: eventScope.signal });
-  canvas.addEventListener('pointercancel', end, { signal: eventScope.signal });
-  canvas.addEventListener('pointerleave', () => {
-    if (hot) { hot = null; onHover?.(null); schedule(); }
-  }, { signal: eventScope.signal });
-
-  canvas.addEventListener('click', (e) => {
-    if (moved > 6) return;
-    const rect = canvas.getBoundingClientRect();
-    const px = e.clientX - rect.left, py = e.clientY - rect.top;
-    const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    if (h?.cluster) {
-      const lons = h.members.map((m) => m.coords[1]);
-      const lats = h.members.map((m) => m.coords[0]);
-      const pad = 0.35;
-      api.flyTo([
-        Math.min(...lons) - pad, Math.min(...lats) - pad,
-        Math.max(...lons) + pad, Math.max(...lats) + pad,
-      ], 0.6);
-      return;
-    }
-    if (h) {
-      onMarkerClick?.(h.entity);
-      return;
-    }
-    const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
-    if (th) {
-      const entityId = territoryEntityId?.(th.territory) ?? th.territory.entityId ?? null;
-      if (entityId) onTerritoryClick?.(th.territory, entityId);
-    }
-  }, { signal: eventScope.signal });
-
   function zoomAbout(px, py, factor) {
     const next = clamp(scale * factor, MIN_SCALE, MAX_SCALE);
     const k = next / scale;
@@ -799,25 +694,144 @@ export function createMap(canvas, {
     schedule();
   }
 
-  canvas.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const rect = canvas.getBoundingClientRect();
-    const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
-    zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
-  }, { passive: false, signal: eventScope.signal });
+  // Static preview maps (the entity page's small Location panel) skip all
+  // of this: no drag, no wheel/pinch zoom, no keyboard panning. Without
+  // this a wheel-zoomable canvas sitting in a scrollable sidebar hijacks
+  // the page's own scroll the instant the cursor passes over it, leaving
+  // the map panned or zoomed to some confusing, unrequested view -- which
+  // is exactly what was reported as a "broken" shape on an entity page.
+  if (interactive) {
+    canvas.addEventListener('pointerdown', (e) => {
+      canvas.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1) {
+        dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
+        canvas.classList.add('dragging');
+      } else if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        pinch = Math.hypot(a.x - b.x, a.y - b.y);
+      }
+    }, { signal: eventScope.signal });
 
-  canvas.tabIndex = 0;
-  canvas.setAttribute('role', 'application');
-  canvas.setAttribute('aria-label', 'Historical map of the Greek world. Arrow keys pan, plus and minus zoom.');
-  canvas.addEventListener('keydown', (e) => {
-    const step = 50;
-    if (e.key === 'ArrowLeft') { tx += step; schedule(); e.preventDefault(); }
-    else if (e.key === 'ArrowRight') { tx -= step; schedule(); e.preventDefault(); }
-    else if (e.key === 'ArrowUp') { ty += step; schedule(); e.preventDefault(); }
-    else if (e.key === 'ArrowDown') { ty -= step; schedule(); e.preventDefault(); }
-    else if (e.key === '+' || e.key === '=') { zoomAbout(W / 2, H / 2, 1.3); e.preventDefault(); }
-    else if (e.key === '-') { zoomAbout(W / 2, H / 2, 0.77); e.preventDefault(); }
-  }, { signal: eventScope.signal });
+    canvas.addEventListener('pointermove', (e) => {
+      if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+      if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (pinch > 0 && d > 0) {
+          const rect = canvas.getBoundingClientRect();
+          zoomAbout((a.x + b.x) / 2 - rect.left, (a.y + b.y) / 2 - rect.top, d / pinch);
+          pinch = d;
+        }
+        return;
+      }
+
+      if (dragging) {
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        moved += Math.abs(dx) + Math.abs(dy);
+        lastX = e.clientX; lastY = e.clientY;
+        tx += dx; ty += dy;
+        schedule();
+        return;
+      }
+
+      const rect = canvas.getBoundingClientRect();
+      const px = e.clientX - rect.left, py = e.clientY - rect.top;
+      const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+      let nextHot = h ? h.entity : null;
+      let clickable = !!h;
+      if (!h) {
+        const rh = routeHitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+        if (rh) {
+          nextHot = {
+            id: `route:${rh.route.id}`, name: rh.route.name, typeLabel: 'Route',
+            start: rh.route.from, end: rh.route.to, region: null,
+          };
+        }
+      }
+      if (!nextHot) {
+        const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
+        if (th) {
+          const t = th.territory;
+          const entityId = territoryEntityId?.(t) ?? t.entityId ?? null;
+          const typeLabel = t.kind === 'culture' ? 'Archaeological culture zone'
+            : t.kind === 'league' ? 'Alliance / hegemony'
+            : t.kind === 'regional' ? 'Regional reconstruction'
+            : 'Political territory';
+          nextHot = {
+            id: `territory:${t.id}`, name: t.name, typeLabel,
+            start: t.from, end: t.to, region: null, entityId,
+            certainty: t.certainty,
+          };
+          clickable = Boolean(entityId);
+        }
+      }
+      if (nextHot?.id !== hot?.id) {
+        hot = nextHot;
+        canvas.style.cursor = clickable ? 'pointer' : 'grab';
+        onHover?.(hot, { x: px, y: py });
+        schedule();
+      }
+    }, { signal: eventScope.signal });
+
+    const end = (e) => {
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) pinch = 0;
+      if (pointers.size === 0) { dragging = false; canvas.classList.remove('dragging'); }
+    };
+    canvas.addEventListener('pointerup', end, { signal: eventScope.signal });
+    canvas.addEventListener('pointercancel', end, { signal: eventScope.signal });
+    canvas.addEventListener('pointerleave', () => {
+      if (hot) { hot = null; onHover?.(null); schedule(); }
+    }, { signal: eventScope.signal });
+
+    canvas.addEventListener('click', (e) => {
+      if (moved > 6) return;
+      const rect = canvas.getBoundingClientRect();
+      const px = e.clientX - rect.left, py = e.clientY - rect.top;
+      const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+      if (h?.cluster) {
+        const lons = h.members.map((m) => m.coords[1]);
+        const lats = h.members.map((m) => m.coords[0]);
+        const pad = 0.35;
+        api.flyTo([
+          Math.min(...lons) - pad, Math.min(...lats) - pad,
+          Math.max(...lons) + pad, Math.max(...lats) + pad,
+        ], 0.6);
+        return;
+      }
+      if (h) {
+        onMarkerClick?.(h.entity);
+        return;
+      }
+      const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
+      if (th) {
+        const entityId = territoryEntityId?.(th.territory) ?? th.territory.entityId ?? null;
+        if (entityId) onTerritoryClick?.(th.territory, entityId);
+      }
+    }, { signal: eventScope.signal });
+
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
+      zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
+    }, { passive: false, signal: eventScope.signal });
+
+    canvas.tabIndex = 0;
+    canvas.setAttribute('role', 'application');
+    canvas.setAttribute('aria-label', 'Historical map of the Greek world. Arrow keys pan, plus and minus zoom.');
+    canvas.addEventListener('keydown', (e) => {
+      const step = 50;
+      if (e.key === 'ArrowLeft') { tx += step; schedule(); e.preventDefault(); }
+      else if (e.key === 'ArrowRight') { tx -= step; schedule(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { ty += step; schedule(); e.preventDefault(); }
+      else if (e.key === 'ArrowDown') { ty -= step; schedule(); e.preventDefault(); }
+      else if (e.key === '+' || e.key === '=') { zoomAbout(W / 2, H / 2, 1.3); e.preventDefault(); }
+      else if (e.key === '-') { zoomAbout(W / 2, H / 2, 0.77); e.preventDefault(); }
+    }, { signal: eventScope.signal });
+  }
 
   const ro = new ResizeObserver(() => { fitted = false; schedule(); });
   ro.observe(canvas);

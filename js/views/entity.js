@@ -384,6 +384,9 @@ function mount(root, e) {
       markers: [],
       focus: e,
       onMarkerClick: () => {},
+      // Static preview only -- see the comment on the `interactive` option
+      // in map-canvas.js for why a scroll-hijacking mini-map is a bug.
+      interactive: false,
     });
     // Frame a window around the entity.
     const [lat, lon] = e.coords;
