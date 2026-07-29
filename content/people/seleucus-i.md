@@ -33,6 +33,8 @@ relations:
     rel: founded
   - id: battle-ipsus
     rel: fought at
+  - id: lysimachus
+    rel: killed
   - id: antioch
     rel: founded
   - id: ai-khanoum

@@ -26,6 +26,8 @@ claims:
     evidence: tradition
     confidence: debated
 relations:
+  - id: sulla
+    rel: opposed by
   - id: sulla-sacks-athens
     rel: provoked
   - id: roman-conquest

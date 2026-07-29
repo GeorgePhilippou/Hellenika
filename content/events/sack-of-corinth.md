@@ -25,6 +25,8 @@ claims:
 relations:
   - id: corinth
     rel: site
+  - id: lucius-mummius
+    rel: commanded by
   - id: roman-conquest
     rel: part of
   - id: polybius

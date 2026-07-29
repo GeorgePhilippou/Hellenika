@@ -30,6 +30,8 @@ claims:
     evidence: consensus
     confidence: probable
 relations:
+  - id: cassander
+    rel: executed by
   - id: alexander-the-great
     rel: mother of
   - id: philip-ii

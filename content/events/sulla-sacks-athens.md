@@ -25,6 +25,8 @@ claims:
 relations:
   - id: athens
     rel: site
+  - id: sulla
+    rel: commanded by
   - id: mithridates-vi
     rel: allied with
   - id: roman-conquest

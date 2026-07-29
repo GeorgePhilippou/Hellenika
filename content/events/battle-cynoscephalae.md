@@ -26,6 +26,8 @@ claims:
     evidence: literary
     confidence: strong
 relations:
+  - id: flamininus
+    rel: commanded by
   - id: philip-v
     rel: defeated
   - id: roman-conquest

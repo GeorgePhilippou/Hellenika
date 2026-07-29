@@ -28,6 +28,8 @@ claims:
 relations:
   - id: pydna
     rel: site
+  - id: aemilius-paullus
+    rel: commanded by
   - id: roman-conquest
     rel: part of
   - id: polybius
