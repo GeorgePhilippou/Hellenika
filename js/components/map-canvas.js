@@ -833,7 +833,16 @@ export function createMap(canvas, {
     }, { signal: eventScope.signal });
   }
 
-  const ro = new ResizeObserver(() => { fitted = false; schedule(); });
+  // Redraw at the new size, but don't re-run the one-time initial fit --
+  // ResizeObserver reliably fires once immediately on observe(), often
+  // *after* the mount-time flyTo() has already resolved its pendingFly
+  // and set `fitted = true`. Resetting `fitted` here made that follow-up
+  // callback re-run fitExtent() with no pendingFly left to restore the
+  // intended view, silently snapping any freshly-flown-to map (e.g. the
+  // entity page's mini-map) back to the full, unzoomed extent. A real
+  // resize should keep the current view and just re-fit the canvas to
+  // its new pixel size, the same way any map UI behaves.
+  const ro = new ResizeObserver(() => { schedule(); });
   ro.observe(canvas);
 
   /* ---------- API ---------- */
