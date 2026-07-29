@@ -571,7 +571,7 @@ function mount(root, initialMode) {
       stops,
       territories: territoryList,
       foundations: which === 'alexander' ? alexanderFoundations : [],
-      basemap: 'relief',
+      basemap: 'plain',
       locked: guided,
       showRoute: true,
       traveller: which === 'alexander' ? 'standard' : 'ship',

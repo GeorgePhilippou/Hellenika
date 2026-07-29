@@ -265,7 +265,10 @@ export function createJourneyMap(canvas, {
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
       ctx.closePath();
-      ctx.globalAlpha = 0.24 * alpha;
+      // Matches the main historical map's bold "colour region" treatment
+      // for political territories (see map-canvas.js) so the journey views
+      // share the same atlas look rather than a fainter wash.
+      ctx.globalAlpha = 0.6 * alpha;
       ctx.fillStyle = cssVar(`--p-${t.tint}`);
       ctx.fill();
       ctx.restore();
@@ -278,7 +281,7 @@ export function createJourneyMap(canvas, {
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
       ctx.closePath();
-      ctx.globalAlpha = 0.75 * alpha;
+      ctx.globalAlpha = 0.9 * alpha;
       ctx.strokeStyle = cssVar(`--p-${t.tint}`);
       ctx.lineWidth = 1.6;
       ctx.stroke();
