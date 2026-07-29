@@ -53,12 +53,10 @@ const JOURNEYS = {
   odyssey: {
     label: "Odysseus's Journey",
     config: odysseyJourney,
-    intro: `Homer's own geography is deliberately non-literal once Odysseus leaves the Greek
-      mainland — the poem places Aeolia on a floating island and the entrance to the
-      Underworld at the edge of Ocean itself. Every stop below past Ismarus uses a
-      <strong>traditional</strong> real-world identification proposed since antiquity —
-      never an established one. Each stop's own page tags exactly how confident that
-      identification is, from "probable" down to "legendary".`,
+    intro: `This line follows the conventional reconstruction in the reference map and
+      stays over navigable water. Beyond Ismarus, however, most locations are traditional
+      or diagrammatic identifications rather than established geography. Select a stop
+      for the episode, its connection to the voyage, and the evidence behind its placement.`,
   },
   alexander: {
     label: "Alexander's Conquest",
@@ -117,7 +115,14 @@ function resolveStops(config) {
     .map((s) => {
       const e = db.get(s.id);
       if (!e || !e.coords) return null;
-      return { ...s, name: e.name, coords: e.coords, tint: e.tint, typeLabel: e.typeLabel, entity: e };
+      return {
+        ...s,
+        name: s.label || e.name,
+        coords: s.mapCoords || e.coords,
+        tint: e.tint,
+        typeLabel: e.typeLabel,
+        entity: e,
+      };
     })
     .filter(Boolean);
 }
@@ -195,6 +200,7 @@ function mount(root, initialMode) {
   function setMode(next, { updateUrl = true } = {}) {
     teardown();
     mode = next;
+    root.classList.toggle('is-odyssey', mode === 'odyssey');
 
     $$('[data-mode]', root).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
 
@@ -444,20 +450,25 @@ function mount(root, initialMode) {
     scrubberHost.innerHTML = '';
 
     const stops = resolveStops(JOURNEYS[which].config);
+    const guided = which === 'odyssey';
     const territoryList = which === 'alexander'
       ? territories.filter((t) => alexanderTerritoryIds.includes(t.id))
       : [];
+    let selectedStop = stops[0] || null;
 
     eraHost.innerHTML = `
       <div class="y" style="font-size:1.1rem">${esc(JOURNEYS[which].label)}</div>
-      <div class="p">${stops.length} stops</div>`;
+      <div class="p" id="journey-progress">${stops.length} stops</div>`;
 
     sideHost.innerHTML = `
-      <div class="panel">
+      ${guided ? `
+        <div class="panel journey-card-panel" id="journey-card" aria-live="polite"></div>` : ''}
+      <div class="panel journey-list-panel">
         <h3 class="eyebrow" style="margin-bottom:var(--s-3)">The journey</h3>
         <div class="journey-stops" id="journey-stops">
           ${stops.map((s) => `
-            <button class="journey-stop" data-stop="${esc(s.id)}" style="--tint:var(--p-${s.tint})">
+            <button class="journey-stop${s.order === 1 ? ' active' : ''}" data-stop="${esc(s.id)}"
+                    style="--tint:var(--p-${s.tint})" aria-current="${s.order === 1 ? 'step' : 'false'}">
               <span class="journey-stop-n">${s.order}</span>
               <span class="journey-stop-body">
                 <span class="journey-stop-name">${esc(s.name)}</span>
@@ -468,11 +479,87 @@ function mount(root, initialMode) {
         </div>
       </div>`;
 
+    function stopCardHTML(s) {
+      if (!s) return '';
+      const image = peekImage(s.entity);
+      const media = image?.src
+        ? `<a class="journey-card-media" href="${esc(image.page)}" target="_blank" rel="noopener noreferrer"
+              aria-label="Open image source for ${esc(s.name)}">
+             <img src="${esc(image.src)}" alt="" loading="eager" decoding="async">
+             <span>Wikipedia ↗</span>
+           </a>`
+        : `<div class="journey-card-media is-placeholder">${icon('myth', { size: 34 })}</div>`;
+      return `
+        ${media}
+        <div class="journey-card-kicker">Stop ${s.order} of ${stops.length}</div>
+        <h3>${esc(s.name)}</h3>
+        <p class="journey-card-note">${esc(s.note)}</p>
+        <div class="journey-card-section">
+          <h4>The episode</h4>
+          <p>${esc(s.entity.myth || s.entity.summary)}</p>
+        </div>
+        <div class="journey-card-section">
+          <h4>How this stop connects</h4>
+          <p>${esc(s.connection || s.entity.summary)}</p>
+        </div>
+        <div class="journey-card-section">
+          <h4>Geography and evidence</h4>
+          <p>${esc(s.entity.historicalBackground || s.entity.summary)}</p>
+          ${s.entity.archaeology ? `<p>${esc(s.entity.archaeology)}</p>` : ''}
+        </div>
+        <div class="journey-card-meta">
+          <span><strong>Map placement:</strong> ${esc(s.mapPlacement || s.entity.region || 'Traditional location')}</span>
+          ${s.mapCoords ? `<span><strong>Profile identification:</strong> ${esc(s.entity.region)}</span>` : ''}
+          ${s.entity.earliestSource ? `<span><strong>Primary text:</strong> ${esc(s.entity.earliestSource)}</span>` : ''}
+        </div>
+        <div class="journey-card-actions">
+          <button class="btn btn-sm" data-journey-prev ${s.order === 1 ? 'disabled' : ''}>
+            ${icon('arrowLeft', { size: 14 })} Previous
+          </button>
+          <button class="btn btn-sm btn-primary" data-journey-next ${s.order === stops.length ? 'disabled' : ''}>
+            Sail onward ${icon('arrowRight', { size: 14 })}
+          </button>
+          <a class="btn btn-sm" href="${entityHref(s.id)}">Full entry</a>
+        </div>`;
+    }
+
+    function renderStopCard() {
+      const card = $('#journey-card', root);
+      if (card) card.innerHTML = stopCardHTML(selectedStop);
+      const progress = $('#journey-progress', root);
+      if (progress && selectedStop) progress.textContent = `Stop ${selectedStop.order} of ${stops.length}`;
+    }
+
+    function selectStop(s, { travel = true } = {}) {
+      if (!s) return;
+      selectedStop = s;
+      $$('.journey-stop', root).forEach((button) => {
+        const active = button.dataset.stop === s.id;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-current', active ? 'step' : 'false');
+        if (active) button.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      });
+      renderStopCard();
+      if (travel) {
+        guided ? jMap.travelTo(s.id) : jMap.focusStop(s.id);
+      }
+    }
+
     const jMap = createJourneyMap(canvas, {
       stops,
       territories: territoryList,
       basemap: 'relief',
-      onStopClick: (s) => go(`/e/${s.id}`),
+      locked: guided,
+      showRoute: true,
+      onStopClick: (s) => guided ? selectStop(s) : go(`/e/${s.id}`),
+      onTravelStart: (s) => {
+        const progress = $('#journey-progress', root);
+        if (progress) progress.textContent = `Sailing to stop ${s.order}…`;
+      },
+      onTravelEnd: (s) => {
+        const progress = $('#journey-progress', root);
+        if (progress) progress.textContent = `Stop ${s.order} of ${stops.length}`;
+      },
       onHover: (s, pos) => {
         if (!s) { tip.classList.remove('on'); return; }
         tip.innerHTML = `<div class="t">${esc(s.name)}</div>
@@ -484,6 +571,10 @@ function mount(root, initialMode) {
       },
     });
     map = jMap;
+    renderStopCard();
+    if (guided) {
+      ensureImagesLoaded(stops.map((s) => s.entity)).then(() => renderStopCard());
+    }
 
     $('#journey-stops', root).addEventListener('click', (e) => {
       const link = e.target.closest('.journey-stop-open');
@@ -491,13 +582,22 @@ function mount(root, initialMode) {
       const btn = e.target.closest('[data-stop]');
       if (!btn) return;
       e.preventDefault();
-      $$('.journey-stop', root).forEach((b) => b.classList.toggle('active', b === btn));
-      jMap.focusStop(btn.dataset.stop);
+      selectStop(stops.find((s) => s.id === btn.dataset.stop));
     });
 
-    $('#map-zin', root).addEventListener('click', () => jMap.zoomIn());
-    $('#map-zout', root).addEventListener('click', () => jMap.zoomOut());
-    $('#map-reset', root).addEventListener('click', () => jMap.reset());
+    if (guided) {
+      sideHost.addEventListener('click', (e) => {
+        const prev = e.target.closest('[data-journey-prev]');
+        const next = e.target.closest('[data-journey-next]');
+        if (!prev && !next) return;
+        const index = stops.findIndex((s) => s.id === selectedStop?.id);
+        selectStop(stops[index + (next ? 1 : -1)]);
+      });
+    } else {
+      $('#map-zin', root).addEventListener('click', () => jMap.zoomIn());
+      $('#map-zout', root).addEventListener('click', () => jMap.zoomOut());
+      $('#map-reset', root).addEventListener('click', () => jMap.reset());
+    }
   }
 
   setMode(initialMode, { updateUrl: false });

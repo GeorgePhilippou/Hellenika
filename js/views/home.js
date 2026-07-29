@@ -43,7 +43,7 @@ export async function renderHome() {
         <div class="hero-title-row">
           <div class="hero-title-col">
             <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
-            <h1>The complete interactive history of the Ancient Greek world.</h1>
+            <h1>Explore Ancient Greece and the world it shaped.</h1>
           </div>
           ${heroMask ? `
           <div class="hero-mask">

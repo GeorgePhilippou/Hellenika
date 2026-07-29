@@ -9,12 +9,14 @@
    not a moment in time.
 
    Painting order: basemap → territory backdrop (optional) →
-   numbered places and labels → hover highlight.
+   curved route and travelling ship → numbered places and labels.
    ============================================================ */
 
-import { clamp, fitCanvas, animate, easeOutCubic, prefersReducedMotion } from '../util.js';
+import {
+  clamp, fitCanvas, animate, easeOutCubic, easeInOutCubic, prefersReducedMotion,
+} from '../util.js';
 import { PROVIDERS, lonLatToWorld, worldToLonLat, drawTiles } from './tiles.js';
-import { wheelZoomFactor } from './map-draw-utils.js';
+import { drawArrowHead, pointAtFraction, wheelZoomFactor } from './map-draw-utils.js';
 
 const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
 
@@ -25,8 +27,12 @@ export function createJourneyMap(canvas, {
   stops = [],          // [{ id, order, name, note, coords:[lat,lon], tint, entity }]
   territories = [],    // optional static backdrop: [{ ring:[[lon,lat],...], tint }]
   basemap = 'relief',
+  locked = false,
+  showRoute = true,
   onHover,
   onStopClick,
+  onTravelStart,
+  onTravelEnd,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
 
@@ -38,6 +44,9 @@ export function createJourneyMap(canvas, {
   let hitRegions = [];
   let raf = null;
   let current = { basemap };
+  let activeId = stops[0]?.id ?? null;
+  let travelIndex = 0;
+  let cancelTravel = null;
 
   const toScreen = (lon, lat) => {
     const [wx, wy] = lonLatToWorld(lon, lat);
@@ -59,7 +68,106 @@ export function createJourneyMap(canvas, {
 
   function fitAll() {
     if (!stops.length) return;
-    ({ scale, tx, ty } = fitBounds(stopBounds()));
+    ({ scale, tx, ty } = fitBounds(stopBounds(), locked ? 0.08 : 0.18));
+  }
+
+  function curvedSegment(a, b, curve = 0, steps = 36) {
+    const dx = b[0] - a[0], dy = b[1] - a[1];
+    const cx = (a[0] + b[0]) / 2 - dy * curve;
+    const cy = (a[1] + b[1]) / 2 + dx * curve;
+    const points = [];
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps, u = 1 - t;
+      points.push([
+        u * u * a[0] + 2 * u * t * cx + t * t * b[0],
+        u * u * a[1] + 2 * u * t * cy + t * t * b[1],
+      ]);
+    }
+    return points;
+  }
+
+  /**
+   * Repeated Chaikin corner-cutting turns curated sea waypoints into a
+   * continuous, non-jagged course without overshooting onto nearby land.
+   * Four passes produce enough intermediate points for both the stroke and
+   * the travelling ship to move fluidly.
+   */
+  function smoothWaypoints(nodes, passes = 4) {
+    let points = nodes;
+    for (let pass = 0; pass < passes; pass++) {
+      const smoothed = [points[0]];
+      for (let i = 1; i < points.length; i++) {
+        const a = points[i - 1], b = points[i];
+        smoothed.push(
+          [a[0] * 0.75 + b[0] * 0.25, a[1] * 0.75 + b[1] * 0.25],
+          [a[0] * 0.25 + b[0] * 0.75, a[1] * 0.25 + b[1] * 0.75],
+        );
+      }
+      smoothed.push(points[points.length - 1]);
+      points = smoothed;
+    }
+    return points;
+  }
+
+  function routeLegs(ordered) {
+    const legs = [];
+    for (let i = 1; i < ordered.length; i++) {
+      const from = ordered[i - 1];
+      const to = ordered[i];
+      const nodes = [
+        toScreen(from.coords[1], from.coords[0]),
+        ...(to.via || []).map(([lat, lon]) => toScreen(lon, lat)),
+        toScreen(to.coords[1], to.coords[0]),
+      ];
+      const points = nodes.length > 2
+        ? smoothWaypoints(nodes)
+        : curvedSegment(nodes[0], nodes[1], to.curve || 0);
+      legs.push(points);
+    }
+    return legs;
+  }
+
+  function strokePath(points, colour, width, alpha = 1) {
+    if (points.length < 2) return;
+    ctx.save();
+    ctx.beginPath();
+    points.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+    ctx.strokeStyle = colour;
+    ctx.lineWidth = width;
+    ctx.globalAlpha = alpha;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawShip(position, dark) {
+    ctx.save();
+    ctx.translate(position.x, position.y);
+    ctx.rotate(position.angle);
+    ctx.shadowColor = 'rgba(0,0,0,.45)';
+    ctx.shadowBlur = 8;
+    ctx.fillStyle = dark ? '#f8efe0' : '#28160f';
+    ctx.strokeStyle = dark ? '#28160f' : '#fff8ed';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(-12, 5);
+    ctx.quadraticCurveTo(0, 11, 13, 3);
+    ctx.lineTo(10, 8);
+    ctx.quadraticCurveTo(-1, 15, -14, 7);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.beginPath();
+    ctx.moveTo(-1, 4);
+    ctx.lineTo(-1, -12);
+    ctx.lineTo(8, 1);
+    ctx.closePath();
+    ctx.fillStyle = '#c55d38';
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
   }
 
   /* ---------- Draw ---------- */
@@ -111,7 +219,7 @@ export function createJourneyMap(canvas, {
       ctx.restore();
     }
 
-    /* --- numbered places (the connecting route is intentionally omitted) --- */
+    /* --- curved route, travelling ship and numbered places --- */
     if (stops.length) {
       const ordered = stops.slice().sort((a, b) => a.order - b.order);
 
@@ -127,9 +235,28 @@ export function createJourneyMap(canvas, {
         return { s, x: x + jitter, y: y + jitter };
       });
 
+      const legs = routeLegs(ordered);
+      if (showRoute && legs.length) {
+        const routeColour = cssVar('--accent');
+        ctx.save();
+        ctx.shadowColor = dark ? 'rgba(0,0,0,.7)' : 'rgba(255,255,255,.85)';
+        ctx.shadowBlur = 3;
+        for (const leg of legs) strokePath(leg, routeColour, 3, 0.82);
+        ctx.restore();
+
+        for (const leg of legs) {
+          const arrow = pointAtFraction(leg, 0.78);
+          drawArrowHead(ctx, arrow.x, arrow.y, arrow.angle, 5.5, routeColour);
+        }
+
+        const legIndex = Math.min(legs.length - 1, Math.max(0, Math.floor(travelIndex)));
+        const legFraction = travelIndex >= legs.length ? 1 : travelIndex - legIndex;
+        drawShip(pointAtFraction(legs[legIndex], legFraction), dark);
+      }
+
       // Numbered markers
       for (const { s, x, y } of points) {
-        const isHot = hot?.id === s.id;
+        const isHot = hot?.id === s.id || activeId === s.id;
         const r = isHot ? 12 : 10;
         ctx.save();
         ctx.shadowColor = 'rgba(0,0,0,.45)';
@@ -205,6 +332,7 @@ export function createJourneyMap(canvas, {
   let pinch = 0;
 
   canvas.addEventListener('pointerdown', (e) => {
+    if (locked) return;
     canvas.setPointerCapture(e.pointerId);
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.size === 1) {
@@ -279,6 +407,7 @@ export function createJourneyMap(canvas, {
   }
 
   canvas.addEventListener('wheel', (e) => {
+    if (locked) return;
     e.preventDefault();
     const rect = canvas.getBoundingClientRect();
     const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
@@ -287,8 +416,14 @@ export function createJourneyMap(canvas, {
 
   canvas.tabIndex = 0;
   canvas.setAttribute('role', 'application');
-  canvas.setAttribute('aria-label', 'Journey map. Arrow keys pan, plus and minus zoom.');
+  canvas.setAttribute(
+    'aria-label',
+    locked
+      ? 'Guided journey map. Select a numbered stop to follow the route.'
+      : 'Journey map. Arrow keys pan, plus and minus zoom.',
+  );
   canvas.addEventListener('keydown', (e) => {
+    if (locked) return;
     const step = 50;
     if (e.key === 'ArrowLeft') { tx += step; schedule(); e.preventDefault(); }
     else if (e.key === 'ArrowRight') { tx -= step; schedule(); e.preventDefault(); }
@@ -329,10 +464,46 @@ export function createJourneyMap(canvas, {
       api.flyTo([s.coords[1] - pad, s.coords[0] - pad, s.coords[1] + pad, s.coords[0] + pad], 0.5);
     },
 
+    travelTo(id) {
+      const target = stops.findIndex((stop) => stop.id === id);
+      if (target < 0) return;
+      activeId = id;
+      cancelTravel?.();
+      onTravelStart?.(stops[target]);
+      if (prefersReducedMotion()) {
+        travelIndex = target;
+        schedule();
+        onTravelEnd?.(stops[target]);
+        return;
+      }
+      const distance = Math.abs(target - travelIndex);
+      cancelTravel = animate({
+        from: travelIndex,
+        to: target,
+        duration: clamp(900 + distance * 620, 1100, 5200),
+        ease: easeInOutCubic,
+        onUpdate: (value) => {
+          travelIndex = value;
+          schedule();
+        },
+        onDone: () => {
+          travelIndex = target;
+          cancelTravel = null;
+          schedule();
+          onTravelEnd?.(stops[target]);
+        },
+      });
+      schedule();
+    },
+
     reset() { fitted = false; fitAll(); schedule(); },
     zoomIn() { zoomAbout(W / 2, H / 2, 1.4); },
     zoomOut() { zoomAbout(W / 2, H / 2, 0.71); },
-    destroy() { ro.disconnect(); if (raf) cancelAnimationFrame(raf); },
+    destroy() {
+      cancelTravel?.();
+      ro.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    },
   };
 
   schedule();

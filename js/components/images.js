@@ -24,7 +24,7 @@ import { imageOverrides, imageSkip } from '../../data/images.js';
 
 const API = 'https://en.wikipedia.org/w/api.php';
 const THUMB_SIZE = 640;
-const CACHE_KEY = 'images-v1';
+const CACHE_KEY = 'images-v3';
 const BATCH = 45; // MediaWiki's multi-title query limit is 50; leave headroom.
 
 /** entityId -> { title, src, w, h, page } | null (looked up, no usable image) */
