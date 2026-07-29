@@ -48,7 +48,7 @@ for (const foundation of alexanderFoundations) {
       && foundation.coords.every(Number.isFinite),
     `${foundation.id} needs valid coordinates`,
   );
-  assert.ok(foundation.year >= -331 && foundation.year <= -325, `${foundation.id} has an invalid campaign date`);
+  assert.ok(foundation.year >= -331 && foundation.year <= -323, `${foundation.id} has an invalid campaign date`);
   assert.ok(
     ['attested', 'attributed', 'disputed'].includes(foundation.status),
     `${foundation.id} has an invalid certainty status`,

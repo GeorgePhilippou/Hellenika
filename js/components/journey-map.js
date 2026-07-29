@@ -327,25 +327,35 @@ export function createJourneyMap(canvas, {
       .filter(({ alpha }) => alpha > 0);
 
     for (const { foundation, alpha, x, y } of foundationPoints) {
-      const size = 5.5;
+      // Same solid-dot-with-contrast-ring language as the numbered stops
+      // below (just smaller, and uncoloured by traveller order), rather
+      // than the rotated-square "diamond" this used to be — the diamond
+      // read as an unrelated marker type instead of a place on the route.
+      // A confirmed foundation is a plain filled dot; an attributed or
+      // disputed one adds a second, dashed ring to flag the uncertainty,
+      // instead of hollowing out the marker itself.
+      const r = 5;
       const colour = cssVar('--p-hellenistic');
       ctx.save();
       ctx.globalAlpha = alpha;
-      ctx.translate(x, y);
-      ctx.rotate(Math.PI / 4);
+      ctx.shadowColor = 'rgba(0,0,0,.4)';
+      ctx.shadowBlur = 3;
       ctx.beginPath();
-      ctx.rect(-size, -size, size * 2, size * 2);
-      ctx.fillStyle = foundation.status === 'attested'
-        ? colour
-        : (dark ? 'rgba(11,18,25,.9)' : 'rgba(255,255,255,.9)');
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = colour;
       ctx.fill();
+      ctx.shadowBlur = 0;
       ctx.strokeStyle = dark ? '#f8efe0' : '#fff';
-      ctx.lineWidth = 3.6;
+      ctx.lineWidth = 2;
       ctx.stroke();
-      ctx.strokeStyle = colour;
-      ctx.lineWidth = 1.8;
-      if (foundation.status === 'disputed') ctx.setLineDash([2, 2]);
-      ctx.stroke();
+      if (foundation.status !== 'attested') {
+        ctx.beginPath();
+        ctx.arc(x, y, r + 3, 0, Math.PI * 2);
+        ctx.strokeStyle = colour;
+        ctx.lineWidth = 1.4;
+        ctx.setLineDash([2, 2]);
+        ctx.stroke();
+      }
       ctx.restore();
 
       hitRegions.push({
@@ -471,32 +481,32 @@ export function createJourneyMap(canvas, {
         ctx.restore();
       }
 
-      // Foundation labels are secondary to numbered stops. They use the same
-      // collision list and are omitted when the map is too dense rather than
-      // covering a campaign stop or route label.
-      ctx.font = `600 9px ${cssVar('--font-ui') || 'system-ui'}`;
+      // Foundation labels are secondary to numbered stops but should still
+      // read clearly as place names — bold, same size as the stop labels —
+      // rather than a faint afterthought next to a mystery marker.
+      ctx.font = `700 11px ${cssVar('--font-ui') || 'system-ui'}`;
       for (const { foundation, alpha, x, y } of foundationPoints) {
         if (alpha < 0.7) continue;
         const label = foundation.shortLabel || foundation.name;
         const w = ctx.measureText(label).width;
         const options = [
-          { x: x + 11, y: y - 10 },
-          { x: x + 11, y: y + 11 },
-          { x: x - w - 11, y: y - 10 },
-          { x: x - w - 11, y: y + 11 },
-          { x: x - w / 2, y: y - 15 },
-          { x: x - w / 2, y: y + 16 },
+          { x: x + 12, y: y - 11 },
+          { x: x + 12, y: y + 12 },
+          { x: x - w - 12, y: y - 11 },
+          { x: x - w - 12, y: y + 12 },
+          { x: x - w / 2, y: y - 17 },
+          { x: x - w / 2, y: y + 18 },
         ];
         const p = options.find((option) => {
           const box = {
-            x0: option.x - 3, y0: option.y - 7,
-            x1: option.x + w + 3, y1: option.y + 7,
+            x0: option.x - 3, y0: option.y - 8,
+            x1: option.x + w + 3, y1: option.y + 8,
           };
           return box.x0 >= 2 && box.x1 <= W - 2 && box.y0 >= 2 && box.y1 <= H - 2
             && !placed.some((q) => !(box.x1 < q.x0 || box.x0 > q.x1 || box.y1 < q.y0 || box.y0 > q.y1));
         });
         if (!p) continue;
-        const box = { x0: p.x - 3, y0: p.y - 7, x1: p.x + w + 3, y1: p.y + 7 };
+        const box = { x0: p.x - 3, y0: p.y - 8, x1: p.x + w + 3, y1: p.y + 8 };
         placed.push(box);
         ctx.save();
         ctx.globalAlpha = alpha;
