@@ -6,7 +6,5 @@ ids:
   - zakros
   - zakros-rhyton
   - gournia
-  - early-bronze-age
   - chaeronea
-  - cyclades
 ---
