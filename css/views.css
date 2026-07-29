@@ -651,7 +651,7 @@
   background: linear-gradient(150deg,
     color-mix(in srgb, var(--tint) 17%, var(--bg)),
     color-mix(in srgb, var(--tint) 4%, var(--bg)) 62%);
-  padding-block: var(--s-10) var(--s-8);
+  padding-block: var(--s-8) var(--s-6);
 }
 .entity-hero::after {
   content: ""; position: absolute; right: -6%; top: -40%;
@@ -720,15 +720,42 @@
 }
 .hero-photo:hover .hero-photo-cred { opacity: 1; }
 
+/* --- Secondary/inline image, referenced from the prose itself ---
+   A deliberately different photo from the hero, e.g. a site view
+   alongside a mythological figure's portrait. Removed from the DOM
+   entirely (see images.js) if no photo resolves, rather than leaving
+   an empty captioned box. */
+.inline-figure {
+  position: relative; overflow: hidden; aspect-ratio: 16 / 9;
+  margin: var(--s-6) 0; border-radius: var(--r-lg); border: 1px solid var(--border);
+  background: linear-gradient(150deg,
+    color-mix(in srgb, var(--tint, var(--accent)) 18%, var(--surface)),
+    color-mix(in srgb, var(--tint, var(--accent)) 5%, var(--surface)));
+}
+.inline-figure-photo {
+  position: absolute; inset: 0; display: block;
+  opacity: 0; transition: opacity 480ms var(--ease-out);
+}
+.inline-figure.has-photo .inline-figure-photo { opacity: 1; }
+.inline-figure-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.inline-figure-photo .hero-photo-cred { right: var(--s-2); bottom: auto; top: var(--s-2); }
+.inline-figure-photo:hover .hero-photo-cred { opacity: 1; }
+.inline-figure figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: var(--s-5) var(--s-4) var(--s-3);
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.72));
+  color: #fff; font-size: var(--fs-xs); line-height: 1.45;
+}
+
 .entity-layout {
   display: grid; grid-template-columns: minmax(0,1fr) 300px;
-  gap: var(--s-10); align-items: start;
-  padding-block: var(--s-10) var(--s-24);
+  gap: var(--s-8); align-items: start;
+  padding-block: var(--s-8) var(--s-12);
 }
-@media (max-width: 980px) { .entity-layout { grid-template-columns: 1fr; gap: var(--s-8); } }
+@media (max-width: 980px) { .entity-layout { grid-template-columns: 1fr; gap: var(--s-6); } }
 
 .entity-main > section { scroll-margin-top: calc(var(--topbar-h) + var(--s-4)); }
-.entity-main > section + section { margin-top: var(--s-12); }
+.entity-main > section + section { margin-top: var(--s-8); }
 .entity-main h2 {
   font-size: 1.35rem; margin-bottom: var(--s-4);
   padding-bottom: var(--s-2); border-bottom: 1px solid var(--border);
@@ -791,7 +818,7 @@
   display: grid; gap: var(--s-2) var(--s-4);
   grid-template-columns: 1fr auto;
   align-items: start;
-  padding: var(--s-4);
+  padding: var(--s-3);
   border: 1px solid var(--border); border-radius: var(--r-md);
   background: var(--surface);
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
@@ -820,9 +847,9 @@
   border-radius: var(--r-lg); background: var(--surface);
   overflow: hidden; box-shadow: var(--sh-1);
 }
-.graph-canvas { display: block; width: 100%; height: 420px; cursor: grab; touch-action: none; }
+.graph-canvas { display: block; width: 100%; height: 360px; cursor: grab; touch-action: none; }
 .graph-canvas.dragging { cursor: grabbing; }
-@media (max-width: 640px) { .graph-canvas { height: 340px; } }
+@media (max-width: 640px) { .graph-canvas { height: 300px; } }
 
 .graph-legend {
   position: absolute; left: var(--s-3); bottom: var(--s-3);
@@ -830,6 +857,16 @@
   font-size: var(--fs-xxs); color: var(--text-3);
   pointer-events: none;
 }
+
+/* Explains what the graph's node colours mean -- one swatch per era
+   actually present among the connected entities, not all eleven. */
+.tint-legend {
+  display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4);
+  margin-top: var(--s-3);
+  font-size: var(--fs-xxs); color: var(--text-3);
+}
+.tint-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.tint-legend-item i { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 /* --- Related entity groups --- */
 /* One row per category — a label-then-pills layout reads far more
@@ -854,7 +891,16 @@
   transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast), box-shadow var(--t-fast);
 }
 .rel-pill:hover { transform: translateY(-1px); border-color: var(--border-strong); box-shadow: var(--sh-2); text-decoration: none; }
-.rel-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tint); flex-shrink: 0; }
+/* Photo-or-dot: starts as a small tint-coloured dot, and grows into a
+   thumbnail once a Wikipedia photo resolves for that entity -- so
+   connections read as pictures of things, not just coloured labels. */
+.rel-pill .rel-thumb {
+  position: relative; overflow: hidden; flex-shrink: 0;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--tint);
+  transition: width var(--t-fast) var(--ease-out), height var(--t-fast) var(--ease-out);
+}
+.rel-pill .rel-thumb.has-photo { width: 22px; height: 22px; }
+.rel-pill .rel-thumb.has-photo .ecard-photo { opacity: 1; }
 .rel-pill .rel { font-size: var(--fs-xxs); color: var(--text-3); }
 
 /* --- Mini timeline & mini map --- */

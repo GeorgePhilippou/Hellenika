@@ -17,7 +17,7 @@ import { createGraph } from '../components/graph.js';
 import { createMap } from '../components/map-canvas.js';
 import {
   entityDate, entityPill, entityCard, claimsList, confidenceKey,
-  paragraphs, block, factList, miniTimeline, emptyState, typeChip,
+  paragraphs, block, factList, miniTimeline, emptyState, typeChip, tintLegend, inlineFigure,
 } from '../components/ui.js';
 import { TYPE_META } from '../db.js';
 
@@ -163,14 +163,18 @@ function relationsSection(e) {
     (a, b) => (TYPE_META[a]?.order ?? 99) - (TYPE_META[b]?.order ?? 99));
   if (!order.length) return '';
 
+  const neighbourEntities = order.flatMap((t) => groups.get(t).map((n) => n.entity));
+
   return section('related', 'Connections', `
-    <p class="small muted" style="margin-bottom:var(--s-5)">
+    <p class="small muted" style="margin-bottom:var(--s-4)">
       ${e.relations.length} connections. Follow any of them — this is how the dataset is meant to be read.
     </p>
-    <div class="graph-wrap" style="margin-bottom:var(--s-6)">
+    <div class="graph-wrap" style="margin-bottom:var(--s-3)">
       <canvas class="graph-canvas" id="graph-canvas"></canvas>
       <div class="graph-legend">drag nodes · click to travel · hover to isolate</div>
     </div>
+    ${tintLegend([e, ...neighbourEntities], periods)}
+    <div style="margin-top:var(--s-5)"></div>
     ${order.map((t) => `
       <div class="rel-group">
         <h3>${esc(TYPE_META[t]?.plural || t)}</h3>
@@ -228,8 +232,8 @@ function historyPage(e) {
   const sections = [
     { id: 'overview', label: 'Overview' },
     e.significance && { id: 'significance', label: 'Significance' },
-    e.claims.length && { id: 'evidence', label: 'Evidence' },
     { id: 'related', label: 'Connections' },
+    e.claims.length && { id: 'evidence', label: 'Evidence' },
     { id: 'chronology', label: 'Chronology' },
     e.sources.length && { id: 'sources', label: 'Sources' },
   ].filter(Boolean);
@@ -249,6 +253,7 @@ function historyPage(e) {
             <div class="prose" style="max-width:68ch">
               ${e.body ? paragraphs(e.body) : `<p>${esc(e.summary)}</p>`}
             </div>
+            ${inlineFigure(e.secondaryImage)}
             ${extras.map(([k, v]) => block(k, v)).join('')}
             ${e.boundaryNote ? `<div class="register-note" style="margin-top:var(--s-5)">
               ${icon('info', { size: 17 })}<div><strong>On the dates.</strong> ${esc(e.boundaryNote)}</div></div>` : ''}
@@ -257,8 +262,8 @@ function historyPage(e) {
           ${e.significance ? section('significance', 'Historical significance',
             `<div class="callout" style="--tint:${db.tintVar(e.tint)}"><p>${esc(e.significance)}</p></div>`) : ''}
 
-          ${evidenceSection(e)}
           ${relationsSection(e)}
+          ${evidenceSection(e)}
           ${chronologySection(e)}
           ${sourcesSection(e)}
         </div>
@@ -277,8 +282,8 @@ function mythPage(e) {
     { id: 'myth', label: 'The myth' },
     { id: 'registers', label: 'Sources & cult' },
     { id: 'history', label: 'History & archaeology' },
-    e.claims.length && { id: 'evidence', label: 'Evidence' },
     { id: 'related', label: 'Connections' },
+    e.claims.length && { id: 'evidence', label: 'Evidence' },
     e.sources.length && { id: 'sources', label: 'Sources' },
   ].filter(Boolean);
 
@@ -315,11 +320,12 @@ function mythPage(e) {
           ${section('history', 'History and archaeology', `
             ${mythBlock('is-history', 'Possible historical background', e.historicalBackground, 'scales')}
             ${mythBlock('is-archaeo', 'What archaeology shows', e.archaeology, 'evArchaeo')}
+            ${inlineFigure(e.secondaryImage)}
             ${mythBlock('', 'Later interpretation', e.laterInterpretation, 'sparkle')}
           `)}
 
-          ${evidenceSection(e)}
           ${relationsSection(e)}
+          ${evidenceSection(e)}
           ${sourcesSection(e)}
         </div>
         ${sidebarHTML(e, sections)}

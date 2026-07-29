@@ -149,6 +149,74 @@ export function ensureLoaded(entities) {
 }
 
 /* ============================================================
+   Secondary / inline images
+
+   Unlike the hero photo, resolved automatically from the entity's own
+   name, an inline image is a specific Wikipedia title an author chose
+   deliberately -- a second, different photo referenced from the prose
+   itself (e.g. a site photo alongside a mythological entity's hero
+   image). Resolved by exact title, cached separately by that title
+   rather than by entity id, using the same batched-query approach.
+   ============================================================ */
+
+const titleCache = new Map(); // title -> {src,w,h,page} | null
+const pendingTitles = new Set();
+const titleWaiters = [];
+let titleInFlight = null;
+
+async function flushTitles() {
+  while (pendingTitles.size) {
+    const batch = [...pendingTitles].slice(0, BATCH);
+    batch.forEach((t) => pendingTitles.delete(t));
+    if (!batch.length) continue;
+
+    try {
+      const url = `${API}?action=query&format=json&origin=*&redirects=1`
+        + `&prop=pageimages|pageprops&piprop=thumbnail|name&pithumbsize=${THUMB_SIZE}`
+        + `&titles=${encodeURIComponent(batch.join('|'))}`;
+      const res = await fetch(url);
+      const json = await res.json();
+      const pages = Object.values(json.query?.pages || {});
+      const normMap = new Map((json.query?.normalized || []).map((x) => [x.from, x.to]));
+      const redirMap = new Map((json.query?.redirects || []).map((x) => [x.from, x.to]));
+
+      for (const title of batch) {
+        let t = title;
+        if (normMap.has(t)) t = normMap.get(t);
+        if (redirMap.has(t)) t = redirMap.get(t);
+        const page = pages.find((p) => p.title === t);
+        const isDisambig = !!(page?.pageprops && 'disambiguation' in page.pageprops);
+        const entry = (page && page.thumbnail && !isDisambig)
+          ? {
+              src: page.thumbnail.source,
+              w: page.thumbnail.width,
+              h: page.thumbnail.height,
+              page: `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
+            }
+          : null;
+        titleCache.set(title, entry);
+      }
+    } catch {
+      // Offline, or unreachable — leave unresolved so a later attempt can retry.
+    }
+  }
+  const done = titleWaiters.splice(0, titleWaiters.length);
+  done.forEach((r) => r());
+}
+
+function ensureTitlesLoaded(titles) {
+  const need = titles.filter((t) => t && !titleCache.has(t) && !pendingTitles.has(t));
+  need.forEach((t) => pendingTitles.add(t));
+  if (!need.length && !pendingTitles.size) return Promise.resolve();
+  return new Promise((resolve) => {
+    titleWaiters.push(resolve);
+    if (!titleInFlight) {
+      titleInFlight = flushTitles().finally(() => { titleInFlight = null; });
+    }
+  });
+}
+
+/* ============================================================
    DOM hydration
 
    Views render a glyph placeholder synchronously (no network wait
@@ -164,16 +232,20 @@ export function ensureLoaded(entities) {
 export async function hydrateImages(root, lookup) {
   const cardNodes = [...root.querySelectorAll('[data-img-id]')];
   const heroNodes = [...root.querySelectorAll('[data-hero-img-id]')];
-  if (!cardNodes.length && !heroNodes.length) return;
+  const titleNodes = [...root.querySelectorAll('[data-img-title]')];
+  if (!cardNodes.length && !heroNodes.length && !titleNodes.length) return;
 
   const ids = new Set([
     ...cardNodes.map((n) => n.dataset.imgId),
     ...heroNodes.map((n) => n.dataset.heroImgId),
   ]);
   const entities = [...ids].map(lookup).filter(Boolean);
-  if (!entities.length) return;
+  const titles = titleNodes.map((n) => n.dataset.imgTitle).filter(Boolean);
 
-  await ensureLoaded(entities);
+  await Promise.all([
+    entities.length ? ensureLoaded(entities) : null,
+    titles.length ? ensureTitlesLoaded(titles) : null,
+  ]);
 
   for (const node of cardNodes) {
     const img = cache.get(node.dataset.imgId);
@@ -182,6 +254,11 @@ export async function hydrateImages(root, lookup) {
   for (const node of heroNodes) {
     const img = cache.get(node.dataset.heroImgId);
     if (img?.src) paintHero(node, img);
+  }
+  for (const node of titleNodes) {
+    const img = titleCache.get(node.dataset.imgTitle);
+    if (img?.src) paintInline(node, img);
+    else node.remove(); // no photo found -- an empty captioned box would look broken
   }
 }
 
@@ -221,5 +298,20 @@ function paintHero(node, img) {
     <img src="${img.src}" alt="" loading="lazy" decoding="async">
     <span class="hero-photo-cred">Wikipedia ↗</span>`;
   node.append(wrap);
+  requestAnimationFrame(() => node.classList.add('has-photo'));
+}
+
+function paintInline(node, img) {
+  if (node.querySelector('img')) return;
+  const link = document.createElement('a');
+  link.className = 'inline-figure-photo';
+  link.href = img.page;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', 'Source image on Wikipedia (opens in a new tab)');
+  link.innerHTML = `
+    <img src="${img.src}" alt="" loading="lazy" decoding="async">
+    <span class="hero-photo-cred">Wikipedia ↗</span>`;
+  node.prepend(link);
   requestAnimationFrame(() => node.classList.add('has-photo'));
 }

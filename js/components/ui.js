@@ -51,7 +51,7 @@ export function entityCardGrid(list, opts) {
 export function entityPill(e, rel) {
   return `
     <a class="rel-pill" href="${entityHref(e.id)}" style="--tint:${tintVar(e.tint)}">
-      <span class="dot"></span>
+      <span class="rel-thumb" data-img-id="${esc(e.id)}"></span>
       <span>${esc(e.name)}</span>
       ${rel ? `<span class="rel">${esc(rel)}</span>` : ''}
     </a>`;
@@ -137,9 +137,43 @@ export function paragraphs(text) {
   return text.split(/\n\n+/).map((p) => `<p>${inline(p.trim())}</p>`).join('');
 }
 
+/**
+ * A second, deliberately different photo referenced from an entity's
+ * own prose -- e.g. a site view alongside a portrait-style hero image.
+ * `img` is `{ wikipediaTitle, caption }`, hand-picked in content rather
+ * than derived automatically. Resolved client-side by images.js; the
+ * whole element removes itself if no photo turns up (see hydrateImages).
+ */
+export function inlineFigure(img) {
+  if (!img?.wikipediaTitle) return '';
+  return `
+    <figure class="inline-figure" data-img-title="${esc(img.wikipediaTitle)}">
+      <figcaption>${esc(img.caption || '')}</figcaption>
+    </figure>`;
+}
+
 export function block(label, text) {
   if (!text) return '';
   return `<div class="block"><h3>${esc(label)}</h3><div class="prose">${paragraphs(text)}</div></div>`;
+}
+
+/* ---------- Graph tint legend ----------
+   The relationship graph colours each node by its era (the same --p-*
+   tint used everywhere else), not by entity type, so a first-time
+   reader has no way to tell what a node's colour means. This renders
+   a compact swatch-per-era row for whatever eras actually appear
+   among the given entities, rather than listing all eleven regardless
+   of relevance. */
+export function tintLegend(entities, periods) {
+  const seen = new Map(); // tint -> period name
+  for (const ent of entities) {
+    if (!ent?.tint || seen.has(ent.tint)) continue;
+    const period = periods.find((p) => p.tint === ent.tint);
+    seen.set(ent.tint, period ? period.name : ent.tint);
+  }
+  if (!seen.size) return '';
+  return `<div class="tint-legend">${[...seen].map(([tint, label]) => `
+    <span class="tint-legend-item"><i style="background:${tintVar(tint)}"></i>${esc(label)}</span>`).join('')}</div>`;
 }
 
 /* ---------- Mini timeline strip ---------- */
