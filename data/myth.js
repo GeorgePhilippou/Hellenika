@@ -578,7 +578,7 @@ export const mythology = [
     id: 'nike', name: 'Nike', altNames: ['Νίκη'], type: 'deity', subtype: 'personification',
     tint: 'hellenistic', start: -700, end: -100, coords: [40.500, 25.530],
     domain: 'Victory',
-    summary: 'The winged personification of victory, in war and in athletic competition.',
+    summary: 'The winged personification of victory in war and athletic competition, shown alighting, offering wreaths or crowning successful rulers.',
     myth: 'Daughter of the Titan Pallas and the river Styx, Nike sided with Zeus against the Titans and was rewarded with a permanent place beside him. She is less a character than an attribute — she appears alongside other gods rather than acting on her own.',
     earliestSource: 'Hesiod\'s Theogony names her among the children of Styx. She appears in Greek art from the Archaic period, usually flying or alighting.',
     religious: 'The Temple of Athena Nike stands on the Acropolis bastion at Athens — "Athena of Victory", the goddess in a specific capacity rather than an independent deity. Its parapet carried reliefs of Nikai, including the celebrated figure adjusting her sandal.\n\nAt Olympia, Pheidias\' Zeus held a Nike in his outstretched hand, and victorious athletes were crowned in her presence.',

@@ -20,12 +20,17 @@
 import { clamp, fitCanvas, animate, easeOutCubic, prefersReducedMotion } from '../util.js';
 import { seas, islands, rivers, territories, routes, EXTENT } from '../../data/geo.js';
 import { PROVIDERS, TILE_SIZE, lonLatToWorld, worldToLonLat, drawTiles } from './tiles.js';
-import { projectPath, pathLength, pointAtFraction, drawArrowHead } from './map-draw-utils.js';
+import {
+  projectPath, pathLength, pointAtFraction, drawArrowHead, wheelZoomFactor,
+} from './map-draw-utils.js';
 
 const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
 
-/** Years over which a territory fades in and out. */
-const FADE = 12;
+/** Default transition widths. Political frontiers change promptly;
+    archaeological distributions can dissolve more gradually. */
+const POLITICAL_FADE = 2;
+const REGIONAL_FADE = 8;
+const CULTURE_FADE = 16;
 
 /* ---------- Atlas palette ----------
    The offline vector fallback is the map's default look now — a hand-
@@ -84,6 +89,8 @@ export function createMap(canvas, {
   /** Basemap: 'relief' | 'physical' | 'plain' | 'none' */
   basemap = 'relief',
   onMarkerClick,
+  onTerritoryClick,
+  territoryEntityId,
   onHover,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
@@ -95,9 +102,56 @@ export function createMap(canvas, {
   let hot = null;
   let hitRegions = [];
   let routeHitRegions = [];
+  let territoryHitRegions = [];
   let raf = null;
   let onLegend = null;
   let current = { year, layers, markers, basemap };
+
+  const pointSegmentDistanceSq = (p, a, b) => {
+    const dx = b[0] - a[0], dy = b[1] - a[1];
+    const lenSq = dx * dx + dy * dy;
+    const u = lenSq ? clamp(((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / lenSq, 0, 1) : 0;
+    const ex = p[0] - (a[0] + u * dx), ey = p[1] - (a[1] + u * dy);
+    return ex * ex + ey * ey;
+  };
+
+  function stableInteriorPoint(ring) {
+    let twiceArea = 0, cx = 0, cy = 0;
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (let i = 0; i < ring.length; i++) {
+      const a = ring[i], b = ring[(i + 1) % ring.length];
+      const cross = a[0] * b[1] - b[0] * a[1];
+      twiceArea += cross;
+      cx += (a[0] + b[0]) * cross;
+      cy += (a[1] + b[1]) * cross;
+      minX = Math.min(minX, a[0]); maxX = Math.max(maxX, a[0]);
+      minY = Math.min(minY, a[1]); maxY = Math.max(maxY, a[1]);
+    }
+    const centroid = Math.abs(twiceArea) > 1e-9
+      ? [cx / (3 * twiceArea), cy / (3 * twiceArea)]
+      : [(minX + maxX) / 2, (minY + maxY) / 2];
+    if (pointInPolygon(centroid[0], centroid[1], ring)) return centroid;
+
+    // Concave polygons can have a centroid outside their boundary. Pick a
+    // stable interior grid point with the most clearance from every edge.
+    let best = null, bestDistance = -1;
+    for (let gy = 1; gy < 12; gy++) {
+      for (let gx = 1; gx < 12; gx++) {
+        const p = [minX + (maxX - minX) * gx / 12, minY + (maxY - minY) * gy / 12];
+        if (!pointInPolygon(p[0], p[1], ring)) continue;
+        let distance = Infinity;
+        for (let i = 0; i < ring.length; i++) {
+          distance = Math.min(distance, pointSegmentDistanceSq(p, ring[i], ring[(i + 1) % ring.length]));
+        }
+        if (distance > bestDistance) { best = p; bestDistance = distance; }
+      }
+    }
+    return best ?? ring[0];
+  }
+
+  const territoryLabelAnchors = new Map(
+    territories.map((t) => [t.id, t.labelAt ?? stableInteriorPoint(t.ring)]),
+  );
 
   /* ---------- Projection ---------- */
   const toScreen = (lon, lat) => {
@@ -129,12 +183,57 @@ export function createMap(canvas, {
     if (close) ctx.closePath();
   }
 
+  function traceSmoothRing(ring) {
+    const pts = ring.map(([lon, lat]) => toScreen(lon, lat));
+    if (pts.length < 3) { tracePath(ring); return; }
+    // Round only the immediate corner. The former midpoint-based curve
+    // consumed half of every edge, turning sparse historical reconstructions
+    // into large circular lobes at some zoom levels.
+    const radius = 7;
+    const corners = pts.map((p, i) => {
+      const prev = pts[(i - 1 + pts.length) % pts.length];
+      const next = pts[(i + 1) % pts.length];
+      const prevLen = Math.hypot(prev[0] - p[0], prev[1] - p[1]) || 1;
+      const nextLen = Math.hypot(next[0] - p[0], next[1] - p[1]) || 1;
+      const prevT = Math.min(0.18, radius / prevLen);
+      const nextT = Math.min(0.18, radius / nextLen);
+      return {
+        p,
+        entry: [p[0] + (prev[0] - p[0]) * prevT, p[1] + (prev[1] - p[1]) * prevT],
+        exit: [p[0] + (next[0] - p[0]) * nextT, p[1] + (next[1] - p[1]) * nextT],
+      };
+    });
+    ctx.beginPath();
+    ctx.moveTo(corners[0].entry[0], corners[0].entry[1]);
+    for (let i = 0; i < corners.length; i++) {
+      const c = corners[i], next = corners[(i + 1) % corners.length];
+      ctx.quadraticCurveTo(c.p[0], c.p[1], c.exit[0], c.exit[1]);
+      ctx.lineTo(next.entry[0], next.entry[1]);
+    }
+    ctx.closePath();
+  }
+
+  function traceSmoothScreenPath(pts) {
+    ctx.beginPath();
+    if (!pts.length) return;
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 1; i < pts.length - 1; i++) {
+      const p = pts[i], next = pts[i + 1];
+      ctx.quadraticCurveTo(p[0], p[1], (p[0] + next[0]) / 2, (p[1] + next[1]) / 2);
+    }
+    if (pts.length > 1) ctx.lineTo(pts[pts.length - 1][0], pts[pts.length - 1][1]);
+  }
+
   function territoryAlpha(t, y) {
-    if (y < t.from - FADE || y > t.to + FADE) return 0;
+    const fade = t.fade ?? (t.kind === 'culture'
+      ? CULTURE_FADE
+      : (t.kind === 'regional' || t.kind === 'league') ? REGIONAL_FADE : POLITICAL_FADE);
+    if (y < t.from - fade || y > t.to + fade) return 0;
     let a = 1;
-    if (y < t.from) a = (y - (t.from - FADE)) / FADE;
-    else if (y > t.to) a = 1 - (y - t.to) / FADE;
-    return clamp(a, 0, 1) * (t.opacity ?? 0.7);
+    if (y < t.from) a = (y - (t.from - fade)) / fade;
+    else if (y > t.to) a = 1 - (y - t.to) / fade;
+    const base = t.opacity ?? (t.kind === 'culture' ? 0.45 : t.kind === 'regional' ? 0.5 : 0.7);
+    return clamp(a, 0, 1) * base;
   }
 
   /* ---------- Draw ---------- */
@@ -214,6 +313,8 @@ export function createMap(canvas, {
        pass drawn on top of every fill keeps every boundary crisp no
        matter how many territories overlap. */
     const legend = [];
+    const territoryLabelCandidates = [];
+    territoryHitRegions = [];
     if (L.territories !== false) {
       const active = territories
         .map((t) => ({ t, a: territoryAlpha(t, y) }))
@@ -221,22 +322,50 @@ export function createMap(canvas, {
 
       for (const { t, a } of active) {
         ctx.save();
-        tracePath(t.ring);
-        ctx.globalAlpha = a * (tiled ? 0.22 : 0.28);
+        traceSmoothRing(t.ring);
+        ctx.globalAlpha = a * (tiled ? 0.26 : 0.34);
         ctx.fillStyle = cssVar(`--p-${t.tint}`);
         ctx.fill();
         ctx.restore();
       }
       for (const { t, a } of active) {
         ctx.save();
-        tracePath(t.ring);
+        traceSmoothRing(t.ring);
         ctx.globalAlpha = Math.min(1, a * 1.2);
         ctx.strokeStyle = cssVar(`--p-${t.tint}`);
         ctx.lineWidth = 2;
+        if (t.kind === 'culture') ctx.setLineDash([5, 5]);
+        else if (t.kind === 'regional' || t.kind === 'league') ctx.setLineDash([10, 4]);
         ctx.stroke();
         ctx.restore();
-        if (a > 0.35) legend.push({ name: t.name, tint: t.tint });
+        if (a > 0.35) {
+          legend.push({ name: t.name, tint: t.tint, kind: t.kind, certainty: t.certainty });
+
+          // Size from the projected territory, but position from a fixed
+          // geographic anchor. Clipping the bounding box to the viewport made
+          // names visibly "swim" whenever the user panned or zoomed.
+          let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+          for (const [lon, lat] of t.ring) {
+            const [px, py] = toScreen(lon, lat);
+            if (px < minX) minX = px; if (px > maxX) maxX = px;
+            if (py < minY) minY = py; if (py > maxY) maxY = py;
+          }
+          const [anchorLon, anchorLat] = territoryLabelAnchors.get(t.id);
+          const [labelX, labelY] = toScreen(anchorLon, anchorLat);
+          const bw = Math.max(0, Math.min(W, maxX - minX));
+          const bh = Math.max(0, Math.min(H, maxY - minY));
+          if (labelX >= 8 && labelX <= W - 8 && labelY >= 8 && labelY <= H - 8) {
+            territoryLabelCandidates.push({ t, a, cx: labelX, cy: labelY, bw, bh });
+          }
+          const screenRing = t.ring.map(([lon, lat]) => toScreen(lon, lat));
+          territoryHitRegions.push({
+            territory: t,
+            ring: screenRing,
+            area: bw * bh,
+          });
+        }
       }
+      territoryHitRegions.sort((a, b) => a.area - b.area);
     }
 
     /* --- routes --- */
@@ -244,44 +373,50 @@ export function createMap(canvas, {
     if (L.routes) {
       for (const r of routes) {
         if (y < r.from || y > r.to) continue;
-        const pts = projectPath(r.path, toScreen);
         // A fixed pair, not the period-tint palette: a route drawn in its
         // own period's colour can land on same-tinted territory and vanish
         // into it (e.g. Alexander's route crossing "Alexander"-tint land).
-        const colour = cssVar(r.dashed ? '--route-trade' : '--route-campaign');
+        const colour = cssVar(`--p-${r.tint}`);
+        const rawPaths = r.paths ?? [r.path];
 
-        ctx.save();
-        ctx.strokeStyle = colour;
-        ctx.lineWidth = 2.2;
-        ctx.globalAlpha = 0.9;
-        ctx.lineJoin = 'round';
-        ctx.lineCap = 'round';
-        if (r.dashed) ctx.setLineDash([7, 5]);
-        // A dark halo keeps routes readable over busy terrain.
-        ctx.shadowColor = dark ? 'rgba(0,0,0,.7)' : 'rgba(255,255,255,.75)';
-        ctx.shadowBlur = 3;
-        ctx.beginPath();
-        pts.forEach(([px, py], i) => { i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); });
-        ctx.stroke();
-        ctx.restore();
-
-        // Directional arrowheads — routes are journeys, not just lines.
-        const len = pathLength(pts);
-        if (len > 30) {
+        for (const rawPath of rawPaths) {
+          const pts = projectPath(rawPath, toScreen);
           ctx.save();
-          for (const frac of [0.42, 0.82]) {
-            const p = pointAtFraction(pts, frac);
-            drawArrowHead(ctx, p.x, p.y, p.angle, 6, colour);
-          }
+          ctx.strokeStyle = colour;
+          ctx.lineWidth = r.kind === 'campaign' ? 3 : 2.4;
+          ctx.globalAlpha = r.phaseTo != null && y > r.phaseTo ? 0.42 : 0.9;
+          ctx.lineJoin = 'round';
+          ctx.lineCap = 'round';
+          if (r.kind === 'hypothesis') ctx.setLineDash([2, 6]);
+          else if (r.dashed) ctx.setLineDash([7, 5]);
+          // A dark halo keeps routes readable over busy terrain.
+          ctx.shadowColor = dark ? 'rgba(0,0,0,.7)' : 'rgba(255,255,255,.75)';
+          ctx.shadowBlur = 3;
+          traceSmoothScreenPath(pts);
+          ctx.stroke();
           ctx.restore();
-        }
 
-        // Sparse hover targets along the path (checked after markers, so
-        // a marker sitting on a route always wins the hit test).
-        const step = 16;
-        for (let d = 0; d <= len; d += step) {
-          const p = pointAtFraction(pts, len ? d / len : 0);
-          routeHitRegions.push({ route: r, x: p.x, y: p.y, r: 7 });
+          // Only ordered campaigns get arrows. Trade and colonisation
+          // networks are connections, not one sequential itinerary.
+          const len = pathLength(pts);
+          if (len > 30 && r.kind === 'campaign' && (r.phaseTo == null || y <= r.phaseTo)) {
+            ctx.save();
+            ctx.shadowColor = dark ? 'rgba(0,0,0,.8)' : 'rgba(255,255,255,.95)';
+            ctx.shadowBlur = 2;
+            for (const frac of [0.32, 0.64, 0.88]) {
+              const p = pointAtFraction(pts, frac);
+              drawArrowHead(ctx, p.x, p.y, p.angle, 8, colour);
+            }
+            ctx.restore();
+          }
+
+          // Sparse hover targets along every path (checked after markers,
+          // so a marker sitting on a route always wins the hit test).
+          const step = 16;
+          for (let d = 0; d <= len; d += step) {
+            const p = pointAtFraction(pts, len ? d / len : 0);
+            routeHitRegions.push({ route: r, x: p.x, y: p.y, r: 7 });
+          }
         }
       }
     }
@@ -417,20 +552,62 @@ export function createMap(canvas, {
 
     /* --- labels, with simple collision avoidance --- */
     if (L.labels !== false) {
-      ctx.font = `600 11px ${cssVar('--font-ui') || 'system-ui'}`;
       ctx.textBaseline = 'middle';
       const placed = [];
+      const placedPlaceLabels = [];
+      const placedTerritoryLabels = new Set();
+
+      // Territory names, drawn on the shape itself (atlas-style), placed
+      // before marker labels so empire names win the collision contest —
+      // biggest territories first, since they have the most room to fit.
+      territoryLabelCandidates
+        .sort((a, b) => (b.bw * b.bh) - (a.bw * a.bh))
+        .forEach((c) => {
+          if (c.bw < 42 || c.bh < 20) return; // too small on screen to letter
+          const fontSize = clamp(Math.round(Math.sqrt(c.bw * c.bh) / 11), 9, 20);
+          ctx.font = `700 ${fontSize}px ${cssVar('--font-ui') || 'system-ui'}`;
+          const text = (c.t.label || c.t.name).toUpperCase();
+          if (placedTerritoryLabels.has(text)) return;
+          const spacing = fontSize * 0.1;
+          const w = textWidthSpaced(ctx, text, spacing);
+          if (!c.t.labelAt && w > c.bw * 1.45) return; // would badly overflow its territory
+          const box = { x0: c.cx - w / 2 - 4, y0: c.cy - fontSize / 2 - 3, x1: c.cx + w / 2 + 4, y1: c.cy + fontSize / 2 + 3 };
+          if (placed.some((p) => overlap(p, box))) return;
+          placed.push(box);
+          placedTerritoryLabels.add(text);
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0.82, Math.min(1, c.a * 1.45));
+          ctx.fillStyle = cssVar(`--p-${c.t.tint}`);
+          ctx.strokeStyle = dark ? 'rgba(10,10,8,.9)' : 'rgba(247,241,224,.94)';
+          ctx.lineWidth = Math.max(2.5, fontSize * 0.22);
+          ctx.lineJoin = 'round';
+          drawSpacedText(ctx, text, c.cx, c.cy, spacing, true);
+          ctx.restore();
+        });
+
+      ctx.font = `600 11px ${cssVar('--font-ui') || 'system-ui'}`;
       labelCandidates.sort((a, b) => (b.isHot - a.isHot) || (rank(a.e.type) - rank(b.e.type)));
 
       for (const c of labelCandidates) {
-        if (!c.isHot && placed.length > 44) break;
-        if (!c.isHot && !c.isCluster && scale < 1600 && c.e.type !== 'city') continue;
+        if (!c.isHot && placedPlaceLabels.length > 44) break;
         const text = c.e.name;
         const w = ctx.measureText(text).width;
-        const bx = c.x + c.r + 5, by = c.y;
+        const options = [
+          { x: c.x + c.r + 5, y: c.y },
+          { x: c.x - c.r - w - 5, y: c.y },
+          { x: c.x - w / 2, y: c.y + c.r + 10 },
+          { x: c.x - w / 2, y: c.y - c.r - 10 },
+        ];
+        const pos = options.find((o) => {
+          const b = { x0: o.x - 3, y0: o.y - 8, x1: o.x + w + 3, y1: o.y + 8 };
+          return b.x0 >= 2 && b.x1 <= W - 2 && b.y0 >= 2 && b.y1 <= H - 2
+            && !placedPlaceLabels.some((p) => overlap(p, b));
+        });
+        if (!pos && !c.isHot) continue;
+        const bx = pos?.x ?? options[0].x, by = pos?.y ?? options[0].y;
         const box = { x0: bx - 3, y0: by - 8, x1: bx + w + 3, y1: by + 8 };
-        if (!c.isHot && placed.some((p) => overlap(p, box))) continue;
-        placed.push(box);
+        placedPlaceLabels.push(box);
 
         ctx.save();
         ctx.fillStyle = dark ? 'rgba(12,16,20,.80)' : 'rgba(255,255,255,.86)';
@@ -461,6 +638,17 @@ export function createMap(canvas, {
 
   const rank = (t) => ({ city: 0, site: 1, battle: 2 }[t] ?? 3);
   const overlap = (a, b) => !(a.x1 < b.x0 || a.x0 > b.x1 || a.y1 < b.y0 || a.y0 > b.y1);
+  function pointInPolygon(x, y, ring) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if (((yi > y) !== (yj > y))
+        && x < ((xj - xi) * (y - yi)) / ((yj - yi) || Number.EPSILON) + xi) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
 
   function layerAllows(L, type) {
     if (type === 'city') return L.cities !== false;
@@ -525,6 +713,23 @@ export function createMap(canvas, {
         };
       }
     }
+    if (!nextHot) {
+      const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
+      if (th) {
+        const t = th.territory;
+        const entityId = territoryEntityId?.(t) ?? t.entityId ?? null;
+        const typeLabel = t.kind === 'culture' ? 'Archaeological culture zone'
+          : t.kind === 'league' ? 'Alliance / hegemony'
+          : t.kind === 'regional' ? 'Regional reconstruction'
+          : 'Political territory';
+        nextHot = {
+          id: `territory:${t.id}`, name: t.name, typeLabel,
+          start: t.from, end: t.to, region: null, entityId,
+          certainty: t.certainty,
+        };
+        clickable = Boolean(entityId);
+      }
+    }
     if (nextHot?.id !== hot?.id) {
       hot = nextHot;
       canvas.style.cursor = clickable ? 'pointer' : 'grab';
@@ -549,8 +754,7 @@ export function createMap(canvas, {
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left, py = e.clientY - rect.top;
     const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    if (!h) return;
-    if (h.cluster) {
+    if (h?.cluster) {
       const lons = h.members.map((m) => m.coords[1]);
       const lats = h.members.map((m) => m.coords[0]);
       const pad = 0.35;
@@ -558,8 +762,16 @@ export function createMap(canvas, {
         Math.min(...lons) - pad, Math.min(...lats) - pad,
         Math.max(...lons) + pad, Math.max(...lats) + pad,
       ], 0.6);
-    } else {
+      return;
+    }
+    if (h) {
       onMarkerClick?.(h.entity);
+      return;
+    }
+    const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
+    if (th) {
+      const entityId = territoryEntityId?.(th.territory) ?? th.territory.entityId ?? null;
+      if (entityId) onTerritoryClick?.(th.territory, entityId);
     }
   });
 
@@ -575,7 +787,8 @@ export function createMap(canvas, {
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     const rect = canvas.getBoundingClientRect();
-    zoomAbout(e.clientX - rect.left, e.clientY - rect.top, e.deltaY > 0 ? 0.88 : 1.14);
+    const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
+    zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
   }, { passive: false });
 
   canvas.tabIndex = 0;
@@ -627,6 +840,7 @@ export function createMap(canvas, {
     },
 
     focusAegean() { api.flyTo([19, 34, 30, 42]); },
+    focusEasternMediterranean() { api.flyTo([19, 22, 40, 43]); },
     focusEmpire() { api.flyTo([16, 23, 78, 46]); },
     destroy() { ro.disconnect(); if (raf) cancelAnimationFrame(raf); },
   };
@@ -636,6 +850,27 @@ export function createMap(canvas, {
 }
 
 /* ---------- helpers ---------- */
+// Letter-spaced text, centred on (cx, cy) — canvas has no native
+// letter-spacing, so this lays out and draws glyph-by-glyph. Used for
+// territory names so they read like atlas labels rather than UI chrome.
+function textWidthSpaced(ctx, text, spacing) {
+  let w = 0;
+  for (const ch of text) w += ctx.measureText(ch).width + spacing;
+  return text.length ? w - spacing : 0;
+}
+function drawSpacedText(ctx, text, cx, cy, spacing, outline = false) {
+  const total = textWidthSpaced(ctx, text, spacing);
+  const prevAlign = ctx.textAlign;
+  ctx.textAlign = 'start';
+  let x = cx - total / 2;
+  for (const ch of text) {
+    if (outline) ctx.strokeText(ch, x, cy);
+    ctx.fillText(ch, x, cy);
+    x += ctx.measureText(ch).width + spacing;
+  }
+  ctx.textAlign = prevAlign;
+}
+
 function roundRect(ctx, x, y, w, h, r) {
   const rr = Math.min(r, Math.abs(w) / 2, Math.abs(h) / 2);
   ctx.beginPath();

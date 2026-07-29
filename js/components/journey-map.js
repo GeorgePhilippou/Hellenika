@@ -8,13 +8,13 @@
    year/layer/territory-fade machinery — a journey is a fixed path,
    not a moment in time.
 
-   Painting order: basemap → territory backdrop (optional) → path →
-   numbered stops → hover highlight.
+   Painting order: basemap → territory backdrop (optional) →
+   numbered places and labels → hover highlight.
    ============================================================ */
 
 import { clamp, fitCanvas, animate, easeOutCubic, prefersReducedMotion } from '../util.js';
 import { PROVIDERS, lonLatToWorld, worldToLonLat, drawTiles } from './tiles.js';
-import { projectPath, pathLength, pointAtFraction, drawArrowHead } from './map-draw-utils.js';
+import { wheelZoomFactor } from './map-draw-utils.js';
 
 const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
 
@@ -111,10 +111,9 @@ export function createJourneyMap(canvas, {
       ctx.restore();
     }
 
-    /* --- path + numbered stops --- */
+    /* --- numbered places (the connecting route is intentionally omitted) --- */
     if (stops.length) {
       const ordered = stops.slice().sort((a, b) => a.order - b.order);
-      const pathColour = cssVar('--route-campaign');
 
       // Jitter repeat visits to the same coordinates (e.g. Alexander enters,
       // then later dies in, Babylon) so both markers stay individually readable.
@@ -127,31 +126,6 @@ export function createJourneyMap(canvas, {
         const jitter = n * 10;
         return { s, x: x + jitter, y: y + jitter };
       });
-
-      // Path
-      const pts = points.map((p) => [p.x, p.y]);
-      ctx.save();
-      ctx.strokeStyle = pathColour;
-      ctx.lineWidth = 2.4;
-      ctx.globalAlpha = 0.85;
-      ctx.lineJoin = 'round';
-      ctx.setLineDash([]);
-      ctx.shadowColor = dark ? 'rgba(0,0,0,.7)' : 'rgba(255,255,255,.75)';
-      ctx.shadowBlur = 3;
-      ctx.beginPath();
-      pts.forEach(([x, y], i) => { i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
-      ctx.stroke();
-      ctx.restore();
-
-      // Arrowheads at the midpoint of each leg
-      ctx.save();
-      for (let i = 1; i < pts.length; i++) {
-        const leg = [pts[i - 1], pts[i]];
-        if (pathLength(leg) < 24) continue;
-        const p = pointAtFraction(leg, 0.55);
-        drawArrowHead(ctx, p.x, p.y, p.angle, 6, pathColour);
-      }
-      ctx.restore();
 
       // Numbered markers
       for (const { s, x, y } of points) {
@@ -177,6 +151,48 @@ export function createJourneyMap(canvas, {
         ctx.restore();
 
         hitRegions.push({ id: s.id, stop: s, x, y, r: r + 5 });
+      }
+
+      // Every stop gets a readable name. Try several sides so labels remain
+      // visible in dense areas without drawing a route through them.
+      const placed = points.map(({ x, y }) => ({
+        x0: x - 11, y0: y - 11, x1: x + 11, y1: y + 11,
+      }));
+      const labelledIds = new Set();
+      ctx.font = `600 11px ${cssVar('--font-ui') || 'system-ui'}`;
+      ctx.textBaseline = 'middle';
+      for (const { s, x, y } of points) {
+        if (labelledIds.has(s.id)) continue;
+        labelledIds.add(s.id);
+        const w = ctx.measureText(s.name).width;
+        const options = [
+          { x: x + 15, y },
+          { x: x + 15, y: y - 20 },
+          { x: x + 15, y: y + 20 },
+          { x: x - w - 15, y },
+          { x: x - w - 15, y: y - 20 },
+          { x: x - w - 15, y: y + 20 },
+          { x: x - w / 2, y: y + 19 },
+          { x: x - w / 2, y: y - 19 },
+          { x: x - w / 2, y: y + 36 },
+          { x: x - w / 2, y: y - 36 },
+        ];
+        const p = options.find((o) => {
+          const box = { x0: o.x - 3, y0: o.y - 8, x1: o.x + w + 3, y1: o.y + 8 };
+          return box.x0 >= 2 && box.x1 <= W - 2 && box.y0 >= 2 && box.y1 <= H - 2
+            && !placed.some((q) => !(box.x1 < q.x0 || box.x0 > q.x1 || box.y1 < q.y0 || box.y0 > q.y1));
+        });
+        if (!p) continue;
+        const box = { x0: p.x - 3, y0: p.y - 8, x1: p.x + w + 3, y1: p.y + 8 };
+        placed.push(box);
+        ctx.save();
+        ctx.fillStyle = dark ? 'rgba(12,16,20,.84)' : 'rgba(255,255,255,.9)';
+        ctx.beginPath();
+        ctx.roundRect(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0, 4);
+        ctx.fill();
+        ctx.fillStyle = cssVar('--text');
+        ctx.fillText(s.name, p.x, p.y + 0.5);
+        ctx.restore();
       }
     }
   }
@@ -265,7 +281,8 @@ export function createJourneyMap(canvas, {
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     const rect = canvas.getBoundingClientRect();
-    zoomAbout(e.clientX - rect.left, e.clientY - rect.top, e.deltaY > 0 ? 0.88 : 1.14);
+    const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
+    zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
   }, { passive: false });
 
   canvas.tabIndex = 0;

@@ -23,8 +23,12 @@
   color: var(--text); flex-shrink: 0;
 }
 .brand:hover { text-decoration: none; }
-.brand-mark { width: 26px; height: 26px; flex-shrink: 0; }
-.brand-mark path, .brand-mark circle { transition: fill var(--t-med) var(--ease-out); }
+.brand-mark {
+  display: block; width: 29px; height: 29px; flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask: url('../assets/trojan-horse-delapouite.svg') center / contain no-repeat;
+  mask: url('../assets/trojan-horse-delapouite.svg') center / contain no-repeat;
+}
 
 .nav { display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
 .nav::-webkit-scrollbar { display: none; }

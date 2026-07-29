@@ -49,6 +49,7 @@ export const odysseyPlaces = [
     historicalBackground: 'Homer gives no coordinates; "nine days before the north wind" is a narrative device, not a distance. Djerba is the most commonly cited traditional identification, on the strength of a local lotus-like plant and a long-standing (though modern) tourist tradition — not an ancient one.',
     claims: [
       { text: 'The Odyssey describes a plant that erases the desire to return home.', evidence: 'literary', confidence: 'established' },
+      { text: 'Homer does not provide enough geographical information to identify the land securely.', evidence: 'literary', confidence: 'established' },
       { text: 'The island of Djerba is the location of the Lotus-Eaters.', evidence: 'tradition', confidence: 'legendary' },
     ],
     relations: [
@@ -100,7 +101,7 @@ export const odysseyPlaces = [
     summary: 'A harbour of giant cannibals that destroys eleven of Odysseus\'s twelve ships in a single ambush.',
     myth: "The fleet finds a harbour so enclosed that only Odysseus's own ship anchors outside it. The Laestrygonians, giants, sink the ships trapped inside by hurling boulders and spear the crews \"like fish.\" Only Odysseus's single ship, moored apart, survives — the single worst loss of the entire voyage.",
     earliestSource: 'Odyssey Book 10.',
-    historicalBackground: 'Formia on the Italian coast (ancient "Lamian Gulf") has carried this association since Roman times — Cicero owned a villa there under that association — but it is a Roman-era literary tradition, not a Homeric specification.',
+    historicalBackground: 'Formia on the Italian coast (ancient "Lamian Gulf") has carried this association since Roman times — Cicero owned a villa there under that association — but it is a Roman-era literary tradition, not a Homeric specification. The episode\'s unnaturally enclosed harbour functions as a trap in the story, and matching that geometry to a modern bay cannot turn narrative description into historical coordinates.',
     claims: [
       { text: 'Laestrygonian giants destroy eleven of the fleet\'s twelve ships.', evidence: 'literary', confidence: 'established' },
       { text: 'Only the ship moored outside the enclosed harbour survives.', evidence: 'literary', confidence: 'established' },

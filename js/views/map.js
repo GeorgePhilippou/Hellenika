@@ -10,10 +10,11 @@ import * as store from '../store.js';
 import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
 import { primaryPeriodAt, periods } from '../../data/periods.js';
-import { routesAt, territories } from '../../data/geo.js';
+import { territories } from '../../data/geo.js';
 import { odysseyJourney, alexanderJourney, alexanderTerritoryIds } from '../../data/journeys.js';
 import { createMap } from '../components/map-canvas.js';
 import { createJourneyMap } from '../components/journey-map.js';
+import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../components/images.js';
 import { go, entityHref } from '../router.js';
 import { entityDate, sectionHead } from '../components/ui.js';
 
@@ -22,7 +23,6 @@ const LAYERS = [
   ['cities', 'Cities'],
   ['sites', 'Sites & sanctuaries'],
   ['battles', 'Battles'],
-  ['routes', 'Routes & trade'],
   ['labels', 'Place labels'],
 ];
 
@@ -67,6 +67,51 @@ const JOURNEYS = {
   },
 };
 
+const TERRITORY_ENTITY_IDS = new Map([
+  ['Minoan Crete', 'minoan-civilisation'],
+  ['Minoan cultural sphere', 'minoan-civilisation'],
+  ['Early Minoan culture', 'minoan-civilisation'],
+  ['Mycenaean palace regions', 'mycenaean-civilisation'],
+  ['Mycenaean Crete', 'mycenaean-civilisation'],
+  ['Early Mycenaean culture', 'mycenaean-civilisation'],
+  ['Early Hittite kingdom', 'hattusa-ref'],
+  ['Hittite Empire', 'hattusa-ref'],
+  ['Achaemenid Empire', 'achaemenid-empire'],
+  ['Athenian Empire (Delian League)', 'delian-league'],
+  ['Kingdom of Macedon', 'rise-of-macedon'],
+  ['League of Corinth', 'league-of-corinth'],
+  ['Ptolemaic control in Egypt', 'ptolemaic-kingdom'],
+  ['Ptolemaic Kingdom', 'ptolemaic-kingdom'],
+  ['Ptolemaic Levant', 'ptolemaic-kingdom'],
+  ['Ptolemaic Cyrenaica', 'ptolemaic-kingdom'],
+  ['Seleucid Empire', 'seleucid-empire'],
+  ['Seleucid Empire under Antiochus III', 'seleucid-empire'],
+  ['Seleucid remnant', 'seleucid-empire'],
+  ['Macedon under the Successors', 'wars-of-diadochi'],
+  ['Antigonid Macedon', 'hellenistic-period'],
+  ['Kingdom of Pergamon', 'pergamon'],
+  ['Greco-Bactrian Kingdom', 'ai-khanoum'],
+  ['New Kingdom Egypt', 'waset-thebes'],
+  ['Neo-Babylonian Empire', 'babylon'],
+]);
+
+function territoryProfileId(territory) {
+  if (!territory) return null;
+  if (territory.entityId && db.get(territory.entityId)) return territory.entityId;
+  if (territory.name?.startsWith("Alexander's empire")) return 'alexander-empire';
+  if (territory.name?.startsWith('Roman ')) return 'roman-conquest';
+  return TERRITORY_ENTITY_IDS.get(territory.name) ?? null;
+}
+
+function hoverProfileEntity(e) {
+  if (!e) return null;
+  if (e.entityId) return db.get(e.entityId);
+  const directEntity = db.get(e.id);
+  if (directEntity) return directEntity;
+  const id = territoryProfileId(e);
+  return id ? db.get(id) : null;
+}
+
 function resolveStops(config) {
   return config
     .map((s) => {
@@ -87,7 +132,7 @@ export async function renderMap(params) {
         <div>
           <p class="eyebrow" id="map-eyebrow">Historical atlas</p>
           <h1 id="map-title">The Map</h1>
-          <p class="sub" id="map-sub">Move through time and watch political control, cities and routes change.</p>
+          <p class="sub" id="map-sub">Move through time and watch regions, cities and archaeological sites change.</p>
         </div>
         <div class="row" id="map-view-controls"></div>
       </div>
@@ -156,7 +201,7 @@ function mount(root, initialMode) {
     if (mode === 'historical') {
       $('#map-eyebrow', root).textContent = 'Historical atlas';
       $('#map-title', root).textContent = 'The Map';
-      $('#map-sub', root).textContent = 'Move through time and watch political control, cities and routes change.';
+      $('#map-sub', root).textContent = 'Move through time and watch regions, cities and archaeological sites change.';
       introHost.innerHTML = '';
       mountHistorical();
     } else {
@@ -164,8 +209,8 @@ function mount(root, initialMode) {
       $('#map-eyebrow', root).textContent = 'Narrative atlas';
       $('#map-title', root).textContent = j.label;
       $('#map-sub', root).textContent = mode === 'odyssey'
-        ? 'A fixed, numbered sequence — not a moment in time.'
-        : "The path of his campaign, and the land it left him ruling.";
+        ? 'Numbered places from the poem and its later geographical traditions.'
+        : 'The principal places of the campaign and the territories Alexander controlled.';
       introHost.innerHTML = j.intro
         ? `<div class="callout" style="--tint:var(--p-mycenaean);margin-bottom:var(--s-6)">
             <h3 class="eyebrow" style="margin-bottom:var(--s-2)">Reading this map</h3>
@@ -183,6 +228,7 @@ function mount(root, initialMode) {
   function mountHistorical() {
     viewControlsHost.innerHTML = `
       <button class="btn btn-sm" id="map-aegean">Aegean</button>
+      <button class="btn btn-sm" id="map-east-med">Eastern Med</button>
       <button class="btn btn-sm" id="map-empire">Full extent</button>`;
     eraHost.innerHTML = `
       <div class="y num" id="map-year"></div>
@@ -234,40 +280,78 @@ function mount(root, initialMode) {
     const listHost = $('#map-list', root);
     const countHost = $('#map-count', root);
     const range = $('#map-range', root);
+    let hoverSequence = 0;
+    let hoverHideTimer = null;
+
+    legendHost.innerHTML = `
+      <div class="map-key" aria-label="Map key">
+        <span><i class="map-key-area solid"></i>polity</span>
+        <span><i class="map-key-area dashed"></i>culture / league</span>
+        <span><i class="map-key-point city"></i>city</span>
+        <span><i class="map-key-point site"></i>site</span>
+      </div>`;
+
+    const hideHoverTip = () => {
+      hoverSequence += 1;
+      tip.classList.remove('on', 'with-media', 'interactive');
+    };
+
+    const paintHoverTip = (e, pos, profile = null, image = null) => {
+      const date = entityDate(e);
+      const qualifier = e.certainty === 'debated' ? ' · debated reconstruction'
+        : e.certainty === 'schematic' ? ' · schematic boundary'
+        : '';
+      const summary = profile?.summary?.trim();
+      tip.innerHTML = `
+        ${image?.src ? `<div class="tl-tip-media"><img src="${esc(image.src)}" alt=""></div>` : ''}
+        <div class="tl-tip-body">
+          <div class="t">${esc(e.name)}</div>
+          <div class="d">${esc(e.typeLabel)}${e.region ? ' · ' + esc(e.region) : ''}${esc(qualifier)}</div>
+          ${date ? `<div class="d">${esc(date)}</div>` : ''}
+          ${summary ? `<div class="map-tip-summary">${esc(summary)}</div>` : ''}
+          ${profile ? `<a class="map-tip-link" href="${entityHref(profile.id)}">
+            Open ${esc(profile.name)} ${icon('arrowRight', { size: 13 })}
+          </a>` : ''}
+        </div>`;
+      tip.classList.toggle('with-media', Boolean(image?.src));
+      tip.classList.toggle('interactive', Boolean(profile));
+      tip.classList.add('on');
+      const estimatedHeight = summary ? 220 : image?.src ? 150 : 90;
+      tip.style.left = `${Math.max(8, Math.min(pos.x + 14, canvas.clientWidth - 354))}px`;
+      tip.style.top = `${Math.max(8, Math.min(pos.y + 14, canvas.clientHeight - estimatedHeight))}px`;
+    };
 
     const hMap = createMap(canvas, {
       year: store.get('year'),
-      layers: store.get('layers'),
+      layers: { ...store.get('layers'), routes: false },
       basemap: store.get('basemap'),
       markers: [],
       onMarkerClick: (e) => go(`/e/${e.id}`),
+      territoryEntityId: territoryProfileId,
+      onTerritoryClick: (_territory, entityId) => go(`/e/${entityId}`),
       onHover: (e, pos) => {
-        if (!e) { tip.classList.remove('on'); return; }
-        tip.innerHTML = `<div class="t">${esc(e.name)}</div>
-          <div class="d">${esc(e.typeLabel)}${e.region ? ' · ' + esc(e.region) : ''}</div>
-          <div class="d">${esc(entityDate(e))}</div>`;
-        tip.classList.add('on');
-        tip.style.left = `${Math.min(pos.x + 14, canvas.clientWidth - 260)}px`;
-        tip.style.top = `${Math.min(pos.y + 14, canvas.clientHeight - 80)}px`;
+        const sequence = ++hoverSequence;
+        clearTimeout(hoverHideTimer);
+        if (!e) {
+          hoverHideTimer = setTimeout(() => {
+            if (!tip.matches(':hover')) hideHoverTip();
+          }, 160);
+          return;
+        }
+        const profile = hoverProfileEntity(e);
+        const cached = profile ? peekImage(profile) : null;
+        paintHoverTip(e, pos, profile, cached);
+        if (!profile || cached?.src) return;
+        ensureImagesLoaded([profile]).then(() => {
+          if (sequence !== hoverSequence) return;
+          const loaded = peekImage(profile);
+          if (loaded?.src) paintHoverTip(e, pos, profile, loaded);
+        });
       },
     });
+    tip.addEventListener('pointerenter', () => clearTimeout(hoverHideTimer));
+    tip.addEventListener('pointerleave', hideHoverTip);
     map = hMap;
-
-    hMap.onLegend((items) => {
-      const seen = new Set();
-      const uniqTerritories = items.filter((i) => !seen.has(i.name) && seen.add(i.name)).slice(0, 4);
-      const territoryHTML = uniqTerritories.map((i) =>
-        `<span class="chip" style="--tint:var(--p-${i.tint})"><i class="chip-dot"></i>${esc(i.name)}</span>`
-      ).join('');
-
-      let routeHTML = '';
-      if (store.get('layers').routes) {
-        routeHTML = routesAt(store.get('year')).slice(0, 3).map((r) =>
-          `<span class="chip" style="--tint:var(${r.dashed ? '--route-trade' : '--route-campaign'})"><i class="chip-dot"></i>${esc(r.name)}${r.dashed ? ' <span class="muted">· trade</span>' : ''}</span>`
-        ).join('');
-      }
-      legendHost.innerHTML = territoryHTML + routeHTML;
-    });
 
     const yearOut = $('#map-year', root);
     const periodOut = $('#map-period', root);
@@ -325,7 +409,7 @@ function mount(root, initialMode) {
     const paintLayers = (l) => {
       $$('[data-layer]', root).forEach((s) =>
         s.setAttribute('aria-checked', String(!!l[s.dataset.layer])));
-      hMap.setLayers(l);
+      hMap.setLayers({ ...l, routes: false });
     };
     unbindLayers = store.bind('layers', paintLayers);
     $$('[data-layer]', root).forEach((s) => {
@@ -347,6 +431,7 @@ function mount(root, initialMode) {
     $('#map-zout', root).addEventListener('click', () => hMap.zoomOut());
     $('#map-reset', root).addEventListener('click', () => hMap.reset());
     $('#map-aegean', root).addEventListener('click', () => hMap.focusAegean());
+    $('#map-east-med', root).addEventListener('click', () => hMap.focusEasternMediterranean());
     $('#map-empire', root).addEventListener('click', () => hMap.focusEmpire());
   }
 

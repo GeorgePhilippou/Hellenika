@@ -129,7 +129,7 @@ export const people = [
     coords: [37.98, 23.73], region: 'Athens',
     summary: 'Author of Athens\' first written law code in 621 BC — famously severe, and the origin of the word "draconian".',
     significance: 'Writing the law down took its interpretation out of the exclusive hands of aristocratic judges, however harsh its content.',
-    body: 'Ancient tradition held that Draco prescribed death for almost every offence, and that his laws were written in blood rather than ink. Solon repealed nearly all of them.\n\nThe exception is the homicide law, which survived and was re-inscribed in 409/8 BC — a copy of that inscription still exists. It is notably sophisticated: it distinguishes intentional from unintentional killing, sets out procedures for exile and pardon by the victim\'s family, and takes blood vengeance out of private hands. The written code, not its severity, was the lasting achievement.',
+    body: 'Ancient tradition held that Draco prescribed death for almost every offence, and that his laws were written in blood rather than ink. Solon repealed nearly all of them.\n\nThe exception is the homicide law, which survived and was re-inscribed in 409/8 BC — a copy of that inscription still exists. It is notably sophisticated: it distinguishes intentional from unintentional killing, sets out procedures for exile and pardon by the victim\'s family, and takes blood vengeance out of private hands. Its public display also made a rule available for scrutiny beyond an aristocratic judge\'s memory. The written code, not its proverbial severity, was the lasting achievement.',
     claims: [
       { text: 'Draco produced Athens\' first written law code, traditionally dated 621/0 BC.', evidence: 'literary', confidence: 'strong' },
       { text: 'A 409/8 BC re-inscription of Draco\'s homicide law survives.', evidence: 'epigraphic', confidence: 'established' },
@@ -681,7 +681,7 @@ export const people = [
     id: 'hephaestion', name: 'Hephaestion', altNames: ['Ἡφαιστίων'], type: 'person', subtype: 'general',
     tint: 'alexander', start: -356, end: -324, approx: true,
     coords: [40.75, 22.52], region: 'Macedon',
-    summary: 'Alexander\'s closest companion and second-in-command, whose death shattered him.',
+    summary: 'Alexander\'s closest companion and second-in-command, whose sudden death at Ecbatana provoked an extraordinary public crisis of grief.',
     significance: 'The relationship is the best-attested personal bond in Alexander\'s life and shaped his behaviour at key moments.',
     body: 'Hephaestion grew up with Alexander and rose to *chiliarch*, the second office in the empire. At Susa in 324 BC he married Drypetis, sister of Alexander\'s own bride Stateira, so their children would be cousins.\n\nHe died at Ecbatana later that year. Alexander\'s response was extravagant even by his standards: he reportedly lay on the body for a day, cut his hair, executed the physician, banned music, and ordered a monumental pyre at Babylon at enormous cost. He asked the oracle at Siwa whether Hephaestion could be worshipped as a god and settled for hero cult.\n\nAncient sources compared the pair to Achilles and Patroclus, and Alexander did visit their supposed tombs at Troy together. Whether the relationship was sexual is not stated in the surviving sources and cannot be resolved.',
     claims: [

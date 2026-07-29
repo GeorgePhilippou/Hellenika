@@ -120,7 +120,7 @@ export const periods = [
     keyEvents: ['shaft-graves-mycenae', 'linear-b-knossos', 'trojan-war-traditional', 'palace-destructions-1200', 'ventris-decipherment'],
     people: ['agamemnon', 'heinrich-schliemann', 'michael-ventris', 'carl-blegen', 'nestor'],
     sites: ['mycenae', 'tiryns', 'pylos', 'thebes', 'dendra', 'orchomenos', 'gla'],
-    artefacts: ['mask-of-agamemnon', 'linear-b-tablet', 'dendra-panoply', 'vaphio-cups', 'warrior-vase', 'nestors-cup-pylos', 'lion-gate'],
+    artefacts: ['mask-of-agamemnon', 'linear-b-tablet', 'dendra-panoply', 'vaphio-cups', 'warrior-vase', 'lion-gate'],
     texts: ['iliad', 'odyssey'],
     claims: [
       { text: 'Linear B records an early form of Greek.', evidence: 'linguistic', confidence: 'established' },

@@ -49,3 +49,13 @@ export function drawArrowHead(ctx, x, y, angle, size, colour) {
   ctx.fill();
   ctx.restore();
 }
+
+/** Convert wheel/trackpad movement into a smooth zoom multiplier.
+    Trackpads emit many small wheel events, so a fixed multiplier per
+    event makes one gesture explode into dozens of zoom steps. */
+export function wheelZoomFactor(deltaY, deltaMode = 0, pinchGesture = false) {
+  const modeScale = deltaMode === 1 ? 16 : deltaMode === 2 ? 500 : 1;
+  const pixels = Math.max(-120, Math.min(120, deltaY * modeScale));
+  const sensitivity = pinchGesture ? 0.003 : 0.0014;
+  return Math.max(0.84, Math.min(1.19, Math.exp(-pixels * sensitivity)));
+}

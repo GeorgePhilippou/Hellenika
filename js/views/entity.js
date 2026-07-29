@@ -146,8 +146,8 @@ function evidenceSection(e) {
 
   return section('evidence', 'Evidence', `
     <p class="small muted" style="margin-bottom:var(--s-4);max-width:64ch">
-      Each statement below is tagged with the kind of evidence supporting it and how
-      confident specialists are entitled to be. Where the field disagrees, it says so.
+      The statements below summarise the principal evidence for this entry. Each is
+      classified by evidence type and current level of scholarly confidence.
     </p>
     <div class="evidence-bar">${bar}</div>
     ${claimsList(e.claims)}

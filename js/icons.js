@@ -112,13 +112,5 @@ export const EVIDENCE_ICON = {
   consensus: 'evConsensus', debate: 'evDebate',
 };
 
-/** The wordmark: a stylised Ionic column inside a laurel arc. */
-export const BRAND_MARK = `
-<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-  <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-opacity=".16" stroke-width="1.4"/>
-  <path d="M9 9.5c1.8-1.6 4.2-2.4 7-2.4s5.2.8 7 2.4" fill="none" stroke="var(--accent)"
-        stroke-width="2" stroke-linecap="round"/>
-  <path d="M11.5 11.5h9M12.3 11.5v9M15.1 11.5v9M17.9 11.5v9M20.7 11.5v0M19.7 11.5v9M10 21.5h12"
-        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M10.5 24.5h11" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
-</svg>`;
+/** CC BY 3.0 Trojan horse by Delapouite; see the About page for attribution. */
+export const BRAND_MARK = '<span class="brand-mark" aria-hidden="true"></span>';

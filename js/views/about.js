@@ -183,6 +183,21 @@ export async function renderAbout() {
           </div>
         </section>
 
+        <section style="margin-bottom:var(--s-12)">
+          ${sectionHead('Visual credits')}
+          <div class="prose">
+            <p>
+              The Trojan-horse mark is
+              <a href="https://commons.wikimedia.org/wiki/File:Trojan-horse_-_Delapouite_-_white_-_game-icons.svg"
+                 target="_blank" rel="noopener">“Trojan horse” by Delapouite</a>,
+              sourced from Wikimedia Commons and used under
+              <a href="https://creativecommons.org/licenses/by/3.0/"
+                 target="_blank" rel="noopener">CC BY 3.0</a>.
+              Its colour has been adapted to the site theme.
+            </p>
+          </div>
+        </section>
+
         <section>
           ${sectionHead('Corrections')}
           <div class="prose">

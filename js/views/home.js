@@ -59,9 +59,10 @@ export async function renderHome() {
 
         <div class="hero-text">
         <p class="lede">
-          Not an encyclopaedia. A connected atlas you explore through time, space,
-          relationships and evidence — where every claim tells you what it rests on
-          and how sure anyone is entitled to be.
+          Hellenika is an open, evidence-led guide to the ancient Greek world.
+          It connects people, places, objects and events across an interactive timeline
+          and map, making the sources — and the limits of what we know — clear and
+          accessible to everyone.
         </p>
 
         <div class="hero-actions">
