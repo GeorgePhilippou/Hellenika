@@ -1,0 +1,14 @@
+{
+  "name": "hellenika",
+  "private": true,
+  "type": "module",
+  "description": "Build-time content pipeline for Hellenika. The site itself ships zero dependencies and no build step -- this only supports the content authoring workflow (content/**/*.md -> data/*.json).",
+  "scripts": {
+    "content:migrate": "node scripts/migrate-to-content.mjs",
+    "content:build": "node scripts/compile-content.mjs",
+    "content:verify": "node scripts/verify-content.mjs"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
