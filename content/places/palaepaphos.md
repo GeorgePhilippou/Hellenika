@@ -34,6 +34,8 @@ relations:
     rel: principal sanctuary of
   - id: nea-paphos
     rel: predecessor of
+  - id: aphrodite-baetyl-paphos
+    rel: housed
 sources:
   - karageorghis1982
   - smith2009

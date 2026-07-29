@@ -39,6 +39,8 @@ relations:
     rel: depicted as
   - id: sappho-fragments
     rel: invoked in
+  - id: aphrodite-baetyl-paphos
+    rel: worshipped as
 sources:
   - burkert1985
   - budin2003
