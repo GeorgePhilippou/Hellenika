@@ -668,12 +668,15 @@
 
 /* --- Hero photo panel --- */
 .entity-hero-grid {
-  display: grid; grid-template-columns: 1fr 260px; gap: var(--s-10);
+  display: grid; grid-template-columns: 1fr minmax(260px, 30%); gap: var(--s-10);
   align-items: start;
+}
+@media (min-width: 1180px) {
+  .entity-hero-grid { grid-template-columns: 1fr minmax(340px, 420px); }
 }
 @media (max-width: 860px) {
   .entity-hero-grid { grid-template-columns: 1fr; gap: var(--s-6); }
-  .entity-hero-media { order: -1; max-width: 340px; }
+  .entity-hero-media { order: -1; max-width: 420px; }
 }
 .entity-hero-text { min-width: 0; }
 
