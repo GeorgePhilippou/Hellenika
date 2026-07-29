@@ -28,12 +28,6 @@ const LAYERS = [
   ['labels', 'Place labels'],
 ];
 
-const BASEMAPS = [
-  ['none', 'Atlas'],
-  ['relief', 'Terrain'],
-  ['plain', 'Plain'],
-];
-
 const JUMPS = [
   { y: -1500, label: 'Minoan peak' },
   { y: -1200, label: 'Collapse' },
@@ -194,13 +188,13 @@ function mount(root, initialMode) {
   const viewControlsHost = $('#map-view-controls', root);
 
   let map = null;
-  let unbindYear = null, unbindPlay = null, unbindLayers = null, unbindBasemap = null;
+  let unbindYear = null, unbindPlay = null, unbindLayers = null;
   let modeEvents = null;
   let mode = 'historical';
 
   function teardown() {
-    unbindYear?.(); unbindPlay?.(); unbindLayers?.(); unbindBasemap?.();
-    unbindYear = unbindPlay = unbindLayers = unbindBasemap = null;
+    unbindYear?.(); unbindPlay?.(); unbindLayers?.();
+    unbindYear = unbindPlay = unbindLayers = null;
     modeEvents?.abort();
     modeEvents = null;
     map?.destroy();
@@ -269,18 +263,6 @@ function mount(root, initialMode) {
       </div>`;
     sideHost.innerHTML = `
       <div class="panel">
-        <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Basemap</h3>
-        <div class="segmented" id="map-basemap" style="width:100%">
-          ${BASEMAPS.map(([k, label]) => `
-            <button data-basemap="${k}" aria-pressed="${store.get('basemap') === k}" style="flex:1">${esc(label)}</button>`).join('')}
-        </div>
-        <p class="xs muted" style="margin-top:var(--s-3)">
-          Atlas is a hand-drawn historical style, built entirely offline. Terrain
-          and Plain load live satellite-derived tiles (Esri, CARTO) instead, with
-          no modern borders or labels.
-        </p>
-      </div>
-      <div class="panel">
         <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Layers</h3>
         ${LAYERS.map(([k, label]) => `
           <div class="layer-row">
@@ -344,7 +326,7 @@ function mount(root, initialMode) {
     const hMap = createMap(canvas, {
       year: store.get('year'),
       layers: { ...store.get('layers'), routes: false },
-      basemap: store.get('basemap'),
+      basemap: 'plain',
       markers: [],
       onMarkerClick: (e) => go(`/e/${e.id}`),
       territoryEntityId: territoryProfileId,
@@ -435,17 +417,6 @@ function mount(root, initialMode) {
     $$('[data-layer]', root).forEach((s) => {
       s.addEventListener('click', () => store.toggleLayer(s.dataset.layer), { signal });
     });
-
-    const basemapHost = $('#map-basemap', root);
-    unbindBasemap = store.bind('basemap', (id) => {
-      $$('[data-basemap]', basemapHost).forEach((b) =>
-        b.setAttribute('aria-pressed', String(b.dataset.basemap === id)));
-      hMap.setBasemap(id);
-    });
-    basemapHost.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-basemap]'); if (!b) return;
-      store.set('basemap', b.dataset.basemap);
-    }, { signal });
 
     $('#map-zin', root).addEventListener('click', () => hMap.zoomIn(), { signal });
     $('#map-zout', root).addEventListener('click', () => hMap.zoomOut(), { signal });

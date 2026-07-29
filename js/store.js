@@ -31,10 +31,11 @@ const state = {
     territories: true, cities: true, sites: true, battles: true,
     routes: true, labels: true,
   }),
-  /** Map basemap: 'relief' | 'plain' | 'none'. 'none' is the hand-drawn
-      atlas look and the default — 'relief'/'plain' are live satellite
-      tiles, kept as alternate options. */
-  basemap: persist.get('basemap', 'none'),
+  /** Map basemap for the historical map view — 'plain' is the only
+      option now (an accent-tinted CARTO basemap); 'relief' still exists
+      in js/components/tiles.js and is used directly by the guided
+      Odyssey/Alexander journey maps, just not offered as a choice here. */
+  basemap: persist.get('basemap', 'plain'),
   /** Compare tray: up to 2 entity ids. */
   compare: persist.get('compare', []),
 };

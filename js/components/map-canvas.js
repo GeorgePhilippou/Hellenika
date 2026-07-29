@@ -37,14 +37,17 @@ const CULTURE_FADE = 16;
    drawn historical atlas rather than a gap-filler for when tiles fail —
    so it gets its own warm, aged-paper palette rather than reusing the
    plain light/dark surface colours. */
+// Land uses a plain, saturated orange rather than reusing any political
+// tint colour (e.g. --p-classical is a similar terracotta) — territory
+// fills need to read clearly against the base map, not vanish into it.
 const ATLAS = {
   light: {
-    land: '#e6d8b8', landEdge: '#a9803f', sea: '#6f9a9c', seaEdge: '#3f6b6e',
-    river: '#4f7d80', grain: 'rgba(107,74,42,0.05)', vignette: 'rgba(59,41,20,0.16)',
+    land: '#d9772e', landEdge: '#ffffff', sea: '#ffffff', seaEdge: '#ffffff',
+    river: '#7a3320', grain: 'rgba(107,74,42,0.05)', vignette: 'rgba(59,41,20,0.16)',
   },
   dark: {
-    land: '#3a3122', landEdge: '#8a6f3c', sea: '#16333a', seaEdge: '#274f56',
-    river: '#3f6266', grain: 'rgba(0,0,0,0.12)', vignette: 'rgba(0,0,0,0.4)',
+    land: '#d9772e', landEdge: '#000000', sea: '#000000', seaEdge: '#000000',
+    river: '#e8ac6e', grain: 'rgba(0,0,0,0.12)', vignette: 'rgba(0,0,0,0.4)',
   },
 };
 

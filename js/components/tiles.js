@@ -43,7 +43,16 @@ export const PROVIDERS = {
       `https://a.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_nolabels/${z}/${x}/${y}.png`,
     maxZoom: 15,
     attribution: 'CARTO, OpenStreetMap contributors',
-    wash: { light: 'rgba(255,255,255,0)', dark: 'rgba(0,0,0,0)' },
+    // Each tile is recoloured once, on load, to an exact flat two-tone
+    // image (see recolorTile below) — land is literally this orange RGB,
+    // sea is literally black (dark mode) or white (light mode). CARTO's
+    // dark_nolabels tiles turned out to render water as the *lighter*
+    // pixel and land as the darker one (the reverse of light_nolabels),
+    // hence landIsDarker differing between the two.
+    recolor: {
+      light: { land: [214, 101, 32], sea: [255, 255, 255], landIsDarker: false },
+      dark: { land: [232, 140, 60], sea: [0, 0, 0], landIsDarker: true },
+    },
   },
 };
 
@@ -69,22 +78,70 @@ export function worldToLonLat(x, y) {
 
 /* ---------- Tile cache ---------- */
 
-const cache = new Map();   // key → HTMLImageElement (complete) or 'pending'
+const cache = new Map();   // key → HTMLImageElement or <canvas> (complete) or 'pending'
 const failed = new Set();
 let inFlight = 0;
 const MAX_PARALLEL = 12;
 const queue = [];
 
+/**
+ * Recolours a loaded tile image to an exact flat two-tone image: every
+ * pixel is classified land or sea by an adaptive per-tile luminance
+ * threshold (the midpoint of that tile's own darkest/lightest pixel —
+ * CARTO's "_nolabels" styles are flat fills with no hillshading, so this
+ * cleanly separates the two dominant tones) and then set to a literal
+ * RGB, not tinted. A translucent hue-preserving wash can't turn an
+ * already-near-white or already-near-black pixel into a different,
+ * visibly distinct colour — this replaces the pixel outright, so the
+ * result matches "land orange / sea black-or-white" exactly rather than
+ * approximately.
+ */
+function recolorTile(img, { land, sea, landIsDarker }) {
+  const w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
+  const off = document.createElement('canvas');
+  off.width = w; off.height = h;
+  const octx = off.getContext('2d', { willReadFrequently: true });
+  octx.drawImage(img, 0, 0);
+
+  const imageData = octx.getImageData(0, 0, w, h);
+  const data = imageData.data;
+  let min = 255, max = 0;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] === 0) continue; // transparent tile padding, e.g. antimeridian edges
+    const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+    if (lum < min) min = lum;
+    if (lum > max) max = lum;
+  }
+  const threshold = (min + max) / 2;
+
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] === 0) continue;
+    const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+    const isLand = landIsDarker ? lum <= threshold : lum >= threshold;
+    const [r, g, b] = isLand ? land : sea;
+    data[i] = r; data[i + 1] = g; data[i + 2] = b;
+  }
+  octx.putImageData(imageData, 0, 0);
+  return off;
+}
+
 function pump(onLoad) {
   while (inFlight < MAX_PARALLEL && queue.length) {
-    const { key, url } = queue.shift();
+    const { key, url, recolor } = queue.shift();
     inFlight++;
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.decoding = 'async';
     img.onload = () => {
       inFlight--;
-      cache.set(key, img);
+      try {
+        cache.set(key, recolor ? recolorTile(img, recolor) : img);
+      } catch {
+        // Canvas got tainted (e.g. the CDN didn't send CORS headers this
+        // time) — fall back to the plain, untinted tile rather than
+        // losing it entirely.
+        cache.set(key, img);
+      }
       onLoad?.();
       pump(onLoad);
     };
@@ -110,7 +167,8 @@ function getTile(provider, z, x, y, dark, onLoad) {
   if (hit === 'pending') return null;
 
   cache.set(key, 'pending');
-  queue.push({ key, url: provider.url(z, x, y, dark) });
+  const recolor = provider.recolor?.[dark ? 'dark' : 'light'];
+  queue.push({ key, url: provider.url(z, x, y, dark), recolor });
   pump(onLoad);
   return null;
 }
@@ -185,12 +243,20 @@ export function drawTiles(ctx, { provider, scale, tx, ty, W, H, dark, onLoad }) 
     }
   }
 
-  // Wash the basemap back so overlays stay legible.
-  const wash = provider.wash[dark ? 'dark' : 'light'];
+  // Wash the basemap back so overlays stay legible. ('plain' doesn't use
+  // this — its tiles are already recoloured to an exact flat colour per
+  // pixel when loaded, see recolorTile — but 'relief'/'physical' still
+  // need a translucent wash so photographic tile detail doesn't fight
+  // with the data drawn on top.)
+  const wash = provider.wash?.[dark ? 'dark' : 'light'];
   if (painted && wash && !wash.endsWith('0)')) {
+    ctx.save();
+    if (provider.washMode) ctx.globalCompositeOperation = provider.washMode;
     ctx.fillStyle = wash;
     ctx.fillRect(0, 0, W, H);
+    ctx.restore();
   }
+
   ctx.restore();
 
   return painted > 0;
