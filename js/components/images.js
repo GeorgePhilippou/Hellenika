@@ -24,7 +24,11 @@ import { imageOverrides, imageSkip } from '../../data/images.js';
 
 const API = 'https://en.wikipedia.org/w/api.php';
 const THUMB_SIZE = 640;
-const CACHE_KEY = 'images-v4';
+// Bump this whenever imageOverrides/imageSkip change in a way that should
+// invalidate previously-cached results (including cached misses) -- the
+// cache never expires on its own, so a stale "no image found" from before
+// an override existed would otherwise stick in a visitor's browser forever.
+const CACHE_KEY = 'images-v5';
 const BATCH = 45; // MediaWiki's multi-title query limit is 50; leave headroom.
 
 /** entityId -> { title, src, w, h, page } | null (looked up, no usable image) */
