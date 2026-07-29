@@ -330,7 +330,13 @@ export function createMap(canvas, {
       for (const { t, a } of active) {
         ctx.save();
         traceSmoothRing(t.ring);
-        ctx.globalAlpha = a * (tiled ? 0.26 : 0.34);
+        // Political fills read as a solid atlas "colour region" (the
+        // reference look) — only leagues/cultures/regional layers, which
+        // routinely sit on top of an underlying polity fill, stay washy
+        // so both remain legible together. Overlapping polities are rare
+        // (POLITICAL_FADE is only 2 years) so a bold fill rarely muddies.
+        const boldFill = t.kind === 'polity';
+        ctx.globalAlpha = a * (boldFill ? (tiled ? 0.58 : 0.66) : (tiled ? 0.26 : 0.34));
         ctx.fillStyle = cssVar(`--p-${t.tint}`);
         ctx.fill();
         ctx.restore();
