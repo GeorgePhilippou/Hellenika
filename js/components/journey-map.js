@@ -370,13 +370,19 @@ export function createJourneyMap(canvas, {
         for (const leg of legs) strokePath(leg, routeColour, 3, 0.82);
         ctx.restore();
 
-        for (const leg of legs) {
-          const arrow = pointAtFraction(leg, 0.78);
-          drawArrowHead(ctx, arrow.x, arrow.y, arrow.angle, 5.5, routeColour);
-        }
-
         const legIndex = Math.min(legs.length - 1, Math.max(0, Math.floor(travelIndex)));
         const legFraction = travelIndex >= legs.length ? 1 : travelIndex - legIndex;
+
+        // Skip the arrowhead on whichever leg the traveller icon is
+        // currently on — the ship/standard's own rotation already shows
+        // direction there, and the two shapes otherwise land on top of
+        // each other and read as one lumpy icon.
+        legs.forEach((leg, i) => {
+          if (i === legIndex && legFraction < 1) return;
+          const arrow = pointAtFraction(leg, 0.78);
+          drawArrowHead(ctx, arrow.x, arrow.y, arrow.angle, 5.5, routeColour);
+        });
+
         const travellerPosition = pointAtFraction(legs[legIndex], legFraction);
         if (traveller === 'standard') drawStandard(travellerPosition, dark);
         else drawShip(travellerPosition, dark);
