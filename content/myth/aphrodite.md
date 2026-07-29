@@ -41,6 +41,8 @@ relations:
     rel: invoked in
   - id: aphrodite-baetyl-paphos
     rel: worshipped as
+  - id: aphrodite-knidos
+    rel: depicted as
 sources:
   - burkert1985
   - budin2003

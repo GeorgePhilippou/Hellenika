@@ -34,6 +34,8 @@ relations:
     rel: reversed by
   - id: thucydides
     rel: chronicled by
+  - id: nike-paionios
+    rel: commemorated by
 sources:
   - thucydides-src
   - kagan2003

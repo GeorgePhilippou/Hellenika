@@ -46,6 +46,8 @@ relations:
     rel: combatant
   - id: delian-league
     rel: led to
+  - id: kritios-boy
+    rel: aftermath buried
   - id: herodotus
     rel: chronicled by
 sources:

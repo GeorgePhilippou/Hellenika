@@ -35,6 +35,10 @@ relations:
     rel: comparable to
   - id: roman-conquest
     rel: looted during
+  - id: artemision-bronze
+    rel: comparable to
+  - id: terme-boxer
+    rel: comparable to
 sources:
   - stewart1990
   - mattusch1996
