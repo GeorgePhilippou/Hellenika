@@ -193,11 +193,13 @@ function paintCard(node, img) {
   node.append(photo);
 }
 
-// Clamp how far the hero box will stretch to match a photo's own shape,
-// so a panoramic landscape or a very tall crop still leaves a sane column
-// width in the two-column hero layout, rather than resizing without limit.
+// Clamp how far the hero box will stretch to match a photo's own shape.
+// Only the tall end is restrictive: an uncapped portrait photo at a fixed
+// 260px column width could produce an absurdly tall card. A wide photo
+// just makes for a shorter card, which the fixed-width column handles
+// fine, so that end is left generous.
 const HERO_MIN_RATIO = 0.62; // tallest allowed (portrait)
-const HERO_MAX_RATIO = 1.9;  // widest allowed (landscape)
+const HERO_MAX_RATIO = 3;    // widest allowed (landscape/panorama)
 
 function paintHero(node, img) {
   if (node.querySelector('img')) return;

@@ -701,10 +701,12 @@
 }
 .entity-hero-media.has-photo .hero-photo { opacity: 1; }
 .hero-photo img {
-  /* contain, not cover: the container is sized to the photo's own
-     aspect ratio (see paintHero in images.js), so the whole image is
-     always visible instead of having its edges cropped off. */
-  width: 100%; height: 100%; object-fit: contain; object-position: center;
+  /* The container is sized to the photo's own (clamped) aspect ratio in
+     paintHero(), so this matches almost exactly -- cover then fills the
+     box edge-to-edge with no crop in the common case, and only trims a
+     sliver on the rare photo extreme enough to hit the clamp, rather
+     than leaving letterboxed gaps around it. */
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
 .hero-photo-cred {
   position: absolute; right: var(--s-3); bottom: var(--s-3);
