@@ -49,9 +49,21 @@ export const PROVIDERS = {
     // dark_nolabels tiles turned out to render water as the *lighter*
     // pixel and land as the darker one (the reverse of light_nolabels),
     // hence landIsDarker differing between the two.
+    //
+    // `threshold` is a FIXED luminance split, not computed per tile.
+    // Sampled directly off CARTO's real tiles: light-theme sea sits at
+    // ~208–216, land at ~250; dark-theme land sits at ~9, sea at ~38 —
+    // so 232 / 24 sit safely in the gap. A per-tile adaptive threshold
+    // (that tile's own min/max midpoint) sounds more precise but breaks
+    // completely on any tile that's a single uniform colour — open sea
+    // far from any coastline, for instance — because min equals max
+    // there, and the boundary comparison then classifies the *entire*
+    // tile as land regardless of what colour it actually is. That's the
+    // solid orange rectangle bug: a whole tile of real Mediterranean
+    // open water, uniformly one shade, flipped to 100% land.
     recolor: {
-      light: { land: [214, 101, 32], sea: [255, 255, 255], landIsDarker: false },
-      dark: { land: [232, 140, 60], sea: [0, 0, 0], landIsDarker: true },
+      light: { land: [214, 101, 32], sea: [255, 255, 255], landIsDarker: false, threshold: 232 },
+      dark: { land: [232, 140, 60], sea: [0, 0, 0], landIsDarker: true, threshold: 24 },
     },
   },
 };
@@ -86,17 +98,16 @@ const queue = [];
 
 /**
  * Recolours a loaded tile image to an exact flat two-tone image: every
- * pixel is classified land or sea by an adaptive per-tile luminance
- * threshold (the midpoint of that tile's own darkest/lightest pixel —
- * CARTO's "_nolabels" styles are flat fills with no hillshading, so this
- * cleanly separates the two dominant tones) and then set to a literal
- * RGB, not tinted. A translucent hue-preserving wash can't turn an
+ * pixel is classified land or sea by a fixed luminance threshold (see
+ * the `recolor` comment on the 'plain' provider above for why it's
+ * fixed rather than computed per tile) and then set to a literal RGB,
+ * not tinted. A translucent hue-preserving wash can't turn an
  * already-near-white or already-near-black pixel into a different,
  * visibly distinct colour — this replaces the pixel outright, so the
  * result matches "land orange / sea black-or-white" exactly rather than
  * approximately.
  */
-function recolorTile(img, { land, sea, landIsDarker }) {
+function recolorTile(img, { land, sea, landIsDarker, threshold }) {
   const w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
   const off = document.createElement('canvas');
   off.width = w; off.height = h;
@@ -105,17 +116,9 @@ function recolorTile(img, { land, sea, landIsDarker }) {
 
   const imageData = octx.getImageData(0, 0, w, h);
   const data = imageData.data;
-  let min = 255, max = 0;
-  for (let i = 0; i < data.length; i += 4) {
-    if (data[i + 3] === 0) continue; // transparent tile padding, e.g. antimeridian edges
-    const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-    if (lum < min) min = lum;
-    if (lum > max) max = lum;
-  }
-  const threshold = (min + max) / 2;
 
   for (let i = 0; i < data.length; i += 4) {
-    if (data[i + 3] === 0) continue;
+    if (data[i + 3] === 0) continue; // transparent tile padding, e.g. antimeridian edges
     const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
     const isLand = landIsDarker ? lum <= threshold : lum >= threshold;
     const [r, g, b] = isLand ? land : sea;
