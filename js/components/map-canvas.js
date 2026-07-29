@@ -94,6 +94,7 @@ export function createMap(canvas, {
   onHover,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
+  const eventScope = new AbortController();
 
   let W = 0, H = 0;
   let scale = 1024, tx = 0, ty = 0;   // screen = world*scale + t, world in z0 px
@@ -106,6 +107,8 @@ export function createMap(canvas, {
   let raf = null;
   let onLegend = null;
   let current = { year, layers, markers, basemap };
+  let cancelFly = null;
+  let destroyed = false;
 
   const pointSegmentDistanceSq = (p, a, b) => {
     const dx = b[0] - a[0], dy = b[1] - a[1];
@@ -238,6 +241,7 @@ export function createMap(canvas, {
 
   /* ---------- Draw ---------- */
   function draw() {
+    if (destroyed) return;
     raf = null;
     ({ w: W, h: H } = fitCanvas(canvas, ctx));
     if (!fitted && W > 0) { fitExtent(); fitted = true; }
@@ -657,7 +661,9 @@ export function createMap(canvas, {
     return false;
   }
 
-  function schedule() { if (raf == null) raf = requestAnimationFrame(draw); }
+  function schedule() {
+    if (!destroyed && raf == null) raf = requestAnimationFrame(draw);
+  }
 
   /* ---------- Interaction ---------- */
   let dragging = false, moved = 0, lastX = 0, lastY = 0;
@@ -674,7 +680,7 @@ export function createMap(canvas, {
       const [a, b] = [...pointers.values()];
       pinch = Math.hypot(a.x - b.x, a.y - b.y);
     }
-  });
+  }, { signal: eventScope.signal });
 
   canvas.addEventListener('pointermove', (e) => {
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -736,18 +742,18 @@ export function createMap(canvas, {
       onHover?.(hot, { x: px, y: py });
       schedule();
     }
-  });
+  }, { signal: eventScope.signal });
 
   const end = (e) => {
     pointers.delete(e.pointerId);
     if (pointers.size < 2) pinch = 0;
     if (pointers.size === 0) { dragging = false; canvas.classList.remove('dragging'); }
   };
-  canvas.addEventListener('pointerup', end);
-  canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('pointerup', end, { signal: eventScope.signal });
+  canvas.addEventListener('pointercancel', end, { signal: eventScope.signal });
   canvas.addEventListener('pointerleave', () => {
     if (hot) { hot = null; onHover?.(null); schedule(); }
-  });
+  }, { signal: eventScope.signal });
 
   canvas.addEventListener('click', (e) => {
     if (moved > 6) return;
@@ -773,7 +779,7 @@ export function createMap(canvas, {
       const entityId = territoryEntityId?.(th.territory) ?? th.territory.entityId ?? null;
       if (entityId) onTerritoryClick?.(th.territory, entityId);
     }
-  });
+  }, { signal: eventScope.signal });
 
   function zoomAbout(px, py, factor) {
     const next = clamp(scale * factor, MIN_SCALE, MAX_SCALE);
@@ -789,7 +795,7 @@ export function createMap(canvas, {
     const rect = canvas.getBoundingClientRect();
     const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
     zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
-  }, { passive: false });
+  }, { passive: false, signal: eventScope.signal });
 
   canvas.tabIndex = 0;
   canvas.setAttribute('role', 'application');
@@ -802,7 +808,7 @@ export function createMap(canvas, {
     else if (e.key === 'ArrowDown') { ty -= step; schedule(); e.preventDefault(); }
     else if (e.key === '+' || e.key === '=') { zoomAbout(W / 2, H / 2, 1.3); e.preventDefault(); }
     else if (e.key === '-') { zoomAbout(W / 2, H / 2, 0.77); e.preventDefault(); }
-  });
+  }, { signal: eventScope.signal });
 
   const ro = new ResizeObserver(() => { fitted = false; schedule(); });
   ro.observe(canvas);
@@ -826,8 +832,9 @@ export function createMap(canvas, {
       if (prefersReducedMotion()) {
         ({ scale, tx, ty } = target); schedule(); return;
       }
+      cancelFly?.();
       const from = { scale, tx, ty };
-      animate({
+      cancelFly = animate({
         from: 0, to: 1, duration: 620, ease: easeOutCubic,
         onUpdate: (t) => {
           // Interpolate zoom logarithmically so the fly feels linear.
@@ -836,13 +843,22 @@ export function createMap(canvas, {
           ty = from.ty + (target.ty - from.ty) * t;
           schedule();
         },
+        onDone: () => { cancelFly = null; },
       });
     },
 
     focusAegean() { api.flyTo([19, 34, 30, 42]); },
     focusEasternMediterranean() { api.flyTo([19, 22, 40, 43]); },
     focusEmpire() { api.flyTo([16, 23, 78, 46]); },
-    destroy() { ro.disconnect(); if (raf) cancelAnimationFrame(raf); },
+    destroy() {
+      if (destroyed) return;
+      destroyed = true;
+      cancelFly?.();
+      eventScope.abort();
+      ro.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+      canvas.classList.remove('dragging');
+    },
   };
 
   schedule();

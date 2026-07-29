@@ -11,7 +11,9 @@ import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
 import { primaryPeriodAt, periods } from '../../data/periods.js';
 import { territories } from '../../data/geo.js';
-import { odysseyJourney, alexanderJourney, alexanderTerritoryIds } from '../../data/journeys.js';
+import {
+  odysseyJourney, alexanderJourney, alexanderFoundations, alexanderTerritoryStages,
+} from '../../data/journeys.js';
 import { createMap } from '../components/map-canvas.js';
 import { createJourneyMap } from '../components/journey-map.js';
 import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../components/images.js';
@@ -61,7 +63,13 @@ const JOURNEYS = {
   alexander: {
     label: "Alexander's Conquest",
     config: alexanderJourney,
-    intro: null,
+    intro: `Follow the campaign from Macedon to the Indus and back to Babylon.
+      The shaded territory grows cumulatively as regions are conquered or submit.
+      Teal diamonds mark Alexandrias and fade in as the campaign reaches their region.
+      These are schematic zones of authority — a mixture of Macedonian garrisons,
+      inherited satrapies, allied rulers and locally administered kingdoms, not
+      modern borders or uniformly governed provinces. Ancient foundation lists are
+      inconsistent, so hollow markers identify attributed or disputed Alexandrias.`,
   },
 };
 
@@ -187,11 +195,14 @@ function mount(root, initialMode) {
 
   let map = null;
   let unbindYear = null, unbindPlay = null, unbindLayers = null, unbindBasemap = null;
+  let modeEvents = null;
   let mode = 'historical';
 
   function teardown() {
     unbindYear?.(); unbindPlay?.(); unbindLayers?.(); unbindBasemap?.();
     unbindYear = unbindPlay = unbindLayers = unbindBasemap = null;
+    modeEvents?.abort();
+    modeEvents = null;
     map?.destroy();
     map = null;
     tip.classList.remove('on');
@@ -200,7 +211,9 @@ function mount(root, initialMode) {
   function setMode(next, { updateUrl = true } = {}) {
     teardown();
     mode = next;
+    modeEvents = new AbortController();
     root.classList.toggle('is-odyssey', mode === 'odyssey');
+    root.classList.toggle('is-guided-journey', mode !== 'historical');
 
     $$('[data-mode]', root).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
 
@@ -232,6 +245,7 @@ function mount(root, initialMode) {
      Historical mode
      ============================================================ */
   function mountHistorical() {
+    const signal = modeEvents.signal;
     viewControlsHost.innerHTML = `
       <button class="btn btn-sm" id="map-aegean">Aegean</button>
       <button class="btn btn-sm" id="map-east-med">Eastern Med</button>
@@ -355,8 +369,8 @@ function mount(root, initialMode) {
         });
       },
     });
-    tip.addEventListener('pointerenter', () => clearTimeout(hoverHideTimer));
-    tip.addEventListener('pointerleave', hideHoverTip);
+    tip.addEventListener('pointerenter', () => clearTimeout(hoverHideTimer), { signal });
+    tip.addEventListener('pointerleave', hideHoverTip, { signal });
     map = hMap;
 
     const yearOut = $('#map-year', root);
@@ -393,7 +407,7 @@ function mount(root, initialMode) {
     range.addEventListener('input', () => {
       store.togglePlay(false);
       store.setYear(Number(range.value));
-    });
+    }, { signal });
 
     const playBtn = $('#map-play', root);
     unbindPlay = store.bind('playing', (p) => {
@@ -403,13 +417,13 @@ function mount(root, initialMode) {
     playBtn.addEventListener('click', () => {
       if (!store.get('playing') && store.get('year') >= TIME_MAX - 1) store.setYear(TIME_MIN);
       store.togglePlay();
-    });
+    }, { signal });
 
     root.querySelectorAll('[data-year]').forEach((b) => {
       b.addEventListener('click', () => {
         store.togglePlay(false);
         store.setYear(Number(b.dataset.year));
-      });
+      }, { signal });
     });
 
     const paintLayers = (l) => {
@@ -419,7 +433,7 @@ function mount(root, initialMode) {
     };
     unbindLayers = store.bind('layers', paintLayers);
     $$('[data-layer]', root).forEach((s) => {
-      s.addEventListener('click', () => store.toggleLayer(s.dataset.layer));
+      s.addEventListener('click', () => store.toggleLayer(s.dataset.layer), { signal });
     });
 
     const basemapHost = $('#map-basemap', root);
@@ -431,28 +445,40 @@ function mount(root, initialMode) {
     basemapHost.addEventListener('click', (e) => {
       const b = e.target.closest('[data-basemap]'); if (!b) return;
       store.set('basemap', b.dataset.basemap);
-    });
+    }, { signal });
 
-    $('#map-zin', root).addEventListener('click', () => hMap.zoomIn());
-    $('#map-zout', root).addEventListener('click', () => hMap.zoomOut());
-    $('#map-reset', root).addEventListener('click', () => hMap.reset());
-    $('#map-aegean', root).addEventListener('click', () => hMap.focusAegean());
-    $('#map-east-med', root).addEventListener('click', () => hMap.focusEasternMediterranean());
-    $('#map-empire', root).addEventListener('click', () => hMap.focusEmpire());
+    $('#map-zin', root).addEventListener('click', () => hMap.zoomIn(), { signal });
+    $('#map-zout', root).addEventListener('click', () => hMap.zoomOut(), { signal });
+    $('#map-reset', root).addEventListener('click', () => hMap.reset(), { signal });
+    $('#map-aegean', root).addEventListener('click', () => hMap.focusAegean(), { signal });
+    $('#map-east-med', root).addEventListener('click', () => hMap.focusEasternMediterranean(), { signal });
+    $('#map-empire', root).addEventListener('click', () => hMap.focusEmpire(), { signal });
   }
 
   /* ============================================================
      Journey modes (Odysseus / Alexander)
      ============================================================ */
   function mountJourney(which) {
+    const signal = modeEvents.signal;
     viewControlsHost.innerHTML = '';
-    legendHost.innerHTML = '';
+    legendHost.innerHTML = which === 'alexander'
+      ? `<div class="map-key" aria-label="Alexander campaign map key">
+          <span><i class="map-key-foundation attested"></i>attested Alexandria</span>
+          <span><i class="map-key-foundation attributed"></i>attributed / disputed</span>
+          <small>Foundations appear as the campaign advances</small>
+        </div>`
+      : '';
     scrubberHost.innerHTML = '';
 
     const stops = resolveStops(JOURNEYS[which].config);
-    const guided = which === 'odyssey';
+    const guided = true;
     const territoryList = which === 'alexander'
-      ? territories.filter((t) => alexanderTerritoryIds.includes(t.id))
+      ? alexanderTerritoryStages
+        .map((stage) => {
+          const territory = territories.find((candidate) => candidate.id === stage.id);
+          return territory ? { ...territory, ...stage } : null;
+        })
+        .filter(Boolean)
       : [];
     let selectedStop = stops[0] || null;
 
@@ -460,27 +486,32 @@ function mount(root, initialMode) {
       <div class="y" style="font-size:1.1rem">${esc(JOURNEYS[which].label)}</div>
       <div class="p" id="journey-progress">${stops.length} stops</div>`;
 
-    sideHost.innerHTML = `
-      ${guided ? `
-        <div class="panel journey-card-panel" id="journey-card" aria-live="polite"></div>` : ''}
-      <div class="panel journey-list-panel">
-        <h3 class="eyebrow" style="margin-bottom:var(--s-3)">The journey</h3>
-        <div class="journey-stops" id="journey-stops">
-          ${stops.map((s) => `
-            <button class="journey-stop${s.order === 1 ? ' active' : ''}" data-stop="${esc(s.id)}"
-                    style="--tint:var(--p-${s.tint})" aria-current="${s.order === 1 ? 'step' : 'false'}">
-              <span class="journey-stop-n">${s.order}</span>
-              <span class="journey-stop-body">
-                <span class="journey-stop-name">${esc(s.name)}</span>
-                <span class="journey-stop-note">${esc(s.note)}</span>
-              </span>
-              <a class="journey-stop-open" href="${entityHref(s.id)}" aria-label="Open full profile for ${esc(s.name)}" title="Open full profile">${icon('arrowRight', { size: 14 })}</a>
-            </button>`).join('')}
-        </div>
-      </div>`;
+    sideHost.innerHTML = guided
+      ? `<div class="panel journey-card-panel" id="journey-card" aria-live="polite"></div>`
+      : `<div class="panel journey-list-panel">
+          <h3 class="eyebrow" style="margin-bottom:var(--s-3)">The journey</h3>
+          <div class="journey-stops" id="journey-stops">
+            ${stops.map((s) => `
+              <button class="journey-stop${s.order === 1 ? ' active' : ''}" data-stop="${esc(s.id)}"
+                      style="--tint:var(--p-${s.tint})" aria-current="${s.order === 1 ? 'step' : 'false'}">
+                <span class="journey-stop-n">${s.order}</span>
+                <span class="journey-stop-body">
+                  <span class="journey-stop-name">${esc(s.name)}</span>
+                  <span class="journey-stop-note">${esc(s.note)}</span>
+                </span>
+                <a class="journey-stop-open" href="${entityHref(s.id)}" aria-label="Open full profile for ${esc(s.name)}" title="Open full profile">${icon('arrowRight', { size: 14 })}</a>
+              </button>`).join('')}
+          </div>
+        </div>`;
 
     function stopCardHTML(s) {
       if (!s) return '';
+      const isAlexander = which === 'alexander';
+      const prose = (text) => String(text || '')
+        .split(/\n\s*\n/)
+        .filter(Boolean)
+        .map((paragraph) => `<p>${esc(paragraph)}</p>`)
+        .join('');
       const image = peekImage(s.entity);
       const media = image?.src
         ? `<a class="journey-card-media" href="${esc(image.page)}" target="_blank" rel="noopener noreferrer"
@@ -488,38 +519,58 @@ function mount(root, initialMode) {
              <img src="${esc(image.src)}" alt="" loading="eager" decoding="async">
              <span>Wikipedia ↗</span>
            </a>`
-        : `<div class="journey-card-media is-placeholder">${icon('myth', { size: 34 })}</div>`;
+        : `<div class="journey-card-media is-placeholder">${icon(isAlexander ? 'map' : 'myth', { size: 34 })}</div>`;
       return `
         ${media}
         <div class="journey-card-kicker">Stop ${s.order} of ${stops.length}</div>
         <h3>${esc(s.name)}</h3>
         <p class="journey-card-note">${esc(s.note)}</p>
-        <div class="journey-card-section">
-          <h4>The episode</h4>
-          <p>${esc(s.entity.myth || s.entity.summary)}</p>
-        </div>
-        <div class="journey-card-section">
-          <h4>How this stop connects</h4>
-          <p>${esc(s.connection || s.entity.summary)}</p>
-        </div>
-        <div class="journey-card-section">
-          <h4>Geography and evidence</h4>
-          <p>${esc(s.entity.historicalBackground || s.entity.summary)}</p>
-          ${s.entity.archaeology ? `<p>${esc(s.entity.archaeology)}</p>` : ''}
-        </div>
-        <div class="journey-card-meta">
-          <span><strong>Map placement:</strong> ${esc(s.mapPlacement || s.entity.region || 'Traditional location')}</span>
-          ${s.mapCoords ? `<span><strong>Profile identification:</strong> ${esc(s.entity.region)}</span>` : ''}
-          ${s.entity.earliestSource ? `<span><strong>Primary text:</strong> ${esc(s.entity.earliestSource)}</span>` : ''}
-        </div>
         <div class="journey-card-actions">
           <button class="btn btn-sm" data-journey-prev ${s.order === 1 ? 'disabled' : ''}>
-            ${icon('arrowLeft', { size: 14 })} Previous
+            ${icon('arrowLeft', { size: 14 })} ${isAlexander ? 'Previous stage' : 'Previous'}
           </button>
-          <button class="btn btn-sm btn-primary" data-journey-next ${s.order === stops.length ? 'disabled' : ''}>
-            Sail onward ${icon('arrowRight', { size: 14 })}
-          </button>
+          ${s.order === stops.length
+            ? `<button class="btn btn-sm btn-primary" disabled>
+                 ${icon('check', { size: 14 })} ${isAlexander ? 'Campaign complete' : 'Journey complete'}
+               </button>`
+            : `<button class="btn btn-sm btn-primary" data-journey-next>
+                 ${isAlexander ? 'Continue campaign' : 'Sail onward'} ${icon('arrowRight', { size: 14 })}
+               </button>`}
           <a class="btn btn-sm" href="${entityHref(s.id)}">Full entry</a>
+        </div>
+        <div class="journey-card-section">
+          <h4>${isAlexander ? 'Campaign stage' : 'The episode'}</h4>
+          ${prose(s.entity.myth || s.entity.body || s.entity.summary)}
+        </div>
+        <div class="journey-card-section">
+          <h4>${isAlexander ? 'How the campaign connects' : 'How this stop connects'}</h4>
+          ${prose(s.connection || s.entity.summary)}
+        </div>
+        <div class="journey-card-section">
+          <h4>${isAlexander ? 'Change in control' : 'Geography and evidence'}</h4>
+          ${prose(isAlexander ? s.control : (s.entity.historicalBackground || s.entity.summary))}
+          ${!isAlexander && s.entity.archaeology ? prose(s.entity.archaeology) : ''}
+        </div>
+        ${isAlexander && s.entity.claims?.length ? `
+          <div class="journey-card-section">
+            <h4>Evidence at this stage</h4>
+            <ul class="journey-card-claims">
+              ${s.entity.claims.slice(0, 3).map((claim) => `
+                <li>
+                  <span>${esc(claim.text)}</span>
+                  <small>${esc(claim.evidence)} · ${esc(claim.confidence)}</small>
+                </li>`).join('')}
+            </ul>
+          </div>` : ''}
+        <div class="journey-card-meta">
+          <span><strong>Map placement:</strong> ${esc(
+            s.mapPlacement || s.entity.region || (isAlexander ? 'Campaign route point' : 'Traditional location'),
+          )}</span>
+          ${s.mapCoords ? `<span><strong>Profile identification:</strong> ${esc(s.entity.region)}</span>` : ''}
+          ${isAlexander
+            ? `<span><strong>Campaign date:</strong> ${esc(fmtYear(s.year || s.entity.start))}</span>
+               <span><strong>Referenced sources:</strong> ${s.entity.sources?.length || 0}</span>`
+            : (s.entity.earliestSource ? `<span><strong>Primary text:</strong> ${esc(s.entity.earliestSource)}</span>` : '')}
         </div>`;
     }
 
@@ -541,20 +592,24 @@ function mount(root, initialMode) {
       });
       renderStopCard();
       if (travel) {
-        guided ? jMap.travelTo(s.id) : jMap.focusStop(s.id);
+        guided ? jMap.travelTo(s.key || s.id) : jMap.focusStop(s.key || s.id);
       }
     }
 
     const jMap = createJourneyMap(canvas, {
       stops,
       territories: territoryList,
+      foundations: which === 'alexander' ? alexanderFoundations : [],
       basemap: 'relief',
       locked: guided,
       showRoute: true,
+      traveller: which === 'alexander' ? 'standard' : 'ship',
       onStopClick: (s) => guided ? selectStop(s) : go(`/e/${s.id}`),
       onTravelStart: (s) => {
         const progress = $('#journey-progress', root);
-        if (progress) progress.textContent = `Sailing to stop ${s.order}…`;
+        if (progress) {
+          progress.textContent = `${which === 'alexander' ? 'Advancing' : 'Sailing'} to stop ${s.order}…`;
+        }
       },
       onTravelEnd: (s) => {
         const progress = $('#journey-progress', root);
@@ -562,12 +617,18 @@ function mount(root, initialMode) {
       },
       onHover: (s, pos) => {
         if (!s) { tip.classList.remove('on'); return; }
-        tip.innerHTML = `<div class="t">${esc(s.name)}</div>
-          <div class="d">Stop ${s.order} of ${stops.length}</div>
-          <div class="d">${esc(s.note)}</div>`;
+        tip.innerHTML = s.kind === 'foundation'
+          ? `<div class="t">${esc(s.name)}</div>
+             <div class="d">${esc(fmtYear(s.year))} · ${esc(
+               s.status === 'attested' ? 'attested foundation' : `${s.status} identification`,
+             )}</div>
+             <div class="d">${esc(s.note)}</div>`
+          : `<div class="t">${esc(s.name)}</div>
+             <div class="d">Stop ${s.order} of ${stops.length}</div>
+             <div class="d">${esc(s.note)}</div>`;
         tip.classList.add('on');
         tip.style.left = `${Math.min(pos.x + 14, canvas.clientWidth - 260)}px`;
-        tip.style.top = `${Math.min(pos.y + 14, canvas.clientHeight - 80)}px`;
+        tip.style.top = `${Math.min(pos.y + 14, canvas.clientHeight - (s.kind === 'foundation' ? 132 : 80))}px`;
       },
     });
     map = jMap;
@@ -576,27 +637,27 @@ function mount(root, initialMode) {
       ensureImagesLoaded(stops.map((s) => s.entity)).then(() => renderStopCard());
     }
 
-    $('#journey-stops', root).addEventListener('click', (e) => {
+    $('#journey-stops', root)?.addEventListener('click', (e) => {
       const link = e.target.closest('.journey-stop-open');
       if (link) return; // let the profile link navigate normally
       const btn = e.target.closest('[data-stop]');
       if (!btn) return;
       e.preventDefault();
       selectStop(stops.find((s) => s.id === btn.dataset.stop));
-    });
+    }, { signal });
 
     if (guided) {
       sideHost.addEventListener('click', (e) => {
         const prev = e.target.closest('[data-journey-prev]');
         const next = e.target.closest('[data-journey-next]');
         if (!prev && !next) return;
-        const index = stops.findIndex((s) => s.id === selectedStop?.id);
+        const index = stops.findIndex((s) => (s.key || s.id) === (selectedStop?.key || selectedStop?.id));
         selectStop(stops[index + (next ? 1 : -1)]);
-      });
+      }, { signal });
     } else {
-      $('#map-zin', root).addEventListener('click', () => jMap.zoomIn());
-      $('#map-zout', root).addEventListener('click', () => jMap.zoomOut());
-      $('#map-reset', root).addEventListener('click', () => jMap.reset());
+      $('#map-zin', root).addEventListener('click', () => jMap.zoomIn(), { signal });
+      $('#map-zout', root).addEventListener('click', () => jMap.zoomOut(), { signal });
+      $('#map-reset', root).addEventListener('click', () => jMap.reset(), { signal });
     }
   }
 

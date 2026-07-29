@@ -100,20 +100,219 @@ export const odysseyJourney = [
 ];
 
 export const alexanderJourney = [
-  { id: 'pella', order: 1, note: '336 BC — becomes king of Macedon at twenty.' },
-  { id: 'troy', order: 2, note: '334 BC — visits Achilles\' tomb before the campaign proper begins.' },
-  { id: 'battle-granicus', order: 3, note: '334 BC — first victory on Asian soil.' },
-  { id: 'battle-issus', order: 4, note: '333 BC — Darius III flees the field.' },
-  { id: 'siege-of-tyre', order: 5, note: '332 BC — takes an island city by building a causeway to it.' },
-  { id: 'founding-alexandria', order: 6, note: '331 BC — founds the city that will outlast his empire.' },
-  { id: 'battle-gaugamela', order: 7, note: '331 BC — the Achaemenid Empire\'s field army is broken.' },
-  { id: 'babylon', order: 8, note: '331 BC — enters the city peacefully as its new master.' },
-  { id: 'persepolis', order: 9, note: '330 BC — burns the Achaemenid ceremonial capital.' },
-  { id: 'battle-hydaspes', order: 10, note: '326 BC — defeats Porus and his war elephants in monsoon rain.' },
-  { id: 'babylon', order: 11, note: '323 BC — dies here after eleven days of fever, aged 32.' },
+  {
+    id: 'pella', key: 'alexander-pella', order: 1, label: 'Pella', year: -336,
+    note: '336 BC — becomes king of Macedon at twenty.',
+    connection: 'The campaign begins with the kingdom and army built by Philip II. Alexander first has to secure his succession and reassert Macedonian leadership in Greece before he can cross into Asia.',
+    control: 'The opening shaded area represents Macedon and the League of Corinth. The league was a Macedonian-led alliance rather than a uniformly administered annexation, so the map treats the two as related but distinct forms of power.',
+  },
+  {
+    id: 'troy', key: 'alexander-troy', order: 2, label: 'Troy', year: -334, curve: -0.05,
+    via: [[40.4, 23.5], [40.15, 25.2]],
+    note: '334 BC — crosses into Asia and honours Achilles at Troy.',
+    connection: 'Alexander crosses the Hellespont with the invasion army and visits the traditional tomb of Achilles before confronting Persian forces. This is a symbolic and logistical threshold rather than a territorial conquest.',
+    control: 'No major Asian territory is shaded yet. Macedonian power still rests on its European base and fleet crossings; the western Anatolian satrapies remain under Achaemenid authority.',
+  },
+  {
+    id: 'battle-granicus', key: 'alexander-granicus', order: 3, label: 'Granicus', year: -334,
+    curve: 0.04, via: [[40.05, 26.75]],
+    note: '334 BC — wins his first battle against Persian forces in Asia.',
+    connection: 'From the Troad the army moves north-east to the Granicus, where Alexander attacks the satrapal cavalry at the river crossing. The victory opens the western approaches into Asia Minor.',
+    control: 'Anatolia now appears progressively. The polygon is a schematic summary of the campaigning and submissions that followed during 334 BC, not a claim that every district changed hands at the instant of the battle.',
+  },
+  {
+    id: 'battle-issus', key: 'alexander-issus', order: 4, label: 'Issus', year: -333,
+    curve: 0.03, via: [[39.4, 29.0], [38.5, 32.0], [37.5, 35.0]],
+    note: '333 BC — defeats Darius III in person on the Cilician coast.',
+    connection: 'Alexander campaigns through Anatolia before turning through the Cilician Gates. Darius moves behind him, forcing the battle onto the narrow coastal plain at Issus.',
+    control: 'The victory consolidates the Anatolian campaign and removes the Persian field army from the western theatre. The Levantine coast is not yet secure: Tyre, Gaza and other naval bases still have to be taken.',
+  },
+  {
+    id: 'siege-of-tyre', key: 'alexander-tyre', order: 5, label: 'Tyre', year: -332,
+    curve: -0.03, via: [[36.0, 36.0], [34.8, 35.5]],
+    note: '332 BC — takes the island city after a seven-month siege.',
+    connection: 'Rather than pursue Darius inland immediately, Alexander turns south to eliminate Persian naval bases. Tyre’s refusal forces the longest and most technically demanding siege of the campaign.',
+    control: 'The Levantine corridor is added. Phoenician and Cypriot naval contingents change sides as their cities submit, sharply reducing Persian power at sea while securing Alexander’s communications behind him.',
+  },
+  {
+    id: 'founding-alexandria', key: 'alexander-egypt', order: 6, label: 'Alexandria', year: -331,
+    curve: 0.03, via: [[32.0, 34.5], [31.1, 32.0], [31.1, 30.5]],
+    note: '331 BC — founds Alexandria after Egypt accepts his rule.',
+    connection: 'After Tyre and Gaza, Alexander enters Egypt, where Achaemenid rule is unpopular and organized resistance is limited. He founds Alexandria and visits the oracle of Ammon before marching back towards Asia.',
+    control: 'Egypt appears as a separate stage because its conquest changed both the scale and character of the kingdom. Alexander retained much of the existing administration and adopted pharaonic kingship rather than governing Egypt as if it were simply another Macedonian district.',
+  },
+  {
+    id: 'battle-gaugamela', key: 'alexander-gaugamela', order: 7, label: 'Gaugamela', year: -331,
+    curve: -0.02, via: [[31.7, 32.5], [33.0, 35.0], [35.0, 38.0], [36.5, 41.5]],
+    note: '331 BC — breaks the main Achaemenid army near Gaugamela.',
+    connection: 'Alexander returns through the Levant, crosses the Euphrates and Tigris, and meets Darius on ground prepared for Persian chariots and cavalry. His victory destroys the last great field army defending the imperial capitals.',
+    control: 'Mesopotamia begins to fill in as the route reaches Gaugamela. The victory makes the surrender of Babylon and Susa possible, but Darius remains alive and the Persian heartland has not yet been secured.',
+  },
+  {
+    id: 'babylon', key: 'alexander-babylon-entry', order: 8, label: 'Babylon', year: -331,
+    curve: 0.03, via: [[35.5, 43.5], [33.8, 44.0]],
+    note: '331 BC — enters Babylon peacefully as the new king.',
+    connection: 'After Gaugamela, Alexander moves south into Babylon. The city and its satrap Mazaeus surrender without a siege, giving him a major administrative and ceremonial centre.',
+    control: 'This stage represents consolidation rather than a new colour block. Alexander keeps Mazaeus in office and works through Achaemenid institutions, illustrating that control expanded through negotiated submission as well as battlefield victory.',
+  },
+  {
+    id: 'persepolis', key: 'alexander-persepolis', order: 9, label: 'Persepolis', year: -330,
+    curve: -0.03, via: [[32.2, 48.3], [30.8, 50.8]],
+    note: '330 BC — captures and later burns the Achaemenid ceremonial capital.',
+    connection: 'From Babylon the army takes Susa, crosses the Zagros and enters the Persian heartland. Persepolis yields an enormous treasury and becomes the symbolic end of the Achaemenid court.',
+    control: 'Persia now appears on the map. Alexander can claim the position of Great King, but control remains incomplete while Darius and then Bessus draw resistance eastwards into Iran, Bactria and Sogdiana.',
+  },
+  {
+    id: 'battle-hydaspes', key: 'alexander-hydaspes', order: 10, label: 'Hydaspes', year: -326,
+    curve: 0.02,
+    via: [[33.0, 55.0], [35.5, 60.0], [36.8, 66.0], [34.5, 69.2], [33.0, 72.3]],
+    note: '326 BC — defeats Porus and his war elephants in the Punjab.',
+    connection: 'The long eastern leg represents years of difficult campaigning through Iran, Bactria and Sogdiana, then across the Hindu Kush into the Punjab. At the Hydaspes Alexander wins his last major battle; at the Hyphasis his army refuses to continue.',
+    control: 'Bactria and Sogdiana appear during the first part of this animated leg, followed by the Indus region near its end. Porus is restored as a subordinate ruler, showing that the far east was held through satrapies, garrisons and local dynasts rather than direct uniform government.',
+  },
+  {
+    id: 'babylon', key: 'alexander-babylon-return', order: 11, label: 'Babylon', year: -323,
+    curve: -0.02,
+    via: [[29.0, 70.8], [25.5, 67.5], [25.3, 62.0], [27.0, 57.0], [29.0, 52.0], [30.5, 48.0], [31.7, 45.2]],
+    note: '323 BC — returns to Babylon and dies aged thirty-two.',
+    connection: 'The return runs down the Indus and west through Gedrosia, where the desert crossing causes severe losses, before passing through Persia to Babylon. Alexander dies while planning further campaigns.',
+    control: 'The final view shows the maximum claimed extent at his death. It was not a homogeneous nation-state: authority varied between Macedonian garrisons, inherited satrapal administrations, allied rulers and recently subdued regions, and it fragmented almost immediately without him.',
+  },
 ];
 
-/** The land Alexander took, drawn as a static backdrop behind his path. */
-export const alexanderTerritoryIds = [
-  't-alex-anatolia', 't-alex-levant', 't-alex-mesopotamia', 't-alex-bactria', 't-alex-indus',
+/**
+ * Alexandrias and related eastern foundations shown as a secondary campaign
+ * overlay. Ancient and modern catalogues disagree sharply over both the number
+ * of foundations and their identifications, so status describes the claim
+ * being mapped rather than treating every later attribution as equivalent.
+ *
+ * revealAt uses the guided-map stage scale: integers are numbered campaign
+ * stages and decimals appear while the traveller moves between them.
+ */
+export const alexanderFoundations = [
+  {
+    id: 'alexandria-egypt',
+    name: 'Alexandria in Egypt',
+    shortLabel: 'Alexandria (Egypt)',
+    coords: [31.2001, 29.9187],
+    year: -331,
+    revealFrom: 5.65,
+    revealAt: 6,
+    status: 'attested',
+    note: 'Founded on the Mediterranean coast in 331 BC; the best-attested and most consequential of Alexander’s named foundations.',
+  },
+  {
+    id: 'alexandria-ariana',
+    name: 'Alexandria in Ariana',
+    shortLabel: 'A. Ariana',
+    coords: [34.3529, 62.2040],
+    year: -330,
+    revealFrom: 9,
+    revealAt: 9.16,
+    status: 'attributed',
+    note: 'Usually associated with Herat. Ancient geographers preserve the name, but archaeological confirmation of the identification is lacking.',
+  },
+  {
+    id: 'alexandria-arachosia',
+    name: 'Alexandria in Arachosia',
+    shortLabel: 'A. Arachosia',
+    coords: [31.606, 65.705],
+    year: -329,
+    revealFrom: 9.12,
+    revealAt: 9.3,
+    status: 'attributed',
+    note: 'Commonly placed at Old Kandahar, probably as a refoundation or garrison settlement on an existing Achaemenid centre.',
+  },
+  {
+    id: 'alexandria-caucasus',
+    name: 'Alexandria of the Caucasus',
+    shortLabel: 'A. Caucasus',
+    coords: [34.946, 69.265],
+    year: -329,
+    revealFrom: 9.26,
+    revealAt: 9.43,
+    status: 'attested',
+    note: 'The foundation is reported in the campaign tradition, but its exact site north of Kabul remains disputed; the marker uses the Bagram area.',
+  },
+  {
+    id: 'alexandria-eschate',
+    name: 'Alexandria Eschate',
+    shortLabel: 'A. Eschate',
+    coords: [40.283, 69.622],
+    year: -329,
+    revealFrom: 9.4,
+    revealAt: 9.58,
+    status: 'attested',
+    note: 'The “Furthest Alexandria,” built as a fortified outpost on the Jaxartes near modern Khujand.',
+  },
+  {
+    id: 'alexandria-oxus',
+    name: 'Alexandria on the Oxus',
+    shortLabel: 'A. on Oxus?',
+    coords: [37.05, 69.4],
+    year: -328,
+    revealFrom: 9.54,
+    revealAt: 9.7,
+    status: 'disputed',
+    note: 'Often linked with Ai-Khanoum, although both that identification and an Alexandrian rather than Seleucid foundation remain disputed.',
+  },
+  {
+    id: 'alexandria-margiana',
+    name: 'Alexandria in Margiana',
+    shortLabel: 'A. Margiana?',
+    coords: [37.66, 62.17],
+    year: -328,
+    revealFrom: 9.66,
+    revealAt: 9.82,
+    status: 'attributed',
+    note: 'Associated with the Merv oasis and later refounded as Antioch; the surviving foundation tradition is not archaeologically decisive.',
+  },
+  {
+    id: 'alexandria-indus',
+    name: 'Alexandria on the Indus',
+    shortLabel: 'A. on Indus?',
+    coords: [28.91, 70.38],
+    year: -325,
+    revealFrom: 10.08,
+    revealAt: 10.28,
+    status: 'attributed',
+    note: 'Placed schematically near the Indus–Acesines confluence. A city foundation is reported, but its precise location and later name are uncertain.',
+  },
+  {
+    id: 'alexandria-oritai',
+    name: 'Alexandria among the Oritai',
+    shortLabel: 'A. Oritai?',
+    coords: [26.23, 66.31],
+    year: -325,
+    revealFrom: 10.3,
+    revealAt: 10.5,
+    status: 'attributed',
+    note: 'Alexander ordered a city founded at Rhambacia on the return journey; its later identification as an Alexandria is less secure.',
+  },
+  {
+    id: 'alexandria-carmania',
+    name: 'Alexandria in Carmania',
+    shortLabel: 'A. Carmania?',
+    coords: [28.0, 57.2],
+    year: -325,
+    revealFrom: 10.52,
+    revealAt: 10.72,
+    status: 'disputed',
+    note: 'A later geographical tradition places an Alexandria in Carmania, but ancient testimony and the proposed site remain uncertain.',
+  },
 ];
+
+/** Cumulative control stages for the guided campaign map. */
+export const alexanderTerritoryStages = [
+  { id: 't-macedon-philip', revealFrom: 0, revealAt: 1, stageLabel: 'Macedon', labelAt: [22.8, 40.75] },
+  { id: 't-macedon-greece', revealFrom: 0, revealAt: 1, stageLabel: 'League of Corinth', labelAt: [22.6, 38.2] },
+  { id: 't-alex-anatolia', revealFrom: 2, revealAt: 3, stageLabel: 'Anatolia', labelAt: [31.5, 38.7] },
+  { id: 't-alex-levant', revealFrom: 4, revealAt: 5, stageLabel: 'Levant', labelAt: [36.0, 34.2] },
+  { id: 't-alex-egypt', revealFrom: 5, revealAt: 6, stageLabel: 'Egypt', labelAt: [30.7, 27.2] },
+  { id: 't-alex-mesopotamia', revealFrom: 6, revealAt: 7, stageLabel: 'Mesopotamia', labelAt: [44.5, 34.0] },
+  { id: 't-alex-persia', revealFrom: 8, revealAt: 9, stageLabel: 'Persia', labelAt: [53.0, 31.5] },
+  { id: 't-alex-bactria', revealFrom: 9, revealAt: 9.55, stageLabel: 'Bactria & Sogdiana', labelAt: [64.5, 36.7] },
+  { id: 't-alex-indus', revealFrom: 9.55, revealAt: 10, stageLabel: 'Indus region', labelAt: [70.5, 29.5] },
+];
+
+export const alexanderTerritoryIds = alexanderTerritoryStages.map((stage) => stage.id);

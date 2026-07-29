@@ -56,7 +56,11 @@ export const imageOverrides = {
 
   // Battles & sieges
   'battle-chaeronea': 'Battle of Chaeronea (338 BC)',
+  'battle-granicus': 'Battle of the Granicus',
+  'battle-issus': 'Battle of Issus',
   'siege-of-tyre': 'Siege of Tyre (332 BC)',
+  'battle-gaugamela': 'Battle of Gaugamela',
+  'battle-hydaspes': 'Battle of the Hydaspes',
 
   // Texts
   'histories-herodotus': 'Histories (Herodotus)',

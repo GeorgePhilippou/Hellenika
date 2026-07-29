@@ -349,15 +349,15 @@
 .map-canvas.dragging { cursor: grabbing; }
 @media (max-width: 760px) { .map-canvas { height: 52vh; } }
 
-.is-odyssey .map-layout { grid-template-columns: minmax(0, 1fr) 360px; }
-.is-odyssey .map-controls { display: none; }
-.is-odyssey .map-canvas {
+.is-guided-journey .map-layout { grid-template-columns: minmax(0, 1fr) 360px; }
+.is-guided-journey .map-controls { display: none; }
+.is-guided-journey .map-canvas {
   height: min(68vh, 660px);
   cursor: default;
   touch-action: pan-y;
 }
-.is-odyssey .map-side { position: static; }
-.is-odyssey .map-era {
+.is-guided-journey .map-side { position: static; }
+.is-guided-journey .map-era {
   top: var(--s-2);
   left: 50%;
   width: auto;
@@ -366,8 +366,8 @@
   transform: translateX(-50%);
   border-radius: var(--r-pill);
 }
-.is-odyssey .map-era .y { display: none; }
-.is-odyssey .map-era .p {
+.is-guided-journey .map-era .y { display: none; }
+.is-guided-journey .map-era .p {
   margin: 0;
   font-size: var(--fs-xxs);
   font-weight: 700;
@@ -377,8 +377,8 @@
   white-space: nowrap;
 }
 @media (max-width: 1000px) {
-  .is-odyssey .map-layout { grid-template-columns: 1fr; }
-  .is-odyssey .map-canvas { height: min(58vh, 560px); }
+  .is-guided-journey .map-layout { grid-template-columns: 1fr; }
+  .is-guided-journey .map-canvas { height: min(58vh, 560px); }
 }
 
 .map-controls {
@@ -440,6 +440,18 @@
 }
 .map-key-point.city { border-radius: 50%; }
 .map-key-point.site { border-radius: 1px; }
+.map-key-foundation {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  border: 1.5px solid var(--p-hellenistic);
+  background: var(--p-hellenistic);
+  box-shadow: 0 0 0 1px var(--surface);
+}
+.map-key-foundation.attributed {
+  background: var(--surface);
+}
 .map-key-line { position: relative; display: inline-block; width: 20px; height: 9px; }
 .map-key-line::before {
   content: ''; position: absolute; left: 0; right: 1px; top: 4px;
@@ -568,6 +580,28 @@
 .journey-card-section p + p {
   margin-top: var(--s-2);
 }
+.journey-card-claims {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.journey-card-claims li {
+  display: grid;
+  gap: 3px;
+  padding-left: var(--s-2);
+  border-left: 2px solid color-mix(in srgb, var(--p-alexander) 62%, var(--border));
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+}
+.journey-card-claims small {
+  color: var(--text-3);
+  font-size: var(--fs-xxs);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
 .journey-card-meta {
   display: flex; flex-direction: column; gap: 2px;
   margin-top: var(--s-3); color: var(--text-3); font-size: var(--fs-xxs);
@@ -575,14 +609,9 @@
 }
 .journey-card-actions {
   display: flex; flex-wrap: wrap; gap: var(--s-2);
-  margin-block: var(--s-4);
+  margin: var(--s-3) 0 0;
 }
 .journey-card-actions .btn { flex: 1; justify-content: center; white-space: nowrap; }
-.is-odyssey .journey-stops { max-height: 280px; }
-.is-odyssey .journey-stop-note { display: none; }
-.is-odyssey .journey-stop { align-items: center; padding-block: 6px; }
-.is-odyssey .journey-list-panel { padding-bottom: var(--s-3); }
-
 /* ============================================================
    EXPLORE
    ============================================================ */

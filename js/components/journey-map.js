@@ -26,27 +26,35 @@ const MAX_SCALE = 200000;
 export function createJourneyMap(canvas, {
   stops = [],          // [{ id, order, name, note, coords:[lat,lon], tint, entity }]
   territories = [],    // optional static backdrop: [{ ring:[[lon,lat],...], tint }]
+  foundations = [],    // progressive secondary markers: [{ coords, revealAt, status }]
   basemap = 'relief',
   locked = false,
   showRoute = true,
+  traveller = 'ship',
   onHover,
   onStopClick,
   onTravelStart,
   onTravelEnd,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
+  const eventScope = new AbortController();
 
   let W = 0, H = 0;
   let scale = 1024, tx = 0, ty = 0;
   let fitted = false;
   let pendingFly = null;
   let hot = null;
+  let hotRegionId = null;
   let hitRegions = [];
   let raf = null;
   let current = { basemap };
-  let activeId = stops[0]?.id ?? null;
+  const stopKey = (stop) => stop?.key || stop?.id;
+  let activeId = stopKey(stops[0]) ?? null;
   let travelIndex = 0;
+  let territoryProgress = 1;
   let cancelTravel = null;
+  let cancelFly = null;
+  let destroyed = false;
 
   const toScreen = (lon, lat) => {
     const [wx, wy] = lonLatToWorld(lon, lat);
@@ -62,7 +70,24 @@ export function createJourneyMap(canvas, {
   }
 
   function stopBounds() {
-    const lons = stops.map((s) => s.coords[1]), lats = stops.map((s) => s.coords[0]);
+    const lons = stops.map((s) => s.coords[1]);
+    const lats = stops.map((s) => s.coords[0]);
+    for (const stop of stops) {
+      for (const [lat, lon] of stop.via || []) {
+        lons.push(lon);
+        lats.push(lat);
+      }
+    }
+    for (const territory of territories) {
+      for (const [lon, lat] of territory.ring || []) {
+        lons.push(lon);
+        lats.push(lat);
+      }
+    }
+    for (const foundation of foundations) {
+      lats.push(foundation.coords[0]);
+      lons.push(foundation.coords[1]);
+    }
     return [Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)];
   }
 
@@ -170,8 +195,46 @@ export function createJourneyMap(canvas, {
     ctx.restore();
   }
 
+  function drawStandard(position, dark) {
+    ctx.save();
+    ctx.translate(position.x, position.y);
+    ctx.rotate(position.angle);
+    ctx.shadowColor = 'rgba(0,0,0,.45)';
+    ctx.shadowBlur = 8;
+    ctx.strokeStyle = dark ? '#f8efe0' : '#28160f';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.moveTo(-7, 10);
+    ctx.lineTo(2, -11);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.beginPath();
+    ctx.moveTo(1, -10);
+    ctx.lineTo(14, -5);
+    ctx.lineTo(2, 1);
+    ctx.closePath();
+    ctx.fillStyle = '#9d3151';
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  const territoryAlpha = (territory) => {
+    if (territory.revealAt == null) return 1;
+    const from = territory.revealFrom ?? territory.revealAt - 1;
+    const span = Math.max(0.001, territory.revealAt - from);
+    return clamp((territoryProgress - from) / span, 0, 1);
+  };
+
+  const foundationAlpha = (foundation) => {
+    const from = foundation.revealFrom ?? foundation.revealAt - 0.15;
+    const span = Math.max(0.001, foundation.revealAt - from);
+    return clamp((territoryProgress - from) / span, 0, 1);
+  };
+
   /* ---------- Draw ---------- */
   function draw() {
+    if (destroyed) return;
     raf = null;
     ({ w: W, h: H } = fitCanvas(canvas, ctx));
     if (!fitted && W > 0) { fitAll(); fitted = true; }
@@ -190,8 +253,11 @@ export function createJourneyMap(canvas, {
     const provider = PROVIDERS[current.basemap];
     if (provider) drawTiles(ctx, { provider, scale, tx, ty, W, H, dark, onLoad: schedule });
 
-    /* --- territory backdrop (static, no year-fade) --- */
-    for (const t of territories) {
+    /* --- cumulative territory backdrop --- */
+    const visibleTerritories = territories
+      .map((territory) => ({ territory, alpha: territoryAlpha(territory) }))
+      .filter(({ alpha }) => alpha > 0);
+    for (const { territory: t, alpha } of visibleTerritories) {
       ctx.save();
       ctx.beginPath();
       t.ring.forEach(([lon, lat], i) => {
@@ -199,12 +265,12 @@ export function createJourneyMap(canvas, {
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
       ctx.closePath();
-      ctx.globalAlpha = 0.22;
+      ctx.globalAlpha = 0.24 * alpha;
       ctx.fillStyle = cssVar(`--p-${t.tint}`);
       ctx.fill();
       ctx.restore();
     }
-    for (const t of territories) {
+    for (const { territory: t, alpha } of visibleTerritories) {
       ctx.save();
       ctx.beginPath();
       t.ring.forEach(([lon, lat], i) => {
@@ -212,11 +278,68 @@ export function createJourneyMap(canvas, {
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
       ctx.closePath();
-      ctx.globalAlpha = 0.7;
+      ctx.globalAlpha = 0.75 * alpha;
       ctx.strokeStyle = cssVar(`--p-${t.tint}`);
       ctx.lineWidth = 1.6;
       ctx.stroke();
       ctx.restore();
+    }
+    for (const { territory: t, alpha } of visibleTerritories) {
+      if (!t.stageLabel || !t.labelAt || alpha < 0.55) continue;
+      const [x, y] = toScreen(t.labelAt[0], t.labelAt[1]);
+      ctx.save();
+      ctx.globalAlpha = clamp((alpha - 0.55) / 0.45, 0, 1) * 0.9;
+      ctx.font = `700 9px ${cssVar('--font-ui') || 'system-ui'}`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.strokeStyle = dark ? 'rgba(12,16,20,.94)' : 'rgba(255,251,241,.96)';
+      ctx.fillStyle = cssVar(`--p-${t.tint}`);
+      ctx.lineWidth = 3;
+      ctx.lineJoin = 'round';
+      ctx.strokeText(t.stageLabel.toUpperCase(), x, y);
+      ctx.fillText(t.stageLabel.toUpperCase(), x, y);
+      ctx.restore();
+    }
+
+    /* --- progressively revealed Alexandrian foundations --- */
+    const foundationPoints = foundations
+      .map((foundation) => {
+        const alpha = foundationAlpha(foundation);
+        const [x, y] = toScreen(foundation.coords[1], foundation.coords[0]);
+        return { foundation, alpha, x, y };
+      })
+      .filter(({ alpha }) => alpha > 0);
+
+    for (const { foundation, alpha, x, y } of foundationPoints) {
+      const size = 5.5;
+      const colour = cssVar('--p-hellenistic');
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(x, y);
+      ctx.rotate(Math.PI / 4);
+      ctx.beginPath();
+      ctx.rect(-size, -size, size * 2, size * 2);
+      ctx.fillStyle = foundation.status === 'attested'
+        ? colour
+        : (dark ? 'rgba(11,18,25,.9)' : 'rgba(255,255,255,.9)');
+      ctx.fill();
+      ctx.strokeStyle = dark ? '#f8efe0' : '#fff';
+      ctx.lineWidth = 3.6;
+      ctx.stroke();
+      ctx.strokeStyle = colour;
+      ctx.lineWidth = 1.8;
+      if (foundation.status === 'disputed') ctx.setLineDash([2, 2]);
+      ctx.stroke();
+      ctx.restore();
+
+      hitRegions.push({
+        id: `foundation:${foundation.id}`,
+        stop: { ...foundation, kind: 'foundation' },
+        x,
+        y,
+        r: 10,
+        clickable: false,
+      });
     }
 
     /* --- curved route, travelling ship and numbered places --- */
@@ -251,12 +374,14 @@ export function createJourneyMap(canvas, {
 
         const legIndex = Math.min(legs.length - 1, Math.max(0, Math.floor(travelIndex)));
         const legFraction = travelIndex >= legs.length ? 1 : travelIndex - legIndex;
-        drawShip(pointAtFraction(legs[legIndex], legFraction), dark);
+        const travellerPosition = pointAtFraction(legs[legIndex], legFraction);
+        if (traveller === 'standard') drawStandard(travellerPosition, dark);
+        else drawShip(travellerPosition, dark);
       }
 
       // Numbered markers
       for (const { s, x, y } of points) {
-        const isHot = hot?.id === s.id || activeId === s.id;
+        const isHot = stopKey(hot) === stopKey(s) || activeId === stopKey(s);
         const r = isHot ? 12 : 10;
         ctx.save();
         ctx.shadowColor = 'rgba(0,0,0,.45)';
@@ -277,14 +402,16 @@ export function createJourneyMap(canvas, {
         ctx.textAlign = 'start';
         ctx.restore();
 
-        hitRegions.push({ id: s.id, stop: s, x, y, r: r + 5 });
+        hitRegions.push({ id: stopKey(s), stop: s, x, y, r: r + 5 });
       }
 
       // Every stop gets a readable name. Try several sides so labels remain
       // visible in dense areas without drawing a route through them.
       const placed = points.map(({ x, y }) => ({
         x0: x - 11, y0: y - 11, x1: x + 11, y1: y + 11,
-      }));
+      })).concat(foundationPoints.map(({ x, y }) => ({
+        x0: x - 8, y0: y - 8, x1: x + 8, y1: y + 8,
+      })));
       const labelledIds = new Set();
       ctx.font = `600 11px ${cssVar('--font-ui') || 'system-ui'}`;
       ctx.textBaseline = 'middle';
@@ -321,15 +448,64 @@ export function createJourneyMap(canvas, {
         ctx.fillText(s.name, p.x, p.y + 0.5);
         ctx.restore();
       }
+
+      // Foundation labels are secondary to numbered stops. They use the same
+      // collision list and are omitted when the map is too dense rather than
+      // covering a campaign stop or route label.
+      ctx.font = `600 9px ${cssVar('--font-ui') || 'system-ui'}`;
+      for (const { foundation, alpha, x, y } of foundationPoints) {
+        if (alpha < 0.7) continue;
+        const label = foundation.shortLabel || foundation.name;
+        const w = ctx.measureText(label).width;
+        const options = [
+          { x: x + 11, y: y - 10 },
+          { x: x + 11, y: y + 11 },
+          { x: x - w - 11, y: y - 10 },
+          { x: x - w - 11, y: y + 11 },
+          { x: x - w / 2, y: y - 15 },
+          { x: x - w / 2, y: y + 16 },
+        ];
+        const p = options.find((option) => {
+          const box = {
+            x0: option.x - 3, y0: option.y - 7,
+            x1: option.x + w + 3, y1: option.y + 7,
+          };
+          return box.x0 >= 2 && box.x1 <= W - 2 && box.y0 >= 2 && box.y1 <= H - 2
+            && !placed.some((q) => !(box.x1 < q.x0 || box.x0 > q.x1 || box.y1 < q.y0 || box.y0 > q.y1));
+        });
+        if (!p) continue;
+        const box = { x0: p.x - 3, y0: p.y - 7, x1: p.x + w + 3, y1: p.y + 7 };
+        placed.push(box);
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = dark ? 'rgba(12,16,20,.84)' : 'rgba(255,255,255,.9)';
+        ctx.beginPath();
+        ctx.roundRect(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0, 4);
+        ctx.fill();
+        ctx.fillStyle = cssVar('--p-hellenistic');
+        ctx.fillText(label, p.x, p.y + 0.5);
+        ctx.restore();
+      }
     }
   }
 
-  function schedule() { if (raf == null) raf = requestAnimationFrame(draw); }
+  function schedule() {
+    if (!destroyed && raf == null) raf = requestAnimationFrame(draw);
+  }
 
   /* ---------- Interaction ---------- */
   let dragging = false, moved = 0, lastX = 0, lastY = 0;
   const pointers = new Map();
   let pinch = 0;
+  const hitAt = (px, py) => {
+    // Later-painted items take pointer priority. This keeps a numbered stop
+    // interactive when it shares coordinates with a foundation marker.
+    for (let i = hitRegions.length - 1; i >= 0; i--) {
+      const region = hitRegions[i];
+      if (Math.hypot(region.x - px, region.y - py) <= region.r) return region;
+    }
+    return null;
+  };
 
   canvas.addEventListener('pointerdown', (e) => {
     if (locked) return;
@@ -342,7 +518,7 @@ export function createJourneyMap(canvas, {
       const [a, b] = [...pointers.values()];
       pinch = Math.hypot(a.x - b.x, a.y - b.y);
     }
-  });
+  }, { signal: eventScope.signal });
 
   canvas.addEventListener('pointermove', (e) => {
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -369,33 +545,39 @@ export function createJourneyMap(canvas, {
 
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left, py = e.clientY - rect.top;
-    const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    if (h?.id !== hot?.id) {
+    const h = hitAt(px, py);
+    if ((h?.id ?? null) !== hotRegionId) {
+      hotRegionId = h?.id ?? null;
       hot = h ? h.stop : null;
-      canvas.style.cursor = h ? 'pointer' : 'grab';
+      canvas.style.cursor = h ? (h.clickable === false ? 'help' : 'pointer') : 'grab';
       onHover?.(hot, { x: px, y: py });
       schedule();
     }
-  });
+  }, { signal: eventScope.signal });
 
   const end = (e) => {
     pointers.delete(e.pointerId);
     if (pointers.size < 2) pinch = 0;
     if (pointers.size === 0) { dragging = false; canvas.classList.remove('dragging'); }
   };
-  canvas.addEventListener('pointerup', end);
-  canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('pointerup', end, { signal: eventScope.signal });
+  canvas.addEventListener('pointercancel', end, { signal: eventScope.signal });
   canvas.addEventListener('pointerleave', () => {
-    if (hot) { hot = null; onHover?.(null); schedule(); }
-  });
+    if (hot) {
+      hot = null;
+      hotRegionId = null;
+      onHover?.(null);
+      schedule();
+    }
+  }, { signal: eventScope.signal });
 
   canvas.addEventListener('click', (e) => {
     if (moved > 6) return;
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left, py = e.clientY - rect.top;
-    const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
-    if (h) onStopClick?.(h.stop);
-  });
+    const h = hitAt(px, py);
+    if (h && h.clickable !== false) onStopClick?.(h.stop);
+  }, { signal: eventScope.signal });
 
   function zoomAbout(px, py, factor) {
     const next = clamp(scale * factor, MIN_SCALE, MAX_SCALE);
@@ -412,7 +594,7 @@ export function createJourneyMap(canvas, {
     const rect = canvas.getBoundingClientRect();
     const factor = wheelZoomFactor(e.deltaY, e.deltaMode, e.ctrlKey);
     zoomAbout(e.clientX - rect.left, e.clientY - rect.top, factor);
-  }, { passive: false });
+  }, { passive: false, signal: eventScope.signal });
 
   canvas.tabIndex = 0;
   canvas.setAttribute('role', 'application');
@@ -431,7 +613,7 @@ export function createJourneyMap(canvas, {
     else if (e.key === 'ArrowDown') { ty -= step; schedule(); e.preventDefault(); }
     else if (e.key === '+' || e.key === '=') { zoomAbout(W / 2, H / 2, 1.3); e.preventDefault(); }
     else if (e.key === '-') { zoomAbout(W / 2, H / 2, 0.77); e.preventDefault(); }
-  });
+  }, { signal: eventScope.signal });
 
   const ro = new ResizeObserver(() => { fitted = false; schedule(); });
   ro.observe(canvas);
@@ -444,8 +626,9 @@ export function createJourneyMap(canvas, {
       if (W === 0) { pendingFly = { bounds, pad }; schedule(); return; }
       const target = fitBounds(bounds, pad);
       if (prefersReducedMotion()) { ({ scale, tx, ty } = target); schedule(); return; }
+      cancelFly?.();
       const from = { scale, tx, ty };
-      animate({
+      cancelFly = animate({
         from: 0, to: 1, duration: 560, ease: easeOutCubic,
         onUpdate: (t) => {
           scale = Math.exp(Math.log(from.scale) + (Math.log(target.scale) - Math.log(from.scale)) * t);
@@ -453,25 +636,27 @@ export function createJourneyMap(canvas, {
           ty = from.ty + (target.ty - from.ty) * t;
           schedule();
         },
+        onDone: () => { cancelFly = null; },
       });
     },
 
     /** Focus a single stop by id, with a tight zoom. */
     focusStop(id) {
-      const s = stops.find((x) => x.id === id);
+      const s = stops.find((x) => stopKey(x) === id || x.id === id);
       if (!s) return;
       const pad = 0.6;
       api.flyTo([s.coords[1] - pad, s.coords[0] - pad, s.coords[1] + pad, s.coords[0] + pad], 0.5);
     },
 
     travelTo(id) {
-      const target = stops.findIndex((stop) => stop.id === id);
+      const target = stops.findIndex((stop) => stopKey(stop) === id);
       if (target < 0) return;
       activeId = id;
       cancelTravel?.();
       onTravelStart?.(stops[target]);
       if (prefersReducedMotion()) {
         travelIndex = target;
+        territoryProgress = target + 1;
         schedule();
         onTravelEnd?.(stops[target]);
         return;
@@ -484,10 +669,12 @@ export function createJourneyMap(canvas, {
         ease: easeInOutCubic,
         onUpdate: (value) => {
           travelIndex = value;
+          territoryProgress = value + 1;
           schedule();
         },
         onDone: () => {
           travelIndex = target;
+          territoryProgress = target + 1;
           cancelTravel = null;
           schedule();
           onTravelEnd?.(stops[target]);
@@ -500,9 +687,14 @@ export function createJourneyMap(canvas, {
     zoomIn() { zoomAbout(W / 2, H / 2, 1.4); },
     zoomOut() { zoomAbout(W / 2, H / 2, 0.71); },
     destroy() {
+      if (destroyed) return;
+      destroyed = true;
       cancelTravel?.();
+      cancelFly?.();
+      eventScope.abort();
       ro.disconnect();
       if (raf) cancelAnimationFrame(raf);
+      canvas.classList.remove('dragging');
     },
   };
 
