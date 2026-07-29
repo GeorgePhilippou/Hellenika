@@ -1,7 +1,7 @@
 ---
 id: alexandria-oxus
 name: Alexandria on the Oxus
-shortLabel: A. on Oxus?
+shortLabel: A. on Oxus
 coords:
   - 37.05
   - 69.4

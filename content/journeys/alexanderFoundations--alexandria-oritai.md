@@ -1,7 +1,7 @@
 ---
 id: alexandria-oritai
 name: Alexandria among the Oritai
-shortLabel: A. Oritai?
+shortLabel: A. Oritai
 coords:
   - 26.23
   - 66.31

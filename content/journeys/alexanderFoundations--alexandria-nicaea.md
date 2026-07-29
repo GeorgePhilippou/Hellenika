@@ -1,7 +1,7 @@
 ---
 id: alexandria-nicaea
 name: Alexandria Nicaea
-shortLabel: A. Nicaea?
+shortLabel: A. Nicaea
 coords:
   - 32.97
   - 73.77

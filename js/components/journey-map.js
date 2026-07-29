@@ -334,8 +334,11 @@ export function createJourneyMap(canvas, {
       // A confirmed foundation is a plain filled dot; an attributed or
       // disputed one adds a second, dashed ring to flag the uncertainty,
       // instead of hollowing out the marker itself.
+      // A distinct amber/gold, not reused from any territory tint or the
+      // route accent colour, so a founded city reads as its own category
+      // of marker rather than blending into the campaign shading.
       const r = 5;
-      const colour = cssVar('--p-hellenistic');
+      const colour = dark ? '#f2c14e' : '#a8781a';
       ctx.save();
       ctx.globalAlpha = alpha;
       ctx.shadowColor = 'rgba(0,0,0,.4)';
@@ -514,7 +517,7 @@ export function createJourneyMap(canvas, {
         ctx.beginPath();
         ctx.roundRect(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0, 4);
         ctx.fill();
-        ctx.fillStyle = cssVar('--p-hellenistic');
+        ctx.fillStyle = dark ? '#f2c14e' : '#8a6415';
         ctx.fillText(label, p.x, p.y + 0.5);
         ctx.restore();
       }

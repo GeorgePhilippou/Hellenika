@@ -1,7 +1,7 @@
 ---
 id: alexandria-bucephala
 name: Alexandria Bucephala
-shortLabel: A. Bucephala?
+shortLabel: A. Bucephala
 coords:
   - 32.94
   - 73.72

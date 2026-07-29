@@ -1,7 +1,7 @@
 ---
 id: alexandria-prophthasia
 name: Alexandria Prophthasia
-shortLabel: A. Prophthasia?
+shortLabel: A. Prophthasia
 coords:
   - 32.3745
   - 62.1164

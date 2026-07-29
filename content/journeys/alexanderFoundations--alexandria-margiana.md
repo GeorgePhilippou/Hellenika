@@ -1,7 +1,7 @@
 ---
 id: alexandria-margiana
 name: Alexandria in Margiana
-shortLabel: A. Margiana?
+shortLabel: A. Margiana
 coords:
   - 37.66
   - 62.17

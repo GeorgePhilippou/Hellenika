@@ -1,7 +1,7 @@
 ---
 id: alexandria-carmania
 name: Alexandria in Carmania
-shortLabel: A. Carmania?
+shortLabel: A. Carmania
 coords:
   - 28
   - 57.2

@@ -1,7 +1,7 @@
 ---
 id: alexandria-indus
 name: Alexandria on the Indus
-shortLabel: A. on Indus?
+shortLabel: A. on Indus
 coords:
   - 28.91
   - 70.38
