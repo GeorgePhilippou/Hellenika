@@ -210,28 +210,24 @@ export function createJourneyMap(canvas, {
     ctx.restore();
   }
 
+  /** A plain travelling arrow for Alexander's route — no pole, no
+      pennant, just a clean pointer in the direction of travel. */
   function drawStandard(position, dark) {
     ctx.save();
     ctx.translate(position.x, position.y);
-    const { flip, rotated } = uprightTransform(position.angle);
-    if (flip) ctx.scale(-1, 1);
-    ctx.rotate(rotated);
+    ctx.rotate(position.angle);
     ctx.shadowColor = 'rgba(0,0,0,.45)';
     ctx.shadowBlur = 8;
-    ctx.strokeStyle = dark ? '#f8efe0' : '#28160f';
-    ctx.lineWidth = 1.8;
     ctx.beginPath();
-    ctx.moveTo(-7, 10);
-    ctx.lineTo(2, -11);
-    ctx.stroke();
-    ctx.shadowBlur = 0;
-    ctx.beginPath();
-    ctx.moveTo(1, -10);
-    ctx.lineTo(14, -5);
-    ctx.lineTo(2, 1);
+    ctx.moveTo(14, 0);
+    ctx.lineTo(-8, 9);
+    ctx.lineTo(-8, -9);
     ctx.closePath();
     ctx.fillStyle = '#9d3151';
     ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = dark ? '#f8efe0' : '#28160f';
+    ctx.lineWidth = 1.6;
     ctx.stroke();
     ctx.restore();
   }
