@@ -28,7 +28,7 @@ const THUMB_SIZE = 640;
 // invalidate previously-cached results (including cached misses) -- the
 // cache never expires on its own, so a stale "no image found" from before
 // an override existed would otherwise stick in a visitor's browser forever.
-const CACHE_KEY = 'images-v5';
+const CACHE_KEY = 'images-v6';
 const BATCH = 45; // MediaWiki's multi-title query limit is 50; leave headroom.
 
 /** entityId -> { title, src, w, h, page } | null (looked up, no usable image) */
