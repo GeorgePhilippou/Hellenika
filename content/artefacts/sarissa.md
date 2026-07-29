@@ -1,6 +1,6 @@
 ---
 id: sarissa
-name: The sarissa
+name: The Sarissa
 type: artefact
 subtype: weapon
 tint: macedon
