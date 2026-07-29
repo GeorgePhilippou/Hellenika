@@ -28,6 +28,8 @@ relations:
     rel: based at
   - id: pythagoras
     rel: preceded
+  - id: anaximander
+    rel: associated with
   - id: archaic-greece
     rel: period
 sources:

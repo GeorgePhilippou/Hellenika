@@ -25,6 +25,8 @@ claims:
 relations:
   - id: miletus
     rel: led by
+  - id: aristagoras
+    rel: led by
   - id: darius-i
     rel: suppressed by
   - id: battle-marathon

@@ -29,6 +29,8 @@ claims:
 relations:
   - id: plato
     rel: influenced
+  - id: heraclitus
+    rel: criticised by
   - id: thales
     rel: followed
   - id: archaic-greece

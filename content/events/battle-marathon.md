@@ -28,6 +28,8 @@ claims:
 relations:
   - id: marathon
     rel: site
+  - id: miltiades
+    rel: commanded by
   - id: athens
     rel: victor
   - id: darius-i

@@ -32,7 +32,7 @@ relations:
     rel: founded
   - id: croesus
     rel: defeated
-  - id: darius-i
+  - id: cambyses-ii
     rel: succeeded by
   - id: xenophon
     rel: idealised by

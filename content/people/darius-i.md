@@ -29,6 +29,8 @@ claims:
 relations:
   - id: achaemenid-empire
     rel: ruled
+  - id: cambyses-ii
+    rel: succeeded
   - id: battle-marathon
     rel: defeated at
   - id: persepolis

@@ -26,6 +26,8 @@ claims:
     evidence: archaeological
     confidence: established
 relations:
+  - id: democritus
+    rel: influenced by
   - id: athens
     rel: taught in
   - id: zeno-of-citium

@@ -28,6 +28,10 @@ claims:
 relations:
   - id: sparta
     rel: led
+  - id: pausanias-regent
+    rel: commanded by
+  - id: mardonius
+    rel: killed at
   - id: battle-salamis
     rel: followed
   - id: delian-league
