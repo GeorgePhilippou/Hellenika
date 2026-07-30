@@ -26,6 +26,12 @@ claims:
   - text: His account of the legion-versus-phalanx contrast is broadly reliable.
     evidence: consensus
     confidence: strong
+  - text: Polybius's father Lycortas was a prominent Achaean League statesman, giving Polybius early direct experience of Greek federal politics.
+    evidence: literary
+    confidence: strong
+  - text: He helped settle affairs in Achaea after Rome destroyed Corinth in 146 BC, easing the transition to direct Roman oversight.
+    evidence: literary
+    confidence: strong
 relations:
   - id: histories-polybius
     rel: wrote
@@ -48,8 +54,8 @@ Greek statesman deported to Rome as a hostage, who wrote the definitive analysis
 Explained Roman success through institutions rather than luck, and his theory of the mixed constitution influenced Montesquieu and the American founders.
 
 <!-- field: body -->
-Polybius was one of a thousand Achaean hostages taken to Rome in 167 BC. He became close to Scipio Aemilianus and was present at the destruction of Carthage in 146 BC, where he reports Scipio weeping and quoting Homer on the fall of Troy.
+Polybius's father Lycortas was a leading statesman of the Achaean League, the federal union of Peloponnesian cities, and the younger Polybius grew up with direct first-hand exposure to Greek federal politics and diplomacy long before he ever set foot in Rome. He was one of a thousand prominent Achaeans deported to Rome as hostages in 167 BC after the Roman victory at Pydna, ostensibly on suspicion of insufficient loyalty during the war. In Rome he became close to the young Scipio Aemilianus, tutoring him and accompanying him on campaign, and was present at the final destruction of Carthage in 146 BC, where he reports Scipio weeping as he watched the city burn and quoting lines from Homer on the eventual fall of every great power, including, by implication, Rome's own. In the same fateful year, back in Greece, Rome also destroyed Corinth and dissolved the Achaean League; Polybius, drawing on the trust he had built in Rome, helped negotiate a smoother settlement of Achaean affairs afterward, easing his homeland's transition into more direct Roman oversight.
 
-His *Histories* set out to explain how Rome subdued the known world in fifty-three years. His answer is constitutional: Rome mixed monarchy (consuls), aristocracy (senate) and democracy (assemblies) so that each checked the others, producing stability where pure forms decayed. He also gives the clearest technical comparison of legion and phalanx.
+His *Histories* set out to explain how Rome subdued virtually the entire known Mediterranean world in the space of just fifty-three years. His answer is essentially constitutional: Rome mixed monarchy (the consuls), aristocracy (the senate) and democracy (the popular assemblies) so that each element checked the others, producing durable political stability where "pure," unmixed constitutions inevitably decayed over time — a cyclical theory of constitutional change, which he called *anacyclosis*, that later influenced Montesquieu and, through him, the framers of the American constitution. He also gives the clearest surviving technical comparison of the Macedonian phalanx against the Roman legion, drawn directly from eyewitness testimony about battles like Pydna.
 
-He insisted history must be written by people with political and military experience, and criticised armchair historians sharply — which, having watched a world order end from inside, he had earned.
+He insisted that history must be written by people with real political and military experience rather than by armchair scholars working only from other books, and criticised such writers sharply for it — a standard he had, having watched an entire world order collapse from close up, more than earned himself. Much of his original fifty-two-book work is now lost, surviving mainly through later Byzantine excerpts and summaries rather than as a complete text.

@@ -31,6 +31,12 @@ claims:
   - text: She died from the bite of an asp.
     evidence: debate
     confidence: debated
+  - text: She initially co-ruled Egypt with her younger brothers Ptolemy XIII and Ptolemy XIV before consolidating power alone.
+    evidence: literary
+    confidence: established
+  - text: The Donations of Alexandria in 34 BC assigned Roman-controlled eastern territories to Cleopatra and her children with Antony.
+    evidence: literary
+    confidence: strong
 relations:
   - id: ptolemaic-kingdom
     rel: ruled
@@ -58,8 +64,8 @@ The last ruler of Ptolemaic Egypt, whose alliances with Caesar and Antony were a
 Her death in 30 BC ends the Hellenistic age and the last Greek-ruled successor kingdom of Alexander.
 
 <!-- field: body -->
-Cleopatra was Macedonian Greek by descent, not Egyptian, and ruled a kingdom founded by Alexander's general. She was reportedly the first of her dynasty in three centuries to learn Egyptian, and Plutarch says she spoke many languages and rarely needed an interpreter.
+Cleopatra was Macedonian Greek by descent, not Egyptian, and ruled a kingdom founded three centuries earlier by Alexander's own general Ptolemy. She came to the throne in 51 BC as co-ruler, first with her younger brother Ptolemy XIII and, after his death in the civil war that brought Julius Caesar to Egypt, with a still younger brother, Ptolemy XIV, before eventually eliminating her remaining rivals within the family and ruling in her own right alongside her infant son by Caesar, Caesarion. She was reportedly the first of her dynasty in nearly three centuries to actually learn the Egyptian language, and Plutarch says she spoke many languages fluently and rarely needed an interpreter even with distant foreign envoys.
 
-Her relationships with Julius Caesar and Mark Antony are usually told as romance, and were unmistakably policy: Egypt was rich and militarily weak, and the only way to survive was to be indispensable to whoever held power in Rome. It worked for twenty years.
+Her relationships with Julius Caesar and later Mark Antony are usually told as romance, and were unmistakably policy as well: Egypt was fabulously rich but militarily weak against Rome, and the only realistic way to preserve its independence was to make its queen indispensable to whichever Roman was actually holding power at the time. It worked for roughly twenty years. Her famous meeting with Antony at Tarsus, arriving by barge dressed as Aphrodite, was a calculated piece of theatre rather than a chance encounter, and in 34 BC the so-called Donations of Alexandria saw Antony formally assign large stretches of Rome's eastern territories to Cleopatra and her children by him, a grant Octavian used back in Rome as damning propaganda evidence that Antony had gone native and meant to hand Roman land to a foreign queen.
 
-After Actium in 31 BC she and Antony were finished. She died in August 30 BC. Plutarch reports the asp but notes that no one knows what actually happened; some modern historians favour a poison draught, and the snake may be part of the imagery Octavian's propaganda encouraged. Egypt became a Roman province directly under the emperor.
+After the defeat at Actium in 31 BC she and Antony were finished. She died in Alexandria in August 30 BC, shortly after Antony's own suicide. Plutarch reports the traditional story of an asp smuggled in with a basket of figs, but notes candidly that no one actually knew what happened behind closed doors; some modern historians favour a prepared poison draught instead, and the snake may owe at least part of its enduring hold on the story to imagery Octavian's own propaganda machine found useful — an exotic, self-inflicted death fit for the "foreign queen" of Roman moralising literature. With her death, Egypt was annexed directly as a personal possession of the emperor rather than an ordinary Roman province, ending both Ptolemaic rule and, with it, the last independent Hellenistic kingdom descended from Alexander's own conquests.
