@@ -26,6 +26,12 @@ claims:
   - text: His lost history of Alexander was Arrian's main source.
     evidence: literary
     confidence: strong
+  - text: Ptolemy earned the epithet Soter, "Saviour," from the Rhodians after helping the city withstand a prolonged siege by Demetrius Poliorcetes.
+    evidence: literary
+    confidence: strong
+  - text: He voluntarily abdicated in favour of his son Ptolemy II before his death, a rare peaceful succession among the successor kingdoms.
+    evidence: literary
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: general of
@@ -50,8 +56,8 @@ Alexander's general and bodyguard who seized Egypt, hijacked his corpse, founded
 Built the most stable and intellectually productive of the successor kingdoms, ruled by his descendants until Cleopatra VII.
 
 <!-- field: body -->
-Ptolemy took Egypt as his satrapy in 323 BC and made it a kingdom. His most audacious move was to intercept Alexander's funeral cortege on its way to Macedon and divert it to Egypt — possession of the body conferred enormous legitimacy, and it became the centrepiece of a shrine in Alexandria.
+Ptolemy served among Alexander's closest bodyguards, the somatophylakes, and later sources report a court rumour, probably flattering fiction rather than fact, that he was actually an illegitimate son of Philip II and so Alexander's own half-brother. He took Egypt as his satrapy in the settlement following Alexander's death in 323 BC, quickly consolidated sole control by having the previous Macedonian-appointed administrator, Cleomenes, executed on charges of corruption, and successfully defended his new territory two years later when the regent Perdiccas invaded — an attempted Nile crossing that went disastrously wrong for the invaders, with soldiers and even crocodiles reportedly claiming many lives, and Perdiccas was murdered by his own officers shortly afterward.
 
-He founded the Museum and Library, importing scholars on salary and pursuing an aggressive acquisition policy: ships docking at Alexandria had their books copied, with the copies returned and originals retained. He also created the syncretic god Serapis to give Greeks and Egyptians a shared cult.
+His most audacious move, though, was to intercept Alexander's funeral cortege on its way to burial in Macedon and divert it to Egypt instead. Possession of the body conferred enormous legitimacy on whoever held it, and it became the centrepiece of an elaborate shrine in Alexandria that later Ptolemies and, still later, Roman emperors visited as pilgrims. Ptolemy did not take the title of king outright until 305 BC, prompted in part by having successfully helped the island of Rhodes withstand a famous year-long siege by Demetrius Poliorcetes — an act of support so valued that the grateful Rhodians gave him the epithet Soter, "Saviour," by which he was known ever after.
 
-He wrote a history of Alexander's campaigns, now lost, which was Arrian's principal source — so much of what we know about Alexander reaches us through his general's account.
+He founded the Museum and Library of Alexandria, importing scholars on royal salary and pursuing an aggressive acquisition policy under which ships docking at Alexandria had any books aboard copied by state scribes, with the copies handed back to their owners and the superior originals kept for the Library's own shelves. He also promoted the new syncretic god Serapis, deliberately blending Egyptian and Greek religious imagery, to give his Greek and Egyptian subjects a shared object of worship. Unusually for the age, he chose to abdicate voluntarily in 285 BC in favour of his son Ptolemy II, dying peacefully two years later rather than in the violent succession struggles that consumed most of Alexander's other former commanders. He also wrote his own history of Alexander's campaigns, now lost in its original form but preserved as the principal source behind the historian Arrian's much later account — meaning a great deal of what is known about Alexander today ultimately comes filtered through the memory of one of his own generals.
