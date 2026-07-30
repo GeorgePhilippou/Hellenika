@@ -26,6 +26,12 @@ claims:
   - text: Croesus met Solon.
     evidence: debate
     confidence: legendary
+  - text: According to Herodotus, Cyrus placed Croesus on a funeral pyre to burn him alive before sparing him after Croesus cried out Solon's name.
+    evidence: literary
+    confidence: legendary
+  - text: The phrase "rich as Croesus" survives in English as a byword for extreme wealth.
+    evidence: consensus
+    confidence: established
 relations:
   - id: cyrus-the-great
     rel: defeated by
@@ -50,8 +56,8 @@ Last king of Lydia, proverbially rich, who tested the oracles and destroyed his 
 His kingdom minted the first true coinage, and his fall to Cyrus brought Persia to the Aegean coast and into contact with the Greeks.
 
 <!-- field: body -->
-Herodotus makes Croesus the subject of his first extended narrative. He tested the oracles by asking each what he was doing on a set day; only Delphi answered correctly. He then asked whether to attack Persia and was told he would destroy a great empire. He attacked, and destroyed his own.
+Herodotus makes Croesus the subject of his first extended narrative, using his rise and fall as a template for the whole *Histories*' recurring theme that excessive prosperity invites disaster. He is said to have tested the various Greek oracles by asking each, on an agreed day, what he was doing at that exact moment far away in Lydia; only Delphi answered correctly, describing him cooking a lamb and tortoise together in a bronze cauldron. Trusting the oracle completely after that, he then asked whether he should attack the rising power of Persia and was told that if he did, he would destroy a great empire. He attacked, and destroyed his own — the oracle's usual studied ambiguity doing exactly the damage Greek writers loved to illustrate with it.
 
-Herodotus also gives him a meeting with Solon, who declines to call him the happiest of men because no life can be judged until it has ended. The chronology makes the meeting impossible, and Herodotus almost certainly knew that — the story is doing moral rather than reportorial work.
+After his defeat, Herodotus says Cyrus had Croesus placed on a great pyre to be burned alive, and that as the flames rose Croesus cried out the name of the Athenian lawgiver Solon three times; asked why, he explained that Solon had once warned him that no life could be called happy until it had ended, since fortune could reverse at any moment — a warning Croesus, at the height of his wealth, had dismissed. Cyrus, moved or unsettled by the story, had the fire put out and spared him, keeping him afterward as an advisor. The chronology of an actual meeting between Croesus and Solon does not really work, and Herodotus almost certainly knew it — the story is doing moral rather than strictly historical work, illustrating a lesson rather than reporting an event.
 
-Lydia under Croesus and his predecessors produced the first standardised coins, initially of electrum and then of refined gold and silver, an innovation Greek cities adopted almost immediately.
+Lydia under Croesus and his Mermnad predecessors produced the first standardised coinage anywhere in the world, initially struck in electrum, a natural gold-silver alloy, and later refined into separate pure gold and silver issues, an innovation neighbouring Greek cities adopted almost immediately once they saw its usefulness. His legendary wealth was proverbial enough in antiquity to survive intact into modern English, where "rich as Croesus" remains a standard expression for extravagant fortune, twenty-six centuries after his own kingdom fell.

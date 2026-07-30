@@ -25,6 +25,12 @@ claims:
   - text: Troy VIIa was destroyed by human violence rather than earthquake.
     evidence: debate
     confidence: debated
+  - text: Blegen developed much of his stratigraphic and pottery-seriation method during earlier excavations at Korakou and Zygouries in the Corinthia.
+    evidence: literary
+    confidence: strong
+  - text: Blegen worked for decades with the American School of Classical Studies at Athens, becoming one of its most influential directors of fieldwork.
+    evidence: literary
+    confidence: strong
 relations:
   - id: pylos
     rel: excavated
@@ -49,8 +55,10 @@ American archaeologist who excavated the Palace of Nestor at Pylos and re-excava
 His Pylos tablets made the Linear B decipherment testable, and his Troy sequence remains the framework for the site.
 
 <!-- field: body -->
-On his first day at Pylos in 1939 Blegen struck a room full of Linear B tablets — the largest archive on the Greek mainland, baked hard by the fire that destroyed the palace. War interrupted the work.
+Blegen built his reputation and his method years before either of his two most famous excavations, working through the 1920s at smaller mainland sites like Korakou and Zygouries in the Corinthia, where he developed a careful, layer-by-layer stratigraphic approach paired with close attention to changes in pottery style over time — a combination that let him date levels at a site relative to one another with much greater confidence than earlier excavators, including Schliemann, had managed. That grounding, developed over a long career with the American School of Classical Studies at Athens, was what he then brought to both Pylos and Troy.
 
-In 1952, testing Ventris' proposed values on a newly excavated Pylos tablet, Blegen found that a sign-group beside pictures of three-legged pots read *ti-ri-po-de* — tripods. The decipherment predicted a word it had never been tested on. That tablet, PY Ta 641, settled the matter.
+On his first day digging at Pylos in 1939 Blegen struck a room full of Linear B tablets — the largest such archive found anywhere on the Greek mainland, baked hard and preserved precisely by the fire that had destroyed the palace around it. The Second World War interrupted further work for over a decade.
 
-At Troy he replaced Schliemann's trench with careful stratigraphy, dividing the site into numbered levels and sub-phases still used today, and argued that Troy VIIa — destroyed by fire and containing storage jars sunk into floors, suggesting siege conditions — was the best candidate for a historical Trojan War.
+In 1952, testing Michael Ventris's newly proposed decipherment against a fresh Pylos tablet excavated that very season, Blegen found that a sign-group written beside pictures of three-legged vessels read *ti-ri-po-de* — tripods. The decipherment had correctly predicted a word it had never been tested against before, an outcome that would be an extraordinary coincidence if the method were not basically sound. That single tablet, PY Ta 641, settled the argument for most remaining sceptics almost overnight.
+
+At Troy he replaced Schliemann's brutal single trench with careful, methodical stratigraphy, dividing the mound into numbered levels and sub-phases still used as the basic framework for the site today, and argued that Troy VIIa — destroyed by fire, and containing storage jars sunk hastily into house floors suggesting residents preparing for a siege — was the best surviving archaeological candidate for a historical Trojan War, even while remaining far more cautious than Schliemann about equating any specific layer directly with Homer's narrative.

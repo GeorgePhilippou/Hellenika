@@ -30,6 +30,12 @@ claims:
   - text: Homer was a blind bard from Chios.
     evidence: tradition
     confidence: legendary
+  - text: The modern critical debate over Homer's identity and unity, the "Homeric Question," began in earnest with Friedrich August Wolf's 1795 Prolegomena ad Homerum.
+    evidence: literary
+    confidence: established
+  - text: The Homeric Hymns, a separate collection of poems addressed to individual gods, were attributed to Homer in antiquity but are now generally considered later works by other poets.
+    evidence: consensus
+    confidence: established
 relations:
   - id: iliad
     rel: composed
@@ -57,6 +63,8 @@ The name attached to the Iliad and the Odyssey — the foundational poems of Gre
 Homeric epic supplied Greeks with a shared heroic past, a common poetic language, and the moral vocabulary that tragedy and philosophy argued with for centuries.
 
 <!-- field: body -->
-Nothing certain is known about Homer, and there may never have been a single person. Seven cities claimed him; the ancient tradition made him a blind bard from Chios or Smyrna. What the poems demonstrably contain is an oral tradition: Milman Parry showed in the 1930s that their formulaic epithets ("swift-footed Achilles", "wine-dark sea") are the working technique of singers composing in performance, tested against living South Slavic oral poets.
+Nothing certain is known about Homer, and there may never have been a single person answering to the name at all. Seven different cities claimed him as a native son; ancient tradition variously made him a blind bard from Chios or Smyrna, among other rival biographical traditions that agree on almost nothing beyond his supreme poetic authority. What the poems demonstrably do contain is the fingerprint of a long oral tradition: Milman Parry showed in the 1930s that their formulaic epithets — "swift-footed Achilles," the "wine-dark sea" — are not decorative flourishes but the practical working technique of singers composing aloud in live performance, a conclusion he tested and confirmed by studying still-living oral epic singers in the Balkans using the same formulaic methods.
 
-The poems preserve a stratified world. Bronze Age objects — the boar's-tusk helmet, the tower shield, Nestor's cup — sit beside Iron Age cremation and Geometric-era social structures. They are not a record of the Mycenaean age but a memory of it, reshaped over four centuries of retelling.
+Modern scholarly argument over all this, known as the "Homeric Question" — whether one poet or many composed the epics, and how much of what survives reflects a single creative vision versus centuries of communal reworking — effectively began with the German classicist Friedrich August Wolf's 1795 *Prolegomena ad Homerum*, which argued from internal inconsistencies that the poems as they now stand could not be the work of one single, unified authorial hand. A separate body of poetry, the Homeric Hymns, addressed individually to gods including Demeter, Apollo and Aphrodite, was also credited to Homer by ancient audiences but is now generally judged by scholars to be the work of various later poets working in a consciously Homeric style rather than genuine products of the same tradition or era.
+
+The poems themselves preserve a visibly stratified world rather than a single historical snapshot. Bronze Age objects — the boar's-tusk helmet, the body-length tower shield, the ornate cup recalling Nestor's own — sit alongside Iron Age cremation practices and social structures that look distinctly more like the poet's own much later Geometric-era world. They are best understood not as a direct record of the Mycenaean age they claim to depict, but as a layered folk memory of it, continuously reshaped and updated across roughly four centuries of oral retelling before finally settling into something like their present written form.
