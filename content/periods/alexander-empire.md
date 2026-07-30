@@ -1,8 +1,8 @@
 ---
 id: alexander-empire
-name: Alexander the Great
+name: Alexander's Empire
 altNames:
-  - Alexander's Empire
+  - Alexander the Great's Conquests
   - Macedonian Conquest of Persia
 type: period
 tint: alexander
