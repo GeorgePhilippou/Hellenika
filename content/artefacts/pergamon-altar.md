@@ -25,6 +25,9 @@ claims:
   - text: The frieze allegorises Attalid victories over the Galatians.
     evidence: consensus
     confidence: probable
+  - text: A smaller interior frieze depicts the life of the mythical hero Telephus, legendary founder of Pergamon.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: pergamon
     rel: from
@@ -50,4 +53,4 @@ The Gigantomachy frieze is over two metres high and runs the full circuit of the
 
 The emotional register is the opposite of Classical restraint: faces contorted, muscles strained, a giant's head pulled back by the hair while a dog bites his shoulder. It reads as a coded celebration of Attalid victories over the Galatians — civilisation against chaos, with the Attalids as the gods.
 
-The German excavation removed it to Berlin in the 1880s under an Ottoman permit, and it is the centrepiece of a museum built around it. Turkey has repeatedly sought its return.
+The German excavation removed it to Berlin in the 1880s under an Ottoman permit, and it is the centrepiece of a museum built around it. Turkey has repeatedly sought its return. A smaller, quieter interior frieze, set inside the altar's colonnade rather than facing outward, tells the life story of Telephus, the mythical founder of Pergamon and, according to the ruling Attalid dynasty's own claimed genealogy, an ancestor of theirs — a much more intimate, narrative counterpart to the violent public spectacle of the Gigantomachy outside.

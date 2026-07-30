@@ -26,6 +26,9 @@ claims:
   - text: They constituted a single unified nation or invasion.
     evidence: debate
     confidence: debated
+  - text: Some named groups, including the Peleset, are widely thought to be connected to the later Philistines of the Levantine coast.
+    evidence: debate
+    confidence: probable
 relations:
   - id: bronze-age-collapse
     rel: part of
@@ -47,4 +50,4 @@ Egyptian inscriptions under Merneptah and Ramesses III name groups — Peleset, 
 
 Ramesses III's text says these groups had already destroyed Hatti, Carchemish, Arzawa and Alashiya — matching the archaeological destruction horizon closely.
 
-The term "Sea Peoples" is a modern coinage; no ancient source uses it as a collective name. Current thinking treats them less as a cause of the collapse than as a symptom: populations set in motion by drought and state failure, who then accelerated the failure elsewhere.
+The term "Sea Peoples" is a modern coinage; no ancient source uses it as a collective name. Current thinking treats them less as a cause of the collapse than as a symptom: populations set in motion by drought and state failure, who then accelerated the failure elsewhere. One named group, the Peleset, is widely thought by scholars to be connected to the Philistines who subsequently settled the southern Levantine coast, meaning this single Egyptian inscription may record the arrival of a people whose name survives, via a long chain of transmission, in the modern word "Palestine" itself.

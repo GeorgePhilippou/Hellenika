@@ -26,6 +26,9 @@ claims:
   - text: The alphabet was adopted specifically to record Homeric epic.
     evidence: debate
     confidence: speculative
+  - text: The transmission route most likely ran through Greek traders and mercenaries in contact with Phoenician communities such as at Al Mina in Syria.
+    evidence: debate
+    confidence: probable
 relations:
   - id: greek-alphabet
     rel: created
@@ -51,4 +54,4 @@ Phoenician script wrote consonants only, which works for Semitic languages built
 
 The Greek solution was elegant. Phoenician had consonants Greek did not use — the glottal stop *aleph*, the pharyngeal *ayin*, *he*, *yod*. Greeks took those signs and assigned them to vowels: alpha, omicron, epsilon, iota. One notational change made the script able to represent any word in the language unambiguously, and made literacy learnable in weeks rather than years.
 
-The earliest inscriptions — the Dipylon oinochoe from Athens and "Nestor's Cup" from Pithekoussai, both around 740 BC — are not administrative. One is a dancing prize and the other a joke about a drinking cup, written in verse. Greek writing enters the record as play.
+The earliest inscriptions — the Dipylon oinochoe from Athens and "Nestor's Cup" from Pithekoussai, both around 740 BC — are not administrative. One is a dancing prize and the other a joke about a drinking cup, written in verse. Greek writing enters the record as play. The most likely transmission route runs through direct, sustained contact between Greek traders or mercenaries and Phoenician communities at mixed trading settlements such as Al Mina on the Syrian coast, where the two peoples lived and worked in close enough proximity for the practical skill of writing to pass from one group to the other.

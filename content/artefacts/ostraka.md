@@ -24,6 +24,9 @@ claims:
   - text: Ostracism exiled a man for ten years without loss of property or citizenship.
     evidence: literary
     confidence: strong
+  - text: Some surviving ostraka include crude caricatures or drawings alongside the inscribed name.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: athens
     rel: found at
@@ -47,4 +50,4 @@ Once a year the Athenian assembly decided whether to hold an ostracism. If so, c
 
 Over 11,000 ostraka have been excavated. They carry the expected names — Themistocles, Aristides, Cimon, Alcibiades — sometimes with added abuse, and occasionally a full explanatory line about why the voter thought the man should go.
 
-A cache of 190 sherds naming Themistocles was found in a well, written in only fourteen hands: someone was mass-producing ballots for illiterate or lazy voters. It is the earliest surviving physical evidence of electoral manipulation.
+A cache of 190 sherds naming Themistocles was found in a well, written in only fourteen hands: someone was mass-producing ballots for illiterate or lazy voters. It is the earliest surviving physical evidence of electoral manipulation. Some surviving sherds go beyond a bare name, adding crude drawings or mocking epithets alongside the inscription, small unguarded traces of ordinary Athenian opinion that no literary source preserves in the same raw form.

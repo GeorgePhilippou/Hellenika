@@ -25,6 +25,9 @@ claims:
   - text: It preserves versions of myths that differ from later canonical accounts.
     evidence: consensus
     confidence: strong
+  - text: The vase stands roughly 66 cm tall and was used as a mixing bowl (krater) for wine and water at banquets.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: athens
     rel: made at
@@ -50,4 +53,4 @@ Made in Athens, exported to Etruria, and found in a tomb at Chiusi in 1844. Klei
 
 The six friezes carry more than 270 human and animal figures with over 120 inscribed names: the wedding of Peleus and Thetis, the Calydonian boar hunt, the funeral games for Patroclus, Theseus and the Athenian youths dancing after the Minotaur, Achilles chasing Troilus. It is effectively an encyclopaedia of myth as it stood around 570 BC, and a key source for versions of stories that were later told differently.
 
-In 1900 a museum attendant threw a stool at it, breaking it into 638 pieces. It was reassembled, taken apart again in the 1970s and rebuilt with better technique.
+In 1900 a museum attendant, in an apparent fit of anger during an argument, threw a stool at the case and shattered it into 638 pieces. It was painstakingly reassembled, then deliberately taken apart again in the 1970s so conservators could rebuild it using stronger, less visually intrusive adhesives and support materials than the earlier restoration had used. Standing roughly 66 cm tall, it was made to function as a krater, a large vessel for mixing wine with water at banquets, meaning this densely inscribed encyclopaedia of myth was, in its original use, party furniture rather than a museum showpiece.

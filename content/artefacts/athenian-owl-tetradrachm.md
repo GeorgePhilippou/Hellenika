@@ -27,6 +27,9 @@ claims:
   - text: Emergency plated coinage was issued late in the Peloponnesian War.
     evidence: numismatic
     confidence: strong
+  - text: The coin's obverse Athena head and reverse owl remained essentially unchanged in design for roughly four centuries.
+    evidence: numismatic
+    confidence: established
 relations:
   - id: athens
     rel: issued by
@@ -50,4 +53,4 @@ Struck from Laurion silver, the "owls" were minted with such consistent weight a
 
 The design was deliberately kept archaic-looking for centuries after Greek art had moved on. Recognisability was the point: a familiar coin is a trusted coin, and changing the design would have invited doubt.
 
-The currency was also imperial policy. Athens required allied states to use Athenian coins, weights and measures, which suppressed local mints and made the Aegean a single monetary zone. When Athens ran out of silver at the end of the Peloponnesian War it issued silver-plated bronze — and Aristophanes' *Frogs* jokes about bad currency driving out good, three centuries before Gresham.
+The currency was also imperial policy. Athens required allied states to use Athenian coins, weights and measures, which suppressed local mints and made the Aegean a single monetary zone. When Athens ran out of silver at the end of the Peloponnesian War it issued silver-plated bronze — and Aristophanes' *Frogs* jokes about bad currency driving out good, three centuries before Gresham. The basic design, Athena's head on one face and her owl on the reverse, stayed essentially unchanged for roughly four hundred years, an extraordinary run of stability for any currency, ancient or modern.

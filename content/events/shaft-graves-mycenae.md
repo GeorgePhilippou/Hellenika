@@ -23,6 +23,9 @@ claims:
   - text: The wealth derives from Mycenaean mercenary service abroad.
     evidence: debate
     confidence: debated
+  - text: A second, later grave circle (Circle B) found nearby contains comparable but somewhat less spectacular burials.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: mycenae
     rel: site
@@ -46,4 +49,4 @@ Grave Circle A held nineteen bodies with around 15 kg of gold: five funerary mas
 
 The wealth is a puzzle. It appears suddenly, in a society with no preceding tradition of such display. Proposals include Mycenaean mercenaries returning enriched from Egyptian service — the daggers show Nilotic scenes — and control of trade routes.
 
-Schliemann found them in 1876 and identified them with Agamemnon's household. They are roughly three centuries too early. He was wrong about the identification and right that something remarkable was buried there.
+Schliemann found them in 1876 and identified them with Agamemnon's household. They are roughly three centuries too early. He was wrong about the identification and right that something remarkable was buried there. A second, somewhat earlier and generally less spectacularly furnished grave circle, Circle B, was found nearby decades later, outside the later fortification walls, and is now understood as belonging to the same elite lineage in an earlier phase of its rise to prominence.
