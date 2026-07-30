@@ -25,6 +25,9 @@ claims:
   - text: The Fourth Macedonian War, against the pretender Andriscus, ended with Macedon's direct annexation as a Roman province in 148 BC.
     evidence: literary
     confidence: strong
+  - text: The First Macedonian War overlapped directly with Rome's war against Hannibal, reflecting Philip V's alliance with Carthage.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-cynoscephalae
     rel: included
@@ -51,7 +54,7 @@ _order: 60
 Four wars over seven decades in which Rome dismantled the kingdom Philip II and Alexander had built, ending in direct provincial rule.
 
 <!-- field: body -->
-The first war (214–205 BC), fought while Rome was still consumed by Hannibal in Italy, was a minor sideshow that changed little. The second (200–196 BC) was decisive: Flamininus defeated Philip V at Cynoscephalae and then proclaimed the freedom of the Greek cities at the Isthmian Games, ending Macedonian hegemony over Greece while leaving the kingdom itself intact under Roman oversight.
+The first war (214–205 BC) grew directly out of Philip V's alliance with Hannibal against Rome during the Second Punic War, a decision that made Macedon an enemy of Rome while Rome itself was still fully consumed by the crisis of Hannibal's invasion of Italy; fought mostly through allies and proxies with minimal direct Roman involvement, it ended in an inconclusive peace that changed little on the ground. The second war (200–196 BC) was far more decisive: Flamininus defeated Philip V outright at Cynoscephalae and then proclaimed the freedom of the Greek cities at the Isthmian Games, ending Macedonian hegemony over Greece while still leaving the Macedonian kingdom itself intact, if considerably weakened, under close Roman oversight.
 
 Philip's son Perseus inherited a weakened but still functioning state, and renewed war with Rome broke out in 171 BC. Aemilius Paullus destroyed the Macedonian army at Pydna in 168 BC in under an hour; Perseus was captured, and the monarchy — the same royal house, in unbroken line, that had produced Philip II and Alexander — was abolished outright. Macedon was split into four notionally independent republics under Roman supervision.
 
