@@ -25,6 +25,9 @@ claims:
   - text: Greek houses had strictly segregated women's quarters as textual sources imply.
     evidence: debate
     confidence: debated
+  - text: Excavated houses at Olynthus include pebble mosaic floors of considerable quality, indicating that even a middling regional city could afford refined domestic decoration.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: philip-ii
     rel: destroyed by
@@ -48,3 +51,5 @@ Because it was destroyed and abandoned in a known year, it is the benchmark for 
 Olynthus was laid out on a grid with standardised house plots of about 17 by 17 m. More than a hundred houses have been excavated, showing the typical arrangement: rooms around a courtyard, a covered *pastas* portico facing south for winter sun, a dedicated *andron* for male dining with an off-centre door to fit the couches, and separate women's quarters.
 
 Philip II destroyed it in 348 BC and sold the population into slavery — one of the events Demosthenes used to argue that Philip was an existential threat. Because nobody rebuilt, everything left behind belongs to a single moment, which makes Olynthus the fixed point for Classical Greek domestic archaeology.
+
+Several of the excavated houses feature figural pebble mosaic floors of real artistic quality, showing scenes such as animal combats and mythological figures picked out in coloured stones, evidence that even a comparatively ordinary regional city, and not only the great imperial capitals, could support genuinely accomplished domestic decoration in the fourth century BC.

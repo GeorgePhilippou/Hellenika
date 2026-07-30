@@ -23,6 +23,9 @@ claims:
   - text: He was a younger associate or pupil of Anaximander.
     evidence: literary
     confidence: probable
+  - text: Anaximenes' account of celestial bodies as flat, fiery discs riding on air was an early attempt at a purely mechanical astronomy.
+    evidence: literary
+    confidence: established
 relations:
   - id: anaximander
     rel: pupil of
@@ -46,3 +49,5 @@ Anaximenes took up the Milesian project of finding a single arche, or originatin
 He compared the air that constitutes the world to the breath (psyche) that holds a human body together, a analogy ancient sources found appealing enough to preserve. Like Thales and Anaximander before him, he offered naturalistic explanations for phenomena — earthquakes, lightning, rainbows — that had previously belonged to myth.
 
 Later doxographers treat the three Milesians as a single developing sequence: Thales' water, Anaximander's boundless, Anaximenes' air, each responding to problems in the last.
+
+Anaximenes extended his mechanical logic to the heavens as well: he described the stars, sun and moon as flat, disc-like bodies of condensed and ignited air, held aloft and carried around by the air's own motion rather than fixed to any solid sphere, a genuinely physical, if ultimately mistaken, account that tried to explain celestial motion by the same rarefaction-and-condensation principle he used for everything else.

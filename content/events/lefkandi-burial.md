@@ -23,6 +23,9 @@ claims:
   - text: The find substantially revised the "Dark Age" model.
     evidence: consensus
     confidence: strong
+  - text: The building's colonnaded design is seen by many archaeologists as an early ancestor of later Greek peripteral temple architecture.
+    evidence: debate
+    confidence: probable
 relations:
   - id: lefkandi
     rel: site
@@ -43,3 +46,5 @@ The Toumba building at Lefkandi was 50 m long with an external colonnade — thr
 Beneath it: a cremated man in a Cypriot bronze amphora with an iron sword; an inhumed woman with gold hair-coils, a gold pectoral and a Babylonian pendant already 700 years old when buried; and a shaft with four horses.
 
 The find dismantled the assumption that the Dark Age was uniformly poor and disconnected. Elite wealth, monumental building, heroic burial ritual and long-distance imports were all present at the supposed low point.
+
+The building's form itself is architecturally suggestive: its external row of posts running around an apsidal structure anticipates, in rough outline, the peripteral colonnade that would become the defining feature of the Greek temple centuries later, leading many archaeologists to see the Toumba building as an early, isolated ancestor of a design principle that would not become standard again for a very long time.

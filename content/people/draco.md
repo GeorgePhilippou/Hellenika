@@ -24,6 +24,9 @@ claims:
   - text: Draco's code prescribed death for almost all offences.
     evidence: tradition
     confidence: debated
+  - text: Draco's law was the first Athenian legal code applied in writing to all citizens alike, rather than left to unwritten aristocratic custom.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: athens
     rel: legislated for
@@ -45,3 +48,5 @@ Writing the law down took its interpretation out of the exclusive hands of arist
 Ancient tradition held that Draco prescribed death for almost every offence, and that his laws were written in blood rather than ink. Solon repealed nearly all of them.
 
 The exception is the homicide law, which survived and was re-inscribed in 409/8 BC — a copy of that inscription still exists. It is notably sophisticated: it distinguishes intentional from unintentional killing, sets out procedures for exile and pardon by the victim's family, and takes blood vengeance out of private hands. Its public display also made a rule available for scrutiny beyond an aristocratic judge's memory. The written code, not its proverbial severity, was the lasting achievement.
+
+Before Draco, Athenian law existed mainly as unwritten custom interpreted at the discretion of aristocratic magistrates, which gave the elite considerable latitude and left ordinary citizens dependent on memory and social standing to know what the law actually required of them. Draco's written code, whatever its severity, changed that basic relationship by fixing rules in a form anyone could, in principle, consult and hold officials to — a structural shift in Athenian governance that mattered more in the long run than the harshness for which his name became proverbial.

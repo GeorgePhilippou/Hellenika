@@ -22,6 +22,9 @@ claims:
   - text: He died at Argos in 272 BC.
     evidence: literary
     confidence: strong
+  - text: Pyrrhus wrote memoirs and treatises on military tactics that were praised and studied by later commanders, including Hannibal.
+    evidence: literary
+    confidence: strong
 relations:
   - id: olympias
     rel: kinsman of
@@ -47,3 +50,5 @@ Pyrrhus was a cousin of Alexander through Olympias, and Hannibal reportedly rank
 Both wins cost him irreplaceable veterans. Plutarch reports his remark after Asculum that another such victory would ruin him. Rome simply raised more legions.
 
 He campaigned in Sicily, returned to Italy, was fought to a standstill at Beneventum in 275, and went home. He died in a street fight in Argos in 272 BC, reportedly stunned by a roof tile thrown by an old woman and killed where he fell.
+
+Beyond his campaigns, Pyrrhus wrote memoirs and technical works on generalship that survived into the Roman period and won real respect from later professional soldiers; Hannibal reportedly ranked him among the very best commanders in history, a judgment that has helped preserve Pyrrhus's reputation as a skilled tactician even though his signature victories are remembered today chiefly for their ruinous cost.

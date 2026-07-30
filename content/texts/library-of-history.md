@@ -26,6 +26,9 @@ claims:
   - text: Its chronology and internal consistency are unreliable.
     evidence: consensus
     confidence: strong
+  - text: Diodorus organised his universal history around a year-by-year annalistic framework, tying Greek, Roman and Near Eastern events to a shared timeline.
+    evidence: literary
+    confidence: established
 relations:
   - id: wars-of-diadochi
     rel: main source for
@@ -48,3 +51,5 @@ Diodorus is not a distinguished historian. He compiles rather than analyses, con
 He is nonetheless indispensable. Books 11–20 cover 480–302 BC continuously, and for the wars of the Diadochi he is the main narrative we have, drawing on Hieronymus of Cardia — a participant whose own work is lost. His account of Philip II depends on Ephorus and Theopompus, also lost.
 
 This is the normal condition of ancient history: the good writers vanish and the compilers survive, so the evidence often reaches us through someone who did not fully understand it. Reading Diodorus means reading through him to the better source underneath.
+
+His organising principle was itself ambitious: rather than treating Greek, Near Eastern and Roman history as separate strands, Diodorus arranged his narrative annalistically, year by year, weaving events from different regions into a single continuous chronological frame — an attempt at genuinely universal history that, whatever its execution flaws, reflects a real Hellenistic-era ambition to see the whole known world's past as one connected story rather than a set of disconnected local traditions.

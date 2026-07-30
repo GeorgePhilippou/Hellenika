@@ -19,6 +19,9 @@ claims:
   - text: Control of the Pangaeum mines gave Macedon substantial annual revenue.
     evidence: literary
     confidence: strong
+  - text: Philip also secured his early reign through a network of strategic marriages to daughters of neighbouring ruling families.
+    evidence: literary
+    confidence: strong
 relations:
   - id: philip-ii
     rel: subject
@@ -41,3 +44,5 @@ Perdiccas III was killed by the Illyrians with 4,000 Macedonians. Macedon faced 
 Philip bought off some enemies, defeated others, and rebuilt the army around the sarissa, deeper infantry formations and coordinated cavalry. He took Amphipolis and the Pangaeum gold mines, which gave him roughly 1,000 talents a year — more than Athens' entire imperial revenue at its height.
 
 Within five years the immediate threats were gone. Within twenty-one, he controlled Greece.
+
+Diplomacy did as much as the battlefield to stabilise his early reign: Philip married a rapid succession of women from neighbouring royal and noble houses, including Olympias of Epirus, each match binding a potentially hostile or useful neighbouring power more closely to Macedon, a strategy of marriage-as-alliance he pursued throughout his reign alongside his military reforms.
