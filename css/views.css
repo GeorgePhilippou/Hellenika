@@ -719,13 +719,21 @@
    leaving a slab of dead space beside the photo. Links down to the full
    section rather than just repeating it as inert text. */
 .hero-significance {
-  display: block; margin-top: var(--s-6); padding: var(--s-4) var(--s-5);
+  display: block; padding: var(--s-4) var(--s-5);
   max-width: 52ch;
   border-left: 3px solid var(--tint, var(--accent));
   border-radius: 0 var(--r-md) var(--r-md) 0;
   background: color-mix(in srgb, var(--tint, var(--accent)) 8%, transparent);
   color: inherit;
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-out);
+  /* .entity-hero-text is a flex column stretched to the row's full height
+     (set by the photo next to it) -- equal auto margins here float this
+     box to the vertical centre of whatever space is left under the
+     actions row, instead of it sitting flush at the top of a tall gap.
+     With little or no gap to begin with, both margins just collapse
+     toward 0 and it sits right under the actions row as before. */
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .hero-significance:hover {
   background: color-mix(in srgb, var(--tint, var(--accent)) 13%, transparent);
@@ -754,7 +762,11 @@
   .entity-hero-grid { grid-template-columns: 1fr; gap: var(--s-6); }
   .entity-hero-media { order: -1; max-width: 420px; }
 }
-.entity-hero-text { min-width: 0; }
+/* align-self: stretch makes this column match the grid row's full height
+   (set by whichever column -- text or photo -- is taller), which is what
+   gives .hero-significance's auto top/bottom margins actual free space
+   to center it into on a page with a tall portrait photo. */
+.entity-hero-text { min-width: 0; display: flex; flex-direction: column; align-self: stretch; }
 
 /* Placeholder glyph state — identical language to .ecard-glyph so a
    missing photo never reads as an error, just as "no image on file". */
