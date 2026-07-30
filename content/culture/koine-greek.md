@@ -25,6 +25,9 @@ claims:
   - text: Greek remained dominant in the eastern Mediterranean under Roman rule.
     evidence: consensus
     confidence: established
+  - text: Educated Romans were routinely expected to be bilingual in Greek and Latin, and Greek was widely used in Roman literature, philosophy and diplomacy.
+    evidence: consensus
+    confidence: established
 relations:
   - id: hellenistic-period
     rel: language of
@@ -48,10 +51,8 @@ _order: 3
 The simplified common Greek that spread with Alexander's conquests and became the lingua franca from Marseille to the Indus.
 
 <!-- field: body -->
-Koine — "common" — grew out of Attic Greek with Ionic influence, spreading through Alexander's armies and administration. It simplified: the dual number disappeared, the optative mood declined, the dative began eroding, and vocabulary standardised.
+Koine — literally "common" — grew out of Attic Greek with significant Ionic influence, spreading rapidly through the ranks of Alexander's armies, drawn from many different Greek-speaking regions, and through the administrative machinery of the vast territory he conquered. In the process it simplified considerably from its Classical Attic ancestor: the old dual grammatical number, used for pairs of things, disappeared almost entirely; the subtle optative mood fell into steady decline; the dative case began eroding in everyday speech; and vocabulary standardised across regions that had previously spoken quite distinct local dialects.
 
-It was the first genuine lingua franca of the Mediterranean and Near East. A merchant from Massalia and an official in Babylon could do business in it. Inscriptions in Koine turn up in Afghanistan and India — the Ashoka edicts at Kandahar are in Greek and Aramaic, so a Buddhist emperor addressed his Greek-speaking subjects in their own language.
+It became the first genuine lingua franca of the Mediterranean and Near Eastern world. A merchant from Massalia in southern Gaul and a government official in Babylon could conduct business with one another in essentially the same language, something no earlier common tongue had achieved across so vast an area. Inscriptions in Koine turn up as far away as Afghanistan and northern India — the famous edicts of the Buddhist Indian emperor Ashoka at Kandahar were carved in both Greek and Aramaic, meaning a South Asian emperor addressed his own Greek-speaking subjects in the Greek language as a matter of practical necessity. It is also, crucially, the language of both the Septuagint, the Greek translation of Hebrew scripture undertaken in Alexandria, and later the entire New Testament, which is precisely why so much of the technical vocabulary of Hellenistic Greek administrative and philosophical culture ended up permanently embedded in the language of Christian theology.
 
-It is also the language of the Septuagint and the New Testament, which is why the vocabulary of a Hellenistic Greek administrative culture became the vocabulary of Christian theology.
-
-Rome conquered the Greek world without displacing it linguistically. Greek remained the language of the eastern Mediterranean for a further thousand years.
+Rome ultimately conquered the entire Greek-speaking world militarily and politically without ever managing, or even much attempting, to displace it linguistically. Educated Romans were routinely expected to be genuinely bilingual in Greek and Latin, Greek literature and philosophy were treated as the essential foundation of a proper Roman education, and Greek remained the practical working language of diplomacy, commerce and scholarship across the eastern Mediterranean for a further thousand years, well into the Byzantine period and long after the Western Roman Empire itself had fallen.

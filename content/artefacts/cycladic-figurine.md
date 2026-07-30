@@ -28,6 +28,9 @@ claims:
   - text: They represent a mother goddess or fertility deity.
     evidence: debate
     confidence: speculative
+  - text: Many surviving figurines show evidence of deliberate ancient breakage, particularly at the neck, possibly as part of funerary ritual.
+    evidence: archaeological
+    confidence: debated
 relations:
   - id: early-bronze-age
     rel: period
@@ -47,8 +50,8 @@ _order: 0
 Slender marble figures with folded arms and blank faces — abstract to modern eyes, and originally brightly painted.
 
 <!-- field: body -->
-Carved with emery abrasives rather than metal tools, the canonical type is female, nude, with arms folded left over right beneath small breasts, and a face bearing only a nose.
+Carved using emery abrasives rather than metal cutting tools — emery itself being a mineral the Cyclades had in local supply on Naxos — the canonical type is female, nude, with arms folded left over right beneath small, high breasts, and a face bearing only a prominent ridge of a nose, with no carved eyes or mouth at all in most examples.
 
-They were painted. Traces of blue and red pigment survive, and differential weathering leaves "paint ghosts" showing eyes, hair, and cheek markings on faces we now read as serene blanks. The modernist reading — Brancusi, Modigliani, Moore all responded to them — depends on a loss of information.
+They were, in fact, originally painted, contrary to how they are now generally displayed and imagined. Faint traces of blue and red mineral pigment survive on many pieces, and differential surface weathering has in some cases left behind so-called "paint ghosts" — faint shadow-like patterns showing where painted eyes, hair, and decorative cheek markings once sat on faces modern viewers now read as serenely, minimally blank. The now-famous modernist appreciation of these figures — Constantin Brancusi, Amedeo Modigliani and Henry Moore all responded directly to their pared-down forms in their own work — therefore depends, ironically, on a genuine loss of information: what modern eyes see as deliberate abstraction was originally a much more detailed and colourful painted surface.
 
-Most cannot stand: the feet point downward, so they were made to lie down, consistent with graves. Their commercial value has driven catastrophic looting, and the majority of known examples have no recorded findspot at all.
+Most examples cannot stand upright on their own: the feet consistently point downward rather than resting flat, meaning the figures were made specifically to lie flat, which fits comfortably with their most common archaeological context inside graves. A notable number of surviving figurines also show evidence of deliberate breakage in antiquity, especially clean breaks at the neck, which some archaeologists interpret as part of a funerary ritual rather than simple accidental damage, though this remains debated. Their strong appeal to modern collectors has driven catastrophic looting of Cycladic cemeteries throughout the twentieth century, and as a direct result the large majority of known examples in museums and private collections today have no recorded archaeological findspot at all, permanently erasing the context that would otherwise help explain what they were actually for.
