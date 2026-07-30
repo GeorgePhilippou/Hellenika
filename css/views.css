@@ -567,7 +567,7 @@
   border-bottom: 1px solid var(--border);
 }
 .journey-card-media img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
 }
 .journey-card-media > span {
   position: absolute; right: var(--s-2); bottom: var(--s-2);

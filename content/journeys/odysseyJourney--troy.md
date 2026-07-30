@@ -1,5 +1,5 @@
 ---
-id: troy
+id: troy-myth
 order: 1
 label: Troy
 curve: 0
