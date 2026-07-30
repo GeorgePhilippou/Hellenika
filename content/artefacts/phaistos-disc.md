@@ -28,6 +28,9 @@ claims:
   - text: The disc is a modern forgery.
     evidence: debate
     confidence: speculative
+  - text: The disc was discovered in 1908 by the Italian archaeologist Luigi Pernier during excavations at the Minoan palace of Phaistos.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: phaistos
     rel: found at
@@ -52,3 +55,5 @@ The signs were impressed with individual pre-made punches, which makes this mova
 It is unread and probably unreadable. Decipherment needs either a bilingual text or a large corpus for statistical attack; the disc offers neither, and no comparable inscription has ever been found. That singularity has also prompted forgery accusations, though most specialists reject them.
 
 Dozens of "solutions" have been published. None commands support.
+
+It was found in 1908 by the Italian archaeologist Luigi Pernier in a basement storeroom of the Minoan palace at Phaistos, alongside a Linear A tablet, in a context that fits the palace's main destruction phase and has generally been treated as evidence against the forgery theory, since it was recovered under controlled excavation rather than surfacing through the antiquities trade.

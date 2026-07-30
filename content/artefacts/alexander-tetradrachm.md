@@ -24,6 +24,9 @@ claims:
   - text: Hellenistic rulers introduced portraits of living monarchs on coinage.
     evidence: numismatic
     confidence: strong
+  - text: The coinage's wide and long-lasting circulation makes it one of the most useful dating tools for Hellenistic archaeological sites.
+    evidence: numismatic
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: issued by
@@ -48,3 +51,5 @@ Herakles wearing the lion skin on the obverse, Zeus enthroned with eagle and sce
 Alexander imposed a single standard across the empire, minting from captured Persian bullion at some two dozen mints from Macedon to Babylon. It became the first genuinely international currency, and cities kept striking "Alexanders" for two hundred years after his death because merchants trusted them.
 
 His successors then took the decisive further step: Ptolemy put Alexander's portrait on coins, and soon put his own there. Portraying a living ruler on currency was new in the Greek world, and it became standard practice for every subsequent European monarchy.
+
+Because the design was struck in vast quantities across so many mints for so long, and because coin hoards can often be dated by their latest issue, Alexander-type tetradrachms are one of archaeology's most reliable chronological tools for Hellenistic sites: a single well-dated coin in a sealed context can anchor the date of an entire excavation layer.

@@ -26,6 +26,9 @@ claims:
   - text: His constitutional analysis influenced later republican political theory.
     evidence: consensus
     confidence: strong
+  - text: Polybius was held as a political hostage in Rome for around seventeen years, during which he became close to the Scipio family.
+    evidence: literary
+    confidence: established
 relations:
   - id: polybius
     rel: written by
@@ -54,3 +57,5 @@ His answer is institutional. Book 6 analyses the Roman constitution as a mixture
 He also gives the classic technical comparison of legion and phalanx, and insists that history must be written by people with practical political and military experience — he had both, and had been deported to Rome as a hostage after his side lost.
 
 He demands that historians travel to the places they describe and interrogate participants, and attacks those who write from libraries.
+
+His unusual vantage point came from personal misfortune: after Rome's victory at Pydna in 168 BC, Polybius was among a thousand prominent Achaeans deported to Italy as political hostages, and he spent roughly seventeen years there, during which he formed a close friendship with the Roman general Scipio Aemilianus, giving him direct access to the Roman political and military elite whose rise he set out to explain.

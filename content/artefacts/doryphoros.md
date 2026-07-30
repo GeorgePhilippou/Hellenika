@@ -25,6 +25,9 @@ claims:
   - text: The Canon's exact proportional ratios can be reconstructed.
     evidence: debate
     confidence: debated
+  - text: The best surviving marble copy was excavated at the Roman gymnasium complex in Pompeii, indicating its continued use as a training model centuries after it was made.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: argos
     rel: made at
@@ -47,3 +50,5 @@ Polykleitos wrote a treatise called the *Canon* setting out the mathematical rel
 Its key device is *chiasmus*: the weight rests on the right leg, so the right hip rises and the right shoulder drops, while the left leg trails and the left arm holds the spear. Tension and relaxation alternate diagonally across the body. This is what makes Classical figures look alive where Archaic kouroi look rigid.
 
 The system dominated Western figure art for two millennia. Renaissance artists studied Roman copies of it directly, and academic art training was still teaching its proportional rules in the nineteenth century.
+
+The single best-preserved marble copy was found not in a private collection but in the palaestra, the exercise ground of a gymnasium complex, at Pompeii, a find-spot that fits neatly with the statue's original purpose: young Greek and Roman men training their bodies in gymnasia were literally exercising in the presence of a sculpted ideal of the proportions they were meant to be working toward.

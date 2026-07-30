@@ -28,6 +28,9 @@ claims:
   - text: The account of seventy-two independent identical translations is legendary.
     evidence: consensus
     confidence: strong
+  - text: The Letter of Aristeas claims the translation was commissioned by Ptolemy II for the Library of Alexandria.
+    evidence: literary
+    confidence: established
 relations:
   - id: alexandria
     rel: produced at
@@ -52,3 +55,5 @@ Alexandria's Jewish community was large and increasingly Greek-speaking, and nee
 The name comes from a legend recorded in the Letter of Aristeas: seventy-two scholars worked separately and produced identical texts. The legend is doing theological work — it certifies the translation as divinely guided — and the actual process was clearly gradual and uneven, with different books showing markedly different translation styles.
 
 Its consequences were enormous. It made Jewish scripture readable across the Hellenistic world, and it is the version quoted by the New Testament writers, so its Greek vocabulary shaped Christian theology. Where the Hebrew *almah* (young woman) was rendered as *parthenos* (virgin) in Isaiah, the translation choice acquired doctrinal weight it could not have carried in the original.
+
+The Letter of Aristeas frames the project as an official Ptolemaic undertaking, claiming King Ptolemy II Philadelphus personally requested the translation so that a copy of the Jewish law could be added to the great Library of Alexandria's collection, and sent gifts and scholars to Jerusalem to secure it — a flattering origin story that, whatever its factual basis, reflects how closely Alexandrian Jewish intellectual life was bound up with the Ptolemaic court's own cultural ambitions.

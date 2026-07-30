@@ -28,6 +28,9 @@ claims:
   - text: The statue commemorates a specific naval victory.
     evidence: debate
     confidence: debated
+  - text: The statue has become one of the most recognisable works in the Louvre, displayed prominently at the top of the Daru staircase since the 1880s.
+    evidence: consensus
+    confidence: established
 relations:
   - id: samothrace
     rel: found at
@@ -50,3 +53,5 @@ Found in fragments in 1863 and assembled from over a hundred pieces. She stands 
 The achievement is the drapery. Wet cloth clings to the left leg and torso; loose cloth streams behind; the wings are pulled back and up. Marble is used to render a moment of arrested motion in air — and the figure is turning as she lands, so the composition changes completely as the viewer moves.
 
 Her head and arms are lost. A right hand was found in 1950 and matched, with two fingers in Vienna. It is open — she was not holding a trumpet or wreath as long assumed, but raising her hand in salute.
+
+Since the 1880s the statue has stood at the top of the Louvre's grand Daru staircase, deliberately positioned so that visitors encounter her dramatically from below as they ascend, a display choice that has made her, alongside the *Mona Lisa* and the *Venus de Milo*, one of the museum's most photographed and immediately recognisable works.

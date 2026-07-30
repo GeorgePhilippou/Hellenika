@@ -25,6 +25,9 @@ claims:
   - text: The frescoes depict specific historical events.
     evidence: debate
     confidence: debated
+  - text: No human remains have been found among the ruins, supporting the view that Akrotiri's population evacuated before the final eruption.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: akrotiri
     rel: found at
@@ -51,3 +54,5 @@ The Flotilla Fresco runs for several metres: ships with cabins and rowers, dolph
 The Saffron Gatherers shows women picking crocus stigmas on a rocky hillside and presenting them to a seated figure attended by a griffin and a monkey — one of the few Aegean images that reads clearly as a religious ceremony with defined roles.
 
 The Boxing Boys, with one earring and shaved head, and the Fisherman with strings of fish, show individual figures with a naturalism that is unusual for the period.
+
+That these paintings survive at all, still hanging in rooms whose furniture and doorways are also preserved, is itself telling: unlike Pompeii, no human bodies have been found at Akrotiri, which together with signs of hurried tidying and blocked doorways suggests the town's residents had time to flee before the volcano's final, most violent phase buried their homes and, with them, their art.

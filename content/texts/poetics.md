@@ -28,6 +28,9 @@ claims:
   - text: Catharsis means the purgation of emotion rather than intellectual clarification.
     evidence: debate
     confidence: debated
+  - text: Aristotle treats Sophocles' Oedipus Rex as the model of ideal tragic plot construction.
+    evidence: literary
+    confidence: established
 relations:
   - id: aristotle
     rel: written by
@@ -54,3 +57,5 @@ He introduces *hamartia* (the error that brings a good man down, not a moral fla
 He also says poetry is more philosophical than history, because history records what happened while poetry shows what would happen — the universal rather than the particular.
 
 The second book, on comedy, is lost. Its absence is the premise of Umberto Eco's *The Name of the Rose*.
+
+Throughout the surviving text Aristotle returns repeatedly to a single play, Sophocles' *Oedipus Rex*, as his benchmark of excellence: its plot combines recognition and reversal in the same moment, follows logically from what came before, and turns entirely on the protagonist's own past actions rather than chance, making it for Aristotle close to a perfect demonstration of everything a well-constructed tragedy should do.

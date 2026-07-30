@@ -25,6 +25,9 @@ claims:
   - text: The sculptor worked from direct observation of Celtic warriors.
     evidence: debate
     confidence: probable
+  - text: The statue was rediscovered in the early seventeenth century and became one of the most admired and copied ancient sculptures of the modern era.
+    evidence: consensus
+    confidence: established
 relations:
   - id: pergamon
     rel: from
@@ -47,3 +50,5 @@ Part of a group dedicated by Attalus I of Pergamon after defeating the Galatians
 The figure is ethnographically specific: the lime-stiffened hair, the *torc* at the throat, the moustache and the nudity all match ancient descriptions of Celtic warriors, and the sculptor clearly worked from observation. He sits on his own shield beside a broken trumpet, propped on one failing arm, with a wound below the ribs and his head bowed.
 
 The striking thing is the register. This is a victory monument, and it grants the defeated enemy complete dignity — his strength is emphasised, his courage implied, his death shown as a private and unheroic moment. The Attalids gain more by defeating a formidable enemy than a contemptible one, so the flattery is self-interested. It is still one of the most humane images to survive from antiquity.
+
+Rediscovered in Rome in the early seventeenth century, the statue quickly became a sensation among European collectors and artists, entering the Ludovisi collection before eventually reaching the Capitoline Museums. It was later carried off to Paris by Napoleon before being returned, and generations of painters, sculptors and Grand Tour visitors studied and copied it, cementing its place as one of the most admired ancient sculptures known in the modern West.

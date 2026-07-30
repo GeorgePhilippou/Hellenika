@@ -25,6 +25,9 @@ claims:
   - text: The figures represent a snake goddess.
     evidence: debate
     confidence: debated
+  - text: Similar snake-handling imagery appears on Minoan seal stones and in later Greek accounts of Cretan cult practice, suggesting a genuine, longer-lived ritual association between snakes and female religious authority.
+    evidence: consensus
+    confidence: probable
 relations:
   - id: knossos
     rel: found at
@@ -48,3 +51,5 @@ Found in 1903 in a stone-lined pit in the Knossos "Temple Repositories" among ri
 The reconstruction is the problem. The head was missing, and the crown and cat now on top were assembled from unassociated fragments. A second, smaller figure is even more speculatively restored. Whether these are goddesses, priestesses or votaries is unknown — "Snake Goddess" is Evans' interpretation, not a finding.
 
 The type became so commercially successful that a wave of convincing forgeries entered museum collections in the early twentieth century, and several celebrated "Minoan goddesses" elsewhere are now doubted.
+
+Despite the uncertainty over this particular object's restoration, the broader association between snakes and female religious figures on Crete is not purely a modern invention: comparable imagery recurs on engraved seal stones from the same period, and much later Greek writers still connected Cretan cult practice with snake-handling priestesses, suggesting the underlying religious motif, whatever its precise meaning, had real and lasting roots in Minoan and post-Minoan Cretan religion.

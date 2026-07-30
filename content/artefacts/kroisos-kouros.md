@@ -25,6 +25,9 @@ claims:
   - text: Archaic Greek marble sculpture was painted.
     evidence: archaeological
     confidence: established
+  - text: The statue was found broken into pieces, buried intentionally in antiquity, possibly to protect it from later destruction or looting.
+    evidence: archaeological
+    confidence: probable
 relations:
   - id: athens
     rel: from
@@ -49,3 +52,5 @@ Nearly two metres tall, nude, left foot forward, arms at the sides, with the fai
 The base carries an epigram: stand and mourn at the marker of Kroisos, dead, whom raging Ares destroyed as he fought in the front rank.
 
 So this is not a god or an idealised type but a specific dead young man, commemorated with a named grief. Kouroi served as both grave markers and dedications, and the same form did both jobs. Traces of paint survive: these statues were coloured, with painted hair, eyes and lips.
+
+The statue was recovered broken into several large pieces and buried in the ground near Anavyssos in Attica, an arrangement that looks deliberate rather than accidental; one plausible explanation is that later inhabitants buried the damaged monument intentionally, whether out of respect for a grave marker they could no longer maintain intact or simply to keep valuable marble out of reach of anyone who might otherwise reuse or destroy it.
