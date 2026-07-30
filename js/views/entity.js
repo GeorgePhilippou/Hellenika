@@ -47,7 +47,6 @@ export async function renderEntity(params) {
 
 function heroHTML(e, sections) {
   const bookmarked = store.isBookmarked(e.id);
-  const inCompare = store.get('compare').includes(e.id);
   return `
     <header class="entity-hero" style="--tint:${db.tintVar(e.tint)}">
       <div class="wrap entity-hero-grid">
@@ -65,9 +64,6 @@ function heroHTML(e, sections) {
           <div class="entity-actions">
             ${e.coords ? `<a class="btn btn-sm" href="#/map">${icon('map', { size: 15 })} On the map</a>` : ''}
             ${e.start != null && !e.modern ? `<a class="btn btn-sm" href="#/timeline">${icon('timeline', { size: 15 })} On the timeline</a>` : ''}
-            <button class="btn btn-sm" id="act-compare" aria-pressed="${inCompare}">
-              ${icon('compare', { size: 15 })} ${inCompare ? 'In compare tray' : 'Compare'}
-            </button>
             <button class="btn btn-sm" id="act-save" aria-pressed="${bookmarked}">
               ${icon('bookmark', { size: 15 })} ${bookmarked ? 'Saved' : 'Save'}
             </button>
@@ -329,14 +325,6 @@ function mount(root, e) {
     const on = store.toggleBookmark(e.id);
     ev.currentTarget.setAttribute('aria-pressed', String(on));
     ev.currentTarget.innerHTML = `${icon('bookmark', { size: 15 })} ${on ? 'Saved' : 'Save'}`;
-  });
-
-  $('#act-compare', root)?.addEventListener('click', (ev) => {
-    const next = store.toggleCompare(e.id);
-    const on = next.includes(e.id);
-    ev.currentTarget.setAttribute('aria-pressed', String(on));
-    ev.currentTarget.innerHTML = `${icon('compare', { size: 15 })} ${on ? 'In compare tray' : 'Compare'}`;
-    if (next.length === 2) go(`/compare?a=${next[0]}&b=${next[1]}`);
   });
 
   $('#act-random', root)?.addEventListener('click', () => {

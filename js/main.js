@@ -13,7 +13,6 @@ import { renderTimeline } from './views/timeline.js';
 import { renderMap } from './views/map.js';
 import { renderExplore } from './views/explore.js';
 import { renderEntity } from './views/entity.js';
-import { renderCompare } from './views/compare.js';
 import { renderCollections, renderCollection } from './views/collections.js';
 import { renderLearn, renderQuiz, renderGame } from './views/learn.js';
 import { renderSources } from './views/sources.js';
@@ -27,7 +26,6 @@ const NAV = [
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
   { path: '/collections', label: 'Collections', icon: 'collection' },
-  { path: '/compare', label: 'Compare', icon: 'compare' },
   { path: '/learn', label: 'Learn', icon: 'learn' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
@@ -234,7 +232,6 @@ route('/map', mount(renderMap));
 route('/map/:mode', mount(renderMap));
 route('/explore', mount(renderExplore));
 route('/e/:id', mount(renderEntity));
-route('/compare', mount(renderCompare));
 route('/collections', mount(renderCollections));
 route('/collections/:id', mount(renderCollection));
 route('/learn', mount(renderLearn));
