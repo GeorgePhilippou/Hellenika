@@ -25,6 +25,9 @@ claims:
   - text: He dedicated captured armour at Athens with an inscription excluding Sparta.
     evidence: literary
     confidence: strong
+  - text: The victory secured Alexander's control of the Asia Minor coastline and opened the way for the Greek cities there to be "liberated" from Persian rule.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: commanded
@@ -49,3 +52,5 @@ The Persian satraps drew up on the far bank of the Granicus with cavalry along t
 The fighting around him was desperate — a Persian axe split his helmet, and Cleitus the Black cut off the arm of the man about to finish him. Alexander would later kill Cleitus in a drunken quarrel.
 
 After the cavalry broke, the Greek mercenaries were surrounded and massacred; the survivors were sent to forced labour in Macedon as traitors to the Panhellenic cause. Alexander sent 300 captured Persian panoplies to Athens, dedicated to Athena, with an inscription pointedly noting they came from "Alexander and the Greeks, except the Spartans".
+
+Beyond the immediate fighting, Granicus had a decisive strategic effect: it broke organised Persian resistance along the Asia Minor coast, allowing Alexander to move rapidly from city to city presenting himself as liberator of the Greek cities there from Persian-backed rule, a propaganda framing that did real diplomatic work in easing his advance even where local populations were, in practice, simply exchanging one distant master for another.

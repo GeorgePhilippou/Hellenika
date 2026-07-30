@@ -22,6 +22,9 @@ claims:
   - text: The population was massacred or enslaved after the city fell.
     evidence: literary
     confidence: strong
+  - text: Alexander crucified a number of surviving Tyrian men along the shore as a further reprisal after the city's capture.
+    evidence: literary
+    confidence: strong
 relations:
   - id: tyre
     rel: site
@@ -44,3 +47,5 @@ Tyre stood on an island 800 m offshore behind walls rising from the sea, and ref
 The Tyrians burned his siege towers with a fireship, dropped rocks to foul the approaches, and dropped heated sand on attackers, which got inside armour. Alexander eventually assembled a fleet from Sidon and Cyprus, blockaded both harbours, and mounted siege engines on lashed ships.
 
 When the wall was breached the city was sacked: sources report 8,000 killed and 30,000 sold into slavery. The mole silted up and permanently joined Tyre to the mainland — a geographic change still visible on any map.
+
+Beyond the killing and enslavement, ancient sources add a further, deliberately public punishment: several thousand surviving Tyrian men of military age were reportedly crucified along the coastline in view of the sea, a severity that other Phoenician and Levantine cities weighing whether to resist Alexander's advance could hardly fail to take note of.

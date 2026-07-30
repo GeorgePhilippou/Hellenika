@@ -23,6 +23,9 @@ claims:
   - text: The first palaces were destroyed c. 1700 BC by earthquake.
     evidence: debate
     confidence: probable
+  - text: The palaces lacked substantial defensive fortifications, unlike contemporary centres in the Near East, suggesting relatively low levels of external military threat on Crete.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: minoan-civilisation
     rel: began
@@ -47,3 +50,5 @@ The First Palace period marks a step change: centralised storage on an industria
 Why this happened on Crete and not the mainland is debated. Crete escaped the destructions of c. 2200 BC, sits at the crossing point of Egyptian, Levantine and Aegean routes, and produced surplus oil and wine that reward central storage and redistribution.
 
 All the first palaces were destroyed around 1700 BC, probably by earthquake, and immediately rebuilt on a grander scale.
+
+One striking feature of these early Cretan states is what they did not build: unlike contemporary palace centres in the Near East and, later, the heavily walled Mycenaean citadels on the Greek mainland, the first Minoan palaces had no substantial defensive walls, which most archaeologists take as evidence that Crete's rulers, protected by the sea and perhaps by a genuine absence of serious rivals, simply did not face the kind of sustained military threat that made fortification a priority elsewhere.

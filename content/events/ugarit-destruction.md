@@ -20,6 +20,9 @@ claims:
   - text: Ugaritic scribes used an early cuneiform alphabetic script.
     evidence: epigraphic
     confidence: established
+  - text: Ugarit's destruction is one of a wave of roughly contemporary city destructions across the eastern Mediterranean around 1200-1150 BC.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: bronze-age-collapse
     rel: part of
@@ -42,3 +45,5 @@ Ugarit was a wealthy cosmopolitan port whose archives are written in at least ei
 The last letters found there are extraordinary. The king writes that enemy ships have appeared, that his own fleet is away in Lycia and his troops in Hatti, and that the country is undefended. Another asks the king of Alashiya for help. Some were found still in the kiln where they were being baked, never sent.
 
 The city was destroyed and never reoccupied. The tablets were preserved by the fire that ended it.
+
+Ugarit did not fall in isolation. Its destruction sits within a broader wave of city burnings and abandonments across the eastern Mediterranean world clustered within a few decades either side of 1200 BC, from Hattusa in Anatolia to sites across the Levant and the Aegean, a synchronised pattern of collapse that is the central evidence historians use to define the Bronze Age Collapse as a connected regional crisis rather than a series of unrelated local disasters.

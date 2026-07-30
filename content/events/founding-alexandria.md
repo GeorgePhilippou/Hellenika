@@ -22,6 +22,9 @@ claims:
   - text: He was greeted at Siwa as the son of the god.
     evidence: debate
     confidence: debated
+  - text: Alexander himself never saw the city develop, since he left Egypt shortly after founding it and died before returning.
+    evidence: literary
+    confidence: established
 relations:
   - id: alexandria
     rel: created
@@ -46,3 +49,5 @@ Alexander chose a site on a limestone ridge between the sea and Lake Mareotis, w
 The story goes that, lacking chalk, the surveyors marked the street plan with barley meal, and birds descended and ate it — read by the seers as a sign that the city would feed the world.
 
 Alexander also travelled to the oracle of Ammon at Siwa, deep in the desert, and was reportedly greeted as son of the god. What he asked and was told, he never disclosed.
+
+Alexander left Egypt soon after laying out the city's plan and never returned; he died in Babylon eight years later without ever seeing Alexandria built up into the city it would become. That work fell instead to his successor Ptolemy I, who made it the capital of his new kingdom and set in motion the building projects, library and museum that turned Alexander's coastal outline into the greatest city of the Hellenistic world.

@@ -25,6 +25,9 @@ claims:
   - text: Persia sponsored the assassination.
     evidence: debate
     confidence: speculative
+  - text: Philip was assassinated on the very eve of the Panhellenic invasion of Persia he had spent years organising, a campaign Alexander would inherit and carry out instead.
+    evidence: literary
+    confidence: established
 relations:
   - id: philip-ii
     rel: subject
@@ -49,3 +52,5 @@ The wedding at Aegae was a spectacle: Philip walked into the theatre without gua
 The ancient explanation is personal: Pausanias had been assaulted by associates of Attalus and Philip had failed to give him justice. That the assassin was killed immediately, and that horses were waiting, has always invited suspicion of a wider plot.
 
 Suspects proposed in antiquity and since include Olympias, sidelined by Philip's newest marriage; Alexander, whose succession was threatened by a potential heir of pure Macedonian blood; and Persia. There is no decisive evidence for any of them.
+
+Whoever was responsible, the timing was extraordinary: Philip had spent his final years assembling the League of Corinth and an advance force already sent ahead into Asia Minor for the great Panhellenic invasion of Persia he had long planned to lead personally, and his murder handed that fully prepared campaign, army and justification directly to his twenty-year-old son instead.

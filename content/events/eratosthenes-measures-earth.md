@@ -20,6 +20,9 @@ claims:
   - text: His result was accurate to within a few percent of the true value.
     evidence: debate
     confidence: probable
+  - text: The method assumed Syene lay exactly on the Tropic of Cancer and due south of Alexandria, simplifications that were not perfectly accurate but did not fatally undermine the result.
+    evidence: consensus
+    confidence: established
 relations:
   - id: eratosthenes
     rel: performed by
@@ -42,3 +45,5 @@ The method requires only a stick, a well and a measured distance. At Syene the s
 If the Earth is a sphere and the sun's rays are effectively parallel, that 7.2° is 1/50th of a full circle, so the distance between the cities is 1/50th of the circumference. Multiplying by 50 gave about 250,000 stades.
 
 How accurate this is depends on the length of his stade, which is not certain. On the most probable value the error is under 2%. That the Earth is spherical was already standard among educated Greeks — Aristotle had argued it from the shape of the shadow during lunar eclipses. Eratosthenes measured it.
+
+The calculation rested on two convenient simplifications that were not quite exact: Syene is close to, but not precisely on, the Tropic of Cancer, and it lies slightly east of Alexandria rather than due south. Neither error was large enough to derail the result, and the fact that a calculation built on approximate assumptions and simple instruments still landed within a few percent of the true circumference is itself part of why the achievement has remained so celebrated.

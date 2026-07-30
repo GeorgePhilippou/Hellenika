@@ -23,6 +23,9 @@ claims:
   - text: The migration was organised and led from Athens as tradition claims.
     evidence: debate
     confidence: debated
+  - text: The twelve cities of Ionia later formed a religious and political league centred on the Panionion sanctuary.
+    evidence: literary
+    confidence: established
 relations:
   - id: greek-dark-age
     rel: period
@@ -47,3 +50,5 @@ Greek tradition held that refugees from the mainland, led from Athens, settled t
 The dialect map supports the tradition: Ionic in the centre, Aeolic to the north, Doric to the south, matching the claimed origins of the settlers.
 
 Ionia became the most economically and intellectually dynamic part of the Greek world. Homer, Thales, Anaximander, Heraclitus, Hecataeus and Herodotus all came from this coast.
+
+The twelve principal Ionian cities eventually formalised their shared identity by forming a loose religious and political league, meeting periodically at a common sanctuary called the Panionion on the slopes of Mount Mycale, a rare instance of Greek cities from different, often rival poleis maintaining a durable collective institution built specifically around their claimed common ancestry.

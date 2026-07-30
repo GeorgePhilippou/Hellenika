@@ -28,6 +28,9 @@ claims:
   - text: The base was suppressed deliberately to support a Classical attribution.
     evidence: debate
     confidence: debated
+  - text: The statue's asymmetric, twisting pose draws heavily on earlier Classical models even though it was carved centuries later.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: aphrodite
     rel: depicts
@@ -50,3 +53,5 @@ Found in 1820 by a farmer named Yorgos Kentrotas in a niche on Melos. The French
 An inscribed base found with it named a sculptor from Antioch on the Maeander, which dated the statue to the Hellenistic period rather than the Classical golden age. The base subsequently disappeared. Whether this was carelessness or a curatorial preference for the better story has never been established, and the suspicion persists.
 
 The arms have never been found. The most likely reconstruction has her holding an apple — *melon* in Greek, punning on Melos — a reference to the Judgement of Paris.
+
+Part of what made the Hellenistic dating initially so surprising is how consciously the sculptor reached back to earlier models: the spiralling twist of the torso and the deliberately off-balance pose echo fourth-century Classical statuary far more than the more overtly emotional, dynamic style typical of much Hellenistic sculpture, which is exactly why the discovery and then loss of the dated inscribed base mattered so much to how the statue would be perceived.

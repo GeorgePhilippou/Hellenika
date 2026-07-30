@@ -22,6 +22,9 @@ claims:
   - text: Games were actually first held in 776 BC.
     evidence: debate
     confidence: debated
+  - text: An Olympic truce was proclaimed before each festival, in principle allowing athletes and spectators safe passage across warring Greek states.
+    evidence: literary
+    confidence: established
 relations:
   - id: olympia
     rel: site
@@ -44,3 +47,5 @@ Greek historians dated events by counting four-year Olympiads from 776 BC, the y
 Archaeology at Olympia shows dedications increasing sharply in the eighth century, consistent with a festival growing in importance around then, though it cannot confirm a specific year.
 
 The Games ran for over a thousand years until Theodosius I suppressed pagan festivals around AD 393.
+
+Before each celebration, heralds travelled the Greek world announcing a sacred truce, the *ekecheiria*, which in theory suspended hostilities and guaranteed safe passage for athletes, spectators and religious envoys travelling to and from Olympia — a rare mechanism for imposing a temporary peace across a world of perpetually warring city-states, even though the truce was sometimes violated in practice.

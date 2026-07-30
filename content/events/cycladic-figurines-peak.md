@@ -26,6 +26,9 @@ claims:
   - text: They represent a mother goddess.
     evidence: debate
     confidence: speculative
+  - text: Figurines range widely in size, from small handheld pieces to examples approaching or exceeding a metre in height.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: cycladic-figurine
     rel: produced
@@ -48,3 +51,5 @@ Carved from local white marble with abrasives — no metal tools were needed —
 Most cannot stand; the feet point downwards, so they were made to lie down, consistent with burial. Their spare geometry influenced Brancusi, Modigliani and Moore.
 
 Their popularity created a serious problem. Looting to supply the twentieth-century art market destroyed the archaeological context of the great majority, so most known figurines cannot be securely dated or interpreted.
+
+The type also spans a considerable range of scale: most examples fit easily in the hand, but a small number of exceptional figures approach or exceed a metre in height, examples so large and fragile that they must have required real skill and investment to carve and move without breaking, raising the question of what distinguished the graves or contexts that merited such an unusually large offering.
