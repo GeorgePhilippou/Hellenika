@@ -69,6 +69,11 @@ function heroHTML(e, sections) {
             </button>
             <button class="btn btn-sm" id="act-random">${icon('shuffle', { size: 15 })} Surprise me</button>
           </div>
+          ${e.significance ? `
+          <a class="hero-significance" href="#sec-significance">
+            <span class="hero-significance-label">Why it matters</span>
+            <p>${esc(e.significance)}</p>
+          </a>` : ''}
         </div>
         <div class="entity-hero-media" data-hero-img-id="${esc(e.id)}">
           ${icon(TYPE_ICON[e.type] || 'sparkle', { size: 46 })}
@@ -428,6 +433,15 @@ function mount(root, e) {
     document.getElementById(a.getAttribute('href').slice(1))
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
+
+  // Same same-page-anchor treatment for the hero's "why it matters"
+  // teaser -- it's not inside .toc, so it needs its own handler, or a
+  // plain hash-anchor click would overwrite the #/e/:id route hash
+  // entirely and land on Not Found.
+  $('.hero-significance', root)?.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    document.getElementById('sec-significance')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
   /* ---------- Cleanup ---------- */
   const observer = new MutationObserver(() => {

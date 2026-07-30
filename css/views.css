@@ -712,6 +712,36 @@
 .entity-summary { font-size: 1.14rem; line-height: 1.6; color: var(--text-2); max-width: 62ch; text-wrap: pretty; }
 .entity-actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-6); }
 
+/* A "why it matters" teaser, pulled up from the Significance section
+   further down the page. Mainly exists to give the hero text column
+   somewhere useful to grow -- a tall portrait photo in the media column
+   next to it can run well past a short summary + button row, otherwise
+   leaving a slab of dead space beside the photo. Links down to the full
+   section rather than just repeating it as inert text. */
+.hero-significance {
+  display: block; margin-top: var(--s-6); padding: var(--s-4) var(--s-5);
+  max-width: 52ch;
+  border-left: 3px solid var(--tint, var(--accent));
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: color-mix(in srgb, var(--tint, var(--accent)) 8%, transparent);
+  color: inherit;
+  transition: background var(--t-fast), transform var(--t-fast) var(--ease-out);
+}
+.hero-significance:hover {
+  background: color-mix(in srgb, var(--tint, var(--accent)) 13%, transparent);
+  transform: translateX(2px);
+  text-decoration: none;
+}
+.hero-significance-label {
+  display: block; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--tint, var(--accent));
+  margin-bottom: var(--s-2);
+}
+.hero-significance p {
+  margin: 0; font-family: var(--font-display); font-style: italic;
+  font-size: 1.05rem; line-height: 1.5; color: var(--text-2);
+}
+
 /* --- Hero photo panel --- */
 .entity-hero-grid {
   display: grid; grid-template-columns: 1fr minmax(260px, 30%); gap: var(--s-10);
