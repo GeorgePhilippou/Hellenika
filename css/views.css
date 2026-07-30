@@ -220,13 +220,22 @@
   .tl-hint { display: none; }
 }
 
-/* Full screen: the shell itself is the fullscreen element, so give it
-   room to breathe and let the canvas claim most of the extra height. */
-.tl-shell:fullscreen {
-  background: var(--bg); padding: var(--s-6); overflow-y: auto;
+/* Full screen: just the canvas wrap goes fullscreen (not the whole
+   shell -- its siblings below, the scrubber and period panel, don't
+   shrink in a column flex layout and would squeeze the canvas down to
+   nothing). No flex competition here, so height: 100% just works. */
+.tl-canvas-wrap:fullscreen { border-radius: 0; }
+.tl-canvas-wrap:fullscreen .tl-canvas { height: 100%; }
+
+/* Duplicate zoom/reset/exit controls, shown only in fullscreen -- the
+   page's own toolbar lives outside the fullscreened element and isn't
+   rendered while fullscreen is active. */
+.tl-fs-bar {
+  display: none;
+  position: absolute; right: var(--s-3); top: var(--s-3);
+  gap: var(--s-2); z-index: 2;
 }
-.tl-shell:fullscreen .tl-canvas-wrap { flex: 1; }
-.tl-shell:fullscreen .tl-canvas { height: 100%; min-height: 600px; }
+.tl-canvas-wrap:fullscreen .tl-fs-bar { display: flex; }
 
 .tl-hint {
   position: absolute; right: var(--s-4); top: var(--s-3);
@@ -236,6 +245,8 @@
   pointer-events: none;
   backdrop-filter: blur(6px);
 }
+/* Would sit right under the fullscreen control bar, same corner. */
+.tl-canvas-wrap:fullscreen .tl-hint { display: none; }
 
 .tl-tip {
   position: absolute; z-index: 5; pointer-events: none;

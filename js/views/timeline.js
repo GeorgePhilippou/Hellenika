@@ -50,6 +50,12 @@ export async function renderTimeline(params) {
           <canvas class="tl-canvas" id="tl-canvas"></canvas>
           <div class="tl-tip" id="tl-tip"></div>
           <div class="tl-hint">drag · scroll to zoom · click to open</div>
+          <div class="tl-fs-bar">
+            <button class="btn btn-sm" id="tl-fs-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
+            <button class="btn btn-sm" id="tl-fs-zoom-in" aria-label="Zoom in">${icon('plus', { size: 15 })}</button>
+            <button class="btn btn-sm" id="tl-fs-reset">${icon('reset', { size: 15 })} Full range</button>
+            <button class="btn btn-sm" id="tl-fs-exit">${icon('collapse', { size: 15 })} Exit full screen</button>
+          </div>
         </div>
 
         <div class="scrubber">
@@ -174,22 +180,36 @@ function mount(root, openId) {
   $('#tl-zoom-out', root).addEventListener('click', () => tl.zoomOut());
   $('#tl-reset', root).addEventListener('click', () => tl.reset());
 
-  /* ---------- Full screen ---------- */
-  const shell = root.querySelector('.tl-shell');
+  /* ---------- Full screen ----------
+     Only the canvas itself goes fullscreen, not the whole shell -- the
+     scrubber and period panel below it don't shrink in a column flex
+     layout, so fullscreening the shell squeezed the canvas down to
+     nothing. The zoom/reset/exit controls are duplicated as an overlay
+     bar inside the canvas wrap (shown only while fullscreen), since the
+     page's own toolbar lives outside it and isn't rendered while
+     fullscreen is active. */
+  const canvasWrap = root.querySelector('.tl-canvas-wrap');
   const fsBtn = $('#tl-fullscreen', root);
   const paintFsBtn = () => {
-    const on = document.fullscreenElement === shell;
+    const on = document.fullscreenElement === canvasWrap;
     fsBtn.innerHTML = on
       ? `${icon('collapse', { size: 15 })} Exit full screen`
       : `${icon('expand', { size: 15 })} Full screen`;
   };
+  const enterFullscreen = () => canvasWrap.requestFullscreen?.().catch(() => {});
+  const exitFullscreen = () => document.exitFullscreen?.().catch(() => {});
   fsBtn.addEventListener('click', () => {
-    if (document.fullscreenElement === shell) document.exitFullscreen();
+    if (document.fullscreenElement === canvasWrap) exitFullscreen();
     // Some embedding contexts (e.g. an iframe without allow="fullscreen")
     // reject this outright -- fail quietly rather than an unhandled rejection.
-    else shell.requestFullscreen?.().catch(() => {});
+    else enterFullscreen();
   });
   document.addEventListener('fullscreenchange', paintFsBtn);
+
+  $('#tl-fs-zoom-in', root).addEventListener('click', () => tl.zoomIn());
+  $('#tl-fs-zoom-out', root).addEventListener('click', () => tl.zoomOut());
+  $('#tl-fs-reset', root).addEventListener('click', () => tl.reset());
+  $('#tl-fs-exit', root).addEventListener('click', exitFullscreen);
 
   /* ---------- Period panel ---------- */
   function openPeriod(id) {
