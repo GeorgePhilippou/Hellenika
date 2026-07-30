@@ -1,5 +1,5 @@
 ---
-id: troy
+id: alexander-at-troy
 key: alexander-troy
 order: 2
 label: Troy
