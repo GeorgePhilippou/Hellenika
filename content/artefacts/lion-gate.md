@@ -25,6 +25,9 @@ claims:
   - text: The central column had religious significance.
     evidence: consensus
     confidence: probable
+  - text: The gate remained visible and known throughout antiquity, and later Greek travellers such as Pausanias described it directly.
+    evidence: literary
+    confidence: established
 relations:
   - id: mycenae
     rel: part of
@@ -47,3 +50,5 @@ The gate uses a post-and-lintel opening with a corbelled relieving triangle abov
 The heads were made separately, probably in a different stone, and are lost — so the animals now face the visitor headless. Whether they were lions, lionesses, griffins or sphinxes cannot be settled.
 
 The column between them is almost certainly a religious symbol, and the arrangement — animals heraldically flanking a sacred object — is a Near Eastern and Minoan convention. It is the only monumental relief sculpture from Bronze Age Greece still standing where it was built.
+
+Unlike so much of the Mycenaean world, the gate was never lost to memory: it remained visible above ground throughout antiquity, long after the palace behind it had fallen into ruin, and the traveller Pausanias, writing in the second century AD, described seeing it and attributed the walls of Mycenae to the legendary work of the Cyclopes, a testament to how the sheer scale of Bronze Age masonry impressed even visitors many centuries removed from the civilisation that built it.

@@ -25,6 +25,9 @@ claims:
   - text: The published speeches match what was actually delivered.
     evidence: debate
     confidence: debated
+  - text: Demosthenes also delivered a related series of speeches, the Olynthiacs, urging Athenian support for the city of Olynthus against Philip.
+    evidence: literary
+    confidence: established
 relations:
   - id: demosthenes
     rel: written by
@@ -51,3 +54,5 @@ He is at his sharpest attacking his own citizens' behaviour. Athenians, he says,
 The speeches failed. Athens acted too late and lost at Chaeronea in 338 BC.
 
 The name became generic: Cicero called his attacks on Mark Antony *Philippics*, and was killed for them. As rhetoric they were studied as models for two thousand years.
+
+The Philippics did not stand alone in Demosthenes' campaign against Macedon: in a closely related set of speeches, the Olynthiacs, he urged Athens to send urgent military help to the northern city of Olynthus before Philip could destroy it, a plea that again went largely unheeded and was followed, as Demosthenes had warned, by Olynthus's capture and destruction.

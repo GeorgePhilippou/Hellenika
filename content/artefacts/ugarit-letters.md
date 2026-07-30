@@ -22,6 +22,9 @@ claims:
   - text: Ugaritic scribes used an early alphabetic cuneiform script.
     evidence: epigraphic
     confidence: established
+  - text: Ugarit's royal archives also preserve extensive mythological and religious texts, including the Baal Cycle, alongside the administrative and diplomatic correspondence.
+    evidence: epigraphic
+    confidence: established
 relations:
   - id: ugarit-destruction
     rel: documents
@@ -44,3 +47,5 @@ King Ammurapi writes to the king of Alashiya that enemy ships have appeared, tha
 Some of these tablets were recovered from an oven where they were being baked for dispatch when the city fell. The destruction that ended Ugarit is the reason its final correspondence survives.
 
 Ugarit was also where scribes reduced cuneiform to an alphabet of about thirty signs — one of the earliest alphabets anywhere, and an ancestor of the tradition that eventually produced Phoenician and Greek script.
+
+The same archives that preserve these desperate final messages also contain a very different body of material: extensive mythological texts, including the Baal Cycle describing the storm-god's battles with rival deities, giving Ugarit a rare double distinction as both a crucial witness to the Bronze Age Collapse's final days and one of the richest surviving sources for Northwest Semitic religion and literature more broadly.

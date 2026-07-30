@@ -25,6 +25,9 @@ claims:
   - text: The diving figure symbolises the passage from life to death.
     evidence: debate
     confidence: debated
+  - text: The tomb belonged to a modest, non-royal individual, showing that access to elaborate figural funerary art was not restricted to ruling elites at Paestum.
+    evidence: consensus
+    confidence: probable
 relations:
   - id: paestum
     rel: found at
@@ -49,3 +52,5 @@ The lid, seen only by the dead man, shows a lone figure diving from a stone plat
 Greek painting is almost entirely lost — we know its reputation from texts and its style at second hand from vases. This is one of the very few surviving examples of actual Greek wall painting from the Classical period.
 
 The dive is generally read as a metaphor for the passage from life to death, possibly with Pythagorean or Orphic associations, since southern Italy was full of both. Nothing in the tomb confirms it, and the reading is an inference from a single silent image.
+
+Notably, nothing about the tomb's size, grave goods or location marks its occupant as unusually wealthy or politically prominent by the standards of Paestum's cemetery, which suggests that this kind of elaborate painted commemoration, however exceptional it looks to us today given how little Greek painting otherwise survives, was not necessarily reserved only for the city's most powerful families.

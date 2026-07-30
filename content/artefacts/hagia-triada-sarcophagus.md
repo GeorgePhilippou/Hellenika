@@ -25,6 +25,9 @@ claims:
   - text: The standing figure represents the deceased receiving cult.
     evidence: debate
     confidence: probable
+  - text: The sarcophagus was found near a Minoan palace-like building at Hagia Triada, suggesting it belonged to a person of considerable local importance.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: ayia-triada
     rel: found at
@@ -47,3 +50,5 @@ On one long side a bull lies bound on a table with its blood running into a vess
 It is a Minoan object made under Mycenaean rule, and shows the two traditions merging: Minoan double axes and dress, Mycenaean funerary emphasis and the offering to the dead.
 
 Almost everything known about Aegean Bronze Age death ritual, as an image rather than an inference from bones, comes from this one object.
+
+It was recovered close to the substantial complex of buildings at Hagia Triada, a site whose grand architecture rivals a small palace, and this proximity to obvious wealth and authority supports the reasonable assumption that whoever the sarcophagus was made for held real local standing, even though the tomb's precise ownership can no longer be established with certainty.

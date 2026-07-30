@@ -26,6 +26,9 @@ claims:
   - text: It was a major influence on Renaissance and Enlightenment political thought.
     evidence: consensus
     confidence: established
+  - text: Not every life survives as part of a matched pair; a small number, including that of Artaxerxes, stand alone without a paired Roman or Greek counterpart.
+    evidence: literary
+    confidence: established
 relations:
   - id: life-of-alexander
     rel: includes
@@ -50,3 +53,5 @@ Each pair is followed by a short comparison: Alexander with Caesar, Demosthenes 
 Because he wrote in the Roman imperial period with access to libraries now lost, he is often our only source for particular events and for whole lost works.
 
 His influence on later Europe is hard to overstate. Shakespeare's *Julius Caesar*, *Antony and Cleopatra* and *Coriolanus* follow North's Plutarch closely, sometimes verbatim. Montaigne, Rousseau and the leaders of the French and American revolutions all read him as a manual of public virtue.
+
+Not every biography fits the paired structure implied by the collection's name: a handful of lives, such as that of the Persian king Artaxerxes, survive as standalone accounts without a matching Greek or Roman counterpart, suggesting either that Plutarch never finished pairing them or that some were composed separately from the main comparative project.

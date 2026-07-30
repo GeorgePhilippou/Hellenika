@@ -27,6 +27,9 @@ claims:
   - text: His account is favourable to Alexander.
     evidence: consensus
     confidence: strong
+  - text: Arrian also wrote a separate, shorter work, the Indica, describing India and Nearchus's voyage back from the Indus.
+    evidence: literary
+    confidence: established
 relations:
   - id: alexander-the-great
     rel: narrates
@@ -51,3 +54,5 @@ Arrian was a Roman-era Greek administrator and soldier who chose his sources del
 His military detail is credible in a way the other accounts are not — he had commanded troops and understood formations, supply and terrain. Where his sources disagree he says so.
 
 He is not neutral. He admires Alexander and treats the murder of Cleitus and the execution of Parmenion as lapses in an otherwise great man rather than as evidence about his character. But he flags what he cannot verify, and marks the difference between what is reported and what he believes — which is more than Curtius or Diodorus do.
+
+Arrian paired the *Anabasis* with a separate companion work, the *Indica*, written in a different dialect and describing India itself along with the voyage of Alexander's admiral Nearchus, who sailed the fleet back from the mouth of the Indus to the Persian Gulf — a valuable independent source for both Indian ethnography as the Greeks understood it and the practical challenges of ancient long-distance naval logistics.

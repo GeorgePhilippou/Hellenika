@@ -28,6 +28,9 @@ claims:
   - text: Plato intended it as a practical political programme.
     evidence: debate
     confidence: debated
+  - text: The dialogue's central image, the Allegory of the Cave, has become one of the most widely cited metaphors in Western philosophy.
+    evidence: consensus
+    confidence: established
 relations:
   - id: plato
     rel: written by
@@ -53,3 +56,5 @@ The question is posed sharply by Glaucon: given a ring of invisibility, would an
 The city that emerges is not attractive. Poetry is censored, including Homer. Rulers lie for the public good. Guardians hold property and reproduction in common, with children taken at birth. Citizens are assigned to classes and told a "noble lie" about the metal in their souls to keep them there. Reading it as a blueprint for a good society, as Karl Popper did, produces an authoritarian text — and the text supplies the material.
 
 It also contains the Allegory of the Cave, the Divided Line, the theory of Forms, and the first sustained argument in Western philosophy that women should receive the same education and hold the same offices as men.
+
+Of all these, the Cave has had by far the widest afterlife: prisoners chained since birth, watching shadows on a wall and mistaking them for reality, until one is dragged out into the light and must learn to see the world, and eventually the sun, directly. It has been read as an allegory of education, of philosophical enlightenment, of political awakening, and of religious conversion, and it remains one of the most frequently invoked images in all of philosophy, far outside the technical argument about justice it was originally built to serve.

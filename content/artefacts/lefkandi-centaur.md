@@ -25,6 +25,9 @@ claims:
   - text: The figure represents Cheiron.
     evidence: debate
     confidence: speculative
+  - text: The figurine predates by roughly two centuries the earliest secure textual references to centaurs in Greek literature.
+    evidence: consensus
+    confidence: established
 relations:
   - id: lefkandi
     rel: found at
@@ -47,3 +50,5 @@ Thirty-six centimetres tall, with a human forequarters and a horse's body, paint
 The head was found in one grave and the body in another. Someone broke it intentionally and divided it between two burials — an act that clearly meant something and about which nothing further can be said.
 
 If the knee wound is significant, it may relate to Cheiron, the wise centaur who taught Achilles and was accidentally wounded in the knee by Heracles. That would make this the earliest depiction of a named Greek myth, roughly two centuries before Homer. The connection is attractive and unprovable.
+
+Whatever it depicts specifically, its date alone is striking: at roughly 900 BC it predates by about two hundred years the earliest Greek written sources that mention centaurs at all, which means the visual imagination behind centaur mythology was already fully formed generations before any surviving text put it into words — a useful reminder that oral storytelling and figurative art can run well ahead of the literary record that happens to survive.

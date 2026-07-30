@@ -26,6 +26,9 @@ claims:
   - text: Apollonius quarrelled with Callimachus over epic poetry.
     evidence: debate
     confidence: debated
+  - text: Apollonius reportedly served as head of the Library of Alexandria before retiring, by tradition, to Rhodes.
+    evidence: tradition
+    confidence: debated
 relations:
   - id: alexandria
     rel: written at
@@ -50,3 +53,5 @@ Apollonius wrote epic in an age that thought epic was finished. His answer to th
 Book 3 is the innovation. It follows Medea falling in love — sleepless, arguing with herself, going to her sister and losing her nerve, deciding to help this stranger betray her own father. It is the first extended interior portrait of a person in love in European literature, and Virgil takes it directly for Dido in the *Aeneid*.
 
 The poem also displays Alexandrian scholarship: obscure geography, aetiologies for local customs, learned digressions. Callimachus is said to have disapproved of long poems, and the two are supposed to have quarrelled over it, though that story may be a later invention.
+
+Ancient biographical tradition holds that Apollonius himself once headed the great Library of Alexandria, the very institution whose scholarly culture shaped his poem's dense allusiveness, before an unhappy reception of his epic supposedly drove him to retire to Rhodes — the connection commemorated in his customary epithet, "of Rhodes," even though the details of this career are less securely attested than the poem itself.
