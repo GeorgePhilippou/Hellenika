@@ -25,6 +25,9 @@ claims:
   - text: The interior frieze was removed to the British Museum in 1815.
     evidence: consensus
     confidence: established
+  - text: Bassae was the first Greek monument to be inscribed on UNESCO's World Heritage List, in 1986.
+    evidence: consensus
+    confidence: established
 relations:
   - id: apollo
     rel: temple of
@@ -50,3 +53,5 @@ Bassae stands at 1,130 m in the Arcadian mountains, built c. 429–400 BC and at
 It is unusual in almost every respect: it faces north rather than east, has an unexplained side door, uses Doric outside, Ionic within, and a single Corinthian column on the axis — the earliest Corinthian capital known anywhere.
 
 The interior frieze, showing Greeks fighting Amazons and centaurs, was removed in 1812 and sold to the British Museum. The temple has stood under a protective tent since 1987.
+
+Its remoteness, which helped preserve so much of the original structure intact, was also recognised formally in 1986, when Bassae became the very first Greek site added to UNESCO's newly created World Heritage List, ahead of far more famous monuments like the Acropolis, in acknowledgment of both its architectural singularity and its unusually well-preserved condition.

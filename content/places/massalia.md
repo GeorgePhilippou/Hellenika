@@ -28,6 +28,9 @@ claims:
   - text: Thule can be identified with a specific modern location.
     evidence: debate
     confidence: debated
+  - text: Massalia maintained a distinctive oligarchic constitution and remained an important, largely independent Greek city well into the Roman period.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: greek-colonisation
     rel: product of
@@ -51,3 +54,5 @@ The westernmost major Greek city, and the base from which Pytheas sailed to Brit
 Founded around 600 BC by Greeks from Phocaea in Ionia, Massalia controlled the Rhône trade route into central Europe. Greek wine amphorae from Massalia are found far up the river system, and the Vix krater — a 1.65 m bronze wine vessel found in a Celtic princess's grave in Burgundy — reflects this trade.
 
 Around 325 BC the Massaliote Pytheas sailed out through Gibraltar, circumnavigated Britain, described tides correctly as linked to the Moon, and reported a land called Thule six days north where the sea became sluggish and the sun barely set. Ancient authors mostly disbelieved him. Modern readers, noting his accuracy on tides and latitude, generally do not.
+
+Politically, Massalia was governed for centuries by a stable oligarchic council of citizens rather than by kings or tyrants, a constitution ancient writers singled out for praise, and the city retained substantial autonomy under this system long after most of the Greek world had come under Roman control, only losing its full independence after backing the wrong side in Rome's own civil wars in the first century BC.

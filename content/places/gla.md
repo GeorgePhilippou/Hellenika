@@ -24,6 +24,9 @@ claims:
   - text: The drainage system failed after the Bronze Age collapse.
     evidence: archaeological
     confidence: strong
+  - text: The scale of the Copais drainage works implies a level of centralised labour organisation comparable to major Mycenaean palace-building projects.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: mycenaean-civilisation
     rel: part of
@@ -49,3 +52,5 @@ Gla's circuit wall runs nearly three kilometres, enclosing about 20 hectares —
 It was built in connection with the draining of Lake Copais: the Mycenaeans dug canals and built dykes tens of kilometres long to convert a seasonal lake into farmland. Gla appears to have been the administrative and storage centre for that reclaimed land, probably controlled from Orchomenos.
 
 After the collapse the drainage failed and the lake returned, remaining until it was drained again in the 1880s.
+
+The scale of coordinated labour the Copais project required — surveying, digging canals tens of kilometres long, maintaining dykes, and building Gla itself to manage the reclaimed land — implies an organisational capacity comparable to the great citadel-building and tholos-tomb projects elsewhere in the Mycenaean world, making the drainage scheme one of the clearest examples of large-scale Bronze Age Greek civil engineering outside monumental architecture proper.

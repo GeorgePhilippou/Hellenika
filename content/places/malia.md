@@ -22,6 +22,9 @@ claims:
   - text: The kernos in the central court was used for agricultural offerings.
     evidence: debate
     confidence: probable
+  - text: Malia's surrounding settlement includes a large paved area interpreted as a public agora, among the earliest known open civic gathering spaces in the Aegean.
+    evidence: archaeological
+    confidence: probable
 relations:
   - id: minoan-civilisation
     rel: centre of
@@ -45,3 +48,5 @@ Its surrounding town is better preserved than at Knossos, showing how ordinary M
 Malia's palace follows the standard plan — central court, west magazines, pillar crypts — but is built in coarser local limestone, suggesting a less wealthy centre. A large circular stone with 34 hollows around its rim, the *kernos*, sits in the court and was probably used for offerings.
 
 The Chrysolakkos ("gold pit") cemetery nearby produced the gold pendant of two bees over a honeycomb, one of the finest pieces of Minoan goldwork, showing granulation and repoussé of a quality that would not be surpassed for centuries. Excavated houses and workshops beyond the palace make Malia especially useful for studying how a ceremonial centre related to the town around it.
+
+Just north of the palace, excavators identified a large open paved area that has been interpreted as a public gathering space, or agora, one of the earliest such spaces known anywhere in the Aegean world, suggesting that communal open-air assembly at Malia may predate the classical Greek agora by well over a thousand years, even if its precise Minoan function and significance remain debated.

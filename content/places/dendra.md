@@ -22,6 +22,9 @@ claims:
   - text: Experimental trials indicate the armour was practical for combat.
     evidence: consensus
     confidence: probable
+  - text: Dendra's tholos and chamber tombs also produced fine gold and gemstone seals, evidence of a genuinely wealthy local elite beyond the armour alone.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: dendra-panoply
     rel: findspot of
@@ -45,3 +48,5 @@ The Dendra panoply settles what Mycenaean heavy armour actually looked like, and
 Excavated by Swedish and Greek teams, the Dendra tombs produced a full bronze cuirass of c. 1450 BC: fifteen plates of hammered bronze covering shoulders, chest and thighs, with a boar's-tusk helmet. Its burial context associates exceptional equipment with a small warrior elite rather than an entire army.
 
 It weighs around 18 kg and severely restricts movement, which caused decades of debate about whether it was ceremonial. In 2024 a team put marines through an eleven-hour simulated Bronze Age combat day wearing a replica; they concluded it was genuinely usable in battle — most plausibly by a chariot-borne warrior who fought dismounted in short bursts.
+
+The panoply was not the cemetery's only sign of wealth: other tombs at Dendra produced finely carved gold and semi-precious stone seal stones and jewellery of high craftsmanship, confirming that whoever was buried here belonged to a genuinely affluent local elite for whom the armour itself, however exceptional, was only one part of a broader display of status.

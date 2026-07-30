@@ -22,6 +22,9 @@ claims:
   - text: The Iliad names it among the wealthiest cities known to the Greeks.
     evidence: literary
     confidence: established
+  - text: Orchomenos and Thebes were long-standing regional rivals within Boeotia, a rivalry that persisted from the Bronze Age into the Classical period.
+    evidence: literary
+    confidence: strong
 relations:
   - id: gla
     rel: controlled
@@ -45,3 +48,5 @@ Homer calls it one of the richest cities in Greece, and its Copais drainage work
 The "Treasury of Minyas" is a tholos tomb whose dome approaches the Treasury of Atreus in scale, with a side chamber whose ceiling is carved in a spiral and rosette pattern of exceptional quality. The traditional name links it to a legendary king and does not identify its occupant.
 
 Orchomenos controlled the Copais basin and the drainage that made it productive, and was probably the power behind Gla. Managing canals, dykes, storage and reclaimed farmland implies organisation far beyond the citadel itself. Homer lists Orchomenos with Egyptian Thebes as a byword for wealth. It remained a significant Boeotian city after the Bronze Age and was later destroyed by its rival Thebes in 364 BC.
+
+That final destruction was not an isolated event but the culmination of a rivalry between the two Boeotian cities that seems to have run continuously from the Bronze Age palace world, when Orchomenos and Thebes each anchored their own sphere of regional power, all the way into the Classical period, when Thebes's rise to dominance within Boeotia finally allowed it to eliminate its old rival for good.

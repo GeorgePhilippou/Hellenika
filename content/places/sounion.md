@@ -22,6 +22,9 @@ claims:
   - text: The site was fortified during the Peloponnesian War.
     evidence: literary
     confidence: strong
+  - text: In mythology, Sounion is the cliff from which Aegeus was said to have thrown himself, believing his son Theseus had died on Crete.
+    evidence: literary
+    confidence: established
 relations:
   - id: poseidon
     rel: temple of
@@ -47,3 +50,5 @@ Built around 444 BC on the site of an earlier temple destroyed by the Persians, 
 Sounion also guarded the sea route to the Laurion silver mines that funded the Athenian fleet, and was fortified during the Peloponnesian War.
 
 One column bears the carved name of Lord Byron. He was neither the first nor last to do it, and the graffiti is now itself protected.
+
+The headland's dramatic position over the sea also anchors one of Athens's most enduring myths: it was here, tradition held, that King Aegeus watched for his son Theseus's ship returning from Crete, and seeing black sails rather than the agreed white ones signalling victory over the Minotaur, threw himself into the sea in grief — giving the Aegean its name, according to the story, from this single desperate act at the very spot where the temple would later stand.
