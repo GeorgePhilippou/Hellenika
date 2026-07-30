@@ -562,10 +562,11 @@
 
 .journey-card-panel { padding: 0; overflow: hidden; }
 .journey-card-media {
-  position: relative; display: block; height: 150px; overflow: hidden;
+  position: relative; display: block; height: 280px; overflow: hidden;
   background: color-mix(in srgb, var(--p-mycenaean) 16%, var(--surface-2));
   border-bottom: 1px solid var(--border);
 }
+@media (max-width: 640px) { .journey-card-media { height: 200px; } }
 .journey-card-media img {
   width: 100%; height: 100%; object-fit: contain; object-position: center;
 }
