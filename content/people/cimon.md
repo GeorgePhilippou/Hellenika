@@ -26,6 +26,9 @@ claims:
   - text: He paid off his father Miltiades' enormous fine to the Athenian state.
     evidence: literary
     confidence: probable
+  - text: Cimon named one of his own sons Lacedaemonius, publicly signalling his pro-Spartan sympathies.
+    evidence: literary
+    confidence: strong
 relations:
   - id: miltiades
     rel: son of
@@ -52,4 +55,4 @@ Cimon inherited a family name under a cloud: his father Miltiades had died disgr
 
 Politically he stood for close cooperation between Athens and Sparta, a position that came apart in 461 BC: called on to help Sparta suppress a helot uprising, Cimon led an Athenian force to assist, only for the Spartans, mistrustful of Athenian democratic sympathies, to send the force home unused. The humiliation discredited his policy at Athens, and he was ostracised the same year, while Pericles and the more radically democratic faction rose in his place.
 
-He was recalled from ostracism early, in the 450s, and negotiated a truce with Sparta before dying during a final campaign against Persian-held Cyprus around 450 BC — active in Athenian affairs, on both fronts of his career, until the end.
+He was recalled from ostracism early, in the 450s, and negotiated a truce with Sparta before dying during a final campaign against Persian-held Cyprus around 450 BC — active in Athenian affairs, on both fronts of his career, until the end. His pro-Spartan sympathies were public and deliberate rather than merely a matter of policy: he named one of his own sons Lacedaemonius, the formal Greek term for a Spartan, a naming choice contemporaries would have read immediately as a declaration of where his political loyalties lay.

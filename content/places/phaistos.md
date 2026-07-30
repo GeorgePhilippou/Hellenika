@@ -25,6 +25,9 @@ claims:
   - text: The disc is a modern forgery.
     evidence: debate
     confidence: speculative
+  - text: Phaistos also has a well-preserved "theatral area," a shallow stepped structure thought to have hosted public gatherings or performances.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: minoan-civilisation
     rel: centre of
@@ -47,6 +50,6 @@ The second great Minoan palace, on a ridge above the Messara plain, and findspot
 Its grand staircase and theatral area preserve Minoan monumental architecture with far less modern reconstruction than Knossos.
 
 <!-- field: body -->
-Phaistos commands the richest agricultural plain on Crete. Excavated by the Italian mission from 1900, it was deliberately left largely unreconstructed — which makes it the better site for seeing genuine Minoan masonry.
+Phaistos commands the richest agricultural plain on Crete, the Messara, a position that gave the palace enormous control over grain production for the whole southern part of the island. Excavated by an Italian archaeological mission from 1900 onward, working in parallel with Arthur Evans's contemporary work at Knossos, it was deliberately left largely unreconstructed rather than rebuilt in reinforced concrete — a restrained choice that makes it, ironically, the better site today for seeing genuine, unaltered Minoan masonry rather than an excavator's interpretation of it. The site also preserves a well-defined "theatral area," a shallow set of stone steps facing an open court, generally thought to have hosted public gatherings, performances or ceremonies rather than serving any purely functional purpose.
 
-The Phaistos Disc was found here in 1908: a fired clay disc stamped on both sides with 241 signs in a spiral, using 45 distinct symbols impressed with individual punches. It is the earliest known example of movable-type printing by roughly three millennia, and it remains unread. With a single short text and no bilingual, decipherment is probably impossible.
+The Phaistos Disc was found here in 1908: a fired clay disc stamped on both sides with 241 individual signs arranged in an inward spiral, produced using 45 distinct symbol types each impressed into the wet clay with its own separate carved punch. This makes it, remarkably, the earliest known example of anything resembling movable-type printing anywhere in the world, roughly three thousand years before Gutenberg, and it remains completely unread to this day. With only a single short text of this kind known to survive and no bilingual inscription to compare it against, most specialists consider full decipherment of the disc's language essentially impossible barring some extraordinary future discovery.
