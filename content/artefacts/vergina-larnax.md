@@ -25,6 +25,9 @@ claims:
   - text: The remains are those of Philip II.
     evidence: debate
     confidence: debated
+  - text: A second, smaller gold larnax was found in an adjoining chamber of the same tomb, believed to hold the remains of a queen or princess.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: vergina
     rel: found at
@@ -50,3 +53,5 @@ Found in 1977 inside a marble sarcophagus in the unlooted Tomb II at Vergina. It
 Inside were cremated bones wrapped in a purple and gold cloth, and a gold oak-leaf wreath of over 300 leaves and 68 acorns.
 
 Whose bones they are is the argument. Philip II is the strongest candidate on date, wealth and the ivory portrait heads found nearby; Philip III Arrhidaeus is argued from the vault construction and pottery. Skeletal studies in 2015 and 2024 reached opposite conclusions on whether the leg shows the wound Philip II is known to have suffered. What is certain is that this is a Macedonian royal burial of the later fourth century BC.
+
+A second, smaller golden larnax was found in the tomb's antechamber, holding the cremated remains of a woman along with a gold diadem and other jewellery; she is usually identified as a wife of whichever king lies in the main chamber, making Tomb II a shared royal burial rather than a single grave.

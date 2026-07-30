@@ -27,6 +27,9 @@ claims:
   - text: The sarissa reached lengths of six metres or more.
     evidence: debate
     confidence: probable
+  - text: The weapon's introduction is credited to Philip II's broader reorganisation of the Macedonian army into a professional, drilled standing force.
+    evidence: literary
+    confidence: strong
 relations:
   - id: philip-ii
     rel: introduced by
@@ -53,3 +56,5 @@ The sarissa was roughly twice the length of a hoplite spear, made of cornel wood
 It weighed around 6 kg and needed both hands, so the shield shrank to a small model strapped to the forearm and neck. That trade-off is the whole system: a phalangite is nearly defenceless individually, and nearly unassailable frontally in formation, where the pikes of the first five ranks project beyond the front.
 
 It demanded drill, which meant professionals. It also demanded flat ground and an unbroken line, and Rome eventually learned to deny it both. Iron sleeves, heads and butt-spikes have been excavated at Vergina and elsewhere, confirming the length reported in the sources.
+
+The sarissa was never an isolated piece of kit: Philip II introduced it as part of a wholesale transformation of the Macedonian army from a seasonal levy of farmers into a year-round professional force, drilled constantly in peacetime so that the demanding choreography a sarissa phalanx required in battle became second nature.

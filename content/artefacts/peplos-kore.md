@@ -25,6 +25,9 @@ claims:
   - text: The statue represents a goddess rather than a mortal woman.
     evidence: debate
     confidence: probable
+  - text: The Peplos Kore was one of many korai dedicated on the Acropolis by wealthy Athenians as votive offerings, rather than a funerary monument.
+    evidence: consensus
+    confidence: established
 relations:
   - id: athens
     rel: found at
@@ -49,3 +52,5 @@ Found in 1886 in the "Persian debris", material the Athenians buried after Xerxe
 The name comes from an early misidentification of her garment. She actually wears an *ependytes*, a decorated over-garment associated with divine images, and her left arm — now missing — was extended forward, doweled separately, to hold something.
 
 Current thinking is that she is a goddess, most likely Athena or Artemis, with attributes now lost. Reconstructions using ultraviolet imaging to recover pigment produce a figure so brightly coloured that many viewers find it hard to accept — which is a useful measure of how much the white-marble idea of Greek art distorts.
+
+She belongs to a much larger family of korai, standing female statues that wealthy Athenian families dedicated on the Acropolis to the gods as votive gifts rather than as grave markers, and dozens of these figures — buried in the same Persian debris — were recovered alongside her, together forming one of the richest surviving groups of archaic Greek sculpture.

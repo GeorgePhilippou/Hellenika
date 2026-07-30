@@ -29,6 +29,9 @@ claims:
   - text: The eruption inspired Plato's account of Atlantis.
     evidence: debate
     confidence: speculative
+  - text: Akrotiri shows no human remains and evidence of advance preparation, suggesting its population evacuated before the final eruption.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: akrotiri
     rel: destroyed
@@ -52,3 +55,5 @@ The eruption ejected an estimated 60 cubic kilometres of material, collapsing th
 Tsunamis struck northern Crete; deposits containing marine shells, pottery and animal bone have been found inland at Palaikastro.
 
 The date is a long-running dispute. Radiocarbon dating of an olive branch buried alive in the ash and Greenland ice-core acidity spikes support c. 1620–1600 BC. Egyptian synchronisms from pottery cross-dating suggest c. 1500 BC. A century separates the two, which matters enormously: the high chronology means the eruption cannot have caused the Cretan destructions of 1450 BC.
+
+Notably, excavations at Akrotiri have found no human skeletons and clear signs that residents had already removed their most valuable possessions and blocked doorways before the final explosive phase, implying that warning tremors gave the population time to evacuate — in sharp contrast to Pompeii, which the site is often compared to.

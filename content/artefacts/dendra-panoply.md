@@ -25,6 +25,9 @@ claims:
   - text: Experimental trials support its practical use in combat.
     evidence: consensus
     confidence: probable
+  - text: Similar, if less complete, bronze armour fragments have been found at other Mycenaean sites, suggesting Dendra's panoply was not unique but simply the best preserved example.
+    evidence: archaeological
+    confidence: probable
 relations:
   - id: dendra
     rel: found at
@@ -47,3 +50,5 @@ Fifteen hammered bronze plates form a cuirass with shoulder guards, a high neck 
 The whole weighs roughly 18 kg and restricts arm movement considerably, which led to decades of argument that it was purely ceremonial.
 
 In 2024 researchers put marines through an eleven-hour simulated Late Bronze Age combat protocol in a replica, based on activity patterns drawn from the Iliad. They completed it. The conclusion was that the armour is genuinely usable — best suited to a chariot-borne warrior fighting in bursts.
+
+Fragmentary bronze plates of similar type have turned up at other Mycenaean centres, including Thebes, so the Dendra suit is best understood not as a one-off royal curiosity but as the sole complete survival of a broader class of Late Bronze Age Aegean body armour that has otherwise mostly corroded or been lost.

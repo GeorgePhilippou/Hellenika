@@ -25,6 +25,9 @@ claims:
   - text: The specific manoeuvre shown was physically performed.
     evidence: debate
     confidence: debated
+  - text: Similar bull-sport imagery appears across Minoan seal stones, bronzes, and pottery, suggesting a widespread and long-lived practice rather than an isolated scene.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: knossos
     rel: found at
@@ -50,3 +53,5 @@ A dark-skinned figure vaults over the bull's back while two light-skinned figure
 Whether the depicted manoeuvre is physically possible has been argued for a century. Bull-vaulting is attested in seals, ivories and Egyptian art, so *something* happened; the frontal grab-and-somersault shown here is disputed by people who have worked with bulls.
 
 The fresco is largely modern. Only fragments survived, and Émile Gilliéron reconstructed the rest for Evans. The confident, complete image reproduced everywhere is substantially an Edwardian painting on a Bronze Age armature.
+
+The underlying subject was not invented for this one wall, however: bull-leaping and bull-related imagery recurs across Minoan material culture, from carved seal stones and gold rings to the famous bull's-head rhyton, indicating that whatever the sport actually involved, it held a genuinely widespread and long-standing place in Minoan ritual or public life rather than being a one-off artistic invention.

@@ -25,6 +25,9 @@ claims:
   - text: The naval scene is the earliest detailed depiction of a sea battle.
     evidence: consensus
     confidence: strong
+  - text: The Sea Peoples' distinctive feathered or horned headdresses shown in the reliefs have been used to try to identify their individual ethnic origins.
+    evidence: debate
+    confidence: debated
 relations:
   - id: ramesses-iii
     rel: commissioned by
@@ -49,3 +52,5 @@ The land scene shows enemies travelling with ox-carts carrying women and childre
 The accompanying inscription lists peoples destroyed before reaching Egypt: Hatti, Kode, Carchemish, Arzawa, Alashiya. That list matches the archaeological destruction horizon so well that it functions as an independent confirmation of it.
 
 It is royal propaganda, and its numbers and framing should be treated accordingly. The named groups, the ox-carts and the ship types are harder to dismiss.
+
+The reliefs also carefully distinguish different enemy groups by dress and headgear — some wear feathered headdresses, others horned helmets — and scholars have used these details to try to match the groups named in the inscription to specific peoples, though the identifications remain contested and none is fully secure.

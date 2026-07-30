@@ -25,6 +25,9 @@ claims:
   - text: Alcibiades warned the Athenian commanders beforehand.
     evidence: literary
     confidence: probable
+  - text: The Athenian commander Conon escaped with a handful of ships and fled to Cyprus rather than surrender.
+    evidence: literary
+    confidence: strong
 relations:
   - id: lysander
     rel: commanded
@@ -49,3 +52,5 @@ The Athenian fleet was beached on an open shore in the Hellespont with no proper
 Alcibiades, living nearby in exile, had ridden down to warn the Athenian commanders that their position was indefensible. They told him to go away.
 
 With the fleet gone, the Black Sea grain route was cut. Athens was starved out and surrendered in 404 BC.
+
+Not every Athenian ship was taken. The commander Conon, seeing the disaster unfold, broke out with eight or nine triremes and sailed for Cyprus rather than surrender or return to face an Athens he knew would blame its generals; he would later resurface years afterward leading a Persian-funded fleet that helped restore Athenian naval power after the war.

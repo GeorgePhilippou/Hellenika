@@ -28,6 +28,9 @@ claims:
   - text: The frieze depicts Philip II and Alexander.
     evidence: debate
     confidence: debated
+  - text: The painting uses a genuinely wide colour palette, including blues and purples, that has helped scholars reconstruct ancient pigment technology.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: vergina
     rel: part of
@@ -52,3 +55,5 @@ The frieze runs 5.6 m across the tomb façade, showing ten hunters with horses a
 It is technically remarkable: receding space, foreshortened bodies, cast shadows and modelled depth — the achievements ancient writers praise in Greek painters like Apelles and Zeuxis, whose work is otherwise entirely lost. Almost nothing else survives to show what Greek painting actually looked like at this level.
 
 The lion hunt is significant beyond art history. Lion hunting was a Persian royal prerogative, so a Macedonian king depicted hunting lions is claiming a specific kind of kingship. A central bearded figure and a youthful one have been read as Philip and Alexander, which is plausible and unprovable.
+
+Analysis of the surviving pigments shows the painter working with a genuinely broad palette, including blues derived from Egyptian blue and purple tones, rather than the limited red-black-white-yellow range often assumed for Greek painting, and the frieze has become an important reference point for reconstructing the technical range available to ancient painters.

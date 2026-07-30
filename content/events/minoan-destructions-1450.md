@@ -23,6 +23,9 @@ claims:
   - text: The destructions resulted from Mycenaean conquest.
     evidence: debate
     confidence: probable
+  - text: Some scholars argue for internal Cretan unrest or natural disaster rather than external conquest as an alternative or contributing explanation.
+    evidence: debate
+    confidence: debated
 relations:
   - id: minoan-civilisation
     rel: ended
@@ -47,3 +50,5 @@ Zakros, Phaistos, Malia, Gournia and Ayia Triada were all destroyed or abandoned
 The simplest reading is Mycenaean conquest: a mainland takeover of the island, with Knossos retained as the administrative centre. Supporting evidence includes warrior burials with mainland-style weapons appearing on Crete and the shift in script and language.
 
 The eruption of Thera is too early on the high chronology to be the direct cause, though longer-term economic damage may have weakened Crete beforehand.
+
+Not every scholar accepts conquest as the full explanation. Some point instead to internal social breakdown, earthquake damage, or a combination of factors weakening Minoan palatial authority from within, with the arrival of Mycenaean administrators at Knossos following rather than causing the collapse of the other centres. The debate remains unresolved because the archaeological signature of conquest and of internal collapse can look very similar on the ground.

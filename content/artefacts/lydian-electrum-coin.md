@@ -25,6 +25,9 @@ claims:
   - text: The variable composition of electrum limited its reliability as money.
     evidence: consensus
     confidence: strong
+  - text: The idea of coinage spread rapidly from Lydia to the Greek cities of Ionia within a generation or two of its invention.
+    evidence: numismatic
+    confidence: strong
 relations:
   - id: invention-coinage
     rel: example of
@@ -50,4 +53,4 @@ The innovation is the stamp. A controlled weight of metal marked by an authority
 
 Electrum has variable natural composition, so its value is uncertain — a real weakness. Croesus solved it by refining the alloy into separate pure gold and pure silver coinages at a fixed ratio, the first bimetallic system.
 
-Greek cities adopted coinage within decades, and it became a medium of civic identity as much as exchange.
+Greek cities adopted coinage within decades, and it became a medium of civic identity as much as exchange. Nearby Ionian Greek cities such as Ephesus and Miletus were among the very first to imitate the Lydian model, striking their own electrum coins with civic badges rather than a royal one, so that the idea of stamped currency crossed from a Near Eastern kingdom into the Greek world almost as soon as it existed.
