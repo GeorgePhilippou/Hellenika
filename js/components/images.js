@@ -24,6 +24,7 @@ import { imageOverrides, imageSkip } from '../../data/images.js';
 
 const API = 'https://en.wikipedia.org/w/api.php';
 const THUMB_SIZE = 640;
+const HIRES_SIZE = 1600; // requested only on demand, when the lightbox opens
 // Bump this whenever imageOverrides/imageSkip change in a way that should
 // invalidate previously-cached results (including cached misses) -- the
 // cache never expires on its own, so a stale "no image found" from before
@@ -288,30 +289,104 @@ function paintHero(node, img) {
     const ratio = Math.min(HERO_MAX_RATIO, Math.max(HERO_MIN_RATIO, img.w / img.h));
     node.style.aspectRatio = String(ratio);
   }
-  const wrap = document.createElement('a');
+  const wrap = document.createElement('div');
   wrap.className = 'hero-photo';
-  wrap.href = img.page;
-  wrap.target = '_blank';
-  wrap.rel = 'noopener noreferrer';
-  wrap.setAttribute('aria-label', 'Source image on Wikipedia (opens in a new tab)');
-  wrap.innerHTML = `
-    <img src="${img.src}" alt="" loading="lazy" decoding="async">
-    <span class="hero-photo-cred">Wikipedia ↗</span>`;
+
+  const zoom = document.createElement('button');
+  zoom.type = 'button';
+  zoom.className = 'hero-photo-zoom';
+  zoom.setAttribute('aria-label', 'View full-size image');
+  zoom.dataset.lightboxSrc = img.src;
+  zoom.dataset.lightboxPage = img.page;
+
+  const photo = new Image();
+  photo.alt = '';
+  photo.loading = 'lazy';
+  photo.decoding = 'async';
+  photo.src = img.src;
+  zoom.append(photo);
+
+  const cred = document.createElement('a');
+  cred.className = 'hero-photo-cred';
+  cred.href = img.page;
+  cred.target = '_blank';
+  cred.rel = 'noopener noreferrer';
+  cred.textContent = 'Wikipedia ↗';
+  cred.addEventListener('click', (e) => e.stopPropagation());
+
+  wrap.append(zoom, cred);
   node.append(wrap);
   requestAnimationFrame(() => node.classList.add('has-photo'));
 }
 
 function paintInline(node, img) {
   if (node.querySelector('img')) return;
-  const link = document.createElement('a');
-  link.className = 'inline-figure-photo';
-  link.href = img.page;
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  link.setAttribute('aria-label', 'Source image on Wikipedia (opens in a new tab)');
-  link.innerHTML = `
-    <img src="${img.src}" alt="" loading="lazy" decoding="async">
-    <span class="hero-photo-cred">Wikipedia ↗</span>`;
-  node.prepend(link);
+  const wrap = document.createElement('div');
+  wrap.className = 'inline-figure-photo';
+
+  const zoom = document.createElement('button');
+  zoom.type = 'button';
+  zoom.className = 'inline-figure-zoom';
+  zoom.setAttribute('aria-label', 'View full-size image');
+  zoom.dataset.lightboxSrc = img.src;
+  zoom.dataset.lightboxPage = img.page;
+
+  const photo = new Image();
+  photo.alt = '';
+  photo.loading = 'lazy';
+  photo.decoding = 'async';
+  photo.src = img.src;
+  zoom.append(photo);
+
+  const cred = document.createElement('a');
+  cred.className = 'hero-photo-cred';
+  cred.href = img.page;
+  cred.target = '_blank';
+  cred.rel = 'noopener noreferrer';
+  cred.textContent = 'Wikipedia ↗';
+  cred.addEventListener('click', (e) => e.stopPropagation());
+
+  wrap.append(zoom, cred);
+  node.prepend(wrap);
   requestAnimationFrame(() => node.classList.add('has-photo'));
+}
+
+/* ============================================================
+   On-demand hi-res fetch, for the lightbox
+
+   Card and hero thumbnails are deliberately capped at THUMB_SIZE so
+   list views stay light. When someone actually opens the lightbox to
+   look closely, it's worth one extra request for a much larger
+   rendition of that specific image -- resolved from the Wikipedia
+   page URL already attached to the thumbnail, so no new lookup by
+   title/entity is needed.
+   ============================================================ */
+const hiResCache = new Map(); // page URL -> Promise<string|null>
+
+/**
+ * @param {string} pageUrl  the `img.page` Wikipedia article URL already resolved for this photo
+ * @returns {Promise<string|null>} a larger image URL, or null if it couldn't be resolved
+ */
+export function fetchHiRes(pageUrl) {
+  if (!pageUrl) return Promise.resolve(null);
+  if (hiResCache.has(pageUrl)) return hiResCache.get(pageUrl);
+
+  const promise = (async () => {
+    try {
+      const title = decodeURIComponent(pageUrl.split('/wiki/')[1] || '').replace(/_/g, ' ');
+      if (!title) return null;
+      const url = `${API}?action=query&format=json&origin=*`
+        + `&prop=pageimages&piprop=thumbnail&pithumbsize=${HIRES_SIZE}`
+        + `&titles=${encodeURIComponent(title)}`;
+      const res = await fetch(url);
+      const json = await res.json();
+      const page = Object.values(json.query?.pages || {})[0];
+      return page?.thumbnail?.source || null;
+    } catch {
+      return null;
+    }
+  })();
+
+  hiResCache.set(pageUrl, promise);
+  return promise;
 }

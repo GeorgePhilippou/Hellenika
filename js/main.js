@@ -18,6 +18,7 @@ import { renderLearn, renderQuiz, renderGame } from './views/learn.js';
 import { renderSources } from './views/sources.js';
 import { renderAbout } from './views/about.js';
 import { hydrateImages } from './components/images.js';
+import { initLightbox } from './components/lightbox.js';
 
 /* ---------- Navigation model ---------- */
 const NAV = [
@@ -310,6 +311,7 @@ function wireGlobals() {
 store.initTheme();
 paintChrome();
 wireGlobals();
+initLightbox();
 start();
 
 // Expose a small surface for debugging in the console.

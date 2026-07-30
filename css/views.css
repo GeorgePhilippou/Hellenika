@@ -63,6 +63,21 @@
 }
 .hero-mask:hover img { transform: translateY(-2px); }
 
+.mask-img-wrap { position: relative; display: inline-block; }
+.mask-zoom {
+  position: absolute; right: 6px; bottom: 6px;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: none; background: rgba(0,0,0,.5); color: #fff;
+  backdrop-filter: blur(4px);
+  opacity: 0; transform: scale(.85);
+  transition: opacity var(--t-fast), transform var(--t-fast), background var(--t-fast);
+}
+.mask-img-wrap:hover .mask-zoom,
+.mask-img-wrap:focus-within .mask-zoom { opacity: 1; transform: none; }
+.mask-zoom:hover { background: rgba(0,0,0,.7); }
+.mask-zoom:focus-visible { opacity: 1; transform: none; outline: 2px solid var(--accent); outline-offset: 1px; }
+
 /* A small museum-label plaque under the mask — brief, since this is
    the homepage, not the entity page. */
 .mask-plaque {
@@ -722,22 +737,35 @@
   opacity: 0; transition: opacity 480ms var(--ease-out);
 }
 .entity-hero-media.has-photo .hero-photo { opacity: 1; }
-.hero-photo img {
+/* The clickable photo itself is a <button>, not an <a> -- clicking it opens
+   the lightbox; the separate .hero-photo-cred link still goes to Wikipedia. */
+.hero-photo-zoom {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  padding: 0; border: none; background: none; cursor: zoom-in;
+}
+.hero-photo-zoom img {
   /* The container is sized to the photo's own (clamped) aspect ratio in
      paintHero(), so this matches almost exactly -- cover then fills the
      box edge-to-edge with no crop in the common case, and only trims a
      sliver on the rare photo extreme enough to hit the clamp, rather
      than leaving letterboxed gaps around it. */
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
 }
+.hero-photo-zoom::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0); transition: background var(--t-fast);
+}
+.hero-photo-zoom:hover::after, .hero-photo-zoom:focus-visible::after { background: rgba(0,0,0,.14); }
+.hero-photo-zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .hero-photo-cred {
   position: absolute; right: var(--s-3); bottom: var(--s-3);
   padding: 4px 10px; border-radius: var(--r-pill);
   font-size: var(--fs-xxs); font-weight: 650; color: #fff;
   background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
   opacity: 0; transition: opacity var(--t-fast);
+  pointer-events: auto;
 }
-.hero-photo:hover .hero-photo-cred { opacity: 1; }
+.hero-photo:hover .hero-photo-cred, .hero-photo:focus-within .hero-photo-cred { opacity: 1; }
 
 /* --- Secondary/inline image, referenced from the prose itself ---
    A deliberately different photo from the hero, e.g. a site view
@@ -756,9 +784,19 @@
   opacity: 0; transition: opacity 480ms var(--ease-out);
 }
 .inline-figure.has-photo .inline-figure-photo { opacity: 1; }
-.inline-figure-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.inline-figure-zoom {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  padding: 0; border: none; background: none; cursor: zoom-in;
+}
+.inline-figure-zoom img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.inline-figure-zoom::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0); transition: background var(--t-fast);
+}
+.inline-figure-zoom:hover::after, .inline-figure-zoom:focus-visible::after { background: rgba(0,0,0,.14); }
+.inline-figure-zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .inline-figure-photo .hero-photo-cred { right: var(--s-2); bottom: auto; top: var(--s-2); }
-.inline-figure-photo:hover .hero-photo-cred { opacity: 1; }
+.inline-figure-photo:hover .hero-photo-cred, .inline-figure-photo:focus-within .hero-photo-cred { opacity: 1; }
 .inline-figure figcaption {
   position: absolute; left: 0; right: 0; bottom: 0;
   padding: var(--s-5) var(--s-4) var(--s-3);

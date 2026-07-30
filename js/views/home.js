@@ -61,9 +61,17 @@ export async function renderHome() {
           </div>
           ${heroMask ? `
           <div class="hero-mask">
-            <a href="${entityHref(heroMask.id)}" aria-label="${esc(heroMask.name)}">
-              <img src="${heroPick.asset}" alt="${esc(heroMask.name)}" loading="lazy">
-            </a>
+            <div class="mask-img-wrap">
+              <a href="${entityHref(heroMask.id)}" aria-label="${esc(heroMask.name)}">
+                <img src="${heroPick.asset}" alt="${esc(heroMask.name)}" loading="lazy">
+              </a>
+              <button type="button" class="mask-zoom" aria-label="View ${esc(heroMask.name)} full size"
+                      data-lightbox-src="${esc(heroPick.asset)}" data-lightbox-alt="${esc(heroMask.name)}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                </svg>
+              </button>
+            </div>
             <a class="mask-plaque" href="${entityHref(heroMask.id)}">
               <span class="mask-plaque-title">${esc(heroMask.name)}</span>
               <span class="mask-plaque-meta">${esc(heroMask.material || '')} · ${fmtRange(heroMask.start, heroMask.end, heroMask.approx)} · ${esc(heroPick.place)}</span>
