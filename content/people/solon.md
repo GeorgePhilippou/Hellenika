@@ -26,6 +26,12 @@ claims:
   - text: Solon redistributed land.
     evidence: debate
     confidence: debated
+  - text: Solon travelled abroad for ten years after his reforms specifically so Athenians could not pressure him into amending his own laws.
+    evidence: literary
+    confidence: strong
+  - text: He divided Athenian citizens into four property-based census classes that determined eligibility for office.
+    evidence: literary
+    confidence: established
 relations:
   - id: athens
     rel: reformed
@@ -51,6 +57,6 @@ Athenian lawgiver of 594 BC who cancelled debts, abolished debt-slavery and open
 His reforms broke the aristocratic monopoly on Athenian politics and laid the legal groundwork that Cleisthenes later turned into democracy.
 
 <!-- field: body -->
-Solon was appointed archon with extraordinary powers during a crisis in which impoverished Athenians were being enslaved for debt on their own land. His *seisachtheia* ("shaking off of burdens") cancelled these debts and freed those enslaved by them, and he banned debt-bondage outright.
+Solon was appointed archon with extraordinary, temporary powers during a genuine social crisis, in which impoverished Athenian farmers were being enslaved for debt on land many of them had worked for generations. His *seisachtheia* — literally the "shaking off of burdens" — cancelled these existing debts outright and freed those already enslaved because of them, both at home and, in some cases, sold abroad, and he banned the practice of debt-bondage against the person entirely going forward, a reform ancient and modern commentators alike treat as genuinely radical for its time.
 
-He replaced birth with property as the qualification for office, dividing citizens into four census classes, and gave every citizen — including the poorest *thetes* — the right to sit on appeal juries and to bring a prosecution on another's behalf. Then he left Athens for ten years so he could not be pressed to amend the laws. He is one of the few Greek statesmen whose own poetry survives, defending his refusal to satisfy either rich or poor completely.
+He replaced birth with property as the formal qualification for holding office, dividing the citizen body into four census classes ranked by agricultural income, with the highest offices reserved for the wealthiest class but participation in the assembly open to all, and gave every citizen — including the poorest *thetes*, who owned no land at all — the right to sit on appeal juries and to bring a legal prosecution on another person's behalf rather than relying solely on the aggrieved party or their family to act. Having pushed these changes through, he then deliberately left Athens for ten years, reportedly so that no faction could pressure him into weakening or rewriting his own laws once he was no longer needed to defend them in person. He is one of only a handful of early Greek statesmen whose own political poetry survives in fragments, in which he defends, in his own voice, his deliberate refusal to satisfy either the rich or the poor completely, on the grounds that a durable settlement required both sides to give something up.

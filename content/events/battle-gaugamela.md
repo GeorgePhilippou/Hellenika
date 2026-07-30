@@ -25,6 +25,12 @@ claims:
   - text: Alexander broke off pursuit to relieve Parmenion on the left.
     evidence: literary
     confidence: strong
+  - text: Darius fielded fifteen war elephants at Gaugamela, among the first Persian forces used in battle against Macedon.
+    evidence: literary
+    confidence: strong
+  - text: Babylon and Susa surrendered to Alexander without resistance in the aftermath of the battle.
+    evidence: literary
+    confidence: established
 relations:
   - id: gaugamela
     rel: site
@@ -47,10 +53,10 @@ _order: 43
 Alexander destroyed the main Persian army on 1 October 331 BC, effectively ending the Achaemenid Empire.
 
 <!-- field: body -->
-Darius chose a wide plain and levelled it so his scythed chariots and cavalry could operate, and assembled contingents from across the empire including Bactrians, Scythians and fifteen elephants.
+Darius, having learned some hard lessons from Issus, chose a wide open plain this time and had it deliberately levelled so his scythed chariots and superior cavalry numbers could actually be brought to bear, and assembled contingents drawn from across the length of the empire, including Bactrians, Scythians and, for the first time in a battle against Macedon, fifteen war elephants — an animal Alexander's army had never yet faced in combat and one whose psychological effect on unfamiliar troops and horses could matter as much as its practical battlefield use.
 
-Alexander advanced obliquely to the right, forcing the Persian left to extend to prevent an outflanking. When that stretching opened a gap, he wheeled the Companions into a wedge aimed directly at Darius.
+Alexander advanced obliquely toward the Persian right, deliberately drawing the Persian line further and further sideways to avoid being outflanked himself. When that stretching finally opened a gap in the Persian centre-left, he wheeled the Companion cavalry into a wedge and drove it directly at Darius's own position, exploiting the same weakness that had already broken the Persian king's nerve once before at Issus.
 
-Darius fled again. On the Macedonian left Parmenion was nearly overwhelmed and Persian raiders reached the baggage camp; Alexander had to abandon the pursuit to help. The empire, however, was finished — Babylon and Susa surrendered without a fight.
+Darius fled the field again rather than risk capture. On the Macedonian left, meanwhile, the general Parmenion was nearly overwhelmed by Persian and allied cavalry, and Persian forces reached and looted part of the Macedonian baggage camp; Alexander was forced to break off his pursuit of the fleeing Darius to ride back and relieve Parmenion's hard-pressed wing. The Persian empire's central field army, though, was effectively finished as a fighting force — Babylon and Susa, two of its greatest cities, surrendered to the advancing Macedonians without any resistance at all in the weeks that followed.
 
-A Babylonian astronomical diary records a lunar eclipse eleven days earlier, fixing the date to 1 October 331 BC.
+A Babylonian astronomical diary, an independent cuneiform record kept for entirely unrelated purposes, notes a lunar eclipse occurring eleven days before the battle, giving modern historians an unusually precise, externally verified date for Gaugamela: 1 October 331 BC.
