@@ -25,6 +25,15 @@ claims:
   - text: The architectural refinements were intended as optical corrections.
     evidence: debate
     confidence: debated
+  - text: The Parthenon replaced an earlier, unfinished temple on the site destroyed by the Persians in 480 BC.
+    evidence: archaeological
+    confidence: strong
+  - text: The building has served in later centuries as a Christian church and, under Ottoman rule, as a mosque.
+    evidence: consensus
+    confidence: established
+secondaryImage:
+  wikipediaTitle: Elgin Marbles
+  caption: Sculptures from the Parthenon removed by Lord Elgin, now in the British Museum.
 relations:
   - id: athens
     rel: site
@@ -48,8 +57,8 @@ _order: 28
 The temple of Athena Parthenos was built on the Acropolis in fifteen years, funded substantially by imperial tribute.
 
 <!-- field: body -->
-Iktinos and Kallikrates were the architects, Pheidias directed the sculpture. Some 22,000 tonnes of Pentelic marble were quarried 16 km away and hauled up the Acropolis.
+Iktinos and Kallikrates were the architects, Pheidias directed the sculptural programme and is thought to have overseen the design as a whole. The new temple replaced an earlier, unfinished marble temple on the same site — the so-called "Older Parthenon" — that Persian forces had destroyed during their occupation of Athens in 480 BC, and its surviving column drums were later deliberately built, visibly unfinished, into the Acropolis's northern fortification wall as a permanent, pointed reminder of the destruction. Some 22,000 tonnes of fine Pentelic marble were quarried roughly 16 km away and hauled up onto the Acropolis for the new building.
 
-Almost nothing in it is straight. The stylobate curves upward about 11 cm at the centre; columns lean inward and would meet roughly 2.4 km above; corner columns are slightly thicker; each has a subtle *entasis* bulge. These refinements were cut into individual blocks with no possibility of adjustment afterwards, and the standard explanation — optical correction — is plausible but not proven.
+Almost nothing in the finished structure is actually straight. The stylobate, the platform the columns stand on, curves upward by about 11 cm at the centre rather than running flat; the columns themselves lean slightly inward and, projected upward, would in theory meet roughly 2.4 km above the temple; corner columns are subtly thicker than the rest to correct for the brighter sky behind them, and each column carries a slight swelling, or *entasis*, along its height. These refinements were cut permanently into individual blocks of stone with no possibility of adjustment once set in place, representing an extraordinary level of advance planning, and the standard explanation for them — that they correct for optical distortions the eye would otherwise perceive in a perfectly rectilinear building — is widely repeated and plausible, though not conclusively proven by any ancient source.
 
-The building has served as temple, church, mosque and gunpowder store. In 1687 a Venetian shell detonated the Ottoman magazine inside and blew out the centre. Lord Elgin removed roughly half the surviving sculpture between 1801 and 1812; the question of its return remains open.
+The building has served across its long life as a temple to Athena, a Christian church dedicated first to the Virgin Mary and later, under Frankish rule, to a different denomination, and then as a mosque under the Ottomans, complete with a minaret. In 1687, during a Venetian siege of Ottoman-held Athens, a mortar shell detonated a gunpowder store the Ottomans had placed inside the building for safekeeping, blowing out the temple's central section and much of its roof in a single catastrophic explosion. Lord Elgin removed roughly half of the surviving sculptural decoration between 1801 and 1812 with the permission of the Ottoman authorities then ruling Greece; the sculptures are now in the British Museum, and the question of their return to Greece remains an unresolved and often heated diplomatic and cultural dispute.

@@ -25,6 +25,12 @@ claims:
   - text: Perseus was captured and displayed in a Roman triumph.
     evidence: literary
     confidence: strong
+  - text: A lunar eclipse the night before the battle was correctly predicted to Roman troops by an officer, steadying morale that the omen might otherwise have shaken.
+    evidence: literary
+    confidence: strong
+  - text: Polybius drew on eyewitness testimony, including from Aemilius Paullus's own family, in his surviving account of the battle.
+    evidence: literary
+    confidence: strong
 relations:
   - id: macedonian-wars
     rel: part of
@@ -49,8 +55,8 @@ _order: 53
 Rome destroyed the Macedonian army in under an hour, abolishing the kingdom of Alexander's successors.
 
 <!-- field: body -->
-The phalanx advanced and initially drove the legions back — Aemilius Paullus later said the sight of that pike wall coming on was the most frightening thing he had ever seen.
+The night before the battle, a lunar eclipse alarmed the Roman camp, since such omens were widely read as portents of disaster; the tribune Gaius Sulpicius Gallus, having predicted the eclipse in advance from astronomical calculation, was able to reassure the troops that it was a natural, foreseeable event rather than a sign of doom, steadying morale before the fighting began.
 
-But the ground was uneven, and as the phalanx pushed forward its line lost continuity. Paullus ordered his maniples into the gaps. Once inside the pike points, legionaries with the *gladius* were fighting men holding a six-metre pole in both hands who could not turn or draw.
+The phalanx advanced the next day and initially drove the Roman legions back — Aemilius Paullus later said the sight of that pike wall coming on was the most frightening thing he had ever seen in his life, a rare admission of fear from a victorious Roman commander. But the ground at Pydna was uneven, broken by a stream and scattered obstacles, and as the phalanx pushed forward across it, its line lost the tight, unbroken continuity a phalanx depends on entirely for its effectiveness. Paullus ordered his more flexible maniples into the gaps that opened. Once inside the reach of the pikes, legionaries fighting with the short *gladius* had an overwhelming advantage over men holding an unwieldy six-metre pole in both hands, unable to turn, draw a sidearm, or defend themselves at close quarters.
 
-The battle lasted about an hour. Perseus fled and was captured, and paraded in Paullus' triumph. The Macedonian kingdom was abolished and divided into four republics; two decades later it became a province.
+The battle lasted only about an hour. Perseus fled the field, was captured shortly afterward, and was paraded in chains through the streets of Rome in Paullus's triumph, an ignominious end for the last king to rule a state descended from Alexander's own homeland. The Macedonian kingdom was abolished outright and divided into four nominally independent republics; two decades later, after further unrest, it was annexed directly as a Roman province. Much of the surviving detailed account of the battle comes from the historian Polybius, who as a hostage in Rome had personal access to Aemilius Paullus's own family and used their testimony directly in his history.

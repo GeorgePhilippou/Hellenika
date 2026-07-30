@@ -25,6 +25,12 @@ claims:
   - text: Alexander commanded the cavalry on the Macedonian left.
     evidence: literary
     confidence: probable
+  - text: Demosthenes, who had campaigned for years to unite Athens and its allies against Philip, fought in the battle and later admitted to fleeing the field.
+    evidence: literary
+    confidence: strong
+  - text: The Lion of Chaeronea monument marks the mass grave believed to hold the Theban Sacred Band.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: chaeronea
     rel: site
@@ -50,8 +56,8 @@ _order: 36
 Philip II defeated the Athenian-Theban alliance in 338 BC, ending the independence of the Greek city-states.
 
 <!-- field: body -->
-Around 30,000 Macedonians faced a similar number of allied Greeks. Philip commanded the right, Alexander at eighteen the left with the Companion cavalry.
+Around 30,000 Macedonians faced a roughly similar number of allied Greeks, an army assembled largely through the tireless diplomatic and oratorical campaigning of the Athenian statesman Demosthenes, who had spent years warning Athens of the danger Philip posed and finally succeeded in bringing Athens and Thebes together into a single alliance against him. Philip commanded the Macedonian right in person, while his eighteen-year-old son Alexander led the Companion cavalry on the left.
 
-Philip drew the Athenians forward with a controlled withdrawal — a manoeuvre only a professional army can execute — and as they advanced shouting that they would drive him to Macedon, the allied line stretched and a gap opened. Alexander charged into it.
+Philip drew the Athenian line forward with a controlled, deliberate withdrawal — a manoeuvre demanding the kind of discipline only a genuinely professional standing army could execute reliably under pressure — and as the Athenians advanced, shouting that they would drive him back to Macedon, the allied line stretched thin and a gap opened between the Athenian and Theban contingents. Alexander charged the Companion cavalry straight into that gap.
 
-The Sacred Band held their ground and were destroyed to a man. Philip treated Athens leniently, needing its fleet, and crushed Thebes. He then founded the League of Corinth with himself as *hegemon*, and announced a Panhellenic war against Persia.
+The Theban Sacred Band, holding the allied line's most exposed position, refused to break and was destroyed almost to the last man where it stood; a mass grave of 254 skeletons found beneath the Lion of Chaeronea monument, erected by the Thebans afterward, is almost certainly theirs. Demosthenes himself fought in the battle in the ranks and later, with characteristic candour in the face of political enemies, admitted to having fled rather than dying in a defeat he had done everything possible to prevent. Philip treated the defeated Athens with calculated leniency, still valuing its fleet and its prestige, while dealing far more harshly with Thebes, whose betrayal in his eyes ran deeper. He then founded the League of Corinth, binding the Greek states together under his own position as *hegemon*, and announced a Panhellenic war of revenge against Persia — a war his assassination two years later would leave for his son to fight instead.
