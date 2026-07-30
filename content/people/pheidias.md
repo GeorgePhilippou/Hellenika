@@ -27,6 +27,12 @@ claims:
   - text: No original work by Pheidias survives.
     evidence: consensus
     confidence: strong
+  - text: Roman-era visitors described the seated Zeus at Olympia as capable of consoling those in grief simply by its expression.
+    evidence: literary
+    confidence: strong
+  - text: Ancient sources disagree on whether Pheidias died in prison at Athens or in exile at Olympia.
+    evidence: debate
+    confidence: debated
 relations:
   - id: parthenon-frieze
     rel: directed
@@ -51,8 +57,8 @@ Overseer of the Parthenon sculptures and maker of the colossal Zeus at Olympia, 
 Defined the visual language of the Classical style — and none of his major works survives except at second hand.
 
 <!-- field: body -->
-Pericles put Pheidias in charge of the Acropolis programme. He made the Athena Parthenos, twelve metres of gold and ivory over a wooden core, and the seated Zeus at Olympia, which Roman visitors described as capable of consoling the grieving.
+Pericles put Pheidias in overall charge of the entire Acropolis building and sculptural programme, an appointment that gave one artist unprecedented creative authority over what became the definitive visual statement of Classical Athens. He made the Athena Parthenos, standing some twelve metres tall in gold and ivory over a wooden core inside the Parthenon itself, and the seated Zeus at Olympia, a work so admired that Roman-era visitors centuries later described it as capable of easing profound grief simply through the calm authority of its expression — one ancient writer claimed that failing to see it before dying was itself a kind of misfortune.
 
-Both are lost. What survives is the Parthenon frieze and pediments, made by a workshop under his direction, plus Roman copies and coin images. His workshop at Olympia has been excavated, and a plain black cup was found inside it inscribed "I belong to Pheidias" — one of the most direct personal traces of any ancient artist.
+Both colossal statues are entirely lost, likely destroyed or melted down for their precious materials in later antiquity. What survives instead is the Parthenon's frieze and pediment sculptures, produced by a large workshop operating under his overall direction rather than by his own hand alone, together with later Roman marble copies of the Athena and small-scale images struck on coins that give some rough sense of the originals' appearance. His workshop at Olympia, where he made the Zeus, has been excavated in modern times and found to match ancient descriptions closely in its layout, and a plain black drinking cup recovered from inside it is inscribed simply "I belong to Pheidias" — one of the most direct personal physical traces connecting any named ancient artist to a specific surviving building.
 
-He was prosecuted, apparently for embezzling gold from the Athena statue, though the charge may have been an attack on Pericles through him.
+Late in his career he was prosecuted at Athens, apparently on charges of embezzling gold intended for the Athena statue, though ancient sources already suspected the charge was really a political attack aimed at Pericles through his associate. Accounts disagree on his ultimate fate: some say he died in prison at Athens, others that he was exiled and continued working at Olympia until his death there instead.

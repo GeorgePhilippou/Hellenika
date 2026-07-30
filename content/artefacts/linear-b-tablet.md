@@ -28,6 +28,12 @@ claims:
   - text: No literary or narrative texts in Linear B have been found.
     evidence: epigraphic
     confidence: established
+  - text: The largest single archive of Linear B tablets was found at Pylos, with over a thousand recovered from one destruction layer.
+    evidence: archaeological
+    confidence: established
+  - text: Scribal "hands" can be distinguished across tablets, allowing individual palace scribes to be tracked by handwriting.
+    evidence: epigraphic
+    confidence: strong
 relations:
   - id: linear-b
     rel: written in
@@ -51,10 +57,10 @@ _order: 12
 Unfired clay tablets recording palace inventories — accidentally preserved by the fires that destroyed the palaces.
 
 <!-- field: body -->
-Linear B tablets were never meant to last. They were temporary records, expected to be recycled at the end of the accounting year. They survive only where fire baked them, so every Mycenaean archive we have is a by-product of catastrophe.
+Linear B tablets were never meant to last. They were temporary records, unfired clay expected to be recycled or simply discarded at the end of each accounting year once its information was no longer needed. They survive at all only where a destructive fire accidentally baked them hard, which is why every substantial Mycenaean archive known today is, in effect, a by-product of catastrophe rather than of any deliberate act of preservation.
 
-The content is administrative: sheep by flock and shepherd, wool quotas, bronze issued to smiths, chariot wheels marked serviceable or not, and rations for women textile workers listed with their numbers of boys and girls. There is no literature, no history and no law.
+The content is thoroughly administrative rather than literary: sheep counted by flock and named shepherd, wool quotas owed to the palace, bronze issued out to individual smiths by weight, chariot wheels inspected and marked serviceable or not, and rations recorded for groups of women textile workers listed alongside their numbers of dependent boys and girls. There is no literature, no history, and no law recorded on any surviving tablet — only the palace's own internal bookkeeping.
 
-What they do give is a state seen through its own paperwork, plus the names of gods: Poseidon, Zeus, Hera, Athena, Dionysus, and a "Mistress of the Labyrinth" who receives a jar of honey.
+What they do give, alongside that paperwork, is the names of gods already worshipped centuries before Classical Greece: Poseidon, who receives more offerings at Pylos than any other deity, along with Zeus, Hera, Athena, Dionysus, and a mysterious "Mistress of the Labyrinth" recorded at Knossos receiving a jar of honey — a figure who may connect distantly to later myths of the labyrinth and the Minotaur. Careful study of individual handwriting across tablets has let scholars distinguish the work of specific scribal "hands," allowing named or numbered individual palace scribes, otherwise entirely anonymous, to be tracked across dozens of separate records by their distinctive habits of forming particular signs.
 
-Tablet PY Ta 641 from Pylos confirmed Ventris' decipherment, reading *ti-ri-po-de* — "tripods" — beside drawings of three-legged pots.
+Tablet PY Ta 641 from Pylos, found in the largest single Linear B archive known anywhere, with well over a thousand tablets recovered from that one destruction layer, confirmed Ventris's decipherment beyond reasonable doubt, reading *ti-ri-po-de* — "tripods" — beside drawn pictures of exactly the three-legged pots the word describes.
