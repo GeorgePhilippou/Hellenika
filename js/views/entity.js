@@ -16,8 +16,8 @@ import * as store from '../store.js';
 import { createGraph } from '../components/graph.js';
 import { createMap } from '../components/map-canvas.js';
 import {
-  entityDate, entityPill, entityCard, claimsList, confidenceKey,
-  paragraphs, block, factList, miniTimeline, emptyState, typeChip, tintLegend, inlineFigure,
+  entityDate, entityCard, claimsList, confidenceKey,
+  paragraphs, block, factList, emptyState, typeChip, tintLegend, inlineFigure,
 } from '../components/ui.js';
 import { TYPE_META } from '../db.js';
 
@@ -114,12 +114,6 @@ function sidebarHTML(e, sections) {
         ])}
       </div>
 
-      ${e.start != null && !e.modern ? `
-        <div class="panel">
-          <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Timeline position</h3>
-          ${miniTimeline(e, periods)}
-        </div>` : ''}
-
       ${e.coords ? `
         <div class="panel">
           <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Location</h3>
@@ -173,15 +167,7 @@ function relationsSection(e) {
       <canvas class="graph-canvas" id="graph-canvas"></canvas>
       <div class="graph-legend">drag nodes · click to travel · hover to isolate</div>
     </div>
-    ${tintLegend([e, ...neighbourEntities], periods)}
-    <div style="margin-top:var(--s-5)"></div>
-    ${order.map((t) => `
-      <div class="rel-group">
-        <h3>${esc(TYPE_META[t]?.plural || t)}</h3>
-        <div class="rel-list">
-          ${groups.get(t).map((n) => entityPill(n.entity, n.rel)).join('')}
-        </div>
-      </div>`).join('')}`);
+    ${tintLegend([e, ...neighbourEntities], periods)}`);
 }
 
 function sourcesSection(e) {
