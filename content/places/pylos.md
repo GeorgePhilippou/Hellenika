@@ -32,6 +32,12 @@ claims:
   - text: Homer's Nestor corresponds to a historical ruler of Pylos.
     evidence: tradition
     confidence: legendary
+  - text: Carl Blegen had previously excavated at Troy before turning to Pylos, applying similar stratigraphic methods.
+    evidence: literary
+    confidence: strong
+  - text: Storerooms at the palace held thousands of stirrup jars and drinking vessels, indicating centralised control of wine and oil.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: mycenaean-civilisation
     rel: centre of
@@ -61,8 +67,8 @@ The unfortified Palace of Nestor, whose burned archive of over a thousand Linear
 The fire that destroyed the palace baked its clay tablets hard, preserving a detailed snapshot of a Bronze Age state's final year.
 
 <!-- field: body -->
-Pylos is unusual among Mycenaean palaces in having no fortification wall. Its megaron retains a painted floor and a great circular hearth; a bathroom still contains its terracotta tub.
+Pylos is unusual among Mycenaean palaces in having no fortification wall at all, a puzzle given how heavily fortified contemporary Mycenae and Tiryns were — perhaps reflecting confidence in naval defence, or simply that its destruction came too suddenly for walls to have mattered. Its megaron retains a painted floor and a great circular hearth ringed by four columns that once supported a gallery above; a small bathroom just off the throne room still contains its built-in terracotta tub, a rare surviving piece of Bronze Age plumbing.
 
-Carl Blegen found the archive on his first day in 1939. The tablets record rations, land tenure disputes, bronze allocation, and — in a group known as the *o-ka* tablets — the deployment of coastal watchers, apparently against a threat from the sea. Whether this documents the crisis that destroyed the palace is a genuine open question, since the tablets cover only the final months.
+Carl Blegen, who had already excavated at Troy in the 1930s and brought the same careful stratigraphic method to Greece, found the tablet archive on his very first day of digging in 1939, in a small room beside the entrance. The tablets record rations, land tenure disputes, bronze allocation for weapons and tools, and — in a group known as the *o-ka* tablets — the deployment of coastal watchers, apparently in response to some threat approaching from the sea. Whether this documents the very crisis that shortly afterward destroyed the palace is a genuine open question, since the surviving tablets cover only the final months of the archive's existence and offer no explanation of what came next. Storerooms elsewhere in the complex held thousands of stirrup jars, cups and other vessels, evidence of a wine and olive-oil economy administered on an industrial scale by the palace bureaucracy.
 
-In 2015 a nearby unlooted shaft grave, the "Griffin Warrior", was excavated with over 1,400 objects including four gold rings and the Pylos Combat Agate — a sealstone 3.6 cm across carved with a combat scene whose detail requires magnification to see, and no magnifying lenses are known from the Bronze Age.
+In 2015 a nearby unlooted shaft grave close to the palace, nicknamed the "Griffin Warrior," was excavated with over 1,400 objects including four gold rings and the Pylos Combat Agate — a sealstone just 3.6 cm across carved with a combat scene whose fine detail is difficult to make out even with modern magnification, despite no magnifying lenses being known from the Bronze Age at all, a puzzle that has renewed debate over just how sophisticated Mycenaean optical technology, or simply eyesight and patience, might have been.

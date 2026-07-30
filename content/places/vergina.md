@@ -29,6 +29,12 @@ claims:
   - text: Tomb II is the burial of Philip III Arrhidaeus.
     evidence: debate
     confidence: debated
+  - text: The Great Tumulus covering the tombs is thought to have been raised deliberately, likely under Antigonus Gonatas, to protect them after a Celtic raid on Macedon in 279 BC.
+    evidence: debate
+    confidence: probable
+  - text: A separate, smaller tomb at the site, Tomb I, had been looted in antiquity but retains a painted fresco of the abduction of Persephone.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: philip-ii
     rel: possibly buried at
@@ -54,8 +60,8 @@ The old royal capital of Macedon, where an unlooted royal tomb was found in 1977
 The richest unplundered royal burial ever excavated in Greece, and the strongest candidate for the tomb of Philip II.
 
 <!-- field: body -->
-Manolis Andronikos excavated the Great Tumulus in 1977 and found a barrel-vaulted tomb with an intact façade painted with a hunting frieze, its marble doors still closed.
+Manolis Andronikos excavated the Great Tumulus in 1977, a mound so large it had been assumed to be entirely natural, and found beneath it a barrel-vaulted tomb with an intact façade painted with a vivid hunting frieze, its marble doors still closed and its contents undisturbed by looters — an exceptional survival in a region where royal tombs were otherwise stripped bare within a generation or two of burial. The scale and placement of the tumulus itself, raised over at least two earlier tombs including one already looted in antiquity, is now generally thought to have been a deliberate act of protection, probably ordered by Antigonus Gonatas after a Celtic raid devastated Macedon in 279 BC, burying the royal tombs under enough earth to hide and secure them from further disturbance.
 
-Inside: a marble sarcophagus containing a solid gold *larnax* embossed with the Macedonian star, holding cremated bones wrapped in purple cloth with a gold oak wreath. Also an iron and gold cuirass, ceremonial shield, silver dining vessels, and five small ivory portrait heads, one strikingly like known images of Philip II.
+Inside the unlooted tomb: a marble sarcophagus containing a solid gold *larnax* embossed with the sixteen-rayed Macedonian star, holding cremated bones wrapped in a purple cloth with a separate gold oak wreath laid on top. Also present were an iron and gold cuirass, a ceremonial shield, an extensive set of silver dining vessels, and five small ivory portrait heads, one of which is strikingly similar to known images of Philip II. A neighbouring, smaller tomb at the same site, conventionally labelled Tomb I, had already been looted in antiquity but still preserves on its walls a rare and beautifully painted fresco of the abduction of Persephone by Hades, one of the finest surviving examples of large-scale Greek painting from any period.
 
-The identification is genuinely contested. Supporters point to the ivory head, the leg greaves of unequal length matching a known wound, and the date. Opponents argue on the vault type and pottery that the burial is a generation later and belongs to Philip III Arrhidaeus. Study of the skeletons in 2015 and again in 2024 produced flatly conflicting conclusions. The tomb is royal, Macedonian, and mid-to-late fourth century BC; beyond that, the question is open.
+The identification of the main tomb's occupant is genuinely contested. Supporters of a Philip II attribution point to the ivory head's resemblance, to leg greaves of conspicuously unequal length matching an old, documented battle wound of Philip's, and to the burial's apparent date. Opponents argue, based on the vault's architectural type and associated pottery, that the burial actually belongs a generation later, to Philip III Arrhidaeus, murdered in the succession wars after Alexander's death. Separate scientific studies of the skeletal remains in 2015 and again in 2024 have produced flatly conflicting conclusions about age, sex and old injuries. What can be said with confidence is only that the tomb is unmistakably royal, unmistakably Macedonian, and dates to the mid-to-late fourth century BC; beyond that, the identity of its occupant remains a genuinely open scholarly question rather than a settled fact.

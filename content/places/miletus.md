@@ -25,6 +25,12 @@ claims:
   - text: The rebuilt city used an orthogonal grid plan associated with Hippodamus.
     evidence: archaeological
     confidence: strong
+  - text: Thales of Miletus is credited with predicting a solar eclipse in 585 BC, one of the earliest such predictions recorded.
+    evidence: literary
+    confidence: debated
+  - text: Silting from the Maeander river has left the ancient harbour city several kilometres from the modern coastline.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: thales
     rel: home of
@@ -51,8 +57,8 @@ The richest Ionian city, mother of some ninety colonies, birthplace of Greek phi
 Where natural philosophy began, and where the grid city plan was systematised by Hippodamus.
 
 <!-- field: body -->
-Miletus had four harbours and a colonial network around the Black Sea unmatched by any other city. Its wealth funded leisure, and its position on the edge of the Persian and Lydian worlds exposed it to Babylonian astronomy and Egyptian geometry.
+Miletus had four harbours and a colonial network around the Black Sea unmatched by any other Greek city, with ancient tradition crediting it as the mother-city of as many as ninety settlements. Its wealth funded leisure and learning alike, and its position on the edge of the Persian and Lydian worlds exposed its thinkers to Babylonian astronomy and Egyptian geometry that mainland Greek cities encountered only at second hand.
 
-Thales, Anaximander and Anaximenes all worked here in the sixth century BC, asking what the world is made of and answering without gods. Anaximander drew the first Greek map of the world and proposed that humans descended from other animals.
+Thales, Anaximander and Anaximenes all worked here in the sixth century BC, asking what the world is fundamentally made of and, for the first time in the surviving record, answering without appeal to the gods. Thales is credited, more or less plausibly, with predicting the solar eclipse of 585 BC that reportedly interrupted a battle between the Lydians and the Medes; Anaximander drew what is remembered as the first Greek map of the inhabited world and proposed, startlingly, that living things including humans had originated from simpler forms in water rather than being created ready-made. The city's most celebrated fifth-century daughter was Aspasia, who left for Athens and became the intellectual companion of Pericles.
 
-Miletus led the Ionian Revolt in 499 BC. Persia destroyed it in 494, killing or deporting the population — when a playwright staged *The Capture of Miletus* at Athens, the audience wept and he was fined for reminding them of a disaster. Rebuilt after 479 BC on a strict orthogonal grid attributed to Hippodamus of Miletus, it became the model for planned cities across the Hellenistic world.
+Miletus led the Ionian Revolt in 499 BC. Persia destroyed it in 494 BC, killing or deporting the population — when the playwright Phrynichus staged *The Capture of Miletus* at Athens soon afterward, the audience reportedly wept, and he was fined for reminding them so vividly of an ally's disaster. Rebuilt after 479 BC on a strict orthogonal grid attributed to the Milesian town-planner Hippodamus, the city became the acknowledged model for planned cities across the later Hellenistic world, its street pattern echoed in new foundations from Alexandria to the cities of Asia Minor. Centuries of silting carried down by the Maeander river have since left the site of its once-famous four harbours several kilometres inland from the modern coastline, a slow geological change that only makes the scale of its former maritime reach harder to picture on the ground today.

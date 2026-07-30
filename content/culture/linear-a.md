@@ -27,6 +27,15 @@ claims:
   - text: The underlying language can be identified with a known language family.
     evidence: debate
     confidence: debated
+  - text: The Phaistos Disc, found on Crete, uses a still different, stamped hieroglyphic-style script unrelated to Linear A in its known form.
+    evidence: archaeological
+    confidence: established
+  - text: An even earlier system, Cretan Hieroglyphic, was in use on the island before Linear A developed.
+    evidence: archaeological
+    confidence: strong
+secondaryImage:
+  wikipediaTitle: Agia Triada
+  caption: Agia Triada, site of one of the largest surviving Linear A archives.
 relations:
   - id: minoan-civilisation
     rel: script of
@@ -51,8 +60,8 @@ _order: 0
 The script of Minoan Crete — readable in sound but not in meaning, because the language behind it is unknown.
 
 <!-- field: body -->
-Linear A is a syllabary of about 90 signs plus logograms for commodities and a decimal number system including fractions. It appears on clay tablets, sealings, and — unusually — on stone libation vessels and gold and silver objects, so it was used for religious dedication as well as accounting.
+Linear A is a syllabary of about 90 signs plus logograms for commodities and a decimal number system including fractions. It appears on clay tablets, sealings, and — unusually — on stone libation vessels and gold and silver objects, so it was used for religious dedication as well as everyday accounting. It was not even the first script on Crete: an earlier, still more poorly understood system now called Cretan Hieroglyphic was already in use before Linear A developed from it, and the famous Phaistos Disc, stamped rather than incised with a set of 45 repeating pictorial signs, represents yet another, wholly separate system whose signs do not match either script and whose authenticity and origin remain debated in their own right.
 
-We can pronounce much of it. Linear B was adapted from Linear A, so shared signs presumably kept similar values, and applying them to Linear A texts produces sound-sequences. But those sequences are not Greek, not Semitic, and not convincingly anything else. Around 1,400 documents survive, most of them very short, which is far too small a corpus for statistical decipherment.
+We can pronounce much of Linear A, in a rough phonetic sense. Linear B was adapted from Linear A to write Mycenaean Greek, so shared signs presumably kept broadly similar sound values, and applying those known Linear B values to Linear A texts produces plausible sound-sequences. But those sequences are not Greek, not any known Semitic language, and not convincingly anything else scholars have proposed. Around 1,400 documents survive, the great majority of them short administrative fragments from sites like Agia Triada in southern Crete, and that is far too small and repetitive a corpus for the kind of statistical decipherment that cracked other unknown scripts.
 
-Proposals connecting the language to Luwian, Etruscan, Phoenician and others have all failed to convince. Without a bilingual text or a much larger corpus, it is likely to stay unread.
+Proposals connecting the underlying language to Luwian and other Anatolian languages, to Etruscan, to Phoenician-related Semitic languages, and to several other candidates have all been argued at length and have all failed to convince a majority of specialists. Without either a genuine bilingual text pairing Linear A with a known language, or a substantially larger body of connected, non-formulaic writing, most epigraphers regard the language behind Linear A as likely to remain unread indefinitely.
