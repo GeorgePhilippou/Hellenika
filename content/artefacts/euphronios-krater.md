@@ -25,6 +25,9 @@ claims:
   - text: The case materially changed museum acquisition practice.
     evidence: consensus
     confidence: strong
+  - text: Euphronios was one of the leading vase painters of the Pioneer Group, credited with helping to establish red-figure technique as the dominant Athenian style.
+    evidence: consensus
+    confidence: established
 relations:
   - id: athens
     rel: made at
@@ -47,3 +50,5 @@ Signed by Euphronios as painter and Euxitheos as potter. Sleep and Death lift th
 The Metropolitan Museum bought it in 1972 for $1 million, then a record, with a provenance story about a Lebanese family collection. Investigation established it had been looted from an Etruscan tomb at Cerveteri in 1971. The Met returned it to Italy in 2008.
 
 The case, alongside others, forced museums to adopt far stricter acquisition standards, and it is now routinely cited in debates over the Parthenon marbles and other contested holdings.
+
+Euphronios himself belonged to the so-called Pioneer Group, a small circle of Athenian painters working around 520–500 BC who are generally credited with pushing the newly invented red-figure technique to its full expressive potential, experimenting with foreshortening, twisting poses and anatomical detail in ways that black-figure silhouette could never have allowed, of which this krater remains the most famous single surviving example.

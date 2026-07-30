@@ -25,6 +25,9 @@ claims:
   - text: The procession is agricultural rather than military.
     evidence: debate
     confidence: probable
+  - text: Only the upper portion of the original rhyton survives, so the vessel's full original scene and shape can only be partly reconstructed.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: ayia-triada
     rel: found at
@@ -45,3 +48,5 @@ Only the upper half survives, carved in relief on black steatite. Twenty-seven m
 One figure has stumbled and is being jostled by those behind. This is observed behaviour, not formal composition, and it is the earliest depiction of a work-song anywhere.
 
 Whether it shows a harvest, a sowing festival or a military-style procession is debated; the tools point to agriculture.
+
+What survives is only part of the original object: the vase was a conical rhyton, a ritual pouring vessel, and only its upper section with the carved frieze has come down to us intact, meaning the full original composition, including whatever scene or design continued below the surviving band, can only be inferred rather than known with certainty.

@@ -26,6 +26,9 @@ claims:
   - text: It is the founding text of the virtue-ethics tradition.
     evidence: consensus
     confidence: established
+  - text: The work is named after Aristotle's son Nicomachus, who is traditionally credited with editing or transmitting it.
+    evidence: literary
+    confidence: probable
 relations:
   - id: aristotle
     rel: written by
@@ -50,3 +53,5 @@ Virtue is a disposition lying between excess and deficiency, relative to the per
 He devotes two full books to friendship, more than to any other single topic, distinguishing friendships of utility, pleasure and character, and arguing that only the last is complete.
 
 The work founded virtue ethics, which after two centuries of rule-based moral philosophy has become a major live position again.
+
+Its title itself preserves a small mystery: ancient tradition connects the name to Aristotle's son, Nicomachus, who is variously said to have edited the lecture notes into their final form or to have been the dedicatee of the work, though the sources disagree on the details, and it remains uncertain exactly what role, if any, the younger Nicomachus actually played in shaping the text that bears his name.

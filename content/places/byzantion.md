@@ -23,6 +23,9 @@ claims:
   - text: Athenian food security depended on Black Sea grain imports.
     evidence: literary
     confidence: strong
+  - text: Byzantion successfully resisted a lengthy siege by Philip II in 340-339 BC, reportedly aided by a sudden alarm that Byzantines credited to the goddess Hecate.
+    evidence: literary
+    confidence: strong
 relations:
   - id: greek-colonisation
     rel: product of
@@ -48,3 +51,5 @@ Founded around 667 BC by settlers from Megara. Herodotus records the Persian gen
 Whoever held Byzantion held the Bosporus, and therefore the grain shipments from the Black Sea on which Athens depended. Control of this route is a recurring strategic thread through Greek history, and cutting it is how Sparta finally won the Peloponnesian War.
 
 Constantine refounded the city as his capital in AD 330.
+
+Long before that imperial refoundation, Byzantion had already proven itself a hard target: in 340–339 BC Philip II laid siege to the city as part of his push to control the straits, but the defenders held out, helped, according to tradition, by a sudden nocturnal alarm — dogs barking and a mysterious light in the sky — that the Byzantines attributed to the goddess Hecate and that gave them time to repel a surprise night assault, a story commemorated for centuries afterward on the city's coinage.

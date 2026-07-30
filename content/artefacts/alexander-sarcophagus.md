@@ -25,6 +25,9 @@ claims:
   - text: It was made for Abdalonymos of Sidon.
     evidence: debate
     confidence: probable
+  - text: The sarcophagus is carved in a fully Greek style despite being made for a Phoenician royal client, reflecting rapid cultural adaptation among local elites under Macedonian rule.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: depicts
@@ -47,3 +50,5 @@ Excavated at Sidon in 1887, it is not Alexander's tomb but was made for a local 
 The long sides show a battle between Greeks and Persians, with Alexander on horseback in a lion-skin helmet, and a lion hunt in which Greeks and Persians hunt together — a striking image of cooperation rather than conquest, appropriate for a Persian-descended ruler who owed his throne to Alexander.
 
 Its real value is colour. Extensive original pigment survives — purple and yellow garments, red blood, painted eyes — and analysis has recovered much of the rest. It is among the best evidence anywhere that Greek marble sculpture was fully polychrome, and that the white classical aesthetic is entirely a product of paint loss.
+
+What makes the commission itself notable is how completely its Phoenician patron embraced Greek artistic conventions rather than a local Sidonian or Persian style: every figure, pose and narrative device on the sarcophagus follows Greek sculptural practice closely, a striking sign of how quickly local elites across the conquered Near East adopted Greek visual culture as a marker of prestige once Macedonian rule made such affiliation politically advantageous.

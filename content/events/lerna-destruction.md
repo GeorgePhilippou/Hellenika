@@ -23,6 +23,9 @@ claims:
   - text: The destructions were caused by invading Greek speakers.
     evidence: debate
     confidence: debated
+  - text: A tumulus was raised directly over the ruins of the House of the Tiles, suggesting the site retained special significance to those who rebuilt at Lerna afterward.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: lerna
     rel: site
@@ -43,3 +46,5 @@ The fire that ended the House of the Tiles is one node in a pattern: many Early 
 Explanations have cycled through invasion by incoming Indo-European speakers, internal conflict, and — currently most favoured — the 4.2 kiloyear climate event, a severe aridification episode documented across the Near East and implicated in the collapse of the Akkadian Empire and Egypt's Old Kingdom at almost the same time.
 
 The fire preserved hundreds of clay sealings, so the destruction is also the reason we know how the building worked.
+
+Rather than simply clearing the ruin and building over it, whoever resettled Lerna afterward chose to raise an earthen tumulus directly over the burned remains of the House of the Tiles, leaving the ground beneath it untouched — a deliberate act of commemoration or avoidance that suggests the destroyed building retained real meaning for the community even after the centralised authority it once represented had disappeared.

@@ -24,6 +24,9 @@ claims:
   - text: The coin portraits deliberately assert dynastic authority rather than attractiveness.
     evidence: debate
     confidence: probable
+  - text: Cleopatra's coin portraits deliberately echo the features of earlier Ptolemaic queens, asserting continuity with her dynastic predecessors.
+    evidence: numismatic
+    confidence: strong
 relations:
   - id: cleopatra-vii
     rel: issued by
@@ -46,3 +49,5 @@ Her coin portraits show a prominent hooked nose, a jutting chin, a thin mouth an
 Plutarch, writing over a century later, says almost exactly this — that her beauty was not in itself incomparable, but that her presence, her voice and her intelligence in conversation were irresistible. The Hollywood Cleopatra derives from Roman propaganda about a dangerous foreign seductress and from later retellings, not from the evidence.
 
 Some joint issues with Mark Antony show both portraits, and the resemblance of the two profiles is close enough that die-cutters were plainly working to a shared house style.
+
+Her portrait style also deliberately echoes the strong, similarly non-idealised features shown on coins of earlier Ptolemaic queens going back generations, a visual continuity that was almost certainly intentional: by resembling her royal predecessors rather than any contemporary standard of beauty, Cleopatra's coinage asserted her place within an unbroken line of legitimate Ptolemaic rule stretching back to the dynasty's founding.

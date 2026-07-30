@@ -25,6 +25,9 @@ claims:
   - text: Its anatomical naturalism is unmatched until the Classical period.
     evidence: consensus
     confidence: strong
+  - text: The sealstone was found among the rich grave goods of the "Griffin Warrior," a single unlooted burial whose contents span both Minoan and Mycenaean artistic traditions.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: pylos
     rel: found at
@@ -45,3 +48,5 @@ Found in 2015 in the unlooted Griffin Warrior grave at Pylos, encrusted with lim
 The carving includes musculature, the pattern on a sword hilt, and jewellery, at a scale where some details measure well under a millimetre. They cannot be seen without magnification, and no magnifying lenses are known from the Bronze Age Aegean.
 
 The anatomical modelling — a fully realised human body in motion — is not matched again in Greek art until the Classical period a thousand years later. It forces a revision of what Aegean artists were capable of, and of the assumption that Greek naturalism developed steadily from Geometric beginnings.
+
+The seal was one of more than a thousand objects buried with the man now called the "Griffin Warrior," whose grave, discovered undisturbed near Pylos, combined Mycenaean-style weapons with an extraordinary array of Minoan-influenced gold rings, seals and ornaments, making the burial as a whole one of the richest single pieces of evidence for just how thoroughly Minoan artistic culture had penetrated mainland Mycenaean elite taste even before the two civilisations fully merged.
