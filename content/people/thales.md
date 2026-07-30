@@ -23,6 +23,9 @@ claims:
   - text: Thales successfully predicted that eclipse.
     evidence: debate
     confidence: debated
+  - text: Thales is also credited with estimating the height of the Egyptian pyramids by measuring shadows.
+    evidence: literary
+    confidence: debated
 relations:
   - id: miletus
     rel: based at
@@ -47,4 +50,4 @@ Begins the Ionian tradition of natural explanation from which Greek science, and
 <!-- field: body -->
 Thales held that everything originates from water, and that the Earth floats on it. The specific answer is wrong; the form of the question was revolutionary. Asking what the world is made of, and expecting an answer in terms of ordinary materials rather than divine biography, is the founding move of natural philosophy.
 
-He is credited with predicting a solar eclipse that stopped a battle between the Lydians and Medes — modern astronomy places one on 28 May 585 BC. How he could have done this is unclear, since Babylonian eclipse cycles do not straightforwardly predict local visibility. Aristotle also tells a story of Thales cornering the olive-press market to prove philosophers could get rich if they cared to.
+He is credited with predicting a solar eclipse that stopped a battle between the Lydians and Medes — modern astronomy places one on 28 May 585 BC. How he could have done this is unclear, since Babylonian eclipse cycles do not straightforwardly predict local visibility. Aristotle also tells a story of Thales cornering the olive-press market to prove philosophers could get rich if they cared to. Another tradition credits him with calculating the height of the Egyptian pyramids purely by measuring the length of their shadows at the moment his own shadow matched his height, a simple proportional method that, whether or not the story is literally true, again illustrates the kind of measurable, non-mythical reasoning later Greeks associated with his name.

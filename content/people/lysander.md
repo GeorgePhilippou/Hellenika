@@ -23,6 +23,9 @@ claims:
   - text: He installed the Thirty Tyrants at Athens in 404 BC.
     evidence: literary
     confidence: strong
+  - text: Lysander was reportedly the first living Greek to receive cult honours and altars as though he were a god.
+    evidence: literary
+    confidence: strong
 relations:
   - id: peloponnesian-war
     rel: won
@@ -49,4 +52,4 @@ Lysander secured funding from the Persian prince Cyrus the Younger — an allian
 
 At Aegospotami in 405 BC he caught the Athenian fleet beached and unprepared and captured nearly all of it. Athens, dependent on imported grain through the Hellespont, was starved into surrender within months. The Long Walls were pulled down to flute music.
 
-He installed narrow oligarchies backed by Spartan garrisons across the former empire, including the Thirty Tyrants at Athens. He was reportedly the first living Greek to receive divine honours from cities.
+He installed narrow oligarchies backed by Spartan garrisons across the former empire, including the Thirty Tyrants at Athens. He was reportedly the first living Greek to receive divine honours from cities, with altars, hymns and festivals established in his name at several of the states he had helped or dominated — an unprecedented and, to many contemporaries, alarming departure from the usual Greek reluctance to worship living men.

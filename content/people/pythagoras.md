@@ -26,6 +26,9 @@ claims:
   - text: Pythagoras personally proved the theorem named after him.
     evidence: debate
     confidence: debated
+  - text: Pythagoreans reportedly kept the discovery of irrational numbers secret, since it threatened their belief that all reality could be expressed in whole-number ratios.
+    evidence: debate
+    confidence: probable
 relations:
   - id: plato
     rel: influenced
@@ -50,4 +53,4 @@ Fused mathematics, music and mysticism into a tradition that shaped Plato profou
 <!-- field: body -->
 Pythagoras left Samos for Croton around 530 BC and founded a community with strict rules — silence for initiates, communal property, dietary restrictions, and belief in the transmigration of souls. It held political power in several Italian cities before being violently suppressed.
 
-The discovery that consonant musical intervals correspond to simple whole-number ratios (2:1, 3:2, 4:3) is the core Pythagorean insight, and appears to be genuine. The theorem bearing his name was known to Babylonian mathematicians a thousand years earlier; whether Pythagoras proved it is unknown. Because members attributed their own discoveries to the founder, separating the man from the school may be permanently impossible.
+The discovery that consonant musical intervals correspond to simple whole-number ratios (2:1, 3:2, 4:3) is the core Pythagorean insight, and appears to be genuine. The theorem bearing his name was known to Babylonian mathematicians a thousand years earlier; whether Pythagoras proved it is unknown. Because members attributed their own discoveries to the founder, separating the man from the school may be permanently impossible. Later tradition holds that the school discovered irrational numbers — quantities, like the square root of two, that cannot be expressed as a ratio of whole numbers — and tried to suppress the finding, since it directly threatened their core belief that whole-number ratios could describe the entire structure of reality; one legend even claims the member responsible for revealing the secret was drowned at sea for it.

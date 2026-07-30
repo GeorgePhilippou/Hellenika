@@ -22,6 +22,9 @@ claims:
   - text: Macedonian garrisons were stationed at key Greek cities.
     evidence: literary
     confidence: strong
+  - text: The Athenian orator Isocrates had argued for years, before the League's founding, that a Panhellenic war against Persia was the only cure for Greek infighting.
+    evidence: literary
+    confidence: strong
 relations:
   - id: philip-ii
     rel: founded by
@@ -45,4 +48,4 @@ Formed in 337 BC, the League guaranteed members' constitutions, banned constitut
 
 The legal form was a voluntary alliance of free states. The practical reality included Macedonian garrisons at Corinth, Thebes and Chalcis, and a ban on precisely the political changes that might threaten Macedonian influence.
 
-It was the framework under which Alexander invaded Asia, and it gave the campaign the character of Panhellenic revenge for 480 BC rather than simple conquest.
+It was the framework under which Alexander invaded Asia, and it gave the campaign the character of Panhellenic revenge for 480 BC rather than simple conquest. The idea itself was not new: the aging Athenian orator Isocrates had spent years publicly arguing that only a united Greek war against Persia could redirect the constant internal warfare between Greek cities into something more productive, and he addressed an open letter to Philip urging exactly this role on him shortly before the League was actually formed.

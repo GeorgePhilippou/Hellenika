@@ -26,6 +26,9 @@ claims:
   - text: Herodotus' figures for the size of Xerxes' army are reliable.
     evidence: debate
     confidence: debated
+  - text: Leonidas belonged to the Agiad royal line and reportedly consulted an oracle prophesying that either Sparta or one of its kings must fall.
+    evidence: literary
+    confidence: strong
 relations:
   - id: battle-thermopylae
     rel: commanded at
@@ -50,4 +53,4 @@ The defeat became the defining Greek story of disciplined resistance against ove
 <!-- field: body -->
 Leonidas commanded a Greek force of perhaps 7,000 at the narrow pass of Thermopylae. For two days they held. Then a local, Ephialtes, showed the Persians a mountain path around the position. Leonidas dismissed most of the army and remained with 300 Spartans, 700 Thespians and 400 Thebans.
 
-All the Spartans and Thespians died. Simonides' epitaph, recorded by Herodotus, is the most famous couplet in Greek: it asks the passer-by to tell the Spartans that here they lie, obedient to their words. The delay bought the Greek fleet time, and the moral effect of the stand outlasted the tactical loss by two and a half millennia.
+All the Spartans and Thespians died. Simonides' epitaph, recorded by Herodotus, is the most famous couplet in Greek: it asks the passer-by to tell the Spartans that here they lie, obedient to their words. The delay bought the Greek fleet time, and the moral effect of the stand outlasted the tactical loss by two and a half millennia. Leonidas belonged to Sparta's senior Agiad royal line, and Herodotus reports that before the campaign an oracle had warned that either the city of Sparta itself or one of its two kings must be destroyed — a prophecy Leonidas's decision to stay and die at Thermopylae is often read, in the ancient sources themselves, as deliberately fulfilling in Sparta's favour.

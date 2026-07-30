@@ -26,6 +26,9 @@ claims:
   - text: The Clouds materially contributed to Socrates' conviction.
     evidence: debate
     confidence: debated
+  - text: Aristophanes also satirised the demagogue Cleon directly in The Knights, despite the risk of political retaliation.
+    evidence: literary
+    confidence: strong
 relations:
   - id: socrates
     rel: satirised
@@ -52,4 +55,4 @@ Eleven of his plays survive. *The Clouds* (423 BC) portrays Socrates suspended i
 
 *Lysistrata* (411 BC) has the women of Greece withhold sex until the men make peace. *The Frogs* (405 BC) sends Dionysus to the underworld to bring back a poet who can save the city, and stages a contest between Aeschylus and Euripides that is the earliest surviving work of literary criticism.
 
-The freedom of this comedy is itself evidence: a democracy at war permitted its most prominent citizens to be ridiculed on stage at a state religious festival.
+The freedom of this comedy is itself evidence: a democracy at war permitted its most prominent citizens to be ridiculed on stage at a state religious festival. He took this furthest in *The Knights* (424 BC), a sustained, almost reckless attack on the powerful demagogue Cleon, staged while Cleon was at the height of his political influence and reportedly performed with Aristophanes himself playing the role since no mask-maker in Athens would risk making a caricature mask of so dangerous a man.

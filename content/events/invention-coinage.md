@@ -23,6 +23,9 @@ claims:
   - text: Athenian silver coinage circulated widely beyond Athenian territory.
     evidence: numismatic
     confidence: established
+  - text: The earliest coins were struck on only one face, with the reverse showing only the punch mark used to strike them.
+    evidence: numismatic
+    confidence: established
 relations:
   - id: croesus
     rel: associated with
@@ -46,4 +49,4 @@ The first coins were lumps of electrum — a natural gold-silver alloy from the 
 
 Croesus later separated the alloy into pure gold and silver coinages, creating the first bimetallic system with a fixed exchange rate.
 
-Greek cities adopted coinage rapidly and made it identity: the Athenian owl, the Aeginetan turtle, the Corinthian pegasus. Athens' silver owls, backed by Laurion, became the first international reserve currency, accepted from Egypt to the Black Sea. Coin hoards are now among the most precise dating tools in archaeology.
+Greek cities adopted coinage rapidly and made it identity: the Athenian owl, the Aeginetan turtle, the Corinthian pegasus. Athens' silver owls, backed by Laurion, became the first international reserve currency, accepted from Egypt to the Black Sea. Coin hoards are now among the most precise dating tools in archaeology. The very earliest coins were struck on only one face, showing a design on the front while the back carries only the rough, irregular mark left by the punch used to drive the design into the blank — a reminder of just how experimental the whole technology still was at its outset.

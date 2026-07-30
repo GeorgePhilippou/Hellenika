@@ -23,6 +23,9 @@ claims:
   - text: The decipherment extended attested Greek back roughly five centuries.
     evidence: consensus
     confidence: established
+  - text: Ventris circulated his working notes openly to other scholars throughout the process rather than working in isolation.
+    evidence: literary
+    confidence: strong
 relations:
   - id: michael-ventris
     rel: achieved by
@@ -51,4 +54,4 @@ He noticed sign-groups appearing only on Knossos tablets, likely place names, an
 
 The resulting language was Greek — an archaic form, but unmistakably Greek. Ventris had expected something related to Etruscan and initially assumed he had made an error. He announced it on BBC radio in June 1952. John Chadwick joined him, and Carl Blegen's Pylos tablet PY Ta 641, where the values produced *ti-ri-po-de* beside pictures of tripods, provided independent confirmation.
 
-The result pushed attested Greek back 500 years before Homer and made the Mycenaean world historical rather than merely archaeological.
+The result pushed attested Greek back 500 years before Homer and made the Mycenaean world historical rather than merely archaeological. Ventris worked in an unusually open way for a decipherment, circulating his evolving "Work Notes" to other interested scholars throughout the process rather than guarding his progress jealously, a collaborative habit that likely helped the result reach confirmation faster than it otherwise might have.
