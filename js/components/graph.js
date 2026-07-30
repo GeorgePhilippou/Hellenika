@@ -86,10 +86,16 @@ export function createGraph(canvas, { nodes, links, rootId, onNodeClick, onHover
       if (!b.pinned) { b.vx -= ux; b.vy -= uy; }
     }
 
+    // Keep every node (plus its label, drawn below it) inside the visible
+    // canvas -- half the canvas dimension, minus margin for the node radius
+    // and label text, not the full W/H (which let nodes drift off-screen
+    // on graphs with enough connections to push the layout wide/tall).
+    const boundX = W / 2 - 40;
+    const boundY = H / 2 - 40;
     for (const p of arr) {
       if (p.pinned || p === dragNode) continue;
-      p.x = clamp(p.x + p.vx, -W, W);
-      p.y = clamp(p.y + p.vy, -H, H);
+      p.x = clamp(p.x + p.vx, -boundX, boundX);
+      p.y = clamp(p.y + p.vy, -boundY, boundY);
     }
   }
 
