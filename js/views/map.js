@@ -24,7 +24,8 @@ const LAYERS = [
   ['territories', 'Political control'],
   ['cities', 'Cities'],
   ['sites', 'Sites & sanctuaries'],
-  ['battles', 'Battles'],
+  ['battles', 'Battles & events'],
+  ['artefacts', 'Artefacts'],
   ['labels', 'Place labels'],
 ];
 
@@ -129,9 +130,13 @@ function resolveStops(config) {
     .filter(Boolean);
 }
 
-export async function renderMap(params) {
+export async function renderMap(params, query) {
   const root = el('div', { class: 'view' });
   const initialMode = ['odyssey', 'alexander'].includes(params?.mode) ? params.mode : 'historical';
+  // Deep link from an entity page's "On the map" button -- e.g. #/map?focus=siege-of-tyre --
+  // flies to that entity's own pin and highlights it, rather than dropping
+  // the visitor on whatever view of the map they last left.
+  const focusEntity = query?.focus ? db.get(query.focus) : null;
 
   root.innerHTML = `
     <div class="wrap">
@@ -171,11 +176,11 @@ export async function renderMap(params) {
       </div>
     </div>`;
 
-  root.__mount = () => mount(root, initialMode);
+  root.__mount = () => mount(root, initialMode, focusEntity);
   return root;
 }
 
-function mount(root, initialMode) {
+function mount(root, initialMode, focusEntity) {
   const canvas = $('#map-canvas', root);
   if (!canvas) return;
 
@@ -191,6 +196,10 @@ function mount(root, initialMode) {
   let unbindYear = null, unbindPlay = null, unbindLayers = null;
   let modeEvents = null;
   let mode = 'historical';
+  // Only snap the camera/year to the deep-linked entity once -- if the
+  // visitor then switches to a journey mode and back, historical mode
+  // shouldn't keep yanking them back to it.
+  let focusApplied = false;
 
   function teardown() {
     unbindYear?.(); unbindPlay?.(); unbindLayers?.();
@@ -291,6 +300,8 @@ function mount(root, initialMode) {
         <span><i class="map-key-area dashed"></i>culture / league</span>
         <span><i class="map-key-point city"></i>city</span>
         <span><i class="map-key-point site"></i>site</span>
+        <span><i class="map-key-point battle"></i>battle / event</span>
+        <span><i class="map-key-point artefact"></i>artefact</span>
       </div>`;
 
     const hideHoverTip = () => {
@@ -323,11 +334,20 @@ function mount(root, initialMode) {
       tip.style.top = `${Math.max(8, Math.min(pos.y + 14, canvas.clientHeight - estimatedHeight))}px`;
     };
 
+    // Jump the scrubber to the deep-linked entity's own date, once, so its
+    // pin and the surrounding historical context (territories, other
+    // markers) actually line up with when it existed.
+    if (focusEntity && !focusApplied) {
+      focusApplied = true;
+      if (focusEntity.start != null) store.setYear(focusEntity.start);
+    }
+
     const hMap = createMap(canvas, {
       year: store.get('year'),
       layers: { ...store.get('layers'), routes: false },
       basemap: 'plain',
       markers: [],
+      focus: focusEntity,
       onMarkerClick: (e) => go(`/e/${e.id}`),
       territoryEntityId: territoryProfileId,
       onTerritoryClick: (_territory, entityId) => go(`/e/${entityId}`),
@@ -355,13 +375,24 @@ function mount(root, initialMode) {
     tip.addEventListener('pointerleave', hideHoverTip, { signal });
     map = hMap;
 
+    if (focusEntity?.coords) {
+      const [lat, lon] = focusEntity.coords;
+      hMap.flyTo([lon - 9, lat - 6, lon + 9, lat + 6], 0.08);
+    }
+
     const yearOut = $('#map-year', root);
     const periodOut = $('#map-period', root);
     const periodNoteOut = $('#map-period-note', root);
-    const PLOTTED = ['city', 'site', 'battle', 'war'];
+    const PLOTTED = ['city', 'site', 'battle', 'war', 'event', 'artefact'];
 
     const refreshMarkers = throttle((y) => {
-      const pts = db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type));
+      let pts = db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type));
+      // Belt-and-braces: a deep-linked entity should always be a real,
+      // clickable marker (not just the highlight ring below), even on the
+      // rare chance its own date range doesn't cover the year it lands on.
+      if (focusEntity && PLOTTED.includes(focusEntity.type) && !pts.some((p) => p.id === focusEntity.id)) {
+        pts = [...pts, focusEntity];
+      }
       hMap.setMarkers(pts);
       countHost.textContent = `${pts.length} ${pts.length === 1 ? 'place' : 'places'}`;
       listHost.innerHTML = pts

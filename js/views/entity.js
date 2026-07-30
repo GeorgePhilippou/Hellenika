@@ -62,7 +62,7 @@ function heroHTML(e, sections) {
           ${e.altNames.length ? `<p class="entity-alt">Also known as ${esc(e.altNames.join(' · '))}</p>` : ''}
           <p class="entity-summary">${esc(e.summary)}</p>
           <div class="entity-actions">
-            ${e.coords ? `<a class="btn btn-sm" href="#/map">${icon('map', { size: 15 })} On the map</a>` : ''}
+            ${e.coords ? `<a class="btn btn-sm" href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 15 })} On the map</a>` : ''}
             ${e.start != null && !e.modern ? `<a class="btn btn-sm" href="#/timeline">${icon('timeline', { size: 15 })} On the timeline</a>` : ''}
             <button class="btn btn-sm" id="act-save" aria-pressed="${bookmarked}">
               ${icon('bookmark', { size: 15 })} ${bookmarked ? 'Saved' : 'Save'}
@@ -75,6 +75,28 @@ function heroHTML(e, sections) {
         </div>
       </div>
     </header>`;
+}
+
+/**
+ * A human-readable "where" line for the Location panel. Sites, cities and
+ * people are authored with their own `region` string, but most other
+ * categories (events, artefacts, myths, texts) only ever got coordinates,
+ * so their Location panel used to render a mini-map with no caption at
+ * all. Falling back to a related site/city -- whatever the exact
+ * relationship is called ("found at", "site", "worshipped at", "died
+ * at"...) -- gives every one of them a real, clickable place name instead.
+ */
+function locationCaption(e) {
+  if (e.region) return esc(e.region);
+  const rel = e.relations
+    .map((r) => ({ ...r, entity: db.get(r.id) }))
+    .find((r) => r.entity && (r.entity.type === 'site' || r.entity.type === 'city'));
+  if (rel) {
+    const label = rel.rel.charAt(0).toUpperCase() + rel.rel.slice(1);
+    return `${esc(label)}: <a href="${entityHref(rel.id)}">${esc(rel.entity.name)}</a>`;
+  }
+  if (e.coords) return `<span class="num">${e.coords[0].toFixed(3)}, ${e.coords[1].toFixed(3)}</span>`;
+  return '';
 }
 
 function sidebarHTML(e, sections) {
@@ -114,7 +136,9 @@ function sidebarHTML(e, sections) {
         <div class="panel">
           <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Location</h3>
           <canvas class="mini-map" id="mini-map"></canvas>
-          <p class="xs muted" style="margin-top:var(--s-2)">${esc(e.region || '')}</p>
+          <p class="xs muted" style="margin-top:var(--s-2)">${locationCaption(e)}</p>
+          <a class="btn btn-sm" style="margin-top:var(--s-3);width:100%;justify-content:center"
+             href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 14 })} Open on the full map</a>
         </div>` : ''}
     </aside>`;
 }

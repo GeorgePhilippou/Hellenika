@@ -474,6 +474,17 @@
 }
 .map-key-point.city { border-radius: 50%; }
 .map-key-point.site { border-radius: 1px; }
+.map-key-point.artefact { border-radius: 1px; transform: rotate(45deg); }
+.map-key-point.battle {
+  position: relative; width: 10px; height: 10px;
+  background: none; border: none; box-shadow: none;
+}
+.map-key-point.battle::before, .map-key-point.battle::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 12px; height: 2px; background: currentColor;
+}
+.map-key-point.battle::before { transform: translate(-50%, -50%) rotate(45deg); }
+.map-key-point.battle::after { transform: translate(-50%, -50%) rotate(-45deg); }
 .map-key-foundation {
   display: inline-block;
   width: 8px;

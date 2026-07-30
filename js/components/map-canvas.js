@@ -479,8 +479,14 @@ export function createMap(canvas, {
         const { e, x, y: py } = group[0];
         const isHot = hot?.id === e.id;
         const colour = cssVar(`--p-${e.tint}`);
-        const shape = e.type === 'battle' || e.type === 'war' ? 'battle'
-                    : e.type === 'city' ? 'city' : 'site';
+        // "event" (sieges, foundings, deaths, disasters -- the catch-all
+        // type) reads as a point-in-time historical event, same as a
+        // battle, so it shares the crossed-blades mark rather than the
+        // plain site square. Artefacts get their own diamond so a findspot
+        // pin is never mistaken for the site itself sitting right next to it.
+        const shape = e.type === 'battle' || e.type === 'war' || e.type === 'event' ? 'battle'
+                    : e.type === 'city' ? 'city'
+                    : e.type === 'artefact' ? 'artefact' : 'site';
         const r = isHot ? 6.5 : shape === 'city' ? 5 : 4;
 
         ctx.save();
@@ -500,6 +506,16 @@ export function createMap(canvas, {
           ctx.shadowBlur = 0;
           ctx.strokeStyle = dark ? '#12110f' : '#fff';
           ctx.lineWidth = 1.8;
+          ctx.stroke();
+        } else if (shape === 'artefact') {
+          ctx.translate(x, py);
+          ctx.rotate(Math.PI / 4);
+          ctx.rect(-r * 0.8, -r * 0.8, r * 1.6, r * 1.6);
+          ctx.fillStyle = colour;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          ctx.strokeStyle = dark ? '#12110f' : '#fff';
+          ctx.lineWidth = 1.5;
           ctx.stroke();
         } else {
           ctx.rect(x - r * 0.85, py - r * 0.85, r * 1.7, r * 1.7);
@@ -672,7 +688,12 @@ export function createMap(canvas, {
   function layerAllows(L, type) {
     if (type === 'city') return L.cities !== false;
     if (type === 'site') return L.sites !== false;
-    if (type === 'battle' || type === 'war') return L.battles !== false;
+    // Plain "event" is folded into the same Battles toggle as battle/war --
+    // it's the catch-all type for point-in-time historical events (sieges,
+    // foundings, deaths, disasters), the same broad category the layer was
+    // already meant to cover, not just pitched battles.
+    if (type === 'battle' || type === 'war' || type === 'event') return L.battles !== false;
+    if (type === 'artefact') return L.artefacts !== false;
     return false;
   }
 

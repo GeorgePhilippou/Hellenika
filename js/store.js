@@ -29,7 +29,7 @@ const state = {
   /** Map layer toggles. */
   layers: persist.get('layers', {
     territories: true, cities: true, sites: true, battles: true,
-    routes: true, labels: true,
+    artefacts: true, routes: true, labels: true,
   }),
   /** Map basemap for the historical map view — 'plain' is the only
       option now (an accent-tinted CARTO basemap); 'relief' still exists
