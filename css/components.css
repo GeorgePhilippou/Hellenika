@@ -70,6 +70,16 @@
 .btn:hover { background: var(--surface-hover); box-shadow: var(--sh-2); text-decoration: none; }
 .btn:active { transform: scale(0.97); }
 
+/* A visibly inert button -- e.g. "On the map" for an entity whose only
+   location is a traditional/legendary association rather than a
+   confirmed one. Rendered on a <span>, not an <a>, so there's no href to
+   suppress; pointer-events stays enabled so the title tooltip explaining
+   why still shows on hover. */
+.btn-disabled {
+  opacity: .45; cursor: not-allowed; box-shadow: none;
+}
+.btn-disabled:hover { background: var(--surface); }
+
 .btn-primary {
   background: var(--accent); border-color: transparent; color: #fff;
   box-shadow: 0 2px 10px color-mix(in srgb, var(--accent) 35%, transparent);

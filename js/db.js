@@ -201,6 +201,10 @@ const INVERSE = {
   'composed by': 'composed', 'composed': 'composed by',
   'depicts': 'depicted in', 'depicted in': 'depicts',
   'period': 'includes', 'contains': 'in',
+  'ruled': 'ruled by', 'ruled by': 'ruled', 'ruled from': 'seat of',
+  'ruled (myth)': 'ruled by (myth)', 'ruled by (myth)': 'ruled (myth)',
+  'king of': 'ruled by', 'king of (myth)': 'ruled by (myth)',
+  'queen of': 'ruled by', 'born at': 'birthplace of', 'birthplace of': 'born at',
 };
 
 const inverseOf = (rel) => INVERSE[rel] || 'related to';

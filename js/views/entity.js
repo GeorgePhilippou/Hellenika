@@ -47,6 +47,14 @@ export async function renderEntity(params) {
 
 function heroHTML(e, sections) {
   const bookmarked = store.isBookmarked(e.id);
+  const homeRel = !e.region ? homeRelation(e) : null;
+  const traditional = e.coords && isTraditionalLocation(e);
+  const mapBtn = !e.coords ? '' : traditional
+    ? `<span class="btn btn-sm btn-disabled" aria-disabled="true"
+             title="A traditional or legendary association, not a confirmed location">
+         ${icon('map', { size: 15 })} On the map
+       </span>`
+    : `<a class="btn btn-sm" href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 15 })} On the map</a>`;
   return `
     <header class="entity-hero" style="--tint:${db.tintVar(e.tint)}">
       <div class="wrap entity-hero-grid">
@@ -56,7 +64,8 @@ function heroHTML(e, sections) {
             ${e.subtype ? `<span class="chip">${esc(e.subtype)}</span>` : ''}
             ${e.legendary ? `<span class="conf conf-legendary">Legendary</span>` : ''}
             ${e.start != null ? `<span class="chip num">${esc(entityDate(e))}</span>` : ''}
-            ${e.region ? `<span class="chip">${esc(e.region)}</span>` : ''}
+            ${e.region ? `<span class="chip">${esc(e.region)}</span>`
+              : homeRel ? `<span class="chip">${esc(homeRel.entity.name)}</span>` : ''}
           </div>
           <h1>${esc(e.name)}</h1>
           ${e.altNames.length ? `<p class="entity-alt">Also known as ${esc(e.altNames.join(' · '))}</p>` : ''}
@@ -67,7 +76,7 @@ function heroHTML(e, sections) {
             <p>${esc(e.significance)}</p>
           </a>` : ''}
           <div class="entity-actions">
-            ${e.coords ? `<a class="btn btn-sm" href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 15 })} On the map</a>` : ''}
+            ${mapBtn}
             ${e.start != null && !e.modern ? `<a class="btn btn-sm" href="#/timeline">${icon('timeline', { size: 15 })} On the timeline</a>` : ''}
             <button class="btn btn-sm" id="act-save" aria-pressed="${bookmarked}">
               ${icon('bookmark', { size: 15 })} ${bookmarked ? 'Saved' : 'Save'}
@@ -82,18 +91,59 @@ function heroHTML(e, sections) {
     </header>`;
 }
 
+// A "this is genuinely where they're from" relation, as opposed to one of
+// possibly many places merely visited, mentioned, or associated in
+// passing (a well-travelled hero can rack up a dozen "related to" links
+// to myth-places -- every Odyssey stop -- which are a poor substitute
+// for "ruled (myth): Ithaca" specifically).
+const HOME_REL = /^(ruled|king of|queen of|born at|birthplace of)/i;
+
 /**
- * A related site/city entity to use as a location reference when the
- * entity has no `region` of its own -- true for most non-place categories
- * (events, artefacts, myths, texts), which only ever got coordinates.
- * Whatever the exact relationship is called ("found at", "site",
- * "worshipped at", "died at"...) it still tells you, geographically,
- * where the pin sits.
+ * Every related site/city/legendary-place entity, home-relations (see
+ * HOME_REL) sorted first. Covers most non-place categories (events,
+ * artefacts, myths, texts), which only ever got coordinates, not a
+ * `region` of their own. Includes myth-type places (e.g. Ithaca, Olympus)
+ * since a hero's only connection to their home is often the inverse of
+ * that place's own "ruled by (myth)"-style relation, not a real site/city
+ * entity.
  */
-function siteRelation(e) {
-  return e.relations
+function siteRelations(e) {
+  const all = e.relations
     .map((r) => ({ ...r, entity: db.get(r.id) }))
-    .find((r) => r.entity && (r.entity.type === 'site' || r.entity.type === 'city'));
+    .filter((r) => r.entity && (
+      r.entity.type === 'site' || r.entity.type === 'city'
+      || (r.entity.type === 'myth' && r.entity.subtype === 'place')
+    ));
+  const home = all.filter((r) => HOME_REL.test(r.rel));
+  const rest = all.filter((r) => !HOME_REL.test(r.rel));
+  return [...home, ...rest];
+}
+
+/** The single best location reference -- for panels that already show
+ * the relation's own label alongside it, so even an imprecise pick
+ * ("Related to: Aeaea") still reads as qualified rather than asserted. */
+function siteRelation(e) {
+  return siteRelations(e)[0] || null;
+}
+
+/** Stricter than siteRelation() -- only a genuine "this is where they're
+ * from" relation, never an arbitrary place merely mentioned in passing.
+ * For the page header, which shows just a bare place name with no
+ * qualifying label, so a wrong or arbitrary guess would read as fact. */
+function homeRelation(e) {
+  const rel = siteRelation(e);
+  return rel && HOME_REL.test(rel.rel) ? rel : null;
+}
+
+/**
+ * A region hedged as "traditional"/"traditionally" (Homer's birthplace,
+ * claimed by seven rival cities; most Odyssey stops, identified only by
+ * later, disputed guesswork) reflects a real absence of consensus, not
+ * just an approximate-but-agreed location -- the map link for these is
+ * disabled rather than presented as a firm, findable pin.
+ */
+function isTraditionalLocation(e) {
+  return /tradition/i.test(e.region || '');
 }
 
 /** A [label, value] fact-list pair for where an entity is/was, in whatever
@@ -156,11 +206,17 @@ function sidebarHTML(e, sections) {
 
       ${e.coords ? `
         <div class="panel">
-          <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Location</h3>
+          <h3 class="eyebrow" style="margin-bottom:var(--s-3)">${isTraditionalLocation(e) ? 'Traditional location' : 'Location'}</h3>
           <canvas class="mini-map" id="mini-map"></canvas>
           <p class="xs muted" style="margin-top:var(--s-2)">${locationCaption(e, siteRel)}</p>
+          ${isTraditionalLocation(e) ? `
+          <span class="btn btn-sm btn-disabled" aria-disabled="true"
+                style="margin-top:var(--s-3);width:100%;justify-content:center"
+                title="A traditional or legendary association, not a confirmed location">
+            ${icon('map', { size: 14 })} Open on the full map
+          </span>` : `
           <a class="btn btn-sm" style="margin-top:var(--s-3);width:100%;justify-content:center"
-             href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 14 })} Open on the full map</a>
+             href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 14 })} Open on the full map</a>`}
         </div>` : ''}
     </aside>`;
 }
