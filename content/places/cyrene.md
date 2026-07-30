@@ -28,6 +28,9 @@ claims:
   - text: The heart symbol derives from the silphium seed pod.
     evidence: debate
     confidence: speculative
+  - text: Cyrene developed a distinctive constitutional and political tradition, at times structured as an oligarchy and at other times as a monarchy under its own line of kings.
+    evidence: literary
+    confidence: established
 relations:
   - id: greek-colonisation
     rel: product of
@@ -53,3 +56,5 @@ One of the most successful Greek colonies, and the site of the first recorded hu
 Founded from Thera around 631 BC after a drought, reportedly at the direction of the Delphic oracle. Cyrene became wealthy, producing the philosopher Aristippus and the mathematician Eratosthenes.
 
 Its wealth rested on silphium, a plant used as seasoning, medicine and contraceptive, which grew only in a narrow coastal strip and resisted cultivation. Cyrenean coins depict it, and its seed pod — heart-shaped — is one proposed origin of the heart symbol. Overharvesting drove it to extinction by the first century AD; Pliny records that the last stalk was sent to the emperor Nero as a curiosity.
+
+Politically Cyrene went through several distinct phases: it was ruled for generations by a hereditary line of kings descended from its founder Battus, then experienced periods of oligarchic and more broadly participatory government as royal authority weakened, a constitutional trajectory that in outline resembles the shift from monarchy to other forms of government seen in many mainland Greek cities, even though Cyrene developed at the far western edge of the Greek world.

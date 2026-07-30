@@ -25,6 +25,9 @@ claims:
   - text: The story of a runner dying after announcing victory at Athens is a later tradition.
     evidence: consensus
     confidence: strong
+  - text: A separate burial mound for the Plataean allies who fought alongside Athens has also been identified near the battlefield.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: battle-marathon
     rel: site of
@@ -52,3 +55,5 @@ The *Soros*, a 9 m mound on the plain, covers the cremated Athenian dead. Excava
 The Athenians ran the last stretch into the Persian archers to cross the killing zone quickly, then held the wings while the deliberately thinned centre gave ground, enveloping the Persians. Herodotus gives 6,400 Persian dead to 192 Athenian.
 
 The modern marathon commemorates a run from here to Athens announcing the victory. Herodotus tells no such story — his runner, Pheidippides, ran to Sparta for help, about 240 km, which is far more remarkable and is now itself a race, the Spartathlon.
+
+Athens did not fight entirely alone: a separate, smaller burial mound near the battlefield is generally identified with the Plataeans, the one ally who sent troops to stand beside the Athenians, a modest monument that nonetheless commemorates the alliance Athens would remember gratefully for generations afterward.

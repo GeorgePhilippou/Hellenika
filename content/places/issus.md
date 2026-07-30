@@ -25,6 +25,9 @@ claims:
   - text: The Alexander Mosaic depicts this battle.
     evidence: consensus
     confidence: strong
+  - text: Darius escaped the battlefield by abandoning his chariot and royal regalia, which were captured along with his camp.
+    evidence: literary
+    confidence: strong
 relations:
   - id: battle-issus
     rel: site of
@@ -52,3 +55,5 @@ Darius manoeuvred behind Alexander and cut his supply line, forcing a battle on 
 Alexander led the Companion cavalry in an oblique charge across the Pinarus river straight at Darius' position. Darius fled, and his army broke. His mother, wife and children were captured in the camp; Alexander treated them with a courtesy the sources emphasise, and Darius' mother reportedly remained loyal to Alexander afterwards.
 
 The Alexander Mosaic from Pompeii — over a million tesserae, copying a lost Greek painting — shows the moment of the charge, with Darius turning in his chariot to look back.
+
+Darius's flight was undignified by royal standards: he abandoned his chariot, bow, and royal mantle to escape faster on horseback, and all of it fell into Macedonian hands along with the rest of his camp, giving Alexander's soldiers a haul of royal regalia that made vividly clear just how completely the Great King had been routed.

@@ -25,6 +25,9 @@ claims:
   - text: The withdrawal was a pre-planned escape rather than a betrayal.
     evidence: debate
     confidence: debated
+  - text: Octavian instituted a new set of games, the Actia, to be celebrated at Nicopolis every four years in commemoration of the victory.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-actium
     rel: site of
@@ -52,3 +55,5 @@ Antony and Cleopatra were blockaded in the Ambracian Gulf, their crews weakened 
 Whether this was a planned breakout that partly succeeded or a collapse is still argued — Octavian's version, which became the standard one, naturally emphasised betrayal and Antony's subjection to a foreign queen.
 
 Octavian founded Nicopolis, "Victory City", nearby and built a monument displaying the rams of captured ships; the sockets survive, and their size confirms the ships were very large.
+
+He also established a recurring athletic and religious festival, the Actia, modelled on the great Panhellenic games and held every four years at Nicopolis, ensuring that the memory of the victory was renewed publicly on a regular cycle rather than fading after the initial monuments were dedicated.

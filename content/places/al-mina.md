@@ -21,6 +21,9 @@ claims:
   - text: A resident Greek trading community lived at Al Mina.
     evidence: debate
     confidence: debated
+  - text: Al Mina lay near the mouth of the Orontes, a route that also carried Near Eastern goods and craft techniques into the Aegean during this period.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: greek-alphabet
     rel: transmission route for
@@ -46,3 +49,5 @@ Leonard Woolley excavated Al Mina in 1936 and found Euboean Greek pottery in qua
 Whether Greeks lived here or their pots simply arrived through Phoenician middlemen is disputed, and it matters: the first is a Greek trading community abroad, the second is Greeks receiving goods passively. The pottery includes drinking and mixing vessels, which suggests people using them rather than trade goods in transit.
 
 Either way, the site marks the reopening of eastern contacts after the Bronze Age collapse, and the "orientalising" transformation of Greek art follows within a generation.
+
+The exchange was not one-directional. The same Orontes-mouth route that carried Euboean pottery eastward also brought Near Eastern goods, motifs and craft techniques westward into the Aegean, and the rapid adoption in Greek art of eastern-derived decorative patterns, animal motifs and metalworking styles in the decades after Al Mina's pottery first appears is generally read as evidence of exactly this two-way traffic passing through sites like it.

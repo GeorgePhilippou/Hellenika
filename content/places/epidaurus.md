@@ -25,6 +25,9 @@ claims:
   - text: The seat geometry filters low-frequency noise, enhancing speech intelligibility.
     evidence: consensus
     confidence: probable
+  - text: The sanctuary also included a stadium, gymnasium and guesthouses, functioning as a combined healing, athletic and cultural centre rather than a purely medical site.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: asclepius
     rel: sanctuary of
@@ -48,3 +51,5 @@ Shows religious healing operating alongside Hippocratic medicine, and preserves 
 Patients slept in the *abaton* and hoped for a dream in which the god healed them or prescribed a treatment. Inscribed stone tablets record hundreds of cases in the patients' own framing — a man whose lance-head was removed, a woman pregnant for five years, a blind man who saw. Some describe procedures that sound surgical and were credited to the god.
 
 The theatre, built c. 340 BC for 14,000 spectators, has acoustics so precise that a coin dropped in the orchestra is audible in the topmost row. A 2007 acoustic study attributed this to the limestone seat rows filtering low-frequency background noise while reflecting higher speech frequencies — the corrugated geometry acts as an acoustic filter.
+
+The sanctuary was never just a hospital. Alongside the abaton and theatre it included a stadium for athletic competitions held in Asclepius's honour, a large gymnasium, and guesthouses for visiting pilgrims, so a patient's stay at Epidaurus combined medical hope with festival, sport and communal religious life in a way that a modern hospital does not.

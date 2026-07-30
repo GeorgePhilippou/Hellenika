@@ -22,6 +22,9 @@ claims:
   - text: Much of the ancient city is inaccessible beneath modern settlement and river silt.
     evidence: archaeological
     confidence: established
+  - text: Antioch later became one of the earliest and most important centres of Christianity, where believers were first called "Christians".
+    evidence: literary
+    confidence: established
 relations:
   - id: seleucus-i
     rel: founded by
@@ -47,3 +50,5 @@ Seleucus I founded Antioch in 300 BC, naming it for his father. Positioned where
 It was among the first cities anywhere with street lighting at night and a colonnaded main avenue several kilometres long. Its suburb Daphne, with springs and a sanctuary of Apollo, was famous for luxury.
 
 Most of ancient Antioch lies under modern Antakya and deep river silt, so it is far less known archaeologically than its importance warrants. A large number of Roman-era floor mosaics have been recovered.
+
+Its later religious history extended the city's importance well past the Hellenistic period: Antioch became one of the earliest and most significant centres of the Christian church, and the New Testament's Acts of the Apostles records that it was there, in this thoroughly Greek Seleucid foundation, that followers of Jesus were first called Christians.

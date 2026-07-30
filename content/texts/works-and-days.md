@@ -28,6 +28,9 @@ claims:
   - text: It is the earliest surviving Greek poem with an identified personal narrator.
     evidence: consensus
     confidence: strong
+  - text: The poem also includes the earliest surviving reference to a "Days" section listing which days of the month are favourable or unfavourable for specific activities.
+    evidence: literary
+    confidence: established
 relations:
   - id: hesiod
     rel: composed by
@@ -52,3 +55,5 @@ The practical content is genuine: when to plough, when to harvest, how to build 
 Interleaved is the myth of the Five Ages — gold, silver, bronze, heroes, iron — declining to Hesiod's own miserable present. It is the earliest surviving European statement that the past was better, and it has never gone out of fashion.
 
 What makes it new is the *I*. Homer never appears in his poems. Hesiod names himself, names his village, describes his father's failed emigration, and grumbles about the weather.
+
+The poem closes with the section that gives it half its title: a calendar of the month's days, each marked as favourable, unfavourable or mixed for particular undertakings, from starting a wine jar to cutting timber to a child's birth. It is the earliest surviving Greek example of this kind of practical, superstition-laced almanac, a genre that would persist in various forms throughout later Greek and Roman culture.

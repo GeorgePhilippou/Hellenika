@@ -25,6 +25,9 @@ claims:
   - text: Greek sculptors learned the Egyptian proportional grid directly at Naukratis.
     evidence: debate
     confidence: probable
+  - text: Naukratis minted its own coinage and issued weights, reflecting its distinctive status as a chartered but non-colonial Greek trading settlement.
+    evidence: numismatic
+    confidence: strong
 relations:
   - id: greek-colonisation
     rel: related to
@@ -50,3 +53,5 @@ Pharaoh Amasis concentrated all Greek trade with Egypt at Naukratis, where Greek
 The influence ran strongly the other way in art. The Archaic Greek *kouros* — nude male, left foot advanced, arms at sides, fists clenched — follows Egyptian conventions closely enough that transmission is not in doubt. Egyptian sculptors used a fixed proportional grid, and Diodorus reports that Greeks learned it here.
 
 The site also produced faience, scarabs and a great deal of imported Greek pottery, making it one of the best-dated Archaic assemblages anywhere.
+
+Naukratis's unusual legal position — a permitted foreign trading enclave rather than an independent colony or a normal Egyptian town — is reflected in its own coinage and standardised weights, tools a genuinely autonomous merchant community needed to conduct business smoothly under Egyptian oversight, further evidence that Naukratis occupied a carefully negotiated middle ground between full Greek independence and Egyptian control.

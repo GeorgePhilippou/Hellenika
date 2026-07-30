@@ -22,6 +22,9 @@ claims:
   - text: Loss of phalanx cohesion on uneven ground was decisive.
     evidence: literary
     confidence: strong
+  - text: King Perseus fled the battlefield before the fighting ended and was later captured and paraded in Aemilius Paullus's Roman triumph.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-pydna
     rel: site of
@@ -49,3 +52,5 @@ Perseus' phalanx initially drove the Romans back. But as it advanced over uneven
 Polybius, present in Rome and writing from participants' accounts, drew the lesson explicitly: the phalanx requires level unbroken ground and cannot adapt when it does not get it.
 
 The kingdom of Macedon was abolished and divided into four republics; 150,000 people from Epirus were enslaved in the aftermath.
+
+Perseus himself left the field before the battle was fully decided, reportedly on the pretext of making a sacrifice, and was later hunted down and captured; he was brought to Rome and marched in chains through the streets in Aemilius Paullus's triumph, a humiliating final appearance for the last king of a dynasty descended from Alexander's own generals.
