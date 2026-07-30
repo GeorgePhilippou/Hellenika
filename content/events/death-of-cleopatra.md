@@ -22,6 +22,9 @@ claims:
   - text: She died from a snake bite.
     evidence: debate
     confidence: debated
+  - text: Octavian governed Egypt afterward as his own personal possession rather than a normal senatorial province, barring senators from entering without his explicit permission.
+    evidence: literary
+    confidence: established
 relations:
   - id: cleopatra-vii
     rel: subject
@@ -43,8 +46,8 @@ _order: 57
 Cleopatra VII died in August 30 BC; Egypt became a Roman province, ending the last Hellenistic kingdom.
 
 <!-- field: body -->
-Antony killed himself on a false report of her death. Cleopatra was captured, and negotiated — or appeared to — while learning that Octavian intended to display her in his triumph. She died shortly after, with her attendants Iras and Charmion.
+Antony killed himself on a false report that Cleopatra had already died, a piece of misinformation she may have deliberately allowed to reach him. Cleopatra herself was subsequently captured alive and appeared to negotiate terms with Octavian's representatives, all while secretly learning that he actually intended to have her paraded as a captive in his triumphal procession through Rome — a humiliation she was determined to avoid at any cost. She died shortly afterward in her chambers, together with her two loyal attendants, Iras and Charmion, who chose to die alongside her rather than survive her.
 
-Plutarch reports the asp smuggled in a basket of figs, and immediately concedes that nobody knows the truth: some said poison hidden in a hollow comb, and the two small marks on her arm were the only evidence. A snake was never found.
+Plutarch reports the well-known story of an asp smuggled in among a basket of figs, and then immediately concedes, with unusual candour for the period, that nobody actually knew the real truth of what happened behind closed doors: some accounts instead described poison concealed inside a hollow hairpin or comb, and the only physical evidence anyone could point to afterward was two small puncture-like marks on her arm. No snake itself was ever actually found in the room.
 
-Octavian annexed Egypt not as a normal province but as his personal possession, governed by a prefect, with senators forbidden to enter without permission — Egyptian grain fed Rome, and he was not going to let a rival control it. Caesarion, her son by Caesar, was killed. The Ptolemaic dynasty, founded 293 years earlier, ended.
+Octavian chose to annex Egypt not as an ordinary province administered by the Senate in the usual Roman fashion, but as his own direct personal possession, governed thereafter by a prefect answerable to him alone, with senators explicitly forbidden from even entering the country without his personal permission — Egyptian grain shipments were by this point critical to feeding the city of Rome itself, and he had no intention of letting any potential future rival gain leverage over that supply. Caesarion, Cleopatra's son by Julius Caesar and a living reminder of Caesar's own bloodline, was hunted down and killed shortly afterward on Octavian's orders. The Ptolemaic dynasty, founded 293 years earlier by Alexander's own general, came to its final end.

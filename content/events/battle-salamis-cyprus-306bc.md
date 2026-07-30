@@ -25,6 +25,9 @@ claims:
   - text: The battle is treated as marking the start of open, independent Hellenistic kingship.
     evidence: consensus
     confidence: strong
+  - text: Demetrius went on to besiege Rhodes the following year, an operation so costly it gave rise to the phrase "siege of Rhodes" as a byword for a huge, ultimately failed undertaking.
+    evidence: literary
+    confidence: strong
 relations:
   - id: demetrius-i
     rel: commanded at
@@ -48,6 +51,6 @@ _order: 49
 Demetrius Poliorcetes destroyed a Ptolemaic fleet off Cyprus — a victory that pushed the Successors to start calling themselves kings.
 
 <!-- field: body -->
-Demetrius landed on Cyprus, defeated Ptolemy's brother Menelaus at sea, and besieged Salamis. Ptolemy sailed to relieve it with a fleet of roughly 140 ships. Demetrius met him in the open water outside the harbour rather than let him land reinforcements, and won overwhelmingly — accounts report most of the Ptolemaic fleet sunk or captured and thousands of soldiers taken prisoner. Ptolemy escaped to Egypt; Menelaus surrendered the city and the island.
+Demetrius landed on Cyprus, defeated Ptolemy's brother Menelaus in an initial naval engagement, and besieged the city of Salamis. Ptolemy himself sailed to relieve it with a fleet of roughly 140 ships. Rather than let that relief force land reinforcements safely, Demetrius met it in open water outside the harbour and won overwhelmingly — ancient accounts report most of the Ptolemaic fleet either sunk or captured outright, along with several thousand soldiers taken prisoner. Ptolemy himself escaped back to Egypt; Menelaus, left with no hope of rescue, surrendered both the city and the whole island.
 
-Within weeks of the news reaching him, Antigonus I had himself and Demetrius proclaimed *basileus* — king — the first of Alexander's former generals to do so outright rather than govern as regents for his heirs, all of whom were by then dead. Ptolemy, Seleucus, Lysimachus and Cassander followed within about a year. The pretence of a single Argead empire ended there; what followed were openly rival Hellenistic kingdoms.
+Within weeks of the news reaching him, Antigonus I had himself and his son Demetrius formally proclaimed *basileus* — king — becoming the first of Alexander's former generals to claim the title outright rather than continue governing merely as regents for Alexander's heirs, all of whom were by that point dead. Ptolemy, Seleucus, Lysimachus and Cassander each followed suit within about a year, unwilling to be the only major successor left without the title. The lingering pretence of a single restored Argead empire under a legitimate heir ended there for good; what followed from this point on were openly rival, self-declared Hellenistic kingdoms competing on equal terms. Buoyed by his victory, Demetrius went on the following year to besiege the island of Rhodes in a campaign so enormous and ultimately so unsuccessful that "siege of Rhodes" became a byword in later Greek usage for a vast, expensive undertaking that still ends in failure.

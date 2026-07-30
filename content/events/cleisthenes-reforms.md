@@ -22,6 +22,9 @@ claims:
   - text: The reforms were designed to break regional aristocratic power.
     evidence: consensus
     confidence: probable
+  - text: The reforms followed directly on the expulsion of the tyrant Hippias and a brief factional struggle between Cleisthenes and the rival aristocrat Isagoras.
+    evidence: literary
+    confidence: strong
 relations:
   - id: cleisthenes
     rel: enacted by
@@ -42,8 +45,10 @@ _order: 21
 Athens was reorganised into ten artificial tribes drawn from across Attica, creating the structure of democracy.
 
 <!-- field: body -->
-Cleisthenes divided Attica into three regions — city, coast, inland — split each into ten *trittyes*, and built each new tribe from one trittys of each region. A tribe therefore had no geographical coherence and no aristocratic patron, which destroyed the regional power bases that had driven a century of factional conflict.
+The reforms followed almost immediately on the expulsion of the tyrant Hippias and a short, sharp factional struggle between Cleisthenes and a rival aristocrat, Isagoras, who briefly gained the upper hand with Spartan military backing before Cleisthenes, having appealed directly to the ordinary Athenian populace for support, prevailed and pushed his new constitution through.
 
-Citizenship was registered by *deme*, the local ward, and the demotic replaced patronymic in official contexts. The Council of 500 — fifty from each tribe by lot — prepared assembly business, and its presiding committee rotated ten times a year.
+Cleisthenes divided Attica into three regions — city, coast, inland — split each into ten *trittyes*, and built each new tribe from exactly one trittys drawn from each of the three regions. A tribe therefore had no real geographical coherence and no single aristocratic patron capable of dominating it, which deliberately destroyed the regional power bases that had driven roughly a century of destabilising factional conflict among Athens's leading families.
 
-The result was a system in which most citizens would hold office at some point, and in which the machinery itself resisted capture by any family.
+Citizenship was registered by *deme*, the local ward or village, and a citizen's demotic — his deme name — replaced his father's name (his patronymic) in official public contexts, substituting residence for inherited lineage as the basic mark of civic identity. The new Council of 500, with fifty members chosen by lot from each of the ten tribes, prepared the agenda for the full citizen assembly, and its presiding committee of fifty rotated through ten separate terms across the year, so that at any given moment a different tenth of the Council held day-to-day administrative responsibility.
+
+The overall result was a system in which most ordinary male citizens could reasonably expect to hold some public office at least once in their lifetime, and in which the underlying machinery of government itself was deliberately built to resist capture or long-term domination by any single family or faction.

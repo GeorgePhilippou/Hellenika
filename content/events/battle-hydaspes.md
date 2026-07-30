@@ -28,6 +28,9 @@ claims:
   - text: It was the costliest battle of Alexander's career.
     evidence: consensus
     confidence: probable
+  - text: Porus was reinstated and expanded as a Macedonian client ruler after the battle, on Alexander's own initiative.
+    evidence: literary
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: victor
@@ -47,8 +50,8 @@ _order: 45
 Alexander's hardest-fought victory, against Porus and his war elephants in monsoon rain on the Jhelum river.
 
 <!-- field: body -->
-The river was swollen by monsoon and Porus held the far bank with around 200 elephants — which horses will not approach. Alexander spent weeks making noisy night movements until the Indians stopped responding, then crossed 27 km upstream in a storm.
+The river was swollen with monsoon rain and Porus held the far bank with around 200 war elephants, animals horses will not willingly approach, which made a conventional cavalry crossing directly opposite the Indian position essentially impossible. Alexander instead spent weeks staging noisy, repeated night movements up and down the riverbank until Porus's scouts stopped bothering to react to each one, and then, once that vigilance had genuinely relaxed, crossed the river for real some 27 km upstream under cover of a violent storm that further concealed his movement.
 
-The battle was brutal. The phalanx opened lanes to let elephants pass through rather than break, and attacked their handlers and trunks; wounded and panicking elephants trampled troops on both sides. Alexander used his cavalry on one flank to draw the Indian horse away, then took them in the rear with a second detachment.
+The battle that followed was among the most brutal of his career. Rather than break formation and risk being trampled, the Macedonian phalanx opened deliberate lanes to let charging elephants pass harmlessly through the ranks, then turned to attack the animals' vulnerable handlers and trunks with missiles and close-quarters weapons; wounded, panicking elephants trampled soldiers on both sides indiscriminately as the battle disintegrated into chaos around them. Alexander used his cavalry on one flank to draw the Indian horse away from Porus's main position, then wheeled a second detachment around to strike the same Indian cavalry from the rear once it had committed.
 
-Bucephalus, his horse for twenty years, died after the battle, and Alexander founded a city named for him. It was his last great battle: at the Hyphasis shortly afterwards, his army refused to go further east.
+Bucephalus, Alexander's horse for roughly twenty years since his own boyhood, died either during or shortly after the battle from wounds or old age, and Alexander founded a new city, Bucephala, named in the horse's honour on the spot. Porus himself, despite his defeat, impressed Alexander enough with his personal courage and bearing that he was not only reinstated as ruler of his own kingdom but had his territory actually expanded under Macedonian oversight. Hydaspes proved to be Alexander's last great pitched battle: at the Hyphasis river shortly afterward, his exhausted, homesick army finally refused outright to march any further east, forcing him to turn back.
