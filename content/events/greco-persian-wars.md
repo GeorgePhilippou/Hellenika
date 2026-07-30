@@ -25,6 +25,9 @@ claims:
   - text: Herodotus' Histories, the main surviving narrative source, was written a generation after the events it describes.
     evidence: consensus
     confidence: established
+  - text: After the Persian sack of 480 BC, Athenians buried damaged pre-war dedications, including sculptures like the Kritios Boy, in landfill on the Acropolis rather than reusing them, inadvertently preserving them intact for modern archaeology.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: ionian-revolt
     rel: opened by
