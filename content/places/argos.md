@@ -25,6 +25,9 @@ claims:
   - text: Pheidon introduced standardised weights and measures.
     evidence: debate
     confidence: debated
+  - text: Argos maintained an unusual, long-lasting form of limited monarchy alongside other civic institutions well into the Classical period.
+    evidence: debate
+    confidence: probable
 relations:
   - id: doryphoros
     rel: origin of
@@ -49,4 +52,4 @@ Dominated the Argolid in the seventh century BC under Pheidon, and stayed neutra
 <!-- field: body -->
 Argos claims continuous habitation for around 5,000 years. Under the tyrant Pheidon in the seventh century BC it defeated Sparta at Hysiae and, by tradition, introduced standardised weights and measures to the Peloponnese.
 
-Its long rivalry with Sparta shaped its choices: it stayed out of the Persian Wars, and later allied with Athens. The nearby Heraion anchored a major regional cult, while control of other Argive communities was repeatedly disputed rather than automatic. Polykleitos of Argos wrote the *Canon*, a treatise on ideal human proportion, and demonstrated it in the *Doryphoros* — a statue that became the standard reference for the male body in Western art.
+Its long rivalry with Sparta shaped its choices: it stayed out of the Persian Wars, and later allied with Athens. The nearby Heraion anchored a major regional cult, while control of other Argive communities was repeatedly disputed rather than automatic. Unusually for a major Greek polis, Argos retained a form of limited hereditary monarchy alongside its other civic institutions for much longer than most comparable cities, which had already abolished kingship in favour of oligarchy or democracy well before the Classical period. Polykleitos of Argos wrote the *Canon*, a treatise on ideal human proportion, and demonstrated it in the *Doryphoros* — a statue that became the standard reference for the male body in Western art.

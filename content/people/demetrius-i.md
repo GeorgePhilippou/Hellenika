@@ -27,6 +27,9 @@ claims:
   - text: He held the Macedonian throne from 294 to 288 BC before losing it and dying in captivity around 283 BC.
     evidence: literary
     confidence: strong
+  - text: Demetrius married Antipater's daughter Phila and, later, several other royal wives as part of shifting political alliances typical of the successor kings.
+    evidence: literary
+    confidence: strong
 relations:
   - id: antigonus-i
     rel: son of
@@ -53,4 +56,4 @@ Demetrius earned his father's ambitions their decisive vindication in 306 BC, de
 
 The following year Demetrius turned an enormous siege effort against Rhodes, which had refused to join Antigonid campaigns against Ptolemy. He deployed siege towers and engines of a scale ancient sources treat as almost fantastical, including the "Helepolis" ("Taker of Cities"), yet the Rhodians held out for a year and negotiated a settlement that left the city independent. Despite the failure, the sheer scale of the effort won him the nickname Poliorcetes — "the Besieger" — which stuck for the rest of his life and into history. The Rhodians reportedly sold the abandoned siege equipment and used the proceeds toward the great bronze statue of Helios that became known as the Colossus of Rhodes.
 
-His later career was volatile even by the standards of the age: he held Macedon itself from 294 BC, lost it within six years to a coalition of rivals, and after a final failed campaign in Asia surrendered to Seleucus and died in comfortable but permanent captivity around 283 BC — outliving his father's defeat at Ipsus by two decades, though never securing his own kingdom for long.
+His later career was volatile even by the standards of the age: he held Macedon itself from 294 BC, lost it within six years to a coalition of rivals, and after a final failed campaign in Asia surrendered to Seleucus and died in comfortable but permanent captivity around 283 BC — outliving his father's defeat at Ipsus by two decades, though never securing his own kingdom for long. Like most of the successor generals, his marriages were tools of alliance rather than simple romance: his first wife Phila was the daughter of the powerful regent Antipater, and he took several further royal wives over his career as shifting political needs required, a pattern of serial dynastic marriage common across the whole generation of Alexander's former officers.

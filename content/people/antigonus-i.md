@@ -27,6 +27,9 @@ claims:
   - text: Antigonus was killed fighting in the front line at the Battle of Ipsus in 301 BC, in his eighties.
     evidence: literary
     confidence: strong
+  - text: Antigonus's coalition of rivals at Ipsus was decisively assisted by war elephants Seleucus had obtained from India.
+    evidence: literary
+    confidence: strong
 relations:
   - id: demetrius-i
     rel: father of
@@ -56,4 +59,4 @@ Antigonus lost an eye at some point during Philip II's campaigns, and the nickna
 
 His son Demetrius delivered the decisive stroke in 306 BC, destroying Ptolemy's fleet at Salamis on Cyprus. Antigonus took this as vindication enough to do what no successor had yet dared: he assumed the title of king outright, rather than governing nominally for Alexander's line, which by then had been quietly murdered. The other successors followed his lead and crowned themselves in turn, but also recognised what his ambition meant for them and combined against him.
 
-The coalition met him at Ipsus in Phrygia in 301 BC, in one of the largest battles of the era. Antigonus, past eighty, died fighting in the melee rather than fleeing, reportedly convinced until the end that his son would arrive with reinforcements. His kingdom was divided among the victors; only a generation later did his grandson, another Antigonus, secure Macedon itself for the dynasty that bore his name.
+The coalition met him at Ipsus in Phrygia in 301 BC, in one of the largest battles of the era, decided in large part by some 400 war elephants Seleucus had brought back from his eastern territories in exchange for ceding land to the Mauryan king Chandragupta, which blocked Antigonus's cavalry from returning to support his own infantry at the critical moment. Antigonus, past eighty, died fighting in the melee rather than fleeing, reportedly convinced until the end that his son would arrive with reinforcements. His kingdom was divided among the victors; only a generation later did his grandson, another Antigonus, secure Macedon itself for the dynasty that bore his name.

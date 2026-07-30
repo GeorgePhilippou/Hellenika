@@ -25,6 +25,9 @@ claims:
   - text: The site has been severely damaged by looting since 1979.
     evidence: consensus
     confidence: established
+  - text: The city's exact founding is debated, with some scholars crediting Seleucus I or Antiochus I rather than Alexander directly.
+    evidence: debate
+    confidence: debated
 relations:
   - id: seleucus-i
     rel: in kingdom of
@@ -52,3 +55,5 @@ Excavated by the French mission from 1964 until the Soviet invasion in 1979, Ai-
 In a *heroon* was a stone inscribed with maxims from Delphi, ending with a note that one Clearchus copied them at Delphi and set them up here. Someone carried the sayings of the Greek homeland across a continent so that a city on the Oxus could read them.
 
 The library yielded impressions of a lost philosophical text left in the soil as papyrus decayed. The city was destroyed by nomadic invasion around 145 BC. The site was heavily looted during the Afghan wars and much is now unrecoverable.
+
+Tradition credits the city's founding to Alexander himself during his campaigns in Bactria, but the archaeological evidence for its major public buildings points more clearly to the reigns of Seleucus I and his son Antiochus I a generation or two later, and scholars remain divided over how much, if anything, of the original settlement predates the Seleucid consolidation of the region.

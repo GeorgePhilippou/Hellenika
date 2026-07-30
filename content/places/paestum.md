@@ -25,6 +25,9 @@ claims:
   - text: The diving figure represents the soul's passage to the afterlife.
     evidence: debate
     confidence: debated
+  - text: Paestum passed to the Lucanians, an Italic people, before eventually becoming a Roman colony.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: greek-colonisation
     rel: product of
@@ -51,4 +54,4 @@ Founded by Greeks from Sybaris around 600 BC as Poseidonia, the city has three D
 
 The Tomb of the Diver, found in 1968, has five painted slabs: a symposium on the walls and, on the lid, a young man diving into water. It is the only known Greek painted tomb with figural scenes from this period, and the dive is generally read as a metaphor for passing from life to death — though nothing in the tomb says so.
 
-Malaria and the shifting coastline emptied the site in late antiquity, which is why the temples were never quarried.
+Malaria and the shifting coastline emptied the site in late antiquity, which is why the temples were never quarried. Before that final decline, the city itself changed hands more than once: it passed from its original Greek settlers to the Lucanians, an Italic people who took control of the region in the fifth century BC, before eventually becoming a Roman colony under the Latin name Paestum, the name by which the site is still known today.

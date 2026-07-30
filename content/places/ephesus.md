@@ -25,6 +25,9 @@ claims:
   - text: Heraclitus was active at Ephesus around 500 BC.
     evidence: literary
     confidence: strong
+  - text: Ephesus later became a major Roman provincial capital and, in Christian tradition, a significant early centre of the faith.
+    evidence: consensus
+    confidence: established
 relations:
   - id: artemis
     rel: sanctuary of
@@ -51,4 +54,4 @@ The Artemision was rebuilt several times, most famously after 356 BC on a platfo
 
 In 356 BC a man named Herostratus burned it down purely to make his name immortal. The Ephesians executed him and forbade anyone to speak his name, which failed.
 
-Heraclitus of Ephesus, active around 500 BC, held that everything is in flux and that strife is the ordering principle of the world — the one who said you cannot step into the same river twice.
+Heraclitus of Ephesus, active around 500 BC, held that everything is in flux and that strife is the ordering principle of the world — the one who said you cannot step into the same river twice. Centuries later, under Roman rule, Ephesus grew into one of the largest and wealthiest cities in the eastern Mediterranean and a major provincial capital, and it holds a significant place in early Christian tradition as a city associated with Paul's ministry and, by later legend, the later years of the Virgin Mary and the apostle John.

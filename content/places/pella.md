@@ -25,6 +25,9 @@ claims:
   - text: Euripides spent his final years at the Macedonian court.
     evidence: literary
     confidence: probable
+  - text: King Archelaus deliberately invited leading Greek artists and intellectuals to Pella to raise Macedon's cultural standing among other Greeks.
+    evidence: literary
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: birthplace of
@@ -53,4 +56,4 @@ Archelaus moved the Macedonian capital here around 400 BC and invited Greek arti
 
 The pebble mosaics of c. 300 BC are made from natural coloured river stones set in cement, with lead strips for outlines: a stag hunt signed by Gnosis, a lion hunt, Dionysus riding a panther. The modelling of muscle and drapery in nothing but graded pebbles is remarkable.
 
-Pella was connected to the sea by a navigable channel, since silted up. Alexander and probably Philip were born here; Philip was buried at the older royal centre of Aegae (Vergina).
+Pella was connected to the sea by a navigable channel, since silted up. Alexander and probably Philip were born here; Philip was buried at the older royal centre of Aegae (Vergina). Archelaus's invitation of major Greek artists to his court was a deliberate policy choice, aimed squarely at overcoming other Greeks' persistent view of Macedon as a semi-barbarian backwater on the fringe of the Greek world — an image Philip and Alexander would later have to work hard against in their own dealings with the southern Greek city-states.

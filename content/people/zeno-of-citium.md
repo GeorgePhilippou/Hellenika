@@ -23,6 +23,9 @@ claims:
   - text: Zeno's own writings are lost and known only through quotation.
     evidence: consensus
     confidence: established
+  - text: Zeno taught that living "in agreement with nature" meant using reason to align personal will with the rational order governing the universe.
+    evidence: literary
+    confidence: established
 relations:
   - id: athens
     rel: taught in
@@ -49,4 +52,4 @@ Zeno was a Phoenician merchant from Cyprus who was shipwrecked near Athens, wand
 
 The core claim is that virtue alone is good, vice alone is bad, and everything else — health, wealth, reputation, life itself — is "indifferent", though some indifferents are naturally preferred. Since only our own judgements are fully in our power, tranquillity comes from aligning our will with nature rather than with outcomes.
 
-His works are lost; Stoicism survives through Roman successors — Seneca, Epictetus and Marcus Aurelius. The Athenians gave him a public burial, an unusual honour for a foreign resident.
+His works are lost; Stoicism survives through Roman successors — Seneca, Epictetus and Marcus Aurelius. The Athenians gave him a public burial, an unusual honour for a foreign resident. Central to his teaching was the idea of living "in agreement with nature," by which he meant using reason to recognise and align one's own will with the larger rational order the Stoics believed governed the entire universe, rather than fighting against events genuinely outside one's control.

@@ -25,6 +25,9 @@ claims:
   - text: The kykeon contained a psychoactive substance.
     evidence: debate
     confidence: speculative
+  - text: Emperor Hadrian and other Roman emperors were personally initiated into the Mysteries at Eleusis.
+    evidence: literary
+    confidence: strong
 relations:
   - id: demeter
     rel: sanctuary of
@@ -51,4 +54,4 @@ The Mysteries re-enacted the story of Demeter and her daughter Persephone, taken
 
 What they saw is unknown. Revealing it carried the death penalty, and Alcibiades was prosecuted for parodying the rite at a private party. Initiates across two millennia — including Cicero, who wrote that the Mysteries taught him to live with joy and die with hope — kept the secret.
 
-Speculation that the kykeon contained ergot-infected barley producing a psychoactive effect is untestable on present evidence.
+Speculation that the kykeon contained ergot-infected barley producing a psychoactive effect is untestable on present evidence. The Mysteries drew participants from across the Greek and later Roman world regardless of status: several Roman emperors, including Hadrian, travelled to Eleusis specifically to be personally initiated, treating participation as both a genuine spiritual experience and a marker of cultivated respect for Greek tradition.
