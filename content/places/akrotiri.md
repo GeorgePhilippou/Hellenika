@@ -29,6 +29,9 @@ claims:
   - text: Akrotiri inspired Plato's account of Atlantis.
     evidence: debate
     confidence: speculative
+  - text: The Theran eruption is among the largest volcanic events of the last several thousand years, with ash traces found as far as Egypt and Greenland ice cores.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: theran-eruption
     rel: destroyed by
@@ -53,8 +56,8 @@ A Bronze Age town buried by volcanic ash, preserving two- and three-storey house
 The best-preserved Bronze Age settlement in the Aegean, and the closest thing we have to seeing a Minoan-world town as it stood.
 
 <!-- field: body -->
-Volcanic ash sealed Akrotiri around 1600 BC and kept it. Buildings survive to second-storey height with staircases, windows, built-in furniture and an under-street drainage system carrying both sewage and rainwater.
+Volcanic ash sealed Akrotiri around 1600 BC and, in doing so, preserved it in a way almost no other Bronze Age Aegean settlement survives. Buildings still stand to second-storey height, complete with staircases, windows, built-in furniture, and an under-street drainage system that carried away both sewage and rainwater — infrastructure of a sophistication that would not look out of place many centuries later.
 
-The frescoes are extraordinary: a fleet of ships passing between two towns, boys boxing, a fisherman with his catch, antelopes, and girls gathering saffron and presenting it to a seated goddess — the last is a rare depiction of a religious ceremony with named participants.
+The frescoes recovered from inside these buildings are extraordinary and, in several cases, unique in Aegean art: a full fleet of ships passing in procession between two harbour towns, boys sparring in a boxing match, a fisherman proudly holding up his catch, wild antelopes rendered with real anatomical observation, and a striking scene of girls gathering saffron crocus flowers and presenting them to a seated goddess — this last fresco is a rare depiction anywhere in Minoan-connected art of an actual religious ceremony shown with individually characterised participants rather than generic figures.
 
-No bodies and few valuables have been found. Earthquakes preceded the eruption, and it appears the population had time to leave. Plato's Atlantis is often connected to Thera; the correspondence is loose and the identification remains speculative.
+No human bodies and very few valuables have been found among the ruins. A sequence of earthquakes evidently preceded the final eruption by some time, and the near-total absence of bodies or portable wealth strongly suggests the population had adequate warning and time to evacuate before the volcano's climactic phase. The Theran eruption itself ranks among the largest volcanic events of at least the last several thousand years, with ash deposits identified as far away as Egyptian archaeological layers and even, in trace chemical form, within Greenland ice cores, giving scientists an unusually precise, independent way of dating the event itself. Plato's account of Atlantis is often loosely connected to Thera's dramatic destruction, but the correspondence between the two — a sunken island civilisation versus a real if partly submerged volcanic caldera — remains loose enough that the identification stays firmly speculative rather than established.

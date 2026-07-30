@@ -25,6 +25,9 @@ claims:
   - text: It functioned as a large slave market in the 2nd and 1st centuries BC.
     evidence: literary
     confidence: strong
+  - text: Foreign merchant communities on Delos, including Italians, Syrians and Egyptians, built their own distinct religious sanctuaries on the island.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: apollo
     rel: birthplace of
@@ -49,8 +52,8 @@ Birthplace of Apollo and Artemis, treasury of the Delian League, and later the l
 Its trajectory from sacred island to financial centre to slave market compresses the whole Greek economic story.
 
 <!-- field: body -->
-Delos was the most sacred of the Cyclades. Athens repeatedly "purified" it — removing graves, then forbidding anyone to be born or die on the island, which required moving the dying to a neighbouring islet.
+Delos was considered the most sacred of all the Cyclades, believed to be the birthplace of both Apollo and Artemis after their mother Leto found refuge there while fleeing a jealous Hera. Athens repeatedly "purified" the island over the centuries, at one stage removing every existing grave from it and, more strikingly, forbidding anyone to be born or to die there at all, a prohibition that in practice required physically moving both women in labour and the dying to a neighbouring islet before nature could take its course.
 
-After 478 BC it held the treasury of the Delian League, until Athens moved the funds to its own acropolis in 454 BC — the moment an alliance became an empire.
+After 478 BC it held the common treasury of the Delian League, until Athens moved the funds to its own acropolis in 454 BC — widely seen by historians as the precise moment a voluntary defensive alliance quietly became an Athenian empire in fact if not yet in name.
 
-As a free port under Rome from 166 BC it boomed, with a population of perhaps 25,000 and merchant communities from Italy, Syria and Egypt with their own cult buildings. Strabo reports it could handle 10,000 slaves a day, which is certainly an exaggeration and still indicates the scale. Mithridates' forces sacked it in 88 BC and pirates finished it in 69 BC; it never recovered, and the abandonment preserved its houses and mosaics.
+As a designated free port under Roman protection from 166 BC, Delos boomed dramatically, reaching a population of perhaps 25,000 people and hosting substantial resident merchant communities from Italy, Syria and Egypt, each of which built its own distinct religious sanctuaries and meeting halls on the island, giving Delos an unusually cosmopolitan religious landscape crowded with shrines to Italian, Syrian and Egyptian deities alongside the traditional Greek ones. Strabo reports, almost certainly with some exaggeration, that the island's slave market could process as many as 10,000 people in a single day — a claim likely inflated, but one that still points to trade on a genuinely enormous scale. Forces loyal to King Mithridates of Pontus sacked the island brutally in 88 BC, and pirates finished the job in 69 BC; Delos never recovered its former prosperity afterward, and it is precisely that long abandonment which preserved so many of its houses, courtyards and mosaic floors intact for modern excavation.

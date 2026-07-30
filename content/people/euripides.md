@@ -26,6 +26,9 @@ claims:
   - text: The Trojan Women was intended as a protest against Athenian policy at Melos.
     evidence: debate
     confidence: debated
+  - text: Euripides spent his final years at the court of the Macedonian king Archelaus, where he died around 406 BC.
+    evidence: literary
+    confidence: strong
 relations:
   - id: medea
     rel: wrote
@@ -48,6 +51,6 @@ The most unsettling of the tragedians, who gave voice to women, slaves and the d
 His psychological realism and moral scepticism made him the least successful tragedian in his lifetime and the most read afterwards.
 
 <!-- field: body -->
-Euripides won only four or five victories, far fewer than Sophocles, and Aristophanes mocked him relentlessly. Yet more of his plays survive than of the other two combined — nineteen — largely because they remained popular reading after his death.
+Euripides won only four or five first-prize victories across his entire career, far fewer than either Sophocles or Aeschylus, and the comic playwright Aristophanes mocked him relentlessly and repeatedly on stage, most famously in *Frogs*, staging a mock contest between Euripides and Aeschylus in the underworld over which of them deserved to be brought back to save Athenian tragedy. Yet nineteen of his plays survive today, more than the other two great tragedians combined, largely because his work remained genuinely popular reading long after his death, valued precisely for the psychological complexity and moral unease that Athenian audiences and judges had been comparatively cool toward in his own lifetime.
 
-*Medea* (431 BC) gives its heroine a speech on the condition of women that is unmatched in Greek literature, then has her murder her own children and escape unpunished in a divine chariot. *The Trojan Women* (415 BC), staged the year after Athens massacred the men of Melos, presents the aftermath of a sack entirely from the perspective of the enslaved women. It is very hard not to read as an indictment.
+*Medea* (431 BC) gives its title character a speech on the condition of women in Greek society that remains unmatched in surviving Greek literature for its directness, and then has her murder her own children to punish her unfaithful husband Jason, escaping entirely unpunished afterward in a divine chariot sent by her grandfather the sun-god — an ending that refuses the audience any comfortable moral resolution. *The Trojan Women* (415 BC), staged the year directly after Athens had besieged the neutral island of Melos, executed its adult men and enslaved its women and children, presents the aftermath of the mythical sack of Troy entirely from the perspective of the enslaved Trojan women left behind, and is very hard for modern readers not to interpret as a pointed, thinly veiled indictment of Athens's own recent conduct. Euripides spent his final years away from Athens at the court of the Macedonian king Archelaus, who was known for actively attracting Greek poets and artists to his court, and died there around 406 BC, shortly before Sophocles himself and shortly before Athens's own final defeat in the war Euripides had spent decades writing about.
