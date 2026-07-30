@@ -26,6 +26,9 @@ claims:
   - text: Hippocrates wrote the Oath.
     evidence: debate
     confidence: debated
+  - text: Hippocratic writers emphasised environmental factors such as climate, water and geography in explaining regional differences in disease and temperament.
+    evidence: literary
+    confidence: established
 relations:
   - id: epidaurus
     rel: contrasted with
@@ -51,3 +54,5 @@ The Hippocratic Corpus is around sixty works by many hands over more than a cent
 The clinical case histories in the *Epidemics* are careful daily observations that often end with the patient dying — recorded anyway, because the point was to learn the course of disease. The Oath, with its commitments to confidentiality and to doing no harm, remains the ancestor of medical ethics, though it is unlikely to be by Hippocrates.
 
 The underlying humoral theory was wrong, and it dominated European medicine for two thousand years.
+
+Another strand of the Corpus, represented by the treatise *Airs, Waters, Places*, looked outward rather than inward, arguing that a population's climate, water supply and terrain shaped both the diseases common to a region and even the character and physical constitution of its people — an early and influential attempt at environmental medicine that also shaded into a broader Greek habit of explaining foreign peoples' customs and temperaments by their geography.

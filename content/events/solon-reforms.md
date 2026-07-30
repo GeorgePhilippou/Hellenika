@@ -22,6 +22,9 @@ claims:
   - text: He redistributed land.
     evidence: debate
     confidence: debated
+  - text: Solon also revised Athenian weights, measures and currency standards as part of his broader economic reforms.
+    evidence: literary
+    confidence: probable
 relations:
   - id: solon
     rel: enacted by
@@ -47,3 +50,5 @@ Athens in 594 BC faced revolt: farmers were falling into debt-bondage and being 
 The *seisachtheia* cancelled existing debts, freed those enslaved for them, and outlawed loans secured on the person. He then replaced birth with income as the qualification for office, creating four property classes, and gave even the poorest citizens the right to sit on juries and to prosecute on behalf of a wronged party — the first general right of legal action.
 
 He left Athens for a decade so he could not be pressured to change the laws. He satisfied nobody fully, and said so in his own poetry.
+
+Alongside these political and legal changes, Solon is also credited with adjusting Athens's weights, measures and coinage standards, encouraging craft specialisation and trade by, among other things, granting citizenship to foreign artisans willing to settle permanently in Athens — measures aimed at broadening the city's economic base beyond the indebted small farmers whose crisis had triggered his appointment in the first place.

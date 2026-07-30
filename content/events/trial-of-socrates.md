@@ -25,6 +25,9 @@ claims:
   - text: Plato's Apology reports the actual defence speech.
     evidence: debate
     confidence: debated
+  - text: Xenophon's separate account of the trial largely corroborates Plato's on the major points, despite differences in emphasis and detail.
+    evidence: literary
+    confidence: strong
 relations:
   - id: socrates
     rel: defendant
@@ -50,3 +53,5 @@ The charges were introducing new gods and corrupting the youth. The political ba
 Plato's *Apology* has Socrates refuse to plead for mercy, compare himself to a gadfly stinging a sluggish horse, and propose free meals at public expense as his counter-penalty. He was convicted by around 280 to 220; more jurors voted for death than for conviction, suggesting the counter-proposal cost him.
 
 He declined an arranged escape, arguing that having accepted the city's laws all his life he could not repudiate them when they went against him, and drank hemlock.
+
+Plato was not the only student to leave an account. Xenophon, who was not present at the trial, wrote his own version based on what participants told him, and while the two accounts differ in tone and selective detail — Xenophon's Socrates is notably more concerned with practical matters like avoiding the infirmities of old age — they agree on the essential shape of events: the charges, the roughly even vote, and Socrates' calm, unyielding defiance of the jury.

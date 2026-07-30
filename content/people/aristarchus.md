@@ -26,6 +26,9 @@ claims:
   - text: His treatise on the sizes and distances of the Sun and Moon survives.
     evidence: literary
     confidence: established
+  - text: A crater on the Moon is named Aristarchus in his honour.
+    evidence: consensus
+    confidence: established
 relations:
   - id: archimedes
     rel: reported by
@@ -51,3 +54,5 @@ Aristarchus' heliocentric proposal survives only because Archimedes summarised i
 That was precisely the objection. If the Earth moves, nearby stars should shift against distant ones over the year. No such shift was detectable, so either the stars were unimaginably far away or the Earth was still. Ancient astronomers reasonably chose the second. Stellar parallax was not measured until 1838.
 
 His surviving treatise on the sizes and distances of the Sun and Moon uses sound geometry with imprecise measurements, and gets the Sun about twenty times too close — but establishes correctly that it is much larger than the Earth.
+
+His later recognition as a precursor to Copernicus is commemorated in the sky itself: one of the brightest and most prominent craters on the Moon, a plateau region marked by unusually reflective material, bears the name Aristarchus, a small but lasting acknowledgment of a proposal that had to wait roughly eighteen centuries before it was taken up again.

@@ -24,6 +24,9 @@ claims:
   - text: The "as a king" exchange occurred as reported.
     evidence: tradition
     confidence: debated
+  - text: Alexander later had Porus assist him against other Indian rulers, drawing him into the ongoing Macedonian campaign rather than simply leaving him neutral.
+    evidence: literary
+    confidence: strong
 relations:
   - id: alexander-the-great
     rel: fought
@@ -49,3 +52,5 @@ Porus met Alexander at the Hydaspes in 326 BC with around 200 elephants and a la
 Captured and brought before Alexander, Porus was asked how he wished to be treated. He answered: as a king. Alexander restored his kingdom and enlarged it.
 
 The practical reason is as important as the gesture — Alexander needed a strong local ruler to hold the region, and Porus was the obvious candidate. The battle also killed Bucephalus, and Alexander founded a city in his horse's name.
+
+Reinstatement did not mean neutrality: Alexander subsequently used Porus and his forces to help subdue neighbouring Indian kingdoms as the campaign pushed further east, turning a defeated enemy into an active partner in extending Macedonian control over the Punjab, which suited both men — Alexander gained a capable local ally, and Porus expanded his own territory under Macedonian backing.

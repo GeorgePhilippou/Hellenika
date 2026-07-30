@@ -22,6 +22,9 @@ claims:
   - text: He starved himself to death after learning of Chaeronea.
     evidence: tradition
     confidence: debated
+  - text: His school at Athens trained a generation of prominent orators, statesmen and historians, giving him wide influence beyond his own published speeches.
+    evidence: consensus
+    confidence: strong
 relations:
   - id: philip-ii
     rel: appealed to
@@ -47,3 +50,5 @@ Isocrates had a weak voice and never spoke in the assembly; he taught and publis
 In the *Address to Philip* (346 BC) he named the man: Philip should reconcile the leading cities and lead a united campaign into Asia. Whether this made him a visionary or a collaborator has been argued ever since — Demosthenes was making exactly the opposite case at exactly the same time.
 
 He reportedly died shortly after Chaeronea, aged 98.
+
+His real influence ran less through his own speeches, which he never delivered aloud, than through the school he ran at Athens for roughly half a century, which trained students who went on to prominent careers across Greek public and intellectual life, giving Isocrates a reach as an educator that arguably outstripped his direct impact as a political advocate.

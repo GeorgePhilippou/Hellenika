@@ -30,6 +30,9 @@ claims:
   - text: Sappho leapt to her death from the Leucadian cliff.
     evidence: tradition
     confidence: legendary
+  - text: A significant new Sappho papyrus, containing the substantially complete "Brothers Poem", was published as recently as 2014.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: sappho-fragments
     rel: composed
@@ -53,3 +56,5 @@ Turned Greek poetry from public narrative to interior feeling. Plato reportedly 
 Sappho composed monodic lyric for performance with the lyre, in a metre now named Sapphic after her. Of nine ancient books, one nearly complete poem survives — the Hymn to Aphrodite — plus several hundred fragments, many recovered from Egyptian papyrus rubbish heaps at Oxyrhynchus. New fragments were still being published in 2014.
 
 Her poems address women by name with unmistakable erotic intensity, which is the origin of the words *sapphic* and *lesbian*. Ancient biographical traditions about her — the leap from the Leucadian cliff for love of the ferryman Phaon — are late fiction.
+
+Her corpus is still, remarkably, growing. In 2014 a previously unknown papyrus surfaced containing what is now called the "Brothers Poem," a substantially complete composition about Sappho's brothers that had not been read by anyone in roughly two thousand years, a reminder that new discoveries can still meaningfully expand even the most famous fragmentary bodies of ancient literature.

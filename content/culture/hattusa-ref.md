@@ -26,6 +26,9 @@ claims:
   - text: Wilusa is Homeric Ilios and Alaksandu is connected to Alexandros/Paris.
     evidence: debate
     confidence: probable
+  - text: The Hittite state was a genuine great power, corresponding as an equal with Egypt, Babylon, and Assyria in a documented international diplomatic system.
+    evidence: epigraphic
+    confidence: established
 relations:
   - id: bronze-age-collapse
     rel: destroyed in
@@ -55,3 +58,5 @@ For Greek history their archives are decisive. They record a land called Ahhiyaw
 This is the only external written evidence for the Mycenaean world, and it comes from an empire that Greek tradition entirely forgot.
 
 Hattusa was burned and abandoned around 1190 BC.
+
+Before its collapse, Hatti stood as one of a small handful of recognised great powers in the Late Bronze Age Near East, exchanging royal letters, treaties and diplomatic marriages on equal terms with Egypt, Babylon and Assyria — a documented international system of the kind the Aegean world outside Hittite records leaves almost no direct trace of, which is exactly why the Ahhiyawa references matter so much to reconstructing the Mycenaean Greeks' place in that wider world.

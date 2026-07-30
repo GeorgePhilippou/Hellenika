@@ -23,6 +23,9 @@ claims:
   - text: The victory effectively ended major Persian naval activity in the Aegean for a generation.
     evidence: consensus
     confidence: probable
+  - text: Some ancient sources report a third engagement the same day against Persian reinforcement ships arriving from Cyprus, though this detail is less securely attested than the main battle.
+    evidence: debate
+    confidence: debated
 relations:
   - id: greco-persian-wars
     rel: part of
@@ -43,3 +46,5 @@ Cimon destroyed a Persian fleet and then its supporting army on the same day at 
 Cimon caught the Persian fleet at anchor off the Pamphylian coast and destroyed or captured it before it could properly deploy, then, learning that Persian reinforcements had landed troops nearby, landed his own marines the same day and routed them too — an unusual double victory that ancient writers treated as an exceptional feat even by Athenian standards.
 
 The scale of the win, whatever the exact numbers Plutarch and other later sources report, removed Persia as an active naval threat in the Aegean for a generation, letting the Delian League's members refocus its enormous common treasury toward Athens' own ends rather than continuous campaigning. The spoils are traditionally linked to a wave of Athenian public building in the years that followed, foreshadowing the far larger building program Pericles would launch after the mid-century peace with Persia.
+
+Some later accounts add a third phase to the day's fighting: a squadron of Phoenician reinforcements, unaware the main battle was already lost, is said to have sailed into the same waters and been destroyed in turn by Cimon's fleet. The detail is harder to confirm independently than the main double victory, but if true it would make Eurymedon an even more thorough rout than the core tradition already describes.

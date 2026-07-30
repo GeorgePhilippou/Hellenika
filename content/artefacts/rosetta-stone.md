@@ -24,6 +24,9 @@ claims:
   - text: Knowledge of Coptic was essential to the decipherment.
     evidence: linguistic
     confidence: established
+  - text: The stone is a copy of a decree also issued at other Egyptian temples, so it was not a unique document even in antiquity.
+    evidence: epigraphic
+    confidence: established
 relations:
   - id: ptolemaic-kingdom
     rel: issued by
@@ -50,3 +53,5 @@ French soldiers found it in 1799 near Rosetta; the British took it under the 180
 Because the Greek could be read, the other two could be attacked. Thomas Young established that cartouches spelled royal names phonetically. Jean-François Champollion showed in 1822 that hieroglyphs were neither purely symbolic nor purely alphabetic but a mixed system, and that the underlying language was related to Coptic — which he could read. Three thousand years of Egyptian text became legible.
 
 Egypt has requested its return; the British Museum has declined.
+
+The Rosetta Stone was never a singular object even when it was carved: the same priestly decree was ordered set up in multiple temples across Egypt, and fragments of at least one other copy, from Nubayrah, have since come to light, confirming that the Rosetta Stone itself is simply the copy that happened to survive and be found, not a uniquely commissioned inscription.
