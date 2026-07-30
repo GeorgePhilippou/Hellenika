@@ -22,6 +22,9 @@ claims:
   - text: Aristotle's library was taken to Rome as part of the plunder.
     evidence: literary
     confidence: probable
+  - text: Athens had installed the philosopher-tyrant Aristion, whose harsh rule contributed to the city's desperate resistance during the siege.
+    evidence: literary
+    confidence: strong
 relations:
   - id: athens
     rel: site
@@ -46,3 +49,5 @@ Athens joined Mithridates of Pontus against Rome, having suffered under Roman ta
 He stormed it on 1 March 86 BC. The killing in the Kerameikos was severe enough that Plutarch reports blood running through the gate. Sulla stopped the massacre, saying he spared the many for the sake of the few — a reference to Athens' past rather than its present.
 
 He cut the sacred groves of the Academy and the Lyceum for siege timber, looted extensively, and shipped Aristotle's library to Rome. Archaeologically the destruction layer is clear across the Agora. Athens remained a revered university town but was never again politically significant.
+
+Much of the city's suffering during the siege was blamed on Aristion, an Epicurean-trained philosopher who had made himself tyrant of Athens with Mithridates' backing and ruled harshly, executing opponents and hoarding food while ordinary citizens starved — behaviour that left the city divided and demoralised even before Sulla's final assault.

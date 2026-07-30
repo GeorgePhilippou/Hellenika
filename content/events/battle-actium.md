@@ -25,6 +25,9 @@ claims:
   - text: The withdrawal was a planned breakout rather than a betrayal.
     evidence: debate
     confidence: debated
+  - text: Octavian's admiral Agrippa was the tactical mastermind behind the naval blockade and victory.
+    evidence: literary
+    confidence: strong
 relations:
   - id: actium
     rel: site
@@ -49,3 +52,5 @@ Antony and Cleopatra were blockaded in the Ambracian Gulf with a fleet weakened 
 He attempted a breakout. Mid-battle Cleopatra's squadron of sixty ships raised sail and ran south. Antony transferred to a lighter ship and followed, leaving his fleet and his army — which surrendered a week later.
 
 Octavian's version, which became the official one, framed this as a foreign queen's betrayal and a Roman general's enslavement to her. A more sober reading is that the treasury and the escape were the objective and the fighting was cover. Either way, within a year both were dead and Egypt was Roman.
+
+The victory itself owed less to Octavian personally than to his admiral Marcus Vipsanius Agrippa, who had spent the preceding months systematically cutting Antony's supply lines and seizing key positions along the coast, reducing Antony's fleet to a starving, disease-ridden force well before the two sides ever engaged in open battle.

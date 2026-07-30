@@ -25,6 +25,9 @@ claims:
   - text: The Herculaneum papyri preserve Epicurean philosophical works.
     evidence: archaeological
     confidence: established
+  - text: Epicurus organised his followers around a simple, memorable set of maxims known as the Tetrapharmakos, meant to be learned by heart.
+    evidence: literary
+    confidence: strong
 relations:
   - id: democritus
     rel: influenced by
@@ -52,3 +55,5 @@ Epicurus founded a community called the Garden outside Athens, admitting women a
 His ethics follows from this. "Death is nothing to us" — where death is, we are not. The pleasure he recommends is not indulgence but the absence of bodily pain and mental disturbance, best achieved through friendship, simple food and philosophy. The popular use of "epicurean" to mean luxurious inverts what he actually taught; his enemies started that.
 
 Almost all his writings are lost. Carbonised scrolls from the Villa of the Papyri at Herculaneum contain Epicurean texts, and are now being read by machine learning without unrolling them.
+
+Epicurus distilled his core teaching into a short formula later called the Tetrapharmakos, or "four-part cure": god is not to be feared, death is not to be worried about, what is good is easy to obtain, and what is terrible is easy to endure. Followers were encouraged to memorise and repeat it, treating it less as abstract doctrine than as a practical remedy to be applied in daily life.

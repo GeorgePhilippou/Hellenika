@@ -22,6 +22,9 @@ claims:
   - text: The terrain at Cynoscephalae prevented the phalanx from forming a continuous line.
     evidence: literary
     confidence: strong
+  - text: Philip had earlier fought an inconclusive First Macedonian War against Rome from 214 to 205 BC, before the decisive Second Macedonian War.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-cynoscephalae
     rel: lost
@@ -47,3 +50,5 @@ Philip V allied with Hannibal after Cannae in 215 BC, hoping to expel Rome from 
 At Cynoscephalae in 197 BC his phalanx was caught deploying on broken hilly ground. Half of it formed and drove the Roman left back; the other half was still in march column when the Roman right rolled over it, and an unnamed tribune took twenty maniples into the exposed rear of the successful wing. Polybius drew the general lesson: the phalanx is irresistible on level ground and helpless without it.
 
 Rome left him his throne. His son Perseus tried again and lost at Pydna in 168 BC, ending the kingdom.
+
+The Cynoscephalae campaign was in fact the second time Rome and Macedon had come to blows: the earlier First Macedonian War, fought intermittently from 214 to 205 BC while Rome was consumed by Hannibal in Italy, had ended in a stalemate that satisfied neither side, and it was only once Rome was free of Carthage that it turned its full attention to settling accounts with Philip.

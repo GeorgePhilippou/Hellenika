@@ -25,6 +25,9 @@ claims:
   - text: The "to the strongest" succession remark was actually made.
     evidence: debate
     confidence: debated
+  - text: His body was later hijacked en route to Macedon by Ptolemy, who diverted it to Egypt for burial.
+    evidence: literary
+    confidence: strong
 relations:
   - id: babylon
     rel: site
@@ -50,3 +53,5 @@ He fell ill after a prolonged banquet and declined over eleven days with fever, 
 His wife Roxana was pregnant; his half-brother Arrhidaeus had a cognitive disability. Asked who should succeed, he reportedly said "to the strongest" — which is what happened, over forty years of wars among his generals. Both his son and his half-brother were eventually murdered.
 
 Causes proposed include malaria, typhoid, acute pancreatitis, West Nile virus, complications from the untreated lung wound he took in India, and poison. Plutarch, writing four centuries later, notes that no suspicion of poison arose at the time. The Babylonian astronomical diaries record the king's death independently, confirming the date.
+
+Even his corpse became a political prize. The funeral cortège, elaborately built to carry the body back to Macedon for burial, was intercepted in Syria by Ptolemy, who diverted it to Egypt — first to Memphis and later to Alexandria — a calculated move that helped legitimise his own claim to be Alexander's true successor.

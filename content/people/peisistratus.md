@@ -23,6 +23,9 @@ claims:
   - text: Peisistratus commissioned an official written text of Homer.
     evidence: debate
     confidence: debated
+  - text: He pursued a moderate policy of leaving existing Athenian laws and offices largely intact rather than replacing them.
+    evidence: literary
+    confidence: strong
 relations:
   - id: athens
     rel: ruled
@@ -48,3 +51,5 @@ His public building, festival patronage and rural courts weakened the regional a
 Peisistratus took power in 561 BC, was twice expelled, and finally ruled securely from 546 until his death. Herodotus tells the story of his second return: he entered Athens with a tall woman dressed as Athena in a chariot, and the Athenians accepted the divine endorsement.
 
 He expanded the Panathenaic festival, gave the City Dionysia its competitive dramatic contests, sent circuit judges into the countryside, and struck the first substantial Athenian silver coinage. The tradition that he had the Homeric poems fixed in an official text is later and uncertain. His son Hippias ruled harshly after Hipparchus was assassinated, and was expelled in 510 BC.
+
+Unlike many tyrants of the period, Peisistratus was notably careful to leave Solon's legal framework and the existing offices of Athenian government formally in place, ruling through influence and patronage rather than wholesale institutional replacement — a restraint that later allowed reformers like Cleisthenes to build democratic institutions on a legal foundation that had never actually been abolished.

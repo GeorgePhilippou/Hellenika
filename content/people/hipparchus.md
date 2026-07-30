@@ -26,6 +26,9 @@ claims:
   - text: The Antikythera mechanism implements a lunar theory derived from Hipparchus.
     evidence: archaeological
     confidence: probable
+  - text: Almost none of Hipparchus's own writings survive; most of what is known of his work comes through later authors, chiefly Ptolemy.
+    evidence: consensus
+    confidence: established
 relations:
   - id: antikythera-mechanism
     rel: theory embodied in
@@ -51,3 +54,5 @@ By comparing his own measurements of stellar positions with Babylonian records o
 He catalogued around 850 stars with positions and brightness, and his magnitude scale — brightest as first magnitude — is still in use. He built the first trigonometric table, a chord table, making astronomy computational.
 
 The Antikythera mechanism's lunar gearing implements a variable-speed model of the Moon consistent with his theory, which suggests his work was being engineered into bronze within a century of his death.
+
+Almost nothing Hipparchus wrote survives directly; a single commentary on a poem about constellations is the sole complete work extant in his name. The bulk of what is credited to him is reconstructed from three centuries later, chiefly from Ptolemy's *Almagest*, which explicitly builds on and cites Hipparchus's observations and methods as its foundation.

@@ -25,6 +25,9 @@ claims:
   - text: He sheltered Hannibal at his court.
     evidence: literary
     confidence: strong
+  - text: Antiochus married his daughter Cleopatra I to Ptolemy V of Egypt, from whom later Ptolemaic queens named Cleopatra descended.
+    evidence: literary
+    confidence: strong
 relations:
   - id: battle-magnesia
     rel: defeated at
@@ -52,3 +55,5 @@ Antiochus inherited a fragmenting empire at eighteen and spent a decade recoveri
 He then crossed into Greece, and Rome responded. Defeated at Thermopylae in 191 BC and decisively at Magnesia in 190, he accepted the Treaty of Apamea: he surrendered Anatolia, gave up his elephants and fleet, and agreed to an indemnity so large it destabilised his finances for a generation. He was killed while looting a temple to raise money for it.
 
 He had also given refuge to Hannibal, which Rome did not forget.
+
+Beyond the battlefield, Antiochus used dynastic marriage to secure his gains: he married his daughter Cleopatra I to the young Ptolemy V of Egypt as part of a peace settlement, founding a line of Ptolemaic queens named Cleopatra that would run for generations and eventually culminate, seven queens later, in the famous Cleopatra VII.
