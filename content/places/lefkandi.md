@@ -28,6 +28,9 @@ claims:
   - text: The burials are of a local ruler and his consort.
     evidence: debate
     confidence: probable
+  - text: Lefkandi's cemeteries continued in use for generations after the Toumba burial, showing sustained elite wealth at the site rather than a single isolated episode.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: greek-dark-age
     rel: redefined
@@ -53,3 +56,5 @@ The Toumba building of c. 1000–950 BC is 50 m long and 14 m wide, apsidal, wit
 Beneath its floor were two shafts. One held a cremated man in a bronze amphora of Cypriot manufacture, wrapped in linen, with an iron sword and spearhead; beside him an inhumed woman with gold hair-coils, a gold pectoral and an heirloom Babylonian pendant already 700 years old. The other shaft held four horses, apparently killed for the burial.
 
 The building was deliberately demolished and covered with a mound shortly after, and burials clustered around it for generations. Whether the pair were a ruler and consort, and whether the building was a residence before it was a tomb, are unresolved.
+
+The wealth on display was not a one-off. Lefkandi's nearby cemeteries, notably at Toumba and Skoubris, continued to receive rich burials with imported goods for several generations after the great tomb was sealed, indicating that the community sustained an unusually prosperous, well-connected elite across a good part of the so-called Dark Age rather than experiencing a single spectacular but isolated burst of wealth.

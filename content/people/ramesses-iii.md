@@ -25,6 +25,9 @@ claims:
   - text: The Peleset are the Philistines of the Hebrew Bible.
     evidence: consensus
     confidence: probable
+  - text: Ramesses III also fought off a separate Libyan invasion of the western Nile Delta in his fifth year, before the Sea Peoples' attack.
+    evidence: epigraphic
+    confidence: established
 relations:
   - id: sea-peoples-invasion
     rel: repelled
@@ -50,3 +53,5 @@ The Medinet Habu reliefs depict land and naval battles against a coalition Rames
 The naval battle scene is the earliest detailed depiction of a sea fight anywhere, showing Egyptian archers destroying ships trapped against the shore.
 
 Egypt survived but was permanently weakened; a documented strike by tomb workers at Deir el-Medina over unpaid grain rations shows the strain. Ramesses himself was killed in a harem conspiracy — CT scanning of his mummy in 2012 revealed a deep cut to the throat.
+
+The Sea Peoples were not the only threat of his reign. Several years earlier, in his fifth regnal year, Ramesses had already repelled a large-scale Libyan invasion of the western Delta, a campaign commemorated in its own set of reliefs and one that shows Egypt under sustained pressure from multiple directions well before the more famous eighth-year crisis.

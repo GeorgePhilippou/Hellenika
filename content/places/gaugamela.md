@@ -25,6 +25,9 @@ claims:
   - text: The exact battlefield location has been securely identified.
     evidence: debate
     confidence: debated
+  - text: Darius's scythed chariots were largely neutralised before contact by Macedonian light infantry trained to open lanes and attack the drivers.
+    evidence: literary
+    confidence: strong
 relations:
   - id: battle-gaugamela
     rel: site of
@@ -55,3 +58,5 @@ Darius picked open ground, cleared it for his scythed chariots, and assembled fo
 Alexander advanced obliquely to the right, drawing the Persian left outward to prevent an outflanking. When a gap opened in the Persian line he drove the Companion cavalry into it in a wedge aimed at Darius, who fled again. On the other flank Parmenion was in serious trouble and Alexander had to break off pursuit to rescue him.
 
 A lunar eclipse eleven days before the battle is recorded in a Babylonian astronomical diary, which fixes the date to 1 October 331 BC — one of the most securely dated events in ancient history.
+
+Darius's scythed chariots, on which he had staked so much of his preparation, achieved little: Macedonian light troops had been specifically drilled to step aside and open lanes as the chariots approached, then close in on the drivers and horses from the sides, so that most of the chariots were disabled or driven harmlessly through gaps in the line before they ever reached the main Macedonian formation.

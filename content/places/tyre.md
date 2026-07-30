@@ -25,6 +25,9 @@ claims:
   - text: The Greek alphabet derives from a Phoenician consonantal script.
     evidence: epigraphic
     confidence: established
+  - text: Alexander crucified or enslaved much of the surviving population after the city fell, a severity attributed partly to the length and cost of the siege.
+    evidence: literary
+    confidence: strong
 relations:
   - id: siege-of-tyre
     rel: site of
@@ -50,3 +53,5 @@ Tyre's main city stood on an island 800 m offshore with walls rising straight fr
 The causeway silted up and permanently joined the island to the shore; Tyre is a peninsula today because of a siege.
 
 Tyre produced Tyrian purple from the murex sea snail, requiring thousands of snails per gram, which is why purple signified royalty for two millennia. Phoenician traders spread the consonantal alphabet that Greeks adapted by adding vowels — the ancestor of this text.
+
+Alexander's fury at the length of the resistance showed in the aftermath: ancient sources report several thousand Tyrians killed, with thousands more of the surviving population sold into slavery or, in a smaller number of prominent cases, crucified along the shore, a brutal reprisal that other cities along his route to Egypt took careful note of when deciding whether to resist him.

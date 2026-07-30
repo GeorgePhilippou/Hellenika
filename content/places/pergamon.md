@@ -29,6 +29,9 @@ claims:
   - text: Parchment was invented at Pergamon because of a papyrus embargo.
     evidence: debate
     confidence: debated
+  - text: The Pergamon library was reputed to hold around 200,000 scrolls, rivalling the Library of Alexandria.
+    evidence: literary
+    confidence: probable
 relations:
   - id: pergamon-altar
     rel: site of
@@ -56,3 +59,5 @@ The Attalids built Pergamon up a 300 m acropolis in terraces. Its theatre is cut
 The Great Altar of c. 160 BC carries a 113 m frieze of gods fighting giants, carved in violent high relief with figures breaking out of the architecture — a coded celebration of Attalid victories over the Galatians. The German excavation removed it to Berlin, where it remains, and Turkey continues to seek its return.
 
 When the Ptolemies restricted papyrus exports to hamper the rival library, Pergamon developed treated animal skin as a writing surface. The Latin *pergamena* — parchment — records the origin. The last Attalid king bequeathed the kingdom to Rome in 133 BC.
+
+The library itself was, by ancient report, second only to Alexandria's, said to hold some 200,000 scrolls by the late Hellenistic period; Mark Antony is later said to have given the entire collection to Cleopatra as a gift, though how much of that story is embellishment is unclear.

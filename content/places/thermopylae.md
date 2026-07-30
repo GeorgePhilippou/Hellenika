@@ -23,6 +23,9 @@ claims:
   - text: The ancient coastline has shifted several kilometres due to river sedimentation.
     evidence: archaeological
     confidence: established
+  - text: The pass was fought over again in 279 BC and 191 BC, showing its lasting strategic value as a chokepoint into central Greece.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-thermopylae
     rel: site of
@@ -50,3 +53,5 @@ The pass was named for its hot sulphur springs, which still flow. In 480 BC it w
 Spyridon Marinatos excavated Kolonos hill in the 1930s and found large numbers of Persian bronze arrowheads, confirming both the location and Herodotus' account that the last survivors were overwhelmed by missiles on the hill.
 
 A later inscription records Simonides' couplet asking the passer-by to tell the Spartans that here they lie, obedient to their commands.
+
+The pass's narrowness made it a recurring strategic prize long after 480 BC: Greek forces fought to block a Gallic invasion there in 279 BC, and the Romans forced their way through it in 191 BC to defeat Antiochus III, so the same geography that made Leonidas's stand possible kept drawing armies back to the same few metres of ground for more than two centuries.

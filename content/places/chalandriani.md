@@ -25,6 +25,9 @@ claims:
   - text: The function of the frying pans is unknown.
     evidence: debate
     confidence: debated
+  - text: The fortified settlement of Kastri shows signs of violent destruction, evidence of significant conflict within the Early Cycladic maritime world.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: early-bronze-age
     rel: part of
@@ -50,3 +53,5 @@ Over 600 graves have been excavated at Chalandriani, small stone-lined cists con
 The "frying pans" — flat circular clay objects with a forked handle, engraved with spirals, stars and longships — are the most distinctive Cycladic artefacts after the figurines. The ships are shown with dozens of oars, a high prow and a fish standard, and they establish that Early Bronze Age Cycladic vessels were long, many-oared and built for open water rather than coasting.
 
 What the frying pans were for is unknown: mirrors filled with water, drums, salt pans and ritual objects have all been proposed. The nearby settlement at Kastri is fortified with bastions, indicating that this maritime world was competitive.
+
+That competitiveness turned violent at least once: Kastri itself shows a clear destruction layer, consistent with raiding or warfare between rival island communities, which fits a wider pattern across the Early Cycladic Aegean of fortified settlements, weapon burials and sudden abandonments suggesting that control of maritime trade routes was worth fighting over even at this early date.

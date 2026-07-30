@@ -22,6 +22,9 @@ claims:
   - text: Late Mycenaean water-security works reflect anticipated siege or instability.
     evidence: consensus
     confidence: probable
+  - text: Tiryns was struck by a major earthquake around 1200 BC, and evidence of subsequent flood-control engineering shows the inhabitants adapting to a damaged landscape rather than abandoning the site immediately.
+    evidence: archaeological
+    confidence: strong
 relations:
   - id: mycenaean-civilisation
     rel: centre of
@@ -49,3 +52,5 @@ Tiryns sits on a low limestone outcrop near the sea. Its walls reach 8 m thick, 
 A syrinx passage leads outside the walls to underground cisterns, matching the arrangement at Mycenae and Athens, and built in the same late phase. Three sites independently investing in secure water at the same moment is one of the strongest lines of evidence that the Mycenaean palaces saw the collapse coming.
 
 The megaron has a circular hearth and four columns, the plan that became the Greek temple.
+
+Around 1200 BC an earthquake damaged the citadel and disrupted the surrounding lower town, and afterward the inhabitants built a substantial diversion dam and channel system to protect the settlement from flash floods that the quake's disruption of local watercourses had made newly dangerous — evidence that the community persisted and adapted for some time after the disaster rather than being destroyed outright by it.

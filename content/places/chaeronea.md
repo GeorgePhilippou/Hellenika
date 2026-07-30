@@ -25,6 +25,9 @@ claims:
   - text: Alexander personally led the decisive cavalry charge.
     evidence: literary
     confidence: probable
+  - text: A second, much larger battle was fought at Chaeronea in 86 BC, when Sulla defeated the forces of Mithridates VI on the same plain.
+    evidence: literary
+    confidence: established
 relations:
   - id: battle-chaeronea
     rel: site of
@@ -54,3 +57,5 @@ Philip commanded the Macedonian right; the eighteen-year-old Alexander led the c
 The Sacred Band of Thebes — 150 pairs of male lovers, unbeaten for a generation — refused to retreat and was destroyed. Plutarch reports Philip weeping at the sight of their bodies.
 
 In 1880 a colossal stone lion was reassembled on the site; excavation beneath it found 254 skeletons laid in seven rows. The identification with the Sacred Band is not certain but is very widely accepted.
+
+The same plain hosted a second, larger battle more than two centuries later: in 86 BC Sulla defeated a considerably bigger army fielded by Mithridates VI's general Archelaus on essentially the same ground, a coincidence of geography that made Chaeronea the site of two of the ancient world's most consequential battles for the fate of Greece.
