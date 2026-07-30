@@ -61,6 +61,11 @@ function heroHTML(e, sections) {
           <h1>${esc(e.name)}</h1>
           ${e.altNames.length ? `<p class="entity-alt">Also known as ${esc(e.altNames.join(' · '))}</p>` : ''}
           <p class="entity-summary">${esc(e.summary)}</p>
+          ${e.significance ? `
+          <a class="hero-significance" href="#sec-significance">
+            <span class="hero-significance-label">Why it matters</span>
+            <p>${esc(e.significance)}</p>
+          </a>` : ''}
           <div class="entity-actions">
             ${e.coords ? `<a class="btn btn-sm" href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 15 })} On the map</a>` : ''}
             ${e.start != null && !e.modern ? `<a class="btn btn-sm" href="#/timeline">${icon('timeline', { size: 15 })} On the timeline</a>` : ''}
@@ -69,11 +74,6 @@ function heroHTML(e, sections) {
             </button>
             <button class="btn btn-sm" id="act-random">${icon('shuffle', { size: 15 })} Surprise me</button>
           </div>
-          ${e.significance ? `
-          <a class="hero-significance" href="#sec-significance">
-            <span class="hero-significance-label">Why it matters</span>
-            <p>${esc(e.significance)}</p>
-          </a>` : ''}
         </div>
         <div class="entity-hero-media" data-hero-img-id="${esc(e.id)}">
           ${icon(TYPE_ICON[e.type] || 'sparkle', { size: 46 })}

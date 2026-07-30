@@ -713,27 +713,28 @@
 .entity-actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-6); }
 
 /* A "why it matters" teaser, pulled up from the Significance section
-   further down the page. Mainly exists to give the hero text column
-   somewhere useful to grow -- a tall portrait photo in the media column
-   next to it can run well past a short summary + button row, otherwise
-   leaving a slab of dead space beside the photo. Links down to the full
-   section rather than just repeating it as inert text. */
+   further down the page, sitting between the summary and the action
+   buttons. Mainly exists to give the hero text column somewhere useful
+   to grow -- a tall portrait photo in the media column next to it can
+   run well past a short summary + button row, otherwise leaving a slab
+   of dead space beside the photo. Links down to the full section rather
+   than just repeating it as inert text. */
 .hero-significance {
-  display: block; padding: var(--s-4) var(--s-5);
+  display: flex; flex-direction: column; justify-content: center;
+  /* .entity-hero-text is stretched to the grid row's full height (set by
+     the photo next to it) -- growing to fill whatever's left between the
+     summary and the actions bar is what pushes the actions bar down to
+     the bottom of a tall gap, and what lets this box's own content sit
+     vertically centred within its now-taller frame. With little or no
+     gap to begin with it just stays its natural (unstretched) size. */
+  flex: 1 0 auto;
+  margin-top: var(--s-6); padding: var(--s-6);
   max-width: 52ch;
   border-left: 3px solid var(--tint, var(--accent));
   border-radius: 0 var(--r-md) var(--r-md) 0;
   background: color-mix(in srgb, var(--tint, var(--accent)) 8%, transparent);
   color: inherit;
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-out);
-  /* .entity-hero-text is a flex column stretched to the row's full height
-     (set by the photo next to it) -- equal auto margins here float this
-     box to the vertical centre of whatever space is left under the
-     actions row, instead of it sitting flush at the top of a tall gap.
-     With little or no gap to begin with, both margins just collapse
-     toward 0 and it sits right under the actions row as before. */
-  margin-top: auto;
-  margin-bottom: auto;
 }
 .hero-significance:hover {
   background: color-mix(in srgb, var(--tint, var(--accent)) 13%, transparent);
@@ -743,11 +744,11 @@
 .hero-significance-label {
   display: block; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--tint, var(--accent));
-  margin-bottom: var(--s-2);
+  margin-bottom: var(--s-3);
 }
 .hero-significance p {
   margin: 0; font-family: var(--font-display); font-style: italic;
-  font-size: 1.05rem; line-height: 1.5; color: var(--text-2);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--text-2);
 }
 
 /* --- Hero photo panel --- */
