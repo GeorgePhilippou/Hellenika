@@ -28,6 +28,9 @@ claims:
   - text: The mask was modified or forged in the 19th century.
     evidence: debate
     confidence: debated
+  - text: Four other gold masks were recovered from the same grave circle, all stylistically closer to one another than to this one.
+    evidence: archaeological
+    confidence: established
 relations:
   - id: mycenae
     rel: found at
@@ -50,8 +53,8 @@ _order: 11
 A hammered gold funerary mask from Mycenae Grave Circle A — misnamed, misdated, and unforgettable.
 
 <!-- field: body -->
-Schliemann found it in 1876 in Shaft Grave V and identified it with Agamemnon. The burial is roughly three centuries earlier than any plausible date for the Trojan War, so the name is wrong and has stuck anyway.
+Schliemann found it in 1876 in Shaft Grave V and, in characteristically theatrical fashion, immediately identified it with Agamemnon, telegraphing the Greek king that he had "gazed upon the face of Agamemnon" himself. The burial is roughly three centuries earlier than any plausible date for the Trojan War, so the identification is almost certainly wrong on chronological grounds alone — and yet the name has stuck so firmly in popular usage that museum labels and general audiences still use it today, treating it more as an evocative nickname than a literal claim.
 
-The mask was hammered from a single sheet of gold over a wooden form, then chased with details. Unlike the other four masks from the graves it has a full beard, a distinct moustache and closed eyelids with eyes indicated as if open — a striking and unusual combination.
+The mask was hammered from a single sheet of gold over a wooden form and then chased with fine surface detail. Unlike the four other masks recovered from the same grave circle, which are stylistically closer to one another, this one has a full beard, a distinct moustache, and closed eyelids while the eyes themselves are indicated as if open beneath them — a striking and genuinely unusual combination that sets it visually apart from its companions.
 
-William Calder and others have argued the mask was tampered with or manufactured, pointing to those stylistic differences. Most specialists reject this, noting that Schliemann's finds were reported and drawn before he could have arranged a forgery, and that the goldworking is consistent with the period.
+The classicist William Calder and a small number of others have argued over the decades that the mask was tampered with or even partly manufactured in the nineteenth century, pointing to precisely those stylistic differences as evidence of later intervention by Schliemann or an associate. Most specialists reject this conclusion, noting that Schliemann's finds were witnessed, reported and drawn by independent observers before he could plausibly have arranged a forgery of this sophistication, and that the goldworking technique itself is entirely consistent with genuine Bronze Age craftsmanship rather than nineteenth-century workshop practice.

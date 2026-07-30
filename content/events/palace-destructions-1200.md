@@ -26,6 +26,9 @@ claims:
   - text: A Dorian invasion caused the collapse.
     evidence: debate
     confidence: speculative
+  - text: The collapse coincided with wider disruption across the eastern Mediterranean, including the fall of the Hittite empire and Egyptian records of the "Sea Peoples".
+    evidence: consensus
+    confidence: established
 relations:
   - id: bronze-age-collapse
     rel: part of
@@ -48,8 +51,8 @@ _order: 9
 Every major Mycenaean palace was destroyed or abandoned within a generation, ending palatial civilisation in Greece.
 
 <!-- field: body -->
-Pylos burned. Mycenae and Tiryns were damaged and their citadels contracted. Thebes was destroyed. Within perhaps thirty years the entire palace system was gone, and with it Linear B literacy, monumental construction, fresco painting, and the administrative apparatus that organised production.
+Pylos burned in a single catastrophic fire that baked its archive hard. Mycenae and Tiryns were damaged and their citadels subsequently contracted to a fraction of their former extent. Thebes was destroyed outright. Within perhaps thirty years the entire interconnected palace system across the Greek mainland was gone, and with it Linear B literacy, large-scale monumental construction, fresco painting, and the centralised administrative apparatus that had organised agricultural production and craft manufacture for centuries.
 
-No single cause is agreed. Candidates include drought documented in pollen cores, earthquake sequences, internal revolt, disruption of tin supply, and raiding. The late investment in fortifications and secure water supplies at three separate citadels indicates the threat was anticipated.
+The collapse was not an isolated Greek event: it coincided closely with wider upheaval across the entire eastern Mediterranean and Near East, including the fall of the powerful Hittite empire in Anatolia and Egyptian temple inscriptions describing repeated invasions by loosely defined groups modern historians call the "Sea Peoples," whose composition and origins remain genuinely uncertain. No single cause for the Aegean collapse specifically is agreed among specialists. Candidate explanations include a prolonged drought documented in pollen cores from the period, a cluster of destructive earthquakes, internal revolt against the palace elites, disruption of the long-distance tin trade needed for bronze production, and straightforward raiding or invasion. The late investment several palaces made in stronger fortifications and secured underground water supplies suggests their rulers saw some specific threat coming, even if they could not stop it.
 
-Some settlements continued at a reduced scale, and pottery styles evolve continuously — this was systems failure rather than depopulation. But nobody built a palace in Greece again for six hundred years.
+Some smaller settlements continued at a reduced scale after the destructions, and pottery styles evolve gradually rather than vanishing overnight, which argues this was a systems failure — the collapse of a specific, centralised way of organising society — rather than a sudden, total depopulation of the Greek mainland. But whatever the precise mixture of causes, nobody built anything resembling a palace in Greece again for roughly six hundred years.

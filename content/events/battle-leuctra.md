@@ -25,6 +25,9 @@ claims:
   - text: Spartan power declined irreversibly after the battle.
     evidence: consensus
     confidence: established
+  - text: Epaminondas's oblique deep-column tactic at Leuctra directly influenced Philip II's own later development of the Macedonian phalanx.
+    evidence: debate
+    confidence: probable
 relations:
   - id: epaminondas
     rel: commanded
@@ -47,8 +50,8 @@ _order: 34
 Epaminondas destroyed the myth of Spartan invincibility with a massed left wing, killing 400 of 700 Spartiates present.
 
 <!-- field: body -->
-Convention put a general's best troops on the right, so the strongest wings of two armies never met. Epaminondas inverted it: he stacked his left wing fifty ranks deep against the Spartan right, held his own weaker right back at an angle, and attacked with the strong wing alone.
+Convention across the Greek world put a general's best troops on the right wing of the battle line, which meant that in a typical hoplite battle the strongest wings of two opposing armies simply passed each other and never actually met in the decisive fighting. Epaminondas deliberately inverted this convention at Leuctra: he stacked his own left wing an unprecedented fifty ranks deep, directly opposite the elite Spartan right where King Cleombrotus himself and the best Spartan troops were stationed, while holding his own weaker right wing back at a deliberate angle to avoid full engagement, concentrating his entire striking power onto a single, overwhelming point of contact.
 
-The Sacred Band led the charge. The Spartan right was broken before the rest of the line engaged. King Cleombrotus was killed, along with about 400 of the 700 Spartiates present.
+The Theban Sacred Band led the charge into that concentrated attack. The elite Spartan right was broken and routed before the rest of either battle line had even fully engaged, an outcome that would have been impossible under the conventional, evenly distributed deployment both sides had always previously used. King Cleombrotus was killed in the fighting, along with roughly 400 of the 700 full Spartan citizens, or Spartiates, present that day — a narrow, rapidly shrinking class that formed the core of Sparta's entire fighting reputation and social order.
 
-Sparta had perhaps 1,500 full citizens left in total. Losing 400 in an afternoon was unrecoverable. Within a year Epaminondas invaded Laconia — which no enemy had done in living memory — and freed Messenia.
+Sparta had perhaps only 1,500 full citizens left in total by this point in its history, its numbers already eroded by decades of previous losses and by the notoriously restrictive requirements for citizenship itself. Losing 400 of them in a single afternoon was simply unrecoverable for a state so small and so dependent on that narrow citizen class specifically. Within a year Epaminondas invaded Laconia itself, the Spartan homeland, something no enemy army had managed within living memory, and permanently freed Messenia, whose enslaved helot population had underpinned the Spartan economy for centuries — a strategic blow from which Sparta never recovered its former dominance. The deep, concentrated column Epaminondas used here is widely thought to have directly shaped the young Philip II's own later thinking on infantry tactics during the years he spent as a hostage in Thebes.

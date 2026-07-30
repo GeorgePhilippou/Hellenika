@@ -25,6 +25,9 @@ claims:
   - text: The disease was typhoid fever.
     evidence: debate
     confidence: debated
+  - text: Overcrowding caused by the wartime evacuation of the Attic countryside behind Athens's Long Walls is generally seen as having worsened the epidemic's spread.
+    evidence: consensus
+    confidence: established
 relations:
   - id: athens
     rel: site
@@ -45,8 +48,10 @@ _order: 30
 An epidemic in the overcrowded wartime city killed perhaps a quarter of the Athenian population, including Pericles.
 
 <!-- field: body -->
-Thucydides caught the disease, survived, and described it clinically — fever, inflamed eyes, bleeding from mouth and throat, pustules, unquenchable thirst, and death typically on the seventh or eighth day. He wrote the description explicitly so it could be recognised if it returned, which is a scientific motive.
+The epidemic struck a city already swollen well beyond its normal population, since Pericles's wartime strategy had deliberately brought the entire rural population of Attica inside Athens's fortified Long Walls to shelter from Spartan invasion, packing refugees into makeshift housing and temporary shelters with none of the sanitation a smaller, ordinary population could rely on — conditions modern historians generally agree made the disease's spread dramatically worse than it might otherwise have been.
 
-He also recorded the social effects: people died untended because carers caught it, corpses lay in temples, funeral rites were abandoned, and lawlessness spread as people saw no reason to restrain themselves for a future they might not have.
+Thucydides himself caught the disease, survived it, and described its progress with unusually clinical detachment: fever, inflamed eyes, bleeding from the mouth and throat, pustules covering the body, unquenchable thirst, and death typically arriving on the seventh or eighth day for those who did not recover. He explains that he wrote the description in such careful detail specifically so that the disease could be recognised again if it ever returned — an explicitly scientific motive, unusual for the period, that treats his own eyewitness suffering as useful data rather than simply personal testimony.
 
-Proposed identifications include typhus, typhoid, smallpox, measles and viral haemorrhagic fever. DNA from a Kerameikos mass grave in 2006 suggested typhoid, but the analysis has been contested on contamination grounds. It remains unresolved.
+He also recorded the disease's corrosive social effects in unflinching detail: people died entirely untended because those who tried to nurse them caught the illness themselves and died alongside them, corpses were left piled in temples for lack of anywhere else to put them, ordinary funeral rites broke down completely, and open lawlessness spread as people, believing they might die at any moment regardless of behaviour, saw no remaining reason to restrain themselves for a future they no longer expected to have.
+
+Proposed modern identifications of the actual disease include typhus, typhoid fever, smallpox, measles and a viral haemorrhagic fever similar to Ebola. A DNA study of dental pulp from a mass grave excavated in the Kerameikos cemetery in 2006 suggested typhoid fever specifically, but the analysis has been contested by other researchers on grounds of possible contamination, and the true identity of the disease remains formally unresolved.

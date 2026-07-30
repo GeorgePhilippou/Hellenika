@@ -28,6 +28,9 @@ claims:
   - text: Elgin's permit authorised removal of the sculptures.
     evidence: debate
     confidence: debated
+  - text: The Acropolis Museum in Athens was designed with a dedicated gallery left ready to display the frieze in full, should it be reunified.
+    evidence: consensus
+    confidence: established
 relations:
   - id: parthenon-built
     rel: part of
@@ -50,8 +53,8 @@ _order: 30
 A 160 m continuous relief of a procession — and the most contested cultural property dispute in the world.
 
 <!-- field: body -->
-The frieze ran around the outside of the inner building, over 160 m long with more than 380 human figures and 200 animals, in relief only a few centimetres deep but cut so that upper parts project further to correct for the steep viewing angle.
+The frieze ran continuously around the outside of the inner building, the cella, for over 160 metres and originally included more than 380 individually carved human figures and around 200 animals, all in relief only a few centimetres deep, but cut so that the upper portions project slightly further out than the lower ones, deliberately correcting for the steep upward angle at which anyone standing beneath the colonnade would actually see it.
 
-It shows a procession: horsemen, chariots, elders, musicians, sacrificial animals, and at the east end a group of gods watching while a cloth is handled. It is usually identified with the Panathenaic procession, which would be unusual — temple friezes normally show myth, not contemporary Athenians.
+It shows a long procession: horsemen riding in ranks, chariots, elders in conversation, musicians, sacrificial animals being led along, and, at the east end above the temple's main entrance, a seated group of gods watching while an item of cloth is folded or handled by human figures nearby. It is usually identified with the Panathenaic procession, the city's greatest religious festival held in honour of Athena — an identification that would actually be quite unusual by the normal conventions of Greek temple decoration, since temple friezes elsewhere overwhelmingly depict myth rather than contemporary citizens engaged in an actual civic ritual.
 
-Between 1801 and 1812 Lord Elgin removed roughly half of it under a permit from the Ottoman authorities whose scope has been disputed ever since. Those pieces are in the British Museum; the rest are in the Acropolis Museum, built partly to house them if returned. Greece continues to request reunification. The two halves of a single continuous artwork have now been apart for over two centuries.
+Between 1801 and 1812 Lord Elgin removed roughly half of the surviving frieze, along with other sculptures from the building, under a permit from the ruling Ottoman authorities whose exact legal scope has been disputed ever since, with Greek and other critics arguing it never actually authorised wholesale removal on this scale. Those pieces are now in the British Museum; the remainder stayed in Athens and are displayed today in the Acropolis Museum, which was deliberately designed with a dedicated top-floor gallery, oriented to match the Parthenon's own alignment and left ready and waiting, to display the entire frieze together should the London portion ever be returned. Greece continues to formally request reunification of the two halves, which have now been physically separated, on opposite sides of Europe, for over two centuries.
