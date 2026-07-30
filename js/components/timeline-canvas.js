@@ -165,9 +165,9 @@ export function createTimeline(canvas, {
 
     const surface = cssVar('--surface');
     const text = cssVar('--text');
-    const text2 = cssVar('--text-2');
     const text3 = cssVar('--text-3');
     const border = cssVar('--border');
+    const accent = cssVar('--accent');
     const uiFont = cssVar('--font-ui') || 'system-ui';
 
     ctx.fillStyle = surface;
@@ -281,7 +281,7 @@ export function createTimeline(canvas, {
     ctx.lineTo(W, metrics.axisY + 0.5);
     ctx.stroke();
 
-    ctx.fillStyle = text2;
+    ctx.fillStyle = accent;
     ctx.font = `600 11px ${uiFont}`;
     ctx.textBaseline = 'alphabetic';
     ctx.textAlign = 'center';

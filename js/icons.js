@@ -22,6 +22,8 @@ const RAW = {
   external: P('M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'),
   check: P('M4.5 12.5 9.5 18 20 6'),
   reset: P('M4 10a8 8 0 1 1 1.2 6M4 4v6h6'),
+  expand: P('M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5'),
+  collapse: P('M4 9h5V4M20 9h-5V4M4 15h5v5M20 15h-5v5'),
 
   /* --- media / playback --- */
   play: P('M7 4.8 19 12 7 19.2z'),

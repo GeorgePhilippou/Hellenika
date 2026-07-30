@@ -220,6 +220,14 @@
   .tl-hint { display: none; }
 }
 
+/* Full screen: the shell itself is the fullscreen element, so give it
+   room to breathe and let the canvas claim most of the extra height. */
+.tl-shell:fullscreen {
+  background: var(--bg); padding: var(--s-6); overflow-y: auto;
+}
+.tl-shell:fullscreen .tl-canvas-wrap { flex: 1; }
+.tl-shell:fullscreen .tl-canvas { height: 100%; min-height: 600px; }
+
 .tl-hint {
   position: absolute; right: var(--s-4); top: var(--s-3);
   font-size: var(--fs-xxs); color: var(--text-3);

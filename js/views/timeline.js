@@ -41,6 +41,7 @@ export async function renderTimeline(params) {
           <button class="btn btn-sm" id="tl-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
           <button class="btn btn-sm" id="tl-zoom-in" aria-label="Zoom in">${icon('plus', { size: 15 })}</button>
           <button class="btn btn-sm" id="tl-reset">${icon('reset', { size: 15 })} Full range</button>
+          <button class="btn btn-sm" id="tl-fullscreen">${icon('expand', { size: 15 })} Full screen</button>
         </div>
       </div>
 
@@ -173,6 +174,23 @@ function mount(root, openId) {
   $('#tl-zoom-out', root).addEventListener('click', () => tl.zoomOut());
   $('#tl-reset', root).addEventListener('click', () => tl.reset());
 
+  /* ---------- Full screen ---------- */
+  const shell = root.querySelector('.tl-shell');
+  const fsBtn = $('#tl-fullscreen', root);
+  const paintFsBtn = () => {
+    const on = document.fullscreenElement === shell;
+    fsBtn.innerHTML = on
+      ? `${icon('collapse', { size: 15 })} Exit full screen`
+      : `${icon('expand', { size: 15 })} Full screen`;
+  };
+  fsBtn.addEventListener('click', () => {
+    if (document.fullscreenElement === shell) document.exitFullscreen();
+    // Some embedding contexts (e.g. an iframe without allow="fullscreen")
+    // reject this outright -- fail quietly rather than an unhandled rejection.
+    else shell.requestFullscreen?.().catch(() => {});
+  });
+  document.addEventListener('fullscreenchange', paintFsBtn);
+
   /* ---------- Period panel ---------- */
   function openPeriod(id) {
     const p = periods.find((x) => x.id === id);
@@ -198,6 +216,7 @@ function mount(root, openId) {
     if (!document.contains(canvas)) {
       unbindYear(); tl.destroy();
       store.togglePlay(false);
+      document.removeEventListener('fullscreenchange', paintFsBtn);
       observer.disconnect();
     }
   });
