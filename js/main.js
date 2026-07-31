@@ -18,7 +18,7 @@ import { renderLearn, renderQuiz, renderGame } from './views/learn.js';
 import { renderSources } from './views/sources.js';
 import { renderAbout } from './views/about.js';
 import { hydrateImages } from './components/images.js';
-import { initLightbox } from './components/lightbox.js';
+import { initLightbox, closeLightbox } from './components/lightbox.js';
 
 /* ---------- Navigation model ---------- */
 const NAV = [
@@ -263,6 +263,7 @@ setBeforeNav((r) => {
   markActiveNav(r.path);
   closePalette();
   toggleMobileMenu(false);
+  closeLightbox();
   document.title = 'Hellenika — The Interactive History of the Ancient Greek World';
 });
 

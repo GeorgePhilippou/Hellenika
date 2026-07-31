@@ -105,3 +105,12 @@ export function initLightbox() {
     });
   });
 }
+
+/** Call from the router's setBeforeNav, same as closePalette()/mobile nav --
+ * without this, navigating away (e.g. browser Back) while the lightbox is
+ * open leaves its scrim stuck over the new page, its keydown listener
+ * attached forever, and body scroll locked, since the scrim lives on
+ * <body> rather than inside the view root that the router replaces. */
+export function closeLightbox() {
+  close();
+}
