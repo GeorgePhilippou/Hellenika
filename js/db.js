@@ -224,6 +224,10 @@ const INVERSE = {
   // so both spellings map onto the one already-standard label rather
   // than falling back to a contentless "related to".
   'contemporary with': 'contemporary with', 'contemporary': 'contemporary with',
+  // 'performed by' already exists on events like Alexander crossing to
+  // Troy; 'preceded' reuses the 'followed' half of the existing
+  // 'followed by'/'followed' pair rather than inventing a near-synonym.
+  'performed by': 'performed', 'preceded': 'followed',
 };
 
 const inverseOf = (rel) => INVERSE[rel] || 'related to';
