@@ -45,6 +45,16 @@ export async function renderEntity(params) {
    Shared chrome
    ============================================================ */
 
+// A short lead-in for the hero's "why it matters" link, not the full
+// text repeated verbatim -- the full significance is one click away in
+// its own section below, so this is a teaser, not a duplicate.
+function teaser(text, max = 120) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max)}…`;
+}
+
 function heroHTML(e, sections) {
   const bookmarked = store.isBookmarked(e.id);
   const homeRel = !e.region ? homeRelation(e) : null;
@@ -73,7 +83,7 @@ function heroHTML(e, sections) {
           ${e.significance ? `
           <a class="hero-significance" href="#sec-significance">
             <span class="hero-significance-label">Why it matters</span>
-            <p>${esc(e.significance)}</p>
+            <p>${esc(teaser(e.significance))}</p>
           </a>` : ''}
           <div class="entity-actions">
             ${mapBtn}

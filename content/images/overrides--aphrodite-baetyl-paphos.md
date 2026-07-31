@@ -1,5 +1,5 @@
 ---
 id: aphrodite-baetyl-paphos
-wikipediaTitle: Sanctuary of Aphrodite Paphia
+wikipediaTitle: "File:Sanctuary of Aphrodite at Palaepafos, Cyprus - conical stone (cropped).jpg"
 _order: 112
 ---
