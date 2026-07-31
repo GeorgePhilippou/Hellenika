@@ -242,6 +242,9 @@ const INVERSE = {
   // authors this toward Odysseus), and myth-place-of-departure.
   'visited by (myth)': 'visited (myth)',
   'departs from (myth)': 'departure point (myth)',
+  // The Odyssey's own leg-by-leg geography, e.g. Ismarus's "route from"
+  // Troy -- Troy's page should read "route to: Ismarus", not generic.
+  'route from': 'route to',
 };
 
 const inverseOf = (rel) => INVERSE[rel] || 'related to';

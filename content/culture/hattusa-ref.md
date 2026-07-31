@@ -53,10 +53,10 @@ The Anatolian great power whose archives name Mycenaean Greeks — and whose col
 <!-- field: body -->
 The Hittites ruled central Anatolia from Hattusa and fought Egypt to a standstill at Kadesh around 1274 BC, producing the earliest surviving peace treaty, of which both Egyptian and Hittite copies exist.
 
+Hatti stood as one of a small handful of recognised great powers in the Late Bronze Age Near East, exchanging royal letters, treaties and diplomatic marriages on equal terms with Egypt, Babylon and Assyria — a documented international system of the kind the Aegean world outside Hittite records leaves almost no direct trace of, which is exactly why the Ahhiyawa references below matter so much to reconstructing the Mycenaean Greeks' place in that wider world.
+
 For Greek history their archives are decisive. They record a land called Ahhiyawa across the sea, whose king is treated at times as a great king and equal — generally identified with a Mycenaean Greek power. They also name Wilusa, plausibly Homeric *(W)ilios*, and a king of Wilusa called Alaksandu, which sits uncomfortably close to Alexandros, the alternative name of Paris.
 
 This is the only external written evidence for the Mycenaean world, and it comes from an empire that Greek tradition entirely forgot.
 
-Hattusa was burned and abandoned around 1190 BC.
-
-Before its collapse, Hatti stood as one of a small handful of recognised great powers in the Late Bronze Age Near East, exchanging royal letters, treaties and diplomatic marriages on equal terms with Egypt, Babylon and Assyria — a documented international system of the kind the Aegean world outside Hittite records leaves almost no direct trace of, which is exactly why the Ahhiyawa references matter so much to reconstructing the Mycenaean Greeks' place in that wider world.
+That empire did not long outlast the Bronze Age world it helped illuminate: Hattusa itself was burned and abandoned around 1190 BC, within the same general wave of destructions — from Mycenaean palaces to Ugarit to, on one reading, Troy VIIa — now known as the Bronze Age Collapse.
