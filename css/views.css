@@ -741,6 +741,12 @@
   transform: translateX(2px);
   text-decoration: none;
 }
+/* The non-truncated variant (a <div>, not a link) already shows the
+   whole significance text, so there's no further section to jump to --
+   no hover shift, and a default cursor rather than a pointer, so it
+   doesn't look clickable. */
+.hero-significance-static { cursor: default; }
+.hero-significance-static:hover { background: color-mix(in srgb, var(--tint, var(--accent)) 8%, transparent); transform: none; }
 .hero-significance-label {
   display: block; font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--tint, var(--accent));
