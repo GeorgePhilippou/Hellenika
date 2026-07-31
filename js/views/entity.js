@@ -308,6 +308,11 @@ function sourcesSection(e) {
     </p>`);
 }
 
+// Hub entities (major periods, Athens, Alexander, ...) can have 20-60+
+// dated neighbours -- past this many, a flat date-ordered list stops
+// being something a reader can "look through" and just becomes a wall.
+const CHRONOLOGY_VISIBLE = 12;
+
 function chronologySection(e) {
   // Build a chronology from dated neighbours — no hand-authoring required.
   // Keeps n.rel (previously discarded) -- without it, an entry like
@@ -319,21 +324,33 @@ function chronologySection(e) {
     .sort((a, b) => a.entity.start - b.entity.start);
   if (items.length < 3) return '';
 
+  const stopHTML = ({ entity: x, rel }) => `
+    <div class="stop" style="padding-bottom:var(--s-6)">
+      <div class="stop-n num">${esc(entityDate(x))}</div>
+      <h3 style="font-size:1.02rem">
+        <a href="${entityHref(x.id)}">${esc(x.name)}</a>
+        <span class="stop-rel">${esc(rel)}</span>
+      </h3>
+      <p class="note small">${esc(x.summary)}</p>
+    </div>`;
+
+  const shown = items.slice(0, CHRONOLOGY_VISIBLE);
+  const rest = items.slice(CHRONOLOGY_VISIBLE);
+
   return section('chronology', 'Chronology', `
     <p class="small muted" style="margin-bottom:var(--s-5)">
       Connected entities in date order — the immediate historical neighbourhood.
     </p>
     <div class="stops" style="--tint:${db.tintVar(e.tint)}">
-      ${items.map(({ entity: x, rel }) => `
-        <div class="stop" style="padding-bottom:var(--s-6)">
-          <div class="stop-n num">${esc(entityDate(x))}</div>
-          <h3 style="font-size:1.02rem">
-            <a href="${entityHref(x.id)}">${esc(x.name)}</a>
-            <span class="stop-rel">${esc(rel)}</span>
-          </h3>
-          <p class="note small">${esc(x.summary)}</p>
-        </div>`).join('')}
-    </div>`);
+      ${shown.map(stopHTML).join('')}
+    </div>
+    ${rest.length ? `
+    <details class="chronology-more">
+      <summary class="small muted">Show ${rest.length} more</summary>
+      <div class="stops" style="--tint:${db.tintVar(e.tint)};margin-top:var(--s-6)">
+        ${rest.map(stopHTML).join('')}
+      </div>
+    </details>` : ''}`);
 }
 
 /* ============================================================
