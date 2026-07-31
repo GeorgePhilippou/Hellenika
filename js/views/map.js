@@ -18,7 +18,7 @@ import { createMap } from '../components/map-canvas.js';
 import { createJourneyMap } from '../components/journey-map.js';
 import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../components/images.js';
 import { go, entityHref } from '../router.js';
-import { entityDate, sectionHead } from '../components/ui.js';
+import { entityDate } from '../components/ui.js';
 
 const LAYERS = [
   ['territories', 'Political control'],

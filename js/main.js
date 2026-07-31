@@ -2,7 +2,7 @@
    Hellenika — Application bootstrap
    ============================================================ */
 
-import { $, el, esc, debounce, highlight, isNarrow } from './util.js';
+import { $, el, esc, debounce, highlight } from './util.js';
 import { icon, BRAND_MARK, TYPE_ICON } from './icons.js';
 import * as store from './store.js';
 import { route, setNotFound, setBeforeNav, start, go, entityHref, currentRoute } from './router.js';

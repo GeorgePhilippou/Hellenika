@@ -1,6 +1,6 @@
 /* ============================================================
    Hellenika — Hash router
-   Routes look like  #/timeline  #/e/knossos  #/compare?a=athens&b=sparta
+   Routes look like  #/timeline  #/e/knossos  #/map?focus=siege-of-tyre
    Hash routing keeps the whole app deployable as static files from
    any path, with no server rewrite rules.
    ============================================================ */

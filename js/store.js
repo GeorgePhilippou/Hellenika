@@ -36,16 +36,13 @@ const state = {
       in js/components/tiles.js and is used directly by the guided
       Odyssey/Alexander journey maps, just not offered as a choice here. */
   basemap: persist.get('basemap', 'plain'),
-  /** Compare tray: up to 2 entity ids. */
-  compare: persist.get('compare', []),
 };
 
 /* ---------- Read ---------- */
 export const get = (key) => state[key];
-export const getAll = () => ({ ...state });
 
 /* ---------- Write ---------- */
-const PERSISTED = new Set(['year', 'theme', 'bookmarks', 'recent', 'progress', 'layers', 'compare', 'basemap']);
+const PERSISTED = new Set(['year', 'theme', 'bookmarks', 'recent', 'progress', 'layers', 'basemap']);
 
 export function set(key, value) {
   const prev = state[key];
@@ -96,7 +93,7 @@ export function togglePlay(force) {
 
 /* ---------- Theme ---------- */
 
-export function applyTheme(theme) {
+function applyTheme(theme) {
   const t = theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
   document.querySelector('meta[name="theme-color"]')
@@ -133,17 +130,6 @@ export const isBookmarked = (id) => state.bookmarks.includes(id);
 export function pushRecent(id) {
   const next = [id, ...state.recent.filter((x) => x !== id)].slice(0, 24);
   set('recent', next);
-}
-
-/* ---------- Compare tray ---------- */
-
-export function toggleCompare(id) {
-  const list = state.compare;
-  let next;
-  if (list.includes(id)) next = list.filter((x) => x !== id);
-  else next = [...list, id].slice(-2);
-  set('compare', next);
-  return next;
 }
 
 /* ---------- Learning progress ---------- */
