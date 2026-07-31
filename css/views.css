@@ -1089,6 +1089,16 @@
 .stop h3 { font-size: 1.2rem; margin-bottom: var(--s-2); }
 .stop h3 a { color: inherit; }
 .stop h3 a:hover { color: var(--accent-text); }
+/* Names the relationship that put this entry in the list -- e.g. "myth
+   of" next to Achilles on Troy's Chronology -- so an item never reads as
+   an unexplained non-sequitur. */
+.stop-rel {
+  display: inline-block; margin-left: var(--s-2);
+  font-family: var(--font-ui); font-size: var(--fs-xxs); font-weight: 600;
+  letter-spacing: .02em; color: var(--text-3); text-transform: none;
+  vertical-align: middle;
+}
+.stop-rel::before { content: "— "; }
 .stop .note { color: var(--text-2); max-width: 62ch; text-wrap: pretty; }
 .stop .peek {
   margin-top: var(--s-3); padding: var(--s-3) var(--s-4);

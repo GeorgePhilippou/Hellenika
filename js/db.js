@@ -205,6 +205,25 @@ const INVERSE = {
   'ruled (myth)': 'ruled by (myth)', 'ruled by (myth)': 'ruled (myth)',
   'king of': 'ruled by', 'king of (myth)': 'ruled by (myth)',
   'queen of': 'ruled by', 'born at': 'birthplace of', 'birthplace of': 'born at',
+  // The curated period child-lists above (CHILD_REL) are the single
+  // biggest source of un-inverted relations in the dataset -- every
+  // period has dozens of children, so leaving these unmapped means most
+  // of a period's own key events/figures/sites/artefacts/texts show up
+  // on THEIR OWN page only as a contentless "related to" back to the
+  // period, with no hint of what the connection actually was.
+  'key event': 'key event of', 'key figure': 'key figure of',
+  'key site': 'key site of', 'key artefact': 'key artefact of',
+  'key text': 'key text of',
+  // Also high-frequency across hand-authored content (dozens of uses
+  // each): a place hosting an event, and a place/work being where
+  // another work is set.
+  'site': 'site of', 'site of': 'site',
+  'setting': 'set in', 'setting of': 'set in',
+  'included': 'part of',
+  // Symmetric -- "contemporary" is the same fact read from either side,
+  // so both spellings map onto the one already-standard label rather
+  // than falling back to a contentless "related to".
+  'contemporary with': 'contemporary with', 'contemporary': 'contemporary with',
 };
 
 const inverseOf = (rel) => INVERSE[rel] || 'related to';

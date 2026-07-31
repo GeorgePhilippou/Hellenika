@@ -310,10 +310,13 @@ function sourcesSection(e) {
 
 function chronologySection(e) {
   // Build a chronology from dated neighbours — no hand-authoring required.
+  // Keeps n.rel (previously discarded) -- without it, an entry like
+  // Achilles showing up on Troy's page reads as a non-sequitur, since
+  // nothing on screen explains it's there because he's "myth of" Troy
+  // rather than some arbitrary pick.
   const items = db.neighbours(e.id)
-    .map((n) => n.entity)
-    .filter((x) => x.start != null && !x.modern)
-    .sort((a, b) => a.start - b.start);
+    .filter((n) => n.entity.start != null && !n.entity.modern)
+    .sort((a, b) => a.entity.start - b.entity.start);
   if (items.length < 3) return '';
 
   return section('chronology', 'Chronology', `
@@ -321,10 +324,13 @@ function chronologySection(e) {
       Connected entities in date order — the immediate historical neighbourhood.
     </p>
     <div class="stops" style="--tint:${db.tintVar(e.tint)}">
-      ${items.map((x) => `
+      ${items.map(({ entity: x, rel }) => `
         <div class="stop" style="padding-bottom:var(--s-6)">
           <div class="stop-n num">${esc(entityDate(x))}</div>
-          <h3 style="font-size:1.02rem"><a href="${entityHref(x.id)}">${esc(x.name)}</a></h3>
+          <h3 style="font-size:1.02rem">
+            <a href="${entityHref(x.id)}">${esc(x.name)}</a>
+            <span class="stop-rel">${esc(rel)}</span>
+          </h3>
           <p class="note small">${esc(x.summary)}</p>
         </div>`).join('')}
     </div>`);
