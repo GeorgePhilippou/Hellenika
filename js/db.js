@@ -228,6 +228,20 @@ const INVERSE = {
   // Troy; 'preceded' reuses the 'followed' half of the existing
   // 'followed by'/'followed' pair rather than inventing a near-synonym.
   'performed by': 'performed', 'preceded': 'followed',
+  // The military/command vocabulary -- who led, fought, opposed, or was
+  // defeated where -- is the next-largest uncovered cluster after the
+  // period child-lists (~130 authored instances across people, places,
+  // battles and wars), and just as mechanically invertible.
+  'led': 'led by', 'led by': 'led',
+  'commanded at': 'commanded by', 'commanded': 'commanded by', 'commanded by': 'commanded',
+  'combatant': 'combatant', 'fought': 'fought',
+  'fought at': 'combatant', 'fought in': 'combatant', 'defeated at': 'combatant',
+  'opposed': 'opposed by', 'opposed by': 'opposed',
+  'victor': 'victor at', 'served': 'served by',
+  // A myth-place visited in the course of a journey (every Odyssey stop
+  // authors this toward Odysseus), and myth-place-of-departure.
+  'visited by (myth)': 'visited (myth)',
+  'departs from (myth)': 'departure point (myth)',
 };
 
 const inverseOf = (rel) => INVERSE[rel] || 'related to';
