@@ -3,6 +3,7 @@ import {
   EVIDENCE_META,
   CONFIDENCE_META,
   getSource,
+  MISSING_RELATIONS,
 } from '../js/db.js';
 
 const MIN = {
@@ -61,6 +62,14 @@ for (const entity of ALL) {
 
   for (const sourceId of entity.sources) {
     if (!getSource(sourceId)) errors.push(`${entity.id}: unknown source "${sourceId}"`);
+  }
+
+  // Dangling relation targets are silently dropped by js/db.js before
+  // `entity.relations` ever reaches here, so they can't be caught by
+  // looping over entity.relations the way sources/claims are above --
+  // js/db.js records what it dropped in MISSING_RELATIONS instead.
+  for (const { targetId } of MISSING_RELATIONS.filter((m) => m.entityId === entity.id)) {
+    errors.push(`${entity.id}: relation target "${targetId}" does not exist`);
   }
 
   for (const [index, claim] of entity.claims.entries()) {

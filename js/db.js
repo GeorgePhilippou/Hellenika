@@ -220,18 +220,22 @@ for (const e of entities.values()) {
 }
 
 // Drop relations pointing at ids that do not exist, and report them once.
-const missing = new Set();
+// Recorded per-entity (not just the bare set of missing ids) so
+// validate-content.mjs can point at exactly which content file needs
+// fixing, not just which id is missing.
+const missingRelations = [];
 for (const e of entities.values()) {
   e.relations = e.relations.filter((r) => {
     if (entities.has(r.id)) return true;
-    missing.add(r.id);
+    missingRelations.push({ entityId: e.id, targetId: r.id });
     return false;
   });
   // Stable, readable ordering: authored links first, then alphabetical.
   e.relations = sortBy(e.relations, (r) => (r.derived ? 1 : 0), (r) => entities.get(r.id).sortName);
 }
-if (missing.size) {
-  console.info(`[Hellenika] ${missing.size} relation target(s) not yet in the dataset:`, [...missing].sort());
+if (missingRelations.length) {
+  const uniqueTargets = [...new Set(missingRelations.map((m) => m.targetId))].sort();
+  console.info(`[Hellenika] ${uniqueTargets.length} relation target(s) not yet in the dataset:`, uniqueTargets);
 }
 
 /* ============================================================
@@ -242,6 +246,10 @@ export const ALL = Array.from(entities.values());
 export const get = (id) => entities.get(id) || null;
 export const has = (id) => entities.has(id);
 export const count = ALL.length;
+/** Authored relations whose target id doesn't exist in the dataset --
+ * dropped from `relations` above, kept here so validate-content.mjs can
+ * fail the build on them instead of only logging a console.info. */
+export const MISSING_RELATIONS = missingRelations;
 
 export const byType = groupBy(ALL, (e) => e.type);
 export const typesPresent = sortBy(
