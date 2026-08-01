@@ -20,6 +20,10 @@ import { entityHref } from '../router.js';
 // short "found at" label are hardcoded per entry.
 const HERO_OBJECTS = [
   { id: 'mask-of-agamemnon', asset: 'assets/mask-of-agamemnon.webp', place: 'Mycenae' },
+  { id: 'phaistos-disc', asset: 'assets/phaistos-disc.webp', place: 'Phaistos' },
+  { id: 'antikythera-mechanism', asset: 'assets/antikythera-mechanism.webp', place: 'Antikythera' },
+  { id: 'winged-victory-samothrace', asset: 'assets/winged-victory-samothrace.webp', place: 'Samothrace' },
+  { id: 'vergina-larnax', asset: 'assets/vergina-larnax.webp', place: 'Vergina' },
 ];
 
 const FEATURES = [
