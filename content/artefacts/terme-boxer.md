@@ -40,7 +40,7 @@ _order: 60
 A bronze boxer shown battered and resting after a bout, one of the few large original Greek bronzes to survive at all, dug up on Rome's Quirinal Hill in 1885.
 
 <!-- field: significance -->
-Its unflinching realism -- swollen ears, a broken nose, wounds picked out in inlaid copper -- makes it one of the most viscerally direct survivals of Hellenistic art's turn toward extreme, individualised naturalism, rather than the idealised bodies of Classical sculpture.
+Greek sculpture turning away from victorious youth to a battered professional resting after a fight — and one of the very few large Greek bronzes to survive at all, so that shift can be read in an original rather than a Roman marble copy.
 
 <!-- field: body -->
 Workers clearing ground on the Quirinal Hill for a planned theatre in March 1885 struck bronze several metres below the surface. What they had found was a life-size seated boxer, still wearing the leather thongs boxers bound around their hands and forearms, his head turned as if someone had just spoken to him. The scholar overseeing the dig, Rodolfo Lanciani, recognised immediately that this was no ordinary find.

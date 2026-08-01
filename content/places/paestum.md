@@ -47,7 +47,7 @@ _order: 58
 A Greek colony in southern Italy with three of the best-preserved Doric temples anywhere, and a unique painted tomb.
 
 <!-- field: significance -->
-Its temples survive more completely than any in Greece, and its Tomb of the Diver is the only surviving Greek painted figural tomb of its era.
+Its three Doric temples stand more completely than any in Greece — preserved, ironically, because malaria emptied the site before anyone could quarry them for stone.
 
 <!-- field: body -->
 Founded by Greeks from Sybaris around 600 BC as Poseidonia, the city has three Doric temples standing to their entablatures, spanning roughly 550–450 BC — a visible sequence of the order maturing from heavy archaic proportions to classical balance.

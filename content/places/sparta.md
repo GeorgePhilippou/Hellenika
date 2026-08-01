@@ -69,7 +69,7 @@ _order: 21
 A militarised society of full-time warrior-citizens sustained by an enslaved Messenian population many times their number.
 
 <!-- field: significance -->
-The dominant land power of Greece for two centuries, and the most systematically misunderstood society in the ancient world.
+Its army was unmatched in Greece for as long as the enslaved Messenians who fed it stayed put — and no ancient society has been more systematically misunderstood.
 
 <!-- field: body -->
 Sparta had no walls; Spartans said their men were the walls, and for most of the Classical period this was not empty boasting — Sparta remained the one major Greek city that genuinely never needed fortification, since no enemy army could get near it and survive the encounter. Its constitution, unusually for a Greek state so strongly associated with military discipline, was a mixed and carefully balanced one: two hereditary kings from separate royal houses who checked each other's power, a council of twenty-eight elders (the gerousia) who had to be over sixty to serve, a citizen assembly, and five annually elected ephors with the extraordinary authority to prosecute and even depose a sitting king.

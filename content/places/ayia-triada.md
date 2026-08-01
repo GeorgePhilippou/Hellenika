@@ -44,7 +44,7 @@ _order: 6
 A Minoan royal villa near Phaistos that produced the Harvester Vase and a painted limestone sarcophagus of unique importance.
 
 <!-- field: significance -->
-Its sarcophagus is the fullest surviving depiction of Aegean Bronze Age funerary ritual.
+A secondary site that outproduced the palaces: more Linear A tablets than anywhere else on Crete, and the one painted sarcophagus that shows Aegean funerary ritual actually in progress.
 
 <!-- field: body -->
 Ayia Triada yielded more Linear A tablets than any other single site on Crete, an archive found alongside physical evidence of large-scale olive oil and wine storage that points to the villa having played a significant administrative and redistributive economic role within the wider Phaistos region, rather than functioning purely as an elite residence. The site also produced three superb carved stone vessels, among them the Harvester Vase — a relief of singing agricultural workers returning from harvest so lively and individually characterised that distinct faces and expressions remain clearly distinguishable on the worn stone even today.
