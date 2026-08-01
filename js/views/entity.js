@@ -45,16 +45,6 @@ export async function renderEntity(params) {
    Shared chrome
    ============================================================ */
 
-// A short lead-in for the hero's "why it matters" link, not the full
-// text repeated verbatim -- the full significance is one click away in
-// its own section below, so this is a teaser, not a duplicate.
-function teaser(text, max = 120) {
-  if (text.length <= max) return text;
-  const cut = text.slice(0, max);
-  const lastSpace = cut.lastIndexOf(' ');
-  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max)}…`;
-}
-
 function heroHTML(e, sections) {
   const bookmarked = store.isBookmarked(e.id);
   const homeRel = !e.region ? homeRelation(e) : null;
@@ -65,14 +55,15 @@ function heroHTML(e, sections) {
          ${icon('map', { size: 15 })} On the map
        </span>`
     : `<a class="btn btn-sm" href="#/map?focus=${encodeURIComponent(e.id)}">${icon('map', { size: 15 })} On the map</a>`;
-  // When the whole significance fits inside the teaser (roughly half of
-  // all 176 entries that have one), there is nothing further to reveal
-  // below -- linking down to a "Historical significance" section that
-  // just repeats the same sentence verbatim reads as a bug, not a
-  // feature. Render it as a static callout instead of a link in that
-  // case, and skip the full section entirely (see historyPage()).
-  const sigPreview = e.significance ? teaser(e.significance) : null;
-  const sigTruncated = sigPreview !== null && sigPreview !== e.significance;
+  // "Why it matters" shows the significance in full, and is the only
+  // place it appears on the page. This used to be a 120-character
+  // teaser linking down to a "Historical significance" section, but
+  // almost every significance text is a single sentence, so the teaser
+  // cut mid-clause and the section below then repeated the same words
+  // over again. Showing it once, whole, fixes both. Texts run ~64-330
+  // characters, which the box absorbs comfortably -- and the longer
+  // ones are useful here, since this box exists to fill the dead space
+  // beside a tall portrait photo (see .hero-significance in views.css).
   return `
     <header class="entity-hero" style="--tint:${db.tintVar(e.tint)}">
       <div class="wrap entity-hero-grid">
@@ -88,15 +79,11 @@ function heroHTML(e, sections) {
           <h1>${esc(e.name)}</h1>
           ${e.altNames.length ? `<p class="entity-alt">Also known as ${esc(e.altNames.join(' · '))}</p>` : ''}
           <p class="entity-summary">${esc(e.summary)}</p>
-          ${e.significance ? (sigTruncated ? `
-          <a class="hero-significance" href="#sec-significance">
+          ${e.significance ? `
+          <div class="hero-significance">
             <span class="hero-significance-label">Why it matters</span>
-            <p>${esc(sigPreview)}</p>
-          </a>` : `
-          <div class="hero-significance hero-significance-static">
-            <span class="hero-significance-label">Why it matters</span>
-            <p>${esc(sigPreview)}</p>
-          </div>`) : ''}
+            <p>${esc(e.significance)}</p>
+          </div>` : ''}
           <div class="entity-actions">
             ${mapBtn}
             ${e.start != null && !e.modern ? `<a class="btn btn-sm" href="#/timeline">${icon('timeline', { size: 15 })} On the timeline</a>` : ''}
@@ -358,14 +345,11 @@ function chronologySection(e) {
    ============================================================ */
 
 function historyPage(e) {
-  // Mirrors heroHTML()'s sigTruncated check -- if the hero's "Why it
-  // matters" box already shows the whole significance text (nothing was
-  // cut by teaser()), the full section below would just repeat it, so
-  // both the section and its Contents entry are skipped.
-  const sigTruncated = e.significance && teaser(e.significance) !== e.significance;
+  // No 'Significance' section or Contents entry: the hero's "Why it
+  // matters" box carries that text in full, and a section repeating it
+  // verbatim was the whole problem.
   const sections = [
     { id: 'overview', label: 'Overview' },
-    sigTruncated && { id: 'significance', label: 'Significance' },
     { id: 'related', label: 'Connections' },
     e.claims.length && { id: 'evidence', label: 'Evidence' },
     { id: 'chronology', label: 'Chronology' },
@@ -392,9 +376,6 @@ function historyPage(e) {
             ${e.boundaryNote ? `<div class="register-note" style="margin-top:var(--s-5)">
               ${icon('info', { size: 17 })}<div><strong>On the dates.</strong> ${esc(e.boundaryNote)}</div></div>` : ''}
           `)}
-
-          ${sigTruncated ? section('significance', 'Historical significance',
-            `<div class="callout" style="--tint:${db.tintVar(e.tint)}"><p>${esc(e.significance)}</p></div>`) : ''}
 
           ${relationsSection(e)}
           ${evidenceSection(e)}
@@ -539,17 +520,6 @@ function mount(root, e) {
     document.getElementById(a.getAttribute('href').slice(1))
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
-
-  // Same same-page-anchor treatment for the hero's "why it matters"
-  // teaser -- it's not inside .toc, so it needs its own handler, or a
-  // plain hash-anchor click would overwrite the #/e/:id route hash
-  // entirely and land on Not Found. Scoped to [href] so the static
-  // (non-truncated, non-link) variant of the box -- see heroHTML() --
-  // doesn't get a pointless handler.
-  $('.hero-significance[href]', root)?.addEventListener('click', (ev) => {
-    ev.preventDefault();
-    document.getElementById('sec-significance')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 
   /* ---------- Cleanup ---------- */
   const observer = new MutationObserver(() => {
