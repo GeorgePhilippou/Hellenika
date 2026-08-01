@@ -245,9 +245,127 @@ const INVERSE = {
   // The Odyssey's own leg-by-leg geography, e.g. Ismarus's "route from"
   // Troy -- Troy's page should read "route to: Ismarus", not generic.
   'route from': 'route to',
+
+  // ---- Place/period anchoring ----
+  // "centre of" is the single most common remaining verb (a site or city
+  // naming the period it anchors); the period's own page should say which
+  // centres it had, not list them as "related to".
+  'centre of': 'major centre', 'cult centre of': 'cult centre',
+  'cult centre in': 'cult centre', 'temple centre in': 'temple centre',
+  'major centre in': 'major centre', 'capital in': 'capital',
+  'city-kingdom of': 'city-kingdom', 'territory of': 'territory',
+  'sanctuary of': 'sanctuary', 'principal sanctuary of': 'principal sanctuary',
+  'homeland of': 'homeland', 'from': 'origin of', 'near': 'near',
+  'lived in': 'home of', 'worked in': 'workplace of', 'worked at': 'workplace of',
+  'died at': 'death place of', 'buried in': 'burial place of',
+  'made at': 'production site of', 'produced at': 'production site of',
+  'written at': 'writing site of', 'staged at': 'staged', 'staged in': 'staged',
+  'taught in': 'teaching site of', 'initiated at': 'initiation site of',
+  'erected at': 'site of', 'attested at': 'attests', 'attested in': 'attests',
+  'found in': 'findspot of', 'findspot': 'found at',
+  'flourished in': 'flourishing of', 'circulated in': 'circulation of',
+  'administered from': 'administrative seat of', 'satrapal seat of': 'satrapal seat',
+  'currency of': 'currency', 'language of': 'language',
+  'oracle in': 'oracle', 'temple at': 'temple of', 'festival at': 'festival of',
+  'statue at': 'statue', 'depicted at': 'depicts', 'commemorated at': 'commemorates',
+  'athletic context': 'athletic context for', 'trade network with': 'trade network with',
+  'traded via': 'trade route for', 'grain route for': 'grain route',
+  'transmission route': 'transmission route',
+
+  // ---- Periods: beginnings, endings, and who moved them ----
+  'began': 'begins with', 'marks start of': 'begins with',
+  'ended at': 'ended', 'abandoned in': 'abandonment of',
+  'destroyed in': 'destroyed', 'destroyed': 'destroyed in',
+  'ruler': 'ruled during', 'tyrant of': 'ruled by', 'regent of': 'regent',
+  'regent for': 'regent', 'general of': 'general', 'ruled': 'ruled by',
+  'advanced': 'advanced by', 'shaped': 'shaped by', 'revealed': 'revealed by',
+  'enabled': 'enabled by', 'caused': 'caused by', 'helped cause': 'contributing cause',
+  'led to': 'resulted from', 'disrupted': 'disrupted by', 'expanded': 'expanded by',
+  'diminished': 'diminished by', 'redefined': 'redefined by',
+  'continued': 'continued by', 'completed': 'completed by',
+  'annexed': 'annexed by', 'sacked': 'sacked by', 'burned': 'burned by',
+  'resisted': 'resisted by', 'named': 'named by', 'named after': 'name source of',
+  'follows': 'followed by', 'anticipated': 'anticipated by',
+  'influenced': 'influenced by', 'inspired': 'inspired by',
+  'introduced': 'introduced by', 'advocated': 'advocated by',
+  'developed': 'developed by', 'created': 'created by', 'produced': 'produced by',
+  'wrote during': 'written during',
+
+  // ---- Texts and what they are about ----
+  'narrates': 'narrated in', 'describes': 'described in',
+  'discusses': 'discussed in', 'analyses': 'analysed in',
+  'chronicled': 'chronicled by', 'recorded': 'recorded by',
+  'celebrates': 'celebrated in', 'quoted': 'quotes',
+  'subject': 'subject of', 'includes life of': 'biography in',
+  'main source for': 'main source', 'evidence for': 'evidenced by',
+  'features': 'features in', 'features in': 'features',
+  'wrote about': 'written about by', 'writing system': 'writing system of',
+  'depicts scene from': 'scene depicted in', 'depicted on': 'depicts',
+  'possibly depicts': 'possibly depicted in', 'alludes to': 'alluded to in',
+  'references': 'referenced in', 'referenced in': 'references',
+  'responds to': 'answered by', 'attacks': 'attacked in',
+  'dedicated to': 'dedication to', 'delivered at': 'venue for',
+  'attributed to': 'attributed work', 'foundation attributed to': 'credited with founding',
+
+  // ---- People to people ----
+  'brother of': 'sibling of', 'sister of': 'sibling of', 'sibling of': 'sibling of',
+  'kinsman of': 'kinsman of', 'descendant of': 'ancestor of',
+  'claimed descent from': 'claimed ancestor of', 'son-in-law of': 'father-in-law of',
+  'rival of': 'rival of', 'allied with': 'allied with', 'linked to': 'linked to',
+  'associated with': 'associated with', 'connected to': 'connected to',
+  'compared to': 'compared with', 'compared with': 'compared with',
+  'contrasted with': 'contrasted with', 'contemporary of': 'contemporary with',
+  'contemporary practice with': 'contemporary practice with',
+  'panhellenic peer': 'panhellenic peer', 'Ionian peer': 'Ionian peer',
+  'corresponded with': 'corresponded with', 'related to': 'related to',
+  'advised': 'advised by', 'advised at': 'adviser at', 'consulted': 'consulted by',
+  'honoured': 'honoured by', 'confronted': 'confronted by', 'pursued': 'pursued by',
+  'sought': 'sought by', 'avenging': 'avenged by', 'accused of profaning': 'profanation alleged by',
+  'defected to': 'received defector', 'appealed to': 'appealed to by',
+  'campaigned in': 'campaign of', 'participated in': 'participant',
+  'fought for': 'fought for by', 'killed at': 'death place of', 'killed in': 'death place of',
+  'commanded in': 'commanded by', 'besieged at': 'besieged by', 'defended': 'defended by',
+  'won at': 'won by', 'lost at': 'lost by', 'against': 'opposed by',
+
+  // ---- Myth and cult ----
+  'chief god of': 'chief god', 'worshipped at': 'cult of', 'oracle of': 'oracle',
+  'rival oracle': 'rival oracle', 'aspect of': 'aspect', 'counterpart of': 'counterpart of',
+  'hero of': 'hero', 'myth of': 'myth', 'myth connection': 'myth connection',
+  'cult introduced to': 'cult introduced from', 'invoked': 'invoked by',
+  'demanded sacrifice from': 'sacrificed to', 'angered at': 'angered',
+  'encountered (myth)': 'encountered by (myth)', 'possibly linked to': 'possibly linked to',
+  'possibly records': 'possibly recorded in', 'possibly contains': 'possibly contained in',
+  'used': 'used by', 'used at': 'use site of', 'style of': 'exemplified by',
+  'built on': 'built over by', 'reinterpreted': 'reinterpreted by',
+  'surprised': 'surprised by', 'survived': 'survived by', 'witnessed': 'witnessed by',
+  'suspected': 'suspected by', 'implicated': 'implicated by',
+  'legislated for': 'legislator', 'endowed': 'endowed by', 'bequeathed to Rome': 'bequest from',
+  'gained influence via': 'source of influence for', 'strategic in': 'strategic site',
+  'secured at': 'secured', 'contested during': 'contested', 'recognised at': 'recognised',
+  'sourced from': 'source of', 'sourced': 'sourced from', 'linked site to': 'site linked to',
+  'researched': 'researched by', 'analysed': 'analysed by',
+  'decipherment parallel': 'decipherment parallel', 'polychromy parallel': 'polychromy parallel',
+  'decipherment confirmed at': 'confirmed decipherment of',
+  'shares architect with': 'shares architect with',
+  'Phoenician connections with': 'Phoenician connections with',
+  'monuments of': 'monuments', 'near findspot of': 'findspot near',
+  'imposed through': 'imposed', 'ordered': 'ordered by', 'context': 'context for',
+  'restored under': 'restorer of', 'presupposes': 'presupposed by',
+  'looted during': 'looting of', 'tracks games of': 'games tracked in',
+  'responded to': 'prompted', 'founded on advice of': 'advised founding of',
 };
 
-const inverseOf = (rel) => INVERSE[rel] || 'related to';
+// "<verb> by" is mechanically invertible -- the other side of "chronicled
+// by Thucydides" is "chronicled". That one rule covers ~40 low-frequency
+// passive verbs ('issued by', 'analysed by', 'besieged by', 'sculpted
+// by' ...) that would each otherwise need a hand-written map entry, and
+// keeps the map to the cases where the inverse isn't just the active
+// voice. Anything still unmatched falls back to a generic label.
+const inverseOf = (rel) => {
+  if (INVERSE[rel]) return INVERSE[rel];
+  if (rel.endsWith(' by')) return rel.slice(0, -' by'.length);
+  return 'related to';
+};
 
 for (const e of entities.values()) {
   for (const r of e.relations) {
