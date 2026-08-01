@@ -159,6 +159,23 @@ hr {
 .prose { max-width: 68ch; color: var(--text-2); text-wrap: pretty; }
 .prose strong { color: var(--text); font-weight: 620; }
 
+/* First prose mention of another entity. Deliberately quiet: a reading
+   page carries a dozen or so of these, and full link colour on every
+   one would turn the paragraph into a navigation bar. The underline is
+   the only resting-state signal; colour arrives on hover. */
+.prose-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color var(--t-fast), text-decoration-color var(--t-fast);
+}
+.prose-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
 .muted { color: var(--text-3); }
 .small { font-size: var(--fs-sm); }
 .xs { font-size: var(--fs-xs); }

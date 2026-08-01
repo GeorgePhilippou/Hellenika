@@ -23,7 +23,7 @@ import { odysseyPlaces } from '../data/odyssey-places.js';
 import { culture } from '../data/culture.js';
 import { sources } from '../data/sources.js';
 import { collections } from '../data/collections.js';
-import { fold, sortBy, unique, groupBy } from './util.js';
+import { fold, sortBy, unique, groupBy, esc } from './util.js';
 
 const SOURCES_OF_TRUTH = [periods, people, places, events, artefacts, texts, mythology, odysseyPlaces, culture];
 
@@ -395,6 +395,70 @@ if (missingRelations.length) {
   const uniqueTargets = [...new Set(missingRelations.map((m) => m.targetId))].sort();
   console.info(`[Hellenika] ${uniqueTargets.length} relation target(s) not yet in the dataset:`, uniqueTargets);
 }
+
+/* ---------- Prose autolinking index ---------- */
+// Entity names written into body prose were inert text. Around 1,150
+// such mentions exist, and half of them name an entity the entry does
+// not even list under Connections -- so a reader meeting "Linear B" in
+// a sentence had no route from that sentence to Linear B. This index
+// lets prose link the first mention of each entity (see linkEntities in
+// components/ui.js). Names are matched longest-first so that a
+// qualified form always beats the bare one it contains.
+
+// Unambiguous inside the dataset, but ambiguous in the world -- a bare
+// match would usually resolve to the wrong entity, so never link these.
+const NO_AUTOLINK = new Set([
+  // The dataset's bare "Salamis" is the Cypriot city, but nearly every
+  // mention in prose is the 480 BC naval battle off Attica, the island
+  // it was fought beside, or Ajax's home. Battle and city are both
+  // reachable under their full names.
+  'Salamis',
+]);
+
+// Qualified forms that must outrank a shorter, commoner name. Longest
+// -first matching then steers "Egyptian Thebes" to Waset instead of
+// letting the bare "Thebes" claim it for Boeotia.
+const EXTRA_NAMES = [
+  ['Egyptian Thebes', 'waset-thebes'],
+  ['Cyprian Salamis', 'salamis-cyprus'],
+];
+
+const nameOwners = new Map();
+const claimName = (name, id) => {
+  if (!name || name.length < 5 || NO_AUTOLINK.has(name)) return;
+  if (!nameOwners.has(name)) nameOwners.set(name, new Set());
+  nameOwners.get(name).add(id);
+};
+for (const e of entities.values()) {
+  claimName(e.name, e.id);
+  // "The Parthenon Frieze" is written as "the Parthenon Frieze"
+  // mid-sentence far more often than with the article attached.
+  claimName(e.name.replace(/^The /, ''), e.id);
+}
+// A name claimed by two entities can't be resolved from the text alone
+// ("Histories" is both Herodotus' and Polybius'), so it links to neither.
+const linkNames = new Map();
+for (const [name, owners] of nameOwners) {
+  if (owners.size === 1) linkNames.set(name, [...owners][0]);
+}
+for (const [name, id] of EXTRA_NAMES) {
+  if (entities.has(id)) linkNames.set(name, id);
+}
+
+/** Entity names safe to link from prose, longest first. */
+export const AUTOLINK = {
+  byName: linkNames,
+  // Built against esc()'d text, since linking runs after escaping.
+  pattern: linkNames.size
+    ? new RegExp(
+      `\\b(${[...linkNames.keys()]
+        .sort((a, b) => b.length - a.length)
+        .map((n) => esc(n).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+        .join('|')})\\b`,
+      'g',
+    )
+    : null,
+};
 
 /* ============================================================
    Public API

@@ -7,7 +7,7 @@
 import { esc, fmtRange, fmtYear, truncate } from '../util.js';
 import { icon, TYPE_ICON, EVIDENCE_ICON } from '../icons.js';
 import { entityHref } from '../router.js';
-import { tintVar, TYPE_META, CONFIDENCE_META, EVIDENCE_META, CONFIDENCE_ORDER } from '../db.js';
+import { tintVar, TYPE_META, CONFIDENCE_META, EVIDENCE_META, CONFIDENCE_ORDER, AUTOLINK } from '../db.js';
 
 /** Human date label for an entity, honouring approx / floruit / modern. */
 export function entityDate(e) {
@@ -131,10 +131,63 @@ export function inline(text) {
     .replace(/\b(\d+)\/(\d+)\b/g, '$1/$2');
 }
 
-/** Split a body string on blank lines into paragraphs. */
-export function paragraphs(text) {
+/**
+ * Turn the first prose mention of each other entity into a link.
+ *
+ * Only the first mention, and only once per page: linking every
+ * occurrence of "Athens" across a long entry turns the paragraph into a
+ * wall of blue and stops signalling anything. `seen` is therefore shared
+ * across all the paragraphs of one page, and seeded with the entity's
+ * own id so a page never links to itself.
+ *
+ * Runs on already-escaped HTML, so it splits on tags and rewrites only
+ * the text between them -- never inside `<em>`'s angle brackets, and
+ * never inside an href it has just written.
+ */
+export function linkEntities(html, seen) {
+  if (!AUTOLINK.pattern) return html;
+  return html.split(/(<[^>]*>)/).map((chunk) => {
+    if (!chunk || chunk[0] === '<') return chunk;
+    return chunk.replace(AUTOLINK.pattern, (match) => {
+      const id = AUTOLINK.byName.get(match);
+      if (!id || seen.has(id)) return match;
+      seen.add(id);
+      return `<a class="prose-link" href="${entityHref(id)}">${match}</a>`;
+    });
+  }).join('');
+}
+
+/**
+ * The starting set for one page's prose autolinking: the entity's own
+ * id, plus any entity whose linkable name is contained in this one's
+ * name. Without that second part the "Thebes (Waset)" page would link
+ * the word "Thebes" in its own first sentence to Boeotian Thebes, and
+ * any page whose name contains another's would do the same.
+ */
+export function proseSeen(e) {
+  const seen = new Set([e.id]);
+  for (const [name, id] of AUTOLINK.byName) {
+    if (id !== e.id && e.name.includes(name)) seen.add(id);
+  }
+  return seen;
+}
+
+/**
+ * Split a body string on blank lines into paragraphs.
+ *
+ * Pass `seen` (a Set of entity ids, pre-seeded with the current page's
+ * own id) to autolink the first prose mention of other entities. Called
+ * without it, prose is left unlinked -- which is what the timeline and
+ * collection intros want, since those already sit next to entity lists.
+ */
+export function paragraphs(text, seen = null) {
   if (!text) return '';
-  return text.split(/\n\n+/).map((p) => `<p>${inline(p.trim())}</p>`).join('');
+  return text.split(/\n\n+/)
+    .map((p) => {
+      const body = inline(p.trim());
+      return `<p>${seen ? linkEntities(body, seen) : body}</p>`;
+    })
+    .join('');
 }
 
 /**
@@ -152,9 +205,9 @@ export function inlineFigure(img) {
     </figure>`;
 }
 
-export function block(label, text) {
+export function block(label, text, seen = null) {
   if (!text) return '';
-  return `<div class="block"><h3>${esc(label)}</h3><div class="prose">${paragraphs(text)}</div></div>`;
+  return `<div class="block"><h3>${esc(label)}</h3><div class="prose">${paragraphs(text, seen)}</div></div>`;
 }
 
 /* ---------- Graph tint legend ----------

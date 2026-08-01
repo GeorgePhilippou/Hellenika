@@ -17,7 +17,7 @@ import { createGraph } from '../components/graph.js';
 import { createMap } from '../components/map-canvas.js';
 import {
   entityDate, entityCard, claimsList, confidenceKey,
-  paragraphs, block, factList, emptyState, typeChip, tintLegend, inlineFigure,
+  paragraphs, block, proseSeen, factList, emptyState, typeChip, tintLegend, inlineFigure,
 } from '../components/ui.js';
 import { TYPE_META } from '../db.js';
 
@@ -345,6 +345,8 @@ function chronologySection(e) {
    ============================================================ */
 
 function historyPage(e) {
+  // One set for the whole page -- see the same seeding in mythPage().
+  const seen = proseSeen(e);
   // No 'Significance' section or Contents entry: the hero's "Why it
   // matters" box carries that text in full, and a section repeating it
   // verbatim was the whole problem.
@@ -369,10 +371,10 @@ function historyPage(e) {
         <div class="entity-main">
           ${section('overview', 'Overview', `
             <div class="prose" style="max-width:68ch">
-              ${e.body ? paragraphs(e.body) : `<p>${esc(e.summary)}</p>`}
+              ${e.body ? paragraphs(e.body, seen) : `<p>${esc(e.summary)}</p>`}
             </div>
             ${inlineFigure(e.secondaryImage)}
-            ${extras.map(([k, v]) => block(k, v)).join('')}
+            ${extras.map(([k, v]) => block(k, v, seen)).join('')}
             ${e.boundaryNote ? `<div class="register-note" style="margin-top:var(--s-5)">
               ${icon('info', { size: 17 })}<div><strong>On the dates.</strong> ${esc(e.boundaryNote)}</div></div>` : ''}
           `)}
@@ -393,6 +395,9 @@ function historyPage(e) {
    ============================================================ */
 
 function mythPage(e) {
+  // One set for the whole page: each entity gets linked at its first
+  // prose mention and stays plain text after that.
+  const seen = proseSeen(e);
   const sections = [
     { id: 'myth', label: 'The myth' },
     { id: 'registers', label: 'Sources & cult' },
@@ -405,7 +410,7 @@ function mythPage(e) {
   const mythBlock = (cls, label, text, ico) => text ? `
     <div class="myth-block ${cls}" style="--tint:${db.tintVar(e.tint)}">
       <h3>${icon(ico, { size: 14 })} ${esc(label)}</h3>
-      <div class="prose">${paragraphs(text)}</div>
+      <div class="prose">${paragraphs(text, seen)}</div>
     </div>` : '';
 
   return `
