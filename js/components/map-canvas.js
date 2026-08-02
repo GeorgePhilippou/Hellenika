@@ -94,6 +94,7 @@ export function createMap(canvas, {
   onMarkerClick,
   onTerritoryClick,
   territoryEntityId,
+  territoryExternalUrl,
   onHover,
   /** Small preview maps (e.g. an entity page's Location panel) shouldn't
       capture drag/wheel/keyboard input -- a wheel-zoomable canvas sitting
@@ -776,6 +777,7 @@ export function createMap(canvas, {
         if (th) {
           const t = th.territory;
           const entityId = territoryEntityId?.(t) ?? t.entityId ?? null;
+          const externalUrl = entityId ? null : territoryExternalUrl?.(t) ?? null;
           const typeLabel = t.kind === 'culture' ? 'Archaeological culture zone'
             : t.kind === 'league' ? 'Alliance / hegemony'
             : t.kind === 'regional' ? 'Regional reconstruction'
@@ -783,9 +785,10 @@ export function createMap(canvas, {
           nextHot = {
             id: `territory:${t.id}`, name: t.name, typeLabel,
             start: t.from, end: t.to, region: null, entityId,
-            certainty: t.certainty,
+            certainty: t.certainty, sourceUrl: externalUrl,
+            sourceLabel: externalUrl ? 'Read on Wikipedia' : null,
           };
-          clickable = Boolean(entityId);
+          clickable = Boolean(entityId || externalUrl);
         }
       }
       if (nextHot?.id !== hot?.id) {
@@ -829,7 +832,8 @@ export function createMap(canvas, {
       const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
       if (th) {
         const entityId = territoryEntityId?.(th.territory) ?? th.territory.entityId ?? null;
-        if (entityId) onTerritoryClick?.(th.territory, entityId);
+        const externalUrl = entityId ? null : territoryExternalUrl?.(th.territory) ?? null;
+        if (entityId || externalUrl) onTerritoryClick?.(th.territory, entityId, externalUrl);
       }
     }, { signal: eventScope.signal });
 
@@ -842,7 +846,10 @@ export function createMap(canvas, {
 
     canvas.tabIndex = 0;
     canvas.setAttribute('role', 'application');
-    canvas.setAttribute('aria-label', 'Historical map of the Greek world. Arrow keys pan, plus and minus zoom.');
+    canvas.setAttribute(
+      'aria-label',
+      'Historical map of the Greek world. Arrow keys pan, plus and minus zoom. Select a territory to open its Hellenika entry or Wikipedia article.',
+    );
     canvas.addEventListener('keydown', (e) => {
       const step = 50;
       if (e.key === 'ArrowLeft') { tx += step; schedule(); e.preventDefault(); }

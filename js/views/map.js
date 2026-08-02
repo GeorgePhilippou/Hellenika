@@ -30,6 +30,22 @@ const LAYERS = [
   ['labels', 'Place labels'],
 ];
 
+const TERRITORY_COLOUR_LABELS = new Map([
+  ['earlybronze', 'Early Bronze Age cultures and states'],
+  ['minoan', 'Middle Bronze Age regions'],
+  ['mycenaean', 'Mycenaean-era regions'],
+  ['collapse', 'Late Bronze Age powers'],
+  ['darkage', 'Early Iron Age regions'],
+  ['archaic', 'Archaic and Achaemenid powers'],
+  ['classical', 'Classical Greek powers'],
+  ['macedon', 'Macedonian and allied powers'],
+  ['alexander', "Alexander's empire"],
+  ['hellenistic', 'Hellenistic kingdoms and leagues'],
+  ['roman', 'Roman and Parthian powers'],
+  ['world-egypt', 'Independent Egyptian kingdoms'],
+  ['world-carthage', 'Carthaginian power'],
+]);
+
 const TURNING_POINTS = new Map([
   [-1700, 'Minoan palatial world'],
   [-1500, 'Minoan–Mycenaean transition'],
@@ -168,6 +184,72 @@ const TERRITORY_ENTITY_IDS = new Map([
   ['Neo-Babylonian Empire', 'babylon'],
 ]);
 
+const TERRITORY_WIKIPEDIA_TITLES = new Map([
+  ['Early Cycladic culture', 'Cycladic culture'],
+  ['Early Helladic culture', 'Helladic chronology'],
+  ['Early Dynastic Egypt', 'Early Dynastic Period of Egypt'],
+  ['Old Kingdom Egypt', 'Old Kingdom of Egypt'],
+  ['First Intermediate Period Egypt', 'First Intermediate Period of Egypt'],
+  ['Early Dynastic Mesopotamia', 'Early Dynastic Period (Mesopotamia)'],
+  ['Akkadian Empire', 'Akkadian Empire'],
+  ['Third Dynasty of Ur', 'Third Dynasty of Ur'],
+  ['Middle Kingdom Egypt', 'Middle Kingdom of Egypt'],
+  ['Second Intermediate Period Egypt', 'Second Intermediate Period of Egypt'],
+  ['Isin-Larsa city kingdoms', 'Isin-Larsa period'],
+  ['Old Babylonian kingdom', 'Old Babylonian Empire'],
+  ['Kingdom of Mitanni', 'Mitanni'],
+  ['Middle Helladic communities', 'Helladic chronology'],
+  ['Middle Cycladic communities', 'Cycladic culture'],
+  ['Middle Assyrian kingdom', 'Middle Assyrian Empire'],
+  ['Phoenician city-states', 'Phoenicia'],
+  ['Kingdom of Israel', 'Kingdom of Israel (Samaria)'],
+  ['Kingdom of Judah', 'Kingdom of Judah'],
+  ['Urartu', 'Urartu'],
+  ['Third Intermediate Period Egypt', 'Third Intermediate Period of Egypt'],
+  ['Neo-Assyrian Empire', 'Neo-Assyrian Empire'],
+  ['Kushite-ruled Egypt (Twenty-fifth Dynasty)', 'Twenty-fifth Dynasty of Egypt'],
+  ['Assyrian occupation of Egypt', 'Assyrian conquest of Egypt'],
+  ['Saite Egypt (Twenty-sixth Dynasty)', 'Twenty-sixth Dynasty of Egypt'],
+  ['Neo-Assyrian remnant', 'Neo-Assyrian Empire'],
+  ['Median kingdom', 'Medes'],
+  ['Post-palatial Greek regions', 'Greek Dark Ages'],
+  ['Lydian Kingdom', 'Lydia'],
+  ['Peloponnesian League', 'Peloponnesian League'],
+  ['Independent Late Period Egypt', 'Late Period of Egypt'],
+  ['Theban hegemony', 'Theban hegemony'],
+  ['Phoenician cities under Achaemenid rule', 'Phoenician history'],
+  ['Thracian regions', 'Thracians'],
+  ['Illyrian regions', 'Illyrians'],
+  ['Epirote communities and kingdom', 'Epirus (ancient state)'],
+  ['Etruscan city-states', 'Etruscan civilization'],
+  ['Carthaginian North African core', 'Ancient Carthage'],
+  ['Scythian regions north of the Black Sea', 'Scythians'],
+  ['Successor realms in Asia', 'Diadochi'],
+  ['Kingdom of Cappadocia', 'Kingdom of Cappadocia'],
+  ['Kingdom of Bithynia', 'Kingdom of Bithynia'],
+  ['Kingdom of Pontus', 'Kingdom of Pontus'],
+  ['Galatian polities', 'Galatians (people)'],
+  ['Armenian kingdoms', 'Kingdom of Armenia (antiquity)'],
+  ['Bosporan Kingdom', 'Bosporan Kingdom'],
+  ['Parthian kingdom', 'Parthian Empire'],
+  ['Parthian Empire', 'Parthian Empire'],
+  ['Achaean League', 'Achaean League'],
+  ["Caesar's conquests in Gaul", 'Gallic Wars'],
+]);
+
+function wikipediaArticleUrl(title) {
+  return `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(' ', '_'))}`;
+}
+
+function territoryWikipediaUrl(territory) {
+  const title = TERRITORY_WIKIPEDIA_TITLES.get(territory?.name);
+  if (title) return wikipediaArticleUrl(title);
+  const query = territory?.label || territory?.name;
+  return query
+    ? `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(query)}`
+    : null;
+}
+
 function territoryProfileId(territory) {
   if (!territory) return null;
   if (territory.entityId && db.get(territory.entityId)) return territory.entityId;
@@ -218,7 +300,12 @@ export async function renderMap(params, query) {
           <h1 id="map-title">The Map</h1>
           <p class="sub" id="map-sub">Move through time and watch regions, cities and archaeological sites change.</p>
         </div>
-        <div class="row" id="map-view-controls"></div>
+        <div class="row">
+          <div class="row" id="map-view-controls"></div>
+          <button class="btn btn-sm" id="map-fullscreen">
+            ${icon('expand', { size: 15 })} Full screen
+          </button>
+        </div>
       </div>
 
       <div class="segmented" id="map-mode-switch" style="margin-bottom:var(--s-6)">
@@ -237,7 +324,11 @@ export async function renderMap(params, query) {
               <button id="map-zout" aria-label="Zoom out">${icon('minus', { size: 16 })}</button>
               <button id="map-reset" aria-label="Reset view">${icon('reset', { size: 16 })}</button>
             </div>
+            <button class="btn btn-sm map-fs-exit" id="map-fs-exit">
+              ${icon('collapse', { size: 15 })} Exit full screen
+            </button>
             <div class="map-legend" id="map-legend"></div>
+            <div class="map-fs-date-host" id="map-fs-date-host"></div>
             <div class="tl-tip" id="map-tip"></div>
           </div>
 
@@ -263,6 +354,35 @@ function mount(root, initialMode, focusEntity) {
   const sideHost = $('#map-side-host', root);
   const introHost = $('#map-journey-intro', root);
   const viewControlsHost = $('#map-view-controls', root);
+  const fullscreenDateHost = $('#map-fs-date-host', root);
+  const mapWrap = $('.map-wrap', root);
+  const fullscreenButton = $('#map-fullscreen', root);
+  const fullscreenExit = $('#map-fs-exit', root);
+  const viewEvents = new AbortController();
+  const fullscreenOverlayObserver = new ResizeObserver(() => {
+    const dateDeckHeight = fullscreenDateHost.offsetHeight;
+    if (dateDeckHeight > 0) {
+      mapWrap.style.setProperty('--map-fs-date-offset', `${dateDeckHeight + 24}px`);
+    }
+  });
+  fullscreenOverlayObserver.observe(fullscreenDateHost);
+
+  const exitFullscreen = () => document.exitFullscreen?.().catch(() => {});
+  const paintFullscreenState = () => {
+    const on = document.fullscreenElement === mapWrap;
+    fullscreenButton.innerHTML = on
+      ? `${icon('collapse', { size: 15 })} Exit full screen`
+      : `${icon('expand', { size: 15 })} Full screen`;
+    fullscreenButton.setAttribute('aria-pressed', String(on));
+  };
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement === mapWrap) exitFullscreen();
+    else mapWrap.requestFullscreen?.().catch(() => {});
+  };
+
+  fullscreenButton.addEventListener('click', toggleFullscreen, { signal: viewEvents.signal });
+  fullscreenExit.addEventListener('click', exitFullscreen, { signal: viewEvents.signal });
+  document.addEventListener('fullscreenchange', paintFullscreenState, { signal: viewEvents.signal });
 
   let map = null;
   let unbindYear = null, unbindLayers = null;
@@ -358,6 +478,19 @@ function mount(root, initialMode, focusEntity) {
             </button>`).join('')}
         </div>
       </section>`;
+    fullscreenDateHost.innerHTML = `
+      <section class="map-fs-date-panel" aria-label="Choose a historical map date">
+        <div class="map-fs-date-label">Choose a date</div>
+        <div class="date-deck map-fs-date-deck" role="list" aria-label="Historical map dates in full screen">
+          ${dateOptions.map((option) => `
+            <button type="button" role="listitem" class="date-card${option.turningPoint ? ' turning-point' : ''}"
+                    data-map-year="${option.year}" aria-pressed="false">
+              <span class="date-card-year">${option.turningPoint ? '' : 'c. '}${esc(fmtYear(option.year))}</span>
+              <span class="date-card-label">${esc(option.label)}</span>
+            </button>`).join('')}
+        </div>
+      </section>`;
+    mapWrap.classList.add('has-fs-dates');
     sideHost.innerHTML = `
       <div class="panel">
         <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Layers</h3>
@@ -378,21 +511,30 @@ function mount(root, initialMode, focusEntity) {
 
     const listHost = $('#map-list', root);
     const countHost = $('#map-count', root);
-    const dateDeck = $('.date-deck', root);
+    const dateDecks = $$('.date-deck', root);
     let hoverSequence = 0;
     let hoverHideTimer = null;
 
     legendHost.innerHTML = `
-      <div class="map-key" aria-label="Map key">
-        <span><i class="map-key-area solid"></i>polity</span>
-        <span><i class="map-key-area dashed"></i>culture / league</span>
-        <span><i class="map-key-line campaign"></i>campaign</span>
-        <span><i class="map-key-line network"></i>trade / settlement network</span>
-        <span><i class="map-key-point city"></i>city</span>
-        <span><i class="map-key-point site"></i>site</span>
-        <span><i class="map-key-point battle"></i>battle / event</span>
-        <span><i class="map-key-point artefact"></i>artefact</span>
+      <div class="map-key-stack">
+        <div class="map-key" aria-label="Map symbol key">
+          <span><i class="map-key-area solid"></i>polity</span>
+          <span><i class="map-key-area dashed"></i>culture / league</span>
+          <span><i class="map-key-line campaign"></i>campaign</span>
+          <span><i class="map-key-line network"></i>trade / settlement network</span>
+          <span><i class="map-key-point city"></i>city</span>
+          <span><i class="map-key-point site"></i>site</span>
+          <span><i class="map-key-point battle"></i>battle / event</span>
+          <span><i class="map-key-point artefact"></i>artefact</span>
+        </div>
+        <div class="map-colour-key" aria-label="Territory colour key">
+          <strong>Territory colours</strong>
+          <div class="map-colour-items" id="map-colour-items"></div>
+          <small>Colours distinguish historical phases; they do not imply shared ethnicity or political unity.</small>
+        </div>
       </div>`;
+    const colourItemsHost = $('#map-colour-items', legendHost);
+    let colourLegendKey = null;
 
     const hideHoverTip = () => {
       hoverSequence += 1;
@@ -407,7 +549,7 @@ function mount(root, initialMode, focusEntity) {
       const summary = profile?.summary?.trim();
       const evidenceNote = e.evidenceNote?.trim();
       tip.innerHTML = `
-        ${image?.src ? `<div class="tl-tip-media"><img src="${esc(image.src)}" alt=""></div>` : ''}
+        ${image?.src ? `<div class="tl-tip-media"><img src="${esc(image.src)}" alt="" loading="lazy" decoding="async"></div>` : ''}
         <div class="tl-tip-body">
           <div class="t">${esc(e.name)}</div>
           <div class="d">${esc(e.typeLabel)}${e.region ? ' · ' + esc(e.region) : ''}${esc(qualifier)}</div>
@@ -424,9 +566,40 @@ function mount(root, initialMode, focusEntity) {
       tip.classList.toggle('with-media', Boolean(image?.src));
       tip.classList.toggle('interactive', Boolean(profile || e.sourceUrl));
       tip.classList.add('on');
-      const estimatedHeight = summary || evidenceNote ? 250 : image?.src ? 150 : 90;
-      tip.style.left = `${Math.max(8, Math.min(pos.x + 14, canvas.clientWidth - 354))}px`;
-      tip.style.top = `${Math.max(8, Math.min(pos.y + 14, canvas.clientHeight - estimatedHeight))}px`;
+
+      const gap = 14;
+      const width = tip.offsetWidth;
+      const height = tip.offsetHeight;
+      const canvasRect = canvas.getBoundingClientRect();
+      const avoidRects = [legendHost, fullscreenDateHost]
+        .map((element) => element.getBoundingClientRect())
+        .filter((rect) => rect.width > 0 && rect.height > 0)
+        .map((rect) => ({
+          x0: rect.left - canvasRect.left,
+          y0: rect.top - canvasRect.top,
+          x1: rect.right - canvasRect.left,
+          y1: rect.bottom - canvasRect.top,
+        }));
+      const candidates = [
+        { x: pos.x + gap, y: pos.y + gap },
+        { x: pos.x - width - gap, y: pos.y + gap },
+        { x: pos.x + gap, y: pos.y - height - gap },
+        { x: pos.x - width - gap, y: pos.y - height - gap },
+      ];
+      const inside = ({ x, y }) => x >= 8 && y >= 8
+        && x + width <= canvas.clientWidth - 8
+        && y + height <= canvas.clientHeight - 8;
+      const overlaps = ({ x, y }) => avoidRects.some((rect) => !(
+        x + width < rect.x0 || x > rect.x1 || y + height < rect.y0 || y > rect.y1
+      ));
+      const chosen = candidates.find((candidate) => inside(candidate) && !overlaps(candidate))
+        || candidates.find(inside)
+        || {
+          x: Math.max(8, Math.min(pos.x + gap, canvas.clientWidth - width - 8)),
+          y: Math.max(8, Math.min(pos.y + gap, canvas.clientHeight - height - 8)),
+        };
+      tip.style.left = `${chosen.x}px`;
+      tip.style.top = `${chosen.y}px`;
     };
 
     const hMap = createMap(canvas, {
@@ -437,7 +610,11 @@ function mount(root, initialMode, focusEntity) {
       focus: focusEntity,
       onMarkerClick: (e) => go(`/e/${e.id}`),
       territoryEntityId: territoryProfileId,
-      onTerritoryClick: (_territory, entityId) => go(`/e/${entityId}`),
+      territoryExternalUrl: territoryWikipediaUrl,
+      onTerritoryClick: (_territory, entityId, externalUrl) => {
+        if (entityId) go(`/e/${entityId}`);
+        else if (externalUrl) window.open(externalUrl, '_blank', 'noopener,noreferrer');
+      },
       onHover: (e, pos) => {
         const sequence = ++hoverSequence;
         clearTimeout(hoverHideTimer);
@@ -457,6 +634,18 @@ function mount(root, initialMode, focusEntity) {
           if (loaded?.src) paintHoverTip(e, pos, profile, loaded);
         });
       },
+    });
+    hMap.onLegend((items) => {
+      const tints = [...new Set(items.map((item) => item.tint))].sort();
+      const nextKey = tints.join('|');
+      if (nextKey === colourLegendKey) return;
+      colourLegendKey = nextKey;
+      colourItemsHost.innerHTML = `
+        <span><i class="map-colour-swatch base-land"></i>land without an active overlay</span>
+        ${tints.map((tint) => `
+          <span><i class="map-colour-swatch" style="--key-colour:var(--p-${esc(tint)})"></i>${esc(
+            TERRITORY_COLOUR_LABELS.get(tint) || tint.replaceAll('-', ' '),
+          )}</span>`).join('')}`;
     });
     tip.addEventListener('pointerenter', () => clearTimeout(hoverHideTimer), { signal });
     tip.addEventListener('pointerleave', hideHoverTip, { signal });
@@ -498,27 +687,31 @@ function mount(root, initialMode, focusEntity) {
       const p = primaryPeriodAt(y);
       periodOut.textContent = TURNING_POINTS.get(y) || p?.name || '—';
       periodNoteOut.textContent = SNAPSHOT_NOTES.get(y) || p?.summary || '';
-      const activeCard = $(`[data-map-year="${y}"]`, dateDeck);
-      $$('[data-map-year]', dateDeck).forEach((card) => {
-        const active = card === activeCard;
-        card.classList.toggle('active', active);
-        card.setAttribute('aria-pressed', String(active));
+      dateDecks.forEach((dateDeck) => {
+        const activeCard = $(`[data-map-year="${y}"]`, dateDeck);
+        $$('[data-map-year]', dateDeck).forEach((card) => {
+          const active = card === activeCard;
+          card.classList.toggle('active', active);
+          card.setAttribute('aria-pressed', String(active));
+        });
+        if (activeCard) {
+          requestAnimationFrame(() => dateDeck.scrollTo({
+            left: activeCard.offsetLeft - (dateDeck.clientWidth - activeCard.offsetWidth) / 2,
+            behavior: 'auto',
+          }));
+        }
       });
-      if (activeCard) {
-        requestAnimationFrame(() => dateDeck.scrollTo({
-          left: activeCard.offsetLeft - (dateDeck.clientWidth - activeCard.offsetWidth) / 2,
-          behavior: 'auto',
-        }));
-      }
       hMap.setYear(y);
       refreshMarkers(y);
     });
 
-    dateDeck.addEventListener('click', (event) => {
-      const card = event.target.closest('[data-map-year]');
-      if (!card) return;
-      store.setYear(Number(card.dataset.mapYear));
-    }, { signal });
+    dateDecks.forEach((dateDeck) => {
+      dateDeck.addEventListener('click', (event) => {
+        const card = event.target.closest('[data-map-year]');
+        if (!card) return;
+        store.setYear(Number(card.dataset.mapYear));
+      }, { signal });
+    });
 
     const paintLayers = (l) => {
       $$('[data-layer]', root).forEach((s) =>
@@ -544,6 +737,8 @@ function mount(root, initialMode, focusEntity) {
   function mountJourney(which) {
     const signal = modeEvents.signal;
     viewControlsHost.innerHTML = '';
+    fullscreenDateHost.innerHTML = '';
+    mapWrap.classList.remove('has-fs-dates');
     legendHost.innerHTML = which === 'alexander'
       ? `<div class="map-key" aria-label="Alexander campaign map key">
           <span><i class="map-key-foundation attested"></i>attested Alexandria</span>
@@ -757,6 +952,8 @@ function mount(root, initialMode, focusEntity) {
     if (!document.contains(canvas)) {
       teardown();
       store.togglePlay(false);
+      viewEvents.abort();
+      fullscreenOverlayObserver.disconnect();
       observer.disconnect();
     }
   });
