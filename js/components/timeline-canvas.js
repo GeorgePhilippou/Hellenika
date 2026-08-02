@@ -13,6 +13,7 @@
    Interaction model
      · drag horizontally to pan
      · wheel / pinch to zoom about the pointer
+     · click open space to inspect that year
      · click a period band to open it
      · click an event marker to open that entity
    ============================================================ */
@@ -36,6 +37,7 @@ export function createTimeline(canvas, {
   worldEvents = [],   // [{ id, name, year, lane, note }]
   onPeriodClick,
   onMarkerClick,
+  onYearSelect,
   onHover,
   onViewChange,
 }) {
@@ -46,7 +48,6 @@ export function createTimeline(canvas, {
   let W = 0, H = 0;
   let hot = null;             // hovered hit-region
   let cursorYear = null;      // year under the pointer
-  let playhead = null;        // externally driven year marker
   let hitRegions = [];
   let raf = null;
 
@@ -416,29 +417,6 @@ export function createTimeline(canvas, {
       }
     }
 
-    /* --- playhead (the year scrubber position) ---
-       A thin, translucent guide rather than a hard line, so it marks the
-       current year without cutting through bar and event labels it
-       happens to cross. */
-    if (playhead != null && playhead >= vStart && playhead <= vEnd) {
-      const x = xOf(playhead);
-      ctx.save();
-      ctx.strokeStyle = cssVar('--accent');
-      ctx.lineWidth = 1.25;
-      ctx.globalAlpha = 0.4;
-      ctx.setLineDash([]);
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, H);
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-      ctx.beginPath();
-      ctx.arc(x, 8, 4, 0, Math.PI * 2);
-      ctx.fillStyle = cssVar('--accent');
-      ctx.fill();
-      ctx.restore();
-    }
-
     /* --- cursor guide --- */
     if (cursorYear != null && !dragging) {
       const x = xOf(cursorYear);
@@ -586,10 +564,11 @@ export function createTimeline(canvas, {
     if (dragMoved > 5) return;
     const rect = canvas.getBoundingClientRect();
     const h = hitAt(e.clientX - rect.left, e.clientY - rect.top);
-    if (!h) return;
-    // World context is hover-only — it isn't a real page to open.
-    if (h.kind === 'period') onPeriodClick?.(h.data);
-    else if (h.kind === 'marker') onMarkerClick?.(h.data);
+    if (h?.kind === 'period') onPeriodClick?.(h.data);
+    else if (h?.kind === 'marker') onMarkerClick?.(h.data);
+    // World-context bands are informational rather than navigable, so a
+    // click on them behaves like open timeline space and inspects that year.
+    else onYearSelect?.(Math.round(clamp(yearAt(e.clientX - rect.left), TIME_MIN, TIME_MAX)));
   });
 
   canvas.addEventListener('wheel', (e) => {
@@ -607,7 +586,7 @@ export function createTimeline(canvas, {
   canvas.tabIndex = 0;
   canvas.setAttribute('role', 'application');
   canvas.setAttribute('aria-label',
-    'Interactive timeline from 3200 BC to 30 BC. Arrow keys pan, plus and minus zoom.');
+    'Interactive timeline from 3200 BC to 30 BC. Click to inspect a year, use arrow keys to pan, and plus or minus to zoom.');
   canvas.addEventListener('keydown', (e) => {
     const nudge = span() * 0.12;
     if (e.key === 'ArrowLeft') { setView(vStart - nudge, vEnd - nudge); e.preventDefault(); }
@@ -625,7 +604,6 @@ export function createTimeline(canvas, {
   const api = {
     draw: schedule,
     setMarkers(next) { markers = next; schedule(); },
-    setPlayhead(year) { playhead = year; schedule(); },
     getView: () => ({ start: vStart, end: vEnd }),
 
     /** Animate the viewport to a range. */

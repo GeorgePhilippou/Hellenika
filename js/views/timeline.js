@@ -1,15 +1,14 @@
 /* ============================================================
    Hellenika — Timeline view
-   The canvas timeline, a year scrubber wired to the global store,
-   and an expandable panel for whichever period is open.
+   The interactive canvas, a selected-year context panel, and an
+   expandable panel for whichever period is open.
    ============================================================ */
 
 import { el, $, $$, esc, fmtYear, clamp, throttle } from '../util.js';
 import { icon, TYPE_ICON } from '../icons.js';
 import * as store from '../store.js';
-import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
-import { periods, primaryPeriodAt } from '../../data/periods.js';
+import { periods } from '../../data/periods.js';
 import { worldPeriods, worldEvents } from '../../data/world.js';
 import { createTimeline } from '../components/timeline-canvas.js';
 import { hydrateImages, peek, ensureLoaded } from '../components/images.js';
@@ -35,7 +34,7 @@ export async function renderTimeline(params) {
         <div>
           <p class="eyebrow">3200 BC — 30 BC</p>
           <h1>The Timeline</h1>
-          <p class="sub">Drag to travel. Scroll to zoom. Click a band to open a period, or a dot to open an event.</p>
+          <p class="sub">Drag to travel. Scroll to zoom. Click a date to inspect it, a band to open a period, or a dot to open an event.</p>
         </div>
         <div class="row">
           <button class="btn btn-sm" id="tl-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
@@ -49,26 +48,13 @@ export async function renderTimeline(params) {
         <div class="tl-canvas-wrap">
           <canvas class="tl-canvas" id="tl-canvas"></canvas>
           <div class="tl-tip" id="tl-tip"></div>
-          <div class="tl-hint">drag · scroll to zoom · click to open</div>
+          <div class="tl-hint">drag · scroll to zoom · click to inspect</div>
           <div class="tl-fs-bar">
             <button class="btn btn-sm" id="tl-fs-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
             <button class="btn btn-sm" id="tl-fs-zoom-in" aria-label="Zoom in">${icon('plus', { size: 15 })}</button>
             <button class="btn btn-sm" id="tl-fs-reset">${icon('reset', { size: 15 })} Full range</button>
             <button class="btn btn-sm" id="tl-fs-exit">${icon('collapse', { size: 15 })} Exit full screen</button>
           </div>
-        </div>
-
-        <div class="scrubber">
-          <div>
-            <div class="tl-readout num" id="tl-year"></div>
-            <div class="tl-readout-sub" id="tl-era"></div>
-          </div>
-          <div class="track">
-            <input type="range" id="tl-range" min="${TIME_MIN}" max="${TIME_MAX}" step="1"
-                   aria-label="Year" value="${store.get('year')}">
-            <div class="ends"><span>3200 BC</span><span>30 BC</span></div>
-          </div>
-          <a class="btn btn-sm" href="#/map" title="See this year on the map">${icon('map', { size: 15 })} Map</a>
         </div>
 
         <div id="tl-snapshot"></div>
@@ -86,7 +72,6 @@ function mount(root, openId) {
   const tip = $('#tl-tip', root);
   const panel = $('#tl-panel', root);
   const snapshot = $('#tl-snapshot', root);
-  const range = $('#tl-range', root);
   if (!canvas) return;
 
   // Bumped on every hover change so a slow image fetch from an earlier
@@ -106,6 +91,10 @@ function mount(root, openId) {
     worldEvents,
     onPeriodClick: (p) => openPeriod(p.id),
     onMarkerClick: (e) => go(`/e/${e.id}`),
+    onYearSelect: (year) => {
+      store.togglePlay(false);
+      store.setYear(year);
+    },
     onHover: (h, pos) => {
       hoverToken++;
       if (!h) { tip.classList.remove('on'); return; }
@@ -151,29 +140,9 @@ function mount(root, openId) {
     },
   });
 
-  /* ---------- Year scrubber ---------- */
-  const yearOut = $('#tl-year', root);
-  const eraOut = $('#tl-era', root);
-
-  const paintYear = (y) => {
-    yearOut.textContent = fmtYear(y);
-    const p = primaryPeriodAt(y);
-    eraOut.textContent = p ? p.name : '—';
-    range.value = y;
-    range.style.setProperty('--fill', `${((y - TIME_MIN) / (TIME_MAX - TIME_MIN)) * 100}%`);
-    tl.setPlayhead(y);
-  };
-
+  /* ---------- Selected-year context ---------- */
   const paintSnapshot = throttle((y) => renderSnapshot(snapshot, y), 120);
-
-  const unbindYear = store.bind('year', (y) => { paintYear(y); paintSnapshot(y); });
-
-  range.addEventListener('input', () => {
-    // Defensive: stops an auto-play run started from the map before
-    // navigating here, since 'playing' is a global store flag.
-    store.togglePlay(false);
-    store.setYear(Number(range.value));
-  });
+  const unbindYear = store.bind('year', paintSnapshot);
 
   /* ---------- Toolbar ---------- */
   $('#tl-zoom-in', root).addEventListener('click', () => tl.zoomIn());
@@ -182,9 +151,9 @@ function mount(root, openId) {
 
   /* ---------- Full screen ----------
      Only the canvas itself goes fullscreen, not the whole shell -- the
-     scrubber and period panel below it don't shrink in a column flex
-     layout, so fullscreening the shell squeezed the canvas down to
-     nothing. The zoom/reset/exit controls are duplicated as an overlay
+     information panels below it don't shrink in a column flex layout,
+     so fullscreening the shell squeezed the canvas down to nothing.
+     The zoom/reset/exit controls are duplicated as an overlay
      bar inside the canvas wrap (shown only while fullscreen), since the
      page's own toolbar lives outside it and isn't rendered while
      fullscreen is active. */
@@ -266,9 +235,14 @@ function renderSnapshot(host, year) {
 
   host.innerHTML = `
     <div class="panel panel-sunk">
-      <div class="row" style="margin-bottom:var(--s-4)">
-        <h2 style="font-size:1.05rem">In ${esc(fmtYear(year))}</h2>
-        <span class="small muted">${active.length} entities active</span>
+      <div class="row" style="margin-bottom:var(--s-4);justify-content:space-between">
+        <div class="row">
+          <h2 style="font-size:1.05rem">In ${esc(fmtYear(year))}</h2>
+          <span class="small muted">${active.length} entities active</span>
+        </div>
+        <a class="btn btn-sm" href="#/map" title="See ${esc(fmtYear(year))} on the map">
+          ${icon('map', { size: 15 })} View on map
+        </a>
       </div>
       <div class="stack">
         ${groups.map(([label, list]) => `

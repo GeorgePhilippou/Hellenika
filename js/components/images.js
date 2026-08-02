@@ -29,7 +29,7 @@ const HIRES_SIZE = 1600; // requested only on demand, when the lightbox opens
 // invalidate previously-cached results (including cached misses) -- the
 // cache never expires on its own, so a stale "no image found" from before
 // an override existed would otherwise stick in a visitor's browser forever.
-const CACHE_KEY = 'images-v6';
+const CACHE_KEY = 'images-v8';
 const BATCH = 45; // MediaWiki's multi-title query limit is 50; leave headroom.
 
 /** entityId -> { title, src, w, h, page } | null (looked up, no usable image) */
@@ -270,9 +270,14 @@ function paintCard(node, img) {
   photo.decoding = 'async';
   photo.alt = '';
   photo.className = 'ecard-photo';
+  // Register before assigning src: a memory/disk-cached image can finish
+  // synchronously, otherwise the load event is missed and the photo stays
+  // permanently transparent even though it is already in the DOM.
+  const reveal = () => node.classList.add('has-photo');
+  photo.addEventListener('load', reveal, { once: true });
   photo.src = img.src;
-  photo.addEventListener('load', () => node.classList.add('has-photo'), { once: true });
   node.append(photo);
+  if (photo.complete && photo.naturalWidth) reveal();
 }
 
 // Clamp how far the hero box will stretch to match a photo's own shape.

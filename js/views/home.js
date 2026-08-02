@@ -23,6 +23,7 @@ const HERO_OBJECTS = [
   { id: 'antikythera-mechanism', asset: 'assets/antikythera-mechanism.webp', place: 'Antikythera' },
   { id: 'winged-victory-samothrace', asset: 'assets/winged-victory-samothrace.webp', place: 'Samothrace' },
   { id: 'vergina-larnax', asset: 'assets/vergina-larnax.webp', place: 'Vergina' },
+  { id: 'octopus-flask', asset: 'assets/octopus-flask.webp', place: 'Palaikastro' },
 ];
 
 const FEATURES = [

@@ -12,6 +12,7 @@ import { renderHome } from './views/home.js';
 import { renderTimeline } from './views/timeline.js';
 import { renderMap } from './views/map.js';
 import { renderExplore } from './views/explore.js';
+import { renderMythology } from './views/mythology.js';
 import { renderEntity } from './views/entity.js';
 import { renderCollections, renderCollection } from './views/collections.js';
 import { renderLearn, renderQuiz, renderGame } from './views/learn.js';
@@ -26,6 +27,7 @@ const NAV = [
   { path: '/timeline', label: 'Timeline', icon: 'timeline' },
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
+  { path: '/mythology', label: 'Mythology', icon: 'myth' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
 ];
@@ -230,6 +232,7 @@ route('/timeline/:id', mount(renderTimeline));
 route('/map', mount(renderMap));
 route('/map/:mode', mount(renderMap));
 route('/explore', mount(renderExplore));
+route('/mythology', mount(renderMythology));
 route('/e/:id', mount(renderEntity));
 route('/collections', mount(renderCollections));
 route('/collections/:id', mount(renderCollection));

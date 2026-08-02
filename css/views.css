@@ -236,12 +236,6 @@
 .tl-toolbar {
   display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
 }
-.tl-readout {
-  font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
-  font-variant-numeric: tabular-nums; min-width: 5.5ch;
-}
-.tl-readout-sub { font-size: var(--fs-xs); color: var(--text-3); }
-
 .tl-canvas-wrap {
   position: relative;
   border: 1px solid var(--border);
@@ -259,9 +253,8 @@
 }
 
 /* Full screen: just the canvas wrap goes fullscreen (not the whole
-   shell -- its siblings below, the scrubber and period panel, don't
-   shrink in a column flex layout and would squeeze the canvas down to
-   nothing). No flex competition here, so height: 100% just works. */
+   shell -- its information panels below don't shrink in a column flex
+   layout and would squeeze the canvas down to nothing). */
 .tl-canvas-wrap:fullscreen { border-radius: 0; }
 .tl-canvas-wrap:fullscreen .tl-canvas { height: 100%; }
 
@@ -1566,6 +1559,205 @@
 }
 .src-item .a { font-weight: 620; font-size: var(--fs-sm); }
 .src-item .t { font-family: var(--font-display); font-size: 1.02rem; }
+
+/* ============================================================
+   Mythology overview
+   ============================================================ */
+.mythology-view { overflow: hidden; }
+.myth-intro {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+  gap: var(--s-8); align-items: center; min-height: 310px;
+  padding-block: var(--s-12) var(--s-10);
+}
+.myth-intro::before {
+  content: ''; position: absolute; inset: 0 -20vw;
+  z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--p-archaic) 20%, transparent), transparent 27%),
+    radial-gradient(circle at 55% 100%, color-mix(in srgb, var(--p-mycenaean) 10%, transparent), transparent 34%);
+}
+.myth-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
+.myth-intro .lede { max-width: 64ch; }
+.myth-intro-image {
+  position: relative; min-width: 0; margin: 0;
+  border: 1px solid color-mix(in srgb, var(--c-legendary) 28%, var(--border));
+  border-radius: var(--r-xl); overflow: hidden; background: var(--surface);
+  box-shadow: var(--sh-3), 0 0 0 10px color-mix(in srgb, var(--c-legendary) 3%, transparent);
+}
+.myth-intro-image > a { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.myth-intro-image img {
+  width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 52%;
+  transition: transform 400ms var(--ease-out);
+}
+.myth-intro-image > a:hover img { transform: scale(1.025); }
+.myth-intro-image figcaption {
+  display: flex; flex-wrap: wrap; gap: 4px 7px; align-items: baseline;
+  padding: 10px 13px; color: var(--text-3); font-size: var(--fs-xs);
+  border-top: 1px solid var(--border);
+}
+.myth-intro-image figcaption a { color: var(--text-2); }
+.myth-intro-image figcaption a:hover { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  .myth-intro-image img { transition: none; }
+}
+.myth-register { max-width: 900px; margin-bottom: var(--s-6); }
+.myth-register p { margin: 0; }
+
+.myth-jump {
+  position: sticky; top: calc(var(--topbar-h) + var(--s-2)); z-index: 20;
+  display: flex; gap: var(--s-2); overflow-x: auto; scrollbar-width: none;
+  margin-bottom: var(--s-12); padding: var(--s-2);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--sh-2);
+}
+.myth-jump::-webkit-scrollbar { display: none; }
+.myth-jump a {
+  flex: 0 0 auto; padding: 7px 13px; border-radius: var(--r-pill);
+  color: var(--text-2); font-size: var(--fs-sm); font-weight: 600;
+}
+.myth-jump a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+
+.myth-section, .myth-foundations { scroll-margin-top: calc(var(--topbar-h) + 68px); margin-bottom: var(--s-16); }
+.myth-concept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-4); }
+.myth-concept-grid .panel { padding: var(--s-5); }
+.myth-concept-grid span { color: var(--c-legendary); }
+.myth-concept-grid h3 { margin-block: var(--s-4) var(--s-2); font-size: 1.05rem; }
+.myth-concept-grid p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+
+.myth-family {
+  overflow: hidden; border: 1px solid var(--border); border-radius: var(--r-xl);
+  background: var(--surface); box-shadow: var(--sh-1);
+}
+.myth-family-level {
+  position: relative; display: grid; grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--s-5); padding: var(--s-5);
+}
+.myth-family-level + .myth-family-level { border-top: 1px solid var(--border); }
+.myth-family-level + .myth-family-level::before {
+  content: ''; position: absolute; left: 44px; top: -13px; width: 1px; height: 26px;
+  background: var(--border-strong);
+}
+.myth-family-label { display: flex; align-items: flex-start; gap: var(--s-3); }
+.myth-family-label > span {
+  width: 28px; height: 28px; display: grid; place-items: center; flex: 0 0 auto;
+  border-radius: 50%; color: var(--accent-text); background: var(--accent-soft);
+  font-size: var(--fs-xs); font-weight: 700;
+}
+.myth-family-label strong { display: block; font-size: var(--fs-sm); }
+.myth-family-label small { display: block; margin-top: 3px; color: var(--text-3); line-height: 1.35; }
+.myth-family-nodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: var(--s-3); align-items: start; }
+.myth-family-card {
+  min-width: 0; overflow: hidden;
+  border: 1px solid var(--border); border-top: 3px solid var(--tint, var(--border-strong));
+  border-radius: var(--r-lg); background: var(--surface-2);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.myth-family-card:hover { border-color: color-mix(in srgb, var(--tint) 65%, var(--border)); box-shadow: var(--sh-2); }
+.myth-family-card-head {
+  display: grid; grid-template-columns: 74px minmax(0, 1fr); align-items: center;
+  min-height: 74px; color: var(--text); background: var(--surface);
+}
+.myth-family-card-head:hover { text-decoration: none; }
+.myth-family-photo {
+  position: relative; align-self: stretch; min-height: 74px; overflow: hidden;
+  display: grid; place-items: center; color: var(--tint);
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--tint) 22%, var(--surface)),
+    color-mix(in srgb, var(--tint) 5%, var(--surface)));
+  border-right: 1px solid var(--border);
+}
+.myth-family-photo svg { opacity: .8; transition: opacity var(--t-med); }
+.myth-family-photo .ecard-photo { object-fit: cover; object-position: center 30%; }
+.myth-family-photo.has-photo svg { opacity: 0; }
+.myth-family-photo.has-photo .ecard-photo { opacity: 1; }
+.myth-family-identity { min-width: 0; padding: var(--s-3); }
+.myth-family-identity strong { display: block; font-family: var(--font-display); font-size: 1.15rem; line-height: 1.2; }
+.myth-family-identity small { display: block; margin-top: 4px; color: var(--text-3); font-size: var(--fs-xxs); text-transform: capitalize; }
+.myth-family-role {
+  padding: var(--s-2) var(--s-3); color: var(--tint); background: color-mix(in srgb, var(--tint) 7%, transparent);
+  border-block: 1px solid var(--border); font-size: var(--fs-xs); font-weight: 700;
+}
+.myth-family-kin, .myth-family-summary { margin: 0; padding-inline: var(--s-3); font-size: var(--fs-xs); line-height: 1.5; }
+.myth-family-kin { padding-top: var(--s-3); color: var(--text-2); }
+.myth-family-kin span {
+  display: block; margin-bottom: 2px; color: var(--text-3); font-size: var(--fs-xxs);
+  font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.myth-family-summary { padding-block: var(--s-2) var(--s-3); color: var(--text-3); }
+.myth-family-more { border-top: 1px solid var(--border); background: var(--surface); }
+.myth-family-more summary {
+  padding: 9px var(--s-3); cursor: pointer; color: var(--text-2);
+  font-size: var(--fs-xs); font-weight: 650; list-style-position: inside;
+}
+.myth-family-more summary:hover { color: var(--text); background: var(--surface-hover); }
+.myth-family-more > div { padding: var(--s-3); border-top: 1px solid var(--border); }
+.myth-family-more h4 {
+  margin: 0 0 3px; color: var(--text-3); font-family: var(--font-ui); font-size: var(--fs-xxs);
+  font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.myth-family-more h4:not(:first-child) { margin-top: var(--s-3); }
+.myth-family-more p { margin: 0; color: var(--text-2); font-size: var(--fs-xs); line-height: 1.55; }
+.myth-family-more a { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--s-3); font-size: var(--fs-xs); font-weight: 650; }
+.myth-variant-note {
+  margin-top: var(--s-4); padding: var(--s-4) var(--s-5); border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--c-legendary) 7%, var(--surface));
+  color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55;
+}
+
+.myth-definition { display: grid; grid-template-columns: auto 1fr; gap: var(--s-4); margin-bottom: var(--s-6); }
+.myth-definition > div:first-child { color: var(--c-legendary); }
+.myth-definition h3 { margin-bottom: var(--s-2); }
+.myth-definition p { color: var(--text-2); line-height: 1.6; }
+
+.myth-cycles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+.myth-cycle { display: grid; grid-template-columns: auto 1fr; gap: var(--s-4); }
+.myth-cycle-icon {
+  width: 44px; height: 44px; display: grid; place-items: center;
+  color: var(--c-legendary); background: color-mix(in srgb, var(--c-legendary) 10%, var(--surface));
+  border-radius: var(--r-md);
+}
+.myth-cycle h3 { margin-bottom: var(--s-2); }
+.myth-cycle p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.myth-cycle-links { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+.myth-journey-banner {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-4);
+  margin-top: var(--s-4); padding: var(--s-5) var(--s-6); color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--c-legendary) 35%, var(--border));
+  border-radius: var(--r-lg); background: color-mix(in srgb, var(--c-legendary) 8%, var(--surface));
+}
+.myth-journey-banner:hover { text-decoration: none; border-color: var(--c-legendary); }
+.myth-journey-banner > span:first-child { color: var(--c-legendary); }
+.myth-journey-banner strong, .myth-journey-banner small { display: block; }
+.myth-journey-banner small { margin-top: 3px; color: var(--text-2); }
+
+.myth-reading-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+.myth-reading-grid .myth-block { margin: 0; }
+.myth-reading-grid p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.6; }
+.myth-source-row {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); gap: var(--s-8);
+  margin-top: var(--s-6); padding: var(--s-6); border: 1px solid var(--border);
+  border-radius: var(--r-lg); background: var(--surface);
+}
+.myth-source-row h3 { margin-block: var(--s-2); }
+.myth-source-row p:not(.eyebrow) { color: var(--text-2); line-height: 1.6; }
+.myth-source-actions { display: flex; flex-wrap: wrap; align-content: center; gap: var(--s-2); }
+
+@media (max-width: 900px) {
+  .myth-concept-grid { grid-template-columns: repeat(2, 1fr); }
+  .myth-family-level { grid-template-columns: 1fr; }
+  .myth-family-level + .myth-family-level::before { display: none; }
+  .myth-source-row { grid-template-columns: 1fr; gap: var(--s-5); }
+}
+@media (max-width: 680px) {
+  .myth-intro { grid-template-columns: 1fr; min-height: 0; padding-block: var(--s-10) var(--s-8); }
+  .myth-intro-image { width: 100%; max-width: 520px; }
+  .myth-concept-grid, .myth-cycles, .myth-reading-grid { grid-template-columns: 1fr; }
+  .myth-family-level { padding: var(--s-4); }
+  .myth-family-nodes { grid-template-columns: 1fr; }
+  .myth-cycle { padding: var(--s-5); }
+}
 .src-item .n { font-size: var(--fs-sm); color: var(--text-3); text-wrap: pretty; }
 .src-item .u { font-size: var(--fs-xs); color: var(--text-3); }
 
