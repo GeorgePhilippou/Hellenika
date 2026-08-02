@@ -114,6 +114,7 @@ export function createMap(canvas, {
   let hitRegions = [];
   let routeHitRegions = [];
   let territoryHitRegions = [];
+  let expandedClusterKey = null;
   let raf = null;
   let onLegend = null;
   let current = { year, layers, markers, basemap };
@@ -475,7 +476,50 @@ export function createMap(canvas, {
       groups.push(group);
     }
 
-    for (const group of groups) {
+    // Some records intentionally share a map location (for example a city
+    // and an artefact found at that city). No amount of zoom can separate
+    // identical coordinates, so an opened cluster is fanned into individual
+    // selectable pins around its true centre, with leader lines preserving
+    // the shared geographic placement.
+    const clusterKey = (members) => members
+      .map((member) => (member.e ?? member).id)
+      .sort()
+      .join('|');
+    let expandedClusterPresent = false;
+    const expandedConnectors = [];
+    const renderGroups = groups.flatMap((group) => {
+      if (group.length < 2 || clusterKey(group) !== expandedClusterKey) return [group];
+      expandedClusterPresent = true;
+      const cx = group.reduce((sum, member) => sum + member.x, 0) / group.length;
+      const cy = group.reduce((sum, member) => sum + member.y, 0) / group.length;
+      const radius = Math.max(30, Math.min(48, 22 + group.length * 3));
+      const startAngle = -Math.PI / 2;
+      return group.map((member, index) => {
+        const angle = startAngle + (Math.PI * 2 * index) / group.length;
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+        expandedConnectors.push({ x1: cx, y1: cy, x2: x, y2: y });
+        return [{ ...member, x, y }];
+      });
+    });
+    if (expandedClusterKey && !expandedClusterPresent) expandedClusterKey = null;
+
+    if (expandedConnectors.length) {
+      ctx.save();
+      ctx.globalAlpha = 0.72;
+      ctx.strokeStyle = cssVar('--text-2');
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      for (const line of expandedConnectors) {
+        ctx.beginPath();
+        ctx.moveTo(line.x1, line.y1);
+        ctx.lineTo(line.x2, line.y2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    for (const group of renderGroups) {
       if (group.length === 1) {
         const { e, x, y: py } = group[0];
         const isHot = hot?.id === e.id;
@@ -529,8 +573,9 @@ export function createMap(canvas, {
         }
         ctx.restore();
 
-        hitRegions.push({ id: e.id, entity: e, x, y: py, r: r + 5 });
-        labelCandidates.push({ e, x, y: py, r, isHot, isCluster: false });
+        const hitRegion = { id: e.id, entity: e, x, y: py, r: r + 5 };
+        hitRegions.push(hitRegion);
+        labelCandidates.push({ e, x, y: py, r, isHot, isCluster: false, hitRegion });
       } else {
         const x = group.reduce((s, g) => s + g.x, 0) / group.length;
         const py = group.reduce((s, g) => s + g.y, 0) / group.length;
@@ -557,11 +602,20 @@ export function createMap(canvas, {
 
         const pseudo = {
           name: `${group.length} places`,
-          typeLabel: 'Cluster — click to zoom in',
+          typeLabel: 'Cluster — click to separate',
           region: null, start: null, end: null,
         };
-        hitRegions.push({ cluster: true, members: group.map((g) => g.e), entity: pseudo, x, y: py, r: r + 5 });
-        labelCandidates.push({ e: pseudo, x, y: py, r, isHot: false, isCluster: true });
+        const hitRegion = {
+          cluster: true,
+          clusterKey: clusterKey(group),
+          members: group.map((g) => g.e),
+          entity: pseudo,
+          x,
+          y: py,
+          r: r + 5,
+        };
+        hitRegions.push(hitRegion);
+        labelCandidates.push({ e: pseudo, x, y: py, r, isHot: false, isCluster: true, hitRegion });
       }
     }
 
@@ -644,6 +698,7 @@ export function createMap(canvas, {
         const bx = pos?.x ?? options[0].x, by = pos?.y ?? options[0].y;
         const box = { x0: bx - 3, y0: by - 8, x1: bx + w + 3, y1: by + 8 };
         placedPlaceLabels.push(box);
+        c.hitRegion.labelBox = box;
 
         ctx.save();
         ctx.fillStyle = dark ? 'rgba(12,16,20,.80)' : 'rgba(255,255,255,.86)';
@@ -674,6 +729,12 @@ export function createMap(canvas, {
 
   const rank = (t) => ({ city: 0, site: 1, battle: 2 }[t] ?? 3);
   const overlap = (a, b) => !(a.x1 < b.x0 || a.x0 > b.x1 || a.y1 < b.y0 || a.y0 > b.y1);
+  const markerHitAt = (px, py) => hitRegions.find((region) => (
+    Math.hypot(region.x - px, region.y - py) <= region.r
+    || (region.labelBox
+      && px >= region.labelBox.x0 && px <= region.labelBox.x1
+      && py >= region.labelBox.y0 && py <= region.labelBox.y1)
+  ));
   function pointInPolygon(x, y, ring) {
     let inside = false;
     for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
@@ -760,7 +821,7 @@ export function createMap(canvas, {
 
       const rect = canvas.getBoundingClientRect();
       const px = e.clientX - rect.left, py = e.clientY - rect.top;
-      const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+      const h = markerHitAt(px, py);
       let nextHot = h ? h.entity : null;
       let clickable = !!h;
       if (!h) {
@@ -814,20 +875,21 @@ export function createMap(canvas, {
       if (moved > 6) return;
       const rect = canvas.getBoundingClientRect();
       const px = e.clientX - rect.left, py = e.clientY - rect.top;
-      const h = hitRegions.find((r) => Math.hypot(r.x - px, r.y - py) <= r.r);
+      const h = markerHitAt(px, py);
       if (h?.cluster) {
-        const lons = h.members.map((m) => m.coords[1]);
-        const lats = h.members.map((m) => m.coords[0]);
-        const pad = 0.35;
-        api.flyTo([
-          Math.min(...lons) - pad, Math.min(...lats) - pad,
-          Math.max(...lons) + pad, Math.max(...lats) + pad,
-        ], 0.6);
+        expandedClusterKey = h.clusterKey;
+        hot = null;
+        onHover?.(null);
+        schedule();
         return;
       }
       if (h) {
         onMarkerClick?.(h.entity);
         return;
+      }
+      if (expandedClusterKey) {
+        expandedClusterKey = null;
+        schedule();
       }
       const th = territoryHitRegions.find((r) => pointInPolygon(px, py, r.ring));
       if (th) {
