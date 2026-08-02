@@ -329,6 +329,15 @@ export async function renderMap(params, query) {
             </button>
             <div class="map-legend" id="map-legend"></div>
             <div class="map-fs-date-host" id="map-fs-date-host"></div>
+            <div class="map-fs-journey-host" id="map-fs-journey-host">
+              <section class="map-fs-journey-card" aria-label="Current journey stop">
+                <button type="button" class="map-fs-drag-handle" data-drag-overlay="#map-fs-journey-host"
+                        title="Drag to move · double-click to reset" aria-label="Drag the stop information panel">
+                  <span aria-hidden="true">⠿</span> Drag panel
+                </button>
+                <div id="map-fs-journey-content" aria-live="polite"></div>
+              </section>
+            </div>
             <div class="tl-tip" id="map-tip"></div>
           </div>
 
@@ -355,10 +364,74 @@ function mount(root, initialMode, focusEntity) {
   const introHost = $('#map-journey-intro', root);
   const viewControlsHost = $('#map-view-controls', root);
   const fullscreenDateHost = $('#map-fs-date-host', root);
+  const fullscreenJourneyHost = $('#map-fs-journey-host', root);
+  const fullscreenJourneyContent = $('#map-fs-journey-content', root);
   const mapWrap = $('.map-wrap', root);
   const fullscreenButton = $('#map-fullscreen', root);
   const fullscreenExit = $('#map-fs-exit', root);
   const viewEvents = new AbortController();
+  let overlayDrag = null;
+
+  const setOverlayPosition = (target, x, y) => {
+    target.dataset.dragX = String(x);
+    target.dataset.dragY = String(y);
+    target.style.setProperty('--map-fs-drag-x', `${x}px`);
+    target.style.setProperty('--map-fs-drag-y', `${y}px`);
+  };
+  const resetOverlayPositions = () => {
+    [legendHost, fullscreenJourneyHost].forEach((target) => setOverlayPosition(target, 0, 0));
+  };
+
+  mapWrap.addEventListener('pointerdown', (event) => {
+    const handle = event.target.closest('[data-drag-overlay]');
+    if (!handle || document.fullscreenElement !== mapWrap || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    const target = mapWrap.querySelector(handle.dataset.dragOverlay);
+    if (!target) return;
+    event.preventDefault();
+    const rect = target.getBoundingClientRect();
+    overlayDrag = {
+      handle,
+      target,
+      pointerId: event.pointerId,
+      pointerX: event.clientX,
+      pointerY: event.clientY,
+      startX: Number(target.dataset.dragX || 0),
+      startY: Number(target.dataset.dragY || 0),
+      rect,
+    };
+    target.classList.add('is-dragging');
+    handle.setPointerCapture?.(event.pointerId);
+  }, { signal: viewEvents.signal });
+
+  mapWrap.addEventListener('pointermove', (event) => {
+    if (!overlayDrag || event.pointerId !== overlayDrag.pointerId) return;
+    const margin = 8;
+    const dx = event.clientX - overlayDrag.pointerX;
+    const dy = event.clientY - overlayDrag.pointerY;
+    const minX = overlayDrag.startX + margin - overlayDrag.rect.left;
+    const maxX = overlayDrag.startX + window.innerWidth - margin - overlayDrag.rect.right;
+    const minY = overlayDrag.startY + margin - overlayDrag.rect.top;
+    const maxY = overlayDrag.startY + window.innerHeight - margin - overlayDrag.rect.bottom;
+    const x = Math.min(maxX, Math.max(minX, overlayDrag.startX + dx));
+    const y = Math.min(maxY, Math.max(minY, overlayDrag.startY + dy));
+    setOverlayPosition(overlayDrag.target, Math.round(x), Math.round(y));
+  }, { signal: viewEvents.signal });
+
+  const finishOverlayDrag = (event) => {
+    if (!overlayDrag || event.pointerId !== overlayDrag.pointerId) return;
+    overlayDrag.target.classList.remove('is-dragging');
+    overlayDrag.handle.releasePointerCapture?.(event.pointerId);
+    overlayDrag = null;
+  };
+  mapWrap.addEventListener('pointerup', finishOverlayDrag, { signal: viewEvents.signal });
+  mapWrap.addEventListener('pointercancel', finishOverlayDrag, { signal: viewEvents.signal });
+  mapWrap.addEventListener('dblclick', (event) => {
+    const handle = event.target.closest('[data-drag-overlay]');
+    if (!handle) return;
+    const target = mapWrap.querySelector(handle.dataset.dragOverlay);
+    if (target) setOverlayPosition(target, 0, 0);
+  }, { signal: viewEvents.signal });
+
   const fullscreenOverlayObserver = new ResizeObserver(() => {
     const dateDeckHeight = fullscreenDateHost.offsetHeight;
     if (dateDeckHeight > 0) {
@@ -370,6 +443,7 @@ function mount(root, initialMode, focusEntity) {
   const exitFullscreen = () => document.exitFullscreen?.().catch(() => {});
   const paintFullscreenState = () => {
     const on = document.fullscreenElement === mapWrap;
+    if (!on) resetOverlayPositions();
     fullscreenButton.innerHTML = on
       ? `${icon('collapse', { size: 15 })} Exit full screen`
       : `${icon('expand', { size: 15 })} Full screen`;
@@ -405,6 +479,7 @@ function mount(root, initialMode, focusEntity) {
 
   function setMode(next, { updateUrl = true } = {}) {
     teardown();
+    resetOverlayPositions();
     mode = next;
     modeEvents = new AbortController();
     root.classList.toggle('is-odyssey', mode === 'odyssey');
@@ -442,6 +517,8 @@ function mount(root, initialMode, focusEntity) {
   function mountHistorical() {
     const signal = modeEvents.signal;
     store.togglePlay(false);
+    fullscreenJourneyContent.innerHTML = '';
+    mapWrap.classList.remove('has-fs-journey');
 
     // Entity deep links get their own card; ordinary visits settle on the
     // nearest reviewed snapshot rather than an arbitrary in-between year.
@@ -517,6 +594,10 @@ function mount(root, initialMode, focusEntity) {
 
     legendHost.innerHTML = `
       <div class="map-key-stack">
+        <button type="button" class="map-fs-drag-handle" data-drag-overlay="#map-legend"
+                title="Drag to move · double-click to reset" aria-label="Drag the map key">
+          <span aria-hidden="true">⠿</span> Drag key
+        </button>
         <div class="map-key" aria-label="Map symbol key">
           <span><i class="map-key-area solid"></i>polity</span>
           <span><i class="map-key-area dashed"></i>culture / league</span>
@@ -739,11 +820,18 @@ function mount(root, initialMode, focusEntity) {
     viewControlsHost.innerHTML = '';
     fullscreenDateHost.innerHTML = '';
     mapWrap.classList.remove('has-fs-dates');
+    mapWrap.classList.add('has-fs-journey');
     legendHost.innerHTML = which === 'alexander'
-      ? `<div class="map-key" aria-label="Alexander campaign map key">
-          <span><i class="map-key-foundation attested"></i>attested Alexandria</span>
-          <span><i class="map-key-foundation attributed"></i>attributed / disputed</span>
-          <small>Foundations appear as the campaign advances</small>
+      ? `<div class="map-key-stack">
+          <button type="button" class="map-fs-drag-handle" data-drag-overlay="#map-legend"
+                  title="Drag to move · double-click to reset" aria-label="Drag the campaign key">
+            <span aria-hidden="true">⠿</span> Drag key
+          </button>
+          <div class="map-key" aria-label="Alexander campaign map key">
+            <span><i class="map-key-foundation attested"></i>attested Alexandria</span>
+            <span><i class="map-key-foundation attributed"></i>attributed / disputed</span>
+            <small>Foundations appear as the campaign advances</small>
+          </div>
         </div>`
       : '';
     dateHost.innerHTML = '';
@@ -852,9 +940,50 @@ function mount(root, initialMode, focusEntity) {
         </div>`;
     }
 
+    function stopBriefHTML(s) {
+      if (!s) return '';
+      const isAlexander = which === 'alexander';
+      const shorten = (text, max = 190) => {
+        const clean = String(text || '').replace(/\s+/g, ' ').trim();
+        if (clean.length <= max) return clean;
+        const clipped = clean.slice(0, max + 1);
+        const boundary = clipped.lastIndexOf(' ');
+        return `${clipped.slice(0, boundary > max * .7 ? boundary : max).trim()}…`;
+      };
+      const description = shorten(
+        s.connection || s.entity.summary || s.entity.body || s.note,
+      );
+      return `
+          <div class="map-fs-journey-heading">
+            <div>
+              <div class="journey-card-kicker">Stop ${s.order} of ${stops.length}</div>
+              <h3>${esc(s.name)}</h3>
+            </div>
+            ${isAlexander
+              ? `<span class="map-fs-journey-date">${esc(fmtYear(s.year || s.entity.start))}</span>`
+              : ''}
+          </div>
+          <p class="map-fs-journey-note">${esc(s.note)}</p>
+          ${description && description !== s.note
+            ? `<p class="map-fs-journey-description">${esc(description)}</p>`
+            : ''}
+          <div class="map-fs-journey-actions">
+            <button class="btn btn-sm" data-journey-prev ${s.order === 1 ? 'disabled' : ''}
+                    aria-label="Previous stop">
+              ${icon('arrowLeft', { size: 14 })} Previous
+            </button>
+            <a class="btn btn-sm" href="${entityHref(s.id)}">Full entry</a>
+            <button class="btn btn-sm btn-primary" data-journey-next
+                    ${s.order === stops.length ? 'disabled' : ''} aria-label="Next stop">
+              Next ${icon('arrowRight', { size: 14 })}
+            </button>
+          </div>`;
+    }
+
     function renderStopCard() {
       const card = $('#journey-card', root);
       if (card) card.innerHTML = stopCardHTML(selectedStop);
+      fullscreenJourneyContent.innerHTML = stopBriefHTML(selectedStop);
       const progress = $('#journey-progress', root);
       if (progress && selectedStop) progress.textContent = `Stop ${selectedStop.order} of ${stops.length}`;
     }
@@ -925,13 +1054,15 @@ function mount(root, initialMode, focusEntity) {
     }, { signal });
 
     if (guided) {
-      sideHost.addEventListener('click', (e) => {
+      const handleJourneyStep = (e) => {
         const prev = e.target.closest('[data-journey-prev]');
         const next = e.target.closest('[data-journey-next]');
         if (!prev && !next) return;
         const index = stops.findIndex((s) => (s.key || s.id) === (selectedStop?.key || selectedStop?.id));
         selectStop(stops[index + (next ? 1 : -1)]);
-      }, { signal });
+      };
+      sideHost.addEventListener('click', handleJourneyStep, { signal });
+      fullscreenJourneyHost.addEventListener('click', handleJourneyStep, { signal });
     } else {
       $('#map-zin', root).addEventListener('click', () => jMap.zoomIn(), { signal });
       $('#map-zout', root).addEventListener('click', () => jMap.zoomOut(), { signal });
