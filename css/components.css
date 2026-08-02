@@ -23,6 +23,11 @@
   color: var(--text); flex-shrink: 0;
 }
 .brand:hover { text-decoration: none; }
+.brand-name {
+  font-family: var(--font-greek);
+  font-size: 1.08em; font-weight: 600;
+  letter-spacing: 0.01em;
+}
 .brand-mark {
   display: block; width: 29px; height: 29px; flex-shrink: 0;
   background: currentColor;

@@ -126,6 +126,7 @@ function normalise(raw) {
     historicalBackground: raw.historicalBackground || null,
     archaeology: raw.archaeology || null,
     laterInterpretation: raw.laterInterpretation || null,
+    secondaryImage: raw.secondaryImage || null,
     // domain-specific fields
     author: raw.author || null,
     language: raw.language || null,
