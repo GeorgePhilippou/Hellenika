@@ -28,16 +28,16 @@ reload without cache-busting.
 
 | | |
 |---|---|
-| Entities | 306 |
-| Relationships | ~1,100 (bidirectional, half authored) |
-| Evidence-tagged claims | 1,306 |
-| Sources cited | 272 (16 ancient, 256 modern) |
+| Entities | 376 |
+| Relationships | 1,294 (authored and automatically derived inverse links) |
+| Evidence-tagged claims | 1,920 |
+| Sources cited | 288 |
 | Mapped locations | 100+ |
 | Curated collections | 10 |
 
-By kind: 11 periods · 63 people · 21 cities · 41 sites · 53 artefacts · 41 events ·
-15 battles · 2 wars · 25 texts · 13 mythological figures · 11 deities · 3 empires ·
-3 writing systems · 2 regions.
+By kind: 11 periods · 84 people · 32 cities · 41 sites · 61 artefacts · 42 events ·
+26 battles · 4 wars · 25 texts · 28 mythological figures · 11 deities · 3 empires ·
+1 kingdom · 3 writing systems · 1 language · 3 regions.
 
 ---
 
@@ -144,7 +144,7 @@ otherwise leave views blank until focused.
 | Key | Action |
 |---|---|
 | `/` or `⌘K` | Search everything |
-| `t` `m` `e` `c` `l` `h` | Timeline, Map, Explore, Collections, Learn, Home |
+| `t` `m` `e` `h` | Timeline, Map, Explore, Home |
 | `r` | Random entity |
 | `←` `→` | Pan timeline / map |
 | `+` `−` | Zoom |

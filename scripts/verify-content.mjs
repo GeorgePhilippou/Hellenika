@@ -1,96 +1,103 @@
 /* ============================================================
-   Hellenika — content verification
+   Hellenika — content round-trip verification
 
-   Deep-equality check, per entity, of the compiled data/*.json
-   against .tmp/legacy-snapshot.json (captured by
-   migrate-to-content.mjs directly from the *original* data/*.js
-   arrays, before those files were replaced with JSON-loading
-   shims). This is the safety net for the migration: every one of
-   the ~960 entities across all 16 categories is checked, not a
-   sample.
+   Compile the Markdown content tree in memory and compare it with
+   the checked-in data/*.json files. This catches authoring/output
+   drift without rewriting the working tree.
    ============================================================ */
 
 import fs from 'node:fs';
+import path from 'node:path';
 import assert from 'node:assert/strict';
 import { CATEGORIES } from './content-schema.mjs';
+import { fromMarkdown, joinEntity } from './lib/content-io.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
-const DATA_DIR = `${ROOT}data`;
-const SNAPSHOT_PATH = `${ROOT}.tmp/legacy-snapshot.json`;
+const CONTENT_DIR = path.join(ROOT, 'content');
+const DATA_DIR = path.join(ROOT, 'data');
 
-if (!fs.existsSync(SNAPSHOT_PATH)) {
-  console.error('No .tmp/legacy-snapshot.json found — run migrate-to-content.mjs first.');
-  process.exit(1);
-}
-const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+let totalEntities = 0;
+let totalFiles = 0;
+const mismatches = [];
 
-let checked = 0;
-let mismatches = 0;
-
-function keyFor(entity, index) {
-  if (entity && typeof entity === 'object' && 'key' in entity) return `key=${entity.key}`;
-  if (entity && typeof entity === 'object' && 'id' in entity) return `id=${entity.id}`;
-  return `#${index}`;
-}
-
-function compareArray(cat, group, expected, actual) {
-  if (expected.length !== actual.length) {
-    console.error(`  [${cat}/${group}] length mismatch: expected ${expected.length}, got ${actual.length}`);
-    mismatches++;
-    return;
-  }
-  // Journeys can legitimately repeat `id` (Alexander visits Babylon
-  // twice), so pair up by array position, which both the legacy array
-  // and the compiled array preserve via `_order` / source order.
-  for (let i = 0; i < expected.length; i++) {
-    checked++;
-    try {
-      assert.deepStrictEqual(actual[i], expected[i]);
-    } catch (err) {
-      mismatches++;
-      console.error(`  [${cat}/${group}] mismatch at index ${i} (${keyFor(expected[i], i)}):`);
-      console.error(`    ${err.message.split('\n').slice(0, 6).join('\n    ')}`);
-    }
-  }
-}
-
-function compareObject(cat, group, expected, actual) {
-  const expectedKeys = Object.keys(expected).sort();
-  const actualKeys = Object.keys(actual).sort();
-  if (expectedKeys.join(',') !== actualKeys.join(',')) {
-    console.error(`  [${cat}/${group}] key set mismatch`);
-    mismatches++;
-    return;
-  }
-  for (const k of expectedKeys) {
-    checked++;
-    try {
-      assert.deepStrictEqual(actual[k], expected[k]);
-    } catch (err) {
-      mismatches++;
-      console.error(`  [${cat}/${group}] mismatch at key ${k}:`);
-      console.error(`    ${err.message.split('\n').slice(0, 6).join('\n    ')}`);
-    }
-  }
-}
-
-for (const [cat, def] of Object.entries(CATEGORIES)) {
-  const json = JSON.parse(fs.readFileSync(`${DATA_DIR}/${cat}.json`, 'utf8'));
+function compileCategory(category, def) {
+  const catDir = path.join(CONTENT_DIR, category);
+  const files = fs.readdirSync(catDir).filter((file) => file.endsWith('.md'));
   const multiGroup = def.groups.length > 1;
+  const byGroup = new Map(def.groups.map((group) => [group.name, []]));
 
+  for (const file of files) {
+    const groupName = multiGroup ? file.split('--')[0] : def.groups[0].name;
+    const bucket = byGroup.get(groupName);
+    if (!bucket) throw new Error(`${category}/${file}: unrecognised group prefix "${groupName}"`);
+
+    const text = fs.readFileSync(path.join(catDir, file), 'utf8');
+    const parsed = fromMarkdown(text);
+    if (parsed.frontmatter._ignore) continue;
+    bucket.push(parsed);
+    totalFiles++;
+  }
+
+  const output = {};
   for (const group of def.groups) {
-    const expected = snapshot[cat][group.name];
-    const actual = multiGroup ? json[group.name] : json;
+    const parsed = byGroup.get(group.name);
 
-    if (Array.isArray(expected)) compareArray(cat, group.name, expected, actual);
-    else compareObject(cat, group.name, expected, actual);
+    if (group.kind === 'id-list') {
+      output[group.name] = parsed[0].frontmatter.ids;
+      continue;
+    }
+
+    if (group.kind === 'flat-map') {
+      const sorted = parsed
+        .map(({ frontmatter }) => frontmatter)
+        .sort((a, b) => a._order - b._order);
+      output[group.name] = Object.fromEntries(
+        sorted.map((frontmatter) => [frontmatter.id, frontmatter.wikipediaTitle])
+      );
+      totalEntities += sorted.length;
+      continue;
+    }
+
+    const entities = parsed
+      .map(({ frontmatter, sections }) => {
+        const { _order, ...fields } = frontmatter;
+        return { _order, entity: joinEntity(fields, sections) };
+      })
+      .sort((a, b) => a._order - b._order)
+      .map(({ entity }) => entity);
+    totalEntities += entities.length;
+
+    if (def.shape === 'object' && def.groups.length === 1) {
+      output[group.name] = Object.fromEntries(
+        entities.map(({ id, ...fields }) => [id, fields])
+      );
+    } else {
+      output[group.name] = entities;
+    }
+  }
+
+  return multiGroup ? output : output[def.groups[0].name];
+}
+
+for (const [category, def] of Object.entries(CATEGORIES)) {
+  const compiled = compileCategory(category, def);
+  const checkedIn = JSON.parse(
+    fs.readFileSync(path.join(DATA_DIR, `${category}.json`), 'utf8')
+  );
+
+  try {
+    assert.deepStrictEqual(checkedIn, compiled);
+  } catch {
+    mismatches.push(category);
   }
 }
 
-console.log(`\nChecked ${checked} records across ${Object.keys(CATEGORIES).length} categories.`);
-if (mismatches) {
-  console.error(`${mismatches} mismatch(es) found. See above.`);
+if (mismatches.length) {
+  console.error(`Content output is stale for: ${mismatches.join(', ')}`);
+  console.error('Run npm run content:build and inspect the resulting data changes.');
   process.exit(1);
-} else {
-  console.log('All records match the pre-migration data exactly.');
 }
+
+console.log(
+  `Content round-trip passed: ${totalEntities} records from ${totalFiles} Markdown files match data/*.json.`
+);

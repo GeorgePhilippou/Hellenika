@@ -2,12 +2,11 @@
    Hellenika — Home
    ============================================================ */
 
-import { el, $, esc, fmtYear, fmtRange } from '../util.js';
+import { el, esc, fmtYear, fmtRange } from '../util.js';
 import { icon, TYPE_ICON } from '../icons.js';
 import * as db from '../db.js';
 import * as store from '../store.js';
 import { periods } from '../../data/periods.js';
-import { collections } from '../../data/collections.js';
 import { sectionHead, entityPill, entityDate } from '../components/ui.js';
 import { entityHref } from '../router.js';
 
@@ -28,15 +27,11 @@ const HERO_OBJECTS = [
 
 const FEATURES = [
   { href: '#/timeline', icon: 'timeline', tint: 'classical', title: 'Travel through time',
-    body: 'A draggable, zoomable timeline from 3200 BC to 30 BC. Eleven colour-coded periods that overlap because history did.', cls: 'wide' },
+    body: 'A draggable, zoomable timeline from 3200 BC to 30 BC. Eleven colour-coded periods that overlap because history did.' },
   { href: '#/map', icon: 'map', tint: 'minoan', title: 'Watch the map change',
-    body: 'Political control, cities, colonies and campaign routes, animated as you move the year.', cls: 'wide' },
+    body: 'Political control, cities, colonies and campaign routes, animated as you move the year.' },
   { href: '#/explore', icon: 'compass', tint: 'archaic', title: 'Explore every entity',
     body: 'People, places, artefacts, battles, texts, gods — all cross-linked.' },
-  { href: '#/collections', icon: 'collection', tint: 'hellenistic', title: 'Guided collections',
-    body: 'Ten curated routes through the material, written as documentaries rather than lists.' },
-  { href: '#/learn', icon: 'learn', tint: 'mycenaean', title: 'Learning mode',
-    body: 'Quizzes, flashcards, timeline challenges and "what existed at the same time?"' },
 ];
 
 export async function renderHome() {
@@ -61,7 +56,13 @@ export async function renderHome() {
         <div class="hero-title-row">
           <div class="hero-title-col">
             <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
-            <h1>Explore Ancient Greece and the world it shaped.</h1>
+            <h1>Explore <span class="hero-accent">Ancient Greece</span> and the world it shaped.</h1>
+            <p class="lede">
+              Hellenika is an open, evidence-led guide to the ancient Greek world.
+              It connects people, places, objects and events across an interactive timeline
+              and map, making the sources — and the limits of what we know — clear and
+              accessible to everyone.
+            </p>
           </div>
           ${heroMask ? `
           <div class="hero-mask">
@@ -84,19 +85,6 @@ export async function renderHome() {
         </div>
 
         <div class="hero-text">
-        <p class="lede">
-          Hellenika is an open, evidence-led guide to the ancient Greek world.
-          It connects people, places, objects and events across an interactive timeline
-          and map, making the sources — and the limits of what we know — clear and
-          accessible to everyone.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#/timeline">${icon('timeline', { size: 18 })} Open the timeline</a>
-          <a class="btn btn-lg" href="#/map">${icon('map', { size: 18 })} Open the map</a>
-          <button class="btn btn-lg" id="home-random">${icon('shuffle', { size: 18 })} Take me somewhere</button>
-        </div>
-
         <div class="mt-scroll">
           <div class="mini-timeline" role="list" aria-label="Historical periods">
             <div class="mt-line" aria-hidden="true"></div>
@@ -151,25 +139,6 @@ export async function renderHome() {
       </a>
     </section>` : ''}
 
-    <section class="wrap" style="padding-block:var(--s-8)">
-      ${sectionHead('Collections', 'Curated routes through the material.',
-        '<a class="btn btn-sm" href="#/collections">All collections</a>')}
-      <div class="grid home-coll-grid">
-        ${collections.slice(0, 4).map((c) => `
-          <a class="card coll-card" href="#/collections/${c.id}" style="--tint:var(--p-${c.tint})">
-            <div class="band"></div>
-            <div class="card-pad">
-              <div class="row-wrap" style="margin-bottom:var(--s-3)">
-                <span class="chip">${esc(c.duration)}</span>
-                <span class="chip">${c.stops.length} stops</span>
-              </div>
-              <h3 style="font-size:1.2rem;margin-bottom:var(--s-2)">${esc(c.name)}</h3>
-              <p class="small" style="color:var(--text-2)">${esc(c.summary)}</p>
-            </div>
-          </a>`).join('')}
-      </div>
-    </section>
-
     ${saved.length ? `
     <section class="wrap" style="padding-block:var(--s-8)">
       ${sectionHead('Saved', 'Entities you bookmarked.')}
@@ -192,13 +161,6 @@ export async function renderHome() {
         <a href="#/about">Read the full method →</a>
       </p>
     </section>`;
-
-  root.__mount = () => {
-    $('#home-random', root)?.addEventListener('click', () => {
-      const e = db.randomEntity((x) => !x.modern && x.body);
-      if (e) location.hash = entityHref(e.id).slice(1);
-    });
-  };
 
   return root;
 }

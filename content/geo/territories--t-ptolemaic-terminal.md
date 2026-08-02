@@ -6,7 +6,7 @@ kind: polity
 certainty: schematic
 tint: hellenistic
 from: -58
-to: -30
+to: -31
 labelAt:
   - 30.5
   - 27.8

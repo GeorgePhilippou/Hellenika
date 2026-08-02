@@ -9,7 +9,7 @@ import { icon } from '../icons.js';
 import * as store from '../store.js';
 import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
-import { primaryPeriodAt, periods } from '../../data/periods.js';
+import { primaryPeriodAt } from '../../data/periods.js';
 import { territories } from '../../data/geo.js';
 import {
   odysseyJourney, alexanderJourney, alexanderFoundations, alexanderTerritoryStages,
@@ -21,7 +21,8 @@ import { go, entityHref } from '../router.js';
 import { entityDate } from '../components/ui.js';
 
 const LAYERS = [
-  ['territories', 'Political control'],
+  ['territories', 'Political & cultural regions'],
+  ['routes', 'Routes & campaigns'],
   ['cities', 'Cities'],
   ['sites', 'Sites & sanctuaries'],
   ['battles', 'Battles & events'],
@@ -29,16 +30,87 @@ const LAYERS = [
   ['labels', 'Place labels'],
 ];
 
-const JUMPS = [
-  { y: -1500, label: 'Minoan peak' },
-  { y: -1200, label: 'Collapse' },
-  { y: -800, label: 'Colonisation' },
-  { y: -480, label: 'Persian Wars' },
-  { y: -431, label: 'Peloponnesian War' },
-  { y: -331, label: 'Gaugamela' },
-  { y: -280, label: 'Successor kingdoms' },
-  { y: -31, label: 'Actium' },
-];
+const TURNING_POINTS = new Map([
+  [-1700, 'Minoan palatial world'],
+  [-1500, 'Minoan–Mycenaean transition'],
+  [-1450, 'Mycenaean influence on Crete'],
+  [-1200, 'Bronze Age collapse'],
+  [-800, 'Polis formation'],
+  [-750, 'Greek colonisation'],
+  [-550, 'Cyrus and the Persian Empire'],
+  [-525, 'Persian conquest of Egypt'],
+  [-513, "Darius's campaigns"],
+  [-499, 'Ionian Revolt'],
+  [-490, 'Battle of Marathon'],
+  [-480, 'Persian Wars'],
+  [-479, 'Plataea and Mycale'],
+  [-431, 'Peloponnesian War'],
+  [-404, 'End of the Peloponnesian War'],
+  [-371, 'Theban ascendancy'],
+  [-338, 'Macedonian settlement'],
+  [-336, 'Alexander becomes king'],
+  [-331, 'Battle of Gaugamela'],
+  [-325, "Alexander's return from India"],
+  [-323, 'Death of Alexander'],
+  [-280, 'Successor kingdoms'],
+  [-168, 'Roman defeat of Macedon'],
+  [-146, 'Rome in Greece and Africa'],
+  [-63, 'Pompey reorganises the east'],
+  [-31, 'Battle of Actium'],
+  [-30, 'Roman annexation of Egypt'],
+]);
+
+const SNAPSHOT_NOTES = new Map([
+  [-1700, 'The Minoan palatial system links Crete with the Cyclades, mainland Greece, Egypt and the eastern Mediterranean through exchange and diplomacy.'],
+  [-1500, 'Minoan centres remain important, but mainland Mycenaean elites are increasingly prominent across the Aegean.'],
+  [-1450, 'Destructions on Crete and the appearance of Linear B at Knossos mark a major transition toward Mycenaean administration; causes and local sequences remain debated.'],
+  [-1200, 'Palatial systems from Greece to Anatolia and the Levant fragment over several generations; this is a prolonged regional crisis, not a single collapse event.'],
+  [-800, 'Greek communities develop institutions, sanctuaries and settlement patterns associated with the polis while interacting with Phoenician, Cypriot and Near Eastern networks.'],
+  [-750, 'Independent Greek settlements spread around the Mediterranean and Black Sea, creating lasting networks with Etruscans, Phoenicians, Egyptians and local peoples.'],
+  [-550, 'Cyrus unites Persian and Median power and expands through Anatolia and Mesopotamia, bringing the East Greek cities into a new imperial environment.'],
+  [-525, 'Cambyses conquers Egypt, placing Greek communities from Ionia to Naukratis within or beside the expanding Achaemenid system.'],
+  [-513, 'Darius campaigns toward Scythia and the Indus while consolidating roads, satrapies and tribute across an exceptionally diverse empire.'],
+  [-499, 'The Ionian Revolt draws mainland Greek support into conflict with Persia and begins the sequence that leads to invasions of Greece.'],
+  [-490, 'The first Persian invasion reaches Attica and is defeated at Marathon; Persian power across the eastern Mediterranean remains intact.'],
+  [-480, 'Xerxes invades through Thrace and Macedon; Thermopylae and Salamis belong to a wider land-and-sea campaign involving many Greek and imperial contingents.'],
+  [-479, 'Greek victories at Plataea and Mycale end the immediate invasion and shift the war toward the Aegean and Persian-held Greek cities.'],
+  [-431, 'Athens and its maritime alliance confront Sparta and the Peloponnesian League within a world still bounded by Persian power, Thrace, Macedon and western Greek states.'],
+  [-404, 'Athens surrenders, but Spartan dominance proves unstable as Persia, Thebes, Corinth and other Greek states reshape the balance of power.'],
+  [-371, 'The Theban victory at Leuctra ends Spartan supremacy and briefly places Thebes at the centre of mainland Greek politics.'],
+  [-338, 'Philip II defeats Athens and Thebes at Chaeronea and establishes Macedonian leadership over most mainland Greek states.'],
+  [-336, 'Alexander inherits Macedon and the League of Corinth while the Achaemenid Empire remains the dominant power from Anatolia to Central Asia.'],
+  [-331, 'After Gaugamela, Alexander occupies the principal Achaemenid centres, though conquest and resistance continue farther east.'],
+  [-325, "Alexander's forces return by three difficult routes: his own Gedrosian march, Craterus' inland movement and Nearchus' coastal voyage."],
+  [-323, "Alexander's empire reaches its greatest aggregate extent at his death, but authority remains uneven and succession is immediately contested."],
+  [-280, 'Successor kingdoms compete across Macedon, Egypt and Asia while smaller states and leagues emerge between them.'],
+  [-168, 'Rome defeats Antigonid Macedon at Pydna, accelerating the replacement of Hellenistic royal power by Roman intervention.'],
+  [-146, 'Rome destroys Corinth and Carthage in the same year and establishes enduring control in Greece and North Africa.'],
+  [-63, 'Pompey ends the Seleucid remnant and the kingdom of Pontus, reorganising the eastern Mediterranean beside Parthia and client kingdoms.'],
+  [-31, 'Octavian defeats Antony and Cleopatra at Actium; the Ptolemaic kingdom still exists at this pre-annexation snapshot.'],
+  [-30, 'Egypt becomes Roman territory. The map closes with Rome controlling much of the Mediterranean while Parthia and several client kingdoms remain beyond direct rule.'],
+]);
+
+const CENTURY_SNAPSHOTS = Array.from({ length: 32 }, (_, i) => TIME_MIN + i * 100);
+
+function buildDateOptions(focusEntity) {
+  const years = new Set([...CENTURY_SNAPSHOTS, ...TURNING_POINTS.keys(), TIME_MAX]);
+  if (focusEntity?.start != null) years.add(focusEntity.start);
+  return [...years]
+    .filter((year) => year >= TIME_MIN && year <= TIME_MAX)
+    .sort((a, b) => a - b)
+    .map((year) => ({
+      year,
+      label: TURNING_POINTS.get(year)
+        || (year === focusEntity?.start ? focusEntity.name : primaryPeriodAt(year)?.name)
+        || 'Historical snapshot',
+      turningPoint: TURNING_POINTS.has(year) || year === focusEntity?.start,
+    }));
+}
+
+function nearestDateOption(year, options) {
+  return options.reduce((nearest, option) =>
+    Math.abs(option.year - year) < Math.abs(nearest.year - year) ? option : nearest);
+}
 
 const MODES = [
   ['historical', 'Historical'],
@@ -169,7 +241,7 @@ export async function renderMap(params, query) {
             <div class="tl-tip" id="map-tip"></div>
           </div>
 
-          <div id="map-scrubber-host"></div>
+          <div id="map-date-host"></div>
         </div>
 
         <aside class="map-side" id="map-side-host"></aside>
@@ -187,13 +259,13 @@ function mount(root, initialMode, focusEntity) {
   const tip = $('#map-tip', root);
   const legendHost = $('#map-legend', root);
   const eraHost = $('#map-era-host', root);
-  const scrubberHost = $('#map-scrubber-host', root);
+  const dateHost = $('#map-date-host', root);
   const sideHost = $('#map-side-host', root);
   const introHost = $('#map-journey-intro', root);
   const viewControlsHost = $('#map-view-controls', root);
 
   let map = null;
-  let unbindYear = null, unbindPlay = null, unbindLayers = null;
+  let unbindYear = null, unbindLayers = null;
   let modeEvents = null;
   let mode = 'historical';
   // Only snap the camera/year to the deep-linked entity once -- if the
@@ -202,8 +274,8 @@ function mount(root, initialMode, focusEntity) {
   let focusApplied = false;
 
   function teardown() {
-    unbindYear?.(); unbindPlay?.(); unbindLayers?.();
-    unbindYear = unbindPlay = unbindLayers = null;
+    unbindYear?.(); unbindLayers?.();
+    unbindYear = unbindLayers = null;
     modeEvents?.abort();
     modeEvents = null;
     map?.destroy();
@@ -249,6 +321,17 @@ function mount(root, initialMode, focusEntity) {
      ============================================================ */
   function mountHistorical() {
     const signal = modeEvents.signal;
+    store.togglePlay(false);
+
+    // Entity deep links get their own card; ordinary visits settle on the
+    // nearest reviewed snapshot rather than an arbitrary in-between year.
+    if (focusEntity && !focusApplied) {
+      focusApplied = true;
+      if (focusEntity.start != null) store.setYear(focusEntity.start);
+    }
+    const dateOptions = buildDateOptions(focusEntity);
+    store.setYear(nearestDateOption(store.get('year'), dateOptions).year);
+
     viewControlsHost.innerHTML = `
       <button class="btn btn-sm" id="map-aegean">Aegean</button>
       <button class="btn btn-sm" id="map-east-med">Eastern Med</button>
@@ -257,19 +340,24 @@ function mount(root, initialMode, focusEntity) {
       <div class="y num" id="map-year"></div>
       <div class="p" id="map-period"></div>
       <div class="s" id="map-period-note"></div>`;
-    scrubberHost.innerHTML = `
-      <div class="scrubber" style="margin-top:var(--s-4)">
-        <button class="icon-btn" id="map-play" aria-label="Play through time"></button>
-        <div class="track">
-          <input type="range" id="map-range" min="${TIME_MIN}" max="${TIME_MAX}" step="1"
-                 aria-label="Year" value="${store.get('year')}">
-          <div class="ends"><span>3200 BC</span><span>30 BC</span></div>
+    dateHost.innerHTML = `
+      <section class="date-deck-panel" aria-labelledby="date-deck-title">
+        <div class="date-deck-heading">
+          <div>
+            <h3 id="date-deck-title">Choose a date</h3>
+            <p>Century snapshots with selected historical turning points.</p>
+          </div>
+          <span class="date-deck-hint">Scroll to explore</span>
         </div>
-      </div>
-      <div class="row-wrap" style="margin-top:var(--s-3)">
-        <span class="small muted" style="margin-right:var(--s-2)">Jump to:</span>
-        ${JUMPS.map((j) => `<button class="chip" data-year="${j.y}">${esc(j.label)}</button>`).join('')}
-      </div>`;
+        <div class="date-deck" role="list" aria-label="Historical map dates">
+          ${dateOptions.map((option) => `
+            <button type="button" role="listitem" class="date-card${option.turningPoint ? ' turning-point' : ''}"
+                    data-map-year="${option.year}" aria-pressed="false">
+              <span class="date-card-year">${option.turningPoint ? '' : 'c. '}${esc(fmtYear(option.year))}</span>
+              <span class="date-card-label">${esc(option.label)}</span>
+            </button>`).join('')}
+        </div>
+      </section>`;
     sideHost.innerHTML = `
       <div class="panel">
         <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Layers</h3>
@@ -290,7 +378,7 @@ function mount(root, initialMode, focusEntity) {
 
     const listHost = $('#map-list', root);
     const countHost = $('#map-count', root);
-    const range = $('#map-range', root);
+    const dateDeck = $('.date-deck', root);
     let hoverSequence = 0;
     let hoverHideTimer = null;
 
@@ -298,6 +386,8 @@ function mount(root, initialMode, focusEntity) {
       <div class="map-key" aria-label="Map key">
         <span><i class="map-key-area solid"></i>polity</span>
         <span><i class="map-key-area dashed"></i>culture / league</span>
+        <span><i class="map-key-line campaign"></i>campaign</span>
+        <span><i class="map-key-line network"></i>trade / settlement network</span>
         <span><i class="map-key-point city"></i>city</span>
         <span><i class="map-key-point site"></i>site</span>
         <span><i class="map-key-point battle"></i>battle / event</span>
@@ -315,6 +405,7 @@ function mount(root, initialMode, focusEntity) {
         : e.certainty === 'schematic' ? ' · schematic boundary'
         : '';
       const summary = profile?.summary?.trim();
+      const evidenceNote = e.evidenceNote?.trim();
       tip.innerHTML = `
         ${image?.src ? `<div class="tl-tip-media"><img src="${esc(image.src)}" alt=""></div>` : ''}
         <div class="tl-tip-body">
@@ -322,29 +413,25 @@ function mount(root, initialMode, focusEntity) {
           <div class="d">${esc(e.typeLabel)}${e.region ? ' · ' + esc(e.region) : ''}${esc(qualifier)}</div>
           ${date ? `<div class="d">${esc(date)}</div>` : ''}
           ${summary ? `<div class="map-tip-summary">${esc(summary)}</div>` : ''}
+          ${evidenceNote ? `<div class="map-tip-summary"><strong>Map evidence:</strong> ${esc(evidenceNote)}</div>` : ''}
+          ${e.sourceUrl ? `<a class="map-tip-link" href="${esc(e.sourceUrl)}" target="_blank" rel="noopener noreferrer">
+            ${esc(e.sourceLabel || 'Open map source')} ${icon('arrowRight', { size: 13 })}
+          </a>` : ''}
           ${profile ? `<a class="map-tip-link" href="${entityHref(profile.id)}">
             Open ${esc(profile.name)} ${icon('arrowRight', { size: 13 })}
           </a>` : ''}
         </div>`;
       tip.classList.toggle('with-media', Boolean(image?.src));
-      tip.classList.toggle('interactive', Boolean(profile));
+      tip.classList.toggle('interactive', Boolean(profile || e.sourceUrl));
       tip.classList.add('on');
-      const estimatedHeight = summary ? 220 : image?.src ? 150 : 90;
+      const estimatedHeight = summary || evidenceNote ? 250 : image?.src ? 150 : 90;
       tip.style.left = `${Math.max(8, Math.min(pos.x + 14, canvas.clientWidth - 354))}px`;
       tip.style.top = `${Math.max(8, Math.min(pos.y + 14, canvas.clientHeight - estimatedHeight))}px`;
     };
 
-    // Jump the scrubber to the deep-linked entity's own date, once, so its
-    // pin and the surrounding historical context (territories, other
-    // markers) actually line up with when it existed.
-    if (focusEntity && !focusApplied) {
-      focusApplied = true;
-      if (focusEntity.start != null) store.setYear(focusEntity.start);
-    }
-
     const hMap = createMap(canvas, {
       year: store.get('year'),
-      layers: { ...store.get('layers'), routes: false },
+      layers: { ...store.get('layers') },
       basemap: 'plain',
       markers: [],
       focus: focusEntity,
@@ -409,40 +496,34 @@ function mount(root, initialMode, focusEntity) {
     unbindYear = store.bind('year', (y) => {
       yearOut.textContent = fmtYear(y);
       const p = primaryPeriodAt(y);
-      periodOut.textContent = p ? p.name : '—';
-      periodNoteOut.textContent = p?.summary || '';
-      range.value = y;
-      range.style.setProperty('--fill', `${((y - TIME_MIN) / (TIME_MAX - TIME_MIN)) * 100}%`);
+      periodOut.textContent = TURNING_POINTS.get(y) || p?.name || '—';
+      periodNoteOut.textContent = SNAPSHOT_NOTES.get(y) || p?.summary || '';
+      const activeCard = $(`[data-map-year="${y}"]`, dateDeck);
+      $$('[data-map-year]', dateDeck).forEach((card) => {
+        const active = card === activeCard;
+        card.classList.toggle('active', active);
+        card.setAttribute('aria-pressed', String(active));
+      });
+      if (activeCard) {
+        requestAnimationFrame(() => dateDeck.scrollTo({
+          left: activeCard.offsetLeft - (dateDeck.clientWidth - activeCard.offsetWidth) / 2,
+          behavior: 'auto',
+        }));
+      }
       hMap.setYear(y);
       refreshMarkers(y);
     });
 
-    range.addEventListener('input', () => {
-      store.togglePlay(false);
-      store.setYear(Number(range.value));
+    dateDeck.addEventListener('click', (event) => {
+      const card = event.target.closest('[data-map-year]');
+      if (!card) return;
+      store.setYear(Number(card.dataset.mapYear));
     }, { signal });
-
-    const playBtn = $('#map-play', root);
-    unbindPlay = store.bind('playing', (p) => {
-      playBtn.innerHTML = icon(p ? 'pause' : 'play');
-      playBtn.setAttribute('aria-label', p ? 'Pause' : 'Play through time');
-    });
-    playBtn.addEventListener('click', () => {
-      if (!store.get('playing') && store.get('year') >= TIME_MAX - 1) store.setYear(TIME_MIN);
-      store.togglePlay();
-    }, { signal });
-
-    root.querySelectorAll('[data-year]').forEach((b) => {
-      b.addEventListener('click', () => {
-        store.togglePlay(false);
-        store.setYear(Number(b.dataset.year));
-      }, { signal });
-    });
 
     const paintLayers = (l) => {
       $$('[data-layer]', root).forEach((s) =>
         s.setAttribute('aria-checked', String(!!l[s.dataset.layer])));
-      hMap.setLayers({ ...l, routes: false });
+      hMap.setLayers({ ...l });
     };
     unbindLayers = store.bind('layers', paintLayers);
     $$('[data-layer]', root).forEach((s) => {
@@ -470,7 +551,7 @@ function mount(root, initialMode, focusEntity) {
           <small>Foundations appear as the campaign advances</small>
         </div>`
       : '';
-    scrubberHost.innerHTML = '';
+    dateHost.innerHTML = '';
 
     const stops = resolveStops(JOURNEYS[which].config);
     const guided = true;

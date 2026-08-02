@@ -3,9 +3,15 @@ id: r-colonisation-east
 name: 'Colonisation: the Black Sea'
 tint: archaic
 kind: network
+certainty: schematic
 from: -700
-to: -550
+to: -30
+phaseTo: -550
 dashed: true
+reviewed: true
+evidenceNote: Bright lines indicate the foundation era; faded lines afterwards indicate enduring settlement and exchange, not continuing colonial control.
+sourceLabel: Met Greek colonisation and trade
+sourceUrl: https://www.metmuseum.org/essays/ancient-greek-colonization-and-trade-and-their-influence-on-greek-art
 paths:
   - - - 27.28
       - 37.53

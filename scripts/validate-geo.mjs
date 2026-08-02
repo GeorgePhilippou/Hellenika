@@ -10,6 +10,14 @@ const validKinds = new Set([
 ]);
 const tokenText = fs.readFileSync(new URL('../css/tokens.css', import.meta.url), 'utf8');
 const tintTokens = new Set([...tokenText.matchAll(/--p-([a-z0-9-]+)\s*:/g)].map((m) => m[1]));
+const mapViewText = fs.readFileSync(new URL('../js/views/map.js', import.meta.url), 'utf8');
+const turningPointYears = [...mapViewText.matchAll(/^\s*\[(-?\d+),\s*['"]/gm)]
+  .map((match) => Number(match[1]));
+const selectableYears = new Set([
+  ...Array.from({ length: 32 }, (_, index) => -3200 + index * 100),
+  ...turningPointYears,
+  -30,
+]);
 
 const orient = (a, b, c) => (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
 const between = (a, b, p) =>
@@ -63,6 +71,12 @@ for (const item of [...territories, ...routes]) {
   }
   if (item.tint && !tintTokens.has(item.tint)) errors.push(`Unknown tint "${item.tint}": ${item.id}`);
   if (item.kind && !validKinds.has(item.kind)) warnings.push(`Unrecognised kind "${item.kind}": ${item.id}`);
+  if (item.reviewed) {
+    if (!item.certainty) errors.push(`Reviewed map layer lacks certainty status: ${item.id}`);
+    if (!item.evidenceNote) errors.push(`Reviewed map layer lacks evidence note: ${item.id}`);
+    if (!item.sourceLabel) errors.push(`Reviewed map layer lacks source label: ${item.id}`);
+    if (!/^https:\/\//.test(item.sourceUrl || '')) errors.push(`Reviewed map layer lacks HTTPS source URL: ${item.id}`);
+  }
 
   for (const shape of shapes) {
     for (const point of shape ?? []) {
@@ -83,6 +97,31 @@ for (const item of [...territories, ...routes]) {
       }
     }
   }
+}
+
+for (const route of routes.filter((item) => item.kind === 'campaign')) {
+  if (![...selectableYears].some((year) => year >= route.from && year <= route.to)) {
+    errors.push(`Campaign route cannot be reached from a date card: ${route.id} (${route.from}…${route.to})`);
+  }
+}
+
+const requiredContextIds = [
+  't-middle-helladic', 't-middle-cycladic', 't-egypt-kushite', 't-egypt-saite',
+  't-egypt-late-independent', 't-phoenicia-achaemenid', 't-thracian-regions',
+  't-illyrian-regions', 't-etruscan-regions', 't-carthaginian-core', 't-cappadocia',
+  't-epirote-regions', 't-scythian-black-sea', 't-bosporan-kingdom',
+  't-bithynia', 't-pontus', 't-galatian-regions', 't-armenia-hellenistic',
+  't-rome-hispania-citerior', 't-rome-hispania-ulterior', 't-rome-africa',
+  't-rome-narbonensis', 't-rome-cyrenaica', 't-rome-crete', 't-rome-cilicia',
+];
+for (const id of requiredContextIds) {
+  if (!territories.some((territory) => territory.id === id)) errors.push(`Missing required Greek-world context layer: ${id}`);
+}
+
+const ptolemaicTerminal = territories.find((territory) => territory.id === 't-ptolemaic-terminal');
+const romanEgypt = territories.find((territory) => territory.id === 't-rome-egypt');
+if (ptolemaicTerminal && romanEgypt && ptolemaicTerminal.to >= romanEgypt.from) {
+  errors.push('Ptolemaic and Roman Egypt overlap at the 30 BC endpoint');
 }
 
 const blankYears = [];

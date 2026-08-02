@@ -164,11 +164,13 @@ export async function renderAbout() {
               connections consistent without hand-maintaining both directions.
             </p>
             <p>
-              Everything is keyboard-navigable, respects <code>prefers-reduced-motion</code>,
-              and works in light and dark themes. Press <span class="kbd">/</span> to search
-              from anywhere, <span class="kbd">r</span> for a random entity, or
-              <span class="kbd">t</span> <span class="kbd">m</span> <span class="kbd">e</span>
-              to jump to the timeline, map or explore.
+              Core navigation and controls are keyboard-accessible, the canvas views support
+              keyboard panning and zooming, and the interface respects
+              <code>prefers-reduced-motion</code> in both light and dark themes. Complete
+              non-canvas alternatives for every visual relationship are still being developed.
+              Press <span class="kbd">/</span> to search from anywhere, <span class="kbd">r</span>
+              for a random entity, or <span class="kbd">t</span> <span class="kbd">m</span>
+              <span class="kbd">e</span> to jump to the timeline, map or explore.
             </p>
           </div>
         </section>

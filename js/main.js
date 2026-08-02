@@ -26,8 +26,6 @@ const NAV = [
   { path: '/timeline', label: 'Timeline', icon: 'timeline' },
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
-  { path: '/collections', label: 'Collections', icon: 'collection' },
-  { path: '/learn', label: 'Learn', icon: 'learn' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
 ];
@@ -292,7 +290,7 @@ function wireGlobals() {
     if (typing) return;
 
     // Single-key shortcuts for the main views.
-    const jump = { t: '/timeline', m: '/map', e: '/explore', c: '/collections', l: '/learn', h: '/' };
+    const jump = { t: '/timeline', m: '/map', e: '/explore', h: '/' };
     if (!e.metaKey && !e.ctrlKey && !e.altKey && jump[e.key.toLowerCase()]) {
       go(jump[e.key.toLowerCase()]);
     }

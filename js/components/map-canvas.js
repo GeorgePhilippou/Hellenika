@@ -902,7 +902,7 @@ export function createMap(canvas, {
 
     focusAegean() { api.flyTo([19, 34, 30, 42]); },
     focusEasternMediterranean() { api.flyTo([19, 22, 40, 43]); },
-    focusEmpire() { api.flyTo([16, 23, 78, 46]); },
+    focusEmpire() { api.flyTo([EXTENT.lonMin, EXTENT.latMin, EXTENT.lonMax, EXTENT.latMax], 0.03); },
     destroy() {
       if (destroyed) return;
       destroyed = true;
