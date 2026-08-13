@@ -12,16 +12,45 @@
    Scaffold: worldTerritories (data/world.js) has five schematic
    entries so far -- Achaemenid Persia, Rome, and three Byzantine
    phases. Add more via content/world/worldTerritories--*.md.
+
+   Egypt and Carthage are NOT authored here -- the Greek-world atlas
+   (data/geo.js) already has fifteen reviewed, sourced Egyptian
+   territory phases (Early Dynastic through Roman annexation) and a
+   sourced Carthage entry, drawn for the main /map because Egypt and
+   Carthage were direct actors in Greek history. EGYPT_CARTHAGE_IDS
+   below pulls that same, already-reviewed set in rather than
+   duplicating it as fresh (unreviewed) worldTerritories data.
    ============================================================ */
 
 import { el, $, $$, esc, fmtYear, throttle } from '../util.js';
 import { icon } from '../icons.js';
 import * as db from '../db.js';
 import { worldTerritories } from '../../data/world.js';
+import { territories as greekTerritories } from '../../data/geo.js';
 import { createMap } from '../components/map-canvas.js';
 import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../components/images.js';
 import { go, entityHref } from '../router.js';
 import { entityDate } from '../components/ui.js';
+
+/* Egyptian and Carthaginian phases from the Greek-world atlas, reused
+   here rather than re-authored. Listed in chronological order. */
+const EGYPT_CARTHAGE_IDS = new Set([
+  't-eb-egypt-early-dynastic', 't-eb-egypt-old-kingdom', 't-eb-egypt-first-intermediate',
+  't-egypt-middle-kingdom', 't-egypt-second-intermediate',
+  't-egypt-nk', 't-egypt-nk-levant',
+  't-da-egypt-third-intermediate', 't-egypt-kushite', 't-da-assyria-egypt', 't-egypt-saite',
+  't-egypt-late-independent',
+  't-carthaginian-core',
+  't-alex-egypt', 't-diadochi-egypt',
+  't-ptolemaic-early', 't-ptolemaic-early-levant', 't-ptolemaic-early-cyrenaica',
+  't-ptolemaic-middle', 't-ptolemaic-middle-cyrenaica',
+  't-ptolemaic-late', 't-ptolemaic-terminal',
+  't-rome-egypt',
+]);
+const worldGeoTerritories = [
+  ...worldTerritories,
+  ...greekTerritories.filter((t) => EGYPT_CARTHAGE_IDS.has(t.id)),
+];
 
 export const WORLD_TIME_MIN = -3200;
 export const WORLD_TIME_MAX = 1453;
@@ -37,6 +66,18 @@ const TINT_LABELS = new Map([
   ['world-neareast', 'Near Eastern empires'],
   ['world-rome', 'Rome'],
   ['world-byzantium', 'Byzantium'],
+  ['world-carthage', 'Carthage'],
+  ['world-egypt', 'Independent Egyptian dynasties'],
+  // Egypt's earlier/later phases reuse Greek-palette tints (borrowed
+  // from the main atlas along with the territories themselves) --
+  // labelled for this map's own context, not the Aegean one they
+  // carry on /map.
+  ['earlybronze', 'Early Dynastic / Old Kingdom Egypt'],
+  ['minoan', 'Middle Kingdom Egypt'],
+  ['collapse', 'New Kingdom Egypt'],
+  ['darkage', 'Third Intermediate Period Egypt'],
+  ['hellenistic', "Alexander's and Ptolemaic Egypt"],
+  ['roman', 'Roman Egypt'],
 ]);
 
 const TURNING_POINTS = new Map([
@@ -230,7 +271,7 @@ function mount(root) {
     layers: { territories: layers.territories, cities: layers.places, sites: layers.places, labels: layers.labels },
     basemap: 'plain',
     markers: [],
-    geo: { territories: worldTerritories, EXTENT: WORLD_EXTENT },
+    geo: { territories: worldGeoTerritories, EXTENT: WORLD_EXTENT },
     onMarkerClick: (e) => go(`/e/${e.id}`),
     onHover: (e, pos) => {
       const sequence = ++hoverSequence;
