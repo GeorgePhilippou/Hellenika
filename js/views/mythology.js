@@ -158,7 +158,7 @@ function cycleCard(cycle) {
 }
 
 export async function renderMythology() {
-  document.title = 'Greek Mythology — Hellenika';
+  document.title = 'Greek Mythology — Ἑλληνικά';
   const root = el('div', { class: 'view mythology-view' });
   const deities = deityIds.map(db.get).filter(Boolean);
   const heroes = heroIds.map(db.get).filter(Boolean);
@@ -227,7 +227,7 @@ export async function renderMythology() {
       </section>
 
       <section id="myth-gods" class="myth-section">
-        ${sectionHead('Gods and divine powers', 'The principal deities currently documented in Hellenika.', `<a class="btn btn-sm" href="#/explore?type=deity">View all deities ${icon('arrowRight', { size: 14 })}</a>`)}
+        ${sectionHead('Gods and divine powers', 'The principal deities currently documented in Ἑλληνικά.', `<a class="btn btn-sm" href="#/explore?type=deity">View all deities ${icon('arrowRight', { size: 14 })}</a>`)}
         <div class="grid grid-auto">${deities.map((e) => entityCard(e)).join('')}</div>
       </section>
 
@@ -260,7 +260,7 @@ export async function renderMythology() {
       </section>
 
       <section id="myth-reading" class="myth-section">
-        ${sectionHead('How Hellenika reads mythology', 'Three layers that should not be collapsed into one.')}
+        ${sectionHead('How Ἑλληνικά reads mythology', 'Three layers that should not be collapsed into one.')}
         <div class="myth-reading-grid">
           <article class="myth-block is-myth"><h3>${icon('myth')} Narrative</h3><p>What the surviving story says, including alternative versions and the source in which each appears.</p></article>
           <article class="myth-block is-history"><h3>${icon('deity')} Religion</h3><p>How a deity or hero was worshipped: sanctuaries, festivals, dedications, ritual roles and local identities.</p></article>

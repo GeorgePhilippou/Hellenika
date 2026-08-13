@@ -30,7 +30,7 @@ export async function renderEntity(params) {
     return missing;
   }
 
-  document.title = `${e.name} — Hellenika`;
+  document.title = `${e.name} — Ἑλληνικά`;
   store.pushRecent(e.id);
 
   const isMyth = e.type === 'myth' || e.type === 'deity';

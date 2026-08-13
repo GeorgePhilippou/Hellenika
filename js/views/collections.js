@@ -51,7 +51,7 @@ export async function renderCollection(params) {
     return missing;
   }
 
-  document.title = `${c.name} — Hellenika`;
+  document.title = `${c.name} — Ἑλληνικά`;
   const root = el('div');
 
   root.innerHTML = `

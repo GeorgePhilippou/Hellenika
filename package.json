@@ -2,7 +2,7 @@
   "name": "hellenika",
   "private": true,
   "type": "module",
-  "description": "Build-time content pipeline for Hellenika. The site itself ships zero dependencies and no build step -- this only supports the content authoring workflow (content/**/*.md -> data/*.json).",
+  "description": "Build-time content pipeline for Ἑλληνικά. The site itself ships zero dependencies and no build step -- this only supports the content authoring workflow (content/**/*.md -> data/*.json).",
   "scripts": {
     "test": "node scripts/validate-project.mjs",
     "content:migrate": "node scripts/migrate-to-content.mjs",

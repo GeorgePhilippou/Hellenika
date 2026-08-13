@@ -59,7 +59,7 @@ export async function renderHome() {
             <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
             <h1>Explore <span class="hero-accent">Ancient Greece</span> and the world it shaped.</h1>
             <p class="lede">
-              Hellenika is an open, evidence-led guide to the ancient Greek world.
+              <span lang="grc">Ἑλληνικά</span> is an open, evidence-led guide to the ancient Greek world.
               It connects people, places, objects and events across an interactive timeline
               and map, making the sources — and the limits of what we know — clear and
               accessible to everyone.

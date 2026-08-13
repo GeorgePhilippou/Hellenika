@@ -910,7 +910,7 @@ export function createMap(canvas, {
     canvas.setAttribute('role', 'application');
     canvas.setAttribute(
       'aria-label',
-      'Historical map of the Greek world. Arrow keys pan, plus and minus zoom. Select a territory to open its Hellenika entry or Wikipedia article.',
+      'Historical map of the Greek world. Arrow keys pan, plus and minus zoom. Select a territory to open its Ἑλληνικά entry or Wikipedia article.',
     );
     canvas.addEventListener('keydown', (e) => {
       const step = 50;

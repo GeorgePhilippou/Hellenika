@@ -1,4 +1,4 @@
-# Hellenika
+# Ἑλληνικά
 
 An interactive atlas of the Ancient Greek world, **3200 BC – 30 BC**, explored through
 time, space, relationships and evidence.

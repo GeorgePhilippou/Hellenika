@@ -79,7 +79,7 @@ export async function renderQuiz(params) {
     return missing;
   }
 
-  document.title = `${quiz.name} — Hellenika`;
+  document.title = `${quiz.name} — Ἑλληνικά`;
   const root = el('div', { class: 'view' });
   root.innerHTML = `
     <div class="wrap">
@@ -219,7 +219,7 @@ export async function renderGame(params) {
     return missing;
   }
 
-  document.title = `${mode.name} — Hellenika`;
+  document.title = `${mode.name} — Ἑλληνικά`;
   const root = el('div', { class: 'view' });
   root.innerHTML = `
     <div class="wrap">

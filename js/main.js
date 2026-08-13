@@ -265,7 +265,7 @@ setBeforeNav((r) => {
   closePalette();
   toggleMobileMenu(false);
   closeLightbox();
-  document.title = 'Hellenika — The Interactive History of the Ancient Greek World';
+  document.title = 'Ἑλληνικά — The Interactive History of the Ancient Greek World';
 });
 
 /* ============================================================
