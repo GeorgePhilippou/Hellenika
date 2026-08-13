@@ -101,6 +101,7 @@ export const CATEGORIES = {
       { name: 'worldPeriods', prose: ['note'] },
       { name: 'worldEvents', prose: ['note'] },
       { name: 'worldTerritories', prose: [] },
+      { name: 'worldSites', prose: ['note'] },
     ],
   },
   journeys: {

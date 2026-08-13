@@ -34,7 +34,7 @@
 import { el, $, $$, esc, fmtYear, throttle } from '../util.js';
 import { icon } from '../icons.js';
 import * as db from '../db.js';
-import { worldTerritories } from '../../data/world.js';
+import { worldTerritories, worldSites } from '../../data/world.js';
 import { territories as greekTerritories } from '../../data/geo.js';
 import { createMap } from '../components/map-canvas.js';
 import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../components/images.js';
@@ -86,13 +86,24 @@ const worldGeoTerritories = [
   ...greekTerritories.filter((t) => REUSED_ATLAS_IDS.has(t.id)),
 ];
 
+// Archaeological-site markers outside the Greek-world entity graph
+// (worldSites, data/world.js) reshaped to the map engine's marker
+// contract -- {id, name, coords, type, tint}, matching what
+// db.mapPointsAt() entities already carry.
+const worldSiteMarkers = worldSites.map((s) => ({
+  ...s,
+  type: 'site',
+  typeLabel: 'Archaeological site',
+  sortName: s.name.toLowerCase(),
+}));
+
 export const WORLD_TIME_MIN = -3200;
 export const WORLD_TIME_MAX = 1453;
 const WORLD_EXTENT = { lonMin: -10, lonMax: 105, latMin: -2, latMax: 58 };
 
 const LAYERS = [
   ['territories', 'Political regions'],
-  ['places', 'Cities & sites (Greek-world dataset)'],
+  ['places', 'Cities & archaeological sites'],
   ['labels', 'Region labels'],
 ];
 
@@ -264,8 +275,10 @@ function mount(root) {
       </div>
       <div class="map-list" id="world-list"></div>
       <p class="small muted" style="margin-top:var(--s-3)">
-        Places come from the Greek-world dataset, so they only appear up to
-        30 BC -- after that the map is territories only.
+        Places come from two sources: the Greek-world dataset (until 30 BC,
+        linking to a full profile) and a growing set of archaeological sites
+        outside it (linking out to their source). Coverage past 30 BC is
+        territories only so far.
       </p>
     </div>`;
 
@@ -287,7 +300,9 @@ function mount(root) {
       : e.certainty === 'schematic' ? ' · schematic boundary'
       : '';
     const summary = profile?.summary?.trim();
-    const evidenceNote = e.evidenceNote?.trim();
+    // Territories (Greek atlas) carry `evidenceNote`; worldSites carry
+    // `note` -- same schema shape as worldPeriods/worldEvents.
+    const evidenceNote = (e.evidenceNote || e.note)?.trim();
     tip.innerHTML = `
       ${image?.src ? `<div class="tl-tip-media"><img src="${esc(image.src)}" alt="" loading="lazy" decoding="async"></div>` : ''}
       <div class="tl-tip-body">
@@ -298,10 +313,12 @@ function mount(root) {
         ${evidenceNote ? `<div class="map-tip-summary"><strong>Note:</strong> ${esc(evidenceNote)}</div>` : ''}
         ${profile ? `<a class="map-tip-link" href="${entityHref(profile.id)}">
           Open ${esc(profile.name)} ${icon('arrowRight', { size: 13 })}
+        </a>` : e.sourceUrl ? `<a class="map-tip-link" href="${esc(e.sourceUrl)}" target="_blank" rel="noopener noreferrer">
+          ${esc(e.sourceLabel || 'Open source')} ${icon('arrowRight', { size: 13 })}
         </a>` : ''}
       </div>`;
     tip.classList.toggle('with-media', Boolean(image?.src));
-    tip.classList.toggle('interactive', Boolean(profile));
+    tip.classList.toggle('interactive', Boolean(profile || e.sourceUrl));
     tip.classList.add('on');
     tip.style.left = `${Math.min(pos.x + 14, canvas.clientWidth - 260)}px`;
     tip.style.top = `${Math.min(pos.y + 14, canvas.clientHeight - 100)}px`;
@@ -317,7 +334,10 @@ function mount(root) {
     basemap: 'plain',
     markers: [],
     geo: { territories: worldGeoTerritories, EXTENT: WORLD_EXTENT },
-    onMarkerClick: (e) => go(`/e/${e.id}`),
+    onMarkerClick: (e) => {
+      if (db.get(e.id)) go(`/e/${e.id}`);
+      else if (e.sourceUrl) window.open(e.sourceUrl, '_blank', 'noopener,noreferrer');
+    },
     onHover: (e, pos) => {
       const sequence = ++hoverSequence;
       clearTimeout(hoverHideTimer);
@@ -359,17 +379,27 @@ function mount(root) {
   const dateDeck = $('.date-deck', root);
 
   const refreshMarkers = throttle((y) => {
-    const pts = layers.places ? db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type)) : [];
+    const pts = layers.places
+      ? [
+          ...db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type)),
+          ...worldSiteMarkers.filter((s) => y >= s.from && y <= s.to),
+        ]
+      : [];
     wMap.setMarkers(pts);
     countHost.textContent = `${pts.length} ${pts.length === 1 ? 'place' : 'places'}`;
     listHost.innerHTML = pts.length
-      ? pts.slice().sort((a, b) => a.sortName.localeCompare(b.sortName)).slice(0, 80).map((e) => `
-          <a href="${entityHref(e.id)}">
+      ? pts.slice().sort((a, b) => a.sortName.localeCompare(b.sortName)).slice(0, 80).map((e) => {
+          const profile = db.get(e.id);
+          const href = profile ? entityHref(e.id) : e.sourceUrl;
+          const external = !profile && e.sourceUrl;
+          return `
+          <a href="${esc(href || '#')}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
             <i class="chip-dot" style="background:var(--p-${e.tint})"></i>
             <span>${esc(e.name)}</span>
             <span class="r">${esc(e.typeLabel)}</span>
-          </a>`).join('')
-      : '<p class="small muted">Nothing from the Greek-world dataset is dated to this year.</p>';
+          </a>`;
+        }).join('')
+      : '<p class="small muted">Nothing from the Greek-world dataset or worldSites is dated to this year.</p>';
   }, 140);
 
   function setYear(y) {
