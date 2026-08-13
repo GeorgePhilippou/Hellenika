@@ -130,9 +130,22 @@ function nearestDateOption(year, options) {
 
 const MODES = [
   ['historical', 'Historical'],
+  ['cyprus', 'Cyprus'],
   ['odyssey', "Odysseus's Journey"],
   ['alexander', "Alexander's Conquest"],
 ];
+
+// A regional-focus variant of the historical map: same time-scrubbed
+// mechanism, but scoped to the island using the `coverageGroup: 'cyprus'`
+// tag already authored on its territories in data/geo.js.
+const CYPRUS_BOUNDS = [32.15, 34.45, 34.65, 35.75]; // [lonMin, latMin, lonMax, latMax]
+const isCyprusTerritory = (t) => t.coverageGroup === 'cyprus';
+function inCyprusBounds(coords) {
+  if (!coords) return false;
+  const [lat, lon] = coords;
+  return lat >= CYPRUS_BOUNDS[1] && lat <= CYPRUS_BOUNDS[3]
+    && lon >= CYPRUS_BOUNDS[0] && lon <= CYPRUS_BOUNDS[2];
+}
 
 const JOURNEYS = {
   odyssey: {
@@ -286,7 +299,7 @@ function resolveStops(config) {
 
 export async function renderMap(params, query) {
   const root = el('div', { class: 'view' });
-  const initialMode = ['odyssey', 'alexander'].includes(params?.mode) ? params.mode : 'historical';
+  const initialMode = ['odyssey', 'alexander', 'cyprus'].includes(params?.mode) ? params.mode : 'historical';
   // Deep link from an entity page's "On the map" button -- e.g. #/map?focus=siege-of-tyre --
   // flies to that entity's own pin and highlights it, rather than dropping
   // the visitor on whatever view of the map they last left.
@@ -482,17 +495,21 @@ function mount(root, initialMode, focusEntity) {
     resetOverlayPositions();
     mode = next;
     modeEvents = new AbortController();
+    const isJourney = mode === 'odyssey' || mode === 'alexander';
     root.classList.toggle('is-odyssey', mode === 'odyssey');
-    root.classList.toggle('is-guided-journey', mode !== 'historical');
+    root.classList.toggle('is-guided-journey', isJourney);
 
     $$('[data-mode]', root).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
 
-    if (mode === 'historical') {
-      $('#map-eyebrow', root).textContent = 'Historical atlas';
-      $('#map-title', root).textContent = 'The Map';
-      $('#map-sub', root).textContent = 'Move through time and watch regions, cities and archaeological sites change.';
+    if (mode === 'historical' || mode === 'cyprus') {
+      const isCyprus = mode === 'cyprus';
+      $('#map-eyebrow', root).textContent = isCyprus ? 'Regional atlas' : 'Historical atlas';
+      $('#map-title', root).textContent = isCyprus ? 'Cyprus' : 'The Map';
+      $('#map-sub', root).textContent = isCyprus
+        ? 'Move through time and watch control of Cyprus change, from the Chalcolithic to Roman annexation.'
+        : 'Move through time and watch regions, cities and archaeological sites change.';
       introHost.innerHTML = '';
-      mountHistorical();
+      mountHistorical(mode);
     } else {
       const j = JOURNEYS[mode];
       $('#map-eyebrow', root).textContent = 'Narrative atlas';
@@ -514,7 +531,8 @@ function mount(root, initialMode, focusEntity) {
   /* ============================================================
      Historical mode
      ============================================================ */
-  function mountHistorical() {
+  function mountHistorical(scope = 'historical') {
+    const isCyprus = scope === 'cyprus';
     const signal = modeEvents.signal;
     store.togglePlay(false);
     fullscreenJourneyContent.innerHTML = '';
@@ -529,10 +547,11 @@ function mount(root, initialMode, focusEntity) {
     const dateOptions = buildDateOptions(focusEntity);
     store.setYear(nearestDateOption(store.get('year'), dateOptions).year);
 
-    viewControlsHost.innerHTML = `
-      <button class="btn btn-sm" id="map-aegean">Aegean</button>
-      <button class="btn btn-sm" id="map-east-med">Eastern Med</button>
-      <button class="btn btn-sm" id="map-empire">Full extent</button>`;
+    viewControlsHost.innerHTML = isCyprus
+      ? `<button class="btn btn-sm" id="map-cyprus-island">Whole island</button>`
+      : `<button class="btn btn-sm" id="map-aegean">Aegean</button>
+         <button class="btn btn-sm" id="map-east-med">Eastern Med</button>
+         <button class="btn btn-sm" id="map-empire">Full extent</button>`;
     eraHost.innerHTML = `
       <div class="y num" id="map-year"></div>
       <div class="p" id="map-period"></div>
@@ -692,6 +711,7 @@ function mount(root, initialMode, focusEntity) {
       onMarkerClick: (e) => go(`/e/${e.id}`),
       territoryEntityId: territoryProfileId,
       territoryExternalUrl: territoryWikipediaUrl,
+      territoryFilter: isCyprus ? isCyprusTerritory : undefined,
       onTerritoryClick: (_territory, entityId, externalUrl) => {
         if (entityId) go(`/e/${entityId}`);
         else if (externalUrl) window.open(externalUrl, '_blank', 'noopener,noreferrer');
@@ -735,6 +755,8 @@ function mount(root, initialMode, focusEntity) {
     if (focusEntity?.coords) {
       const [lat, lon] = focusEntity.coords;
       hMap.flyTo([lon - 9, lat - 6, lon + 9, lat + 6], 0.08);
+    } else if (isCyprus) {
+      hMap.flyTo(CYPRUS_BOUNDS, 0.15);
     }
 
     const yearOut = $('#map-year', root);
@@ -744,6 +766,7 @@ function mount(root, initialMode, focusEntity) {
 
     const refreshMarkers = throttle((y) => {
       let pts = db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type));
+      if (isCyprus) pts = pts.filter((e) => inCyprusBounds(e.coords));
       // Belt-and-braces: a deep-linked entity should always be a real,
       // clickable marker (not just the highlight ring below), even on the
       // rare chance its own date range doesn't cover the year it lands on.
@@ -806,10 +829,16 @@ function mount(root, initialMode, focusEntity) {
 
     $('#map-zin', root).addEventListener('click', () => hMap.zoomIn(), { signal });
     $('#map-zout', root).addEventListener('click', () => hMap.zoomOut(), { signal });
-    $('#map-reset', root).addEventListener('click', () => hMap.reset(), { signal });
-    $('#map-aegean', root).addEventListener('click', () => hMap.focusAegean(), { signal });
-    $('#map-east-med', root).addEventListener('click', () => hMap.focusEasternMediterranean(), { signal });
-    $('#map-empire', root).addEventListener('click', () => hMap.focusEmpire(), { signal });
+    $('#map-reset', root).addEventListener('click', () => {
+      isCyprus ? hMap.flyTo(CYPRUS_BOUNDS, 0.15) : hMap.reset();
+    }, { signal });
+    if (isCyprus) {
+      $('#map-cyprus-island', root).addEventListener('click', () => hMap.flyTo(CYPRUS_BOUNDS, 0.15), { signal });
+    } else {
+      $('#map-aegean', root).addEventListener('click', () => hMap.focusAegean(), { signal });
+      $('#map-east-med', root).addEventListener('click', () => hMap.focusEasternMediterranean(), { signal });
+      $('#map-empire', root).addEventListener('click', () => hMap.focusEmpire(), { signal });
+    }
   }
 
   /* ============================================================

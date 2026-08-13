@@ -95,6 +95,10 @@ export function createMap(canvas, {
   onTerritoryClick,
   territoryEntityId,
   territoryExternalUrl,
+  /** Restrict which territories are ever eligible to draw, e.g.
+      `(t) => t.coverageGroup === 'cyprus'` for a regional focus map
+      that reuses the same authored dataset. */
+  territoryFilter = () => true,
   onHover,
   /** Small preview maps (e.g. an entity page's Location panel) shouldn't
       capture drag/wheel/keyboard input -- a wheel-zoomable canvas sitting
@@ -332,6 +336,7 @@ export function createMap(canvas, {
     territoryHitRegions = [];
     if (L.territories !== false) {
       const active = territories
+        .filter(territoryFilter)
         .map((t) => ({ t, a: territoryAlpha(t, y) }))
         .filter(({ a }) => a > 0.01);
 
