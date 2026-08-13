@@ -18,7 +18,10 @@
    ============================================================ */
 
 import { clamp, fitCanvas, animate, easeOutCubic, prefersReducedMotion } from '../util.js';
-import { seas, islands, rivers, territories, routes, EXTENT } from '../../data/geo.js';
+import {
+  seas as defaultSeas, islands as defaultIslands, rivers as defaultRivers,
+  territories as defaultTerritories, routes as defaultRoutes, EXTENT as defaultExtent,
+} from '../../data/geo.js';
 import { PROVIDERS, TILE_SIZE, lonLatToWorld, worldToLonLat, drawTiles } from './tiles.js';
 import {
   projectPath, pathLength, pointAtFraction, drawArrowHead, wheelZoomFactor,
@@ -106,9 +109,22 @@ export function createMap(canvas, {
       cursor passes over it, leaving the map panned or zoomed to some
       confusing, unrequested view. Set false for a static, look-only map. */
   interactive = true,
+  /** Override any of the Greek-atlas geo layers, e.g. `{ territories:
+      worldTerritories, EXTENT: WORLD_EXTENT }` for a map reusing this
+      same engine over a different authored dataset and projection
+      bounds (see js/views/world.js). Unset layers fall back to the
+      Greek-world data every other map on the site draws from. */
+  geo = {},
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
   const eventScope = new AbortController();
+
+  const seas = geo.seas ?? defaultSeas;
+  const islands = geo.islands ?? defaultIslands;
+  const rivers = geo.rivers ?? defaultRivers;
+  const territories = geo.territories ?? defaultTerritories;
+  const routes = geo.routes ?? defaultRoutes;
+  const EXTENT = geo.EXTENT ?? defaultExtent;
 
   let W = 0, H = 0;
   let scale = 1024, tx = 0, ty = 0;   // screen = world*scale + t, world in z0 px

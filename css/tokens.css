@@ -73,6 +73,7 @@
   --p-world-carthage:  #96604f;
   --p-world-india:     #a8763f;
   --p-world-china:     #6d7d5a;
+  --p-world-byzantium: #a3763f;
 
   /* ---- Timeline ribbon colours ----
      The main /timeline canvas uses two flat hues, not the rainbow
@@ -192,6 +193,7 @@
   --p-world-carthage:  #b98170;
   --p-world-india:     #c99862;
   --p-world-china:     #8ea073;
+  --p-world-byzantium: #c99a68;
 
   --p-ribbon-greece: #5fa588;
   --p-ribbon-world:  #7c9fd6;

@@ -100,6 +100,7 @@ export const CATEGORIES = {
     groups: [
       { name: 'worldPeriods', prose: ['note'] },
       { name: 'worldEvents', prose: ['note'] },
+      { name: 'worldTerritories', prose: [] },
     ],
   },
   journeys: {
