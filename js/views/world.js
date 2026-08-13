@@ -9,17 +9,26 @@
    every other view; a local, unshared year keeps this page free to
    run long after the rest of the site's clock has stopped.
 
-   Scaffold: worldTerritories (data/world.js) has five schematic
-   entries so far -- Achaemenid Persia, Rome, and three Byzantine
-   phases. Add more via content/world/worldTerritories--*.md.
+   Scaffold: worldTerritories (data/world.js) has four schematic
+   entries of its own -- Rome (27 BC onward) and three Byzantine
+   phases, the period with nothing left to reuse. Add more post-30 BC
+   phases via content/world/worldTerritories--*.md.
 
-   Egypt and Carthage are NOT authored here -- the Greek-world atlas
-   (data/geo.js) already has fifteen reviewed, sourced Egyptian
-   territory phases (Early Dynastic through Roman annexation) and a
-   sourced Carthage entry, drawn for the main /map because Egypt and
-   Carthage were direct actors in Greek history. EGYPT_CARTHAGE_IDS
-   below pulls that same, already-reviewed set in rather than
-   duplicating it as fresh (unreviewed) worldTerritories data.
+   Everything up to 30 BC is NOT re-authored here -- the Greek-world
+   atlas (data/geo.js) already has a large, reviewed, sourced set of
+   non-Aegean territories (Egypt, Mesopotamia/Persia, the Hellenistic
+   successor states, Rome's province-by-province conquest, Carthage),
+   drawn for the main /map because these were direct actors in Greek
+   history. REUSED_ATLAS_IDS pulls that set in rather than
+   duplicating it as fresh, unreviewed worldTerritories data -- it
+   deliberately excludes anything that's Aegean/Greek-homeland (Crete,
+   the mainland, Macedon, the Greek leagues), since /map already shows
+   that in full detail and repeating it here would just be noise.
+   Scope follows the site's own boundary: as far as Greek contact
+   actually reached (the Hellenistic world through Bactria and the
+   Indus at Alexander's campaign's edge), not the whole Old World --
+   India and China stay off this map's territory layer, same as they
+   stay off the timeline's territory-free "world context" ribbon.
    ============================================================ */
 
 import { el, $, $$, esc, fmtYear, throttle } from '../util.js';
@@ -32,24 +41,49 @@ import { ensureLoaded as ensureImagesLoaded, peek as peekImage } from '../compon
 import { go, entityHref } from '../router.js';
 import { entityDate } from '../components/ui.js';
 
-/* Egyptian and Carthaginian phases from the Greek-world atlas, reused
-   here rather than re-authored. Listed in chronological order. */
-const EGYPT_CARTHAGE_IDS = new Set([
+/* Non-Aegean phases from the Greek-world atlas, reused here rather
+   than re-authored. Grouped by region, chronological within each. */
+const REUSED_ATLAS_IDS = new Set([
+  // Egypt: Early Dynastic through Roman annexation.
   't-eb-egypt-early-dynastic', 't-eb-egypt-old-kingdom', 't-eb-egypt-first-intermediate',
   't-egypt-middle-kingdom', 't-egypt-second-intermediate',
   't-egypt-nk', 't-egypt-nk-levant',
   't-da-egypt-third-intermediate', 't-egypt-kushite', 't-da-assyria-egypt', 't-egypt-saite',
   't-egypt-late-independent',
-  't-carthaginian-core',
   't-alex-egypt', 't-diadochi-egypt',
   't-ptolemaic-early', 't-ptolemaic-early-levant', 't-ptolemaic-early-cyrenaica',
   't-ptolemaic-middle', 't-ptolemaic-middle-cyrenaica',
   't-ptolemaic-late', 't-ptolemaic-terminal',
   't-rome-egypt',
+  // Carthage and its Phoenician homeland.
+  't-carthaginian-core', 't-da-phoenicia', 't-phoenicia-achaemenid', 't-etruscan-regions',
+  // Mesopotamia, Anatolia and Persia: Sumer through the Parthian Empire.
+  't-eb-mesopotamia-early-dynastic', 't-eb-akkadian', 't-eb-ur-third', 't-mesopotamia-isin-larsa',
+  't-old-babylonian', 't-hittite-early', 't-mitanni', 't-hittite', 't-middle-assyria',
+  't-da-israel', 't-da-judah',
+  't-da-assyria-core', 't-da-assyria-recovery', 't-da-assyria-expansion', 't-da-assyria-peak',
+  't-da-assyria-collapse', 't-da-urartu', 't-lydia', 't-da-medes', 't-da-babylon',
+  't-achaemenid-cyrus', 't-achaemenid-cambyses', 't-achaemenid-darius', 't-achaemenid-no-egypt',
+  't-achaemenid-restored',
+  't-scythian-black-sea', 't-bosporan-kingdom',
+  // Alexander's campaign and its successor kingdoms, as far east as it went.
+  't-alex-anatolia', 't-alex-levant', 't-alex-mesopotamia', 't-alex-persia',
+  't-alex-bactria', 't-alex-indus',
+  't-armenia-hellenistic', 't-diadochi-asia', 't-cappadocia',
+  't-seleucid-early', 't-seleucid-reduced-east', 't-seleucid-restored', 't-seleucid-post-magnesia',
+  't-seleucid-remnant',
+  't-bithynia', 't-pergamon', 't-pontus', 't-galatian-regions', 't-bactria',
+  't-parthia-core', 't-parthia-iran', 't-parthia-expanded',
+  // Rome's province-by-province conquest, up to the site's 30 BC boundary --
+  // worldTerritories' own wt-roman-empire picks up right where this leaves off.
+  't-rome-italy', 't-rome-sicily', 't-rome-sardinia', 't-rome-hispania-citerior',
+  't-rome-hispania-ulterior', 't-rome-africa', 't-rome-macedonia', 't-rome-asia',
+  't-rome-narbonensis', 't-rome-cyrenaica', 't-rome-crete', 't-rome-cilicia',
+  't-rome-bithynia-pontus', 't-rome-syria', 't-rome-gaul-caesar',
 ]);
 const worldGeoTerritories = [
   ...worldTerritories,
-  ...greekTerritories.filter((t) => EGYPT_CARTHAGE_IDS.has(t.id)),
+  ...greekTerritories.filter((t) => REUSED_ATLAS_IDS.has(t.id)),
 ];
 
 export const WORLD_TIME_MIN = -3200;
@@ -62,27 +96,36 @@ const LAYERS = [
   ['labels', 'Region labels'],
 ];
 
+// Reused atlas territories keep their original tint, which the Greek
+// map assigns per era rather than per civilisation -- one Aegean
+// culture is normally on screen per tint at a time there. Here,
+// several distinct non-Aegean powers can share a tint in the same
+// year (Old Kingdom Egypt and the Akkadian Empire are both
+// "earlybronze"), so a swatch names the group of powers it can mean
+// on this map, not a single one -- hover a territory for which it is.
 const TINT_LABELS = new Map([
-  ['world-neareast', 'Near Eastern empires'],
-  ['world-rome', 'Rome'],
+  ['world-rome', 'Rome (imperial, from 27 BC)'],
   ['world-byzantium', 'Byzantium'],
   ['world-carthage', 'Carthage'],
   ['world-egypt', 'Independent Egyptian dynasties'],
-  // Egypt's earlier/later phases reuse Greek-palette tints (borrowed
-  // from the main atlas along with the territories themselves) --
-  // labelled for this map's own context, not the Aegean one they
-  // carry on /map.
-  ['earlybronze', 'Early Dynastic / Old Kingdom Egypt'],
-  ['minoan', 'Middle Kingdom Egypt'],
-  ['collapse', 'New Kingdom Egypt'],
-  ['darkage', 'Third Intermediate Period Egypt'],
-  ['hellenistic', "Alexander's and Ptolemaic Egypt"],
-  ['roman', 'Roman Egypt'],
+  ['earlybronze', 'Early Bronze Age states (Egypt, Sumer & Akkad)'],
+  ['minoan', 'Middle Bronze Age kingdoms (Egypt & Babylon)'],
+  ['collapse', 'Late Bronze Age powers (Egypt, Hatti, Assyria)'],
+  ['darkage', 'Early Iron Age kingdoms (Egypt, Levant, Assyria & Babylon)'],
+  ['archaic', 'Archaic-era powers (Persia, Lydia, Phoenicia, Scythia)'],
+  ['alexander', "Alexander's empire"],
+  ['hellenistic', 'Hellenistic kingdoms (Ptolemaic, Seleucid & successor states)'],
+  ['roman', 'Rome, Parthia & the Roman provinces'],
 ]);
 
 const TURNING_POINTS = new Map([
+  [-2334, 'Sargon and the Akkadian Empire'],
+  [-1200, 'Bronze Age collapse'],
+  [-911, 'The Neo-Assyrian Empire'],
+  [-664, 'Assyria takes Egypt'],
   [-550, 'Cyrus and the Achaemenid Empire'],
   [-330, "Alexander's conquest of Persia"],
+  [-146, 'Rome destroys Carthage and Corinth'],
   [-27, 'Augustus and the Roman Empire'],
   [330, 'Constantinople founded'],
   [476, 'Fall of the Western Roman Empire'],
@@ -120,13 +163,15 @@ export async function renderWorld() {
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Known-world overview · scaffold</p>
+          <p class="eyebrow">Known-world overview</p>
           <h1>The Wider World</h1>
           <p class="sub">
-            Egypt, Persia, Rome, Byzantium and the rest of the world Greek history
-            unfolded alongside -- on its own clock, 3200 BC to the fall of
-            Constantinople in 1453. Only a handful of territories are authored so
-            far; this is the mechanism, not the finished map.
+            Egypt, Mesopotamia and Persia, Carthage, Rome and Byzantium -- the
+            world Greek history unfolded alongside, on its own clock: 3200 BC to
+            the fall of Constantinople in 1453. Scope follows Greek contact, not
+            the whole Old World, so it stops around the edge of Alexander's
+            campaign -- India and China stay off the territory layer, as on the
+            timeline's own world-context ribbon.
           </p>
         </div>
         <div class="row">
