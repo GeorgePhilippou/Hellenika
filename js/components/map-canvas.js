@@ -839,7 +839,7 @@ export function createMap(canvas, {
   // is exactly what was reported as a "broken" shape on an entity page.
   if (interactive) {
     canvas.addEventListener('pointerdown', (e) => {
-      canvas.setPointerCapture(e.pointerId);
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* pointer already gone */ }
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pointers.size === 1) {
         dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
