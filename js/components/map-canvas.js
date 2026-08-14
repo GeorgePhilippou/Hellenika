@@ -102,6 +102,11 @@ export function createMap(canvas, {
       `(t) => t.coverageGroup === 'cyprus'` for a regional focus map
       that reuses the same authored dataset. */
   territoryFilter = () => true,
+  /** Same idea as territoryFilter but for routes -- a long-distance
+      Aegean-to-Egypt route, drawn at whole-Mediterranean scale, reads as
+      a giant stray arc on a map zoomed in on one small region. Regional
+      views should only keep routes actually relevant to them. */
+  routeFilter = () => true,
   onHover,
   /** Small preview maps (e.g. an entity page's Location panel) shouldn't
       capture drag/wheel/keyboard input -- a wheel-zoomable canvas sitting
@@ -424,6 +429,7 @@ export function createMap(canvas, {
     if (L.routes) {
       for (const r of routes) {
         if (y < r.from || y > r.to) continue;
+        if (!routeFilter(r)) continue;
         // A fixed pair, not the period-tint palette: a route drawn in its
         // own period's colour can land on same-tinted territory and vanish
         // into it (e.g. Alexander's route crossing "Alexander"-tint land).

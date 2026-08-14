@@ -139,16 +139,26 @@ const MODES = [
 // mechanism, but scoped to the island using the `coverageGroup: 'cyprus'`
 // tag already authored on its territories in data/geo.js.
 const CYPRUS_BOUNDS = [32.15, 34.45, 34.65, 35.75]; // [lonMin, latMin, lonMax, latMax]
-// Looser than CYPRUS_BOUNDS on purpose -- caps how far out the user can
-// zoom (a little surrounding sea and coast stay visible) without letting
-// them wander out to see the rest of the Mediterranean or Europe.
-const CYPRUS_MIN_ZOOM_BOUNDS = [29, 33, 38.5, 37.2];
+// Only a little looser than CYPRUS_BOUNDS -- caps how far out the user can
+// zoom (a sliver of surrounding sea stays visible for orientation) without
+// letting them wander out to the rest of the Mediterranean or Europe. This
+// view is meant to stay locked on the island, not become a mini historical
+// map.
+const CYPRUS_MIN_ZOOM_BOUNDS = [31.65, 33.95, 35.15, 36.25];
 const isCyprusTerritory = (t) => t.coverageGroup === 'cyprus';
 function inCyprusBounds(coords) {
   if (!coords) return false;
   const [lat, lon] = coords;
   return lat >= CYPRUS_BOUNDS[1] && lat <= CYPRUS_BOUNDS[3]
     && lon >= CYPRUS_BOUNDS[0] && lon <= CYPRUS_BOUNDS[2];
+}
+// A route belongs on the Cyprus map only if it actually touches the
+// island -- otherwise a long-distance Aegean-to-Egypt route drawn at
+// whole-Mediterranean scale renders as a huge, unrelated arc once this
+// view is zoomed in tight on one small region.
+function isCyprusRoute(r) {
+  const paths = r.paths ?? [r.path];
+  return paths.some((path) => path.some(([lon, lat]) => inCyprusBounds([lat, lon])));
 }
 
 const JOURNEYS = {
@@ -716,6 +726,7 @@ function mount(root, initialMode, focusEntity) {
       territoryEntityId: territoryProfileId,
       territoryExternalUrl: territoryWikipediaUrl,
       territoryFilter: isCyprus ? isCyprusTerritory : undefined,
+      routeFilter: isCyprus ? isCyprusRoute : undefined,
       minScaleBounds: isCyprus ? CYPRUS_MIN_ZOOM_BOUNDS : null,
       onTerritoryClick: (_territory, entityId, externalUrl) => {
         if (entityId) go(`/e/${entityId}`);
