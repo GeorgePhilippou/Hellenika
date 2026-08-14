@@ -139,6 +139,10 @@ const MODES = [
 // mechanism, but scoped to the island using the `coverageGroup: 'cyprus'`
 // tag already authored on its territories in data/geo.js.
 const CYPRUS_BOUNDS = [32.15, 34.45, 34.65, 35.75]; // [lonMin, latMin, lonMax, latMax]
+// Looser than CYPRUS_BOUNDS on purpose -- caps how far out the user can
+// zoom (a little surrounding sea and coast stay visible) without letting
+// them wander out to see the rest of the Mediterranean or Europe.
+const CYPRUS_MIN_ZOOM_BOUNDS = [29, 33, 38.5, 37.2];
 const isCyprusTerritory = (t) => t.coverageGroup === 'cyprus';
 function inCyprusBounds(coords) {
   if (!coords) return false;
@@ -712,6 +716,7 @@ function mount(root, initialMode, focusEntity) {
       territoryEntityId: territoryProfileId,
       territoryExternalUrl: territoryWikipediaUrl,
       territoryFilter: isCyprus ? isCyprusTerritory : undefined,
+      minScaleBounds: isCyprus ? CYPRUS_MIN_ZOOM_BOUNDS : null,
       onTerritoryClick: (_territory, entityId, externalUrl) => {
         if (entityId) go(`/e/${entityId}`);
         else if (externalUrl) window.open(externalUrl, '_blank', 'noopener,noreferrer');

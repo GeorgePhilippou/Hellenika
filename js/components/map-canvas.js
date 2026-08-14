@@ -115,6 +115,11 @@ export function createMap(canvas, {
       bounds (see js/views/world.js). Unset layers fall back to the
       Greek-world data every other map on the site draws from. */
   geo = {},
+  /** Lon/lat box: once known (canvas sized), the user cannot zoom out
+      past whatever scale fits this box, on top of the global MIN_SCALE
+      floor. Keeps a regional map (e.g. Cyprus) from being panned/zoomed
+      out to see the rest of the world. Null means no extra floor. */
+  minScaleBounds = null,
 } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false });
   const eventScope = new AbortController();
@@ -129,6 +134,7 @@ export function createMap(canvas, {
   let W = 0, H = 0;
   let scale = 1024, tx = 0, ty = 0;   // screen = world*scale + t, world in z0 px
   let fitted = false;
+  let minScale = MIN_SCALE;
   let pendingFly = null;
   let hot = null;
   let hitRegions = [];
@@ -198,7 +204,7 @@ export function createMap(canvas, {
     const [ax, ay] = lonLatToWorld(lonMin, latMax);
     const [bx, by] = lonLatToWorld(lonMax, latMin);
     const w = (bx - ax) * (1 + pad), h = (by - ay) * (1 + pad);
-    const s = clamp(Math.min(W / w, H / h), MIN_SCALE, MAX_SCALE);
+    const s = clamp(Math.min(W / w, H / h), minScale, MAX_SCALE);
     return { scale: s, tx: W / 2 - ((ax + bx) / 2) * s, ty: H / 2 - ((ay + by) / 2) * s };
   }
 
@@ -275,6 +281,9 @@ export function createMap(canvas, {
     if (destroyed) return;
     raf = null;
     ({ w: W, h: H } = fitCanvas(canvas, ctx));
+    if (minScaleBounds && W > 0 && minScale === MIN_SCALE) {
+      minScale = fitBounds(minScaleBounds, 0.1).scale;
+    }
     if (!fitted && W > 0) { fitExtent(); fitted = true; }
     if (pendingFly && W > 0) {
       const { bounds, pad } = pendingFly;
@@ -790,7 +799,7 @@ export function createMap(canvas, {
   let pinch = 0;
 
   function zoomAbout(px, py, factor) {
-    const next = clamp(scale * factor, MIN_SCALE, MAX_SCALE);
+    const next = clamp(scale * factor, minScale, MAX_SCALE);
     const k = next / scale;
     tx = px - (px - tx) * k;
     ty = py - (py - ty) * k;
