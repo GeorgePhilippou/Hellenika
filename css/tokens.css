@@ -74,6 +74,9 @@
   --p-world-india:     #a8763f;
   --p-world-china:     #6d7d5a;
   --p-world-byzantium: #a3763f;
+  --p-world-islamic:   #4a8c52;
+  --p-world-ottoman:   #99423f;
+  --p-world-crusader:  #4f6a8f;
 
   /* ---- Timeline ribbon colours ----
      The main /timeline canvas uses two flat hues, not the rainbow
@@ -194,6 +197,9 @@
   --p-world-india:     #c99862;
   --p-world-china:     #8ea073;
   --p-world-byzantium: #c99a68;
+  --p-world-islamic:   #6bab73;
+  --p-world-ottoman:   #c1655f;
+  --p-world-crusader:  #7c99c2;
 
   --p-ribbon-greece: #5fa588;
   --p-ribbon-world:  #7c9fd6;
