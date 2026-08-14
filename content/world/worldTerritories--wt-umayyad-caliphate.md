@@ -8,49 +8,60 @@ tint: world-islamic
 from: 661
 to: 750
 evidenceNote: >-
-  A single schematic outline for the Umayyad Caliphate at its broadest
-  extent, from Iberia to Sindh -- reached in stages over this period, not
-  held at this size throughout it. Seed data for the known-world overview
-  -- not yet reviewed to the same standard as the Greek-world territories.
+  The eastern two-thirds of the Umayyad Caliphate at its broadest extent
+  (the Levant to Sindh, plus Arabia) -- reached in stages over this
+  period, not held at this size throughout it. Iberia and the Maghreb
+  are drawn separately as wt-umayyad-west, since a single ring cannot
+  cleanly trace both this core and that western extension without
+  crossing itself. Seed data for the known-world overview -- not yet
+  reviewed to the same standard as the Greek-world territories.
 labelAt:
-  - 40
-  - 28
+  - 46
+  - 30
 ring:
-  - - -9
-    - 43
-  - - -9
-    - 36
-  - - -1
-    - 35
-  - - 10
-    - 33
-  - - 20
-    - 31
-  - - 31
-    - 31
-  - - 34
-    - 31
-  - - 36
-    - 34
-  - - 35
+  - - 32.3
+    - 31.3
+  - - 34.8
+    - 31.8
+  - - 35.9
+    - 34.9
+  - - 36.2
+    - 36.2
+  - - 38
     - 37
-  - - 45
+  - - 41
+    - 37.3
+  - - 48
     - 38
-  - - 60
-    - 40
+  - - 56
+    - 37
+  - - 63
+    - 39
   - - 68
-    - 35
+    - 41
+  - - 70
+    - 36
+  - - 70
+    - 29
+  - - 67
+    - 24
   - - 61
     - 25
+  - - 56.5
+    - 26.7
+  - - 58
+    - 23
   - - 56
-    - 26
-  - - 50
-    - 13
-  - - 35
-    - 20
-  - - 32
     - 22
-  - - 8
-    - 32
+  - - 52
+    - 19
+  - - 44
+    - 12.7
+  - - 43
+    - 15
+  - - 39
+    - 21
+  - - 35
+    - 28
 _order: 7
 ---
