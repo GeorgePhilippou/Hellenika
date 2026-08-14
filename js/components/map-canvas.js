@@ -117,7 +117,8 @@ export function createMap(canvas, {
   /** Override any of the Greek-atlas geo layers, e.g. `{ territories:
       worldTerritories, EXTENT: WORLD_EXTENT }` for a map reusing this
       same engine over a different authored dataset and projection
-      bounds (see js/views/world.js). Unset layers fall back to the
+      bounds (see the full-overview branch in js/views/map.js). Unset
+      layers fall back to the
       Greek-world data every other map on the site draws from. */
   geo = {},
   /** Lon/lat box: once known (canvas sized), the user cannot zoom out

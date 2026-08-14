@@ -11,7 +11,6 @@ import * as db from './db.js';
 import { renderHome } from './views/home.js';
 import { renderTimeline } from './views/timeline.js';
 import { renderMap } from './views/map.js';
-import { renderWorld } from './views/world.js';
 import { renderExplore } from './views/explore.js';
 import { renderMythology } from './views/mythology.js';
 import { renderEntity } from './views/entity.js';
@@ -27,7 +26,6 @@ const NAV = [
   { path: '/', label: 'Home', icon: 'home' },
   { path: '/timeline', label: 'Timeline', icon: 'timeline' },
   { path: '/map', label: 'Map', icon: 'map' },
-  { path: '/world', label: 'World', icon: 'empire' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
   { path: '/mythology', label: 'Mythology', icon: 'myth' },
   { path: '/sources', label: 'Sources', icon: 'source' },
@@ -233,7 +231,9 @@ route('/timeline', mount(renderTimeline));
 route('/timeline/:id', mount(renderTimeline));
 route('/map', mount(renderMap));
 route('/map/:mode', mount(renderMap));
-route('/world', mount(renderWorld));
+// The known-world overview folded into /map's own Historical mode --
+// redirect anyone with the old page bookmarked or linked.
+route('/world', () => go('/map'));
 route('/explore', mount(renderExplore));
 route('/mythology', mount(renderMythology));
 route('/e/:id', mount(renderEntity));

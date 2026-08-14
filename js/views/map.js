@@ -1,7 +1,20 @@
 /* ============================================================
    Hellenika — Interactive map view
-   Three modes on one canvas area: the historical time-scrubbed
-   map, and two fixed narrative journeys (Odysseus, Alexander).
+   Four modes on one canvas area: the historical time-scrubbed
+   map (the site's single overview, 3200 BC to the fall of
+   Constantinople in 1453), a Cyprus regional variant of the same
+   mechanism, and two fixed narrative journeys (Odysseus, Alexander).
+
+   The historical map's own scrubber runs well past the site's
+   shared `store` year (TIME_MIN/TIME_MAX, -3200/-30 -- the range
+   every other view, e.g. /timeline, still uses) -- running the
+   extended range on the shared store would leave a dead ~1,450-year
+   tail on every one of those other views, so this mode keeps a
+   local, unshared year instead (HIST_TIME_MAX below), same as the
+   Cyprus/Odyssey/Alexander modes already sit outside the shared
+   store's `year` for their own reasons. Territory data past 30 BC
+   (Rome, Byzantium, the Islamic caliphates...) comes from
+   data/world.js, merged in alongside the reviewed Greek-world atlas.
    ============================================================ */
 
 import { el, $, $$, esc, fmtYear, throttle } from '../util.js';
@@ -11,6 +24,7 @@ import { TIME_MIN, TIME_MAX } from '../store.js';
 import * as db from '../db.js';
 import { primaryPeriodAt } from '../../data/periods.js';
 import { territories } from '../../data/geo.js';
+import { worldTerritories, worldSites } from '../../data/world.js';
 import {
   odysseyJourney, alexanderJourney, alexanderFoundations, alexanderTerritoryStages,
 } from '../../data/journeys.js';
@@ -30,6 +44,79 @@ const LAYERS = [
   ['labels', 'Place labels'],
 ];
 
+/* ============================================================
+   The wider world (folded in from the former /world view)
+   Non-Aegean phases from the Greek-world atlas, reused here rather
+   than re-authored, plus data/world.js's own post-30-BC territories
+   (Rome, Byzantium, the Islamic caliphates, the Crusader states...).
+   Grouped by region, chronological within each. Deliberately excludes
+   anything Aegean/Greek-homeland (Crete, the mainland, Macedon, the
+   Greek leagues) since those already render from `territories` in
+   full detail. Scope follows the site's own boundary: as far as Greek
+   contact actually reached (the Hellenistic world through Bactria and
+   the Indus, at Alexander's campaign's edge), not the whole Old World
+   -- India and China stay off this map's territory layer, same as
+   they stay off the timeline's territory-free "world context" ribbon.
+   ============================================================ */
+const REUSED_ATLAS_IDS = new Set([
+  // Egypt: Early Dynastic through Roman annexation.
+  't-eb-egypt-early-dynastic', 't-eb-egypt-old-kingdom', 't-eb-egypt-first-intermediate',
+  't-egypt-middle-kingdom', 't-egypt-second-intermediate',
+  't-egypt-nk', 't-egypt-nk-levant',
+  't-da-egypt-third-intermediate', 't-egypt-kushite', 't-da-assyria-egypt', 't-egypt-saite',
+  't-egypt-late-independent',
+  't-alex-egypt', 't-diadochi-egypt',
+  't-ptolemaic-early', 't-ptolemaic-early-levant', 't-ptolemaic-early-cyrenaica',
+  't-ptolemaic-middle', 't-ptolemaic-middle-cyrenaica',
+  't-ptolemaic-late', 't-ptolemaic-terminal',
+  't-rome-egypt',
+  // Carthage and its Phoenician homeland.
+  't-carthaginian-core', 't-da-phoenicia', 't-phoenicia-achaemenid', 't-etruscan-regions',
+  // Mesopotamia, Anatolia and Persia: Sumer through the Parthian Empire.
+  't-eb-mesopotamia-early-dynastic', 't-eb-akkadian', 't-eb-ur-third', 't-mesopotamia-isin-larsa',
+  't-old-babylonian', 't-hittite-early', 't-mitanni', 't-hittite', 't-middle-assyria',
+  't-da-israel', 't-da-judah',
+  't-da-assyria-core', 't-da-assyria-recovery', 't-da-assyria-expansion', 't-da-assyria-peak',
+  't-da-assyria-collapse', 't-da-urartu', 't-lydia', 't-da-medes', 't-da-babylon',
+  't-achaemenid-cyrus', 't-achaemenid-cambyses', 't-achaemenid-darius', 't-achaemenid-no-egypt',
+  't-achaemenid-restored',
+  't-scythian-black-sea', 't-bosporan-kingdom',
+  // Alexander's campaign and its successor kingdoms, as far east as it went.
+  't-alex-anatolia', 't-alex-levant', 't-alex-mesopotamia', 't-alex-persia',
+  't-alex-bactria', 't-alex-indus',
+  't-armenia-hellenistic', 't-diadochi-asia', 't-cappadocia',
+  't-seleucid-early', 't-seleucid-reduced-east', 't-seleucid-restored', 't-seleucid-post-magnesia',
+  't-seleucid-remnant',
+  't-bithynia', 't-pergamon', 't-pontus', 't-galatian-regions', 't-bactria',
+  't-parthia-core', 't-parthia-iran', 't-parthia-expanded',
+  // Rome's province-by-province conquest, up to 30 BC -- worldTerritories'
+  // own wt-roman-empire picks up right where this leaves off.
+  't-rome-italy', 't-rome-sicily', 't-rome-sardinia', 't-rome-hispania-citerior',
+  't-rome-hispania-ulterior', 't-rome-africa', 't-rome-macedonia', 't-rome-asia',
+  't-rome-narbonensis', 't-rome-cyrenaica', 't-rome-crete', 't-rome-cilicia',
+  't-rome-bithynia-pontus', 't-rome-syria', 't-rome-gaul-caesar',
+]);
+const worldGeoTerritories = [
+  ...worldTerritories,
+  ...territories.filter((t) => REUSED_ATLAS_IDS.has(t.id)),
+];
+
+// Archaeological-site markers outside the Greek-world entity graph
+// (worldSites, data/world.js) reshaped to the map engine's marker
+// contract -- {id, name, coords, type, tint}, matching what
+// db.mapPointsAt() entities already carry.
+const worldSiteMarkers = worldSites.map((s) => ({
+  ...s,
+  type: 'site',
+  typeLabel: 'Archaeological site',
+  sortName: s.name.toLowerCase(),
+}));
+
+// The historical map's own scrubbable ceiling -- see the file header
+// for why this stays off the shared store's TIME_MIN/TIME_MAX.
+const HIST_TIME_MAX = 1453;
+const WORLD_EXTENT = { lonMin: -10, lonMax: 105, latMin: -2, latMax: 58 };
+
 const TERRITORY_COLOUR_LABELS = new Map([
   ['earlybronze', 'Early Bronze Age cultures and states'],
   ['minoan', 'Middle Bronze Age regions'],
@@ -44,6 +131,12 @@ const TERRITORY_COLOUR_LABELS = new Map([
   ['roman', 'Roman and Parthian powers'],
   ['world-egypt', 'Independent Egyptian kingdoms'],
   ['world-carthage', 'Carthaginian power'],
+  ['world-rome', 'Rome (imperial, from 27 BC)'],
+  ['world-byzantium', 'Byzantium'],
+  ['world-neareast', 'Elam'],
+  ['world-islamic', 'Islamic caliphates (Rashidun, Umayyad, Abbasid, Fatimid)'],
+  ['world-ottoman', 'Seljuk & Ottoman Anatolia'],
+  ['world-crusader', 'Crusader states'],
 ]);
 
 const TURNING_POINTS = new Map([
@@ -76,6 +169,30 @@ const TURNING_POINTS = new Map([
   [-30, 'Roman annexation of Egypt'],
 ]);
 
+// Turning points before -1700 and after -30 -- deep-past Near Eastern
+// states and the post-Roman/Byzantine sequence -- that extend the
+// historical map's own range but don't belong on the site's shared,
+// Greek-world-only timeline (TIME_MIN/TIME_MAX above). Combined with
+// TURNING_POINTS via HIST_TURNING_POINTS below.
+const EXTRA_TURNING_POINTS = new Map([
+  [-2334, 'Sargon and the Akkadian Empire'],
+  [-911, 'The Neo-Assyrian Empire'],
+  [-664, 'Assyria takes Egypt'],
+  [-27, 'Augustus and the Roman Empire'],
+  [330, 'Constantinople founded'],
+  [476, 'Fall of the Western Roman Empire'],
+  [632, "Muhammad's death and the Rashidun conquests"],
+  [750, 'The Abbasid revolution'],
+  [1071, 'Manzikert and Seljuk Anatolia'],
+  [1099, 'The First Crusade takes Jerusalem'],
+  [1187, "Saladin's victory at Hattin"],
+  [1204, 'Fourth Crusade sacks Constantinople'],
+  [1291, 'Fall of Acre ends Crusader Outremer'],
+  [1326, 'Bursa and the Ottoman beylik'],
+  [1453, 'Fall of Constantinople'],
+]);
+const HIST_TURNING_POINTS = new Map([...TURNING_POINTS, ...EXTRA_TURNING_POINTS]);
+
 const SNAPSHOT_NOTES = new Map([
   [-1700, 'The Minoan palatial system links Crete with the Cyclades, mainland Greece, Egypt and the eastern Mediterranean through exchange and diplomacy.'],
   [-1500, 'Minoan centres remain important, but mainland Mycenaean elites are increasingly prominent across the Aegean.'],
@@ -103,10 +220,42 @@ const SNAPSHOT_NOTES = new Map([
   [-146, 'Rome destroys Corinth and Carthage in the same year and establishes enduring control in Greece and North Africa.'],
   [-63, 'Pompey ends the Seleucid remnant and the kingdom of Pontus, reorganising the eastern Mediterranean beside Parthia and client kingdoms.'],
   [-31, 'Octavian defeats Antony and Cleopatra at Actium; the Ptolemaic kingdom still exists at this pre-annexation snapshot.'],
-  [-30, 'Egypt becomes Roman territory. The map closes with Rome controlling much of the Mediterranean while Parthia and several client kingdoms remain beyond direct rule.'],
+  [-30, 'Egypt becomes Roman territory. Rome now controls much of the Mediterranean while Parthia and several client kingdoms remain beyond direct rule -- the Greek-world dataset closes here, though the map itself continues.'],
 ]);
 
+// Brief notes for the extra pre- and post-Greek-world turning points
+// above -- shorter than SNAPSHOT_NOTES since this stretch is context
+// around Greek history rather than the site's own reviewed subject.
+const EXTRA_SNAPSHOT_NOTES = new Map([
+  [-2334, 'Sargon of Akkad unites the Sumerian city-states into the first Mesopotamian empire, centuries before any Greek polity existed.'],
+  [-911, 'A restored Assyrian monarchy begins two and a half centuries of expansion that will eventually reach Egypt and the Levant.'],
+  [-664, 'Assyrian forces take Memphis and Thebes, briefly ruling Egypt before a Saite revival expels them within a generation.'],
+  [-27, 'Octavian takes the name Augustus and the constitutional forms of the Republic give way to one-man rule -- the empire that will absorb the Hellenistic world.'],
+  [330, 'Constantine dedicates his new capital on the Bosphorus, refounding Byzantium as a second Rome that will outlast the first by a thousand years.'],
+  [476, 'The last western emperor is deposed; imperial rule continues uninterrupted from Constantinople while the west fragments into successor kingdoms.'],
+  [632, "Muhammad's death is followed within a generation by conquests that end Sasanian Persia and strip Byzantium of Syria, Egypt and North Africa."],
+  [750, 'The Abbasids overthrow the Umayyads and move the caliphate\'s centre east to Baghdad, opening a golden age of Islamic scholarship and trade.'],
+  [1071, "Byzantine defeat at Manzikert opens Anatolia to Turkish settlement, ending half a millennium of Byzantine control over the peninsula's interior."],
+  [1099, 'Crusader forces from western Europe take Jerusalem, founding Outremer -- a set of Latin Christian states on the Levantine coast.'],
+  [1187, 'Saladin destroys the Crusader field army at Hattin and retakes Jerusalem, reducing Outremer to a narrow coastal strip.'],
+  [1204, "The Fourth Crusade sacks Constantinople instead of reaching the Holy Land, fracturing Byzantium into rival Greek and Latin successor states."],
+  [1291, 'The fall of Acre to the Mamluks ends two centuries of Crusader rule on the Levantine mainland.'],
+  [1326, 'Bursa falls to a minor Anatolian beylik under Orhan, the founding nucleus of what becomes the Ottoman Empire.'],
+  [1453, "Mehmed II's forces take Constantinople, ending the Byzantine Empire and, with it, the last continuous political thread back to the ancient Greek world."],
+]);
+const HIST_SNAPSHOT_NOTES = new Map([...SNAPSHOT_NOTES, ...EXTRA_SNAPSHOT_NOTES]);
+
 const CENTURY_SNAPSHOTS = Array.from({ length: 32 }, (_, i) => TIME_MIN + i * 100);
+
+// A coarser step for the long, sparsely-authored stretch from 30 BC to
+// 1453 -- 100-year snapshots would overwhelm the date deck for a span
+// with far fewer authored turning points than the reviewed Greek era.
+const HIST_TAIL_STEP = 200;
+const HIST_TAIL_SNAPSHOTS = Array.from(
+  { length: Math.floor((HIST_TIME_MAX - TIME_MAX) / HIST_TAIL_STEP) + 1 },
+  (_, i) => TIME_MAX + i * HIST_TAIL_STEP,
+);
+const HIST_CENTURY_SNAPSHOTS = [...CENTURY_SNAPSHOTS, ...HIST_TAIL_SNAPSHOTS];
 
 function buildDateOptions(focusEntity) {
   const years = new Set([...CENTURY_SNAPSHOTS, ...TURNING_POINTS.keys(), TIME_MAX]);
@@ -120,6 +269,24 @@ function buildDateOptions(focusEntity) {
         || (year === focusEntity?.start ? focusEntity.name : primaryPeriodAt(year)?.name)
         || 'Historical snapshot',
       turningPoint: TURNING_POINTS.has(year) || year === focusEntity?.start,
+    }));
+}
+
+// The full-overview variant of buildDateOptions -- same shape, but
+// drawing on the extended turning points/notes and running to 1453
+// instead of stopping at the site's shared TIME_MAX (-30).
+function buildHistDateOptions(focusEntity) {
+  const years = new Set([...HIST_CENTURY_SNAPSHOTS, ...HIST_TURNING_POINTS.keys(), HIST_TIME_MAX]);
+  if (focusEntity?.start != null) years.add(focusEntity.start);
+  return [...years]
+    .filter((year) => year >= TIME_MIN && year <= HIST_TIME_MAX)
+    .sort((a, b) => a - b)
+    .map((year) => ({
+      year,
+      label: HIST_TURNING_POINTS.get(year)
+        || (year === focusEntity?.start ? focusEntity.name : primaryPeriodAt(year)?.name)
+        || 'Historical snapshot',
+      turningPoint: HIST_TURNING_POINTS.has(year) || year === focusEntity?.start,
     }));
 }
 
@@ -325,7 +492,7 @@ export async function renderMap(params, query) {
         <div>
           <p class="eyebrow" id="map-eyebrow">Historical atlas</p>
           <h1 id="map-title">The Map</h1>
-          <p class="sub" id="map-sub">Move through time and watch regions, cities and archaeological sites change.</p>
+          <p class="sub" id="map-sub">Move through time and watch Greek culture, and the wider world it grew up alongside, change -- from the Bronze Age to the fall of Constantinople in 1453.</p>
         </div>
         <div class="row">
           <div class="row" id="map-view-controls"></div>
@@ -521,7 +688,7 @@ function mount(root, initialMode, focusEntity) {
       $('#map-title', root).textContent = isCyprus ? 'Cyprus' : 'The Map';
       $('#map-sub', root).textContent = isCyprus
         ? 'Move through time and watch control of Cyprus change, from the Chalcolithic to Roman annexation.'
-        : 'Move through time and watch regions, cities and archaeological sites change.';
+        : 'Move through time and watch Greek culture, and the wider world it grew up alongside, change -- from the Bronze Age to the fall of Constantinople in 1453.';
       introHost.innerHTML = '';
       mountHistorical(mode);
     } else {
@@ -547,19 +714,28 @@ function mount(root, initialMode, focusEntity) {
      ============================================================ */
   function mountHistorical(scope = 'historical') {
     const isCyprus = scope === 'cyprus';
+    // Plain 'historical' is now the site's full overview -- 3200 BC to
+    // 1453 AD, the whole ancient and early-medieval world Greek culture
+    // moved through, not just the Greek-world dataset's own -30 ceiling.
+    // It keeps a local, unshared year (see file header) instead of the
+    // shared store's year, which Cyprus still uses unchanged.
+    const extended = !isCyprus;
     const signal = modeEvents.signal;
     store.togglePlay(false);
     fullscreenJourneyContent.innerHTML = '';
     mapWrap.classList.remove('has-fs-journey');
 
+    const dateOptions = extended ? buildHistDateOptions(focusEntity) : buildDateOptions(focusEntity);
     // Entity deep links get their own card; ordinary visits settle on the
     // nearest reviewed snapshot rather than an arbitrary in-between year.
     if (focusEntity && !focusApplied) {
       focusApplied = true;
-      if (focusEntity.start != null) store.setYear(focusEntity.start);
+      if (focusEntity.start != null && !extended) store.setYear(focusEntity.start);
     }
-    const dateOptions = buildDateOptions(focusEntity);
-    store.setYear(nearestDateOption(store.get('year'), dateOptions).year);
+    let year = extended
+      ? nearestDateOption(focusEntity?.start ?? store.get('year'), dateOptions).year
+      : nearestDateOption(store.get('year'), dateOptions).year;
+    if (!extended) store.setYear(year);
 
     viewControlsHost.innerHTML = isCyprus
       ? `<button class="btn btn-sm" id="map-cyprus-island">Whole island</button>`
@@ -575,7 +751,9 @@ function mount(root, initialMode, focusEntity) {
         <div class="date-deck-heading">
           <div>
             <h3 id="date-deck-title">Choose a date</h3>
-            <p>Century snapshots with selected historical turning points.</p>
+            <p>${extended
+              ? 'Century snapshots through 30 BC, then two-century snapshots to 1453, with selected turning points.'
+              : 'Century snapshots with selected historical turning points.'}</p>
           </div>
           <span class="date-deck-hint">Scroll to explore</span>
         </div>
@@ -617,6 +795,12 @@ function mount(root, initialMode, focusEntity) {
           <span class="small muted" id="map-count"></span>
         </div>
         <div class="map-list" id="map-list"></div>
+        ${extended ? `<p class="small muted" style="margin-top:var(--s-3)">
+          Places come from two sources: the Greek-world dataset (through 30 BC,
+          linking to a full profile) and a growing set of archaeological sites
+          beyond it. Coverage past 30 BC is territories and sites only so far --
+          no full entity profiles yet.
+        </p>` : ''}
       </div>`;
 
     const listHost = $('#map-list', root);
@@ -717,11 +901,17 @@ function mount(root, initialMode, focusEntity) {
     };
 
     const hMap = createMap(canvas, {
-      year: store.get('year'),
+      year,
       layers: { ...store.get('layers') },
       basemap: 'plain',
       markers: [],
       focus: focusEntity,
+      // The full overview reuses the Greek atlas's seas/islands/rivers/
+      // routes as-is, overriding only the territory set (Greek atlas +
+      // the wider-world territories folded in from the former /world
+      // view) and the projection extent, so it can frame Rome, Persia
+      // and Byzantium alongside the Aegean.
+      geo: extended ? { territories: worldGeoTerritories, EXTENT: WORLD_EXTENT } : undefined,
       onMarkerClick: (e) => go(`/e/${e.id}`),
       territoryEntityId: territoryProfileId,
       territoryExternalUrl: territoryWikipediaUrl,
@@ -773,6 +963,12 @@ function mount(root, initialMode, focusEntity) {
       hMap.flyTo([lon - 9, lat - 6, lon + 9, lat + 6], 0.08);
     } else if (isCyprus) {
       hMap.flyTo(CYPRUS_BOUNDS, 0.15);
+    } else {
+      // The overview's own extent (WORLD_EXTENT) is now much wider than
+      // the Aegean -- without this, fitExtent()'s default framing on
+      // mount would open straight onto the whole known world instead of
+      // Greek culture's own home ground.
+      hMap.focusAegean();
     }
 
     const yearOut = $('#map-year', root);
@@ -782,7 +978,14 @@ function mount(root, initialMode, focusEntity) {
 
     const refreshMarkers = throttle((y) => {
       let pts = db.mapPointsAt(y).filter((e) => PLOTTED.includes(e.type));
-      if (isCyprus) pts = pts.filter((e) => inCyprusBounds(e.coords));
+      if (isCyprus) {
+        pts = pts.filter((e) => inCyprusBounds(e.coords));
+      } else if (extended) {
+        // Archaeological sites outside the Greek-world entity graph
+        // (Rome, Byzantium, the Islamic world...), folded in from the
+        // former /world view.
+        pts = [...pts, ...worldSiteMarkers.filter((s) => y >= s.from && y <= s.to)];
+      }
       // Belt-and-braces: a deep-linked entity should always be a real,
       // clickable marker (not just the highlight ring below), even on the
       // rare chance its own date range doesn't cover the year it lands on.
@@ -802,11 +1005,13 @@ function mount(root, initialMode, focusEntity) {
           </a>`).join('');
     }, 140);
 
-    unbindYear = store.bind('year', (y) => {
+    const turningPoints = extended ? HIST_TURNING_POINTS : TURNING_POINTS;
+    const snapshotNotes = extended ? HIST_SNAPSHOT_NOTES : SNAPSHOT_NOTES;
+    const applyYear = (y) => {
       yearOut.textContent = fmtYear(y);
       const p = primaryPeriodAt(y);
-      periodOut.textContent = TURNING_POINTS.get(y) || p?.name || '—';
-      periodNoteOut.textContent = SNAPSHOT_NOTES.get(y) || p?.summary || '';
+      periodOut.textContent = turningPoints.get(y) || p?.name || '—';
+      periodNoteOut.textContent = snapshotNotes.get(y) || p?.summary || '';
       dateDecks.forEach((dateDeck) => {
         const activeCard = $(`[data-map-year="${y}"]`, dateDeck);
         $$('[data-map-year]', dateDeck).forEach((card) => {
@@ -823,13 +1028,23 @@ function mount(root, initialMode, focusEntity) {
       });
       hMap.setYear(y);
       refreshMarkers(y);
-    });
+    };
+
+    // Cyprus stays wired to the shared store (so it keeps behaving like
+    // every other TIME_MIN/TIME_MAX-bound view); the full overview owns
+    // its year locally and paints once up front instead.
+    if (extended) {
+      applyYear(year);
+    } else {
+      unbindYear = store.bind('year', applyYear);
+    }
 
     dateDecks.forEach((dateDeck) => {
       dateDeck.addEventListener('click', (event) => {
         const card = event.target.closest('[data-map-year]');
         if (!card) return;
-        store.setYear(Number(card.dataset.mapYear));
+        const y = Number(card.dataset.mapYear);
+        if (extended) { year = y; applyYear(y); } else { store.setYear(y); }
       }, { signal });
     });
 
@@ -846,7 +1061,7 @@ function mount(root, initialMode, focusEntity) {
     $('#map-zin', root).addEventListener('click', () => hMap.zoomIn(), { signal });
     $('#map-zout', root).addEventListener('click', () => hMap.zoomOut(), { signal });
     $('#map-reset', root).addEventListener('click', () => {
-      isCyprus ? hMap.flyTo(CYPRUS_BOUNDS, 0.15) : hMap.reset();
+      isCyprus ? hMap.flyTo(CYPRUS_BOUNDS, 0.15) : hMap.focusAegean();
     }, { signal });
     if (isCyprus) {
       $('#map-cyprus-island', root).addEventListener('click', () => hMap.flyTo(CYPRUS_BOUNDS, 0.15), { signal });
