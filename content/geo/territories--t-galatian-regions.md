@@ -13,15 +13,15 @@ evidenceNote: Central Anatolian zone associated with Galatian communities and ru
 sourceLabel: Met Pergamon and the Hellenistic Kingdoms
 sourceUrl: https://resources.metmuseum.org/resources/metpublications/pdf/Pergamon_and_the_Hellenistic_Kingdoms_of_the_Ancient_World.pdf
 ring:
-  - - 29.5
-    - 40.4
   - - 34.8
     - 40.5
   - - 35.5
     - 38.5
-  - - 32
+  - - 32.0
     - 37.5
-  - - 29
+  - - 29.0
     - 38.5
+  - - 29.5
+    - 40.4
 _order: 75.4
 ---
