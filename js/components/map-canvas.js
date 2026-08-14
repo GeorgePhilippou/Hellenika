@@ -295,6 +295,24 @@ export function createMap(canvas, {
       pendingFly = null;
       ({ scale, tx, ty } = fitBounds(bounds, pad));
     }
+    // Regional views (e.g. Cyprus) shouldn't just be zoom-limited -- a user
+    // can still drag the whole map away from the island at any zoom level.
+    // Clamp tx/ty every frame so the pan bounds box always fully covers the
+    // viewport (or, once zoomed out past its size, stays centred) --
+    // the same restricted-pan behaviour as any consumer map (e.g. Google
+    // Maps' maxBounds), applied here so it catches drag, wheel, keyboard
+    // and flyTo alike without threading a clamp through each input handler.
+    if (minScaleBounds && W > 0) {
+      const [wx0, wy0] = lonLatToWorld(minScaleBounds[0], minScaleBounds[3]);
+      const [wx1, wy1] = lonLatToWorld(minScaleBounds[2], minScaleBounds[1]);
+      const boxW = (wx1 - wx0) * scale, boxH = (wy1 - wy0) * scale;
+      tx = boxW <= W
+        ? W / 2 - ((wx0 + wx1) / 2) * scale
+        : clamp(tx, W - wx1 * scale, -wx0 * scale);
+      ty = boxH <= H
+        ? H / 2 - ((wy0 + wy1) / 2) * scale
+        : clamp(ty, H - wy1 * scale, -wy0 * scale);
+    }
 
     const { year: y, layers: L, markers: M, basemap: bm } = current;
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
