@@ -2,7 +2,7 @@
    Hellenika — Application bootstrap
    ============================================================ */
 
-import { $, el, esc, debounce, highlight } from './util.js';
+import { $, el, esc, debounce, highlight, toast } from './util.js';
 import { icon, BRAND_MARK, TYPE_ICON } from './icons.js';
 import * as store from './store.js';
 import { route, setNotFound, setBeforeNav, start, go, entityHref, currentRoute } from './router.js';
@@ -312,12 +312,43 @@ function wireGlobals() {
     .addEventListener('change', () => paintThemeToggle());
 }
 
+/* ---------- Offline support ---------- */
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  const run = async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('sw.js');
+      // A worker already controlling the page means this load came straight
+      // from cache -- confirm that offline access is actually in place.
+      if (navigator.serviceWorker.controller) toast('Available offline');
+
+      reg.addEventListener('updatefound', () => {
+        const installing = reg.installing;
+        installing?.addEventListener('statechange', () => {
+          if (installing.state === 'activated' && navigator.serviceWorker.controller) {
+            toast('Updated with the latest content');
+          }
+        });
+      });
+    } catch {
+      // Offline support is a progressive enhancement -- ignore failures.
+    }
+  };
+
+  // The module script for this app can finish executing after the window's
+  // `load` event has already fired, so that event can't be relied on here.
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run);
+}
+
 /* ---------- Go ---------- */
 store.initTheme();
 paintChrome();
 wireGlobals();
 initLightbox();
 start();
+registerServiceWorker();
 
 // Expose a small surface for debugging in the console.
 window.Hellenika = { db, store, go, openPalette };
