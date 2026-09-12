@@ -26,6 +26,8 @@ claims:
 relations:
   - id: cyprus
     rel: city-kingdom of
+  - id: ptolemy-i
+    rel: destroyed by
 sources:
   - karageorghis1982
   - reyes1994

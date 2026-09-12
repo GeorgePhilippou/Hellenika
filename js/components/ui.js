@@ -11,6 +11,8 @@ import { tintVar, TYPE_META, CONFIDENCE_META, EVIDENCE_META, CONFIDENCE_ORDER, A
 
 /** Human date label for an entity, honouring approx / floruit / modern. */
 export function entityDate(e) {
+  if (e.type === 'deity') return 'Deity · see sources for attestation';
+  if (e.type === 'myth' || e.legendary) return 'Mythological tradition';
   if (e.start == null) return '';
   if (e.modern) return `${e.start}–${e.end ?? ''}`;
   const range = fmtRange(e.start, e.end, e.approx);
@@ -239,7 +241,7 @@ const pct = (y) => ((y - T_MIN) / (T_MAX - T_MIN)) * 100;
  * period bands. `periods` is the array from data/periods.js.
  */
 export function miniTimeline(e, periods) {
-  if (e.start == null || e.modern) return '';
+  if (e.start == null || e.modern || e.legendary || ['myth', 'deity'].includes(e.type)) return '';
   const bands = periods.map((p) => {
     const l = Math.max(0, pct(p.start));
     const w = Math.min(100, pct(p.end)) - l;

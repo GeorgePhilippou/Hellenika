@@ -31,7 +31,7 @@ relations:
   - id: hera
     rel: son of
   - id: zeus
-    rel: son of
+    rel: son of (Homeric tradition)
   - id: aphrodite
     rel: married to
   - id: achilles

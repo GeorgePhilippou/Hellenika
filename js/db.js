@@ -297,6 +297,8 @@ const INVERSE = {
   'discusses': 'discussed in', 'analyses': 'analysed in',
   'chronicled': 'chronicled by', 'recorded': 'recorded by',
   'celebrates': 'celebrated in', 'quoted': 'quotes',
+  'family portrayed in': 'portrays family of', 'portrays family of': 'family portrayed in',
+  'cult of': 'cult at', 'predates': 'postdates', 'abandoned during': 'abandonment of',
   'subject': 'subject of', 'includes life of': 'biography in',
   'main source for': 'main source', 'evidence for': 'evidenced by',
   'features': 'features in', 'features in': 'features',
@@ -363,19 +365,33 @@ const INVERSE = {
 // keeps the map to the cases where the inverse isn't just the active
 // voice. Anything still unmatched falls back to a generic label.
 const inverseOf = (rel) => {
+  // Kinship does not reveal the other person's sex. Preserve any
+  // source/tradition qualification on both directions of the edge.
+  const qualified = rel.match(/^(.*?) (\(.*\))$/);
+  if (qualified) return `${inverseOf(qualified[1])} ${qualified[2]}`;
+  if (['son of', 'daughter of', 'child of'].includes(rel)) return 'parent of';
+  if (['father of', 'mother of', 'parent of'].includes(rel)) return 'child of';
+  if (['wife of', 'husband of', 'married to', 'spouse of'].includes(rel)) return 'spouse of';
   if (INVERSE[rel]) return INVERSE[rel];
   if (rel.endsWith(' by')) return rel.slice(0, -' by'.length);
   return 'related to';
 };
 
-for (const e of entities.values()) {
-  for (const r of e.relations) {
+const authoredEdges = [...entities.values()].flatMap((e) =>
+  e.relations.map((r) => ({ e, r })));
+const relationMeaning = (rel) => rel
+  .replace(/^contemporary(?: with| of)?$/, 'contemporary with')
+  .replace(/^(father|mother) of/, 'parent of')
+  .replace(/^(son|daughter) of/, 'child of')
+  .replace(/^(wife|husband) of|^married to/, 'spouse of');
+for (const { e, r } of authoredEdges) {
     const target = entities.get(r.id);
     if (!target) continue;
-    const already = target.relations.some((x) => x.id === e.id);
+    const inverse = inverseOf(r.rel);
+    const already = target.relations.some((x) => x.id === e.id &&
+      relationMeaning(x.rel) === relationMeaning(inverse));
     if (already) continue;
-    target.relations.push({ id: e.id, rel: inverseOf(r.rel), derived: true });
-  }
+    target.relations.push({ ...r, id: e.id, rel: inverse, derived: true });
 }
 
 // Drop relations pointing at ids that do not exist, and report them once.
@@ -483,12 +499,13 @@ export const typesPresent = sortBy(
 export const ofType = (...types) => ALL.filter((e) => types.includes(e.type));
 
 /** Datable entities (excludes modern archaeologists and undated records). */
-export const datable = ALL.filter((e) => e.start != null && !e.modern);
+export const isHistorical = (e) => !e.modern && !e.legendary && !['myth', 'deity'].includes(e.type);
+export const datable = ALL.filter((e) => e.start != null && isHistorical(e));
 
 /** Entities alive / in use / in existence at a given year. */
 export function entitiesAt(year, { types = null } = {}) {
   return ALL.filter((e) => {
-    if (e.modern || e.start == null) return false;
+    if (!isHistorical(e) || e.start == null) return false;
     if (types && !types.includes(e.type)) return false;
     const end = e.end ?? e.start;
     return year >= e.start && year <= end;
@@ -603,6 +620,11 @@ const searchIndex = ALL.map((e) => ({
   fname: fold(e.name),
   alt: e.altNames.map(fold),
   text: e.searchText,
+  fullText: fold([e.body, e.significance, e.politics, e.warfare,
+    e.cultureNote, e.myth, e.earliestSource, e.religious,
+    e.historicalBackground, e.archaeology, e.laterInterpretation,
+    ...e.claims.map((c) => c.text)].filter(Boolean).join(' '))
+    .replace(/[^\p{L}\p{N}]+/gu, ' '),
   type: e.type,
   entity: e,
 }));
@@ -624,6 +646,7 @@ export function search(query, { limit = 30, types = null } = {}) {
     else if (row.fname.startsWith(q)) score = 800 - row.fname.length;
     else if (row.alt.some((a) => a === q)) score = 700;
     else if (row.alt.some((a) => a.startsWith(q))) score = 600;
+    else if (` ${row.fullText} `.includes(` ${q.replace(/[^\p{L}\p{N}]+/gu, ' ')} `)) score = 450;
     else if (row.fname.includes(q)) score = 400 - row.fname.indexOf(q);
     else if (row.alt.some((a) => a.includes(q))) score = 300;
     else if (row.text.includes(q)) score = 150 - Math.min(120, row.text.indexOf(q) / 4);

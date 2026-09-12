@@ -41,6 +41,7 @@ relations:
   - id: archaic-greece
     rel: period
 sources:
+  - scs-sappho-provenance
   - campbell1982
   - obbink2014
 _order: 2
@@ -57,4 +58,4 @@ Sappho composed monodic lyric for performance with the lyre, in a metre now name
 
 Her poems address women by name with unmistakable erotic intensity, which is the origin of the words *sapphic* and *lesbian*. Ancient biographical traditions about her — the leap from the Leucadian cliff for love of the ferryman Phaon — are late fiction.
 
-Her corpus is still, remarkably, growing. In 2014 a previously unknown papyrus surfaced containing what is now called the "Brothers Poem," a substantially complete composition about Sappho's brothers that had not been read by anyone in roughly two thousand years, a reminder that new discoveries can still meaningfully expand even the most famous fragmentary bodies of ancient literature.
+Her corpus is still, remarkably, growing. In 2014 a previously unknown papyrus surfaced containing what is now called the "Brothers Poem," a substantially complete composition about Sappho's brothers that had not been read by anyone in roughly two thousand years, an important addition to the surviving text. However, the acquisition history subsequently came under serious scrutiny. The Society for Classical Studies notes serious doubts about provenance and the 2021 retraction of a chapter presenting that history. Problems of provenance must be distinguished from arguments about whether the text itself is authentic.

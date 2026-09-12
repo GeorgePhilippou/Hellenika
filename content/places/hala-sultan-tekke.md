@@ -25,6 +25,8 @@ claims:
 relations:
   - id: cyprus
     rel: settlement of
+  - id: bronze-age-collapse
+    rel: abandoned during
 sources:
   - karageorghis1982
   - smith2009

@@ -3,7 +3,7 @@
 // so the whole site becomes available offline simply by having visited it,
 // without hand-maintaining a file list that content updates would outdate.
 
-const CACHE_VERSION = 'hellenika-v1';
+const CACHE_VERSION = 'hellenika-v2';
 const SHELL_URLS = [
   './',
   './index.html',

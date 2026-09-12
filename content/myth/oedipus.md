@@ -35,7 +35,7 @@ relations:
   - id: oedipus-rex
     rel: subject of
   - id: antigone
-    rel: father of
+    rel: family portrayed in
   - id: sophocles
     rel: dramatised by
   - id: delphi

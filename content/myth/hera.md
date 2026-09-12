@@ -59,7 +59,7 @@ Linear B tablets from Pylos name *e-ra*, apparently alongside Zeus. Homer gives 
 <!-- field: religious -->
 Her cult is markedly more dignified than her mythology. She had some of the earliest and largest Greek temples — the Heraion of Samos, the Argive Heraion, the Heraion at Olympia — and at Argos and Samos she was the leading civic deity, not a subordinate consort. The Heraia, a footrace for unmarried girls, was held at Olympia in her honour.
 
-This gap between cult and story is instructive: myth is entertainment and cult is practice, and they do not have to agree.
+This gap between cult and story is instructive: literary representations and local ritual practices can emphasise different aspects of a deity; neither supplies a single account of Greek belief.
 
 <!-- field: historicalBackground -->
 Her name may relate to *hōra*, "season" or "ripeness", though this is contested. Her prominence at very early sanctuaries suggests she may have been a major independent goddess later subordinated to Zeus in narrative — the marriage being a mythological expression of the merging of two cults.
@@ -68,4 +68,4 @@ Her name may relate to *hōra*, "season" or "ripeness", though this is contested
 The Samian Heraion with imports from Egypt, the Levant and Iran; the Argive Heraion; the Heraion at Olympia, the oldest temple on the site. All predate the earliest surviving literary sources.
 
 <!-- field: laterInterpretation -->
-Identified with Roman Juno. Modern scholarship has increasingly emphasised the mismatch between her shrill literary character and her extremely serious cultic standing.
+Identified with Roman Juno. Modern scholarship has increasingly emphasised the mismatch between her portrayal in particular literary genres and her central place in civic cult.

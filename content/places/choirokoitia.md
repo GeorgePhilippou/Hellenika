@@ -29,8 +29,11 @@ claims:
 relations:
   - id: cyprus
     rel: settlement of
+  - id: early-bronze-age
+    rel: predates
 sources:
   - karageorghis1982
+  - unesco-choirokoitia
 _order: 80
 ---
 

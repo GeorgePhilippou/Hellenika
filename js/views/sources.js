@@ -146,7 +146,7 @@ function mount(root, rows) {
     return `
       <div class="src-item">
         <div class="a">${esc(s.author)}${s.year ? ` <span class="muted">(${s.year})</span>` : ''}</div>
-        <div class="t">${esc(s.title)}</div>
+        <div class="t">${s.url && /^https?:\/\//.test(s.url) ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>` : esc(s.title)}</div>
         ${s.note ? `<div class="n">${esc(s.note)}</div>` : ''}
         <div class="u row" style="gap:var(--s-3)">
           <span>${s.uses} ${s.uses === 1 ? 'entity cites this' : 'entities cite this'}</span>

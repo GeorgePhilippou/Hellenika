@@ -51,6 +51,7 @@ relations:
   - id: roman-conquest
     rel: period
 sources:
+  - huebner2019
   - roller2010c
   - plutarch-src
   - schiff2010
@@ -68,4 +69,4 @@ Cleopatra was Macedonian Greek by descent, not Egyptian, and ruled a kingdom fou
 
 Her relationships with Julius Caesar and later Mark Antony are usually told as romance, and were unmistakably policy as well: Egypt was fabulously rich but militarily weak against Rome, and the only realistic way to preserve its independence was to make its queen indispensable to whichever Roman was actually holding power at the time. It worked for roughly twenty years. Her famous meeting with Antony at Tarsus, arriving by barge dressed as Aphrodite, was a calculated piece of theatre rather than a chance encounter, and in 34 BC the so-called Donations of Alexandria saw Antony formally assign large stretches of Rome's eastern territories to Cleopatra and her children by him, a grant Octavian used back in Rome as damning propaganda evidence that Antony had gone native and meant to hand Roman land to a foreign queen.
 
-After the defeat at Actium in 31 BC she and Antony were finished. She died in Alexandria in August 30 BC, shortly after Antony's own suicide. Plutarch reports the traditional story of an asp smuggled in with a basket of figs, but notes candidly that no one actually knew what happened behind closed doors; some modern historians favour a prepared poison draught instead, and the snake may owe at least part of its enduring hold on the story to imagery Octavian's own propaganda machine found useful — an exotic, self-inflicted death fit for the "foreign queen" of Roman moralising literature. With her death, Egypt was annexed directly as a personal possession of the emperor rather than an ordinary Roman province, ending both Ptolemaic rule and, with it, the last independent Hellenistic kingdom descended from Alexander's own conquests.
+After the defeat at Actium in 31 BC she and Antony were finished. She died in Alexandria in August 30 BC, shortly after Antony's own suicide. Plutarch reports the traditional story of an asp smuggled in with a basket of figs, but notes candidly that no one actually knew what happened behind closed doors; some modern historians favour a prepared poison draught instead, and the snake may owe at least part of its enduring hold on the story to imagery Octavian's own propaganda machine found useful — an exotic, self-inflicted death fit for the "foreign queen" of Roman moralising literature. With her death, Egypt became a Roman province administered by an equestrian prefect accountable to Octavian, ending both Ptolemaic rule and, with it, the last independent Hellenistic kingdom descended from Alexander's own conquests.

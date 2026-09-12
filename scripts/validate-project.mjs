@@ -9,6 +9,7 @@ import { spawnSync } from 'node:child_process';
 const ROOT = new URL('..', import.meta.url).pathname;
 const checks = [
   'scripts/validate-content.mjs',
+  'scripts/validate-study-semantics.mjs',
   'scripts/validate-geo.mjs',
   'scripts/validate-journeys.mjs',
   'scripts/validate-map-lifecycle.mjs',

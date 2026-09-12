@@ -25,6 +25,8 @@ claims:
 relations:
   - id: cyprus
     rel: city-kingdom of
+  - id: aphrodite
+    rel: cult of
 sources:
   - karageorghis1982
   - reyes1994

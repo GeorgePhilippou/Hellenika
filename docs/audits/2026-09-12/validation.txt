@@ -1,0 +1,49 @@
+## validate-content (exit 1)
+
+[Hellenika] 401 entities · 1386 relationships · 2015 evidence-tagged claims · 288 sources
+Content validation: 401 entries
+Minimums: 90 narrative words, 12 summary words, 3 claims, 2 sources, 2 authored relations
+period        11 entries · 240.0 words · 5.5 claims · 3.4 sources
+person        84 entries · 269.0 words · 5.3 claims · 2.3 sources
+site          45 entries · 233.8 words · 5.1 claims · 2.2 sources
+city          36 entries · 241.6 words · 4.8 claims · 2.3 sources
+event         42 entries · 223.1 words · 5.3 claims · 2.3 sources
+battle        26 entries · 243.5 words · 4.9 claims · 2.2 sources
+war            4 entries · 330.8 words · 5.5 claims · 3.0 sources
+artefact      61 entries · 233.4 words · 5.1 claims · 2.1 sources
+text          25 entries · 236.4 words · 5.0 claims · 2.2 sources
+myth          37 entries · 222.4 words · 4.0 claims · 2.8 sources
+deity         19 entries · 256.7 words · 4.3 claims · 2.8 sources
+writing        3 entries · 392.7 words · 7.0 claims · 3.0 sources
+language       1 entries · 331.0 words · 6.0 claims · 2.0 sources
+empire         3 entries · 355.7 words · 6.3 claims · 3.0 sources
+kingdom        1 entries · 303.0 words · 6.0 claims · 3.0 sources
+region         3 entries · 291.0 words · 5.3 claims · 2.0 sources
+
+Content validation failed with 6 issue(s):
+- tamassos: authored relations 1/2
+- marion: authored relations 1/2
+- lapithos: authored relations 1/2
+- hala-sultan-tekke: authored relations 1/2
+- choirokoitia: sources 1/2
+- choirokoitia: authored relations 1/2
+
+## validate-geo (exit 1)
+
+Geo validation: 132 territories/phases, 23 routes
+Regional coverage groups: cyprus
+error: Territory label anchor outside ring: t-egypt-nk-levant [35.1, 33.2]
+error: Territory label anchor outside ring: t-ptolemaic-early-levant [34.7, 33.5]
+
+## validate-journeys (exit 0)
+
+[Hellenika] 401 entities · 1386 relationships · 2015 evidence-tagged claims · 288 sources
+Journey validation passed: 14 Odyssey stops, 11 Alexander stages, 9 cumulative control regions, 14 progressive foundations.
+
+## validate-map-lifecycle (exit 0)
+
+Map lifecycle validation passed: destroyed renderers leave no canvas listeners.
+
+## verify-content (exit 0)
+
+Content round-trip passed: 1160 records from 1161 Markdown files match data/*.json.

@@ -7,7 +7,7 @@ tint: collapse
 from: -1550
 to: -1070
 labelAt:
-  - 35.1
+  - 35.4
   - 33.2
 ring:
   - - 36.2

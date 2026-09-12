@@ -28,6 +28,7 @@ const NAV = [
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
   { path: '/mythology', label: 'Mythology', icon: 'myth' },
+  { path: '/learn', label: 'Study', icon: 'source' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
 ];

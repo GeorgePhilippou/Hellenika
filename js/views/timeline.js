@@ -18,11 +18,9 @@ import {
   entityDate, emptyState, block,
 } from '../components/ui.js';
 
-/* Entities that deserve a marker on the timeline. 'myth' brings in the
-   legendary figures and episodes (Achilles, the Trojan War tradition,
-   Theseus...) alongside attested events — drawn hollow on the events
-   line to keep the evidence-honesty distinction visible. */
-const MARKER_TYPES = ['event', 'battle', 'war', 'artefact', 'text', 'myth'];
+/* Historical markers use attested records. Mythological stories remain
+   available in the mythology section without invented historical dates. */
+const MARKER_TYPES = ['event', 'battle', 'war', 'artefact', 'text'];
 
 export async function renderTimeline(params) {
   const root = el('div', { class: 'view' });
@@ -81,7 +79,7 @@ function mount(root, openId) {
 
   /* ---------- Markers ---------- */
   const markers = db.ofType(...MARKER_TYPES)
-    .filter((e) => e.start != null && !e.modern)
+    .filter((e) => e.start != null && db.isHistorical(e))
     .map((e) => ({ year: e.start, entity: e }));
 
   const tl = createTimeline(canvas, {

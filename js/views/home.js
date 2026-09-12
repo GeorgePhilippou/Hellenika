@@ -148,7 +148,7 @@ export async function renderHome() {
 
     <section class="wrap" style="padding-block:var(--s-8) var(--s-16)">
       ${sectionHead('How this site handles evidence',
-        'The differentiator: nothing is asserted without telling you what kind of claim it is.')}
+        'Each entry includes evidence statements labelled by evidence type and confidence; the bibliography provides further reading.')}
       <div class="grid grid-auto">
         ${Object.entries(db.CONFIDENCE_META)
           .sort((a, b) => b[1].rank - a[1].rank)

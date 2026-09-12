@@ -8,7 +8,7 @@ tint: hellenistic
 from: -305
 to: -201
 labelAt:
-  - 34.7
+  - 35.5
   - 33.5
 ring:
   - - 36.0

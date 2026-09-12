@@ -35,7 +35,7 @@ relations:
   - id: thebes
     rel: setting
   - id: oedipus
-    rel: family of
+    rel: portrays family of
   - id: oedipus-rex
     rel: related play
 sources:

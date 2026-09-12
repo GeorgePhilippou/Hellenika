@@ -195,7 +195,7 @@ function sidebarHTML(e, sections) {
         <h3 class="eyebrow" style="margin-bottom:var(--s-3)">Facts</h3>
         ${factList([
           ['Type', esc(e.typeLabel) + (e.subtype ? ` · ${esc(e.subtype)}` : '')],
-          ['Dates', e.start != null ? `<span class="num">${esc(entityDate(e))}</span>` : null],
+          [e.type === 'deity' || e.type === 'myth' || e.legendary ? 'Chronology' : 'Dates', e.start != null ? `<span class="num">${esc(entityDate(e))}</span>` : null],
           locationFact(e, siteRel),
           ['Coordinates', e.coords ? `<span class="num small">${e.coords[0].toFixed(3)}, ${e.coords[1].toFixed(3)}</span>` : null],
           ['Author', e.author ? esc(e.author) : null],
@@ -274,6 +274,11 @@ function relationsSection(e) {
       <canvas class="graph-canvas" id="graph-canvas"></canvas>
       <div class="graph-legend">drag nodes · click to travel · hover to isolate</div>
     </div>
+    <details class="block">
+      <summary>Read all connections</summary>
+      <ul>${e.relations.map((r) => `<li>${esc(r.rel)}:
+        <a href="${entityHref(r.id)}">${esc(db.get(r.id).name)}</a></li>`).join('')}</ul>
+    </details>
     ${tintLegend([e, ...neighbourEntities], periods)}`);
 }
 
@@ -284,7 +289,7 @@ function sourcesSection(e) {
   const modern = rows.filter((r) => r.s.kind === 'modern');
 
   const list = (arr) => `<ul style="margin:0;padding-left:1.1em">${arr.map(({ s }) =>
-    `<li><strong>${esc(s.author)}</strong>${s.year ? ` (${s.year})` : ''}, <em>${esc(s.title)}</em>${
+    `<li><strong>${esc(s.author)}</strong>${s.year ? ` (${s.year})` : ''}, <em>${s.url && /^https?:\/\//.test(s.url) ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>` : esc(s.title)}</em>${
       s.note ? `<br><span class="xs muted">${esc(s.note)}</span>` : ''}</li>`).join('')}</ul>`;
 
   return section('sources', 'Sources', `

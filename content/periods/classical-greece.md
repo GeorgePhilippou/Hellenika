@@ -118,7 +118,7 @@ Victory over Persia at Salamis (480) and Plataea (479) leaves Athens with a flee
 
 That democracy was narrow: women, resident foreigners and a very large enslaved population were excluded. It was also aggressive — the destruction of Melos in 416 and the disastrous Sicilian Expedition belong to the same system as the Funeral Oration.
 
-The Peloponnesian War (431–404) ends Athenian hegemony. Sparta's dominance collapses at Leuctra in 371 when Epaminondas of Thebes breaks the Spartan line. Thebes in turn falls at Mantinea in 362. The exhausted city-states are then absorbed by Macedon at Chaeronea in 338.
+The Peloponnesian War (431–404) ends Athenian hegemony. Sparta's dominance collapses at Leuctra in 371 when Epaminondas of Thebes breaks the Spartan line. At Mantinea in 362 the Theban-led army prevailed in the fighting, but Epaminondas died and the battle secured no lasting settlement. Xenophon ends his account with competing claims of victory and increased uncertainty in Greece (*Hellenica* 7.5.26–27). The exhausted city-states are then absorbed by Macedon at Chaeronea in 338.
 
 <!-- field: politics -->
 Radical Athenian democracy: an assembly open to all citizens, a Council of 500 chosen by lot, magistrates selected by lot, jury courts of hundreds, and ostracism. Sparta retains its mixed constitution; oligarchy prevails in much of the rest of Greece.

@@ -27,11 +27,11 @@ export async function renderLearn() {
         <div>
           <p class="eyebrow">Learning mode</p>
           <h1>Test yourself</h1>
-          <p class="sub">Every answer comes with an explanation and a link to the evidence behind it.</p>
+          <p class="sub">Practise with explanations and explore the entries for context and further reading.</p>
         </div>
       </div>
 
-      ${sectionHead('Quizzes', 'Written question sets with explanations.')}
+      ${sectionHead('Quizzes', 'Written question sets with explanations. Explore the curated reading collections below for context.')}
       <div class="grid grid-auto" style="margin-bottom:var(--s-12)">
         ${quizzes.map((q) => {
           const p = progress[q.id];
@@ -51,6 +51,8 @@ export async function renderLearn() {
             </a>`;
         }).join('')}
       </div>
+
+      <p><a class="btn" href="#/collections">Browse curated reading collections →</a></p>
 
       ${sectionHead('Games', 'Generated fresh from the dataset every time you play.')}
       <div class="grid grid-auto">
@@ -250,7 +252,8 @@ export async function renderGame(params) {
 
 /* ---------- Helpers ---------- */
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
-const datedPool = () => db.ALL.filter((e) => e.start != null && !e.modern && e.summary);
+export const datedPool = () => db.datable.filter((e) => e.summary &&
+  e.start >= TIME_MIN && (e.end ?? e.start) <= TIME_MAX);
 
 function scoreLine(state) {
   return `<p class="small muted" style="text-align:center;margin-top:var(--s-6)">
@@ -262,7 +265,10 @@ function gameTimeline(body) {
   const state = { asked: 0, right: 0 };
 
   function round() {
-    const e = pick(datedPool());
+    // A date-placement answer must be a single historical event, not
+    // an arbitrary endpoint of a lifetime, civilisation or dating range.
+    const e = pick(datedPool().filter((x) => !x.approx &&
+      x.start === x.end && ['event', 'battle', 'war'].includes(x.type)));
     const truth = e.start;
     state.asked++;
 
@@ -327,7 +333,7 @@ function gameTimeline(body) {
 /* ---------- What existed at the same time? ---------- */
 function gameContemporary(body) {
   const state = { asked: 0, right: 0 };
-  const pool = datedPool().filter((e) => e.end != null);
+  const pool = datedPool().filter((e) => e.end != null && !e.approx);
 
   function overlaps(a, b) {
     const ae = a.end ?? a.start, be = b.end ?? b.start;
