@@ -12,6 +12,10 @@
 
 export const TILE_SIZE = 256;
 
+// Public browser key; restrict its allowed Referer host in CARTO to
+// georgephilippou.github.io. CARTO raster tiles require this key.
+const CARTO_BASEMAP_KEY = 'cb1_3iho_1_4a831fc616078d7f63b820b2';
+
 /**
  * Providers. `y` before `x` in the Esri path is not a typo — its REST
  * tile service orders them that way.
@@ -40,7 +44,7 @@ export const PROVIDERS = {
     id: 'plain',
     name: 'Plain',
     url: (z, x, y, dark) =>
-      `https://a.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_nolabels/${z}/${x}/${y}.png`,
+      `https://a.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_nolabels/${z}/${x}/${y}.png?key=${CARTO_BASEMAP_KEY}`,
     maxZoom: 15,
     attribution: 'CARTO, OpenStreetMap contributors',
     // Each tile is recoloured once, on load, to an exact flat two-tone
