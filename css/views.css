@@ -1763,8 +1763,8 @@
    ============================================================ */
 .philosophy-view { overflow: hidden; }
 .phil-intro {
-  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
-  gap: var(--s-8); align-items: center; min-height: 310px;
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+  gap: var(--s-8); align-items: center; min-height: 400px;
   padding-block: var(--s-12) var(--s-10);
 }
 .phil-intro::before {
@@ -1775,16 +1775,16 @@
 }
 .phil-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
 .phil-intro .lede { max-width: 64ch; }
-.phil-trio { position: relative; height: 260px; }
+.phil-trio { position: relative; height: 400px; }
 .phil-trio-photo {
-  position: absolute; width: 168px; height: 210px; overflow: hidden;
+  position: absolute; width: 250px; height: 320px; overflow: hidden;
   display: grid; place-items: center; color: var(--text-3);
   border: 1px solid var(--border-strong); border-radius: var(--r-xl);
   background: var(--surface-2); box-shadow: var(--sh-3);
 }
-.phil-trio-photo.is-0 { left: 0; top: 40px; transform: rotate(-4deg); }
-.phil-trio-photo.is-1 { left: 88px; top: 0; z-index: 2; }
-.phil-trio-photo.is-2 { left: 176px; top: 44px; transform: rotate(4deg); }
+.phil-trio-photo.is-0 { left: 0; top: 56px; transform: rotate(-4deg); }
+.phil-trio-photo.is-1 { left: 132px; top: 0; z-index: 2; }
+.phil-trio-photo.is-2 { left: 264px; top: 62px; transform: rotate(4deg); }
 .phil-trio-photo .ecard-photo, .phil-card-photo .ecard-photo {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
 }
@@ -1821,7 +1821,7 @@
   position: absolute; inset: 0; width: 100%; height: 100%;
 }
 .phil-spot-thumb .ecard-photo, .phil-tl-thumb .ecard-photo { object-fit: cover; object-position: center 16%; }
-.phil-trio-photo { --tint: var(--p-classical); position: absolute; width: 168px; height: 210px; border: 1px solid var(--border-strong); border-radius: var(--r-xl); box-shadow: var(--sh-3); }
+.phil-trio-photo { --tint: var(--p-classical); position: absolute; width: 250px; height: 320px; border: 1px solid var(--border-strong); border-radius: var(--r-xl); box-shadow: var(--sh-3); }
 
 /* Key figures: pick one, see the whole portrait */
 .phil-spot { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: var(--s-5); align-items: start; }
@@ -1974,12 +1974,17 @@
 .phil-card-identity em { display: block; margin-top: 3px; color: var(--tint); font-size: var(--fs-xxs); font-style: normal; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .phil-card-idea { margin-block: 0; color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
 
+@media (max-width: 1000px) {
+  .phil-intro { grid-template-columns: 1fr; min-height: 0; padding-block: var(--s-10) var(--s-8); }
+  .phil-trio { width: 100%; max-width: 520px; }
+}
 @media (max-width: 680px) {
   .phil-intro { grid-template-columns: 1fr; min-height: 0; padding-block: var(--s-10) var(--s-8); }
-  .phil-trio { height: 230px; max-width: 380px; }
-  .phil-trio-photo { width: 132px; height: 170px; }
-  .phil-trio-photo.is-1 { left: 74px; }
-  .phil-trio-photo.is-2 { left: 148px; }
+  .phil-trio { height: 250px; max-width: 380px; }
+  .phil-trio-photo { width: 150px; height: 190px; }
+  .phil-trio-photo.is-0 { top: 36px; }
+  .phil-trio-photo.is-1 { left: 84px; }
+  .phil-trio-photo.is-2 { left: 168px; top: 40px; }
   .phil-question li { grid-template-columns: 1fr; gap: 0; }
   .phil-spot { grid-template-columns: 1fr; }
   .phil-spot-tabs { grid-auto-flow: column; grid-auto-columns: minmax(210px, 1fr); overflow-x: auto; padding-bottom: 4px; }
