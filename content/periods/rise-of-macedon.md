@@ -22,6 +22,7 @@ people:
   - aristotle
   - parmenion
   - isocrates
+  - lysippos
 sites:
   - pella
   - vergina

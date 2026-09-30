@@ -3,7 +3,7 @@
 An interactive atlas of the Ancient Greek world, **3200 BC – 30 BC**, explored through
 time, space, relationships and evidence.
 
-Not an encyclopaedia. A connected graph of 300+ entities where every factual claim
+Not an encyclopaedia. A connected graph of 400+ entities where every factual claim
 carries the kind of evidence it rests on and how confident anyone is entitled to be.
 
 **Live:** <https://georgephilippou.github.io/Hellenika/>
@@ -12,8 +12,8 @@ carries the kind of evidence it rests on and how confident anyone is entitled to
 
 ## Running it
 
-No build step, no dependencies. Any static server works — but ES modules need HTTP,
-so opening `index.html` from the filesystem will not work.
+The site itself has no build step and no dependencies. Any static server works — but ES
+modules need HTTP, so opening `index.html` from the filesystem will not work.
 
 ```bash
 python3 serve.py 8931
@@ -22,22 +22,34 @@ python3 serve.py 8931
 Then open <http://localhost:8931>. `serve.py` sends `no-store` so edits show up on
 reload without cache-busting.
 
+Content is authored as Markdown and compiled to JSON, which is the one build-time step
+(see [Adding data](#adding-data)). Node is only needed for that and for the checks:
+
+```bash
+npm install          # js-yaml, used by the content pipeline only
+npm run content:build   # content/**/*.md -> data/*.json
+npm test             # content, geo, journey, map and study-semantics validation
+```
+
 ---
 
 ## What's in it
 
 | | |
 |---|---|
-| Entities | 376 |
-| Relationships | 1,294 (authored and automatically derived inverse links) |
-| Evidence-tagged claims | 1,920 |
-| Sources cited | 288 |
-| Mapped locations | 100+ |
+| Entities | 422 |
+| Relationships | 1,914 (authored and automatically derived inverse links) |
+| Evidence-tagged claims | 2,137 |
+| Sources cited | 314 |
+| Mapped locations | 400 |
 | Curated collections | 10 |
 
-By kind: 11 periods · 84 people · 32 cities · 41 sites · 61 artefacts · 42 events ·
-26 battles · 4 wars · 25 texts · 28 mythological figures · 11 deities · 3 empires ·
-1 kingdom · 3 writing systems · 1 language · 3 regions.
+By kind: 11 periods · 100 people · 39 cities · 45 sites · 61 artefacts · 42 events ·
+28 battles · 4 wars · 25 texts · 37 myths · 19 deities · 3 empires · 1 kingdom ·
+3 writing systems · 1 language · 3 regions.
+
+These figures are printed by `npm test` and shown live on the About page. Update this
+table when they change.
 
 ---
 
@@ -80,6 +92,11 @@ important thing a society believed, and the pages say so.
 ```
 index.html          app shell
 serve.py            dev server (no-store headers)
+sw.js, manifest.json  offline support (service worker, web app manifest)
+content/            source of truth: one Markdown file per entity, by category
+data/               compiled JSON (generated from content/) plus thin loader shims
+scripts/            content compiler and the validation suites behind `npm test`
+docs/               editorial standard and audit reports
 css/
   tokens.css        design tokens — colour, type, space, motion, both themes
   base.css          reset, typography, layout primitives
@@ -100,7 +117,7 @@ js/
   views/            one module per route
 data/
   periods · people · places · events · artefacts · texts · myth · culture
-  sources · collections · quizzes · geo
+  sources · collections · quizzes · geo · journeys · world · images
 ```
 
 ### Why canvas for timeline, map and graph
@@ -123,11 +140,26 @@ hand, and it's why adding one entity immediately enriches every entity it touche
 
 ### Adding data
 
-Add the record to the relevant file in `data/`. If it's a new file, import it in
-`db.js` and add it to `SOURCES_OF_TRUTH`. Nothing else needs to change — indices,
-search, facets, the map layer, timeline markers and the graph all derive from the
-merged set. Relations pointing at ids that don't exist yet are dropped with an
-`console.info` listing them, so forward references are safe.
+Each entity is one Markdown file in `content/<category>/`. The YAML front matter holds
+the structured fields (`id`, `name`, `type`, `start`/`end`, `coords`, `claims`,
+`relations`, `sources`); the prose sits under `<!-- field: summary -->`,
+`<!-- field: significance -->` and `<!-- field: body -->` markers. Copy a neighbouring
+file as a template, then run:
+
+```bash
+npm run content:build   # regenerate data/*.json
+npm test                # validate everything
+```
+
+Never edit `data/*.json` by hand; the round-trip check in `npm test` fails if it drifts
+from `content/`. New sources are one file each in `content/sources/`. Keep the prose
+to the floor set out in [`docs/editorial-content-standard.md`](docs/editorial-content-standard.md).
+
+Indices, search, facets, the map layer, timeline markers and the graph all derive from
+the merged set, so nothing else needs to change. Relations pointing at ids that don't
+exist yet are dropped with a `console.info` listing them, so forward references are
+safe. Inverse relations are derived from a label table in `js/db.js`; if you invent a
+new relation label, add its inverse there or the reverse link will read "related to".
 
 ### View lifecycle
 
@@ -185,7 +217,7 @@ Athenian. Women, the enslaved, metics and the rural poor were the large majority
 appear mainly when someone else needed to mention them. Pages flag that gap where they
 can.
 
-**Coverage.** 306 entities is a foundation, not completeness — the Greek world had well
+**Coverage.** 400+ entities is a foundation, not completeness — the Greek world had well
 over a thousand poleis. Coverage is weighted toward cases where the *evidence* is
 interesting rather than toward exhaustiveness.
 

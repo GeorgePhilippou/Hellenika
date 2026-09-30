@@ -30,6 +30,7 @@ people:
   - croesus
   - cyrus-the-great
   - darius-i
+  - parmenides
 sites:
   - delphi
   - olympia
@@ -40,6 +41,8 @@ sites:
   - paestum
   - samos-heraion
   - syracuse
+  - eretria
+  - croton
 artefacts:
   - kroisos-kouros
   - francois-vase

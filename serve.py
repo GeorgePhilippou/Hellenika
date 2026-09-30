@@ -6,11 +6,12 @@ makes edit-reload cycles unreliable. This sends no-store on everything
 and the correct MIME type for .js modules.
 """
 
+import os
 import sys
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
-ROOT = "/Users/georgephilippou/Documents/GitHub/Hellenika"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8931
 
 

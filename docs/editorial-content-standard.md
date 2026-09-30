@@ -29,10 +29,10 @@ also:
 - connect places to events, people, objects and political contexts where the
   dataset supports those relationships.
 
-Run the audit with:
+Run the audit with (or run `npm test`, which includes it):
 
 ```sh
-/Users/georgephilippou/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node scripts/validate-content.mjs
+node scripts/validate-content.mjs
 ```
 
 The validator is deliberately strict about the common floor and deliberately

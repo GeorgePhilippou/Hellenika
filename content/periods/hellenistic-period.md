@@ -32,6 +32,9 @@ people:
   - pyrrhus
   - antiochus-iii
   - hipparchus
+  - menander
+  - theophrastus
+  - diogenes-of-sinope
 sites:
   - alexandria
   - pergamon

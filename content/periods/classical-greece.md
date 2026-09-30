@@ -21,6 +21,8 @@ keyEvents:
   - trial-of-socrates
   - battle-leuctra
   - battle-chaeronea
+  - battle-artemisium
+  - battle-himera
 people:
   - pericles
   - themistocles
@@ -42,6 +44,17 @@ people:
   - xenophon
   - lysander
   - aspasia
+  - pindar
+  - protagoras
+  - empedocles
+  - polykleitos
+  - aristides
+  - nicias
+  - cleon
+  - brasidas
+  - agesilaus-ii
+  - pelopidas
+  - dionysius-i
 sites:
   - athens
   - sparta
@@ -53,6 +66,7 @@ sites:
   - epidaurus
   - thermopylae
   - marathon
+  - aegina
 artefacts:
   - parthenon-frieze
   - discobolus
