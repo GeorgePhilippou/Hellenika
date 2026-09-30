@@ -268,6 +268,69 @@ const SCHOOLS = [
   { name: 'Sceptics', when: 'From about 300 BC', ids: ['pyrrho'], text: 'Practised suspension of judgement as the route to tranquillity; formalised in later centuries as Pyrrhonism.' },
 ];
 
+
+/* ---------- Timeline data ---------- */
+const TL_START = -640;
+const TL_END = -195;
+const tlPct = (year) => ((year - TL_START) / (TL_END - TL_START)) * 100;
+
+// lane: which label row the event sits in, so nearby dates do not collide.
+const TL_EVENTS = [
+  { label: 'Democracy', year: -508, lane: 0, id: 'cleisthenes-reforms' },
+  { label: 'Persian Wars', year: -490, end: -479, lane: 1, id: 'greco-persian-wars' },
+  { label: 'Peloponnesian War', year: -431, end: -404, lane: 0, id: 'peloponnesian-war' },
+  { label: 'Trial of Socrates', year: -399, lane: 1, id: 'trial-of-socrates' },
+  { label: 'Macedon rules', year: -338, lane: 0, id: 'battle-chaeronea' },
+  { label: 'Alexander dies', year: -323, lane: 1, id: 'death-of-alexander' },
+];
+const TL_SCHOOLS = [
+  { label: 'Academy', year: -387, id: 'academy', lane: 'a' },
+  { label: 'Lyceum', year: -335, id: 'lyceum', lane: 'b' },
+  { label: 'Garden', year: -306, id: 'garden-of-epicurus', lane: 'a' },
+  { label: 'Stoa', year: -300, id: 'stoa-poikile', lane: 'b' },
+];
+
+// Ideas that anticipate much later thinking. Each states the caveat plainly:
+// anticipation is not influence, and the later version had the evidence.
+const AHEAD = [
+  {
+    id: 'xenophanes', then: -500, later: 1669, topic: 'Fossils as evidence',
+    idea: 'Reportedly pointed to shells found inland as proof that the sea had once covered the land.',
+    modern: 'Nicolas Steno argued in 1669 that fossils are the remains of living things and that rock layers record the passage of time.',
+    caveat: 'Known only from later reports; Xenophanes did not build a theory of the earth.',
+  },
+  {
+    id: 'zeno-of-elea', then: -450, later: 1821, topic: 'The paradox of the infinite',
+    idea: 'Argued that motion, if space and time can be divided without end, involves an infinite series of tasks.',
+    modern: 'Cauchy’s definition of limits (1821) gave mathematicians a rigorous way to sum an infinite series to a finite value.',
+    caveat: 'Whether the paradoxes are fully resolved is still debated.',
+  },
+  {
+    id: 'democritus', then: -400, later: 1803, topic: 'Atoms',
+    idea: 'Held that everything is made of indivisible atoms moving in empty space.',
+    modern: 'John Dalton’s atomic theory (1803) made the atom the basis of modern chemistry.',
+    caveat: 'Democritus had no experiments; the resemblance is in the idea, not the evidence.',
+  },
+  {
+    id: 'aristotle', then: -335, later: 1735, topic: 'Classifying life',
+    idea: 'Described hundreds of kinds of animals from observation and dissection, and sorted them by shared features.',
+    modern: 'Linnaeus’s Systema Naturae (1735) set out the system of classification that biology still builds on.',
+    caveat: 'Many of Aristotle’s conclusions were wrong, and were repeated without checking for centuries.',
+  },
+  {
+    id: 'epicurus', then: -300, later: 1651, topic: 'Justice as agreement',
+    idea: 'Taught that justice is not a cosmic fact but an agreement among people not to harm one another.',
+    modern: 'Hobbes’s Leviathan (1651) and later social-contract theory grounded political obligation in mutual agreement.',
+    caveat: 'Epicurus’s agreement is narrow, and is not the same as any modern contract theory.',
+  },
+  {
+    id: 'chrysippus', then: -230, later: 1879, topic: 'Logic of propositions',
+    idea: 'Worked out rules for reasoning with “if”, “and” and “or”, treating whole statements as the units of logic.',
+    modern: 'Frege’s Begriffsschrift (1879) founded modern formal logic, including propositional logic.',
+    caveat: 'Frege did not know the Stoics; their logic was recovered by historians in the twentieth century.',
+  },
+];
+
 const PORTRAIT_TRIO = ['socrates', 'plato', 'aristotle'];
 const READING = ['republic', 'nicomachean-ethics'];
 
@@ -284,22 +347,116 @@ function photoBox(e, className) {
   return `<span class="${className}" data-img-id="${esc(e.id)}">${icon('person', { size: 30 })}</span>`;
 }
 
-function featuredCard(f) {
+function spotlightTab(f, on) {
   const e = db.get(f.id);
   if (!e) return '';
   return `
-    <article class="phil-feature" style="--tint:${db.tintVar(e.tint)}">
-      <a class="phil-feature-photo-link" href="${entityHref(e.id)}" aria-label="Open the entry for ${esc(e.name)}">
-        ${photoBox(e, 'phil-feature-photo')}
-      </a>
-      <div class="phil-feature-body">
+    <button type="button" role="tab" class="phil-spot-tab${on ? ' is-on' : ''}" id="spot-tab-${esc(e.id)}"
+      aria-selected="${on}" aria-controls="spot-panel-${esc(e.id)}" tabindex="${on ? 0 : -1}"
+      data-spot="${esc(e.id)}" style="--tint:${db.tintVar(e.tint)}">
+      <span class="phil-spot-thumb" data-img-id="${esc(e.id)}">${icon('person', { size: 20 })}</span>
+      <span class="phil-spot-name"><strong>${esc(e.name)}</strong><small>${esc(f.school)} · ${esc(dates(e))}</small></span>
+    </button>`;
+}
+
+function spotlightPanel(f, on) {
+  const e = db.get(f.id);
+  if (!e) return '';
+  return `
+    <article role="tabpanel" class="phil-spot-panel" id="spot-panel-${esc(e.id)}" aria-labelledby="spot-tab-${esc(e.id)}"
+      data-spot-panel="${esc(e.id)}" ${on ? '' : 'hidden'} style="--tint:${db.tintVar(e.tint)}">
+      <figure class="phil-spot-figure">
+        <span class="phil-spot-photo" data-img-id="${esc(e.id)}">${icon('person', { size: 44 })}</span>
+        <figcaption>${portraitLabel(f)}${f.portrait.note ? `<small>${esc(f.portrait.note)}</small>` : ''}</figcaption>
+      </figure>
+      <div class="phil-spot-text">
         <p class="eyebrow">${esc(f.school)} · ${esc(dates(e))}</p>
-        <h3><a href="${entityHref(e.id)}">${esc(e.name)}</a></h3>
-        <p class="phil-feature-idea">${esc(f.idea)}</p>
+        <h3>${esc(e.name)}</h3>
+        <p class="phil-spot-idea">${esc(f.idea)}</p>
         <p class="phil-known"><span>How we know</span>${esc(f.known)}</p>
-        <p class="phil-portrait-line">${portraitLabel(f)}${f.portrait.note ? `<small>${esc(f.portrait.note)}</small>` : ''}</p>
-        <a class="phil-open" href="${entityHref(e.id)}">Open the evidence-led entry ${icon('arrowRight', { size: 13 })}</a>
+        <a class="btn" href="${entityHref(e.id)}">Open the full entry ${icon('arrowRight', { size: 14 })}</a>
       </div>
+    </article>`;
+}
+
+function timelineSection() {
+  const rows = [...FIGURES]
+    .map((f) => ({ f, e: db.get(f.id) }))
+    .filter((r) => r.e)
+    .sort((x, y) => x.e.start - y.e.start);
+
+  const ticks = [];
+  for (let y = -600; y <= -200; y += 50) ticks.push(y);
+
+  const eventMark = (ev) => {
+    const e = ev.id && db.get(ev.id);
+    const left = tlPct(ev.year);
+    const width = ev.end != null ? tlPct(ev.end) - left : 0;
+    const label = `<span class="phil-tl-evlabel" style="left:${(left + width / 2).toFixed(2)}%;top:${6 + ev.lane * 30}px">${esc(ev.label)} <em>${esc(ev.end != null ? `${Math.abs(ev.year)}–${Math.abs(ev.end)}` : `${Math.abs(ev.year)}`)}</em></span>`;
+    return { label, e, left, width };
+  };
+  const evs = TL_EVENTS.map(eventMark);
+  const schools = TL_SCHOOLS.map((sc) => ({ ...sc, left: tlPct(sc.year) }));
+
+  const bands = evs.map((m, i) => {
+    const ev = TL_EVENTS[i];
+    return ev.end != null
+      ? `<span class="phil-tl-band" style="left:${m.left.toFixed(2)}%;width:${Math.max(m.width, 0.6).toFixed(2)}%"></span>`
+      : `<span class="phil-tl-line" style="left:${m.left.toFixed(2)}%"></span>`;
+  }).join('');
+
+  const rowHtml = rows.map(({ f, e }) => {
+    const left = tlPct(e.start);
+    const width = Math.max(tlPct(e.end ?? e.start) - left, 0.8);
+    const key = FEATURED.includes(f.id);
+    return `
+      <div class="phil-tl-row${key ? ' is-key' : ''}" style="--tint:${db.tintVar(e.tint)}">
+        <a class="phil-tl-name" href="${entityHref(e.id)}">
+          <span class="phil-tl-thumb" data-img-id="${esc(e.id)}">${icon('person', { size: 12 })}</span>
+          <span>${esc(e.name)}</span>
+        </a>
+        <div class="phil-tl-track">
+          <a class="phil-tl-bar" href="${entityHref(e.id)}"
+            style="left:${left.toFixed(2)}%;width:${width.toFixed(2)}%" aria-label="${esc(e.name)}, ${esc(dates(e))}"></a>
+          <span class="phil-tl-dates" style="${left + width > 78 ? `right:${(100 - left).toFixed(2)}%;transform:translate(-8px,-50%)` : `left:${(left + width).toFixed(2)}%`}">${esc(dates(e))}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="phil-tl-scroll" tabindex="0" role="region" aria-label="Timeline of Greek philosophers">
+      <div class="phil-tl">
+        <div class="phil-tl-head">
+          <div class="phil-tl-corner">Historical events</div>
+          <div class="phil-tl-axis">
+            ${ticks.map((y) => `<span class="phil-tl-tick" style="left:${tlPct(y).toFixed(2)}%">${Math.abs(y)} BC</span>`).join('')}
+            ${evs.map((m) => m.label).join('')}
+            ${schools.map((sc) => `<a class="phil-tl-school is-${sc.lane}" href="${entityHref(sc.id)}" style="left:${sc.left.toFixed(2)}%" title="${esc(sc.label)} founded, ${Math.abs(sc.year)} BC"><i></i><span>${esc(sc.label)}</span></a>`).join('')}
+          </div>
+        </div>
+        <div class="phil-tl-body">
+          <div class="phil-tl-overlay" aria-hidden="true">${ticks.map((y) => `<span class="phil-tl-grid" style="left:${tlPct(y).toFixed(2)}%"></span>`).join('')}${bands}</div>
+          ${rowHtml}
+        </div>
+      </div>
+    </div>
+    <p class="phil-tl-note"><span class="phil-tl-swatch"></span> Shaded: war years. Diamonds: the founding of a school. Bold names: the key figures. Most dates are approximate, and years before Christ are counted downwards.</p>`;
+}
+
+function aheadCard(a) {
+  const e = db.get(a.id);
+  if (!e) return '';
+  const span = Math.round((a.later - a.then) / 100) * 100;
+  return `
+    <article class="panel phil-ahead" style="--tint:${db.tintVar(e.tint)}">
+      <p class="phil-ahead-gap"><strong>about ${span.toLocaleString('en-GB')}</strong> years ahead</p>
+      <h3>${esc(a.topic)}</h3>
+      <div class="phil-ahead-pair">
+        <div><span>${esc(e.name)}, c. ${Math.abs(a.then)} BC</span><p>${esc(a.idea)}</p></div>
+        <div><span>Reached again, ${a.later}</span><p>${esc(a.modern)}</p></div>
+      </div>
+      <p class="phil-ahead-caveat">${esc(a.caveat)}</p>
+      <a class="phil-open" href="${entityHref(e.id)}">Open the entry for ${esc(e.name)} ${icon('arrowRight', { size: 13 })}</a>
     </article>`;
 }
 
@@ -377,6 +534,8 @@ export async function renderPhilosophy() {
         <a href="#/philosophy" data-phil-target="phil-why">Why it matters</a>
         <a href="#/philosophy" data-phil-target="phil-questions">Big questions</a>
         <a href="#/philosophy" data-phil-target="phil-key">Key figures</a>
+        <a href="#/philosophy" data-phil-target="phil-time">Timeline</a>
+        <a href="#/philosophy" data-phil-target="phil-ahead">Ahead of their time</a>
         <a href="#/philosophy" data-phil-target="phil-schools">Schools</a>
         <a href="#/philosophy" data-phil-target="phil-all">All philosophers</a>
         <a href="#/philosophy" data-phil-target="phil-reading">Reading the evidence</a>
@@ -402,8 +561,25 @@ export async function renderPhilosophy() {
       </section>
 
       <section id="phil-key" class="myth-section">
-        ${sectionHead('Key figures', 'Six thinkers who between them mark the beginning, the summit and the after-life of the tradition.')}
-        <div class="phil-features">${FEATURED.map((id) => featuredCard(FIGURES.find((f) => f.id === id))).join('')}</div>
+        ${sectionHead('Key figures', 'Six thinkers who between them mark the beginning, the summit and the after-life of the tradition. Choose one.')}
+        <div class="phil-spot">
+          <div class="phil-spot-tabs" role="tablist" aria-label="Key figures" aria-orientation="vertical">
+            ${FEATURED.map((id, i) => spotlightTab(FIGURES.find((f) => f.id === id), i === 0)).join('')}
+          </div>
+          <div class="phil-spot-panels">
+            ${FEATURED.map((id, i) => spotlightPanel(FIGURES.find((f) => f.id === id), i === 0)).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section id="phil-time" class="myth-section">
+        ${sectionHead('Philosophy in time', 'When each thinker lived, against the wars and the schools that framed them. Scroll sideways on a small screen.')}
+        ${timelineSection()}
+      </section>
+
+      <section id="phil-ahead" class="myth-section">
+        ${sectionHead('Ahead of their time', 'Some Greek questions and answers anticipate much later thinking by well over two thousand years. Anticipation is not influence: in most of these cases the modern idea was reached independently, and with far better evidence.')}
+        <div class="phil-aheads">${AHEAD.map(aheadCard).join('')}</div>
       </section>
 
       <section id="phil-schools" class="myth-section">
@@ -438,6 +614,27 @@ export async function renderPhilosophy() {
       link.addEventListener('click', (event) => {
         event.preventDefault();
         root.querySelector(`#${link.dataset.philTarget}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const tabs = [...root.querySelectorAll('[data-spot]')];
+    const panels = [...root.querySelectorAll('[data-spot-panel]')];
+    const selectTab = (tab, focus = false) => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach((p) => { p.hidden = p.dataset.spotPanel !== tab.dataset.spot; });
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        const next = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key];
+        if (!next) return;
+        event.preventDefault();
+        selectTab(tabs[(i + next + tabs.length) % tabs.length], true);
       });
     });
     const buttons = [...root.querySelectorAll('[data-phil-filter]')];

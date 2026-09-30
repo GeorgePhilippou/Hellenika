@@ -1785,7 +1785,7 @@
 .phil-trio-photo.is-0 { left: 0; top: 40px; transform: rotate(-4deg); }
 .phil-trio-photo.is-1 { left: 88px; top: 0; z-index: 2; }
 .phil-trio-photo.is-2 { left: 176px; top: 44px; transform: rotate(4deg); }
-.phil-trio-photo .ecard-photo, .phil-feature-photo .ecard-photo, .phil-card-photo .ecard-photo {
+.phil-trio-photo .ecard-photo, .phil-card-photo .ecard-photo {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
 }
 .phil-register { max-width: 900px; margin-bottom: var(--s-6); }
@@ -1802,30 +1802,137 @@
   display: grid; grid-template-columns: minmax(110px, auto) 1fr; gap: var(--s-3);
   padding: 7px 0; border-top: 1px solid var(--border); font-size: var(--fs-sm);
 }
-.phil-question li a { font-weight: 650; }
+.phil-question li a { font-weight: 650; color: var(--text); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+.phil-question li a:hover { color: var(--accent-text); text-decoration-color: currentColor; }
 .phil-question li span { color: var(--text-2); }
 
-.phil-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--s-4); }
-.phil-feature {
-  display: grid; grid-template-columns: 120px minmax(0, 1fr); overflow: hidden;
-  border: 1px solid var(--border); border-top: 3px solid var(--tint, var(--border-strong));
-  border-radius: var(--r-lg); background: var(--surface);
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+/* Photo boxes: a glyph placeholder that a portrait fades in over. Shared by the
+   hero trio, the list cards, the spotlight and the timeline. */
+.phil-trio-photo, .phil-card-photo, .phil-spot-thumb, .phil-spot-photo, .phil-tl-thumb {
+  position: relative; display: grid; place-items: center; overflow: hidden; color: var(--tint, var(--text-3));
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tint, var(--text-3)) 22%, var(--surface)), color-mix(in srgb, var(--tint, var(--text-3)) 5%, var(--surface)));
 }
-.phil-feature:hover { border-color: color-mix(in srgb, var(--tint) 60%, var(--border)); box-shadow: var(--sh-2); }
-.phil-feature-photo-link { display: block; }
-.phil-feature-photo, .phil-card-photo {
-  position: relative; display: grid; place-items: center; overflow: hidden; color: var(--tint);
-  background: linear-gradient(145deg, color-mix(in srgb, var(--tint) 22%, var(--surface)), color-mix(in srgb, var(--tint) 5%, var(--surface)));
+.phil-trio-photo svg, .phil-card-photo svg, .phil-spot-thumb svg, .phil-spot-photo svg, .phil-tl-thumb svg { opacity: .7; transition: opacity var(--t-med); }
+.phil-trio-photo.has-photo svg, .phil-card-photo.has-photo svg, .phil-spot-thumb.has-photo svg,
+.phil-spot-photo.has-photo svg, .phil-tl-thumb.has-photo svg { opacity: 0; }
+.phil-trio-photo.has-photo .ecard-photo, .phil-card-photo.has-photo .ecard-photo, .phil-spot-thumb.has-photo .ecard-photo,
+.phil-spot-photo.has-photo .ecard-photo, .phil-tl-thumb.has-photo .ecard-photo { opacity: 1; }
+.phil-spot-thumb .ecard-photo, .phil-spot-photo .ecard-photo, .phil-tl-thumb .ecard-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
 }
-.phil-feature-photo { width: 100%; height: 100%; min-height: 200px; border-right: 1px solid var(--border); }
-.phil-feature-photo svg, .phil-card-photo svg { opacity: .7; transition: opacity var(--t-med); }
-.phil-feature-photo.has-photo svg, .phil-card-photo.has-photo svg { opacity: 0; }
-.phil-feature-photo.has-photo .ecard-photo, .phil-card-photo.has-photo .ecard-photo { opacity: 1; }
-.phil-feature-body { min-width: 0; padding: var(--s-4) var(--s-5); }
-.phil-feature-body h3 { margin: 2px 0 var(--s-2); font-size: 1.5rem; }
-.phil-feature-body h3 a { color: var(--text); }
-.phil-feature-idea { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.phil-spot-thumb .ecard-photo, .phil-tl-thumb .ecard-photo { object-fit: cover; object-position: center 16%; }
+.phil-trio-photo { --tint: var(--p-classical); position: absolute; width: 168px; height: 210px; border: 1px solid var(--border-strong); border-radius: var(--r-xl); box-shadow: var(--sh-3); }
+
+/* Key figures: pick one, see the whole portrait */
+.phil-spot { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: var(--s-5); align-items: start; }
+.phil-spot-tabs { display: grid; gap: var(--s-2); }
+.phil-spot-tab {
+  display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: var(--s-3); align-items: center;
+  padding: 8px 12px 8px 8px; text-align: left; cursor: pointer; color: var(--text);
+  border: 1px solid var(--border); border-left: 3px solid var(--tint); border-radius: var(--r-md); background: var(--surface);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.phil-spot-tab:hover { background: var(--surface-hover); }
+.phil-spot-tab.is-on { border-color: var(--tint); background: color-mix(in srgb, var(--tint) 12%, var(--surface)); }
+.phil-spot-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.phil-spot-thumb { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); }
+.phil-spot-name strong { display: block; font-family: var(--font-display); font-size: 1.05rem; line-height: 1.2; }
+.phil-spot-name small { display: block; margin-top: 2px; color: var(--text-3); font-size: var(--fs-xxs); }
+.phil-spot-panels { min-width: 0; }
+.phil-spot-panel {
+  display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: var(--s-6); align-items: start;
+  padding: var(--s-5); border: 1px solid var(--border); border-top: 3px solid var(--tint);
+  border-radius: var(--r-xl); background: var(--surface); box-shadow: var(--sh-1);
+}
+.phil-spot-panel[hidden] { display: none; }
+.phil-spot-figure { margin: 0; }
+.phil-spot-photo { aspect-ratio: 4 / 5; border-radius: var(--r-lg); border: 1px solid var(--border); background: color-mix(in srgb, var(--tint) 9%, var(--surface-2)); }
+.phil-spot-photo .ecard-photo { object-fit: contain; }
+.phil-spot-figure figcaption { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; margin-top: var(--s-3); }
+.phil-spot-figure figcaption small { color: var(--text-3); font-size: var(--fs-xxs); line-height: 1.4; }
+.phil-spot-text h3 { margin: 4px 0 var(--s-3); font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1.05; }
+.phil-spot-idea { color: var(--text-2); font-size: 1.05rem; line-height: 1.6; }
+.phil-spot-text .phil-known { margin-bottom: var(--s-5); font-size: var(--fs-sm); }
+
+/* Timeline */
+.phil-tl-scroll {
+  overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-xl);
+  background: var(--surface); box-shadow: var(--sh-1);
+}
+.phil-tl { --label: 184px; min-width: 1240px; }
+.phil-tl-head, .phil-tl-row { display: grid; grid-template-columns: var(--label) minmax(0, 1fr); }
+.phil-tl-head { height: 136px; border-bottom: 1px solid var(--border); }
+.phil-tl-corner {
+  position: sticky; left: 0; z-index: 3; padding: 12px 14px; background: var(--surface); border-right: 1px solid var(--border);
+  color: var(--text-3); font-size: var(--fs-xxs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.phil-tl-axis { position: relative; margin-right: 56px; }
+.phil-tl-tick { position: absolute; bottom: 6px; transform: translateX(-50%); color: var(--text-3); font-size: var(--fs-xxs); font-variant-numeric: tabular-nums; }
+.phil-tl-evlabel {
+  position: absolute; transform: translateX(-50%); white-space: nowrap;
+  color: var(--text); font-size: var(--fs-xxs); font-weight: 650; line-height: 1.2;
+}
+.phil-tl-evlabel em { margin-left: 4px; color: var(--text-3); font-style: normal; font-weight: 500; }
+.phil-tl-school {
+  position: absolute; display: flex; align-items: center; gap: 6px; transform: translateX(-5px);
+  color: var(--accent-text); font-size: var(--fs-xxs); font-weight: 700;
+}
+.phil-tl-school i { width: 10px; height: 10px; flex: none; transform: rotate(45deg); background: var(--accent); border-radius: 2px; }
+.phil-tl-school.is-a { top: 68px; }
+.phil-tl-school.is-b { top: 92px; }
+.phil-tl-school:hover { text-decoration: none; color: var(--text); }
+.phil-tl-body { position: relative; padding-block: 6px; }
+.phil-tl-overlay { position: absolute; inset: 0; left: var(--label); right: 56px; pointer-events: none; }
+.phil-tl-grid { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--border); opacity: .6; }
+.phil-tl-band {
+  position: absolute; top: 0; bottom: 0;
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  border-inline: 1px dashed color-mix(in srgb, var(--accent) 38%, transparent);
+}
+.phil-tl-line { position: absolute; top: 0; bottom: 0; border-left: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); }
+.phil-tl-row { position: relative; height: 32px; align-items: center; }
+.phil-tl-name {
+  position: sticky; left: 0; z-index: 2; height: 100%; display: flex; align-items: center; gap: 8px;
+  padding-inline: 14px; background: var(--surface); border-right: 1px solid var(--border);
+  color: var(--text-2); font-size: var(--fs-xs); white-space: nowrap;
+}
+.phil-tl-name:hover { color: var(--text); text-decoration: none; background: var(--surface-hover); }
+.phil-tl-row.is-key .phil-tl-name { color: var(--text); font-weight: 700; }
+.phil-tl-thumb { width: 22px; height: 22px; flex: none; border-radius: 50%; }
+.phil-tl-thumb .ecard-photo { object-position: center 16%; }
+.phil-tl-track { position: relative; height: 100%; margin-right: 56px; }
+.phil-tl-bar {
+  position: absolute; top: 50%; height: 12px; min-width: 6px; transform: translateY(-50%);
+  border-radius: 6px; background: var(--tint); opacity: .92;
+}
+.phil-tl-bar:hover { opacity: 1; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tint) 30%, transparent); }
+.phil-tl-row.is-key .phil-tl-bar { height: 17px; box-shadow: 0 0 0 2px color-mix(in srgb, var(--tint) 30%, transparent); }
+.phil-tl-bar.is-approx {
+  background: repeating-linear-gradient(90deg, var(--tint) 0 7px, color-mix(in srgb, var(--tint) 50%, transparent) 7px 10px);
+}
+.phil-tl-dates {
+  position: absolute; top: 50%; transform: translate(8px, -50%); white-space: nowrap;
+  color: var(--text-3); font-size: var(--fs-xxs); font-variant-numeric: tabular-nums;
+}
+.phil-tl-note { margin-top: var(--s-3); color: var(--text-3); font-size: var(--fs-xs); }
+.phil-tl-swatch {
+  display: inline-block; width: 22px; height: 10px; margin-right: 4px; vertical-align: -1px;
+  background: color-mix(in srgb, var(--accent) 9%, transparent); border-inline: 1px dashed color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+/* Ahead of their time */
+.phil-aheads { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: var(--s-4); }
+.phil-ahead { padding: var(--s-5); border-top: 3px solid var(--tint); }
+.phil-ahead-gap { margin: 0 0 var(--s-2); color: var(--tint); font-size: var(--fs-sm); font-weight: 650; }
+.phil-ahead-gap strong { margin-right: 4px; font-family: var(--font-display); font-size: 1.7rem; font-weight: 600; }
+.phil-ahead h3 { margin: 0 0 var(--s-4); }
+.phil-ahead-pair { display: grid; gap: var(--s-4); }
+.phil-ahead-pair > div { padding-left: var(--s-3); border-left: 2px solid var(--border-strong); }
+.phil-ahead-pair > div:first-child { border-left-color: var(--tint); }
+.phil-ahead-pair span { display: block; color: var(--text-3); font-size: var(--fs-xxs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.phil-ahead-pair p { margin: 3px 0 0; color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.phil-ahead-caveat { margin: var(--s-4) 0 0; color: var(--text-3); font-size: var(--fs-xs); line-height: 1.5; font-style: italic; }
+
 .phil-known { margin: var(--s-3) 0 0; color: var(--text-2); font-size: var(--fs-xs); line-height: 1.5; }
 .phil-known span {
   display: block; margin-bottom: 2px; color: var(--text-3); font-size: var(--fs-xxs);
@@ -1873,9 +1980,11 @@
   .phil-trio-photo { width: 132px; height: 170px; }
   .phil-trio-photo.is-1 { left: 74px; }
   .phil-trio-photo.is-2 { left: 148px; }
-  .phil-features { grid-template-columns: 1fr; }
-  .phil-feature { grid-template-columns: 96px minmax(0, 1fr); }
   .phil-question li { grid-template-columns: 1fr; gap: 0; }
+  .phil-spot { grid-template-columns: 1fr; }
+  .phil-spot-tabs { grid-auto-flow: column; grid-auto-columns: minmax(210px, 1fr); overflow-x: auto; padding-bottom: 4px; }
+  .phil-spot-panel { grid-template-columns: 1fr; padding: var(--s-4); }
+  .phil-spot-photo { max-width: 320px; }
 }
 .src-item .n { font-size: var(--fs-sm); color: var(--text-3); text-wrap: pretty; }
 .src-item .u { font-size: var(--fs-xs); color: var(--text-3); }
