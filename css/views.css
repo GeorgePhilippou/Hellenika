@@ -1776,6 +1776,7 @@
 .phil-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
 .phil-intro .lede { max-width: 64ch; }
 .phil-trio { position: relative; height: 400px; }
+@media (min-width: 1280px) { .phil-trio { transform: translateX(56px); } }
 .phil-trio-photo {
   position: absolute; width: 250px; height: 320px; overflow: hidden;
   display: grid; place-items: center; color: var(--text-3);
