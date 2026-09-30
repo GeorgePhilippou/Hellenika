@@ -1,9 +1,17 @@
 // Service worker for offline use. Strategy: precache the app shell, then
-// cache-as-you-browse everything else same-origin (stale-while-revalidate)
-// so the whole site becomes available offline simply by having visited it,
-// without hand-maintaining a file list that content updates would outdate.
+// cache-as-you-browse everything else same-origin so the whole site becomes
+// available offline simply by having visited it, without hand-maintaining a
+// file list that content updates would outdate.
+//
+// Code and data (HTML, JS, CSS, JSON) are network-first, so a deployed change
+// shows on the next load instead of the load after; the cached copy is only
+// used when the network is unavailable. Other files (icons, images) are
+// stale-while-revalidate.
+//
+// Bump CACHE_VERSION when this file's logic changes.
 
-const CACHE_VERSION = 'hellenika-v2';
+const CACHE_VERSION = 'hellenika-v3';
+const NETWORK_FIRST = /\.(?:html|js|mjs|css|json|webmanifest)$/i;
 const SHELL_URLS = [
   './',
   './index.html',
@@ -20,7 +28,7 @@ const SHELL_URLS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_VERSION)
-      .then((cache) => cache.addAll(SHELL_URLS))
+      .then((cache) => cache.addAll(SHELL_URLS.map((u) => new Request(u, { cache: 'reload' }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -41,7 +49,9 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
   if (url.origin === self.location.origin) {
-    event.respondWith(staleWhileRevalidate(request));
+    const path = url.pathname;
+    const isCode = request.mode === 'navigate' || path.endsWith('/') || NETWORK_FIRST.test(path);
+    event.respondWith(isCode ? networkFirst(request) : staleWhileRevalidate(request));
   } else if (request.destination === 'image') {
     // Entity photos are hotlinked from Wikipedia rather than bundled (see
     // js/components/images.js). They're immutable once resolved, so once a
@@ -49,6 +59,29 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(cacheFirstCrossOrigin(request));
   }
 });
+
+async function networkFirst(request) {
+  const cache = await caches.open(CACHE_VERSION);
+  try {
+    // 'no-cache' revalidates with the server (a cheap 304 when unchanged)
+    // instead of trusting a possibly stale HTTP-cache copy.
+    const response = await fetch(request, { cache: 'no-cache' });
+    if (response && response.ok) cache.put(request, response.clone());
+    return response;
+  } catch {
+    const cached = await cache.match(request);
+    if (cached) return cached;
+    if (request.mode === 'navigate') {
+      const shell = await cache.match('./index.html');
+      if (shell) return shell;
+    }
+    return new Response('Offline and not yet cached.', {
+      status: 503,
+      statusText: 'Offline',
+      headers: { 'Content-Type': 'text/plain' },
+    });
+  }
+}
 
 async function staleWhileRevalidate(request) {
   const cache = await caches.open(CACHE_VERSION);
