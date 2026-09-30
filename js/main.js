@@ -15,7 +15,6 @@ import { renderExplore } from './views/explore.js';
 import { renderMythology } from './views/mythology.js';
 import { renderEntity } from './views/entity.js';
 import { renderCollections, renderCollection } from './views/collections.js';
-import { renderLearn, renderQuiz, renderGame } from './views/learn.js';
 import { renderSources } from './views/sources.js';
 import { renderAbout } from './views/about.js';
 import { hydrateImages } from './components/images.js';
@@ -28,7 +27,6 @@ const NAV = [
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
   { path: '/mythology', label: 'Mythology', icon: 'myth' },
-  { path: '/learn', label: 'Study', icon: 'source' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
 ];
@@ -240,9 +238,11 @@ route('/mythology', mount(renderMythology));
 route('/e/:id', mount(renderEntity));
 route('/collections', mount(renderCollections));
 route('/collections/:id', mount(renderCollection));
-route('/learn', mount(renderLearn));
-route('/learn/quiz/:id', mount(renderQuiz));
-route('/learn/game/:id', mount(renderGame));
+// Study mode is switched off for now. js/views/learn.js and the quiz data are
+// kept intact so it can be re-enabled by restoring the import, nav entry and routes.
+route('/learn', () => go('/'));
+route('/learn/quiz/:id', () => go('/'));
+route('/learn/game/:id', () => go('/'));
 route('/sources', mount(renderSources));
 route('/about', mount(renderAbout));
 
