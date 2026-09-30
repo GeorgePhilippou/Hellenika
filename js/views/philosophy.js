@@ -331,6 +331,123 @@ const AHEAD = [
   },
 ];
 
+/* ---------- Overview data ---------- */
+const TERMS = [
+  { term: 'φιλοσοφία', latin: 'philosophia', meaning: 'Love of wisdom', note: 'The word is traditionally credited to Pythagoras, in a story told centuries after his death.' },
+  { term: 'φύσις', latin: 'physis', meaning: 'Nature', note: 'The subject of the earliest inquiries, and the root of “physics”.' },
+  { term: 'ἀρχή', latin: 'arche', meaning: 'Beginning, first principle', note: 'Aristotle uses it for the single source that the Milesians sought behind all things.' },
+  { term: 'κόσμος', latin: 'kosmos', meaning: 'Order', note: 'Used by early thinkers for the world seen as an ordered whole, not a heap of things.' },
+  { term: 'λόγος', latin: 'logos', meaning: 'Word, account, reason', note: 'For Heraclitus the hidden order of things; for the Stoics the reason that runs through nature.' },
+  { term: 'ἄτομος', latin: 'atomos', meaning: 'Uncuttable', note: 'The atomists’ name for the smallest bodies, which cannot be divided.' },
+];
+
+const AGES = [
+  {
+    when: 'About 600–500 BC', name: 'The Ionian beginning', ids: ['thales', 'anaximander', 'anaximenes', 'heraclitus'], sites: ['miletus', 'ephesus'],
+    question: 'What is everything made of, and how does it change?',
+    text: 'On the coast of Asia Minor, wealthy trading cities produced the first thinkers to look for natural causes and to write their answers down for others to criticise.',
+  },
+  {
+    when: 'About 530–430 BC', name: 'Italy and Sicily', ids: ['pythagoras', 'xenophanes', 'parmenides', 'zeno-of-elea', 'empedocles'], sites: ['croton'],
+    question: 'What is real, and what is the soul?',
+    text: 'Greek colonists in the west added number, religion and logic. Pythagoras founded a community at Croton, and Parmenides and Zeno made argument about being the centre of the subject.',
+  },
+  {
+    when: 'About 450–399 BC', name: 'Athens of Pericles', ids: ['anaxagoras', 'protagoras', 'gorgias', 'socrates', 'leucippus', 'democritus'], sites: ['athens'],
+    question: 'How should people live together, and can virtue be taught?',
+    text: 'Athens drew thinkers from across the Greek world. Sophists sold training in argument, Socrates questioned everyone he met, and, far to the north at Abdera, the atomists explained nature without a designer.',
+  },
+  {
+    when: 'About 387–322 BC', name: 'The great systems', ids: ['plato', 'aristotle', 'theophrastus', 'antisthenes', 'aristippus', 'diogenes-of-sinope'], sites: ['academy', 'lyceum'],
+    question: 'How can knowledge, ethics and politics be set out as a whole?',
+    text: 'Plato and Aristotle founded permanent schools and built the first complete accounts of reality, knowledge, ethics and the state. The other followers of Socrates developed more austere or more pleasure-loving answers.',
+  },
+  {
+    when: 'About 306 BC onwards', name: 'The Hellenistic schools', ids: ['epicurus', 'zeno-of-citium', 'chrysippus', 'pyrrho'], sites: ['garden-of-epicurus', 'stoa-poikile'],
+    question: 'How can one person live well in an unsettled world?',
+    text: 'After Alexander, the city-state no longer framed everyday life. Epicureans, Stoics and Sceptics offered ways to find calm, and their teaching spread to Rome.',
+  },
+];
+
+// Evenly spaced, like the home page strip: the order matters, the spacing does not.
+const MILESTONES = [
+  { year: -585, date: 'c. 585 BC', label: 'Thales at Miletus', ids: ['thales', 'miletus'],
+    text: 'The tradition begins on the Ionian coast. Thales is said to have explained the world through water, not gods, and, according to Herodotus, to have predicted an eclipse, though historians doubt he could have.' },
+  { year: -550, date: 'c. 550 BC', label: 'Anaximander’s map', ids: ['anaximander'],
+    text: 'Anaximander is credited with the first philosophical book in prose, with the “boundless” as the source of all things, and with one of the first maps of the known world.' },
+  { year: -530, date: 'c. 530 BC', label: 'Pythagoras at Croton', ids: ['pythagoras', 'croton'],
+    text: 'Pythagoras settles in southern Italy and founds a community that joins number, music, ritual and belief in rebirth. The word “philosopher” is traditionally credited to him, but that story is late.' },
+  { year: -500, date: 'c. 500 BC', label: 'Flux and the gods', ids: ['heraclitus', 'xenophanes'],
+    text: 'Heraclitus argues that everything flows, held together by a hidden logos, while Xenophanes mocks the human-shaped gods of Homer. Both survive only through quotation.' },
+  { year: -475, date: 'c. 475 BC', label: 'Parmenides on being', ids: ['parmenides', 'zeno-of-elea'],
+    text: 'Parmenides argues that what is cannot come to be or change. His pupil Zeno defends him with paradoxes. Most later Greek philosophy is an attempt to answer them.' },
+  { year: -450, date: 'c. 450 BC', label: 'Philosophy reaches Athens', ids: ['anaxagoras', 'pericles', 'athens'],
+    text: 'Anaxagoras is reported to have brought natural philosophy to Athens and to have known Pericles. The rich, imperial city becomes the place where thinkers gather.' },
+  { year: -430, date: 'c. 430 BC', label: 'Atoms and the void', ids: ['leucippus', 'democritus'],
+    text: 'Leucippus and Democritus propose that the world is made of atoms moving in empty space. It explains nature without purpose and without gods.' },
+  { year: -427, date: '427 BC', label: 'The Sophists arrive', ids: ['gorgias', 'protagoras'],
+    text: 'Gorgias visits Athens as an envoy in 427 BC, and Protagoras is already teaching there. They sell training in argument to ambitious young citizens and make human institutions a subject of inquiry.' },
+  { year: -399, date: '399 BC', label: 'Socrates is executed', ids: ['socrates', 'trial-of-socrates'],
+    text: 'An Athenian jury convicts Socrates of impiety and of corrupting the young. His followers, above all Plato, make his method of questioning the model for philosophy.' },
+  { year: -387, date: 'c. 387 BC', label: 'The Academy', ids: ['plato', 'academy'],
+    text: 'Plato founds a school in a grove outside Athens, which becomes the model for later schools and lasts in some form for centuries.' },
+  { year: -335, date: '335 BC', label: 'The Lyceum', ids: ['aristotle', 'lyceum'],
+    text: 'Back in Athens, Aristotle teaches in the Lyceum and organises research on an unprecedented scale: animals, constitutions, earlier thinkers.' },
+  { year: -323, date: '323 BC', label: 'Alexander dies', ids: ['death-of-alexander', 'diogenes-of-sinope'],
+    text: 'The Greek cities are no longer the centre of political life, and philosophy turns to how an individual can live well in an unsettled world. Diogenes the Cynic is said to have died the same year.' },
+  { year: -306, date: 'c. 306 BC', label: 'The Garden', ids: ['epicurus', 'garden-of-epicurus'],
+    text: 'Epicurus opens a school in a house and garden at Athens, a community of friends, women and slaves devoted to a life free of fear and disturbance.' },
+  { year: -300, date: 'c. 300 BC', label: 'The Stoa', ids: ['zeno-of-citium', 'stoa-poikile'],
+    text: 'Zeno of Citium begins teaching in the Painted Stoa in the Agora. His followers are called Stoics, “people of the stoa”.' },
+  { year: -270, date: 'c. 270 BC', label: 'Scepticism', ids: ['pyrrho', 'academy'],
+    text: 'Pyrrho’s suspension of judgement, and a sceptical turn in Plato’s own Academy under Arcesilaus, make doubt a position in its own right.' },
+  { year: -230, date: 'c. 230 BC', label: 'Chrysippus’ system', ids: ['chrysippus'],
+    text: 'Chrysippus becomes head of the Stoa and turns Zeno’s teaching into a complete system of logic, physics and ethics.' },
+  { year: -86, date: '86 BC', label: 'Athens is sacked', ids: ['sulla', 'athens'],
+    text: 'Sulla’s army sacks Athens and cuts down the groves around the Academy and Lyceum. Teaching continues, and spreads to Rome; the last pagan schools at Athens were, by tradition, closed in AD 529.' },
+];
+
+// Teacher-to-pupil chains. 's' = well attested, 'd' = traditional or disputed.
+// Names without an entry are shown in plain text.
+const LINEAGES = [
+  { title: 'The Ionian line', blurb: 'Later writers arranged early thinkers into “successions” of teacher and pupil. These are partly a tidy invention, which is why most links are dashed.',
+    nodes: [['thales'], ['anaximander', 'd'], ['anaximenes', 'd'], ['anaxagoras', 'd'], ['Archelaus', 'd'], ['socrates', 'd']] },
+  { title: 'The Eleatics', blurb: 'Parmenides and his pupil Zeno are well attested; his debt to Xenophanes is not.',
+    nodes: [['xenophanes'], ['parmenides', 'd'], ['zeno-of-elea', 's']] },
+  { title: 'The atomists and Epicurus', blurb: 'Epicurus denied owing anything to Democritus, but ancient writers linked them through Nausiphanes.',
+    nodes: [['leucippus'], ['democritus', 's'], ['Nausiphanes', 'd'], ['epicurus', 'd']] },
+  { title: 'Plato’s line', blurb: 'The best-attested chain in Greek philosophy.',
+    nodes: [['socrates'], ['plato', 's'], ['aristotle', 's'], ['theophrastus', 's']] },
+  { title: 'Cynics and Stoics', blurb: 'From Socrates to the Stoa by way of the Cynics. The early links are traditional; from Crates onwards they are better attested.',
+    nodes: [['socrates'], ['antisthenes', 's'], ['diogenes-of-sinope', 'd'], ['Crates', 'd'], ['zeno-of-citium', 's'], ['Cleanthes', 's'], ['chrysippus', 's']] },
+  { title: 'The Cyrenaics', blurb: 'Aristippus of Cyrene, who taught that pleasure is the good, was a pupil of Socrates.',
+    nodes: [['socrates'], ['aristippus', 's']] },
+  { title: 'The Sceptics', blurb: 'Pyrrho learned from Anaxarchus, a follower of Democritus, and passed his views to Timon.',
+    nodes: [['Anaxarchus'], ['pyrrho', 's'], ['Timon', 's']] },
+];
+
+const TEACHING = [
+  { when: 'Socrates', name: 'Talk in public', ids: ['socrates'], sites: ['athens'],
+    text: 'Socrates taught by questioning anyone willing to talk, in the agora, the gymnasia and at private dinners. He charged no fee and wrote nothing.' },
+  { when: 'The Sophists', name: 'Paid lessons', ids: ['protagoras', 'gorgias'],
+    text: 'Travelling teachers charged high fees for lectures and training in argument and public speaking. Plato treats Protagoras as the first to teach for pay.' },
+  { when: 'Pythagoreans and Epicureans', name: 'A way of life', ids: ['pythagoras', 'epicurus'], sites: ['croton', 'garden-of-epicurus'],
+    text: 'Both gathered followers into communities with shared rules and meals. The Epicurean Garden admitted women and slaves; most of what we know of the Pythagorean community comes from much later writers.' },
+  { when: 'Plato', name: 'The Academy', ids: ['plato'], sites: ['academy'],
+    text: 'Plato taught in a grove and gymnasium outside Athens. Students worked on mathematics and on dialectic, the method of argument by question and answer. He is reported to have charged no fees.' },
+  { when: 'Aristotle', name: 'Lectures and research', ids: ['aristotle', 'theophrastus'], sites: ['lyceum'],
+    text: 'In the Lyceum students attended lectures and joined a large programme of collecting and classifying information. The works we have are mostly the lecture notes.' },
+  { when: 'The Stoics', name: 'Open to the public', ids: ['zeno-of-citium', 'chrysippus'], sites: ['stoa-poikile'],
+    text: 'Zeno taught in a public colonnade, where anyone passing could listen. The Stoic course divided philosophy into logic, physics and ethics.' },
+];
+
+const WRITING = [
+  { when: 'Verse', name: 'Poems', ids: ['parmenides', 'empedocles', 'xenophanes'], text: 'Early thinkers often wrote in hexameter verse, the form of Homer and Hesiod, because it carried authority and was easy to remember.' },
+  { when: 'Sayings', name: 'Aphorisms', ids: ['heraclitus'], text: 'Heraclitus wrote short, riddling sayings that demand to be puzzled over. Over a hundred survive as quotations.' },
+  { when: 'Conversation', name: 'Dialogues', ids: ['plato', 'antisthenes'], text: 'Plato and other followers of Socrates wrote conversations, so that the reader has to think the argument through. Plato’s survive almost complete.' },
+  { when: 'Teaching texts', name: 'Treatises and notes', ids: ['aristotle', 'theophrastus', 'chrysippus'], text: 'Aristotle’s surviving works are compressed lecture notes. Chrysippus wrote hundreds of treatises, none of which survives complete.' },
+];
+
 const PORTRAIT_TRIO = ['socrates', 'plato', 'aristotle'];
 const READING = ['republic', 'nicomachean-ethics'];
 
@@ -500,8 +617,54 @@ function schoolCard(s) {
     <article class="panel phil-school">
       <p class="eyebrow">${esc(s.when)}</p>
       <h3>${esc(s.name)}</h3>
+      ${s.question ? `<p class="phil-school-q"><span>Central question</span>${esc(s.question)}</p>` : ''}
       <p>${esc(s.text)}</p>
-      <div class="phil-school-links">${members.map((e) => entityPill(e)).join('')}${places.map((e) => entityPill(e, 'where they met')).join('')}</div>
+      <div class="phil-school-links">${members.map((e) => entityPill(e)).join('')}${places.map((e) => entityPill(e, 'place')).join('')}</div>
+    </article>`;
+}
+
+function termCard(t) {
+  return `
+    <article class="panel phil-term">
+      <p class="phil-term-greek" lang="grc">${esc(t.term)}</p>
+      <h3>${esc(t.latin)} <small>${esc(t.meaning)}</small></h3>
+      <p>${esc(t.note)}</p>
+    </article>`;
+}
+
+function storyTimeline() {
+  const tintOf = (year) => (year <= -480 ? 'archaic' : year <= -323 ? 'classical' : 'hellenistic');
+  const steps = MILESTONES.map((m, i) => `
+    <button type="button" class="mt-step ${i % 2 ? 'below' : 'above'}${i === 0 ? ' is-on' : ''}" data-story="${i}"
+      aria-pressed="${i === 0}" style="--tint:var(--p-${tintOf(m.year)})" title="${esc(m.label)} · ${esc(m.date)}">
+      <span class="mt-label"><span class="mt-name">${esc(m.label)}</span><span class="mt-date">${esc(m.date)}</span></span>
+      <span class="mt-dot"></span>
+    </button>`).join('');
+  const panels = MILESTONES.map((m, i) => `
+    <article class="phil-story-detail" data-story-panel="${i}" ${i === 0 ? '' : 'hidden'} style="--tint:var(--p-${tintOf(m.year)})">
+      <div class="phil-story-date">${esc(m.date)}</div>
+      <div>
+        <h3>${esc(m.label)}</h3>
+        <p>${esc(m.text)}</p>
+        <div class="phil-school-links">${m.ids.map(db.get).filter(Boolean).map((e) => entityPill(e)).join('')}</div>
+      </div>
+    </article>`).join('');
+  return `
+    <div class="mt-scroll"><div class="mini-timeline" role="list" aria-label="Milestones in Greek philosophy"><div class="mt-line" aria-hidden="true"></div>${steps}</div></div>
+    ${panels}`;
+}
+
+function lineageRow(l) {
+  const node = ([ref]) => {
+    const e = db.get(ref);
+    return e ? entityPill(e) : `<span class="rel-pill phil-node-plain"><span>${esc(ref)}</span></span>`;
+  };
+  const chain = l.nodes.map((n, i) => `${i ? `<span class="phil-arrow${n[1] === 'd' ? ' is-dashed' : ''}" role="img" aria-label="${n[1] === 'd' ? 'traditional link' : 'well-attested link'}"></span>` : ''}${node(n)}`).join('');
+  return `
+    <article class="panel phil-lineage">
+      <h3>${esc(l.title)}</h3>
+      <p>${esc(l.blurb)}</p>
+      <div class="phil-chain">${chain}</div>
     </article>`;
 }
 
@@ -532,9 +695,14 @@ export async function renderPhilosophy() {
 
       <nav class="myth-jump" aria-label="Philosophy sections">
         <a href="#/philosophy" data-phil-target="phil-why">Why it matters</a>
+        <a href="#/philosophy" data-phil-target="phil-origin">Where it began</a>
+        <a href="#/philosophy" data-phil-target="phil-ages">Five ages</a>
+        <a href="#/philosophy" data-phil-target="phil-story">The story</a>
         <a href="#/philosophy" data-phil-target="phil-questions">Big questions</a>
         <a href="#/philosophy" data-phil-target="phil-key">Key figures</a>
-        <a href="#/philosophy" data-phil-target="phil-time">Timeline</a>
+        <a href="#/philosophy" data-phil-target="phil-lineage">Who taught whom</a>
+        <a href="#/philosophy" data-phil-target="phil-teaching">How it was taught</a>
+        <a href="#/philosophy" data-phil-target="phil-time">Who lived when</a>
         <a href="#/philosophy" data-phil-target="phil-ahead">Ahead of their time</a>
         <a href="#/philosophy" data-phil-target="phil-schools">Schools</a>
         <a href="#/philosophy" data-phil-target="phil-all">All philosophers</a>
@@ -555,6 +723,28 @@ export async function renderPhilosophy() {
         </div>
       </section>
 
+      <section id="phil-origin" class="myth-section">
+        ${sectionHead('Where it began', 'Miletus, on the Ionian coast, in the early sixth century BC.')}
+        <div class="phil-origin-grid">
+        <div class="phil-why-text">
+          <p>Greek philosophy began in the Ionian cities on the west coast of what is now Turkey, and above all at Miletus. Miletus was a rich trading city that planted colonies around the Black Sea and dealt with Lydia, Egypt and Babylon. Thales, who lived there in the early sixth century, is traditionally the first philosopher; he and his successors Anaximander and Anaximenes kept asking what the world comes from, and gave each a different answer.</p>
+          <p>Why there is an open question, and none of the usual suggestions is proved. Wealth and leisure helped. Contact with older knowledge, such as Egyptian land surveying and Babylonian records of the heavens, gave raw material. No priesthood controlled doctrine, so nobody could forbid a new answer. And in the self-governing cities, public argument was already normal. The poems of Homer and Hesiod gave everyone a common picture of the gods and the world to question.</p>
+          <p>Within a generation the practice spread: to Ephesus, where Heraclitus wrote, to the western colonies where Pythagoras and Parmenides taught, and then to Athens.</p>
+        </div>
+        <aside class="phil-terms-wrap"><p class="eyebrow">Words they gave us</p><div class="phil-terms">${TERMS.map(termCard).join('')}</div></aside>
+        </div>
+      </section>
+
+      <section id="phil-ages" class="myth-section">
+        ${sectionHead('Five ages of Greek philosophy', 'Each age asked a different central question.')}
+        <div class="phil-schools">${AGES.map(schoolCard).join('')}</div>
+      </section>
+
+      <section id="phil-story" class="myth-section phil-story">
+        ${sectionHead('The story in milestones', 'Seventeen turning points from Miletus to the sack of Athens. Choose one. The spacing is even, not to scale; the chart further down draws lifespans to scale.')}
+        ${storyTimeline()}
+      </section>
+
       <section id="phil-questions" class="myth-section">
         ${sectionHead('The big questions', 'Greek philosophy is easiest to follow as a set of arguments. Here are five, with the main answers.')}
         <div class="phil-questions">${QUESTIONS.map(questionCard).join('')}</div>
@@ -572,8 +762,23 @@ export async function renderPhilosophy() {
         </div>
       </section>
 
+      <section id="phil-lineage" class="myth-section">
+        ${sectionHead('Who taught whom', 'Chains of teacher and pupil. Solid arrows are well attested; dashed arrows are traditional or disputed.')}
+        <div class="phil-lineages">${LINEAGES.map(lineageRow).join('')}</div>
+        <p class="phil-tl-note">Ancient writers called these chains “successions”. They were partly tidied after the fact, and a pupil often learned from several teachers. Names in plain text have no entry of their own yet.</p>
+      </section>
+
+      <section id="phil-teaching" class="myth-section">
+        ${sectionHead('How it was taught', 'Philosophy had no single classroom. It was taught in streets, on colonnades, in paid lectures and in communities.')}
+        <div class="phil-schools">${TEACHING.map(schoolCard).join('')}</div>
+        <div style="margin-top:var(--s-10)">
+        ${sectionHead('How it was written down', 'The form a thinker chose shaped what has survived.')}
+        <div class="phil-schools">${WRITING.map(schoolCard).join('')}</div>
+        </div>
+      </section>
+
       <section id="phil-time" class="myth-section">
-        ${sectionHead('Philosophy in time', 'When each thinker lived, against the wars and the schools that framed them. Scroll sideways on a small screen.')}
+        ${sectionHead('Who lived when', 'Every philosopher drawn to scale, against the wars and the schools that framed them. Scroll sideways on a small screen.')}
         ${timelineSection()}
       </section>
 
@@ -616,6 +821,12 @@ export async function renderPhilosophy() {
         root.querySelector(`#${link.dataset.philTarget}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+    const steps = [...root.querySelectorAll('[data-story]')];
+    const storyPanels = [...root.querySelectorAll('[data-story-panel]')];
+    steps.forEach((step) => step.addEventListener('click', () => {
+      steps.forEach((t) => { const on = t === step; t.classList.toggle('is-on', on); t.setAttribute('aria-pressed', String(on)); });
+      storyPanels.forEach((p) => { p.hidden = p.dataset.storyPanel !== step.dataset.story; });
+    }));
     const tabs = [...root.querySelectorAll('[data-spot]')];
     const panels = [...root.querySelectorAll('[data-spot-panel]')];
     const selectTab = (tab, focus = false) => {
