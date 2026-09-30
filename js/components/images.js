@@ -23,13 +23,45 @@ import { store as persist, fold } from '../util.js';
 import { imageOverrides, imageSkip } from '../../data/images.js';
 
 const API = 'https://en.wikipedia.org/w/api.php';
+// An override may name a specific file ("File:Foo.jpg") instead of an article,
+// for the cases where an article's lead image is the wrong portrait -- e.g. a
+// Renaissance painting where a securely attributed ancient bust exists. Such
+// files are resolved on Commons, where they live, and credited there.
+const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
+const isFileTitle = (t) => /^File:/i.test(t);
+
+async function queryFiles(titles, width) {
+  const url = `${COMMONS_API}?action=query&format=json&origin=*&redirects=1`
+    + `&prop=imageinfo&iiprop=url|size&iiurlwidth=${width}`
+    + `&titles=${encodeURIComponent(titles.join('|'))}`;
+  const json = await (await fetch(url)).json();
+  const pages = Object.values(json.query?.pages || {});
+  const normMap = new Map((json.query?.normalized || []).map((x) => [x.from, x.to]));
+  const redirMap = new Map((json.query?.redirects || []).map((x) => [x.from, x.to]));
+  const found = new Map();
+  for (const title of titles) {
+    let t = normMap.get(title) || title;
+    if (redirMap.has(t)) t = redirMap.get(t);
+    const info = pages.find((p) => p.title === t)?.imageinfo?.[0];
+    found.set(title, info ? {
+      title: t,
+      src: info.thumburl || info.url,
+      w: info.thumbwidth || info.width,
+      h: info.thumbheight || info.height,
+      page: info.descriptionurl,
+    } : null);
+  }
+  return found;
+}
+
+const creditLabel = (page) => (/commons\.wikimedia\.org/.test(page || '') ? 'Wikimedia Commons ↗' : 'Wikipedia ↗');
 const THUMB_SIZE = 640;
 const HIRES_SIZE = 1600; // requested only on demand, when the lightbox opens
 // Bump this whenever imageOverrides/imageSkip change in a way that should
 // invalidate previously-cached results (including cached misses) -- the
 // cache never expires on its own, so a stale "no image found" from before
 // an override existed would otherwise stick in a visitor's browser forever.
-const CACHE_KEY = 'images-v8';
+const CACHE_KEY = 'images-v9';
 const BATCH = 45; // MediaWiki's multi-title query limit is 50; leave headroom.
 
 /** entityId -> { title, src, w, h, page } | null (looked up, no usable image) */
@@ -81,6 +113,14 @@ async function flush() {
       const key = fold(t);
       if (!byTitle.has(key)) byTitle.set(key, { title: t, ids: [] });
       byTitle.get(key).ids.push(id);
+    }
+    const fileEntries = [...byTitle.values()].filter((v) => isFileTitle(v.title));
+    for (const v of fileEntries) byTitle.delete(fold(v.title));
+    if (fileEntries.length) {
+      try {
+        const found = await queryFiles(fileEntries.map((v) => v.title), THUMB_SIZE);
+        for (const v of fileEntries) for (const id of v.ids) cache.set(id, found.get(v.title) || null);
+      } catch { /* leave unresolved; retried next visit */ }
     }
     const titles = [...byTitle.values()].map((v) => v.title);
     if (!titles.length) continue;
@@ -316,7 +356,7 @@ function paintHero(node, img) {
   cred.href = img.page;
   cred.target = '_blank';
   cred.rel = 'noopener noreferrer';
-  cred.textContent = 'Wikipedia ↗';
+  cred.textContent = creditLabel(img.page);
   cred.addEventListener('click', (e) => e.stopPropagation());
 
   wrap.append(zoom, cred);
@@ -348,7 +388,7 @@ function paintInline(node, img) {
   cred.href = img.page;
   cred.target = '_blank';
   cred.rel = 'noopener noreferrer';
-  cred.textContent = 'Wikipedia ↗';
+  cred.textContent = creditLabel(img.page);
   cred.addEventListener('click', (e) => e.stopPropagation());
 
   wrap.append(zoom, cred);
@@ -380,6 +420,7 @@ export function fetchHiRes(pageUrl) {
     try {
       const title = decodeURIComponent(pageUrl.split('/wiki/')[1] || '').replace(/_/g, ' ');
       if (!title) return null;
+      if (isFileTitle(title)) return (await queryFiles([title], HIRES_SIZE)).get(title)?.src || null;
       const url = `${API}?action=query&format=json&origin=*`
         + `&prop=pageimages&piprop=thumbnail&pithumbsize=${HIRES_SIZE}`
         + `&titles=${encodeURIComponent(title)}`;

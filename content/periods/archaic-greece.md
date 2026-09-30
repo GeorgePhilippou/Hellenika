@@ -31,6 +31,7 @@ people:
   - cyrus-the-great
   - darius-i
   - parmenides
+  - xenophanes
 sites:
   - delphi
   - olympia

@@ -13,6 +13,7 @@ import { renderTimeline } from './views/timeline.js';
 import { renderMap } from './views/map.js';
 import { renderExplore } from './views/explore.js';
 import { renderMythology } from './views/mythology.js';
+import { renderPhilosophy } from './views/philosophy.js';
 import { renderEntity } from './views/entity.js';
 import { renderCollections, renderCollection } from './views/collections.js';
 import { renderSources } from './views/sources.js';
@@ -27,6 +28,7 @@ const NAV = [
   { path: '/map', label: 'Map', icon: 'map' },
   { path: '/explore', label: 'Explore', icon: 'compass' },
   { path: '/mythology', label: 'Mythology', icon: 'myth' },
+  { path: '/philosophy', label: 'Philosophy', icon: 'quote' },
   { path: '/sources', label: 'Sources', icon: 'source' },
   { path: '/about', label: 'About', icon: 'info' },
 ];
@@ -235,6 +237,7 @@ route('/map/:mode', mount(renderMap));
 route('/world', () => go('/map'));
 route('/explore', mount(renderExplore));
 route('/mythology', mount(renderMythology));
+route('/philosophy', mount(renderPhilosophy));
 route('/e/:id', mount(renderEntity));
 route('/collections', mount(renderCollections));
 route('/collections/:id', mount(renderCollection));

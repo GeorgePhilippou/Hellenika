@@ -67,7 +67,7 @@ function open({ src, page, alt }) {
     cred.href = page;
     cred.target = '_blank';
     cred.rel = 'noopener noreferrer';
-    cred.textContent = 'View source on Wikipedia ↗';
+    cred.textContent = /commons\.wikimedia\.org/.test(page) ? 'View source on Wikimedia Commons ↗' : 'View source on Wikipedia ↗';
     scrim.append(cred);
   }
 

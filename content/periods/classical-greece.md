@@ -55,6 +55,11 @@ people:
   - agesilaus-ii
   - pelopidas
   - dionysius-i
+  - zeno-of-elea
+  - leucippus
+  - gorgias
+  - antisthenes
+  - aristippus
 sites:
   - athens
   - sparta
@@ -67,6 +72,8 @@ sites:
   - thermopylae
   - marathon
   - aegina
+  - academy
+  - lyceum
 artefacts:
   - parthenon-frieze
   - discobolus

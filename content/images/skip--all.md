@@ -7,4 +7,15 @@ ids:
   - zakros-rhyton
   - gournia
   - chaeronea
+  - anaximenes
+  - anaxagoras
+  - empedocles
+  - protagoras
+  - theophrastus
+  - xenophanes
+  - zeno-of-elea
+  - leucippus
+  - gorgias
+  - aristippus
+  - pyrrho
 ---

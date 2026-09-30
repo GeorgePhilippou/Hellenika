@@ -1756,6 +1756,127 @@
   .myth-family-nodes { grid-template-columns: 1fr; }
   .myth-cycle { padding: var(--s-5); }
 }
+/* ============================================================
+   Philosophy overview
+   Shares the mythology page's jump bar, section and concept-grid
+   styles; only what is specific to philosophers lives here.
+   ============================================================ */
+.philosophy-view { overflow: hidden; }
+.phil-intro {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  gap: var(--s-8); align-items: center; min-height: 310px;
+  padding-block: var(--s-12) var(--s-10);
+}
+.phil-intro::before {
+  content: ''; position: absolute; inset: 0 -20vw; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--p-classical) 22%, transparent), transparent 28%),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--p-hellenistic) 10%, transparent), transparent 34%);
+}
+.phil-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
+.phil-intro .lede { max-width: 64ch; }
+.phil-trio { position: relative; height: 260px; }
+.phil-trio-photo {
+  position: absolute; width: 168px; height: 210px; overflow: hidden;
+  display: grid; place-items: center; color: var(--text-3);
+  border: 1px solid var(--border-strong); border-radius: var(--r-xl);
+  background: var(--surface-2); box-shadow: var(--sh-3);
+}
+.phil-trio-photo.is-0 { left: 0; top: 40px; transform: rotate(-4deg); }
+.phil-trio-photo.is-1 { left: 88px; top: 0; z-index: 2; }
+.phil-trio-photo.is-2 { left: 176px; top: 44px; transform: rotate(4deg); }
+.phil-trio-photo .ecard-photo, .phil-feature-photo .ecard-photo, .phil-card-photo .ecard-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
+}
+.phil-register { max-width: 900px; margin-bottom: var(--s-6); }
+.phil-register p { margin: 0; }
+.phil-why-text { max-width: 74ch; margin-bottom: var(--s-8); }
+.phil-why-text p { color: var(--text-2); line-height: 1.7; font-size: 1.02rem; }
+
+.phil-questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.phil-question { padding: var(--s-5); }
+.phil-question h3 { margin-bottom: var(--s-2); font-size: 1.15rem; }
+.phil-question > p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.phil-question ul { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; gap: 1px; }
+.phil-question li {
+  display: grid; grid-template-columns: minmax(110px, auto) 1fr; gap: var(--s-3);
+  padding: 7px 0; border-top: 1px solid var(--border); font-size: var(--fs-sm);
+}
+.phil-question li a { font-weight: 650; }
+.phil-question li span { color: var(--text-2); }
+
+.phil-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--s-4); }
+.phil-feature {
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); overflow: hidden;
+  border: 1px solid var(--border); border-top: 3px solid var(--tint, var(--border-strong));
+  border-radius: var(--r-lg); background: var(--surface);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.phil-feature:hover { border-color: color-mix(in srgb, var(--tint) 60%, var(--border)); box-shadow: var(--sh-2); }
+.phil-feature-photo-link { display: block; }
+.phil-feature-photo, .phil-card-photo {
+  position: relative; display: grid; place-items: center; overflow: hidden; color: var(--tint);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tint) 22%, var(--surface)), color-mix(in srgb, var(--tint) 5%, var(--surface)));
+}
+.phil-feature-photo { width: 100%; height: 100%; min-height: 200px; border-right: 1px solid var(--border); }
+.phil-feature-photo svg, .phil-card-photo svg { opacity: .7; transition: opacity var(--t-med); }
+.phil-feature-photo.has-photo svg, .phil-card-photo.has-photo svg { opacity: 0; }
+.phil-feature-photo.has-photo .ecard-photo, .phil-card-photo.has-photo .ecard-photo { opacity: 1; }
+.phil-feature-body { min-width: 0; padding: var(--s-4) var(--s-5); }
+.phil-feature-body h3 { margin: 2px 0 var(--s-2); font-size: 1.5rem; }
+.phil-feature-body h3 a { color: var(--text); }
+.phil-feature-idea { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.phil-known { margin: var(--s-3) 0 0; color: var(--text-2); font-size: var(--fs-xs); line-height: 1.5; }
+.phil-known span {
+  display: block; margin-bottom: 2px; color: var(--text-3); font-size: var(--fs-xxs);
+  font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.phil-portrait-line { margin: var(--s-3) 0 0; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.phil-portrait-line small { color: var(--text-3); font-size: var(--fs-xxs); line-height: 1.4; }
+.phil-portrait-kind {
+  padding: 2px 8px; border-radius: var(--r-pill); font-size: var(--fs-xxs); font-weight: 700;
+  color: var(--text-2); background: var(--surface-2); border: 1px solid var(--border);
+}
+.phil-portrait-kind.is-none { color: var(--text-3); border-style: dashed; background: transparent; }
+.phil-open { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--s-3); font-size: var(--fs-xs); font-weight: 650; }
+
+.phil-schools { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.phil-school { padding: var(--s-5); }
+.phil-school h3 { margin-block: 2px var(--s-2); }
+.phil-school p:not(.eyebrow) { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+.phil-school-links { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+
+.phil-filters { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-5); }
+.phil-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--s-4); align-items: start; }
+.phil-card {
+  min-width: 0; overflow: hidden; padding-bottom: var(--s-4);
+  border: 1px solid var(--border); border-top: 3px solid var(--tint, var(--border-strong));
+  border-radius: var(--r-lg); background: var(--surface);
+}
+.phil-card[hidden] { display: none; }
+.phil-card > p { margin-inline: var(--s-4); }
+.phil-card-head {
+  display: grid; grid-template-columns: 84px minmax(0, 1fr); align-items: stretch; min-height: 96px;
+  margin-bottom: var(--s-3); color: var(--text); border-bottom: 1px solid var(--border);
+}
+.phil-card-head:hover { text-decoration: none; background: var(--surface-hover); }
+.phil-card-photo { border-right: 1px solid var(--border); }
+.phil-card-identity { padding: var(--s-3) var(--s-4); align-self: center; min-width: 0; }
+.phil-card-identity strong { display: block; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.2; }
+.phil-card-identity small { display: block; margin-top: 3px; color: var(--text-3); font-size: var(--fs-xs); }
+.phil-card-identity em { display: block; margin-top: 3px; color: var(--tint); font-size: var(--fs-xxs); font-style: normal; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.phil-card-idea { margin-block: 0; color: var(--text-2); font-size: var(--fs-sm); line-height: 1.55; }
+
+@media (max-width: 680px) {
+  .phil-intro { grid-template-columns: 1fr; min-height: 0; padding-block: var(--s-10) var(--s-8); }
+  .phil-trio { height: 230px; max-width: 380px; }
+  .phil-trio-photo { width: 132px; height: 170px; }
+  .phil-trio-photo.is-1 { left: 74px; }
+  .phil-trio-photo.is-2 { left: 148px; }
+  .phil-features { grid-template-columns: 1fr; }
+  .phil-feature { grid-template-columns: 96px minmax(0, 1fr); }
+  .phil-question li { grid-template-columns: 1fr; gap: 0; }
+}
 .src-item .n { font-size: var(--fs-sm); color: var(--text-3); text-wrap: pretty; }
 .src-item .u { font-size: var(--fs-xs); color: var(--text-3); }
 

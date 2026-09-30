@@ -35,6 +35,8 @@ people:
   - menander
   - theophrastus
   - diogenes-of-sinope
+  - pyrrho
+  - chrysippus
 sites:
   - alexandria
   - pergamon
@@ -43,6 +45,8 @@ sites:
   - ai-khanoum
   - antioch
   - samothrace
+  - stoa-poikile
+  - garden-of-epicurus
 artefacts:
   - antikythera-mechanism
   - winged-victory-samothrace

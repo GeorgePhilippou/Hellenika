@@ -37,14 +37,14 @@ npm test             # content, geo, journey, map and study-semantics validation
 
 | | |
 |---|---|
-| Entities | 422 |
-| Relationships | 1,914 (authored and automatically derived inverse links) |
-| Evidence-tagged claims | 2,137 |
-| Sources cited | 314 |
-| Mapped locations | 400 |
+| Entities | 434 |
+| Relationships | 1,969 (authored and automatically derived inverse links) |
+| Evidence-tagged claims | 2,199 |
+| Sources cited | 326 |
+| Mapped locations | 412 |
 | Curated collections | 10 |
 
-By kind: 11 periods · 100 people · 39 cities · 45 sites · 61 artefacts · 42 events ·
+By kind: 11 periods · 108 people · 39 cities · 49 sites · 61 artefacts · 42 events ·
 28 battles · 4 wars · 25 texts · 37 myths · 19 deities · 3 empires · 1 kingdom ·
 3 writing systems · 1 language · 3 regions.
 
@@ -114,7 +114,7 @@ js/
     map-canvas.js        historical map with time-driven territories
     graph.js             force-directed relationship graph
     ui.js                shared HTML fragments
-  views/            one module per route
+  views/            one module per route (home, timeline, map, explore, mythology, philosophy, ...)
 data/
   periods · people · places · events · artefacts · texts · myth · culture
   sources · collections · quizzes · geo · journeys · world · images
