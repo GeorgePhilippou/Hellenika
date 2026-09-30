@@ -26,6 +26,7 @@ const PORTRAIT_LABEL = {
   copy: 'Roman portrait',
   coin: 'Ancient coin',
   mosaic: 'Roman mosaic',
+  fresco: 'Roman wall painting',
   none: 'No ancient portrait',
 };
 
@@ -180,14 +181,140 @@ const FIGURES = [
     known: 'Credited with over 700 books, none of which survives complete.',
     portrait: { kind: 'copy', note: 'Roman copy of a Greek portrait type.' },
   },
+  {
+    id: 'melissus', group: 'pre', school: 'Eleatic',
+    idea: 'Defended Parmenides in plain prose, arguing that being is unlimited in extent and time; he also commanded the Samian fleet against Athens.',
+    known: 'About ten fragments survive, quoted by Simplicius.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'philolaus', group: 'pre', school: 'Pythagorean',
+    idea: 'Described a cosmos with a central fire and a moving earth, built from limiters and unlimiteds in harmony.',
+    known: 'Fragments survive, but whether they are authentic is debated.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'archytas', group: 'pre', school: 'Pythagorean',
+    idea: 'Ruled Taras, solved the doubling of the cube in three dimensions and applied mathematics to music.',
+    known: 'A few fragments survive, some perhaps authentic; much of the rest is anecdote.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'archelaus', group: 'pre', school: 'Ionian',
+    idea: 'Taught a version of Anaxagoras’s physics; later writers called him the teacher of Socrates.',
+    known: 'Known only from short reports in later biographers.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'prodicus', group: 'soc', school: 'Sophist',
+    idea: 'Distinguished the exact meanings of near-synonyms, and told the story of Heracles’ choice between Virtue and Vice.',
+    known: 'Known through Plato and Xenophon; his own writing is lost.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'euclides-of-megara', group: 'soc', school: 'Megarian',
+    idea: 'Followed Socrates and taught that the good is one; his school developed logic and paradox.',
+    known: 'Known through short reports in Diogenes Laertius.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'speusippus', group: 'classical', school: 'Academy',
+    idea: 'Succeeded Plato, replaced the Forms with numbers as first principles, and began classifying living things.',
+    known: 'Only fragments survive, mostly in Aristotle’s criticisms.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'xenocrates', group: 'classical', school: 'Academy',
+    idea: 'Led the Academy for a quarter of a century and taught that daimons lie between gods and humans.',
+    known: 'Titles and fragments survive, preserved by later writers.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'strato-of-lampsacus', group: 'classical', school: 'Lyceum',
+    idea: 'Explained the cosmos by natural causes alone, and argued for small voids within matter.',
+    known: 'His works are lost; reports come from Cicero, Simplicius and Hero.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'arcesilaus', group: 'classical', school: 'Academy',
+    idea: 'Turned the Academy sceptical, arguing against the Stoics that nothing is certain.',
+    known: 'Wrote nothing; known through Cicero, Plutarch and Sextus Empiricus.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'carneades', group: 'classical', school: 'Academy',
+    idea: 'Argued both sides of justice before the Romans and developed a theory of the probable.',
+    known: 'Wrote nothing; his pupil Clitomachus recorded his teaching.',
+    portrait: { kind: 'copy', note: 'Roman portrait bust.' },
+  },
+  {
+    id: 'nausiphanes', group: 'later', school: 'Democritean',
+    idea: 'Democritean teacher from whom, in ancient tradition, Epicurus first learned atomism.',
+    known: 'Almost nothing survives; reports come from Diogenes Laertius and Philodemus.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'anaxarchus', group: 'later', school: 'Democritean',
+    idea: 'Followed Alexander to Asia and taught Pyrrho; later writers portrayed him as a courtier.',
+    known: 'Nothing of his writing survives.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'crates-of-thebes', group: 'later', school: 'Cynic',
+    idea: 'Gave up his wealth to live as a Cynic, taught Zeno of Citium, and wrote verse parodying Homer.',
+    known: 'Fragments of poems and anecdotes survive.',
+    portrait: { kind: 'fresco', note: 'Roman wall painting, Villa Farnesina. The identification is proposed, not certain.' },
+  },
+  {
+    id: 'hipparchia', group: 'later', school: 'Cynic',
+    idea: 'Joined the Cynics, married Crates and took part in men’s debates; one of the few ancient women philosophers with a recorded life.',
+    known: 'Known chiefly from a short biography in Diogenes Laertius.',
+    portrait: { kind: 'fresco', note: 'Roman wall painting, Villa Farnesina. The identification is proposed, not certain.' },
+  },
+  {
+    id: 'timon-of-phlius', group: 'later', school: 'Sceptic',
+    idea: 'Pyrrho’s pupil; mocked dogmatic philosophers in verse and preserved his teacher’s thought.',
+    known: 'About 140 lines of his Silloi survive, plus the report of Pyrrho’s teaching he left.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'metrodorus-of-lampsacus', group: 'later', school: 'Epicurean',
+    idea: 'Epicurus’s closest friend and first great disciple, who defended the Garden’s teaching.',
+    known: 'Fragments survive, including some from Herculaneum papyri.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'cleanthes', group: 'later', school: 'Stoic',
+    idea: 'Second head of the Stoa, a former boxer, and author of the Hymn to Zeus.',
+    known: 'The Hymn to Zeus survives; his other works are lost.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'panaetius', group: 'later', school: 'Stoic',
+    idea: 'Brought Stoicism to the Roman elite; his On Duty was the model for Cicero’s De Officiis.',
+    known: 'His works are lost; Cicero is the main witness.',
+    portrait: { kind: 'none' },
+  },
+  {
+    id: 'posidonius', group: 'later', school: 'Stoic',
+    idea: 'Stoic polymath of Rhodes who studied the tides, estimated the earth’s size and wrote a world history.',
+    known: 'Lost; quoted by Strabo, Cicero, Seneca and others.',
+    portrait: { kind: 'copy', note: 'Roman-period portrait bust, Naples.' },
+  },
+  {
+    id: 'philodemus', group: 'later', school: 'Epicurean',
+    idea: 'Epicurean poet-philosopher whose library was buried at Herculaneum and is still being read.',
+    known: 'Hundreds of his works survive as carbonised scrolls from Herculaneum.',
+    portrait: { kind: 'none' },
+  },
 ];
 
 const GROUPS = [
   ['all', 'All'],
   ['pre', 'Presocratics'],
   ['soc', 'Sophists and Socratics'],
-  ['classical', 'Athenian schools'],
-  ['later', 'Later schools'],
+  ['classical', 'Academy and Lyceum'],
+  ['later', 'Hellenistic and later'],
 ];
 
 const FEATURED = ['thales', 'socrates', 'plato', 'aristotle', 'epicurus', 'zeno-of-citium'];
@@ -256,22 +383,22 @@ const QUESTIONS = [
 
 const SCHOOLS = [
   { name: 'Ionian natural philosophers', when: 'Sixth to fifth century BC', ids: ['thales', 'anaximander', 'anaximenes', 'heraclitus'], text: 'From Miletus and Ephesus, the first thinkers to look for natural principles behind the world.' },
-  { name: 'Pythagoreans', when: 'From the late sixth century BC', ids: ['pythagoras'], text: 'A community in southern Italy that joined number, music, ritual purity and belief in rebirth.' },
-  { name: 'Eleatics', when: 'Sixth to fifth century BC', ids: ['xenophanes', 'parmenides', 'zeno-of-elea'], text: 'Argued that reality is single and unchanging. Xenophanes is traditionally counted with them, though scholars question the link.' },
-  { name: 'Pluralists and atomists', when: 'Fifth century BC', ids: ['empedocles', 'anaxagoras', 'leucippus', 'democritus'], text: 'Answered Parmenides by explaining change as the rearrangement of unchanging elements, seeds or atoms.' },
-  { name: 'Sophists', when: 'Fifth century BC', ids: ['protagoras', 'gorgias'], text: 'Paid teachers of argument, rhetoric and civic skill who made human institutions a subject of inquiry.' },
-  { name: 'The Academy', when: 'From about 387 BC', ids: ['socrates', 'plato'], sites: ['academy'], text: 'Plato’s school at Athens, which lasted, with interruptions, for centuries.' },
-  { name: 'The Lyceum', when: 'From 335 BC', ids: ['aristotle', 'theophrastus'], sites: ['lyceum'], text: 'Aristotle’s school, known for research on nature, history and constitutions.' },
-  { name: 'Cynics and Cyrenaics', when: 'Fourth century BC', ids: ['antisthenes', 'diogenes-of-sinope', 'aristippus'], text: 'Two answers to Socrates: reject wealth and convention, or enjoy pleasure without being ruled by it.' },
-  { name: 'Epicureans', when: 'From about 306 BC', ids: ['epicurus'], sites: ['garden-of-epicurus'], text: 'Met in a house and garden at Athens and taught that pleasure, rightly understood, is the good.' },
-  { name: 'Stoics', when: 'From about 300 BC', ids: ['zeno-of-citium', 'chrysippus'], sites: ['stoa-poikile'], text: 'Taught in the Painted Stoa that virtue is enough for happiness and that nature is rational.' },
-  { name: 'Sceptics', when: 'From about 300 BC', ids: ['pyrrho'], text: 'Practised suspension of judgement as the route to tranquillity; formalised in later centuries as Pyrrhonism.' },
+  { name: 'Pythagoreans', when: 'From the late sixth century BC', ids: ['pythagoras', 'philolaus', 'archytas'], text: 'A community in southern Italy that joined number, music, ritual purity and belief in rebirth.' },
+  { name: 'Eleatics', when: 'Sixth to fifth century BC', ids: ['xenophanes', 'parmenides', 'zeno-of-elea', 'melissus'], text: 'Argued that reality is single and unchanging. Xenophanes is traditionally counted with them, though scholars question the link.' },
+  { name: 'Pluralists and atomists', when: 'Fifth century BC', ids: ['empedocles', 'anaxagoras', 'leucippus', 'democritus', 'archelaus'], text: 'Answered Parmenides by explaining change as the rearrangement of unchanging elements, seeds or atoms.' },
+  { name: 'Sophists', when: 'Fifth century BC', ids: ['protagoras', 'gorgias', 'prodicus'], text: 'Paid teachers of argument, rhetoric and civic skill who made human institutions a subject of inquiry.' },
+  { name: 'The Academy', when: 'From about 387 BC', ids: ['socrates', 'plato', 'speusippus', 'xenocrates', 'arcesilaus', 'carneades'], sites: ['academy'], text: 'Plato’s school at Athens, which lasted, with interruptions, for centuries.' },
+  { name: 'The Lyceum', when: 'From 335 BC', ids: ['aristotle', 'theophrastus', 'strato-of-lampsacus'], sites: ['lyceum'], text: 'Aristotle’s school, known for research on nature, history and constitutions.' },
+  { name: 'Socratic schools', when: 'Fourth century BC', ids: ['antisthenes', 'diogenes-of-sinope', 'crates-of-thebes', 'hipparchia', 'aristippus', 'euclides-of-megara'], text: 'Answers to Socrates: reject wealth and convention, or enjoy pleasure without being ruled by it.' },
+  { name: 'Epicureans', when: 'From about 306 BC', ids: ['epicurus', 'metrodorus-of-lampsacus', 'philodemus'], sites: ['garden-of-epicurus'], text: 'Met in a house and garden at Athens and taught that pleasure, rightly understood, is the good.' },
+  { name: 'Stoics', when: 'From about 300 BC', ids: ['zeno-of-citium', 'cleanthes', 'chrysippus', 'panaetius', 'posidonius'], sites: ['stoa-poikile'], text: 'Taught in the Painted Stoa that virtue is enough for happiness and that nature is rational.' },
+  { name: 'Sceptics', when: 'From about 300 BC', ids: ['pyrrho', 'timon-of-phlius', 'anaxarchus'], text: 'Practised suspension of judgement as the route to tranquillity; formalised in later centuries as Pyrrhonism.' },
 ];
 
 
 /* ---------- Timeline data ---------- */
 const TL_START = -640;
-const TL_END = -195;
+const TL_END = -30;
 const tlPct = (year) => ((year - TL_START) / (TL_END - TL_START)) * 100;
 
 // lane: which label row the event sits in, so nearby dates do not collide.
@@ -282,6 +409,7 @@ const TL_EVENTS = [
   { label: 'Trial of Socrates', year: -399, lane: 1, id: 'trial-of-socrates' },
   { label: 'Macedon rules', year: -338, lane: 0, id: 'battle-chaeronea' },
   { label: 'Alexander dies', year: -323, lane: 1, id: 'death-of-alexander' },
+  { label: 'Athens sacked', year: -86, lane: 0, id: 'sulla-sacks-athens' },
 ];
 const TL_SCHOOLS = [
   { label: 'Academy', year: -387, id: 'academy', lane: 'a' },
@@ -403,6 +531,8 @@ const MILESTONES = [
     text: 'Pyrrho’s suspension of judgement, and a sceptical turn in Plato’s own Academy under Arcesilaus, make doubt a position in its own right.' },
   { year: -230, date: 'c. 230 BC', label: 'Chrysippus’ system', ids: ['chrysippus'],
     text: 'Chrysippus becomes head of the Stoa and turns Zeno’s teaching into a complete system of logic, physics and ethics.' },
+  { year: -155, date: '155 BC', label: 'Philosophy reaches Rome', ids: ['carneades', 'panaetius'],
+    text: 'Carneades lectures in Rome for and against justice in 155 BC, and Panaetius soon after becomes the friend of Scipio Aemilianus. Greek philosophy becomes part of Roman education.' },
   { year: -86, date: '86 BC', label: 'Athens is sacked', ids: ['sulla', 'athens'],
     text: 'Sulla’s army sacks Athens and cuts down the groves around the Academy and Lyceum. Teaching continues, and spreads to Rome; the last pagan schools at Athens were, by tradition, closed in AD 529.' },
 ];
@@ -411,19 +541,25 @@ const MILESTONES = [
 // Names without an entry are shown in plain text.
 const LINEAGES = [
   { title: 'The Ionian line', blurb: 'Later writers arranged early thinkers into “successions” of teacher and pupil. These are partly a tidy invention, which is why most links are dashed.',
-    nodes: [['thales'], ['anaximander', 'd'], ['anaximenes', 'd'], ['anaxagoras', 'd'], ['Archelaus', 'd'], ['socrates', 'd']] },
-  { title: 'The Eleatics', blurb: 'Parmenides and his pupil Zeno are well attested; his debt to Xenophanes is not.',
-    nodes: [['xenophanes'], ['parmenides', 'd'], ['zeno-of-elea', 's']] },
+    nodes: [['thales'], ['anaximander', 'd'], ['anaximenes', 'd'], ['anaxagoras', 'd'], ['archelaus', 'd'], ['socrates', 'd']] },
+  { title: 'The Eleatics', blurb: 'Parmenides and his pupil Zeno are well attested; his debt to Xenophanes is not. Melissus defended the same position.',
+    nodes: [['xenophanes'], ['parmenides', 'd'], ['zeno-of-elea', 's'], ['melissus', 'd']] },
+  { title: 'The Pythagoreans', blurb: 'Pythagoras wrote nothing, and the later chain of Pythagorean teachers is partly legend.',
+    nodes: [['pythagoras'], ['philolaus', 'd'], ['archytas', 'd']] },
   { title: 'The atomists and Epicurus', blurb: 'Epicurus denied owing anything to Democritus, but ancient writers linked them through Nausiphanes.',
-    nodes: [['leucippus'], ['democritus', 's'], ['Nausiphanes', 'd'], ['epicurus', 'd']] },
-  { title: 'Plato’s line', blurb: 'The best-attested chain in Greek philosophy.',
-    nodes: [['socrates'], ['plato', 's'], ['aristotle', 's'], ['theophrastus', 's']] },
+    nodes: [['leucippus'], ['democritus', 's'], ['nausiphanes', 'd'], ['epicurus', 'd'], ['metrodorus-of-lampsacus', 's'], ['Zeno of Sidon', 'd'], ['philodemus', 's']] },
+  { title: 'The Academy', blurb: 'The heads of Plato’s school, from its founder to the sceptics. The most continuous line in Greek philosophy.',
+    nodes: [['socrates'], ['plato', 's'], ['speusippus', 's'], ['xenocrates', 's'], ['Polemo', 's'], ['arcesilaus', 's'], ['Lacydes', 's'], ['carneades', 's']] },
+  { title: 'The Lyceum', blurb: 'Aristotle studied with Plato for twenty years before founding his own school.',
+    nodes: [['plato'], ['aristotle', 's'], ['theophrastus', 's'], ['strato-of-lampsacus', 's']] },
   { title: 'Cynics and Stoics', blurb: 'From Socrates to the Stoa by way of the Cynics. The early links are traditional; from Crates onwards they are better attested.',
-    nodes: [['socrates'], ['antisthenes', 's'], ['diogenes-of-sinope', 'd'], ['Crates', 'd'], ['zeno-of-citium', 's'], ['Cleanthes', 's'], ['chrysippus', 's']] },
+    nodes: [['socrates'], ['antisthenes', 's'], ['diogenes-of-sinope', 'd'], ['crates-of-thebes', 'd'], ['zeno-of-citium', 's'], ['cleanthes', 's'], ['chrysippus', 's'], ['Diogenes of Babylon', 's'], ['panaetius', 's'], ['posidonius', 's']] },
+  { title: 'The Megarians', blurb: 'Euclides founded a school of logic; through Stilpo it passed on to Zeno of Citium.',
+    nodes: [['socrates'], ['euclides-of-megara', 's'], ['Eubulides', 'd'], ['Stilpo', 'd'], ['zeno-of-citium', 's']] },
   { title: 'The Cyrenaics', blurb: 'Aristippus of Cyrene, who taught that pleasure is the good, was a pupil of Socrates.',
     nodes: [['socrates'], ['aristippus', 's']] },
   { title: 'The Sceptics', blurb: 'Pyrrho learned from Anaxarchus, a follower of Democritus, and passed his views to Timon.',
-    nodes: [['Anaxarchus'], ['pyrrho', 's'], ['Timon', 's']] },
+    nodes: [['democritus'], ['anaxarchus', 'd'], ['pyrrho', 's'], ['timon-of-phlius', 's']] },
 ];
 
 const TEACHING = [
@@ -503,7 +639,7 @@ function timelineSection() {
     .sort((x, y) => x.e.start - y.e.start);
 
   const ticks = [];
-  for (let y = -600; y <= -200; y += 50) ticks.push(y);
+  for (let y = -600; y <= -50; y += 50) ticks.push(y);
 
   const eventMark = (ev) => {
     const e = ev.id && db.get(ev.id);
@@ -741,7 +877,7 @@ export async function renderPhilosophy() {
       </section>
 
       <section id="phil-story" class="myth-section phil-story">
-        ${sectionHead('The story in milestones', 'Seventeen turning points from Miletus to the sack of Athens. Choose one. The spacing is even, not to scale; the chart further down draws lifespans to scale.')}
+        ${sectionHead('The story in milestones', `${MILESTONES.length} turning points from Miletus to the sack of Athens. Choose one. The spacing is even, not to scale; the chart further down draws lifespans to scale.`)}
         ${storyTimeline()}
       </section>
 

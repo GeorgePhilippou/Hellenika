@@ -1859,7 +1859,7 @@
   overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-xl);
   background: var(--surface); box-shadow: var(--sh-1);
 }
-.phil-tl { --label: 184px; min-width: 1240px; }
+.phil-tl { --label: 184px; min-width: 1640px; }
 .phil-tl-head, .phil-tl-row { display: grid; grid-template-columns: var(--label) minmax(0, 1fr); }
 .phil-tl-head { height: 136px; border-bottom: 1px solid var(--border); }
 .phil-tl-corner {
@@ -1890,7 +1890,7 @@
   border-inline: 1px dashed color-mix(in srgb, var(--accent) 38%, transparent);
 }
 .phil-tl-line { position: absolute; top: 0; bottom: 0; border-left: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); }
-.phil-tl-row { position: relative; height: 32px; align-items: center; }
+.phil-tl-row { position: relative; height: 28px; align-items: center; }
 .phil-tl-name {
   position: sticky; left: 0; z-index: 2; height: 100%; display: flex; align-items: center; gap: 8px;
   padding-inline: 14px; background: var(--surface); border-right: 1px solid var(--border);

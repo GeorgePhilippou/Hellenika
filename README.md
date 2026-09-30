@@ -37,14 +37,14 @@ npm test             # content, geo, journey, map and study-semantics validation
 
 | | |
 |---|---|
-| Entities | 434 |
-| Relationships | 1,969 (authored and automatically derived inverse links) |
-| Evidence-tagged claims | 2,199 |
-| Sources cited | 326 |
-| Mapped locations | 412 |
+| Entities | 455 |
+| Relationships | 2,042 (authored and automatically derived inverse links) |
+| Evidence-tagged claims | 2,303 |
+| Sources cited | 334 |
+| Mapped locations | 433 |
 | Curated collections | 10 |
 
-By kind: 11 periods · 108 people · 39 cities · 49 sites · 61 artefacts · 42 events ·
+By kind: 11 periods · 129 people · 39 cities · 49 sites · 61 artefacts · 42 events ·
 28 battles · 4 wars · 25 texts · 37 myths · 19 deities · 3 empires · 1 kingdom ·
 3 writing systems · 1 language · 3 regions.
 

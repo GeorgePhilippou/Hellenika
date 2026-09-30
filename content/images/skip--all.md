@@ -18,4 +18,21 @@ ids:
   - gorgias
   - aristippus
   - pyrrho
+  - melissus
+  - philolaus
+  - archytas
+  - archelaus
+  - prodicus
+  - euclides-of-megara
+  - speusippus
+  - xenocrates
+  - arcesilaus
+  - strato-of-lampsacus
+  - cleanthes
+  - panaetius
+  - metrodorus-of-lampsacus
+  - philodemus
+  - nausiphanes
+  - timon-of-phlius
+  - anaxarchus
 ---
