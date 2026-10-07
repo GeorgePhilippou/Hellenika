@@ -59,7 +59,7 @@ Athenian statesman nicknamed "the Just", rival of Themistocles, who assessed the
 Aristides was remembered as the incorruptible politician, and his rivalry with Themistocles frames the early history of the Athenian empire.
 
 <!-- field: body -->
-Aristides was an Athenian of good family, active in politics from Marathon to the founding of the Delian League. His reputation was for justice, and the epithet "the Just" attached to him early, though Herodotus, who calls him the best and most just man in Athens, does not use it as a title.
+Aristides (c. 530–468 BC) was an Athenian of good family, active in politics from Marathon to the founding of the Delian League. His reputation was for justice, and the epithet "the Just" attached to him early, though Herodotus, who calls him the best and most just man in Athens, does not use it as a title.
 
 The quarrel with Themistocles was about policy. Themistocles wanted to spend the silver from Laurion on a fleet; Aristides is said to have preferred to keep Athens an army city. In the ostracism of about 482, Aristides lost and was sent away for ten years, and the fleet was built. The Athenian Agora has yielded ostraka with his name. Plutarch's tale of the illiterate voter, who asked Aristides to write his own name, belongs to the moral tradition.
 

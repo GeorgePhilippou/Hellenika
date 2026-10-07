@@ -44,6 +44,8 @@ Athenian sculptor of the mid-4th century BC whose nude Aphrodite of Knidos was, 
 He broke the convention that female divine images had to be draped, and later antiquity treated the resulting statue as a watershed rather than a scandal contained -- a measure of how far his influence outran the one Roman-era Greek city that first bought it.
 
 <!-- field: body -->
+Praxiteles (active c. 375–330 BC) was an Athenian sculptor, the most celebrated of the 4th century BC.
+
 Praxiteles worked in an Athens no longer the imperial power of Pericles' day, but still the artistic centre of the Greek world, and he worked mostly in marble, whose softer surface let him render flesh with a warmth bronze could not match. Ancient writers single him out for a particular quality: a sense of languid, almost melting grace that later critics called his hallmark.
 
 His fame rests overwhelmingly on one commission. Offered a choice between a draped and an undraped Aphrodite, the people of Kos took the modest option and the people of Knidos took the nude -- and it was Knidos's statue that became, in Pliny's words, superior not just to Praxiteles' other work but to every statue anywhere. Pilgrims reportedly travelled to Knidos for the statue alone, and a shrine was built so it could be viewed from every angle, itself an unusual arrangement for a cult image.

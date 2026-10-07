@@ -50,6 +50,8 @@ Pupil of Anaxagoras, traditionally the link between the natural philosophers and
 Archelaus is the figure through whom ancient writers connected Ionian natural philosophy to Socrates, which shows how they wanted the story to run.
 
 <!-- field: body -->
+Archelaus (5th century BC) was an Athenian philosopher, a pupil of Anaxagoras and, by tradition, a teacher of Socrates.
+
 Archelaus is known almost entirely from short reports in Diogenes Laertius and later doxographers. He is said to have been the pupil of Anaxagoras, to have been born in Athens or Miletus, and to have taught natural philosophy at Athens. Ancient writers added that Socrates was his pupil, and that the Socratic turn to ethics came from Archelaus's own remark that just and shameful things exist not by nature but by convention.
 
 The link with Socrates is weak. Diogenes Laertius cites Ion of Chios, a contemporary, for a journey that Socrates made to Samos in the company of Archelaus, which suggests a real acquaintance, but Plato never mentions Archelaus and Aristotle never calls him the teacher of Socrates. It is probably an invention that made Socrates the heir of natural philosophy, which is exactly the place Plato's Socrates denies he held.

@@ -51,6 +51,8 @@ A Milesian woman in Pericles' household, credited by Plato and others with unusu
 The best-documented non-royal woman of Classical Athens, and a test case for how thoroughly hostile male sources can distort a life.
 
 <!-- field: body -->
+Aspasia (c. 470–400 BC) came from Miletus in Ionia to Athens, where she became the partner of Pericles.
+
 As a *metic* — a resident foreigner — Aspasia was outside the restrictions binding Athenian citizen women, which is probably why she could appear in public intellectual settings at all. Plato's *Menexenus* has Socrates claim she wrote Pericles' funeral speech, though the dialogue's tone makes it hard to read straight.
 
 Comic poets attacked her savagely, calling her a brothel-keeper and blaming her for starting two wars. These are jokes aimed at Pericles through her, not testimony. Almost everything about her comes through such filters, and the result is a figure who is unusually visible and unusually hard to see clearly.

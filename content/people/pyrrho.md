@@ -51,7 +51,7 @@ Elean philosopher who travelled to India with Alexander and taught that suspendi
 Pyrrho gave his name to the most radical form of ancient scepticism, and his encounter with the East is one of the classic questions in the history of philosophy.
 
 <!-- field: body -->
-Pyrrho was born at Elis and began as a painter, according to Diogenes Laertius. He then studied under Anaxarchus, a follower of Democritus, and joined Alexander's expedition to Asia. Ancient sources say he met Indian ascetics, the gymnosophists, and Persian magi, and that this changed his thinking.
+Pyrrho (c. 360–270 BC) was born at Elis and began as a painter, according to Diogenes Laertius. He then studied under Anaxarchus, a follower of Democritus, and joined Alexander's expedition to Asia. Ancient sources say he met Indian ascetics, the gymnosophists, and Persian magi, and that this changed his thinking.
 
 He left no writings. What we know comes from his pupil Timon of Phlius, a satirical poet, through a passage that survives in the fourth-century Christian author Eusebius, who quotes the Peripatetic Aristocles. It says that for anyone who wishes to be happy, three questions arise: what things are like, how we should relate to them, and what will result. The answer is that things are equally indifferent, unmeasurable and undecidable, that we should therefore neither trust nor distrust the senses or opinion but remain without judgement, and that the outcome will be first silence, then freedom from disturbance.
 

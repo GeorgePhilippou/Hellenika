@@ -51,7 +51,7 @@ Third head of the Stoa, whose voluminous writing turned Zeno's teaching into a c
 Chrysippus's work on logic and on fate and freedom made Stoicism the dominant philosophy of the Hellenistic and Roman world.
 
 <!-- field: body -->
-Chrysippus was born at Soli in Cilicia and came to Athens as a young man. He studied with Cleanthes, Zeno's successor, and also with sceptical members of the Academy, which gave him an unusual skill in arguing against his own positions. When Cleanthes died about 230 BC, Chrysippus took charge of the Stoa.
+Chrysippus (c. 279–206 BC) was born at Soli in Cilicia and came to Athens as a young man. He studied with Cleanthes, Zeno's successor, and also with sceptical members of the Academy, which gave him an unusual skill in arguing against his own positions. When Cleanthes died about 230 BC, Chrysippus took charge of the Stoa.
 
 Diogenes Laertius lists more than 700 books and adds that he wrote as many as 500 lines a day. All of them are lost, and the tradition depends on quotation. Yet the scale of the work explains the ancient saying that without Chrysippus there would be no Stoa: he elaborated Zeno's ideas into a coherent account of logic, physics and ethics, and defended them against Academic and Epicurean objections.
 

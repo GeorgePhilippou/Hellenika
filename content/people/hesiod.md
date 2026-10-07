@@ -49,6 +49,8 @@ A Boeotian farmer-poet whose Theogony organised the Greek gods into a genealogy,
 Gave Greek religion a systematic cosmogony and supplied the myth of the Five Ages, the Prometheus story and Pandora in their canonical forms.
 
 <!-- field: body -->
+Hesiod (active c. 700 BC) was a Greek poet from Ascra in Boeotia, author of the *Theogony* and *Works and Days*.
+
 Unlike Homer, Hesiod tells us about himself: his father emigrated from Aeolian Cyme to the "miserable village" of Ascra, and his brother Perses cheated him in an inheritance dispute settled by corrupt "bribe-swallowing kings". Works and Days is addressed to that brother — part farming almanac, part moral protest.
 
 The Theogony traces the cosmos from Chaos through Gaia and Ouranos to the reign of Zeus, in a succession myth with clear parallels in the Hittite Song of Kumarbi and Babylonian Enuma Elish — evidence of Near Eastern influence on early Greek thought. Works and Days also gives the earliest surviving version of the myth of the Five Ages of Man, a declining sequence running from a lost, effortless Golden Age through Silver and Bronze to the poet's own harsher, toil-filled Iron Age, a pessimistic framework for human history that later Greek and Roman writers returned to repeatedly.

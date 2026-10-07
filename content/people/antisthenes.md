@@ -52,7 +52,7 @@ Athenian follower of Socrates who emphasised virtue and self-sufficiency, and wa
 Antisthenes represents the austere line in Socrates's legacy, and the link that ancient writers drew between Socrates and the Cynics and Stoics.
 
 <!-- field: body -->
-Antisthenes was an Athenian of mixed background who, according to Diogenes Laertius, walked daily from Piraeus to hear Socrates. Before that he had studied with Gorgias, and his writing shows the influence of both men. Plato, who mentions him only once, lists him among those with Socrates at his death.
+Antisthenes (c. 445–365 BC) was an Athenian of mixed background who, according to Diogenes Laertius, walked daily from Piraeus to hear Socrates. Before that he had studied with Gorgias, and his writing shows the influence of both men. Plato, who mentions him only once, lists him among those with Socrates at his death.
 
 He is said to have taken from Socrates the ideal of self-mastery and made it austere. Virtue, he held, can be taught, is sufficient for happiness, and requires only a Socratic strength of character. Wealth, reputation and pleasure are not goods. Diogenes Laertius records that he wore a doubled cloak, carried a staff and a wallet, and wrote on language, logic, ethics and Homer. In Xenophon's Symposium he is a lively participant, arguing that riches and poverty lie in the soul.
 

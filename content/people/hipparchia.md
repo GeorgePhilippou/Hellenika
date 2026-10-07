@@ -48,7 +48,7 @@ Thracian woman who joined the Cynics, married Crates, and is one of the few anci
 Hipparchia is the clearest case of a woman choosing the philosopher's life in the ancient world, and a rare corrective to a record made almost entirely by men.
 
 <!-- field: body -->
-Hipparchia was born at Maroneia on the Thracian coast, and came to Athens with her brother Metrocles, who studied under Theophrastus and later turned to Cynicism with Crates. According to Diogenes Laertius, she fell in love with Crates, despite his poverty and unattractive appearance, and was so determined to marry him that she threatened suicide. When her parents appealed to Crates to dissuade her, he is said to have stripped, pointed to his possessions and told her to decide.
+Hipparchia (c. 350–280 BC) was born at Maroneia on the Thracian coast, and came to Athens with her brother Metrocles, who studied under Theophrastus and later turned to Cynicism with Crates. According to Diogenes Laertius, she fell in love with Crates, despite his poverty and unattractive appearance, and was so determined to marry him that she threatened suicide. When her parents appealed to Crates to dissuade her, he is said to have stripped, pointed to his possessions and told her to decide.
 
 She chose. She wore the Cynic cloak, travelled with Crates, and joined men's dinners and debates, something respectable Greek women did not do. The tradition adds that the couple made love in public, in the Cynic rejection of shame, although that story is typical of the stories told about Cynics and may be embellished.
 

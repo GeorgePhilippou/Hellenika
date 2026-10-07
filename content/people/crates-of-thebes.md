@@ -52,7 +52,7 @@ Theban Cynic who gave up his wealth, married Hipparchia, and taught Zeno, linkin
 Crates carried the Cynic way of life into a gentler, more sociable form, and is the personal link between Cynicism and Stoicism.
 
 <!-- field: body -->
-Crates was born at Thebes into a wealthy family. Tradition says that he left his estate to the city, or gave it away, to become a Cynic, and lived with a wallet and staff, in the manner of Diogenes. The story is told in several versions, and Diogenes Laertius records that some sources say that he left a fortune in trust for his sons if they were ordinary people, and to the city if they became philosophers.
+Crates (c. 365–285 BC) was born at Thebes into a wealthy family. Tradition says that he left his estate to the city, or gave it away, to become a Cynic, and lived with a wallet and staff, in the manner of Diogenes. The story is told in several versions, and Diogenes Laertius records that some sources say that he left a fortune in trust for his sons if they were ordinary people, and to the city if they became philosophers.
 
 Where Diogenes was harsh, Crates was known for charm. Athenians nicknamed him the "door-opener" because he visited houses uninvited to offer advice and settle quarrels, and was welcomed. His poems, which parody Homer and Solon, describe an imaginary city called Pera, the Wallet, which is free of luxury and flatterers. Only fragments survive.
 

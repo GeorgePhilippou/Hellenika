@@ -43,7 +43,7 @@ Deputy tyrant of Miletus who started the Ionian Revolt against Persia in 499 BC,
 The revolt he provoked drew Athens into open conflict with Persia and gave Darius the justification he used for the invasion that ended at Marathon — the opening move of the entire Persian Wars.
 
 <!-- field: body -->
-Aristagoras governed Miletus as deputy for his father-in-law Histiaeus, who was being kept at the Persian court. After a failed Persian-backed expedition against Naxos left him politically exposed, he chose rebellion rather than face the consequences, renouncing his tyranny and declaring Miletus a democracy to rally support across Ionia.
+Aristagoras (died c. 497 BC) governed Miletus as deputy for his father-in-law Histiaeus, who was being kept at the Persian court. After a failed Persian-backed expedition against Naxos left him politically exposed, he chose rebellion rather than face the consequences, renouncing his tyranny and declaring Miletus a democracy to rally support across Ionia.
 
 He sailed to Greece seeking help, and was turned down flatly by Sparta — Herodotus has the Spartan king asking how many days' march it was to the Persian capital, and dismissing the whole scheme on hearing the answer. Athens and Eretria sent twenty-five ships between them, a modest force that nonetheless reached Sardis and burned it, an act that reportedly set Darius on a course of vengeance against Athens specifically.
 

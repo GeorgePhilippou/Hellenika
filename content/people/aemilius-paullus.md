@@ -45,6 +45,8 @@ Roman consul who destroyed the Macedonian army at Pydna in 168 BC, ending the ki
 Pydna finished what Cynoscephalae had begun a generation earlier: it abolished the Macedonian monarchy outright, the last of Alexander's line of successor states in Europe to fall to Rome.
 
 <!-- field: body -->
+Lucius Aemilius Paullus (c. 229–160 BC) was a Roman general and statesman, twice consul.
+
 Sent against Perseus, the last king of Macedon, Aemilius Paullus won the battle at Pydna in under an hour once his legions found gaps opening in the Macedonian phalanx's line on uneven ground — a tactical lesson Rome had learned once already at Cynoscephalae and now applied decisively. Perseus was captured and paraded through Rome in Paullus's triumph; the kingdom was broken into four nominally independent republics and, within a generation, annexed outright as a province.
 
 The plunder from Macedon was vast, and Paullus kept remarkably little of it for himself beyond Perseus's royal library, which he gave to his sons' education — one of whom, adopted into another family, became Scipio Aemilianus, later the destroyer of Carthage. Roman writers made much of the fact that in the days around his triumph Paullus lost two young sons to illness, framing the personal tragedy as a kind of cosmic balance against his public glory, whether or not that reading reflects how he experienced it himself.

@@ -50,6 +50,8 @@ Seleucid king who restored his empire from Anatolia to Bactria, then lost it all
 His defeat at Magnesia in 190 BC made Rome the arbiter of the eastern Mediterranean.
 
 <!-- field: body -->
+Antiochus III the Great (c. 241–187 BC) was king of the Seleucid Empire from 222 BC.
+
 Antiochus inherited a fragmenting empire at eighteen and spent a decade recovering it, marching east to Bactria and India in a campaign consciously modelled on Alexander's — which earned him the title "the Great".
 
 He then crossed into Greece, and Rome responded. Defeated at Thermopylae in 191 BC and decisively at Magnesia in 190, he accepted the Treaty of Apamea: he surrendered Anatolia, gave up his elephants and fleet, and agreed to an indemnity so large it destabilised his finances for a generation. He was killed while looting a temple to raise money for it.

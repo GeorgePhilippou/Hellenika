@@ -52,7 +52,7 @@ Follower of Socrates who founded the Megarian school, known for logic and parado
 The Megarians developed the logical side of Socrates's questioning, and their puzzles helped make logic a separate discipline.
 
 <!-- field: body -->
-Euclides came from Megara, which lay on the road between Athens and the Peloponnese. Plato's Phaedo names him among those present at Socrates's death, and Plato's Theaetetus is framed as a conversation he had written down. Diogenes Laertius says that after the execution of Socrates, Plato and other followers withdrew to Megara and stayed with him.
+Euclides (c. 435–365 BC) came from Megara, which lay on the road between Athens and the Peloponnese. Plato's Phaedo names him among those present at Socrates's death, and Plato's Theaetetus is framed as a conversation he had written down. Diogenes Laertius says that after the execution of Socrates, Plato and other followers withdrew to Megara and stayed with him.
 
 His own teaching is poorly known. Diogenes Laertius attributes to him the view that the good is one, although it is called by several names, such as wisdom, god and intelligence, and that what is opposed to the good does not exist. It recalls Parmenides, and suggests that Euclides combined Socratic ethics with Eleatic arguments about unity. He also criticised arguments by analogy, which ancient writers took to show his interest in logic.
 

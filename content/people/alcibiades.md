@@ -53,7 +53,7 @@ Brilliant, treacherous Athenian aristocrat who commanded for Athens, defected to
 His career is the clearest single illustration of how personal ambition destabilised Athenian democracy during the Peloponnesian War.
 
 <!-- field: body -->
-Alcibiades lost his father young and was raised by his guardian Pericles himself. It gave him an unusually privileged, front-row education in Athenian politics and power. The ancient sources dwell repeatedly on his charisma and good looks as central to his career.
+Alcibiades (c. 450–404 BC) lost his father young and was raised by his guardian Pericles himself. It gave him an unusually privileged, front-row education in Athenian politics and power. The ancient sources dwell repeatedly on his charisma and good looks as central to his career.
 
 In 415 BC he pushed Athens into the ambitious Sicilian Expedition, against more cautious advice. On the eve of the fleet's departure, the city's herms, boundary markers topped with the head of Hermes, were mutilated overnight in an act of sacrilege that badly unsettled Athens. Alcibiades was implicated and recalled from the fleet to stand trial. Rather than return to face charges that could easily prove fatal, he defected to Sparta. There he advised the Spartans to fortify Decelea inside Attica, a base that harassed Athenian territory for the rest of the war and did the Athenian economy lasting harm.
 

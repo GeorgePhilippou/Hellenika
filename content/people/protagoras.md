@@ -52,7 +52,7 @@ Sophist from Abdera who taught the Athenians to argue both sides of any question
 Protagoras helped turn argument into a subject of education and made relativism a live philosophical position.
 
 <!-- field: body -->
-Protagoras came from Abdera, in Thrace, and spent much of his career in Athens. He offered instruction in what Plato has him call "good judgement" in private and public affairs, and he charged high fees, which scandalised those who believed virtue could not be sold.
+Protagoras (c. 490–420 BC) came from Abdera, in Thrace, and spent much of his career in Athens. He offered instruction in what Plato has him call "good judgement" in private and public affairs, and he charged high fees, which scandalised those who believed virtue could not be sold.
 
 Almost nothing survives in his own words. The most famous line, that man is the measure of all things, of things that are that they are, and of things that are not that they are not, is quoted by Plato and left unexplained. Plato reads it as relativism: what seems true to each person is true for that person. Whether Protagoras meant this, or something narrower about perception or about public disputes, is disputed. He also wrote on arguing both sides of a case, and taught his students to make the weaker case appear the stronger, a phrase that became a slur.
 

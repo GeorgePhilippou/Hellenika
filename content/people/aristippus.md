@@ -52,7 +52,7 @@ Socratic from Cyrene who taught that pleasure is the highest good, in contrast t
 Aristippus began the hedonist tradition in Greek ethics that Epicurus later refined into a system centred on tranquillity.
 
 <!-- field: body -->
-Aristippus was born at Cyrene, the Greek city in Libya, and came to Athens attracted by the fame of Socrates. Unlike Plato and Antisthenes, he charged for teaching and lived comfortably, often at the courts of tyrants. Plato in the Phaedo says he was not with Socrates on the last day, a remark some ancient writers took as a criticism.
+Aristippus (c. 435–356 BC) was born at Cyrene, the Greek city in Libya, and came to Athens attracted by the fame of Socrates. Unlike Plato and Antisthenes, he charged for teaching and lived comfortably, often at the courts of tyrants. Plato in the Phaedo says he was not with Socrates on the last day, a remark some ancient writers took as a criticism.
 
 The teaching attributed to him, or to his school, places the good in pleasure, and pleasure in the bodily sensation of the present moment. The future is uncertain and the past is gone, so only the present counts. But he is also said to have insisted on self-command, summed up in the remark that he possessed pleasure without being possessed by it. Anecdotes present him as adaptable, at ease with the poor and the powerful alike. In Xenophon's Memorabilia, Socrates rebukes him with the story of Heracles choosing between virtue and vice, which portrays him as a warning.
 

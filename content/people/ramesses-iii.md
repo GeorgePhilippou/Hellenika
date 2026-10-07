@@ -48,6 +48,8 @@ Egyptian pharaoh who repelled the Sea Peoples in the 1170s BC and recorded the c
 His inscriptions are the single most important written source for the Bronze Age Collapse.
 
 <!-- field: body -->
+Ramesses III was pharaoh of Egypt from about 1186 to 1155 BC, the last great king of the New Kingdom, who fought off the invasions of the Sea Peoples.
+
 The Medinet Habu reliefs depict land and naval battles against a coalition Ramesses names — Peleset, Tjeker, Shekelesh, Denyen, Weshesh — and describe them as having already swept away Hatti, Alashiya, Carchemish and Arzawa. That list matches the archaeological destruction horizon closely.
 
 The naval battle scene is the earliest detailed depiction of a sea fight anywhere, showing Egyptian archers destroying ships trapped against the shore.

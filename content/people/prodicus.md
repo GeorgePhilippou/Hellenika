@@ -50,7 +50,7 @@ Sophist from Ceos known for distinguishing the exact meanings of words and for t
 Prodicus shows the Sophists' interest in language itself, and his parable of Heracles became one of the most retold moral fables in antiquity.
 
 <!-- field: body -->
-Prodicus came from the island of Ceos and visited Athens often, sometimes as his city's envoy, and lectured for fees throughout Greece. Plato's dialogues treat him with mild mockery. In the Protagoras he appears lying in bed surrounded by blankets, expounding on the exact sense of words; in the Cratylus Socrates says that he took only the one-drachma lecture.
+Prodicus (c. 465–395 BC) came from the island of Ceos and visited Athens often, sometimes as his city's envoy, and lectured for fees throughout Greece. Plato's dialogues treat him with mild mockery. In the Protagoras he appears lying in bed surrounded by blankets, expounding on the exact sense of words; in the Cratylus Socrates says that he took only the one-drachma lecture.
 
 His speciality was what he called the correctness of names: he insisted on separating words that people use as if they were the same, such as "angry" and "irritated", "wish" and "desire". It is one of the earliest attempts at a systematic study of meaning, and it affected the way Socrates and Plato approached definitions.
 

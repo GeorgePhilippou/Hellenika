@@ -49,6 +49,8 @@ Milesian philosopher who explained the origin of the world as an undefined "boun
 Broke from naming a concrete stuff — water, air — as the source of everything, proposing instead an abstract, indefinite principle. That move toward abstraction shaped how later Greek philosophy framed its questions.
 
 <!-- field: body -->
+Anaximander (c. 610–546 BC) was a philosopher of Miletus, pupil and successor of Thales.
+
 Almost nothing of Anaximander's own words survives beyond a single disputed fragment, transmitted through later summaries by Aristotle and others. He is reported to have taught that the apeiron — the boundless or indefinite — underlies and generates all things, including the opposites (hot and cold, wet and dry) whose interaction produces the world as we experience it. Choosing something without fixed qualities avoided the problem of explaining how, say, water alone could become fire.
 
 He is also credited with the first Greek world map, a diagram of a disc-shaped earth, and a strikingly proto-evolutionary claim that the first animals arose in moisture and that humans descended from creatures of a different kind, since a human infant could not have survived unaided from birth in the ancestral state.

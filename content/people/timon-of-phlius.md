@@ -50,7 +50,7 @@ Pyrrho's pupil and satirical poet, who mocked rival philosophers in verse and pr
 Since Pyrrho wrote nothing, Timon is the main reason we know what Pyrrho taught, and his Silloi are the earliest surviving philosophical satire.
 
 <!-- field: body -->
-Timon came from Phlius in the Peloponnese. According to Diogenes Laertius, he began as a dancer, then turned to philosophy, studied with the Megarian Stilpo and met Pyrrho at Elis, whom he followed. He lived in Chalcedon and Athens, and grew rich as a teacher of rhetoric and philosophy, before ending his life in Athens, where he died at about ninety.
+Timon (c. 320–230 BC) came from Phlius in the Peloponnese. According to Diogenes Laertius, he began as a dancer, then turned to philosophy, studied with the Megarian Stilpo and met Pyrrho at Elis, whom he followed. He lived in Chalcedon and Athens, and grew rich as a teacher of rhetoric and philosophy, before ending his life in Athens, where he died at about ninety.
 
 His Silloi, in three books, was a hexameter poem of mockery in which the shades of the dead philosophers are summoned and laughed at. Parodying Homer, Timon ridiculed Plato for his inflated style, Zeno for his dogmatism, and the pretensions of the scholars at Alexandria, whom he called birds fed in a birdcage, the Museum. Only about 140 lines survive, and they are a mix of abuse and brilliant phrases. Pyrrho and Xenophanes are among the few spared.
 

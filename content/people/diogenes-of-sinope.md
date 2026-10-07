@@ -56,6 +56,8 @@ Exiled Sinopean who turned poverty, shamelessness and wit into a philosophy, and
 Diogenes made the rejection of convention a way of life, and through his followers passed that ideal to the Stoics.
 
 <!-- field: body -->
+Diogenes of Sinope (c. 412–323 BC), the founder of Cynic philosophy, came from Sinope on the Black Sea and lived mostly in Athens and Corinth.
+
 Almost everything about Diogenes comes from anecdote, collected centuries after his death by Diogenes Laertius. What can be said with some confidence is that he came from Sinope on the Black Sea, was exiled, and spent his adult life in Athens and Corinth teaching by example. The reason for his exile was said to be that he "defaced the currency". The phrase became his motto, in the sense that Cynics defaced the values of convention, and it may be a pun added to the story later.
 
 The Cynic life, as told of him, consisted in reducing existence to what nature requires: a cloak, a staff, a wallet, food from the market, and a jar for shelter. He ate, argued and relieved himself in public, on the principle that nothing natural is shameful. His weapon was the joke. Asked where he came from, he called himself a citizen of the world; seen carrying a lamp in daylight, he said he was looking for a human being.

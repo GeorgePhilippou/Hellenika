@@ -45,6 +45,8 @@ Author of Athens' first written law code in 621 BC — famously severe, and the 
 Writing the law down took its interpretation out of the exclusive hands of aristocratic judges, however harsh its content.
 
 <!-- field: body -->
+Draco was the first lawgiver of Athens, who around 621 BC wrote down the city's laws for the first time.
+
 Ancient tradition held that Draco prescribed death for almost every offence, and that his laws were written in blood rather than ink. Solon repealed nearly all of them.
 
 The exception is the homicide law, which survived and was re-inscribed in 409/8 BC — a copy of that inscription still exists. It is notably sophisticated: it distinguishes intentional from unintentional killing, sets out procedures for exile and pardon by the victim's family, and takes blood vengeance out of private hands. Its public display also made a rule available for scrutiny beyond an aristocratic judge's memory. The written code, not its proverbial severity, was the lasting achievement.

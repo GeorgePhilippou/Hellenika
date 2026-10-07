@@ -48,7 +48,7 @@ Founder of Stoicism, which taught that virtue is the only good and that we shoul
 Stoicism became the dominant philosophy of the Roman elite and remains the most widely practised ancient philosophy today.
 
 <!-- field: body -->
-Zeno was a Phoenician merchant from Cyprus who was shipwrecked near Athens, wandered into a bookshop, read about Socrates, and stayed. He taught in the Stoa Poikile — the Painted Porch — from which Stoicism takes its name.
+Zeno (c. 334–262 BC) was a Phoenician merchant from Cyprus who was shipwrecked near Athens, wandered into a bookshop, read about Socrates, and stayed. He taught in the Stoa Poikile — the Painted Porch — from which Stoicism takes its name.
 
 The core claim is that virtue alone is good, vice alone is bad, and everything else — health, wealth, reputation, life itself — is "indifferent", though some indifferents are naturally preferred. Since only our own judgements are fully in our power, tranquillity comes from aligning our will with nature rather than with outcomes.
 

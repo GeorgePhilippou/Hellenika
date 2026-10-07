@@ -48,6 +48,8 @@ The Spartan admiral who destroyed the Athenian fleet at Aegospotami and ended th
 Won the war by building, with Persian money, the one thing Sparta had always lacked: a fleet.
 
 <!-- field: body -->
+Lysander (died 395 BC) was the Spartan admiral who won the Peloponnesian War.
+
 Lysander secured funding from the Persian prince Cyrus the Younger — an alliance that traded the Greek cities of Asia Minor back to Persian control in exchange for the ships that beat Athens.
 
 At Aegospotami in 405 BC he caught the Athenian fleet beached and unprepared and captured nearly all of it. Athens, dependent on imported grain through the Hellespont, was starved into surrender within months. The Long Walls were pulled down to flute music.

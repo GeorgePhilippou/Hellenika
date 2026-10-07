@@ -52,7 +52,7 @@ Sceptical head of the Academy who argued both sides of justice before the Romans
 Carneades's arguments on justice introduced Greek philosophy to the Roman elite, and his theory of the probable is an early attempt to reason without certainty.
 
 <!-- field: body -->
-Carneades was born at Cyrene and came to Athens, where he studied with the Stoic Diogenes of Babylon and the Academic Hegesinus, and later led the Academy. He wrote nothing, and what we know comes from Cicero and Sextus Empiricus, who used the records of his pupil Clitomachus.
+Carneades (214–129 BC) was born at Cyrene and came to Athens, where he studied with the Stoic Diogenes of Babylon and the Academic Hegesinus, and later led the Academy. He wrote nothing, and what we know comes from Cicero and Sextus Empiricus, who used the records of his pupil Clitomachus.
 
 In 155 BC the Athenians sent an embassy to Rome to appeal against a fine, and the three envoys included the heads of the three main schools: Carneades for the Academy, Diogenes of Babylon for the Stoa and Critolaus for the Peripatetics. Carneades gave two lectures. The first praised justice, in the manner of Plato and Aristotle. On the next day he refuted everything he had said and argued that justice is either foolish or merely conventional, since states that practise it cannot win empires. Plutarch says the young Romans were captivated, and that the elder Cato, alarmed, had the embassy sent home.
 

@@ -52,7 +52,7 @@ Second head of the Stoa, the boxer who became a philosopher, and author of the H
 Cleanthes kept the Stoa together after Zeno, and his Hymn is the most complete Stoic text to survive from the early school.
 
 <!-- field: body -->
-Cleanthes came from Assos in the Troad and, according to the biographical tradition, was a boxer before he turned to philosophy. Diogenes Laertius says that he arrived at Athens with four drachmas and worked at night, drawing water for a gardener, to pay for lessons from Zeno. The Athenians who saw this are supposed to have called him "the well-drawer". He became Zeno's pupil and, at his death in 262 BC, his successor.
+Cleanthes (c. 330–230 BC) came from Assos in the Troad and, according to the biographical tradition, was a boxer before he turned to philosophy. Diogenes Laertius says that he arrived at Athens with four drachmas and worked at night, drawing water for a gardener, to pay for lessons from Zeno. The Athenians who saw this are supposed to have called him "the well-drawer". He became Zeno's pupil and, at his death in 262 BC, his successor.
 
 Cleanthes was less inventive than Zeno and Chrysippus, but he was a reliable guardian of the school's doctrine, and stressed the physical side of Stoicism, in which a fiery breath pervades the cosmos. His Hymn to Zeus, preserved by Stobaeus, is a prayer in hexameters to Zeus as the ruler of nature, whose law governs all things, and asks to be led by fate willingly and not dragged unwillingly. It is the single best example of Stoic piety.
 

@@ -50,7 +50,7 @@ Aristotle's successor at the Lyceum, founder of systematic botany and author of 
 Theophrastus kept Aristotle's school alive and carried its method of collecting and classifying observations into the study of plants and minerals.
 
 <!-- field: body -->
-Theophrastus was born at Eresos on Lesbos and came to Athens to study, first, according to later tradition, with Plato and then with Aristotle. Aristotle is said to have renamed him, from Tyrtamos to a "divine speaker"; the story is anecdotal. When Aristotle left Athens in 322 BC, Theophrastus took over the Lyceum and led it for some thirty-five years. In 307 a law restricting the philosophical schools briefly drove him from the city, and it was repealed within a year.
+Theophrastus (c. 371–287 BC) was born at Eresos on Lesbos and came to Athens to study, first, according to later tradition, with Plato and then with Aristotle. Aristotle is said to have renamed him, from Tyrtamos to a "divine speaker"; the story is anecdotal. When Aristotle left Athens in 322 BC, Theophrastus took over the Lyceum and led it for some thirty-five years. In 307 a law restricting the philosophical schools briefly drove him from the city, and it was repealed within a year.
 
 His surviving work is a fraction of his output. The Enquiry into Plants describes several hundred species by their structure, habitat and cultivation, and arranges them in categories; the companion Causes of Plants asks why they grow as they do. Both draw on the observations of farmers, root-cutters and travellers as well as on his own. He also wrote on stones, winds and weather signs, and on the history of earlier philosophers, a book that later survey-writers used heavily.
 

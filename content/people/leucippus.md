@@ -50,6 +50,8 @@ Shadowy founder of atomism, who answered Parmenides by allowing empty space and 
 If Leucippus existed, he originated the idea that the world is built of atoms and void, one of the most successful explanatory ideas in the history of science.
 
 <!-- field: body -->
+Leucippus (5th century BC) was a Greek philosopher, probably from Miletus or Abdera, credited with founding atomism.
+
 Almost nothing is securely known about Leucippus. Aristotle and his pupil Theophrastus attribute the founding of atomism to him, and treat Democritus as his continuator. Later biographers place him at Miletus, at Abdera or at Elea, which suggests they did not know. Epicurus is reported to have denied that any such philosopher existed, perhaps because he wished to claim Democritus as the founder of atomism, or because the real evidence was thin.
 
 The system attributed to him is a response to Parmenides. Parmenides said that what is cannot fail to be, so there can be no void and no change. Leucippus is said to have accepted that what is cannot come to be from nothing, but insisted that there is also what is not, empty space. Then the world consists of countless tiny bodies, invisible, indivisible and without internal change, moving in that void. Things come to be when atoms join and cease when they separate. Differences between things arise from the shape, arrangement and position of the atoms.

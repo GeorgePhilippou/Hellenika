@@ -50,7 +50,7 @@ Atomist philosopher who taught that pleasure — properly understood as tranquil
 Defended a fully materialist account of the world, and argued that fear of death and the gods is groundless and removable.
 
 <!-- field: body -->
-Epicurus founded a community called the Garden outside Athens, admitting women and slaves as members — unusual to the point of scandal. His physics is atomist, taken from Democritus: everything is atoms and void, the soul is material and disperses at death, and the gods exist but take no interest in us.
+Epicurus (341–270 BC) founded a community called the Garden outside Athens, admitting women and slaves as members — unusual to the point of scandal. His physics is atomist, taken from Democritus: everything is atoms and void, the soul is material and disperses at death, and the gods exist but take no interest in us.
 
 His ethics follows from this. "Death is nothing to us" — where death is, we are not. The pleasure he recommends is not indulgence but the absence of bodily pain and mental disturbance, best achieved through friendship, simple food and philosophy. The popular use of "epicurean" to mean luxurious inverts what he actually taught; his enemies started that.
 

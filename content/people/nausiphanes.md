@@ -50,7 +50,7 @@ Democritean teacher from Teos, traditionally the link between the atomists and t
 Nausiphanes is the route by which Democritus's atomism reached Epicurus, and Epicurus's hostility to him is a clue to how a founder disowned his debts.
 
 <!-- field: body -->
-Nausiphanes came from Teos in Ionia and taught at Teos. Diogenes Laertius reports that he was a follower of Democritus and that he studied with Pyrrho, which connects him to two quite different traditions, atomism and scepticism. Epicurus spent time in Teos in his youth and, according to several ancient sources, attended Nausiphanes's lectures.
+Nausiphanes (active late 4th century BC) came from Teos in Ionia and taught at Teos. Diogenes Laertius reports that he was a follower of Democritus and that he studied with Pyrrho, which connects him to two quite different traditions, atomism and scepticism. Epicurus spent time in Teos in his youth and, according to several ancient sources, attended Nausiphanes's lectures.
 
 Epicurus later claimed to be self-taught, and went out of his way to denigrate his former teacher. Letters quoted by Diogenes Laertius call Nausiphanes a jellyfish, an illiterate and a fraud. The vehemence suggests a real debt, and modern scholars often see Nausiphanes as the man who introduced Epicurus to Democritean atomism.
 

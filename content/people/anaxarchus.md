@@ -52,7 +52,7 @@ Democritean philosopher from Abdera who followed Alexander to Asia and taught Py
 Anaxarchus is the link between Democritus and Pyrrho, and a case study in the philosopher as courtier.
 
 <!-- field: body -->
-Anaxarchus came from Abdera, the home of Democritus, and was trained in his tradition. He joined Alexander the Great's expedition and stayed with the king during the campaigns in Asia. His pupil Pyrrho of Elis went too, and this is how Pyrrho reached India. Both men are said to have observed the Indian ascetics, although the sources for that are later.
+Anaxarchus (c. 380–320 BC) came from Abdera, the home of Democritus, and was trained in his tradition. He joined Alexander the Great's expedition and stayed with the king during the campaigns in Asia. His pupil Pyrrho of Elis went too, and this is how Pyrrho reached India. Both men are said to have observed the Indian ascetics, although the sources for that are later.
 
 His reputation at court was mixed. Plutarch and Arrian portray him as a flatterer who urged Alexander to accept the honours due to a god, in contrast to the historian Callisthenes, who refused. In one story he consoled Alexander, who was tormented by remorse after killing his friend Cleitus, with the argument that the king's will is the law and whatever the king does is right. The philosopher's reputation as a flatterer stayed with him in the ancient biographies.
 
