@@ -53,6 +53,8 @@ The plain where Alexander destroyed the main Persian army on 1 October 331 BC, o
 The battle that ended Achaemenid power and delivered the Persian Empire to Alexander.
 
 <!-- field: body -->
+Gaugamela lies on the plain east of the Tigris near modern Mosul in northern Iraq, where Alexander defeated Darius III on 1 October 331 BC in the decisive battle for the Persian Empire.
+
 Darius picked open ground, cleared it for his scythed chariots, and assembled forces from across the empire including elephants. He had every advantage of number and terrain.
 
 Alexander advanced obliquely to the right, drawing the Persian left outward to prevent an outflanking. When a gap opened in the Persian line he drove the Companion cavalry into it in a wedge aimed at Darius, who fled again. On the other flank Parmenion was in serious trouble and Alexander had to break off pursuit to rescue him.

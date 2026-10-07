@@ -53,6 +53,8 @@ A Greek colony in North Africa that grew rich on silphium, a medicinal plant har
 One of the most successful Greek colonies, and the site of the first recorded human-caused extinction of a commercial species.
 
 <!-- field: body -->
+Cyrene stands on a plateau near the coast of eastern Libya, in the region named Cyrenaica after it.
+
 Founded from Thera around 631 BC after a drought, reportedly at the direction of the Delphic oracle. Cyrene became wealthy, producing the philosopher Aristippus and the mathematician Eratosthenes.
 
 Its wealth rested on silphium, a plant used as seasoning, medicine and contraceptive, which grew only in a narrow coastal strip and resisted cultivation. Cyrenean coins depict it, and its seed pod — heart-shaped — is one proposed origin of the heart symbol. Overharvesting drove it to extinction by the first century AD; Pliny records that the last stalk was sent to the emperor Nero as a curiosity.

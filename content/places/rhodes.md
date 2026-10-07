@@ -51,6 +51,8 @@ A naval and commercial power whose Colossus was one of the Seven Wonders, and wh
 Survived one of antiquity's greatest sieges and set the legal standards for Mediterranean shipping.
 
 <!-- field: body -->
+Rhodes was founded in 408 BC at the northern tip of the island of Rhodes, off south-western Asia Minor, by the union of the island's three older cities. It became a leading Hellenistic trading and naval power.
+
 In 305–304 BC Demetrius Poliorcetes besieged Rhodes with siege towers including the *Helepolis*, a nine-storey armoured tower 40 m high moved by 3,400 men. The Rhodians held. Demetrius left his equipment behind, and they sold it to fund the Colossus — a 33 m bronze statue of Helios that stood about 54 years before an earthquake toppled it in 226 BC. It did not straddle the harbour; that image is medieval invention.
 
 Rhodian sea law on jettison and shared loss was adopted into Roman law and survives in modern admiralty practice as general average. The Antikythera mechanism is often attributed to a Rhodian workshop, where Hipparchus and later Posidonius worked. Beyond its naval strength, Rhodes cultivated a distinct reputation across the Hellenistic world as a relatively neutral, trusted mediator in disputes between the larger, more aggressive successor kingdoms, a diplomatic role that helped preserve its independence for as long as any Greek state managed against the growing pressure of Rome.

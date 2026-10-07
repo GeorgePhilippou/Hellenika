@@ -48,6 +48,8 @@ A Greek city destroyed by Philip II in 348 BC and never reoccupied — leaving t
 Because it was destroyed and abandoned in a known year, it is the benchmark for dating Classical domestic material.
 
 <!-- field: body -->
+Olynthus was a Greek city on the Chalkidiki peninsula in northern Greece and head of the Chalcidian League, until Philip II of Macedon destroyed it in 348 BC.
+
 Olynthus was laid out on a grid with standardised house plots of about 17 by 17 m. More than a hundred houses have been excavated, showing the typical arrangement: rooms around a courtyard, a covered *pastas* portico facing south for winter sun, a dedicated *andron* for male dining with an off-centre door to fit the couches, and separate women's quarters.
 
 Philip II destroyed it in 348 BC and sold the population into slavery — one of the events Demosthenes used to argue that Philip was an existential threat. Because nobody rebuilt, everything left behind belongs to a single moment, which makes Olynthus the fixed point for Classical Greek domestic archaeology.

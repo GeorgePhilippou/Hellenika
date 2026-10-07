@@ -51,6 +51,8 @@ A Mycenaean fortress with walls up to eight metres thick, corbelled galleries, a
 The most impressive surviving Mycenaean military architecture, and Homer's "Tiryns of the great walls".
 
 <!-- field: body -->
+Tiryns is a Mycenaean citadel in the Argolid near Nafplio, at its height around 1400–1200 BC; Homer calls it "Tiryns of the great walls".
+
 Tiryns sits on a low limestone outcrop near the sea. Its walls reach 8 m thick, containing corbelled galleries with pointed vaults built of dry-laid blocks — no mortar, no arch, held by weight alone.
 
 A syrinx passage leads outside the walls to underground cisterns, matching the arrangement at Mycenae and Athens, and built in the same late phase. Three sites independently investing in secure water at the same moment is one of the strongest lines of evidence that the Mycenaean palaces saw the collapse coming.

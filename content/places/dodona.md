@@ -53,6 +53,8 @@ The oldest Greek oracle, where priests interpreted the rustling of a sacred oak 
 Its lead tablets preserve the everyday concerns of ordinary Greeks in their own words, unmatched anywhere else.
 
 <!-- field: body -->
+Dodona, in the mountains of Epirus in north-western Greece, held an oracle of Zeus that Herodotus called the oldest in Greece.
+
 Homer already calls Dodona ancient. Zeus was consulted through the sound of wind in the leaves of a sacred oak, interpreted by priests who, according to Homer, slept on the ground and never washed their feet.
 
 More than 4,000 inscribed lead tablets have been recovered, on which visitors wrote their questions and folded them for the answer. They are startlingly ordinary: whether to buy a particular property; whether the child his wife is carrying is his; whether to go into sheep farming; whether a stolen blanket will be recovered. Almost no other source lets us hear non-elite Greeks asking about their own lives.

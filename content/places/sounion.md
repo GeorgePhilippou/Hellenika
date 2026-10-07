@@ -50,6 +50,8 @@ The Temple of Poseidon on a cliff at the southern tip of Attica — the first an
 A strategic lookout and a statement of Athenian naval identity, placed where it could not be missed.
 
 <!-- field: body -->
+Cape Sounion is the southern tip of Attica, where a temple of Poseidon overlooks the sea route into Athens.
+
 Built around 444 BC on the site of an earlier temple destroyed by the Persians, the Doric temple stands 60 m above the sea. Its columns were cut with only sixteen flutes instead of the usual twenty, reducing the surface exposed to salt spray.
 
 Sounion also guarded the sea route to the Laurion silver mines that funded the Athenian fleet, and was fortified during the Peloponnesian War.

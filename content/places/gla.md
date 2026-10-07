@@ -55,6 +55,8 @@ An enormous Mycenaean fortress on a rock in the drained Lake Copais basin — se
 Evidence for a Mycenaean hydraulic engineering project on a scale not matched in Greece again until the modern era.
 
 <!-- field: body -->
+Gla is a huge Mycenaean fortress on a former island in the drained Lake Copais, in Boeotia, built around 1300 BC and abandoned around 1200 BC.
+
 Gla's circuit wall runs nearly three kilometres, enclosing about 20 hectares — but the interior holds no palace and little housing. Instead there are long storage buildings and an unusual L-shaped structure.
 
 It was built in connection with the draining of Lake Copais: the Mycenaeans dug canals and built dykes tens of kilometres long to convert a seasonal lake into farmland. Gla appears to have been the administrative and storage centre for that reclaimed land, probably controlled from Orchomenos.

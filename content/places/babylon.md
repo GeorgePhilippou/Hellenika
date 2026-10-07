@@ -50,6 +50,8 @@ The greatest city of Mesopotamia, where Alexander died in 323 BC and where his e
 Its astronomical archives are the longest continuous scientific record from the ancient world, and they date Alexander's death precisely.
 
 <!-- field: body -->
+Babylon, on the Euphrates south of modern Baghdad, was the greatest city of Mesopotamia for nearly two thousand years and a royal capital of the Persian Empire.
+
 Alexander entered Babylon in 331 BC after Gaugamela and was received without a fight. He planned to make it a capital, ordered the ziggurat Etemenanki restored, and died there in June 323 BC.
 
 Babylonian astronomical diaries — nightly records of celestial and civil events kept for some seven centuries — note the death of the king, giving a date that converts to 11 June 323 BC. This is one of very few ancient deaths datable to the day from an independent, contemporary, non-Greek source.

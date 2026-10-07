@@ -52,6 +52,8 @@ An Early Bronze Age settlement whose "House of the Tiles" is the finest survivin
 Its destruction c. 2200 BC marks the end of the Early Helladic II culture and a major discontinuity on the mainland.
 
 <!-- field: body -->
+Lerna is a settlement mound on the coast of the Argolid south of Argos, occupied from the Neolithic to the Mycenaean period and best known for its Early Bronze Age remains of around 2500–2200 BC.
+
 The House of the Tiles is a two-storey rectangular building about 25 m long with a fired-clay-tiled roof — an early use of roof tiles anywhere — and internal corridors and staircases. It was not an ordinary house: hundreds of clay sealings from containers indicate controlled storage and administration within an increasingly unequal Early Helladic community.
 
 It burned around 2200 BC, and the fire hardened the clay sealings and preserved them. A burial mound was raised over the ruins, suggesting that later inhabitants remembered the destroyed building even as the settlement was rebuilt on entirely different lines. The causes of the destruction remain disputed. In much later Greek myth, Lerna became the marsh where Heracles killed the Hydra.

@@ -48,6 +48,8 @@ The Phoenician island city that resisted Alexander for seven months until he bui
 Source of the alphabet Greeks adapted, and of the purple dye that made "royal purple" a phrase.
 
 <!-- field: body -->
+Tyre, on the coast of modern Lebanon, was the leading city of Phoenicia and the founder of Carthage.
+
 Tyre's main city stood on an island 800 m offshore with walls rising straight from the sea. In 332 BC, refused entry, Alexander built a mole out to it from the mainland — demolishing the old mainland city for stone — under constant attack, then took the walls with ship-mounted siege towers.
 
 The causeway silted up and permanently joined the island to the shore; Tyre is a peninsula today because of a siege.

@@ -46,6 +46,8 @@ A Megarian colony on the Bosporus controlling the grain route from the Black Sea
 Its position made it strategically decisive in antiquity and imperial capital of the world for a millennium afterwards.
 
 <!-- field: body -->
+Byzantion stood on the European shore of the Bosporus at the entrance to the Black Sea — the site of later Constantinople and modern Istanbul.
+
 Founded around 667 BC by settlers from Megara. Herodotus records the Persian general Megabazus calling the earlier colonists of Chalcedon, on the opposite shore, blind — because they had picked the inferior site when the best position in the world was visible across the water.
 
 Whoever held Byzantion held the Bosporus, and therefore the grain shipments from the Black Sea on which Athens depended. Control of this route is a recurring strategic thread through Greek history, and cutting it is how Sparta finally won the Peloponnesian War.

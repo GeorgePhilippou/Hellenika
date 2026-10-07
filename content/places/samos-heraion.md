@@ -49,6 +49,8 @@ Sanctuary of Hera whose successive temples pushed Greek architecture to its stru
 Its votive finds prove the scale of Archaic Greek contact with Egypt, the Levant, Cyprus and even Iran.
 
 <!-- field: body -->
+The Heraion of Samos, on the south coast of the island near the river Imbrasos, was the great sanctuary of Hera, who was believed to have been born there.
+
 The Samians built the first great Ionic temple here around 570 BC, replaced it after subsidence, and under the tyrant Polycrates began a still larger one with a double colonnade — over 100 m long, never finished. One column stands today.
 
 The votive deposits are the real revelation: Egyptian bronzes, Assyrian and Syrian ivories, Cypriot figurines, an Iranian horse frontlet. Archaic Greeks were embedded in a Mediterranean-wide exchange network, and Samos was one of its busiest nodes. Herodotus notes that the Samians dedicated a tenth of a windfall from a Spanish voyage here.

@@ -50,6 +50,8 @@ A wealthy Mycenaean centre in Boeotia with a tholos tomb rivalling the Treasury 
 Homer calls it one of the richest cities in Greece, and its Copais drainage works support the claim.
 
 <!-- field: body -->
+Orchomenos in Boeotia was one of the richest Mycenaean centres, controlling the fertile Copais basin; in legend it was the home of the Minyans.
+
 The "Treasury of Minyas" is a tholos tomb whose dome approaches the Treasury of Atreus in scale, with a side chamber whose ceiling is carved in a spiral and rosette pattern of exceptional quality. The traditional name links it to a legendary king and does not identify its occupant.
 
 Orchomenos controlled the Copais basin and the drainage that made it productive, and was probably the power behind Gla. Managing canals, dykes, storage and reclaimed farmland implies organisation far beyond the citadel itself. Homer lists Orchomenos with Egyptian Thebes as a byword for wealth. It remained a significant Boeotian city after the Bronze Age and was later destroyed by its rival Thebes in 364 BC.

@@ -54,6 +54,8 @@ The plain where Athenian hoplites defeated a Persian landing force in 490 BC, an
 Proved Persian infantry could be beaten, and gave Athens a founding victory it celebrated for centuries.
 
 <!-- field: body -->
+Marathon is a coastal plain in north-east Attica, about 40 km from Athens, where the Athenians defeated a Persian army in 490 BC.
+
 The *Soros*, a 9 m mound on the plain, covers the cremated Athenian dead. Excavation confirmed ash, burnt bone and vases of the right date — an unusual honour, since Athenians were normally buried in the state cemetery.
 
 The Athenians ran the last stretch into the Persian archers to cross the killing zone quickly, then held the wings while the deliberately thinned centre gave ground, enveloping the Persians. Herodotus gives 6,400 Persian dead to 192 Athenian.

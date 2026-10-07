@@ -52,6 +52,8 @@ Capital of Macedon, birthplace of Alexander, and site of the finest pebble mosai
 The centre from which Macedon governed Greece and launched the conquest of Asia.
 
 <!-- field: body -->
+Pella lies in the plain of central Macedonia, north-west of Thessaloniki.
+
 Archelaus moved the Macedonian capital here around 400 BC and invited Greek artists — Zeuxis painted the palace, Euripides spent his last years and died here.
 
 The pebble mosaics of c. 300 BC are made from natural coloured river stones set in cement, with lead strips for outlines: a stag hunt signed by Gnosis, a lion hunt, Dionysus riding a panther. The modelling of muscle and drapery in nothing but graded pebbles is remarkable.

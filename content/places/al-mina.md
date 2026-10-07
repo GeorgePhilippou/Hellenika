@@ -48,6 +48,8 @@ A trading settlement at the mouth of the Orontes where Greek pottery appears fro
 The clearest archaeological evidence for renewed Greek contact with the Near East just as the alphabet arrives in Greece.
 
 <!-- field: body -->
+Al Mina was a trading port at the mouth of the Orontes river on the coast of northern Syria, active from about 800 to 300 BC.
+
 Leonard Woolley excavated Al Mina in 1936 and found Euboean Greek pottery in quantity from around 800 BC — precisely when Greeks adopt the Phoenician script.
 
 Whether Greeks lived here or their pots simply arrived through Phoenician middlemen is disputed, and it matters: the first is a Greek trading community abroad, the second is Greeks receiving goods passively. The pottery includes drinking and mixing vessels, which suggests people using them rather than trade goods in transit.

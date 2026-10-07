@@ -54,6 +54,8 @@ Home of the Eleusinian Mysteries, the most prestigious initiation cult in Greece
 Practised for nearly two thousand years by initiates including emperors — and its central secret was never revealed.
 
 <!-- field: body -->
+Eleusis lies on the coast about 20 km west of Athens. Its sanctuary of Demeter and Persephone was the home of the Eleusinian Mysteries, celebrated from at least the 7th century BC until the end of the 4th century AD.
+
 The Mysteries re-enacted the story of Demeter and her daughter Persephone, taken by Hades and returned for part of each year. Initiates walked the fourteen miles from Athens along the Sacred Way, fasted, drank the *kykeon*, and entered the Telesterion — a hall with a forest of internal columns and stepped seating for thousands.
 
 What they saw is unknown. Revealing it carried the death penalty, and Alcibiades was prosecuted for parodying the rite at a private party. Initiates across two millennia — including Cicero, who wrote that the Mysteries taught him to live with joy and die with hope — kept the secret.

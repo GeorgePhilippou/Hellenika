@@ -61,6 +61,8 @@ The site that broke the "Dark Age" narrative: a monumental tenth-century buildin
 Demonstrates wealth, monumental architecture, and long-distance contact at exactly the moment Greece was supposed to have none.
 
 <!-- field: body -->
+Lefkandi is a coastal settlement on the island of Euboea, between Chalcis and Eretria, occupied from the Bronze Age to about 700 BC and richest in the 10th and 9th centuries BC.
+
 The Toumba building of c. 1000–950 BC is 50 m long and 14 m wide, apsidal, with an external post colonnade — arguably the ancestor of the peripteral Greek temple, three centuries before any other example.
 
 Beneath its floor were two shafts. One held a cremated man in a bronze amphora of Cypriot manufacture, wrapped in linen, with an iron sword and spearhead; beside him an inhumed woman with gold hair-coils, a gold pectoral and an heirloom Babylonian pendant already 700 years old. The other shaft held four horses, apparently killed for the burial.

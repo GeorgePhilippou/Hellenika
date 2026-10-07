@@ -49,6 +49,8 @@ An Early Bronze Age town on Lemnos with a stone-built assembly hall, sometimes c
 Its tiered public hall is the earliest known purpose-built space for collective decision-making in Europe.
 
 <!-- field: body -->
+Poliochni is an Early Bronze Age town on the east coast of Lemnos in the northern Aegean, occupied from about 3200 BC and among the oldest towns in Europe.
+
 Poliochni was fortified with stone walls, laid out with paved streets, drainage and a public well, and organised into blocks of adjoining houses — a genuine town, contemporary with the earliest phases of Troy across the water.
 
 One building contains stone benches in tiers along the walls facing an open floor, seating perhaps fifty. It is normally interpreted as an assembly hall, which would make it the oldest known council chamber in Europe by two thousand years. The interpretation rests on the architecture alone; there are no inscriptions.

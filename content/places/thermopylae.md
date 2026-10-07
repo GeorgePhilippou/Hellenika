@@ -52,6 +52,8 @@ The narrow coastal pass where Leonidas and his rearguard held Xerxes' army for t
 The archetypal last stand, and a rare case where archaeology has confirmed the location and the fighting.
 
 <!-- field: body -->
+Thermopylae is a coastal pass in central Greece, between Mount Kallidromo and the Malian Gulf, on the main road from northern into southern Greece.
+
 The pass was named for its hot sulphur springs, which still flow. In 480 BC it was a defile only a few metres wide between cliffs and sea; sediment from the Spercheios river has since pushed the coastline several kilometres out, so the battlefield is now an inland plain — one reason the site was long misidentified.
 
 Spyridon Marinatos excavated Kolonos hill in the 1930s and found large numbers of Persian bronze arrowheads, confirming both the location and Herodotus' account that the last survivors were overwhelmed by missiles on the hill.

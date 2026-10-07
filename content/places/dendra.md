@@ -52,6 +52,8 @@ A Mycenaean chamber-tomb cemetery that produced the only complete Bronze Age Aeg
 The Dendra panoply settles what Mycenaean heavy armour actually looked like, and it is nothing like the Homeric description.
 
 <!-- field: body -->
+Dendra is a Mycenaean cemetery near the citadel of Midea in the Argolid, used for royal and elite burials around 1500–1200 BC.
+
 Excavated by Swedish and Greek teams, the Dendra tombs produced a full bronze cuirass of c. 1450 BC: fifteen plates of hammered bronze covering shoulders, chest and thighs, with a boar's-tusk helmet. Its burial context associates exceptional equipment with a small warrior elite rather than an entire army.
 
 It weighs around 18 kg and severely restricts movement, which caused decades of debate about whether it was ceremonial. In 2024 a team put marines through an eleven-hour simulated Bronze Age combat day wearing a replica; they concluded it was genuinely usable in battle — most plausibly by a chariot-borne warrior who fought dismounted in short bursts.

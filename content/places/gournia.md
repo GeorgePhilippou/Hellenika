@@ -47,6 +47,8 @@ A complete Minoan town of narrow paved streets and small houses, excavated by on
 Shows Minoan life away from the palaces — craft workshops, ordinary houses, a small local governor's residence.
 
 <!-- field: body -->
+Gournia is a Minoan town on the Gulf of Mirabello in eastern Crete, at its height around 1600–1450 BC.
+
 Harriet Boyd Hawes excavated Gournia between 1901 and 1904, one of the earliest major excavations directed by a woman. She uncovered a town plan of cobbled lanes climbing a low hill, with about sixty houses, a small palace-like building and a public court.
 
 The finds are domestic and industrial rather than luxurious: carpenter's and smith's tools, loom weights, olive presses and potter's equipment. Houses opened directly onto narrow streets and combined storage, work and residence rather than following one uniform plan. Gournia is where the Minoan economy becomes tangible as households and labour rather than only palace ceremony.

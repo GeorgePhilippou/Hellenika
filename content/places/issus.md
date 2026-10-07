@@ -50,6 +50,8 @@ The coastal plain where Alexander defeated Darius III in 333 BC and captured the
 The first defeat of a Persian king in person, and the subject of the Alexander Mosaic.
 
 <!-- field: body -->
+Issus lies on a narrow coastal plain at the north-eastern corner of the Mediterranean, near modern Iskenderun in Turkey, where Alexander defeated Darius III in November 333 BC.
+
 Darius manoeuvred behind Alexander and cut his supply line, forcing a battle on a narrow coastal plain between mountains and sea — ground that neutralised his numerical advantage entirely.
 
 Alexander led the Companion cavalry in an oblique charge across the Pinarus river straight at Darius' position. Darius fled, and his army broke. His mother, wife and children were captured in the camp; Alexander treated them with a courtesy the sources emphasise, and Darius' mother reportedly remained loyal to Alexander afterwards.

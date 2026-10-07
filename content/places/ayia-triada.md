@@ -51,6 +51,8 @@ A Minoan royal villa near Phaistos that produced the Harvester Vase and a painte
 A secondary site that outproduced the palaces: more Linear A tablets than anywhere else on Crete, and the one painted sarcophagus that shows Aegean funerary ritual actually in progress.
 
 <!-- field: body -->
+Ayia Triada (Hagia Triada) is a Minoan villa and town in the Messara plain of southern Crete, about 3 km from Phaistos, at its height around 1600–1450 BC.
+
 Ayia Triada yielded more Linear A tablets than any other single site on Crete, an archive found alongside physical evidence of large-scale olive oil and wine storage that points to the villa having played a significant administrative and redistributive economic role within the wider Phaistos region, rather than functioning purely as an elite residence. The site also produced three superb carved stone vessels, among them the Harvester Vase — a relief of singing agricultural workers returning from harvest so lively and individually characterised that distinct faces and expressions remain clearly distinguishable on the worn stone even today.
 
 The painted limestone sarcophagus, dated to around 1400 BC, shows on one long side a bull being ritually sacrificed with its blood carefully collected in a vessel, and on the other, a procession bringing offerings toward a robed figure standing before what appears to be a tomb. It stands as the single richest surviving source for Aegean Bronze Age funerary religion, and its imagery combines recognisably Minoan and Mycenaean religious elements side by side, captured at precisely the historical moment the two cultural traditions were actively merging on Crete following the Mycenaean takeover of the island.

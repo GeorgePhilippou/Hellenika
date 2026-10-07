@@ -50,6 +50,8 @@ Ionian city whose Temple of Artemis was one of the Seven Wonders — burned down
 Home to the largest Greek temple ever built and to Heraclitus, the philosopher of flux.
 
 <!-- field: body -->
+Ephesus lay on the coast of Ionia in western Asia Minor, near the mouth of the Cayster river. One of the great Greek cities of the region, it was famous for its temple of Artemis.
+
 The Artemision was rebuilt several times, most famously after 356 BC on a platform 115 by 55 m with 127 columns — more than twice the footprint of the Parthenon. Croesus of Lydia funded an earlier phase, and column drums carved with his dedication survive.
 
 In 356 BC a man named Herostratus burned it down purely to make his name immortal. The Ephesians executed him and forbade anyone to speak his name, which failed.

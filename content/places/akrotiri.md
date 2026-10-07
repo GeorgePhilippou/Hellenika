@@ -63,6 +63,8 @@ A Bronze Age town buried by volcanic ash, preserving two- and three-storey house
 The best-preserved Bronze Age settlement in the Aegean, and the closest thing we have to seeing a Minoan-world town as it stood.
 
 <!-- field: body -->
+Akrotiri is a Bronze Age port town on the south coast of Thera (Santorini) in the Cyclades, closely linked to Minoan Crete and at its height around 1700–1600 BC.
+
 Volcanic ash sealed Akrotiri around 1600 BC and, in doing so, preserved it in a way almost no other Bronze Age Aegean settlement survives. Buildings still stand to second-storey height, complete with staircases, windows, built-in furniture, and an under-street drainage system that carried away both sewage and rainwater — infrastructure of a sophistication that would not look out of place many centuries later.
 
 The frescoes recovered from inside these buildings are extraordinary and, in several cases, unique in Aegean art: a full fleet of ships passing in procession between two harbour towns, boys sparring in a boxing match, a fisherman proudly holding up his catch, wild antelopes rendered with real anatomical observation, and a striking scene of girls gathering saffron crocus flowers and presenting them to a seated goddess — this last fresco is a rare depiction anywhere in Minoan-connected art of an actual religious ceremony shown with individually characterised participants rather than generic figures.

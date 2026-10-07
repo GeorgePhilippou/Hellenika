@@ -53,6 +53,8 @@ A large Early Cycladic cemetery and fortified settlement, source of the "frying 
 Its engraved ships are the earliest detailed depictions of Aegean seagoing vessels.
 
 <!-- field: body -->
+Chalandriani is an Early Bronze Age cemetery on the north-east coast of Syros in the Cyclades, used around 2700–2300 BC alongside the fortified settlement of Kastri.
+
 Over 600 graves have been excavated at Chalandriani, small stone-lined cists containing marble figurines, obsidian blades and pottery.
 
 The "frying pans" — flat circular clay objects with a forked handle, engraved with spirals, stars and longships — are the most distinctive Cycladic artefacts after the figurines. The ships are shown with dozens of oars, a high prow and a fish standard, and they establish that Early Bronze Age Cycladic vessels were long, many-oared and built for open water rather than coasting.

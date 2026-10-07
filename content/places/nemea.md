@@ -55,6 +55,8 @@ One of the four Panhellenic games sites, with a stadium whose vaulted entrance t
 Preserves the physical mechanics of a Greek athletic festival better than any other site, including a starting gate.
 
 <!-- field: body -->
+Nemea is a valley in the north-eastern Peloponnese, between Argos and Corinth, with a sanctuary of Zeus.
+
 The Nemean Games were held every two years from 573 BC, third in prestige after Olympia and Delphi. In myth the sanctuary commemorated the infant Opheltes, killed by a snake, and Heracles killed the Nemean lion here.
 
 The stadium has a vaulted entrance tunnel of c. 320 BC — an early true arch in Greek building — on whose walls athletes scratched their names, some 2,300 years ago. The starting line preserves sockets for the *hysplex*, a spring-loaded barrier that dropped simultaneously to give a fair start.

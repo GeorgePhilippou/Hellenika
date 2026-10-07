@@ -63,6 +63,8 @@ Where Philip II defeated the Greek alliance in 338 BC — and where a stone lion
 The battle that ended the independence of the Greek city-states.
 
 <!-- field: body -->
+Chaeronea is a town in western Boeotia, on the main route from northern into southern Greece, where Philip II of Macedon defeated the armies of Athens and Thebes in August 338 BC.
+
 Philip commanded the Macedonian right; the eighteen-year-old Alexander led the cavalry on the left. Philip drew the Athenians forward with a feigned withdrawal, opening a gap in the allied line into which Alexander charged.
 
 The Sacred Band of Thebes — 150 pairs of male lovers, unbeaten for a generation — refused to retreat and was destroyed. Plutarch reports Philip weeping at the sight of their bodies.

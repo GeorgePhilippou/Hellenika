@@ -57,7 +57,9 @@ A fully Greek city on the Oxus in Afghanistan, with a gymnasium, theatre, and De
 The clearest proof that Hellenistic Greek civic culture was transplanted whole into Central Asia.
 
 <!-- field: body -->
-Excavated by the French mission from 1964 until the Soviet invasion in 1979, Ai-Khanoum had a theatre for 6,000, a gymnasium, Corinthian-columned buildings and a palace on a Persian plan — Greek institutions in Achaemenid architectural dress.
+Ai-Khanoum lies where the Oxus (Amu Darya) and Kokcha rivers meet in northern Afghanistan, ancient Bactria. It was a Greek city founded around 300 BC, at the far eastern edge of the Hellenistic world, and destroyed around 145 BC.
+
+Excavated by the French mission from 1964 until 1978, when war in Afghanistan stopped work, Ai-Khanoum had a theatre for 6,000, a gymnasium, Corinthian-columned buildings and a palace on a Persian plan — Greek institutions in Achaemenid architectural dress.
 
 In a *heroon* was a stone inscribed with maxims from Delphi, ending with a note that one Clearchus copied them at Delphi and set them up here. Someone carried the sayings of the Greek homeland across a continent so that a city on the Oxus could read them.
 

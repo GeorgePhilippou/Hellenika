@@ -48,6 +48,8 @@ Carian-Greek city, birthplace of Herodotus, and site of the Mausoleum — the to
 Its ruler's tomb was one of the Seven Wonders, and its sculptural programme employed the leading Greek artists of the age.
 
 <!-- field: body -->
+Halicarnassus, modern Bodrum, lay on the coast of Caria in south-western Asia Minor. It was the birthplace of Herodotus.
+
 Mausolus, Persian satrap of Caria, moved his capital to Halicarnassus and began a tomb that his sister-wife Artemisia II completed after his death in 353 BC. It stood around 45 m high: a podium, a colonnade of 36 columns, a stepped pyramid, and a four-horse chariot at the summit. Four leading sculptors each took one side.
 
 It survived until earthquakes damaged it between the twelfth and fifteenth centuries, when the Knights of St John dismantled it for the stone of Bodrum Castle, burning the marble for lime. Sculptural fragments were later recovered and are in the British Museum.

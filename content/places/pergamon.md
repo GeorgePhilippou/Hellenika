@@ -54,6 +54,8 @@ Attalid capital on a steep acropolis, with the steepest theatre in the ancient w
 The showpiece of Hellenistic urban design and of the dramatic "Pergamene baroque" sculptural style.
 
 <!-- field: body -->
+Pergamon lies in north-western Asia Minor, above the modern town of Bergama. Under the Attalid kings (282–133 BC) it became one of the great capitals of the Hellenistic world.
+
 The Attalids built Pergamon up a 300 m acropolis in terraces. Its theatre is cut into the slope at an extraordinary angle, seating 10,000 in 80 rows.
 
 The Great Altar of c. 160 BC carries a 113 m frieze of gods fighting giants, carved in violent high relief with figures breaking out of the architecture — a coded celebration of Attalid victories over the Galatians. The German excavation removed it to Berlin, where it remains, and Turkey continues to seek its return.

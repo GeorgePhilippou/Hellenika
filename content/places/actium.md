@@ -50,6 +50,8 @@ The naval battle of 31 BC where Octavian defeated Antony and Cleopatra, ending b
 The last battle of the Hellenistic world; within a year Egypt was a Roman province and Octavian was on his way to becoming Augustus.
 
 <!-- field: body -->
+Actium is a promontory at the mouth of the Ambracian Gulf in north-western Greece, where Octavian's fleet under Agrippa defeated Antony and Cleopatra on 2 September 31 BC, ending the last Hellenistic kingdom.
+
 Antony and Cleopatra were blockaded in the Ambracian Gulf, their crews weakened by malaria and desertion. Antony tried to break out. Mid-battle Cleopatra's squadron of sixty ships raised sail and ran for Egypt; Antony followed, abandoning his fleet and army.
 
 Whether this was a planned breakout that partly succeeded or a collapse is still argued — Octavian's version, which became the standard one, naturally emphasised betrayal and Antony's subjection to a foreign queen.

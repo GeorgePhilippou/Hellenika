@@ -48,6 +48,8 @@ The single port where Egypt permitted Greek merchants to trade, and the main cha
 Where Greeks encountered monumental Egyptian stone sculpture — and began carving kouroi.
 
 <!-- field: body -->
+Naukratis lay on the Canopic branch of the Nile in the western Delta. Founded around 620 BC, it was the first permanent Greek trading town in Egypt.
+
 Pharaoh Amasis concentrated all Greek trade with Egypt at Naukratis, where Greeks from a dozen cities shared a sanctuary called the Hellenion. It was a controlled interface rather than a colony: Egypt got the goods and taxes without Greeks spreading through the country.
 
 The influence ran strongly the other way in art. The Archaic Greek *kouros* — nude male, left foot advanced, arms at sides, fists clenched — follows Egyptian conventions closely enough that transmission is not in doubt. Egyptian sculptors used a fixed proportional grid, and Diodorus reports that Greeks learned it here.

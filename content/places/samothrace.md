@@ -57,6 +57,8 @@ Sanctuary of the Great Gods, whose mystery initiation attracted Philip II and Ol
 The most important mystery cult after Eleusis, and open to everyone: men, women, citizens, foreigners and the enslaved.
 
 <!-- field: body -->
+Samothrace, a mountainous island in the northern Aegean, held the Sanctuary of the Great Gods, famous for its mystery cult from the Archaic period to Roman times.
+
 The Mysteries of the Great Gods promised protection at sea and were unusually inclusive — no restriction by gender, status or origin, which was rare in Greek religion. Initiates received an iron ring and could take a second, higher grade requiring a form of confession.
 
 Philip II is said to have met Olympias during initiation here. The Nike of Samothrace, carved c. 190 BC and set on a marble ship's prow in a fountain basin, was found in 1863 and is now the centrepiece of the Louvre staircase.

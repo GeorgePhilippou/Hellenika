@@ -47,6 +47,8 @@ Where the Roman legion destroyed the Macedonian phalanx in 168 BC, ending the ki
 The decisive demonstration that the legion had superseded the phalanx as the dominant infantry system.
 
 <!-- field: body -->
+Pydna lies on the coast of southern Macedonia below Mount Olympus, where the Roman consul Aemilius Paullus defeated King Perseus of Macedon in June 168 BC, ending the Macedonian kingdom.
+
 Perseus' phalanx initially drove the Romans back. But as it advanced over uneven ground the line lost cohesion and gaps opened. Aemilius Paullus ordered his maniples into those gaps, where legionaries with short swords got inside the reach of the pikes. Once past the pike points, a phalangite with both hands on a six-metre sarissa was defenceless.
 
 Polybius, present in Rome and writing from participants' accounts, drew the lesson explicitly: the phalanx requires level unbroken ground and cannot adapt when it does not get it.
