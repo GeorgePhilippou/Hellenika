@@ -43,6 +43,25 @@ relations:
 sources:
   - fraser1972
   - rajak2009
+milestones:
+- year: -150
+  approx: true
+  date: 2nd–1st c. BC
+  kind: papyrus
+  text: The oldest surviving Greek fragments, from Egypt and later from Qumran, date from within two centuries of the translation.
+- year: 350
+  approx: true
+  kind: manuscript
+  text: Codex Vaticanus and Codex Sinaiticus, the oldest near-complete Greek Bibles, are copied.
+- year: 1844
+  kind: found
+  text: Constantin von Tischendorf finds the first leaves of Codex Sinaiticus at St Catherine's Monastery, Sinai.
+- year: 1518
+  kind: printed
+  text: First published in Greek by the Aldine press in Venice.
+- year: 1952
+  kind: found
+  text: Greek fragments of the Old Testament are among the Dead Sea Scrolls found at Qumran.
 _order: 24
 ---
 

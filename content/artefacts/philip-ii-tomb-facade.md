@@ -43,6 +43,10 @@ relations:
 sources:
   - andronikos1984
   - brecoulaki2006
+milestones:
+- year: 1977
+  kind: excavated
+  text: Manolis Andronikos uncovers the painted façade of Tomb II beneath the Great Tumulus at Vergina.
 _order: 40
 ---
 

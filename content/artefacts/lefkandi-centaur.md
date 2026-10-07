@@ -38,6 +38,10 @@ relations:
 sources:
   - popham1993
   - lemos2002
+milestones:
+- year: 1969
+  kind: excavated
+  text: 'Found by the British School at Athens in the Toumba cemetery: the head in one grave and the body in another, three metres away.'
 _order: 23
 ---
 

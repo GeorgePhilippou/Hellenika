@@ -37,6 +37,11 @@ relations:
 sources:
   - caskey1960
   - pullen2008
+milestones:
+- year: 1952
+  date: 1952–58
+  kind: excavated
+  text: John L. Caskey of the American School excavates the mound, finding the House of the Tiles.
 _order: 14
 ---
 

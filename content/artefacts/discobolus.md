@@ -38,6 +38,14 @@ relations:
 sources:
   - boardman1985
   - stewart1990
+milestones:
+- year: 1781
+  kind: found
+  place: on the Esquiline, Rome
+  text: The Lancellotti Discobolus, the best Roman copy, is found on a Lancellotti family estate.
+- year: 1938
+  kind: moved
+  text: Sold to Nazi Germany and displayed in Munich; returned to Italy in 1948.
 _order: 31
 ---
 

@@ -34,6 +34,13 @@ relations:
 sources:
   - karageorghis1982
   - unesco-choirokoitia
+milestones:
+- year: 1936
+  kind: excavated
+  text: Porphyrios Dikaios begins excavating the Neolithic village.
+- year: 1998
+  kind: identified
+  text: Inscribed as a UNESCO World Heritage Site.
 _order: 80
 ---
 

@@ -2,6 +2,7 @@ import {
   ALL,
   EVIDENCE_META,
   CONFIDENCE_META,
+  MILESTONE_KINDS,
   getSource,
   MISSING_RELATIONS,
 } from '../js/db.js';
@@ -78,6 +79,16 @@ for (const entity of ALL) {
     }
     if (!CONFIDENCE_META[claim.confidence]) {
       errors.push(`${entity.id}: claim ${index + 1} has unknown confidence "${claim.confidence}"`);
+    }
+  }
+
+  for (const [index, m] of entity.milestones.entries()) {
+    const at = `${entity.id}: milestone ${index + 1}`;
+    if (!Number.isFinite(m.year)) errors.push(`${at} needs a numeric year`);
+    if (!MILESTONE_KINDS[m.kind]) errors.push(`${at} has unknown kind "${m.kind}"`);
+    if (words(m.text) < 6) errors.push(`${at} needs a sentence of text`);
+    if (m.confidence && !CONFIDENCE_META[m.confidence]) {
+      errors.push(`${at} has unknown confidence "${m.confidence}"`);
     }
   }
 

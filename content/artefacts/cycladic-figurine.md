@@ -43,6 +43,16 @@ relations:
 sources:
   - renfrew1972
   - getz-gentle2001
+milestones:
+- year: 1898
+  date: 1898–99
+  kind: excavated
+  place: on Syros
+  text: Christos Tsountas excavates Early Cycladic cemeteries, including Chalandriani on Syros, giving figurines their first recorded contexts.
+- year: 1960
+  date: 1950s–70s
+  kind: study
+  text: Modernist taste for their pure forms fuels a collecting boom and widespread looting of Cycladic graves; most known figurines have no recorded findspot.
 _order: 0
 ---
 

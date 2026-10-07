@@ -46,6 +46,13 @@ sources:
   - lynch1972
   - diogenes-laertius-src
   - camp2001
+milestones:
+- year: 1996
+  kind: found
+  text: Remains of the gymnasium are found during construction of a museum in central Athens.
+- year: 2014
+  kind: restored
+  text: The site opens to the public as an archaeological park.
 _order: 85
 ---
 

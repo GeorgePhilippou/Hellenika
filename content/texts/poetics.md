@@ -43,6 +43,18 @@ relations:
 sources:
   - halliwell1986
   - barnes1995
+milestones:
+- year: 950
+  approx: true
+  kind: translated
+  text: Translated into Arabic from a Syriac version; the Arabic preserves readings lost from the Greek.
+- year: 1000
+  approx: true
+  kind: manuscript
+  text: The main Greek witness is the Byzantine manuscript Parisinus graecus 1741.
+- year: 1508
+  kind: printed
+  text: First printed in Greek by Aldus Manutius in Venice; its influence on Renaissance drama follows.
 _order: 13
 ---
 

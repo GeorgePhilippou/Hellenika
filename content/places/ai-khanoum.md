@@ -40,6 +40,13 @@ relations:
 sources:
   - bernard1982
   - mairs2014
+milestones:
+- year: 1964
+  kind: excavated
+  text: A French mission under Paul Bernard begins excavating the city.
+- year: 1978
+  kind: damaged
+  text: Excavation ends as Afghanistan descends into war; the site is later heavily looted.
 _order: 59
 ---
 

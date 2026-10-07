@@ -16,10 +16,10 @@ import * as store from '../store.js';
 import { createGraph } from '../components/graph.js';
 import { createMap } from '../components/map-canvas.js';
 import {
-  entityDate, entityCard, claimsList, confidenceKey,
+  entityDate, entityCard, claimsList, confidenceKey, confidenceBadge,
   paragraphs, block, proseSeen, factList, emptyState, typeChip, tintLegend, inlineFigure,
 } from '../components/ui.js';
-import { TYPE_META } from '../db.js';
+import { TYPE_META, MILESTONE_KINDS } from '../db.js';
 
 export async function renderEntity(params) {
   const e = db.get(params.id);
@@ -79,6 +79,7 @@ function heroHTML(e, sections) {
           <h1>${esc(e.name)}</h1>
           ${e.altNames.length ? `<p class="entity-alt">Also known as ${esc(e.altNames.join(' · '))}</p>` : ''}
           <p class="entity-summary">${esc(e.summary)}</p>
+          ${glanceHTML(e)}
           ${e.significance ? `
           <div class="hero-significance">
             <span class="hero-significance-label">Why it matters</span>
@@ -183,6 +184,31 @@ function locationCaption(e, siteRel) {
   return '';
 }
 
+/* ---------- Milestones: how an entry reached us ---------- */
+
+function milestoneDate(m) {
+  if (m.date) return m.date;
+  // Modern years read better bare ("1876") than as "AD 1876".
+  if (m.year >= 1000) return `${m.approx ? 'c. ' : ''}${m.year}`;
+  return fmtYear(m.year, { approx: m.approx });
+}
+
+/** Facts-panel rows: when it was found, or when its text first survives. */
+function milestoneFacts(e) {
+  const first = (...kinds) => e.milestones.find((m) => kinds.includes(m.kind));
+  const rows = [];
+  if (e.type === 'text') {
+    const copy = first('papyrus', 'manuscript');
+    const print = first('printed');
+    if (copy) rows.push(['Earliest copies', esc(milestoneDate(copy))]);
+    if (print) rows.push(['First printed', esc(milestoneDate(print))]);
+  } else {
+    const find = first('found', 'excavated', 'recovered');
+    if (find) rows.push([find.kind === 'excavated' ? 'Excavated' : 'Found', esc(milestoneDate(find))]);
+  }
+  return rows;
+}
+
 const periodLink = (p) => `<a href="#/timeline/${p.id}">${esc(p.name)}</a>`;
 
 /**
@@ -225,6 +251,42 @@ function periodFact(e) {
   return dated ? periodLink(dated) : tinted ? periodLink(tinted) : null;
 }
 
+/**
+ * One line under the summary with what a reader needs to place the
+ * entry before reading on: its period, and -- depending on what it is --
+ * who wrote it, where and when it was found, and where it is now.
+ */
+function glanceHTML(e) {
+  if (e.type === 'myth' || e.type === 'deity') return '';
+  const find = e.milestones.find((m) => ['found', 'excavated', 'recovered'].includes(m.kind));
+  const findSite = db.neighbours(e.id).find((n) => /^(found at|from)$/.test(n.rel));
+  const copy = e.milestones.find((m) => ['papyrus', 'manuscript'].includes(m.kind));
+  const link = (n) => `<a href="${entityHref(n.id)}">${esc(n.entity.name)}</a>`;
+  const items = [periodFact(e)];
+  if (e.type === 'text') {
+    if (e.author) items.push(`By ${esc(e.author)}`);
+    if (copy) items.push(`Earliest copies ${esc(milestoneDate(copy))}`);
+  } else if (e.type === 'artefact') {
+    if (findSite || find) {
+      // The milestone's own place is the precise findspot (Anavyssos);
+      // a linked site can be broader (the Kroisos Kouros is "from" Athens).
+      const where = find?.place ? ` ${esc(find.place)}` : findSite ? ` at ${link(findSite)}` : '';
+      // "Found at Anavyssos, Attica, in 1936" -- close a comma'd place.
+      const sep = find && where.includes(',') ? ',' : '';
+      items.push(`Found${where}${find ? `${sep} in ${esc(milestoneDate(find))}` : ''}`);
+    }
+    if (e.museum) items.push(`Now in ${esc(e.museum)}`);
+  } else {
+    // A site is "excavated since" its first season; "found" only when it
+    // was never dug as such (the Lyceum, uncovered by building work).
+    const dig = e.milestones.find((m) => m.kind === 'excavated');
+    if (dig) items.push(`Excavated since ${esc(dig.year >= 1000 ? String(dig.year) : milestoneDate(dig))}`);
+    else if (find) items.push(`Found in ${esc(milestoneDate(find))}`);
+  }
+  const shown = items.filter(Boolean);
+  return shown.length ? `<p class="entity-glance">${shown.join('<span aria-hidden="true"> · </span>')}</p>` : '';
+}
+
 function sidebarHTML(e, sections) {
   const siteRel = !e.region ? siteRelation(e) : null;
   return `
@@ -241,6 +303,7 @@ function sidebarHTML(e, sections) {
         ${factList([
           ['Type', esc(e.typeLabel) + (e.subtype ? ` · ${esc(e.subtype)}` : '')],
           [e.type === 'deity' || e.type === 'myth' || e.legendary ? 'Chronology' : 'Dates', e.start != null ? `<span class="num">${esc(entityDate(e))}</span>` : null],
+          ...milestoneFacts(e),
           locationFact(e, siteRel),
           ['Coordinates', e.coords ? `<span class="num small">${e.coords[0].toFixed(3)}, ${e.coords[1].toFixed(3)}</span>` : null],
           ['Author', e.author ? esc(e.author) : null],
@@ -398,12 +461,54 @@ function chronologyGroups(e) {
 
 function hasChronology(e) {
   const g = chronologyGroups(e);
-  return g.timeline.length >= 2 || g.setting.length || g.myth.length || g.modern.length;
+  return g.timeline.length >= 2 || g.setting.length || g.myth.length || g.modern.length
+    || e.milestones.length > 0;
+}
+
+/**
+ * The entry's afterlife as its own small timeline: authored milestones
+ * plus any connected modern event (the 1952 decipherment of Linear B),
+ * then the modern people involved, who are listed rather than dated
+ * since their lifespans say nothing about when they did the work.
+ */
+function rediscoveryGroup(e, modern) {
+  const events = modern.filter((n) => n.entity.type !== 'person');
+  const people = modern.filter((n) => n.entity.type === 'person');
+  const stops = [
+    ...e.milestones.map((m) => ({ year: m.year, date: milestoneDate(m),
+      label: MILESTONE_KINDS[m.kind] || m.kind, text: esc(m.text), confidence: m.confidence })),
+    ...events.map(({ entity: x, rel }) => ({ year: x.start, date: entityDate(x), label: rel,
+      text: `<a href="${entityHref(x.id)}">${esc(x.name)}</a> — ${esc(x.summary)}` })),
+  ].sort((a, b) => a.year - b.year);
+  if (!stops.length && !people.length) return '';
+
+  const title = e.type === 'text' ? 'How it reached us' : 'Rediscovery';
+  const intro = e.type === 'text'
+    ? 'How the work was fixed in writing, copied, edited and printed — what stands between the original and the text read today.'
+    : 'When and how it was found, and the work that made sense of it.';
+  return `
+    <div class="chron-group">
+      <h3 class="eyebrow">${title}</h3>
+      <p class="small muted chron-intro">${intro}</p>
+      ${stops.length ? `
+      <div class="stops" style="--tint:${db.tintVar(e.tint)}">
+        ${stops.map((m) => `
+        <div class="stop">
+          <div class="stop-n num">${esc(m.date)} <span class="stop-kind">${esc(m.label)}</span></div>
+          <p class="note small">${m.text}${m.confidence && m.confidence !== 'established' ? ` ${confidenceBadge(m.confidence)}` : ''}</p>
+        </div>`).join('')}
+      </div>` : ''}
+      ${people.length ? `
+      <ul class="chron-list" style="margin-top:var(--s-6)">${people.map(({ entity: x, rel }) => `
+        <li><a href="${entityHref(x.id)}">${esc(x.name)}</a> <span class="stop-rel">${esc(rel)}</span>
+          <span class="chron-row-date num">${esc(entityDate(x))}</span></li>`).join('')}
+      </ul>` : ''}
+    </div>`;
 }
 
 function chronologySection(e) {
   const { timeline, anchor, setting, myth, modern } = chronologyGroups(e);
-  if (!(timeline.length >= 2 || setting.length || myth.length || modern.length)) return '';
+  if (!hasChronology(e)) return '';
 
   const stopHTML = ({ entity: x, rel, self }) => self ? `
     <div class="stop is-self">
@@ -465,9 +570,9 @@ function chronologySection(e) {
 
   return section('chronology', 'Chronology', `
     ${timelineHTML}
+    ${rediscoveryGroup(e, modern)}
     ${group('Setting', 'The longer-lived periods, places and powers this belongs to.', setting)}
-    ${group('In myth and cult', 'Figures, gods and places of the mythological tradition. These have no historical date, so they are kept off the timeline.', myth, { date: false })}
-    ${group('Rediscovery', 'The modern excavators, decipherers and events through which it is known today.', modern)}`);
+    ${group('In myth and cult', 'Figures, gods and places of the mythological tradition. These have no historical date, so they are kept off the timeline.', myth, { date: false })}`);
 }
 
 /* ============================================================

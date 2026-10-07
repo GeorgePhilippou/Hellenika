@@ -39,6 +39,14 @@ relations:
 sources:
   - diodorus-src
   - sacks1990
+milestones:
+- year: 1000
+  date: medieval
+  kind: manuscript
+  text: Only 15 of its 40 books survive whole; the rest are known from Byzantine excerpts.
+- year: 1539
+  kind: printed
+  text: Books 16–20 are first printed in Greek in Basel.
 _order: 19
 ---
 

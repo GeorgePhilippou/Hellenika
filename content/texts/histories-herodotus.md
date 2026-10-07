@@ -53,6 +53,17 @@ sources:
   - herodotus-src
   - fehling1989
   - pritchett1993
+milestones:
+- year: 950
+  date: 10th c.
+  kind: manuscript
+  text: The oldest complete manuscript is the Florentine Laurentianus 70.3; papyri from Egypt preserve older fragments.
+- year: 1474
+  kind: translated
+  text: Lorenzo Valla's Latin translation is printed, bringing Herodotus to Western readers.
+- year: 1502
+  kind: printed
+  text: First printed in Greek by Aldus Manutius in Venice.
 _order: 6
 ---
 

@@ -38,6 +38,10 @@ relations:
 sources:
   - lidonnici1995
   - declercq2007
+milestones:
+- year: 1881
+  kind: excavated
+  text: Panagiotis Kavvadias begins excavating the sanctuary of Asclepius and its theatre.
 _order: 27
 ---
 

@@ -40,6 +40,10 @@ relations:
 sources:
   - doumas1983
   - morgan1988
+milestones:
+- year: 1967
+  kind: excavated
+  text: Spyridon Marinatos begins excavating the town buried by the Thera eruption; the frescoes are found still on their walls.
 _order: 10
 ---
 

@@ -41,6 +41,13 @@ relations:
 sources:
   - palagia2010
   - hamiaux2014
+milestones:
+- year: 1863
+  kind: excavated
+  text: Found in fragments by the French consul Charles Champoiseau and sent to the Louvre.
+- year: 1950
+  kind: found
+  text: The right hand is found on Samothrace and matched to the statue.
 _order: 46
 ---
 

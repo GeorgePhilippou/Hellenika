@@ -71,6 +71,19 @@ export const CONFIDENCE_META = {
   legendary:   { label: 'Legendary', rank: 1, desc: 'Known only from myth or tradition, with no independent corroboration.' },
 };
 
+// Authored as `milestones:` in content frontmatter, one per step in the
+// object's or text's modern (and, for texts, ancient) afterlife. Each is
+// {year, kind, text} plus optional date (display override), approx,
+// confidence, and place ("on Melos") for a find with no site entry.
+export const MILESTONE_KINDS = {
+  'written-down': 'written down', edited: 'edited', papyrus: 'papyrus',
+  manuscript: 'manuscript', printed: 'printed', translated: 'translated',
+  found: 'found', excavated: 'excavated', recovered: 'recovered',
+  identified: 'identified', deciphered: 'deciphered', published: 'published',
+  study: 'research', described: 'described', acquired: 'acquired', moved: 'moved', restored: 'restored',
+  damaged: 'damaged',
+};
+
 export const CONFIDENCE_ORDER = ['established', 'strong', 'probable', 'debated', 'speculative', 'legendary'];
 
 /* ---------- Period tint resolution ---------- */
@@ -138,6 +151,9 @@ function normalise(raw) {
     signs: raw.signs || null,
     combatants: raw.combatants || null,
     outcome: raw.outcome || null,
+    // How the thing reached us: finds, excavations, papyri, manuscripts,
+    // editions, decipherments -- see MILESTONE_KINDS above.
+    milestones: [...(raw.milestones || [])].sort((a, b) => a.year - b.year),
     // evidence & references
     claims: raw.claims || [],
     sources: raw.sources || [],

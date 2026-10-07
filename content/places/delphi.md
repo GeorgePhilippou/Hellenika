@@ -55,6 +55,13 @@ sources:
   - scott2014
   - degboer2001
   - parke1956
+milestones:
+- year: 1892
+  kind: excavated
+  text: After the village of Kastri is moved off the site, the French School's 'Great Excavation' begins.
+- year: 1896
+  kind: found
+  text: The bronze Charioteer is found near the temple of Apollo.
 _order: 25
 ---
 

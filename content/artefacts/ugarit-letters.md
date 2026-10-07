@@ -35,6 +35,14 @@ relations:
 sources:
   - cline2021
   - yon2006
+milestones:
+- year: 1928
+  kind: found
+  place: at Ugarit (Ras Shamra), Syria
+  text: A farmer ploughing near Ras Shamra breaks into a tomb, leading to the discovery of Ugarit.
+- year: 1929
+  kind: excavated
+  text: Claude Schaeffer begins decades of excavation, recovering the city's archives.
 _order: 19
 ---
 

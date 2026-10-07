@@ -32,6 +32,14 @@ relations:
 sources:
   - karageorghis1982
   - smith2009
+milestones:
+- year: 1896
+  kind: excavated
+  text: The British Museum excavates tombs at the site.
+- year: 1948
+  date: 1948–58
+  kind: excavated
+  text: Porphyrios Dikaios excavates the Late Bronze Age town.
 _order: 77
 ---
 

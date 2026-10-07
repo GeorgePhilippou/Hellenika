@@ -35,6 +35,10 @@ relations:
 sources:
   - kyrieleis1993
   - boardman1999
+milestones:
+- year: 1910
+  kind: excavated
+  text: German excavations begin under Theodor Wiegand; the German Archaeological Institute still works at the site.
 _order: 32
 ---
 

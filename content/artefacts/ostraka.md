@@ -39,6 +39,14 @@ relations:
 sources:
   - camp2001
   - forsdyke2005
+milestones:
+- year: 1931
+  kind: excavated
+  text: American School excavations of the Athenian Agora begin, eventually recovering over a thousand ostraka.
+- year: 1966
+  date: 1966–69
+  kind: excavated
+  text: German excavators in the Kerameikos find a deposit of about 9,000 ostraka dumped in an old channel of the Eridanos.
 _order: 35
 ---
 

@@ -32,6 +32,11 @@ relations:
 sources:
   - hawes1908
   - cline2010
+milestones:
+- year: 1901
+  date: 1901–04
+  kind: excavated
+  text: Harriet Boyd Hawes excavates the town, one of the first major excavations directed by a woman.
 _order: 5
 ---
 

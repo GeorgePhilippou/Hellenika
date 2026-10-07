@@ -41,6 +41,13 @@ sources:
   - evans1921
   - shaw1996
   - macgillivray2000
+milestones:
+- year: 1901
+  kind: excavated
+  text: Fragments found by Arthur Evans in the Court of the Stone Spout, in the palace's east wing.
+- year: 1902
+  kind: restored
+  text: Émile Gilliéron reconstructs the panel from the largest pieces; the painting seen today is largely his reconstruction.
 _order: 3
 ---
 

@@ -49,6 +49,28 @@ sources:
   - west2014
   - parry1971
   - wilson2018
+milestones:
+- year: -550
+  approx: true
+  kind: written-down
+  confidence: debated
+  text: Tradition credits Peisistratid Athens with fixing a standard written text for recital at the Panathenaia.
+- year: -250
+  approx: true
+  date: 3rd c. BC
+  kind: papyrus
+  text: 'Earliest surviving copies: papyrus fragments from Ptolemaic Egypt.'
+- year: -150
+  approx: true
+  kind: edited
+  text: Alexandrian scholars, above all Aristarchus, edit the text that later readers inherit.
+- year: 1000
+  date: 10th–11th c.
+  kind: manuscript
+  text: 'Oldest complete copies: Byzantine manuscripts, from which every modern text descends.'
+- year: 1488
+  kind: printed
+  text: First printed edition of Homer, edited by Demetrios Chalkokondyles in Florence.
 _order: 1
 ---
 

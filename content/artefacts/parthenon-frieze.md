@@ -46,6 +46,17 @@ sources:
   - neils2001
   - jenkins2007
   - hitchens2008
+milestones:
+- year: 1801
+  date: 1801–12
+  kind: moved
+  text: Agents of Lord Elgin remove about half the surviving frieze under an Ottoman permit.
+- year: 1816
+  kind: acquired
+  text: Bought by Parliament from Elgin for £35,000 and placed in the British Museum.
+- year: 2009
+  kind: moved
+  text: The new Acropolis Museum opens, displaying the frieze blocks held in Athens with space left for those in London.
 _order: 30
 ---
 

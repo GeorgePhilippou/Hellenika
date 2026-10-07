@@ -38,6 +38,12 @@ relations:
 sources:
   - boardman1985
   - stewart1990
+milestones:
+- year: 1797
+  kind: excavated
+  place: at Pompeii
+  confidence: probable
+  text: The best-preserved Roman copy is found at Pompeii, traditionally in the Samnite Palaestra.
 _order: 32
 ---
 

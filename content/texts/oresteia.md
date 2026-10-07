@@ -42,6 +42,14 @@ relations:
 sources:
   - sommerstein2010
   - taplin1977
+milestones:
+- year: 1000
+  approx: true
+  kind: manuscript
+  text: The Medicean manuscript (Laurentianus 32.9) is the oldest copy; it alone preserves most of the Libation Bearers.
+- year: 1518
+  kind: printed
+  text: First printed by the Aldine press in Venice.
 _order: 8
 ---
 

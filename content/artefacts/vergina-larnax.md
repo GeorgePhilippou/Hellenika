@@ -41,6 +41,10 @@ sources:
   - andronikos1984
   - bartsiokas2015
   - borza1999
+milestones:
+- year: 1977
+  kind: excavated
+  text: Found by Manolis Andronikos in a marble sarcophagus in the unlooted Tomb II at Vergina.
 _order: 39
 ---
 

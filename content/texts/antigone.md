@@ -41,6 +41,14 @@ relations:
 sources:
   - knox1964
   - steiner1984
+milestones:
+- year: 1000
+  approx: true
+  kind: manuscript
+  text: The oldest manuscript is the Laurentianus 32.9 in Florence, which also contains Aeschylus.
+- year: 1502
+  kind: printed
+  text: First printed with Sophocles' other surviving plays by Aldus Manutius in Venice.
 _order: 10
 ---
 

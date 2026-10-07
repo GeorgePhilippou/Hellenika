@@ -37,6 +37,10 @@ relations:
 sources:
   - maran2010
   - shelmerdine2008
+milestones:
+- year: 1884
+  kind: excavated
+  text: Heinrich Schliemann and Wilhelm Dörpfeld excavate the citadel; the German Archaeological Institute continues the work.
 _order: 8
 ---
 

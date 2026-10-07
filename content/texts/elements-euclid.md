@@ -40,6 +40,20 @@ relations:
 sources:
   - heath1908
   - netz1999
+milestones:
+- year: 800
+  approx: true
+  kind: translated
+  text: Translated into Arabic in Baghdad; Arabic versions carry it through the Islamic world.
+- year: 888
+  kind: manuscript
+  text: The oldest dated Greek copy, now in the Bodleian Library, Oxford (MS D'Orville 301).
+- year: 1482
+  kind: printed
+  text: First printed, in Campanus' Latin version, by Erhard Ratdolt in Venice.
+- year: 1533
+  kind: printed
+  text: First printed in Greek in Basel.
 _order: 21
 ---
 

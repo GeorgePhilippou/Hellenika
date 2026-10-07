@@ -40,6 +40,12 @@ relations:
 sources:
   - kroll2010
   - schaps2004
+milestones:
+- year: 1904
+  date: 1904–05
+  kind: excavated
+  place: at the Artemision, Ephesus
+  text: David Hogarth's excavation of the temple of Artemis at Ephesus finds a foundation deposit of electrum coins, the earliest well-dated coinage.
 _order: 24
 ---
 

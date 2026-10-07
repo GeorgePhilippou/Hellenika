@@ -38,6 +38,13 @@ relations:
 sources:
   - miller2004
   - miller1990
+milestones:
+- year: 1973
+  kind: excavated
+  text: Stephen Miller of the University of California, Berkeley, begins excavating the sanctuary and later the stadium.
+- year: 1996
+  kind: restored
+  text: The Nemean Games are revived on the ancient track.
 _order: 35
 ---
 

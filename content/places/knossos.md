@@ -67,6 +67,17 @@ sources:
   - evans1921
   - macgillivray2000
   - cline2010
+milestones:
+- year: 1878
+  kind: excavated
+  text: Minos Kalokairinos, a local merchant, digs the first trial trenches and finds storage jars.
+- year: 1900
+  kind: excavated
+  text: Arthur Evans buys the hill and begins excavating; within weeks he finds the palace and its tablets.
+- year: 1925
+  date: 1920s
+  kind: restored
+  text: Evans rebuilds parts of the palace in reinforced concrete, shaping what visitors see today.
 _order: 0
 ---
 

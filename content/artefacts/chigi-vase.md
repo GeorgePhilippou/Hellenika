@@ -38,6 +38,11 @@ relations:
 sources:
   - boardman1999
   - vanwees2004
+milestones:
+- year: 1881
+  kind: found
+  place: near Veii, Italy
+  text: Found in fragments in an Etruscan tomb at Monte Aguzzo, on Prince Mario Chigi's estate.
 _order: 25
 ---
 

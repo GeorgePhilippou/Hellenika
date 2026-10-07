@@ -2100,3 +2100,16 @@ button.mt-step:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .chron-list li { break-inside: avoid; padding: var(--s-2) 0; border-bottom: 1px solid var(--border); }
 .chron-list .stop-rel { margin-left: var(--s-1); }
 .chron-row-date { display: block; font-size: var(--fs-xxs); color: var(--text-3); }
+.stop-kind {
+  margin-left: var(--s-2); font-weight: 600; letter-spacing: .04em;
+  color: var(--tint); text-transform: none;
+}
+.chron-group .stops .stop { padding-bottom: var(--s-6); }
+
+/* At-a-glance line under the hero summary: period, find, holding museum. */
+.entity-glance {
+  margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--text-2);
+  max-width: 62ch;
+}
+.entity-glance a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.entity-glance a:hover { color: var(--accent-text); }

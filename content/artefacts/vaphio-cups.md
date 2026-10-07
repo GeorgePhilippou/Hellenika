@@ -38,6 +38,11 @@ relations:
 sources:
   - dickinson1977
   - higgins1980
+milestones:
+- year: 1889
+  kind: excavated
+  place: at Vapheio, Laconia
+  text: Found by Christos Tsountas in an unlooted cist inside a tholos tomb at Vapheio, near Sparta.
 _order: 15
 ---
 

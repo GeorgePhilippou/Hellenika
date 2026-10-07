@@ -38,6 +38,12 @@ relations:
 sources:
   - renfrew2007
   - getz-gentle2001
+milestones:
+- year: 1884
+  kind: published
+  place: on Keros
+  confidence: probable
+  text: Reported as found in a grave on Keros with a flute player; the find was not witnessed by the scholar who announced it.
 _order: 1
 ---
 

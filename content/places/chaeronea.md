@@ -42,6 +42,17 @@ relations:
 sources:
   - worthington2008
   - plutarch-src
+milestones:
+- year: 1818
+  kind: found
+  text: English travellers find the broken Lion of Chaeronea.
+- year: 1879
+  date: 1879–80
+  kind: excavated
+  text: Panagiotis Stamatakis excavates the grave beneath it, finding 254 skeletons.
+- year: 1902
+  kind: restored
+  text: The lion is reassembled on its site.
 _order: 38
 ---
 
@@ -56,6 +67,6 @@ Philip commanded the Macedonian right; the eighteen-year-old Alexander led the c
 
 The Sacred Band of Thebes — 150 pairs of male lovers, unbeaten for a generation — refused to retreat and was destroyed. Plutarch reports Philip weeping at the sight of their bodies.
 
-In 1880 a colossal stone lion was reassembled on the site; excavation beneath it found 254 skeletons laid in seven rows. The identification with the Sacred Band is not certain but is very widely accepted.
+A colossal stone lion, broken and buried, was found on the site in 1818; excavation beneath it in 1879–80 found 254 skeletons laid in seven rows, and the lion was reassembled there in 1902. The identification with the Sacred Band is not certain but is very widely accepted.
 
 The same plain hosted a second, larger battle more than two centuries later: in 86 BC Sulla defeated a considerably bigger army fielded by Mithridates VI's general Archelaus on essentially the same ground, a coincidence of geography that made Chaeronea the site of two of the ancient world's most consequential battles for the fate of Greece.

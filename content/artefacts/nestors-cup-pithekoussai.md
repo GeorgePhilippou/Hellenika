@@ -43,6 +43,11 @@ sources:
   - jeffery1961
   - powell1991
   - boardman1999
+milestones:
+- year: 1954
+  kind: excavated
+  place: on Ischia
+  text: Found by Giorgio Buchner in a child's cremation grave in the San Montano cemetery of Pithekoussai.
 _order: 22
 ---
 

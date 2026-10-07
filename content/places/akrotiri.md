@@ -46,6 +46,13 @@ relations:
 sources:
   - doumas1983
   - friedrich2006
+milestones:
+- year: 1967
+  kind: excavated
+  text: Spyridon Marinatos begins excavating the town buried by the Thera eruption.
+- year: 1974
+  kind: excavated
+  text: Marinatos dies on site; Christos Doumas takes over the excavation.
 _order: 4
 ---
 

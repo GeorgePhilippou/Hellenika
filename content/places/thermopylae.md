@@ -38,6 +38,10 @@ relations:
 sources:
   - herodotus-src
   - cartledge2006
+milestones:
+- year: 1939
+  kind: excavated
+  text: Spyridon Marinatos finds many Persian-style arrowheads on the Kolonos hill, the traditional site of the Spartans' last stand.
 _order: 37
 ---
 

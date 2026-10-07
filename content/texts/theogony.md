@@ -38,6 +38,14 @@ relations:
 sources:
   - west1966
   - kirk1983
+milestones:
+- year: 1000
+  date: medieval
+  kind: manuscript
+  text: Survives through Byzantine manuscripts, supplemented by ancient papyrus fragments from Egypt.
+- year: 1495
+  kind: printed
+  text: First printed by Aldus Manutius in Venice, in a volume with Theocritus.
 _order: 2
 ---
 

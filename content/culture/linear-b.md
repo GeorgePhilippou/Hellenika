@@ -54,6 +54,16 @@ sources:
   - chadwick1976
   - ventris1956
   - robinson2002
+milestones:
+- year: 1900
+  kind: found
+  text: Arthur Evans finds thousands of tablets at Knossos.
+- year: 1939
+  kind: found
+  text: Carl Blegen finds the Pylos archive, proving the script was used on the mainland.
+- year: 1952
+  kind: deciphered
+  text: Michael Ventris shows that the tablets record an early form of Greek.
 _order: 1
 ---
 

@@ -40,6 +40,21 @@ sources:
   - campbell1982
   - obbink2014
   - carson2002
+milestones:
+- year: -25
+  approx: true
+  kind: described
+  text: Dionysius of Halicarnassus quotes the Hymn to Aphrodite in full, the only complete poem to survive.
+- year: 1898
+  kind: found
+  text: Papyri from the rubbish dumps of Oxyrhynchus in Egypt begin to yield new fragments.
+- year: 2004
+  kind: published
+  text: A papyrus in Cologne completes the 'Tithonus poem' on old age.
+- year: 2014
+  kind: published
+  confidence: debated
+  text: The 'Brothers Poem' is published; questions about the papyrus's provenance follow.
 _order: 5
 ---
 

@@ -46,6 +46,14 @@ sources:
   - french2002
   - calder1999
   - dickinson1977
+milestones:
+- year: 1876
+  kind: excavated
+  text: Found by Heinrich Schliemann over a man's face in Shaft Grave V, Grave Circle A, Mycenae.
+- year: 1999
+  kind: study
+  confidence: debated
+  text: Claims that the mask was altered or forged are publicised; most specialists reject them.
 _order: 11
 ---
 

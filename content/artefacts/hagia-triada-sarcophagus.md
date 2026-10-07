@@ -38,6 +38,10 @@ relations:
 sources:
   - long1974
   - burkert1985
+milestones:
+- year: 1903
+  kind: excavated
+  text: Found by Roberto Paribeni in Tomb 4 of the hilltop cemetery at Hagia Triada.
 _order: 7
 ---
 

@@ -66,6 +66,24 @@ sources:
   - blegen1963
   - korfmann2004
   - cline2013
+milestones:
+- year: 1822
+  kind: identified
+  text: Charles Maclaren argues that the mound at Hisarlik is the site of Troy.
+- year: 1863
+  date: 1863–65
+  kind: excavated
+  text: Frank Calvert, who owns part of the mound, digs the first trial trenches.
+- year: 1871
+  kind: excavated
+  text: Heinrich Schliemann begins large-scale digging; in 1873 he finds the hoard he calls 'Priam's Treasure'.
+- year: 1932
+  date: 1932–38
+  kind: excavated
+  text: Carl Blegen's excavation refines the sequence of settlement layers.
+- year: 1988
+  kind: excavated
+  text: Manfred Korfmann's excavations reveal a large lower town around the citadel.
 _order: 16
 ---
 

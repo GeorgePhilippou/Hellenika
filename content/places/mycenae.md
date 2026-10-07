@@ -61,6 +61,16 @@ sources:
   - french2002
   - shelmerdine2008
   - cline2021
+milestones:
+- year: 1841
+  kind: excavated
+  text: Kyriakos Pittakis of the Archaeological Society at Athens clears the Lion Gate.
+- year: 1876
+  kind: excavated
+  text: Heinrich Schliemann excavates Grave Circle A, finding its gold masks and grave goods.
+- year: 1951
+  kind: found
+  text: Grave Circle B, older than Schliemann's circle, is found outside the walls.
 _order: 7
 ---
 

@@ -38,6 +38,11 @@ relations:
 sources:
   - parke1967
   - eidinow2007
+milestones:
+- year: 1875
+  date: 1875–76
+  kind: excavated
+  text: Konstantinos Karapanos identifies and excavates the sanctuary, finding inscribed lead oracle tablets.
 _order: 31
 ---
 

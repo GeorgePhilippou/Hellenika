@@ -46,6 +46,11 @@ sources:
   - dillon2003
   - watts2006
   - camp2001
+milestones:
+- year: 1929
+  date: 1929–40
+  kind: excavated
+  text: Panagiotis Aristophron excavates the area at his own expense, finding the road from the Dipylon gate and a large building.
 _order: 84
 ---
 

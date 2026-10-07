@@ -42,6 +42,10 @@ relations:
 sources:
   - cline2010
   - higgins1980
+milestones:
+- year: 1930
+  kind: excavated
+  text: Found by the French School at Athens in the Chrysolakkos burial complex at Malia, and published by Pierre Demargne.
 _order: 8
 ---
 

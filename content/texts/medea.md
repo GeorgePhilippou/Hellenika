@@ -37,6 +37,15 @@ relations:
 sources:
   - sommerstein2010
   - mastronarde2002
+milestones:
+- year: 1200
+  date: 12th–13th c.
+  kind: manuscript
+  text: Survives among the plays of Euripides selected for reading in Byzantine schools.
+- year: 1494
+  approx: true
+  kind: printed
+  text: First printed in Florence by Janus Lascaris, with three other plays of Euripides.
 _order: 11
 ---
 

@@ -40,6 +40,10 @@ relations:
 sources:
   - herodotus-src
   - krentz2010
+milestones:
+- year: 1890
+  kind: excavated
+  text: Valerios Stais excavates the Soros, the mound over the Athenian dead, finding cremated remains and pottery of the right date.
 _order: 36
 ---
 

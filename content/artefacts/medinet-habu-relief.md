@@ -38,6 +38,10 @@ relations:
 sources:
   - cline2021
   - redford2018
+milestones:
+- year: 1924
+  kind: study
+  text: The University of Chicago's Epigraphic Survey begins recording the temple's reliefs and inscriptions; the Sea Peoples scenes are published in 1930.
 _order: 18
 ---
 

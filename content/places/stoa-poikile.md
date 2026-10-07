@@ -41,6 +41,10 @@ sources:
   - camp2001
   - pausanias-src
   - long1987
+milestones:
+- year: 1981
+  kind: excavated
+  text: American School excavations in the Agora find part of the building.
 _order: 86
 ---
 

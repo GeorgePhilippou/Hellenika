@@ -41,6 +41,16 @@ relations:
 sources:
   - popham1993
   - lemos2002
+milestones:
+- year: 1964
+  kind: excavated
+  text: Excavation by the British School at Athens and the Greek Archaeological Service begins.
+- year: 1980
+  kind: found
+  text: A bulldozer clearing the Toumba mound for a house cuts into the great apsidal building.
+- year: 1981
+  kind: excavated
+  text: Rescue excavation uncovers the building and the double burial with four horses beneath it.
 _order: 15
 ---
 

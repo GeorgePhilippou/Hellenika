@@ -42,6 +42,14 @@ relations:
 sources:
   - arrian-src
   - bosworth1988
+milestones:
+- year: 1300
+  approx: true
+  kind: manuscript
+  text: Every surviving copy descends from a single damaged medieval manuscript in Vienna, with a gap in Book 7.
+- year: 1535
+  kind: printed
+  text: First printed in Greek in Venice.
 _order: 16
 ---
 

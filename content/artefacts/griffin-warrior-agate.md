@@ -36,6 +36,13 @@ relations:
 sources:
   - davis2016
   - stocker2017
+milestones:
+- year: 2015
+  kind: excavated
+  text: Found by Jack Davis and Sharon Stocker in the unlooted Griffin Warrior grave at Pylos, encrusted with limestone.
+- year: 2017
+  kind: published
+  text: Cleaning reveals the miniature combat scene, and the find is announced.
 _order: 17
 ---
 

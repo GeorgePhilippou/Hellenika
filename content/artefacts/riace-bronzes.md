@@ -45,6 +45,14 @@ relations:
 sources:
   - stewart1990
   - mattusch1996
+milestones:
+- year: 1972
+  kind: found
+  place: off Riace, Calabria
+  text: Spotted on the seabed by a snorkelling tourist, Stefano Mariottini, and raised days later.
+- year: 1981
+  kind: restored
+  text: First shown to the public after conservation in Florence, drawing huge crowds.
 _order: 33
 ---
 

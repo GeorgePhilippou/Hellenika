@@ -35,6 +35,13 @@ relations:
 sources:
   - platon1971
   - cline2010
+milestones:
+- year: 1901
+  kind: excavated
+  text: David Hogarth excavates houses in the town but misses the palace itself.
+- year: 1961
+  kind: excavated
+  text: Nikolaos Platon finds the palace, the only Minoan palace discovered unlooted.
 _order: 3
 ---
 

@@ -42,6 +42,14 @@ relations:
 sources:
   - radt1999
   - stewart1990
+milestones:
+- year: 1878
+  date: 1878–86
+  kind: excavated
+  text: Carl Humann excavates the altar and its frieze slabs and ships them to Berlin.
+- year: 1930
+  kind: moved
+  text: Reconstructed in the newly opened Pergamonmuseum.
 _order: 48
 ---
 

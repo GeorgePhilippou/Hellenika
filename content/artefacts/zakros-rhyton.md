@@ -41,6 +41,11 @@ relations:
 sources:
   - platon1971
   - cline2010
+milestones:
+- year: 1961
+  date: from 1961
+  kind: excavated
+  text: Found in the treasury of the unlooted palace at Zakros during Nikolaos Platon's excavations, and restored from hundreds of fragments.
 _order: 9
 ---
 

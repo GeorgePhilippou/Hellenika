@@ -40,6 +40,14 @@ relations:
 sources:
   - worthington2013
   - plutarch-src
+milestones:
+- year: 1000
+  date: 10th c.
+  kind: manuscript
+  text: Survives in Byzantine manuscripts of Demosthenes' collected speeches.
+- year: 1504
+  kind: printed
+  text: First printed in Greek by Aldus Manutius in Venice.
 _order: 15
 ---
 

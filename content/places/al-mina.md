@@ -34,6 +34,10 @@ relations:
 sources:
   - boardman1999
   - luke2003
+milestones:
+- year: 1936
+  kind: excavated
+  text: Leonard Woolley excavates the trading post, finding Euboean Greek pottery from around 800 BC.
 _order: 65
 ---
 

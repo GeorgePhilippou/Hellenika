@@ -49,6 +49,21 @@ sources:
   - freeth2006
   - freeth2021
   - jones2017
+milestones:
+- year: 1901
+  date: 1900–01
+  kind: recovered
+  place: off Antikythera
+  text: Raised by sponge divers from a 1st-century BC shipwreck off Antikythera, along with bronze and marble statues.
+- year: 1902
+  kind: identified
+  text: Valerios Stais spots a gear wheel in one of the corroded fragments.
+- year: 1974
+  kind: published
+  text: Derek de Solla Price's Gears from the Greeks gives the first reconstruction of its gearing.
+- year: 2005
+  kind: study
+  text: CT scanning reveals hidden gears and thousands of characters of inscription.
 _order: 45
 ---
 

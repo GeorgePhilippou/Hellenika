@@ -35,6 +35,13 @@ relations:
 sources:
   - cline2010
   - castleden1990
+milestones:
+- year: 1915
+  kind: excavated
+  text: Joseph Hatzidakis makes the first excavations at the site.
+- year: 1922
+  kind: excavated
+  text: The French School at Athens takes over, beginning a programme that still continues.
 _order: 2
 ---
 

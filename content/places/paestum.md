@@ -40,6 +40,14 @@ relations:
 sources:
   - pedley1990
   - holloway2006
+milestones:
+- year: 1750
+  approx: true
+  kind: identified
+  text: Road builders bring the temples back to European attention; they become a stop for travellers on the Grand Tour.
+- year: 1968
+  kind: found
+  text: The painted Tomb of the Diver is found nearby.
 _order: 58
 ---
 
