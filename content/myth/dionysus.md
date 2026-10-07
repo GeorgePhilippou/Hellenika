@@ -49,6 +49,9 @@ _order: 20
 <!-- field: summary -->
 God of wine and ecstatic release, whose festivals produced Greek drama — and who dissolves the boundaries of the self.
 
+<!-- field: significance -->
+The god of wine and ecstasy, in whose festivals Athenian tragedy and comedy were born.
+
 <!-- field: myth -->
 Son of Zeus and the mortal Semele, who was destroyed by seeing Zeus in his true form; Zeus sewed the unborn child into his thigh. Dionysus travelled the world with a following of maenads and satyrs, driving those who denied him mad. In Euripides' *Bacchae* he returns to Thebes and destroys King Pentheus, who is torn apart by his own mother in a state of ecstatic delusion.
 

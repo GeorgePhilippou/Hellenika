@@ -45,6 +45,9 @@ _order: 11
 <!-- field: summary -->
 Daughter of Demeter, taken by Hades to be queen of the underworld, and returned to the world for part of each year.
 
+<!-- field: significance -->
+The goddess at the centre of the Eleusinian Mysteries, whose return each year explained the seasons.
+
 <!-- field: myth -->
 Persephone was gathering flowers when the earth opened and Hades carried her away. Demeter searched the world with torches, refusing to let anything grow; famine threatened to destroy humanity. Zeus ordered her return, but Persephone had eaten pomegranate seeds in the underworld, which bound her to it. The compromise was division: she spends part of each year below and part above, and the earth is barren while she is gone.
 

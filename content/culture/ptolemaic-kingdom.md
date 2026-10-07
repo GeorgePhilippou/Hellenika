@@ -52,6 +52,9 @@ _order: 5
 <!-- field: summary -->
 Greek-ruled Egypt under Alexander's general Ptolemy and his descendants — the wealthiest and longest-lasting successor kingdom.
 
+<!-- field: significance -->
+The richest of the Hellenistic kingdoms, home of the Library of Alexandria, and the last to fall to Rome.
+
 <!-- field: body -->
 The Ptolemies governed Egypt for 275 years as a Greek-speaking elite over an Egyptian population, presenting themselves as pharaohs to Egyptians and as Hellenistic kings to Greeks. Temple reliefs show them in pharaonic dress making offerings to Egyptian gods; their coins show them in Greek royal diadems.
 

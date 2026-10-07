@@ -54,6 +54,9 @@ _order: 3
 <!-- field: summary -->
 The greatest of the Greek warriors at Troy, whose rage drives the Iliad and whose choice defines the heroic bargain.
 
+<!-- field: significance -->
+The model of the Greek hero: the man who chose a short, glorious life over a long, obscure one.
+
 <!-- field: myth -->
 Son of the mortal Peleus and the sea-nymph Thetis, Achilles was offered a choice: a long obscure life or a short glorious one. He chose glory. Dishonoured by Agamemnon over a captive woman, he withdrew from the fighting and let the Greeks be driven back to their ships. His companion Patroclus went out in his armour and was killed by Hector; Achilles returned in a rage, killed Hector, and dragged the body behind his chariot for twelve days. He was killed by an arrow from Paris, guided by Apollo. The story that his mother made him invulnerable except at the heel appears only in much later sources.
 

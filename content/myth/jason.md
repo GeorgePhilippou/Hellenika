@@ -44,6 +44,9 @@ _order: 40
 <!-- field: summary -->
 Leader of the Argonauts, whose quest for the Golden Fleece succeeds through Medea's aid and ends in betrayal at Corinth.
 
+<!-- field: significance -->
+The leader of the Argonauts, whose quest is one of the oldest Greek adventure stories.
+
 <!-- field: myth -->
 Jason's uncle Pelias has seized the throne of Iolcus. Ordered to fetch the Golden Fleece from distant Colchis, Jason gathers the Argonauts and sails in the Argo through a sequence of dangers. King Aeetes demands impossible tasks, but his daughter Medea falls in love with Jason and supplies the knowledge and drugs that make success possible. They flee together. Years later at Corinth, Jason abandons Medea for a royal marriage, provoking the catastrophe dramatised by Euripides.
 

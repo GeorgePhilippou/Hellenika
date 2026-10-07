@@ -50,6 +50,9 @@ _order: 37
 <!-- field: summary -->
 The disabled master craftsman of Olympus, whose forge produces divine weapons, animated servants and works of impossible skill.
 
+<!-- field: significance -->
+The craftsman god, whose works in myth reflect the high status of skilled metalwork in Greek life.
+
 <!-- field: myth -->
 Greek traditions give Hephaestus different parents and two falls from Olympus. In one, Hera rejects her disabled child and throws him down; in another, Zeus casts him out for defending Hera. He lands on Lemnos and becomes the gods' smith. He makes palaces, thrones, armour and marvellous automata. In the *Iliad*, Thetis asks him to replace Achilles' lost armour, and his description of the new shield becomes an image of an entire human world.
 

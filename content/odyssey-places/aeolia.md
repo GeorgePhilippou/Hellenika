@@ -38,6 +38,9 @@ _order: 3
 <!-- field: summary -->
 Home of Aeolus, keeper of the winds, who gives Odysseus a bag holding every wind but the one he needs.
 
+<!-- field: significance -->
+The episode where Odysseus comes within sight of home, only for his crew's curiosity to blow him back.
+
 <!-- field: myth -->
 Aeolus, guardian of the winds by divine appointment, hosts Odysseus for a month and gives him a leather bag containing all the contrary winds, leaving only a favourable west wind to blow him home. Within sight of Ithaca, Odysseus's men — thinking the bag holds treasure he is hiding from them — open it. The released winds blow the fleet straight back to Aeolia, and Aeolus, concluding a man cursed by the gods a second time is not one he should help, refuses to assist again.
 

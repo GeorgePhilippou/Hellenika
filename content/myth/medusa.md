@@ -42,6 +42,9 @@ _order: 39
 <!-- field: summary -->
 The mortal Gorgon whose face turns viewers to stone and whose severed head becomes a powerful protective emblem.
 
+<!-- field: significance -->
+A monster whose severed head became one of the most widespread protective images in Greek art.
+
 <!-- field: myth -->
 Medusa is one of three Gorgon sisters and the only one who can die. Perseus is ordered to obtain her head. Guided by Athena and Hermes, he uses a reflective surface to avoid looking directly at her and cuts off her head while she sleeps. Pegasus and Chrysaor spring from her severed neck, children conceived with Poseidon. Perseus uses the head as a weapon before giving it to Athena, who places it on her aegis.
 

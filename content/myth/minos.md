@@ -52,6 +52,9 @@ _order: 0
 <!-- field: summary -->
 The legendary king of Crete who kept the Minotaur in the labyrinth, exacted tribute from Athens, and became a judge of the dead.
 
+<!-- field: significance -->
+The legendary ruler behind the name "Minoan", whose myth may preserve a Greek memory of Crete's Bronze Age power.
+
 <!-- field: myth -->
 Minos, son of Zeus and Europa, ruled Crete from Knossos. He asked Poseidon for a bull to sacrifice; the god sent a magnificent white one, and Minos kept it. Poseidon's punishment was to make Minos' wife Pasiphaë desire the bull, and their child was the Minotaur. Minos had Daedalus build the labyrinth to contain it, and demanded seven youths and seven maidens from Athens every nine years as tribute, until Theseus killed the creature. He later imprisoned Daedalus, pursued him to Sicily, and was killed there in a bath by the daughters of King Cocalus. After death he became one of the three judges of the underworld.
 

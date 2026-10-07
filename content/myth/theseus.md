@@ -52,6 +52,9 @@ _order: 2
 <!-- field: summary -->
 The national hero of Athens, who killed the Minotaur and was credited with uniting Attica into a single state.
 
+<!-- field: significance -->
+Athens' own national hero, through whom the city told the story of its founding as a single state.
+
 <!-- field: myth -->
 Raised in Troezen, Theseus lifted a rock to recover his father's sword and sandals, then travelled to Athens overland killing bandits on the way. He volunteered for the Cretan tribute, killed the Minotaur with Ariadne's help, abandoned her on Naxos, and forgot to change his black sail for a white one — so his father Aegeus, watching, threw himself into the sea that bears his name. As king he unified the villages of Attica into one polis (*synoikismos*), fought the Amazons, joined the Calydonian boar hunt, and helped his friend Pirithous attempt to abduct Persephone from the underworld, where he was trapped in a chair until Heracles freed him.
 

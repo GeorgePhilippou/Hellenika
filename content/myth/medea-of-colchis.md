@@ -47,6 +47,9 @@ _order: 41
 <!-- field: summary -->
 Colchian princess, healer and sorceress who secures Jason's quest, abandons her home and is later betrayed at Corinth.
 
+<!-- field: significance -->
+One of the most powerful and disturbing women in Greek myth, the subject of Euripides' great tragedy.
+
 <!-- field: myth -->
 Medea is daughter of Aeetes, king of Colchis, and descendant of the Sun. She helps Jason yoke fire-breathing bulls, defeat earthborn warriors and overcome the serpent guarding the Golden Fleece. She flees with him and uses dangerous knowledge to protect their escape. At Corinth Jason leaves her to marry a princess. In Euripides' tragedy, Medea kills the bride and king with poisoned gifts, then kills her own children and escapes in a chariot of the Sun.
 

@@ -46,6 +46,9 @@ _order: 23
 <!-- field: summary -->
 The winged personification of victory in war and athletic competition, shown alighting, offering wreaths or crowning successful rulers.
 
+<!-- field: significance -->
+The image of victory, shown in some of the greatest works of Greek sculpture.
+
 <!-- field: myth -->
 Daughter of the Titan Pallas and the river Styx, Nike sided with Zeus against the Titans and was rewarded with a permanent place beside him. She is less a character than an attribute — she appears alongside other gods rather than acting on her own.
 

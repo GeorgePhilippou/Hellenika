@@ -49,6 +49,9 @@ _order: 36
 <!-- field: summary -->
 Messenger, trickster and boundary-crosser: protector of travellers and trade, inventor, thief and guide of the dead.
 
+<!-- field: significance -->
+The god of travellers, traders and boundaries, and guide of souls to the underworld.
+
 <!-- field: myth -->
 Born to Zeus and Maia in an Arcadian cave, Hermes escapes his cradle on his first day, invents the lyre from a tortoise shell and steals Apollo's cattle by making them walk backwards. When confronted, he charms Apollo with the new instrument and exchanges it for authority over cattle and divination. Elsewhere he carries divine messages, gives Odysseus protection against Circe and escorts the souls of the dead.
 

@@ -40,6 +40,9 @@ _order: 1
 <!-- field: summary -->
 Journey's start: with Troy fallen, Odysseus sails for home with twelve ships, not yet knowing the return will take ten more years.
 
+<!-- field: significance -->
+The starting point of the Odyssey's journey home, where the Iliad's war ends.
+
 <!-- field: myth -->
 With Troy sacked and the Greek fleet dividing for home, Odysseus sets out for Ithaca with twelve ships and his full company. Nothing in the moment suggests the voyage will be anything but ordinary — the disasters that stretch it into a decade-long ordeal, starting with a raid on the Cicones at Ismarus, are still to come. The Odyssey itself does not open here: Odysseus recounts this departure in retrospect, as a story told to his Phaeacian hosts long after the fact.
 

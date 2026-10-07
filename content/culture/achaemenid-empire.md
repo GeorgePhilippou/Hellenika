@@ -59,6 +59,9 @@ _order: 4
 <!-- field: summary -->
 The largest empire the world had yet seen, stretching from the Aegean to the Indus, and the defining external power in Greek history.
 
+<!-- field: significance -->
+The great empire that Greece fought in the Persian Wars and Alexander conquered, shaping Greek history for two centuries.
+
 <!-- field: body -->
 Founded by Cyrus the Great around 550 BC, the Achaemenid Empire eventually governed perhaps 25 million people — a substantial fraction of humanity alive at the time — across the Balkans, Egypt, Anatolia, Mesopotamia, Iran and Central Asia, making it by a wide margin the largest state the world had yet seen. Cyrus set the tone for how it would rule from the start: the Cyrus Cylinder, a clay proclamation issued after his conquest of Babylon, records him permitting displaced peoples, including Judean exiles held in Babylon, to return to their homelands and rebuild their own temples — a policy of restoring rather than erasing conquered peoples' institutions that some modern commentators have controversially compared to an early human-rights charter, and that in any case gave the empire's early conquests real practical legitimacy in the eyes of those it absorbed.
 

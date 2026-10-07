@@ -38,6 +38,9 @@ _order: 29
 <!-- field: summary -->
 The first yawning gap in Hesiod's cosmogony—not yet the modern idea of confusion, randomness or disorder.
 
+<!-- field: significance -->
+The beginning of everything in Hesiod's account of creation, the first step in Greek ideas about the origin of the world.
+
 <!-- field: myth -->
 Hesiod opens the *Theogony* with Chaos. After it come Gaia, broad Tartarus and Eros. From Chaos emerge Erebus and Night, who in turn produce Aether and Day. Chaos does not manufacture the cosmos through a deliberate act and is not a creator god ruling from outside it. The poem instead begins with a minimal opening or separation from which a populated, genealogically ordered universe can develop.
 

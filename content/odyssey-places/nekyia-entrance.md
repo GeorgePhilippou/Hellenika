@@ -46,6 +46,9 @@ _order: 6
 <!-- field: summary -->
 The edge of Ocean, where Odysseus digs a pit of blood to summon the dead and speaks with the prophet Tiresias.
 
+<!-- field: significance -->
+The Odyssey's journey to the land of the dead, one of the earliest descriptions of the Greek underworld.
+
 <!-- field: myth -->
 On Circe's instructions, Odysseus sails to the edge of the world, in permanent mist and darkness, and digs a trench filled with the blood of sacrificed animals. The shades of the dead crowd to drink it and speak; among them is the blind prophet Tiresias, who tells Odysseus how to get home and warns him never to touch the Cattle of the Sun. He also meets the ghosts of his mother and of dead companions from Troy, including Achilles and Agamemnon.
 

@@ -50,6 +50,9 @@ _order: 15
 <!-- field: summary -->
 God of prophecy and music — and of the plague arrows that open the Iliad. Order and destruction in the same figure.
 
+<!-- field: significance -->
+The god of Delphi and its oracle, of music, prophecy and healing — the most characteristically Greek of the gods.
+
 <!-- field: myth -->
 Born on Delos with his twin Artemis after Leto, pursued by Hera, found refuge on a floating island. He killed the serpent Python at Delphi and took the oracle. He flayed the satyr Marsyas alive for challenging him to a music contest. His loves generally end badly: Daphne became a laurel tree escaping him, Cassandra received prophecy and the curse of never being believed, Hyacinthus was killed by a discus.
 

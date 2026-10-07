@@ -53,6 +53,9 @@ _order: 1
 <!-- field: summary -->
 A bull-headed man confined in the labyrinth beneath Knossos, fed on Athenian youths and killed by Theseus.
 
+<!-- field: significance -->
+The monster at the heart of the labyrinth story — probably a Greek memory of the bull imagery and maze-like palace of Minoan Knossos.
+
 <!-- field: myth -->
 Born to Pasiphaë after Poseidon caused her to desire a white bull, the Minotaur — properly named Asterion — was a creature with a bull's head and a man's body. Daedalus built the labyrinth to contain it. Athens sent seven youths and seven maidens as periodic tribute to be devoured. Theseus volunteered, and Minos' daughter Ariadne gave him a thread to retrace his path. He killed the Minotaur and escaped, abandoning Ariadne on Naxos on the way home.
 

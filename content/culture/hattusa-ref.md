@@ -50,6 +50,9 @@ _order: 10
 <!-- field: summary -->
 The Anatolian great power whose archives name Mycenaean Greeks — and whose collapse is the clearest marker of the Bronze Age crisis.
 
+<!-- field: significance -->
+The great Anatolian power whose records mention the Mycenaean Greeks and Troy, and whose fall marks the Bronze Age collapse.
+
 <!-- field: body -->
 The Hittites ruled central Anatolia from Hattusa and fought Egypt to a standstill at Kadesh around 1274 BC, producing the earliest surviving peace treaty, of which both Egyptian and Hittite copies exist.
 

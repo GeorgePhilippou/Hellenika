@@ -48,6 +48,9 @@ _order: 8
 <!-- field: summary -->
 The ring of Aegean islands around Delos — source of marble, obsidian and the earliest distinctive art of the Aegean.
 
+<!-- field: significance -->
+The islands where the first distinctive Aegean art appeared, and home of the sacred island of Delos.
+
 <!-- field: body -->
 The name means "the circle", from the islands ringing sacred Delos, which both Athens and other Greek states treated as neutral ground holy enough to require ritual purification: Athens at one point had every existing grave on Delos dug up and the remains relocated to a neighbouring island, so that no death would be permitted to pollute the sanctuary going forward. The islands themselves are small, dry, and individually poor in farmland, which made their inhabitants exceptional sailors out of sheer necessity: almost everything of value had to move between islands, and beyond them, by sea.
 

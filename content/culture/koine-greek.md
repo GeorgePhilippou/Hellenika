@@ -50,6 +50,9 @@ _order: 3
 <!-- field: summary -->
 The simplified common Greek that spread with Alexander's conquests and became the lingua franca from Marseille to the Indus.
 
+<!-- field: significance -->
+The common Greek of the Hellenistic and Roman East, the language of the New Testament and of Byzantium.
+
 <!-- field: body -->
 Koine — literally "common" — grew out of Attic Greek with significant Ionic influence, spreading rapidly through the ranks of Alexander's armies, drawn from many different Greek-speaking regions, and through the administrative machinery of the vast territory he conquered. In the process it simplified considerably from its Classical Attic ancestor: the old dual grammatical number, used for pairs of things, disappeared almost entirely; the subtle optative mood fell into steady decline; the dative case began eroding in everyday speech; and vocabulary standardised across regions that had previously spoken quite distinct local dialects.
 

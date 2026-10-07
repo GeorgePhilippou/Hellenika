@@ -54,6 +54,9 @@ _order: 4
 <!-- field: summary -->
 King of Mycenae and commander of the Greek coalition at Troy, murdered by his wife on his return.
 
+<!-- field: significance -->
+The commander of the Trojan War and centre of the most famous family curse in Greek tragedy.
+
 <!-- field: myth -->
 Agamemnon led the expedition against Troy to recover Helen for his brother Menelaus. Becalmed at Aulis, he sacrificed his daughter Iphigenia to obtain a favourable wind. At Troy he quarrelled with Achilles over a captive woman, nearly losing the war. He returned home with the prophetess Cassandra and was killed in his bath by his wife Clytemnestra and her lover Aegisthus — she had waited ten years, and Iphigenia was her reason. Their son Orestes avenged him by killing her, and was pursued by the Furies until acquitted at Athens.
 

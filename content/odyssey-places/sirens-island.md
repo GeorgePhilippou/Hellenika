@@ -36,6 +36,9 @@ _order: 7
 <!-- field: summary -->
 Singers whose voices promise perfect knowledge — and whose listeners never leave alive.
 
+<!-- field: significance -->
+One of the most enduring images of temptation in Western literature.
+
 <!-- field: myth -->
 Warned again by Circe, Odysseus plugs his crew's ears with beeswax and has himself bound to the mast so he alone can hear the Sirens' song without being able to steer the ship toward them. The song offers not seduction in the usual sense but omniscience — the Sirens claim to know everything that happened at Troy and everything that happens on earth.
 

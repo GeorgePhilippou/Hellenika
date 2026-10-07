@@ -52,6 +52,9 @@ _order: 33
 <!-- field: summary -->
 Titan mother of the central Olympian siblings, who saves the infant Zeus from being swallowed by Kronos.
 
+<!-- field: significance -->
+The mother of the Olympian gods, whose trick saved the infant Zeus and made his rule possible.
+
 <!-- field: myth -->
 Rhea bears six children to Kronos, who swallows each because Uranus and Gaia have warned that his own child will displace him. When Zeus is born, Rhea hides him and presents Kronos with a stone wrapped like a baby. Cretan versions place Zeus in a cave, guarded by armed youths whose clashing weapons conceal his cries. Once grown, Zeus frees his swallowed siblings and begins the war against the Titans.
 

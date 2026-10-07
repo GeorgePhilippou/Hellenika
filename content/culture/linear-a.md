@@ -67,6 +67,9 @@ _order: 0
 <!-- field: summary -->
 The script of Minoan Crete — readable in sound but not in meaning, because the language behind it is unknown.
 
+<!-- field: significance -->
+The writing of Minoan Crete, still undeciphered — and the script from which Linear B was adapted.
+
 <!-- field: body -->
 Linear A is a syllabary of about 90 signs plus logograms for commodities and a decimal number system including fractions. It appears on clay tablets, sealings, and — unusually — on stone libation vessels and gold and silver objects, so it was used for religious dedication as well as everyday accounting. It was not even the first script on Crete: an earlier, still more poorly understood system now called Cretan Hieroglyphic was already in use before Linear A developed from it, and the famous Phaistos Disc, stamped rather than incised with a set of 45 repeating pictorial signs, represents yet another, wholly separate system whose signs do not match either script and whose authenticity and origin remain debated in their own right.
 

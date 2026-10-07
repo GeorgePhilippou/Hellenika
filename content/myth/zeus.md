@@ -53,6 +53,9 @@ _order: 13
 <!-- field: summary -->
 King of the gods, wielder of the thunderbolt, and guarantor of oaths, hospitality and the political order.
 
+<!-- field: significance -->
+The supreme god of the Greeks: guardian of justice, oaths, hospitality and the order of the world.
+
 <!-- field: myth -->
 Youngest son of Kronos, who swallowed his children to prevent a prophesied overthrow. Rhea hid Zeus in a Cretan cave and gave Kronos a stone instead. Grown, Zeus freed his siblings, defeated the Titans in a ten-year war, and divided the cosmos with his brothers: sky to Zeus, sea to Poseidon, underworld to Hades. His serial affairs with mortals and goddesses, and Hera's reprisals, generate a large part of Greek myth.
 

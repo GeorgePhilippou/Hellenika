@@ -50,6 +50,9 @@ _order: 19
 <!-- field: summary -->
 Queen of the gods and goddess of marriage — whose most conspicuous mythological activity is punishing her husband's lovers.
 
+<!-- field: significance -->
+Queen of the gods and patron of marriage, honoured at great sanctuaries on Samos and at Argos.
+
 <!-- field: myth -->
 Sister and wife of Zeus. Her mythology is dominated by jealousy: she pursued Heracles from birth, drove him mad, delayed Leto's labour, turned Io into a cow, and destroyed Semele. She supported the Greeks at Troy out of resentment over the Judgement of Paris.
 

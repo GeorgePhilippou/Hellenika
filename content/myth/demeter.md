@@ -44,6 +44,9 @@ _order: 21
 <!-- field: summary -->
 Goddess of grain and the harvest, whose grief for her stolen daughter stopped the world growing.
 
+<!-- field: significance -->
+The goddess of grain and harvest, and with Persephone the centre of the Eleusinian Mysteries.
+
 <!-- field: myth -->
 When Hades took Persephone, Demeter searched the earth with torches, and in her grief let nothing grow. Disguised as an old woman, she was taken in at Eleusis, where she nursed the queen's son and attempted to make him immortal by placing him in the fire. Discovered and interrupted, she revealed herself and demanded a temple. Only when famine threatened to end sacrifices altogether did Zeus intervene.
 

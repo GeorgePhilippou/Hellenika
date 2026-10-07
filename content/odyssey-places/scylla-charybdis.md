@@ -40,6 +40,9 @@ _order: 8
 <!-- field: summary -->
 A strait so narrow that avoiding the whirlpool on one side sails you straight into the six-headed monster on the other.
 
+<!-- field: significance -->
+The origin of the phrase for a choice between two dangers.
+
 <!-- field: myth -->
 Odysseus must choose between two evils in a narrow channel: Charybdis, a whirlpool that would swallow the whole ship, and Scylla, a six-headed monster in a cliffside cave who is guaranteed to take exactly six men, one per head, but no more. On Circe's advice he steers toward Scylla, accepting a small certain loss over a total, uncertain one — Scylla seizes six sailors as he passes.
 

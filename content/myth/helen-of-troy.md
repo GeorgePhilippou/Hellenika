@@ -53,6 +53,9 @@ _order: 5
 <!-- field: summary -->
 The most beautiful woman in the world, whose departure with Paris was the stated cause of the Trojan War.
 
+<!-- field: significance -->
+The cause of the Trojan War in legend, and a figure Greek poets argued over for centuries.
+
 <!-- field: myth -->
 Daughter of Zeus and Leda, Helen was courted by every prince in Greece; her suitors swore an oath to defend whoever won her, which is how the coalition was assembled. She married Menelaus of Sparta. Paris, awarding the golden apple to Aphrodite, was promised the most beautiful woman in the world and took Helen to Troy. After the city fell Menelaus intended to kill her, and did not.
 

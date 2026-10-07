@@ -50,6 +50,9 @@ _order: 8
 <!-- field: summary -->
 The aged king of Pylos in the Iliad, valued for counsel and long-winded reminiscence rather than fighting.
 
+<!-- field: significance -->
+The voice of age and experience among Homer's heroes, and the legendary king of the Mycenaean palace at Pylos.
+
 <!-- field: myth -->
 Nestor had already outlived two generations when the war began. He advises, mediates the quarrel between Achilles and Agamemnon, and repeatedly tells stories about how much better things were done in his youth. Homer gives him a famously enormous drinking cup that only he can lift. He is one of the few Greek leaders to reach home safely.
 

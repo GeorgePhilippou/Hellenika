@@ -57,6 +57,9 @@ _order: 10
 <!-- field: summary -->
 The greatest Greek hero, who performed twelve labours in penance for killing his own family, and became a god after death.
 
+<!-- field: significance -->
+The most widely worshipped Greek hero, honoured across the whole Greek world and claimed as an ancestor by kings, including Alexander.
+
 <!-- field: myth -->
 Son of Zeus and the mortal Alcmene, Heracles was persecuted from birth by Hera. Driven mad by her, he killed his wife and children, and was set twelve labours in penance: the Nemean lion, the Hydra of Lerna, the Ceryneian hind, the Erymanthian boar, the Augean stables, the Stymphalian birds, the Cretan bull, the mares of Diomedes, Hippolyta's belt, the cattle of Geryon, the apples of the Hesperides, and Cerberus. He died from a poisoned robe and was taken up to Olympus as a god.
 

@@ -50,6 +50,9 @@ _order: 9
 <!-- field: summary -->
 The king of Thebes who unknowingly killed his father and married his mother, and blinded himself when he found out.
 
+<!-- field: significance -->
+The central figure of Greek tragedy's most famous plot, and a byword ever since for a man undone by his own search for the truth.
+
 <!-- field: myth -->
 An oracle warned Laius that his son would kill him, so the infant was exposed on a mountain with pierced ankles — hence the name, "swollen foot". Rescued and raised in Corinth, Oedipus heard the same prophecy about himself, fled the people he believed were his parents, killed a stranger at a crossroads, answered the Sphinx's riddle and was made king of Thebes, marrying the widowed queen. Years later, investigating a plague, he discovered that the stranger was his father and the queen his mother. Jocasta hanged herself; he blinded himself with her brooches and went into exile.
 

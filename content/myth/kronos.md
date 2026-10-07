@@ -50,6 +50,9 @@ _order: 32
 <!-- field: summary -->
 The Titan who overthrew his father Uranus, swallowed his own children and was in turn defeated by Zeus.
 
+<!-- field: significance -->
+The Titan ruler overthrown by Zeus, at the centre of the Greek succession myth and its Near Eastern parallels.
+
 <!-- field: myth -->
 Kronos is the youngest Titan child of Gaia and Uranus. Armed with Gaia's sickle, he castrates Uranus and takes power. Warned that one of his own children will overthrow him, he swallows Hestia, Demeter, Hera, Hades and Poseidon as they are born. Rhea saves the youngest, Zeus, by giving Kronos a wrapped stone. Zeus later forces him to release his siblings and defeats the Titans in the Titanomachy.
 

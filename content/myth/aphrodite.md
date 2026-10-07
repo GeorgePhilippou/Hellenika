@@ -47,7 +47,7 @@ relations:
   - id: aphrodite-knidos
     rel: depicted as
 secondaryImage:
-  wikipediaTitle: "File:Sanctuary of Aphrodite at Palaepafos, Cyprus - conical stone (cropped).jpg"
+  wikipediaTitle: File:Sanctuary of Aphrodite at Palaepafos, Cyprus - conical stone (cropped).jpg
   caption: The aniconic conical baetyl from Aphrodite's sanctuary at Palaepaphos, within modern Kouklia—the cult object itself rather than a statue of the goddess.
 sources:
   - burkert1985
@@ -59,6 +59,9 @@ _order: 18
 
 <!-- field: summary -->
 Goddess of sexual desire, born from sea foam, whose power in Greek thought is compulsion rather than romance.
+
+<!-- field: significance -->
+The goddess of desire, whose cult at Paphos on Cyprus and whose image in art shaped later ideas of beauty.
 
 <!-- field: myth -->
 Hesiod has her born from the foam where Ouranos' severed genitals fell into the sea near Cyprus; Homer makes her a daughter of Zeus and Dione. Married to Hephaestus and caught in a net with Ares by her husband. She won the golden apple by promising Paris the most beautiful woman in the world, which set the Trojan War in motion, and protected Aeneas through it.

@@ -51,6 +51,9 @@ _order: 17
 <!-- field: summary -->
 God of the sea, earthquakes and horses — and, on the Linear B evidence, the most important god of Bronze Age Pylos.
 
+<!-- field: significance -->
+One of the oldest Greek gods, already prominent in the Linear B tablets, and lord of the sea on which Greek life depended.
+
 <!-- field: myth -->
 Brother of Zeus and Hades, he received the sea in the division of the cosmos. He contested Athens with Athena and lost, and flooded the Attic plain in anger. He pursued Odysseus across the Mediterranean for blinding his son Polyphemus. He created the horse, and fathered the winged Pegasus.
 

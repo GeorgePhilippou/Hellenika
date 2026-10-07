@@ -36,6 +36,9 @@ _order: 4
 <!-- field: summary -->
 A harbour of giant cannibals that destroys eleven of Odysseus's twelve ships in a single ambush.
 
+<!-- field: significance -->
+The disaster that costs Odysseus all but one of his ships.
+
 <!-- field: myth -->
 The fleet finds a harbour so enclosed that only Odysseus's own ship anchors outside it. The Laestrygonians, giants, sink the ships trapped inside by hurling boulders and spear the crews "like fish." Only Odysseus's single ship, moored apart, survives — the single worst loss of the entire voyage.
 

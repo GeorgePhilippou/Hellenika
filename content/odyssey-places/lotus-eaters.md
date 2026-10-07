@@ -36,6 +36,9 @@ _order: 1
 <!-- field: summary -->
 A land where the fruit itself is the danger — eat it, and the desire to ever go home disappears.
 
+<!-- field: significance -->
+A brief episode that gave the language an image for forgetting home and responsibility.
+
 <!-- field: myth -->
 A storm off Cape Malea drives the fleet nine days south. Scouts sent ashore eat the lotus plant and lose all wish to return — Odysseus has to drag them back to the ships in tears and tie them under the rowing benches.
 

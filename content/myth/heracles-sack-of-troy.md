@@ -47,6 +47,9 @@ _order: 24
 <!-- field: summary -->
 A generation before the Trojan War, Heracles sacked Troy himself over an unpaid debt, killing King Laomedon and putting the young Priam on the throne.
 
+<!-- field: significance -->
+An earlier war at Troy in Greek legend, showing how the Trojan story was built from older layers of myth.
+
 <!-- field: myth -->
 Troy's walls were said to have been built by Poseidon and Apollo, sent to serve King Laomedon for a year as punishment by Zeus. When the work was finished, Laomedon refused to pay them. Poseidon answered by sending a sea monster to ravage the coast, which oracles said could only be stopped by sacrificing Laomedon's own daughter, Hesione. Heracles arrived as she was being offered up, killed the monster, and saved her -- but Laomedon reneged again, refusing the promised reward of his immortal horses, a gift Zeus had once given his ancestor Tros. Heracles left, gathered an army, and returned to storm the city, killing Laomedon and all his sons but one. The sole survivor, the youngest son Podarces, was spared and given the throne under a new name: Priam. It was this Priam, a generation later, who was ruling Troy when the Greeks came again.
 

@@ -50,6 +50,9 @@ _order: 6
 <!-- field: summary -->
 The largest successor state, inheriting most of Alexander's Asian conquests from Anatolia to Central Asia.
 
+<!-- field: significance -->
+The largest of the Hellenistic kingdoms, which spread Greek cities and culture from Syria to Central Asia.
+
 <!-- field: body -->
 Seleucus I took Babylonia in 312 BC — the year from which the Seleucid Era counts, making it the first continuous numbered year-count in recorded history and, through a long chain of borrowed conventions, an ancestor of the AD dating system still used worldwide.
 

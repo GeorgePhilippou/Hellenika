@@ -39,6 +39,9 @@ _order: 5
 <!-- field: summary -->
 Island of the sorceress Circe, who turns half the crew into pigs and later becomes Odysseus's guide to the dead.
 
+<!-- field: significance -->
+Circe's island, where Odysseus spends a year and learns the way to the land of the dead.
+
 <!-- field: myth -->
 Circe drugs and transforms Odysseus's scouting party into pigs. Protected by an herb given to him by Hermes, Odysseus resists her magic, forces her to restore his men, and stays with her for a year. She then tells him the one piece of information he needs and could get nowhere else: to reach home he must first sail to the edge of the world and consult the dead prophet Tiresias.
 

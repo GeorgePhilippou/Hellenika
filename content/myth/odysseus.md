@@ -51,6 +51,9 @@ _order: 6
 <!-- field: summary -->
 King of Ithaca, deviser of the wooden horse, and the hero who survives by intelligence rather than strength.
 
+<!-- field: significance -->
+The hero of cunning rather than strength, whose ten-year journey home is the model for every story of return.
+
 <!-- field: myth -->
 Odysseus feigned madness to avoid the war, was exposed, and became the Greeks' most valuable strategist — the wooden horse was his idea. His return took ten years: the Cyclops Polyphemus, whom he blinded after giving his name as Nobody; Circe; the Sirens; Scylla and Charybdis; seven years with Calypso. He reached Ithaca alone, in disguise, and killed the suitors who had besieged his wife Penelope and consumed his household.
 

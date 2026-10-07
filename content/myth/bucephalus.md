@@ -43,6 +43,9 @@ _order: 12
 <!-- field: summary -->
 Alexander's horse for twenty years, tamed by him as a boy and commemorated with a city on the Hydaspes.
 
+<!-- field: significance -->
+The most famous horse of antiquity, and a lasting image of Alexander's boyhood promise.
+
 <!-- field: myth -->
 A Thessalian dealer offered Philip II a magnificent but unmanageable horse. The twelve-year-old Alexander noticed it was frightened of its own shadow, turned it to face the sun, and mounted it. Philip is said to have wept and told him to find a kingdom big enough for himself, since Macedon was too small. Bucephalus carried Alexander across Asia and died after the Hydaspes; Alexander founded Bucephala in his honour.
 

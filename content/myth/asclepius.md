@@ -47,6 +47,9 @@ _order: 22
 <!-- field: summary -->
 God of healing, whose sanctuaries offered cure by dream — operating alongside, not against, Hippocratic medicine.
 
+<!-- field: significance -->
+The god of healing, whose sanctuaries at Epidaurus, Kos and Athens were the hospitals of the ancient world.
+
 <!-- field: myth -->
 Son of Apollo and the mortal Coronis, cut from his mother's body on the funeral pyre and raised by the centaur Cheiron, who taught him medicine. He became so skilled that he raised the dead, and Zeus killed him with a thunderbolt to preserve the boundary between mortal and immortal. He was afterwards made a god.
 

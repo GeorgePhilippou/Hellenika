@@ -48,6 +48,9 @@ _order: 7
 <!-- field: summary -->
 The hollow wooden horse in which Greek warriors entered Troy — the most famous stratagem in Western literature.
 
+<!-- field: significance -->
+The most famous trick in Western storytelling, and the origin of the phrase "beware of Greeks bearing gifts".
+
 <!-- field: myth -->
 Unable to take Troy by siege, the Greeks built a great wooden horse, hid warriors inside, and sailed away as if defeated, leaving it as an offering. The priest Laocoön warned against it and was killed with his sons by serpents from the sea. The Trojans took the horse inside; the Greeks emerged at night and opened the gates.
 

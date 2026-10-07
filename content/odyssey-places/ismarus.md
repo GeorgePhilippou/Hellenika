@@ -40,6 +40,9 @@ _order: 0
 <!-- field: summary -->
 Odysseus's first stop after leaving Troy — a real Thracian coast, sacked and immediately regretted.
 
+<!-- field: significance -->
+The first stop of Odysseus' journey home, where his men's greed costs them dearly — a warning repeated through the poem.
+
 <!-- field: myth -->
 Odysseus raids the city of the Cicones, allies of Troy, for plunder. His men linger to feast instead of leaving, and the Cicones return with reinforcements and kill six men from each ship before the fleet escapes. It is the first sign that the journey home will go wrong.
 

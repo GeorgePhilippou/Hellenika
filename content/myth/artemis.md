@@ -50,6 +50,9 @@ _order: 16
 <!-- field: summary -->
 Virgin goddess of the hunt and of wild places, who protects young animals and young women — and kills without hesitation.
 
+<!-- field: significance -->
+One of the most widely worshipped goddesses of the Greek world, honoured from Ephesus to Brauron.
+
 <!-- field: myth -->
 Twin of Apollo, born first and helping deliver her brother, which made her a goddess of childbirth. She asked Zeus for eternal virginity and a bow. She turned Actaeon into a stag for seeing her bathe, and his own dogs killed him. She demanded the sacrifice of Iphigenia to release the Greek fleet, and in some versions substituted a deer at the last moment.
 

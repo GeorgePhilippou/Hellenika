@@ -49,6 +49,9 @@ _order: 38
 <!-- field: summary -->
 The Argive hero who kills Medusa, rescues Andromeda and becomes the legendary founder of Mycenae.
 
+<!-- field: significance -->
+One of the oldest Greek heroes, legendary founder of Mycenae and slayer of Medusa.
+
 <!-- field: myth -->
 An oracle warns Acrisius that his daughter Danae's son will kill him. He confines her, but Zeus reaches her as a shower of gold and Perseus is born. Mother and child are cast into the sea and survive. Later Perseus is sent to bring back Medusa's head. Athena and Hermes equip him; he approaches the Gorgon by reflection, decapitates her and escapes. On his return he rescues Andromeda from a sea monster and eventually fulfils the oracle accidentally by killing Acrisius with a discus.
 

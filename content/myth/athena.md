@@ -56,6 +56,9 @@ _order: 14
 <!-- field: summary -->
 Goddess of practical intelligence, weaving, and war conducted with strategy — patron of Athens and of Odysseus.
 
+<!-- field: significance -->
+The patron goddess of Athens and of skill and strategy — the city's Parthenon was built for her.
+
 <!-- field: myth -->
 Zeus swallowed the pregnant Metis, and Athena was later born fully armed from his head. She competed with Poseidon for Athens: he struck the rock and produced a salt spring, she produced the olive tree, and the citizens chose hers. She turned Arachne into a spider for weaving better than her, guided Odysseus and Perseus, and remained a virgin goddess.
 

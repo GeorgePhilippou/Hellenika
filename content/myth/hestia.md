@@ -47,6 +47,9 @@ _order: 35
 <!-- field: summary -->
 Goddess of the hearth whose quiet ritual centrality held together household, sacrifice and the political community.
 
+<!-- field: significance -->
+The goddess of the hearth, honoured at every household and city fire, the quiet centre of Greek religious life.
+
 <!-- field: myth -->
 Hestia is the first child swallowed by Kronos and the last released, making her both eldest and youngest among the central divine siblings. In the Homeric Hymns she refuses marriage to Poseidon or Apollo and swears perpetual virginity. Zeus grants her honour in every house and a share in sacrificial offerings. Unlike Athena or Artemis, her virginity expresses fixedness at the centre rather than movement beyond the household.
 

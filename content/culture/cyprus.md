@@ -54,6 +54,9 @@ _order: 9
 <!-- field: summary -->
 A copper-rich island facing the Levant, divided among small Greek–Phoenician city-kingdoms and later secured as one of the Ptolemies' most valuable possessions.
 
+<!-- field: significance -->
+A crossroads of Greek and Near Eastern culture, rich in copper, and the legendary birthplace of Aphrodite.
+
 <!-- field: body -->
 Cyprus sits close enough to the Levantine coast to trade with it constantly and far enough offshore to develop on its own terms. Its copper mines supplied the Bronze Age Mediterranean on a scale that shaped the island's whole economy and external relationships; the Latin word for the metal, *cuprum*, derives from the island's own name rather than the other way round, a linguistic trace of just how closely the two were associated in the ancient world.
 

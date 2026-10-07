@@ -44,6 +44,9 @@ _order: 44
 <!-- field: summary -->
 The first woman in Hesiod's account, fashioned by the gods as Zeus' dangerous answer to Prometheus and human fire.
 
+<!-- field: significance -->
+The first woman in Greek myth, whose jar released the troubles of human life — Hesiod's explanation of evil in the world.
+
 <!-- field: myth -->
 After Prometheus steals fire, Zeus orders Hephaestus to form a woman from earth and water. Athena teaches her weaving, Aphrodite gives desire, Hermes supplies a deceptive mind and the gods adorn her irresistibly. She is sent to Prometheus' brother Epimetheus, who accepts her despite a warning never to receive Zeus' gifts. Pandora opens a great storage jar and releases suffering, disease and toil into human life; only Hope remains within.
 

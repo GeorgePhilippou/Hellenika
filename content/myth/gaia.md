@@ -44,6 +44,9 @@ _order: 30
 <!-- field: summary -->
 The living Earth: a primordial being, mother of Uranus and ancestor of Titans, gods, monsters and humans.
 
+<!-- field: significance -->
+The Earth itself as a goddess, mother of the first generations of gods in Greek creation myth.
+
 <!-- field: myth -->
 In Hesiod's *Theogony*, Gaia emerges after Chaos and produces Uranus, the starry sky, to cover her. With Uranus she bears the Titans, Cyclopes and Hundred-Handers. When Uranus suppresses their children, Gaia fashions the sickle with which Kronos attacks him. She later helps Zeus overthrow Kronos, yet also produces or supports challengers to Zeus, including the giant Typhon in Hesiod's account.
 

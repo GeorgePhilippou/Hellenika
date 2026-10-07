@@ -39,6 +39,9 @@ _order: 11
 <!-- field: summary -->
 The last stop before home — where the princess Nausicaa finds Odysseus washed up naked on the beach, and he finally tells his whole story.
 
+<!-- field: significance -->
+The island of the Phaeacians, where Odysseus tells the story of his wanderings and is finally carried home.
+
 <!-- field: myth -->
 Shipwrecked again leaving Ogygia, Odysseus swims ashore exhausted and is found, asleep and naked, by the princess Nausicaa. The seafaring Phaeacians host him lavishly; at a feast he hears a bard sing of the Trojan War and breaks down, at which point he finally reveals his identity and narrates the entire preceding adventure — everything from the Cicones to Ogygia — as a story within the story. The Phaeacians then simply sail him home to Ithaca while he sleeps, asking nothing in return beyond gifts already given.
 

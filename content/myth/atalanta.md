@@ -40,6 +40,9 @@ _order: 42
 <!-- field: summary -->
 A formidable hunter and runner whose competing traditions resist any single fixed biography or genealogy.
 
+<!-- field: significance -->
+A heroine who outran and outhunted men, challenging the usual roles of women in Greek myth.
+
 <!-- field: myth -->
 Exposed as an infant and nursed by a bear, Atalanta grows into a hunter devoted to Artemis. She draws first blood in the Calydonian boar hunt, and Meleager awards her the hide, provoking a lethal quarrel with his relatives. In another famous story she agrees to marry only a man who can defeat her in a footrace; Hippomenes wins by distracting her with golden apples supplied by Aphrodite. Later the couple are transformed into lions.
 

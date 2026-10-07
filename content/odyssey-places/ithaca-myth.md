@@ -42,6 +42,9 @@ _order: 12
 <!-- field: summary -->
 Journey's end: twenty years after he left for Troy, Odysseus returns home in disguise to find his palace occupied by suitors besieging his wife.
 
+<!-- field: significance -->
+Odysseus' home, the goal of the whole Odyssey, where the second half of the poem takes place.
+
 <!-- field: myth -->
 The Phaeacians leave Odysseus asleep on a beach he does not at first recognise — Athena has disguised both him and the island's landmarks. Disguised as a beggar, he learns that over a hundred suitors have occupied his palace for years, consuming his household while pressuring his wife Penelope to remarry and his son Telemachus to accept it. Recognised only by his old nurse (by a childhood scar) and his dying dog Argos, he strings his own great bow — a feat no suitor can manage — and, with Telemachus, kills every suitor in the hall. Penelope tests him with a final trick about their marriage bed before finally accepting he is really her husband.
 

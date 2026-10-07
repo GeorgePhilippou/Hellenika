@@ -41,6 +41,9 @@ _order: 2
 <!-- field: summary -->
 Where Odysseus blinds the man-eating Cyclops Polyphemus and escapes clinging to the belly of a ram — and where he makes his fatal mistake, giving his real name.
 
+<!-- field: significance -->
+The best-known episode of the Odyssey, where Odysseus' boast brings Poseidon's anger on the rest of his voyage.
+
 <!-- field: myth -->
 Odysseus and twelve men are trapped in the cave of Polyphemus, a one-eyed son of Poseidon, who eats several of them. Odysseus gets him drunk, tells him his name is "Nobody," and blinds his single eye with a sharpened stake while he sleeps. The trick with his name lets them escape when Polyphemus's neighbours ask who hurt him and he answers "Nobody" — but Odysseus cannot resist shouting his real name as they sail off, letting Polyphemus curse him to his father Poseidon by name. That curse drives the rest of the poem's disasters at sea.
 

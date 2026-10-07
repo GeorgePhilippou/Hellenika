@@ -70,6 +70,9 @@ _order: 1
 <!-- field: summary -->
 The earliest form of written Greek — a syllabary badly suited to the language, used only for palace accounting.
 
+<!-- field: significance -->
+The earliest written Greek, and the main source for how the Mycenaean palaces worked.
+
 <!-- field: body -->
 Linear B writes Greek with a syllabary evidently designed first for some other, unrelated language, and the fit is genuinely poor. The script cannot distinguish *l* from *r*, has no consistent way to mark aspiration, and regularly drops final consonants, so a sign group transliterated *pa-te* could in principle represent either *patēr* (father) or *pantes* (all) — reading any given tablet requires constant contextual judgement rather than straightforward transcription, which is part of why the decipherment took as long as it did once scholars finally had enough tablets to work with.
 

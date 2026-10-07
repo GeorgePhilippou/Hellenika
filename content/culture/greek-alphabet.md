@@ -64,6 +64,9 @@ _order: 2
 <!-- field: summary -->
 The first writing system to represent both consonants and vowels — adapted from Phoenician by repurposing unneeded signs.
 
+<!-- field: significance -->
+The first full alphabet with vowels, ancestor of the Latin and Cyrillic scripts used today.
+
 <!-- field: body -->
 Phoenician script recorded consonants only. That works for Semitic languages, where roots are consonantal and vowels are largely predictable from context, but it fails badly for Greek, where vowel quality carries essential grammatical and lexical distinctions a reader cannot simply infer.
 

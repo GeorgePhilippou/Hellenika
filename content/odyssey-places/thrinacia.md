@@ -38,6 +38,9 @@ _order: 9
 <!-- field: summary -->
 Sacred cattle that must not be touched — touched anyway, at the cost of every remaining ship and every remaining man but Odysseus.
 
+<!-- field: significance -->
+The episode where Odysseus' last men die for eating the Sun god's cattle, leaving him alone.
+
 <!-- field: myth -->
 Twice warned — by Tiresias and by Circe — never to harm the Sun god Helios's sacred cattle, Odysseus's starving, wind-trapped crew kill and eat them while he sleeps. Helios demands justice from Zeus, who wrecks the ship with a thunderbolt the moment it puts back to sea. Every man drowns except Odysseus, who survives by lashing together the wreckage and drifting back past Charybdis alone.
 

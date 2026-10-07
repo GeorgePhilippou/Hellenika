@@ -43,6 +43,9 @@ _order: 7
 <!-- field: summary -->
 The largest Greek island, home of Europe's first palace civilisation and a crossroads between the Aegean, Egypt and the Levant.
 
+<!-- field: significance -->
+Home of the Minoans, Europe's first palace civilisation, and a crossroads between the Aegean, Egypt and the Near East.
+
 <!-- field: body -->
 Crete is 260 km long, mountainous, and positioned where the sea routes from Egypt, the Levant and the Aegean converge. That position explains most of its history.
 

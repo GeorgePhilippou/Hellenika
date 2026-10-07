@@ -44,6 +44,9 @@ _order: 31
 <!-- field: summary -->
 The primordial sky, whose violent overthrow by Kronos begins the succession struggle at the centre of Hesiod's cosmos.
 
+<!-- field: significance -->
+The first ruler of the universe in Greek myth, whose overthrow begins the succession of divine kings.
+
 <!-- field: myth -->
 Gaia produces Uranus as an equal partner able to cover her completely. Their children include the twelve Titans, the Cyclopes and the Hundred-Handers. Uranus forces some of these children back inside Gaia, causing her pain. She gives Kronos an adamantine sickle, and he ambushes and castrates his father. Blood falling on Gaia produces the Erinyes, Giants and Melian nymphs; in Hesiod's version, Aphrodite forms from the severed genitals cast into the sea.
 

@@ -43,6 +43,9 @@ _order: 43
 <!-- field: summary -->
 The Titan trickster who negotiates sacrifice, steals fire for mortals and endures Zeus' punishment for crossing divine boundaries.
 
+<!-- field: significance -->
+The Titan who gave fire to humanity, a lasting symbol of defiance and of the price of knowledge.
+
 <!-- field: myth -->
 At Mecone, Prometheus divides an ox into an attractive pile of bones concealed in fat and an unappealing pile of edible meat. Zeus chooses the deceptive portion, establishing why humans eat sacrificial meat while smoke and bones go to the gods. Zeus hides fire; Prometheus steals it in a fennel stalk. Zeus answers with Pandora for humanity and chains Prometheus while an eagle consumes his liver each day. Heracles eventually kills the eagle and releases him.
 

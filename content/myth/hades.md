@@ -55,6 +55,9 @@ _order: 34
 <!-- field: summary -->
 Ruler of the underworld and the dead, husband of Persephone and a god approached through cautious euphemism.
 
+<!-- field: significance -->
+The ruler of the dead, central to Greek ideas of the afterlife and to the myth of Persephone.
+
 <!-- field: myth -->
 After the defeat of the Titans, Zeus, Poseidon and Hades cast lots for the sky, sea and underworld. Hades receives the realm of the dead. With Zeus' permission he abducts Persephone, daughter of Demeter, and makes her his queen. Demeter's grief stops the crops until a settlement allows Persephone to return, but pomegranate seeds bind her to spend part of the cycle below.
 

@@ -41,6 +41,9 @@ _order: 10
 <!-- field: summary -->
 Where Odysseus is held, not unwillingly at first, for seven years by the nymph Calypso — the longest stop of the whole voyage.
 
+<!-- field: significance -->
+Where Odysseus spends seven years with Calypso, refusing immortality in order to return home.
+
 <!-- field: myth -->
 The sole survivor of the wreck at Thrinacia, Odysseus washes up alone on Ogygia, home of the nymph Calypso, who wants him as an immortal husband and offers him eternal youth to stay. He remains seven years — the poem is candid that desire fades into homesickness, and it opens with him weeping on the shore, wanting only to see the smoke rising from Ithaca again. Zeus finally orders Calypso to release him.
 

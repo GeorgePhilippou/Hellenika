@@ -40,6 +40,9 @@ _order: 45
 <!-- field: summary -->
 The many-headed hound guarding the underworld, subdued and brought to daylight in Heracles' final labour.
 
+<!-- field: significance -->
+The guardian of the underworld, whose capture was Heracles' final and hardest labour.
+
 <!-- field: myth -->
 Cerberus stands at the threshold of Hades, admitting the dead but preventing their escape. For his final labour Heracles must bring the hound to the upper world without weapons. With divine permission, he wrestles Cerberus into submission, displays him to Eurystheus and returns him below. Other visitors use different means: Orpheus charms the guardian with music, while Psyche later distracts him with drugged cakes in Roman narrative.
 
