@@ -31,10 +31,10 @@ sources:
   - karageorghis1982
   - reyes1994
 milestones:
-- year: 1928
-  date: 1928–29
-  kind: excavated
-  text: The Swedish Cyprus Expedition excavates the palace.
+  - year: 1928
+    date: 1928–29
+    kind: excavated
+    text: The Swedish Cyprus Expedition excavates the palace.
 _order: 79
 ---
 

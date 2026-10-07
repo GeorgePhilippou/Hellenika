@@ -36,12 +36,12 @@ sources:
   - astrom1977
   - flouris2024
 milestones:
-- year: 1926
-  kind: excavated
-  text: A Swedish mission under Axel Persson excavates the royal tholos tomb.
-- year: 1960
-  kind: found
-  text: The bronze panoply is found in Chamber Tomb 12 by Nikolaos Verdelis and Paul Åström.
+  - year: 1926
+    kind: excavated
+    text: A Swedish mission under Axel Persson excavates the royal tholos tomb.
+  - year: 1960
+    kind: found
+    text: The bronze panoply is found in Chamber Tomb 12 by Nikolaos Verdelis and Paul Åström.
 _order: 11
 ---
 

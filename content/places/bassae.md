@@ -39,16 +39,16 @@ sources:
   - cooper1996
   - pausanias-src
 milestones:
-- year: 1765
-  kind: identified
-  text: The French architect Joachim Bocher rediscovers the temple.
-- year: 1812
-  date: 1811–12
-  kind: excavated
-  text: A group of foreign antiquaries excavates the frieze, which is sold in 1814 and bought by the British Museum.
-- year: 1987
-  kind: restored
-  text: The temple is covered by a protective tent for conservation.
+  - year: 1765
+    kind: identified
+    text: The French architect Joachim Bocher rediscovers the temple.
+  - year: 1812
+    date: 1811–12
+    kind: excavated
+    text: A group of foreign antiquaries excavates the frieze, which is sold in 1814 and bought by the British Museum.
+  - year: 1987
+    kind: restored
+    text: The temple is covered by a protective tent for conservation.
 _order: 33
 ---
 

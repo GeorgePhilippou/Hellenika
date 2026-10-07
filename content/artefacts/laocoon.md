@@ -36,13 +36,13 @@ sources:
   - stewart1990
   - settis1999
 milestones:
-- year: 1506
-  kind: found
-  place: in Rome
-  text: Dug up in a vineyard and identified at once as the work Pliny praised; bought by Pope Julius II.
-- year: 1906
-  kind: found
-  text: Ludwig Pollak finds the bent right arm in a builder's yard; it is reattached in the 1950s.
+  - year: 1506
+    kind: found
+    place: in Rome
+    text: Dug up in a vineyard and identified at once as the work Pliny praised; bought by Pope Julius II.
+  - year: 1906
+    kind: found
+    text: Ludwig Pollak finds the bent right arm in a builder's yard; it is reattached in the 1950s.
 _order: 50
 ---
 

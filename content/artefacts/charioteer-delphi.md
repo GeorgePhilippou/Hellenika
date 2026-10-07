@@ -40,9 +40,9 @@ sources:
   - stewart1990
   - scott2014
 milestones:
-- year: 1896
-  kind: excavated
-  text: Found by the French School at Athens during the 'Great Excavation' of the sanctuary at Delphi.
+  - year: 1896
+    kind: excavated
+    text: Found by the French School at Athens during the 'Great Excavation' of the sanctuary at Delphi.
 _order: 34
 ---
 

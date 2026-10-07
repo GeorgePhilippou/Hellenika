@@ -39,9 +39,9 @@ sources:
   - astrom1977
   - flouris2024
 milestones:
-- year: 1960
-  kind: excavated
-  text: Found by Nikolaos Verdelis and Paul Åström in Chamber Tomb 12 at Dendra, a tomb already partly plundered.
+  - year: 1960
+    kind: excavated
+    text: Found by Nikolaos Verdelis and Paul Åström in Chamber Tomb 12 at Dendra, a tomb already partly plundered.
 _order: 13
 ---
 

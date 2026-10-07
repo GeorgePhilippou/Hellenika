@@ -38,13 +38,13 @@ sources:
   - iakovidis2001
   - knauss1991
 milestones:
-- year: 1893
-  kind: excavated
-  text: André de Ridder makes the first excavations inside the circuit wall.
-- year: 1955
-  date: 1955–61
-  kind: excavated
-  text: Ioannis Threpsiades excavates the central enclosures; Spyros Iakovidis continues the work in 1981–91.
+  - year: 1893
+    kind: excavated
+    text: André de Ridder makes the first excavations inside the circuit wall.
+  - year: 1955
+    date: 1955–61
+    kind: excavated
+    text: Ioannis Threpsiades excavates the central enclosures; Spyros Iakovidis continues the work in 1981–91.
 _order: 12
 ---
 

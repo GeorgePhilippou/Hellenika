@@ -34,14 +34,14 @@ sources:
   - stewart1990
   - boardman1985
 milestones:
-- year: 1865
-  date: 1865–66
-  kind: excavated
-  place: on the Athenian Acropolis
-  text: The torso is found in excavations on the Acropolis.
-- year: 1888
-  kind: excavated
-  text: The head is found, and the two are joined.
+  - year: 1865
+    date: 1865–66
+    kind: excavated
+    place: on the Athenian Acropolis
+    text: The torso is found in excavations on the Acropolis.
+  - year: 1888
+    kind: excavated
+    text: The head is found, and the two are joined.
 _order: 59
 ---
 

@@ -43,13 +43,13 @@ sources:
   - boardman1999
   - shapiro2013
 milestones:
-- year: 1844
-  kind: excavated
-  place: at Chiusi, Italy
-  text: Found in fragments by Alessandro François in an Etruscan tomb near Chiusi.
-- year: 1900
-  kind: damaged
-  text: A museum attendant smashes it into 638 pieces; it is reassembled, and restored again in 1973.
+  - year: 1844
+    kind: excavated
+    place: at Chiusi, Italy
+    text: Found in fragments by Alessandro François in an Etruscan tomb near Chiusi.
+  - year: 1900
+    kind: damaged
+    text: A museum attendant smashes it into 638 pieces; it is reassembled, and restored again in 1973.
 _order: 26
 ---
 

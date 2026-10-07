@@ -58,15 +58,15 @@ sources:
   - chadwick1976
   - davis2016
 milestones:
-- year: 1939
-  kind: excavated
-  text: Carl Blegen finds the palace and, on the first day, its archive of Linear B tablets.
-- year: 1952
-  kind: excavated
-  text: Excavation resumes after the war and uncovers the whole palace.
-- year: 2015
-  kind: found
-  text: The unlooted Griffin Warrior grave is found near the palace.
+  - year: 1939
+    kind: excavated
+    text: Carl Blegen finds the palace and, on the first day, its archive of Linear B tablets.
+  - year: 1952
+    kind: excavated
+    text: Excavation resumes after the war and uncovers the whole palace.
+  - year: 2015
+    kind: found
+    text: The unlooted Griffin Warrior grave is found near the palace.
 _order: 9
 ---
 

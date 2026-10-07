@@ -44,13 +44,13 @@ sources:
   - cohen1997
   - stewart1993
 milestones:
-- year: 1831
-  kind: excavated
-  place: at Pompeii
-  text: Found in the floor of an exedra in the House of the Faun.
-- year: 1843
-  kind: moved
-  text: Lifted and moved to the museum in Naples.
+  - year: 1831
+    kind: excavated
+    place: at Pompeii
+    text: Found in the floor of an exedra in the House of the Faun.
+  - year: 1843
+    kind: moved
+    text: Lifted and moved to the museum in Naples.
 _order: 41
 ---
 

@@ -36,10 +36,10 @@ sources:
   - iakovidis2001
   - shelmerdine2008
 milestones:
-- year: 1880
-  date: 1880–86
-  kind: excavated
-  text: Heinrich Schliemann excavates the 'Treasury of Minyas' tholos tomb.
+  - year: 1880
+    date: 1880–86
+    kind: excavated
+    text: Heinrich Schliemann excavates the 'Treasury of Minyas' tholos tomb.
 _order: 13
 ---
 

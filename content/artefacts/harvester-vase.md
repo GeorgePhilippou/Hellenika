@@ -37,9 +37,9 @@ sources:
   - long1974
   - cline2010
 milestones:
-- year: 1902
-  kind: excavated
-  text: Found by the Italian School of Archaeology, under Federico Halbherr and Luigi Pernier, in the villa at Hagia Triada.
+  - year: 1902
+    kind: excavated
+    text: Found by the Italian School of Archaeology, under Federico Halbherr and Luigi Pernier, in the villa at Hagia Triada.
 _order: 5
 ---
 

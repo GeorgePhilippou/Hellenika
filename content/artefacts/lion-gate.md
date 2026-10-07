@@ -39,16 +39,16 @@ sources:
   - french2002
   - shelmerdine2008
 milestones:
-- year: 170
-  approx: true
-  kind: described
-  text: Pausanias describes the lions over the gate; the relief has never been buried and stands where it was built.
-- year: 1841
-  kind: excavated
-  text: Kyriakos Pittakis of the Archaeological Society at Athens clears the gateway.
-- year: 1876
-  kind: excavated
-  text: Heinrich Schliemann excavates inside the gate, finding Grave Circle A.
+  - year: 170
+    approx: true
+    kind: described
+    text: Pausanias describes the lions over the gate; the relief has never been buried and stands where it was built.
+  - year: 1841
+    kind: excavated
+    text: Kyriakos Pittakis of the Archaeological Society at Athens clears the gateway.
+  - year: 1876
+    kind: excavated
+    text: Heinrich Schliemann excavates inside the gate, finding Grave Circle A.
 _order: 14
 ---
 

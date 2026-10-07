@@ -52,12 +52,12 @@ sources:
   - miller2004
   - spivey2004
 milestones:
-- year: 1829
-  kind: excavated
-  text: The French Expédition de Morée makes the first trial excavations at the temple of Zeus.
-- year: 1875
-  kind: excavated
-  text: German excavations begin, uncovering the sanctuary over the next six years; work there continues today.
+  - year: 1829
+    kind: excavated
+    text: The French Expédition de Morée makes the first trial excavations at the temple of Zeus.
+  - year: 1875
+    kind: excavated
+    text: German excavations begin, uncovering the sanctuary over the next six years; work there continues today.
 _order: 26
 ---
 

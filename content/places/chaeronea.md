@@ -43,16 +43,16 @@ sources:
   - worthington2008
   - plutarch-src
 milestones:
-- year: 1818
-  kind: found
-  text: English travellers find the broken Lion of Chaeronea.
-- year: 1879
-  date: 1879–80
-  kind: excavated
-  text: Panagiotis Stamatakis excavates the grave beneath it, finding 254 skeletons.
-- year: 1902
-  kind: restored
-  text: The lion is reassembled on its site.
+  - year: 1818
+    kind: found
+    text: English travellers find the broken Lion of Chaeronea.
+  - year: 1879
+    date: 1879–80
+    kind: excavated
+    text: Panagiotis Stamatakis excavates the grave beneath it, finding 254 skeletons.
+  - year: 1902
+    kind: restored
+    text: The lion is reassembled on its site.
 _order: 38
 ---
 

@@ -56,12 +56,12 @@ sources:
   - degboer2001
   - parke1956
 milestones:
-- year: 1892
-  kind: excavated
-  text: After the village of Kastri is moved off the site, the French School's 'Great Excavation' begins.
-- year: 1896
-  kind: found
-  text: The bronze Charioteer is found near the temple of Apollo.
+  - year: 1892
+    kind: excavated
+    text: After the village of Kastri is moved off the site, the French School's 'Great Excavation' begins.
+  - year: 1896
+    kind: found
+    text: The bronze Charioteer is found near the temple of Apollo.
 _order: 25
 ---
 
@@ -69,11 +69,13 @@ _order: 25
 The sanctuary of Apollo on Parnassus, seat of the most influential oracle in the Greek world, and its self-declared navel.
 
 <!-- field: significance -->
-For a thousand years no Greek state founded a colony, changed a law or started a war without consulting Delphi.
+The religious centre of the Greek world: an oracle consulted on colonies, laws and wars, and a showcase where rival cities competed in dedications.
 
 <!-- field: body -->
-Myth held that Apollo had won the site by killing a monstrous serpent, the Python, that guarded it, and that a conical stone kept in the temple, the omphalos, marked the exact centre — the "navel" — of the earth, supposedly fixed by two eagles Zeus released from opposite ends of the world that met there. The Pythia, a local woman serving as Apollo's medium, gave responses from a chamber in the temple after ritual purification and, according to tradition, chewing laurel leaves, and priests rendered her utterances into verse. The answers were famously ambiguous: Croesus of Lydia was told that if he attacked Persia he would destroy a great empire, and did — his own.
+Delphi lies on the slopes of Mount Parnassus in Phocis, above the Gulf of Corinth. A sanctuary of Apollo from the 8th century BC, it housed the most consulted oracle in the Greek world, and a carved stone, the *omphalos*, marked it as the navel of the earth. Its authority lasted until pagan cult was suppressed under the Christian emperor Theodosius I in the AD 390s.
 
-Ancient sources describe intoxicating vapours rising from a chasm beneath the temple, a detail nineteenth-century excavators dismissed after finding no such chasm. In the 1990s a geological team identified two intersecting faults directly beneath the temple site and detected traces of ethylene, a sweet-smelling gas capable of inducing euphoria and altered states, in the spring water and in the surrounding travertine rock. The exact mechanism by which the Pythia entered her trance is still disputed among specialists, but the underlying geology is real, not merely a later rationalisation.
+The Pythia, a local woman serving as Apollo's priestess, gave the god's responses after ritual purification, and priests framed them for those who asked. States consulted the oracle before founding colonies, changing laws or going to war. The answers could be famously ambiguous: Croesus of Lydia was told that if he attacked Persia he would destroy a great empire, and destroyed his own. Ancient writers spoke of intoxicating vapours; around 2000 geologists found intersecting faults beneath the temple and traces of ethylene, a mildly narcotic gas, in nearby springs, though how the Pythia's trance worked is still disputed.
 
-Delphi was governed jointly by a religious league of surrounding states known as the Amphictyony, and it hosted the Pythian Games every four years, one of the four great Panhellenic festivals alongside the Olympic, Nemean and Isthmian Games, with prizes of laurel rather than money. Greek states built treasuries here to display their wealth and piety in competitive proximity to their neighbours and rivals; the Athenian Treasury, reconstructed from its original blocks in the early twentieth century, still stands along the Sacred Way. Control of the sanctuary was fought over repeatedly in a series of Sacred Wars, the last of which gave Philip II of Macedon, invited in as an arbitrator, his first real foothold in central Greek politics. The sanctuary's oracular authority faded gradually under Roman rule — the emperor Nero reportedly looted some five hundred statues from the site in a single visit — before it was formally closed by the Christian emperor Theodosius I in AD 393.
+The sanctuary was run by the Amphictyony, a league of neighbouring peoples, and hosted the Pythian Games, one of the four great Panhellenic festivals. Cities lined the Sacred Way with treasuries and monuments displaying their wealth and victories — the Athenian Treasury, rebuilt from its original blocks, still stands. Control of Delphi was fought over in a series of Sacred Wars, the last of which brought Philip II of Macedon into the affairs of central Greece.
+
+The French School at Athens has excavated the site since 1892, after the village that stood on top of it was moved.

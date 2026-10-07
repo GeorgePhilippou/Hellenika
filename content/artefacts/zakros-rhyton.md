@@ -14,7 +14,7 @@ material: Rock crystal, gold, faience
 museum: Heraklion Archaeological Museum
 secondaryImage:
   wikipediaTitle: Zakros
-  caption: "The remote Minoan palace site at Kato Zakros, on Crete's east coast -- destroyed and never resettled or looted, which is why its shrine treasury was still standing when Nikolaos Platon's team reached it in the 1960s."
+  caption: The remote Minoan palace site at Kato Zakros, on Crete's east coast -- destroyed and never resettled or looted, which is why its shrine treasury was still standing when Nikolaos Platon's team reached it in the 1960s.
 claims:
   - text: The rhyton was carved from rock crystal and reassembled from over 300 fragments.
     evidence: archaeological
@@ -42,10 +42,10 @@ sources:
   - platon1971
   - cline2010
 milestones:
-- year: 1961
-  date: from 1961
-  kind: excavated
-  text: Found in the treasury of the unlooted palace at Zakros during Nikolaos Platon's excavations, and restored from hundreds of fragments.
+  - year: 1961
+    date: from 1961
+    kind: excavated
+    text: Found in the treasury of the unlooted palace at Zakros during Nikolaos Platon's excavations, and restored from hundreds of fragments.
 _order: 9
 ---
 

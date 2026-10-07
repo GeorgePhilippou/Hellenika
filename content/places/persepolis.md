@@ -48,9 +48,9 @@ sources:
   - arrian-src
   - root1979
 milestones:
-- year: 1931
-  kind: excavated
-  text: The Oriental Institute of Chicago begins systematic excavation, under Ernst Herzfeld and then Erich Schmidt.
+  - year: 1931
+    kind: excavated
+    text: The Oriental Institute of Chicago begins systematic excavation, under Ernst Herzfeld and then Erich Schmidt.
 _order: 68
 ---
 

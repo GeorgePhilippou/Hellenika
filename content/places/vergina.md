@@ -51,12 +51,12 @@ sources:
   - borza1999
   - bartsiokas2015
 milestones:
-- year: 1861
-  kind: excavated
-  text: Léon Heuzey excavates part of the palace for Napoleon III.
-- year: 1977
-  kind: excavated
-  text: Manolis Andronikos finds the unlooted royal tombs under the Great Tumulus.
+  - year: 1861
+    kind: excavated
+    text: Léon Heuzey excavates part of the palace for Napoleon III.
+  - year: 1977
+    kind: excavated
+    text: Manolis Andronikos finds the unlooted royal tombs under the Great Tumulus.
 _order: 42
 ---
 

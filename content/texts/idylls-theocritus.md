@@ -40,13 +40,13 @@ sources:
   - hunter1999
   - shipley2000
 milestones:
-- year: 1480
-  approx: true
-  kind: printed
-  text: First printed in Milan, with Hesiod's Works and Days.
-- year: 1495
-  kind: printed
-  text: A fuller collection is printed by Aldus Manutius in Venice.
+  - year: 1480
+    approx: true
+    kind: printed
+    text: First printed in Milan, with Hesiod's Works and Days.
+  - year: 1495
+    kind: printed
+    text: A fuller collection is printed by Aldus Manutius in Venice.
 _order: 23
 ---
 

@@ -54,13 +54,13 @@ sources:
   - chadwick1976
   - robinson2002
 milestones:
-- year: 1900
-  kind: found
-  text: Arthur Evans finds Linear A tablets at Knossos; the largest group later comes from Hagia Triada.
-- year: 1976
-  date: 1976–85
-  kind: published
-  text: Louis Godart and Jean-Pierre Olivier publish GORILA, the standard corpus of the inscriptions. The script remains undeciphered.
+  - year: 1900
+    kind: found
+    text: Arthur Evans finds Linear A tablets at Knossos; the largest group later comes from Hagia Triada.
+  - year: 1976
+    date: 1976–85
+    kind: published
+    text: Louis Godart and Jean-Pierre Olivier publish GORILA, the standard corpus of the inscriptions. The script remains undeciphered.
 _order: 0
 ---
 

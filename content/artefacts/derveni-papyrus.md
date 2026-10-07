@@ -33,13 +33,13 @@ sources:
   - betegh2004
   - kirk1983
 milestones:
-- year: 1962
-  kind: found
-  place: at Derveni, near Thessaloniki
-  text: Carbonised remains of the scroll are found on a funeral pyre beside a tomb, the oldest surviving Greek book.
-- year: 2006
-  kind: published
-  text: The first full official edition is published.
+  - year: 1962
+    kind: found
+    place: at Derveni, near Thessaloniki
+    text: Carbonised remains of the scroll are found on a funeral pyre beside a tomb, the oldest surviving Greek book.
+  - year: 2006
+    kind: published
+    text: The first full official edition is published.
 _order: 54
 ---
 

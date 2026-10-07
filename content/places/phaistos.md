@@ -41,12 +41,12 @@ sources:
   - cline2010
   - duhoux1977
 milestones:
-- year: 1900
-  kind: excavated
-  text: The Italian mission under Federico Halbherr and Luigi Pernier begins excavating the palace.
-- year: 1908
-  kind: found
-  text: Pernier finds the Phaistos Disc in a palace storeroom.
+  - year: 1900
+    kind: excavated
+    text: The Italian mission under Federico Halbherr and Luigi Pernier begins excavating the palace.
+  - year: 1908
+    kind: found
+    text: Pernier finds the Phaistos Disc in a palace storeroom.
 _order: 1
 ---
 

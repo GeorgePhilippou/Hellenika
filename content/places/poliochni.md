@@ -36,9 +36,9 @@ sources:
   - bernabo1964
   - broodbank2000
 milestones:
-- year: 1930
-  kind: excavated
-  text: The Italian School of Archaeology begins excavating the Early Bronze Age town.
+  - year: 1930
+    kind: excavated
+    text: The Italian School of Archaeology begins excavating the Early Bronze Age town.
 _order: 66
 ---
 

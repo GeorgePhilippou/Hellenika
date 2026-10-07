@@ -40,13 +40,13 @@ sources:
   - barnes1995
   - broadie2002
 milestones:
-- year: 1246
-  approx: true
-  kind: translated
-  text: Robert Grosseteste makes the first complete Latin translation, which shapes medieval moral philosophy.
-- year: 1498
-  kind: printed
-  text: First printed in Greek in Aldus Manutius' edition of Aristotle.
+  - year: 1246
+    approx: true
+    kind: translated
+    text: Robert Grosseteste makes the first complete Latin translation, which shapes medieval moral philosophy.
+  - year: 1498
+    kind: printed
+    text: First printed in Greek in Aldus Manutius' edition of Aristotle.
 _order: 14
 ---
 

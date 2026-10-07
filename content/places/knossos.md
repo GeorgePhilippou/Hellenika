@@ -16,7 +16,7 @@ coords:
 region: Crete
 secondaryImage:
   wikipediaTitle: Sir Arthur Evans
-  caption: "Sir Arthur Evans, who bought the site outright in 1900 with his own inherited wealth and spent three decades excavating and, controversially, rebuilding it -- to the point that much of what visitors see today is his interpretation as much as the Bronze Age original."
+  caption: Sir Arthur Evans, who bought the site outright in 1900 with his own inherited wealth and spent three decades excavating and, controversially, rebuilding it -- to the point that much of what visitors see today is his interpretation as much as the Bronze Age original.
 claims:
   - text: Knossos was the largest Minoan palace complex, in use from c. 1900 to c. 1350 BC.
     evidence: archaeological
@@ -68,16 +68,16 @@ sources:
   - macgillivray2000
   - cline2010
 milestones:
-- year: 1878
-  kind: excavated
-  text: Minos Kalokairinos, a local merchant, digs the first trial trenches and finds storage jars.
-- year: 1900
-  kind: excavated
-  text: Arthur Evans buys the hill and begins excavating; within weeks he finds the palace and its tablets.
-- year: 1925
-  date: 1920s
-  kind: restored
-  text: Evans rebuilds parts of the palace in reinforced concrete, shaping what visitors see today.
+  - year: 1878
+    kind: excavated
+    text: Minos Kalokairinos, a local merchant, digs the first trial trenches and finds storage jars.
+  - year: 1900
+    kind: excavated
+    text: Arthur Evans buys the hill and begins excavating; within weeks he finds the palace and its tablets.
+  - year: 1925
+    date: 1920s
+    kind: restored
+    text: Evans rebuilds parts of the palace in reinforced concrete, shaping what visitors see today.
 _order: 0
 ---
 

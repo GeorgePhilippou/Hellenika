@@ -43,9 +43,9 @@ sources:
   - constantakopoulou2017
   - strabo-src
 milestones:
-- year: 1873
-  kind: excavated
-  text: The French School at Athens begins excavating the island, work that continues today.
+  - year: 1873
+    kind: excavated
+    text: The French School at Athens begins excavating the island, work that continues today.
 _order: 28
 ---
 

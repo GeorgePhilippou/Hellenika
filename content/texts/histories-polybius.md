@@ -44,16 +44,16 @@ sources:
   - polybius-src
   - walbank1972
 milestones:
-- year: 1000
-  date: medieval
-  kind: manuscript
-  text: Only Books 1–5 survive complete; the rest of the 40 books are known from Byzantine excerpts.
-- year: 1530
-  kind: printed
-  text: First printed in Greek at Haguenau.
-- year: 1609
-  kind: edited
-  text: Isaac Casaubon's edition and Latin translation establish Polybius for early modern readers.
+  - year: 1000
+    date: medieval
+    kind: manuscript
+    text: Only Books 1–5 survive complete; the rest of the 40 books are known from Byzantine excerpts.
+  - year: 1530
+    kind: printed
+    text: First printed in Greek at Haguenau.
+  - year: 1609
+    kind: edited
+    text: Isaac Casaubon's edition and Latin translation establish Polybius for early modern readers.
 _order: 20
 ---
 

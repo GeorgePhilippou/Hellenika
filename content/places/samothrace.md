@@ -41,12 +41,12 @@ sources:
   - cole1984
   - palagia2010
 milestones:
-- year: 1863
-  kind: found
-  text: The French consul Charles Champoiseau finds the Winged Victory.
-- year: 1938
-  kind: excavated
-  text: New York University, under Karl Lehmann, begins excavating the Sanctuary of the Great Gods.
+  - year: 1863
+    kind: found
+    text: The French consul Charles Champoiseau finds the Winged Victory.
+  - year: 1938
+    kind: excavated
+    text: New York University, under Karl Lehmann, begins excavating the Sanctuary of the Great Gods.
 _order: 29
 ---
 

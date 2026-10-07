@@ -50,16 +50,16 @@ sources:
   - hornblower2011
   - connor1984
 milestones:
-- year: 950
-  date: 10th c.
-  kind: manuscript
-  text: The oldest complete manuscripts are Byzantine copies of the 10th and 11th centuries.
-- year: 1502
-  kind: printed
-  text: First printed in Greek by Aldus Manutius in Venice.
-- year: 1629
-  kind: translated
-  text: Thomas Hobbes publishes the first English translation made directly from the Greek.
+  - year: 950
+    date: 10th c.
+    kind: manuscript
+    text: The oldest complete manuscripts are Byzantine copies of the 10th and 11th centuries.
+  - year: 1502
+    kind: printed
+    text: First printed in Greek by Aldus Manutius in Venice.
+  - year: 1629
+    kind: translated
+    text: Thomas Hobbes publishes the first English translation made directly from the Greek.
 _order: 7
 ---
 

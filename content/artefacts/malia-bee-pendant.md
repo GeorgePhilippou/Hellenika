@@ -14,7 +14,7 @@ material: Gold
 museum: Heraklion Archaeological Museum
 secondaryImage:
   wikipediaTitle: Aegina Treasure
-  caption: "The Aegina Treasure, now in the British Museum -- almost certainly looted from the same Chrysolakkos cemetery in the 1890s and falsely sold as coming from the island of Aegina, decades before the site was ever formally excavated."
+  caption: The Aegina Treasure, now in the British Museum -- almost certainly looted from the same Chrysolakkos cemetery in the 1890s and falsely sold as coming from the island of Aegina, decades before the site was ever formally excavated.
 claims:
   - text: The pendant was found at the Chrysolakkos complex at Malia.
     evidence: archaeological
@@ -43,9 +43,9 @@ sources:
   - cline2010
   - higgins1980
 milestones:
-- year: 1930
-  kind: excavated
-  text: Found by the French School at Athens in the Chrysolakkos burial complex at Malia, and published by Pierre Demargne.
+  - year: 1930
+    kind: excavated
+    text: Found by the French School at Athens in the Chrysolakkos burial complex at Malia, and published by Pierre Demargne.
 _order: 8
 ---
 

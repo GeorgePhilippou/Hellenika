@@ -52,12 +52,12 @@ sources:
   - powell1991
   - woodard1997
 milestones:
-- year: 1871
-  kind: found
-  text: The Dipylon Oinochoe, carrying one of the oldest alphabetic Greek inscriptions, is found in Athens.
-- year: 1954
-  kind: found
-  text: Nestor's Cup, with one of the earliest Greek verse inscriptions, is found at Pithekoussai.
+  - year: 1871
+    kind: found
+    text: The Dipylon Oinochoe, carrying one of the oldest alphabetic Greek inscriptions, is found in Athens.
+  - year: 1954
+    kind: found
+    text: Nestor's Cup, with one of the earliest Greek verse inscriptions, is found at Pithekoussai.
 _order: 2
 ---
 

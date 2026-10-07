@@ -51,15 +51,15 @@ sources:
   - chadwick1976
   - ventris1956
 milestones:
-- year: 1900
-  kind: excavated
-  text: Arthur Evans finds thousands of tablets at Knossos.
-- year: 1939
-  kind: excavated
-  text: Carl Blegen finds the palace archive at Pylos, proving the script was used on the Greek mainland.
-- year: 1952
-  kind: deciphered
-  text: Michael Ventris shows the tablets are written in an early form of Greek.
+  - year: 1900
+    kind: excavated
+    text: Arthur Evans finds thousands of tablets at Knossos.
+  - year: 1939
+    kind: excavated
+    text: Carl Blegen finds the palace archive at Pylos, proving the script was used on the Greek mainland.
+  - year: 1952
+    kind: deciphered
+    text: Michael Ventris shows the tablets are written in an early form of Greek.
 _order: 12
 ---
 

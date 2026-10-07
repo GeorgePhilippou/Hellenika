@@ -45,16 +45,16 @@ sources:
   - popper1945
   - guthrie1975
 milestones:
-- year: 875
-  date: 9th c.
-  kind: manuscript
-  text: The oldest surviving copy is the Byzantine manuscript Parisinus graecus 1807.
-- year: 1484
-  kind: translated
-  text: Marsilio Ficino's Latin translation of Plato is printed in Florence.
-- year: 1513
-  kind: printed
-  text: First printed in Greek, with Plato's other works, by Aldus Manutius in Venice.
+  - year: 875
+    date: 9th c.
+    kind: manuscript
+    text: The oldest surviving copy is the Byzantine manuscript Parisinus graecus 1807.
+  - year: 1484
+    kind: translated
+    text: Marsilio Ficino's Latin translation of Plato is printed in Florence.
+  - year: 1513
+    kind: printed
+    text: First printed in Greek, with Plato's other works, by Aldus Manutius in Venice.
 _order: 12
 ---
 

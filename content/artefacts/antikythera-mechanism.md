@@ -31,9 +31,6 @@ claims:
   - text: It was built in a Rhodian workshop connected to Hipparchus.
     evidence: debate
     confidence: debated
-  - text: The mechanism was recovered from the same shipwreck that also yielded bronze and marble statues now in the National Archaeological Museum in Athens.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: hellenistic-period
     rel: period
@@ -50,29 +47,32 @@ sources:
   - freeth2021
   - jones2017
 milestones:
-- year: 1901
-  date: 1900–01
-  kind: recovered
-  place: off Antikythera
-  text: Raised by sponge divers from a 1st-century BC shipwreck off Antikythera, along with bronze and marble statues.
-- year: 1902
-  kind: identified
-  text: Valerios Stais spots a gear wheel in one of the corroded fragments.
-- year: 1974
-  kind: published
-  text: Derek de Solla Price's Gears from the Greeks gives the first reconstruction of its gearing.
-- year: 2005
-  kind: study
-  text: CT scanning reveals hidden gears and thousands of characters of inscription.
+  - year: 1901
+    date: 1900–01
+    kind: recovered
+    place: off Antikythera
+    text: Raised by sponge divers from a 1st-century BC shipwreck off Antikythera, along with bronze and marble statues.
+  - year: 1902
+    kind: identified
+    text: Valerios Stais spots a gear wheel in one of the corroded fragments.
+  - year: 1974
+    kind: published
+    text: Derek de Solla Price's Gears from the Greeks gives the first reconstruction of its gearing.
+  - year: 2005
+    kind: study
+    text: CT scanning reveals hidden gears and thousands of characters of inscription.
 _order: 45
 ---
 
 <!-- field: summary -->
 A geared bronze astronomical calculator from a shipwreck — technology with no known equal for over a thousand years.
 
+<!-- field: significance -->
+The most complex machine to survive from the ancient world: proof that Hellenistic astronomy was built into working geared technology, more than a thousand years before anything comparable appears again.
+
 <!-- field: body -->
-Sponge divers found it in 1901 while exploring a Roman-era shipwreck off the small island of Antikythera, a wreck that also yielded a substantial haul of bronze and marble statues now displayed alongside the mechanism itself in Athens's National Archaeological Museum. For decades afterward it sat as little more than a corroded, unremarkable lump of bronze in storage, its true nature unrecognised. X-ray imaging in the mid-twentieth century and, far more revealingly, microfocus CT scanning from 2005 onward finally exposed its internal structure: at least 30 interlocking bronze gears, some with individual teeth measuring under 1.5 millimetres, along with thousands of characters of tightly packed Greek inscription functioning essentially as an operating manual for whoever originally owned and used the device.
+A hand-cranked bronze calculator of about 150–100 BC, roughly the size of a shoebox and driven by at least 30 interlocking gears. It survives as 82 corroded fragments, raised in 1900–01 from a Roman-era shipwreck off the island of Antikythera, between Crete and the Peloponnese, which also carried bronze and marble statues.
 
-Turning a hand crank set a working miniature model of the known cosmos moving: a dial tracking the date on the Egyptian civil calendar, the position of both the sun and moon within the zodiac, the current phase of the moon displayed by a small rotating silver-and-black ball, eclipse predictions plotted along a spiral dial covering the 223-month Saros eclipse cycle, and even a separate dial tracking the four-year cycle of major Panhellenic games including the Olympics. A cleverly designed pin-and-slot mechanism reproduces the moon's genuinely variable orbital speed — an epicyclic correction for an astronomical irregularity the Greeks understood mathematically, here implemented as an elegant piece of working bronze machinery rather than left as pure theory.
+Turning the handle moved dials on the front and back. The front showed the positions of the Sun and Moon in the zodiac, the Moon's phase and the date in the Egyptian calendar. The back carried a spiral dial predicting eclipses over the 223-month Saros cycle, and a dial counting the four-year cycle of the Panhellenic games, including the Olympics. A pin-and-slot gear reproduced the Moon's changing speed across the sky. Thousands of tiny inscribed letters served as its user's guide.
 
-Nothing of remotely comparable mechanical complexity survives from anywhere in the world for at least the next 1,400 years, a gap long enough that when the mechanism's true sophistication first became clear, some researchers initially suspected an error or a much later intrusion into the wreck. That such a device existed at all necessarily implies an established workshop tradition of precision instrument-making behind it, quite possibly centred on Rhodes and connected to the astronomer Hipparchus, of which, frustratingly, no other physical example has yet been found.
+Nothing of comparable mechanical complexity survives for over a thousand years. The device implies a tradition of precision instrument-making that has otherwise left no trace. Rhodes, home of the astronomer Hipparchus and later of Posidonius, is the most often suggested source, but this is unproven. Its workings were recovered gradually, through X-ray and gamma-ray imaging in the 20th century and CT scanning from 2005. It is now in the National Archaeological Museum, Athens.

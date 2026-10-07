@@ -34,10 +34,10 @@ sources:
   - stewart1990
   - boardman1985
 milestones:
-- year: 1875
-  kind: excavated
-  place: at Olympia
-  text: Found fallen in front of its pedestal in the first season of the German excavations at Olympia.
+  - year: 1875
+    kind: excavated
+    place: at Olympia
+    text: Found fallen in front of its pedestal in the first season of the German excavations at Olympia.
 _order: 58
 ---
 

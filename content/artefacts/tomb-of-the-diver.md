@@ -39,9 +39,9 @@ sources:
   - holloway2006
   - pedley1990
 milestones:
-- year: 1968
-  kind: excavated
-  text: Found by Mario Napoli in a small cemetery near Paestum.
+  - year: 1968
+    kind: excavated
+    text: Found by Mario Napoli in a small cemetery near Paestum.
 _order: 37
 ---
 

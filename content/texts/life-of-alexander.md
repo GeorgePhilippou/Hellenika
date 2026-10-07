@@ -39,12 +39,12 @@ sources:
   - plutarch-src
   - duff1999
 milestones:
-- year: 1517
-  kind: printed
-  text: First printed in Greek with the other Parallel Lives in Florence.
-- year: 1579
-  kind: translated
-  text: Thomas North's English version, made from Jacques Amyot's French, becomes a source for Shakespeare.
+  - year: 1517
+    kind: printed
+    text: First printed in Greek with the other Parallel Lives in Florence.
+  - year: 1579
+    kind: translated
+    text: Thomas North's English version, made from Jacques Amyot's French, becomes a source for Shakespeare.
 _order: 17
 ---
 

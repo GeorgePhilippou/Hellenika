@@ -33,10 +33,10 @@ sources:
   - barr-sharrar2008
   - andronikos1984
 milestones:
-- year: 1962
-  kind: found
-  place: at Derveni, near Thessaloniki
-  text: Found during road building in a cist tomb, in the same group of graves that held the Derveni Papyrus.
+  - year: 1962
+    kind: found
+    place: at Derveni, near Thessaloniki
+    text: Found during road building in a cist tomb, in the same group of graves that held the Derveni Papyrus.
 _order: 53
 ---
 

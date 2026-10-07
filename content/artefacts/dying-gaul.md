@@ -39,14 +39,14 @@ sources:
   - stewart1990
   - radt1999
 milestones:
-- year: 1623
-  approx: true
-  kind: found
-  place: in Rome
-  text: Recorded in the Ludovisi collection after turning up during building work for the Villa Ludovisi.
-- year: 1797
-  kind: moved
-  text: Taken to Paris by Napoleon's forces; returned to the Capitoline Museums in 1816.
+  - year: 1623
+    approx: true
+    kind: found
+    place: in Rome
+    text: Recorded in the Ludovisi collection after turning up during building work for the Villa Ludovisi.
+  - year: 1797
+    kind: moved
+    text: Taken to Paris by Napoleon's forces; returned to the Capitoline Museums in 1816.
 _order: 49
 ---
 

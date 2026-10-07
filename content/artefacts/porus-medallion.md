@@ -42,10 +42,10 @@ sources:
   - holt2003
   - price1991
 milestones:
-- year: 1973
-  kind: found
-  place: in Iraq
-  text: Several examples come to light in a hoard found in Iraq.
+  - year: 1973
+    kind: found
+    place: in Iraq
+    text: Several examples come to light in a hoard found in Iraq.
 _order: 44
 ---
 

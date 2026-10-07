@@ -42,13 +42,13 @@ sources:
   - curtis2003
   - stewart1990
 milestones:
-- year: 1820
-  kind: found
-  place: on Melos
-  text: Found by a farmer, Yorgos Kentrotas, in a niche among ancient ruins on Melos.
-- year: 1821
-  kind: acquired
-  text: Presented to King Louis XVIII, who gives it to the Louvre.
+  - year: 1820
+    kind: found
+    place: on Melos
+    text: Found by a farmer, Yorgos Kentrotas, in a niche among ancient ruins on Melos.
+  - year: 1821
+    kind: acquired
+    text: Presented to King Louis XVIII, who gives it to the Louvre.
 _order: 47
 ---
 

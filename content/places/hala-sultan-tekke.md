@@ -31,12 +31,12 @@ sources:
   - karageorghis1982
   - smith2009
 milestones:
-- year: 1897
-  kind: excavated
-  text: The British Museum excavates tombs at the site.
-- year: 1971
-  kind: excavated
-  text: Paul Åström begins a long Swedish excavation of the harbour town.
+  - year: 1897
+    kind: excavated
+    text: The British Museum excavates tombs at the site.
+  - year: 1971
+    kind: excavated
+    text: Paul Åström begins a long Swedish excavation of the harbour town.
 _order: 78
 ---
 

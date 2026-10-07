@@ -39,10 +39,10 @@ sources:
   - coldstream1977
   - boardman1999
 milestones:
-- year: 1871
-  date: 1871–72
-  kind: excavated
-  text: Dug up in Ioannis Palaiologos' excavations in the outer Kerameikos, Athens, and bought for the national collection.
+  - year: 1871
+    date: 1871–72
+    kind: excavated
+    text: Dug up in Ioannis Palaiologos' excavations in the outer Kerameikos, Athens, and bought for the national collection.
 _order: 20
 ---
 

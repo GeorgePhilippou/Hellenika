@@ -40,8 +40,6 @@ artefacts:
   - warrior-vase
   - lion-gate
 texts:
-  - iliad
-  - odyssey
 claims:
   - text: Linear B records an early form of Greek.
     evidence: linguistic

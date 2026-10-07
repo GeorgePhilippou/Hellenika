@@ -41,9 +41,9 @@ sources:
   - french2002
   - shelmerdine2008
 milestones:
-- year: 1876
-  kind: excavated
-  text: Found by Heinrich Schliemann in a house just inside the citadel at Mycenae.
+  - year: 1876
+    kind: excavated
+    text: Found by Heinrich Schliemann in a house just inside the citadel at Mycenae.
 _order: 16
 ---
 

@@ -40,9 +40,9 @@ sources:
   - lapatin2002
   - macgillivray2000
 milestones:
-- year: 1903
-  kind: excavated
-  text: Found by Arthur Evans in the stone-lined Temple Repositories at Knossos, in pieces and restored for display.
+  - year: 1903
+    kind: excavated
+    text: Found by Arthur Evans in the stone-lined Temple Repositories at Knossos, in pieces and restored for display.
 _order: 4
 ---
 

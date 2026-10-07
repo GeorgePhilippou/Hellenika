@@ -38,9 +38,9 @@ sources:
   - cline2010
   - long1974
 milestones:
-- year: 1902
-  kind: excavated
-  text: The Italian School under Federico Halbherr and Luigi Pernier begins excavating; the Harvester Vase and painted sarcophagus follow.
+  - year: 1902
+    kind: excavated
+    text: The Italian School under Federico Halbherr and Luigi Pernier begins excavating; the Harvester Vase and painted sarcophagus follow.
 _order: 6
 ---
 

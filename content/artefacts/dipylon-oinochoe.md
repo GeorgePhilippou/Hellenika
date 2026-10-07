@@ -41,9 +41,9 @@ sources:
   - jeffery1961
   - powell1991
 milestones:
-- year: 1871
-  kind: found
-  text: Found in the Dipylon cemetery of the Kerameikos, Athens; its scratched verse is among the oldest alphabetic Greek inscriptions.
+  - year: 1871
+    kind: found
+    text: Found in the Dipylon cemetery of the Kerameikos, Athens; its scratched verse is among the oldest alphabetic Greek inscriptions.
 _order: 21
 ---
 

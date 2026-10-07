@@ -34,10 +34,10 @@ sources:
   - stewart1990
   - mattusch1996
 milestones:
-- year: 1885
-  kind: excavated
-  place: on the Quirinal, Rome
-  text: Found by workers digging foundations for a theatre, carefully placed as if deliberately buried.
+  - year: 1885
+    kind: excavated
+    place: on the Quirinal, Rome
+    text: Found by workers digging foundations for a theatre, carefully placed as if deliberately buried.
 _order: 60
 ---
 

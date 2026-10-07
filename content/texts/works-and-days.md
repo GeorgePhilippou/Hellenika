@@ -42,14 +42,14 @@ sources:
   - west1978
   - osborne2009
 milestones:
-- year: 1000
-  date: medieval
-  kind: manuscript
-  text: Survives through Byzantine manuscripts, supplemented by ancient papyrus fragments from Egypt.
-- year: 1480
-  approx: true
-  kind: printed
-  text: First printed in Milan with the Idylls of Theocritus.
+  - year: 1000
+    date: medieval
+    kind: manuscript
+    text: Survives through Byzantine manuscripts, supplemented by ancient papyrus fragments from Egypt.
+  - year: 1480
+    approx: true
+    kind: printed
+    text: First printed in Milan with the Idylls of Theocritus.
 _order: 3
 ---
 

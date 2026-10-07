@@ -41,16 +41,16 @@ sources:
   - richardson2010
   - west2003
 milestones:
-- year: 1400
-  date: 15th c.
-  kind: manuscript
-  text: Survive only in late Byzantine manuscripts, usually copied with other early hexameter poetry.
-- year: 1488
-  kind: printed
-  text: Printed with the first edition of Homer in Florence.
-- year: 1777
-  kind: found
-  text: Christian Friedrich Matthaei finds the only manuscript of the Hymn to Demeter in Moscow.
+  - year: 1400
+    date: 15th c.
+    kind: manuscript
+    text: Survive only in late Byzantine manuscripts, usually copied with other early hexameter poetry.
+  - year: 1488
+    kind: printed
+    text: Printed with the first edition of Homer in Florence.
+  - year: 1777
+    kind: found
+    text: Christian Friedrich Matthaei finds the only manuscript of the Hymn to Demeter in Moscow.
 _order: 4
 ---
 

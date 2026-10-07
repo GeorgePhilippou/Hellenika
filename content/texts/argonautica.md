@@ -42,13 +42,13 @@ sources:
   - hunter1993
   - shipley2000
 milestones:
-- year: 1000
-  date: 10th–11th c.
-  kind: manuscript
-  text: The oldest manuscript is in the Laurentian Library, Florence, with ancient scholars' notes in the margins.
-- year: 1496
-  kind: printed
-  text: First printed in Florence by Janus Lascaris.
+  - year: 1000
+    date: 10th–11th c.
+    kind: manuscript
+    text: The oldest manuscript is in the Laurentian Library, Florence, with ancient scholars' notes in the margins.
+  - year: 1496
+    kind: printed
+    text: First printed in Florence by Janus Lascaris.
 _order: 22
 ---
 

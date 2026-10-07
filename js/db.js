@@ -322,6 +322,7 @@ const INVERSE = {
   'depicts scene from': 'scene depicted in', 'depicted on': 'depicts',
   'possibly depicts': 'possibly depicted in', 'alludes to': 'alluded to in',
   'references': 'referenced in', 'referenced in': 'references',
+  'looks back to': 'remembered in',
   'responds to': 'answered by', 'attacks': 'attacked in',
   'dedicated to': 'dedication to', 'delivered at': 'venue for',
   'attributed to': 'attributed work', 'foundation attributed to': 'credited with founding',

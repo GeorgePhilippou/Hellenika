@@ -39,10 +39,10 @@ sources:
   - stewart1993
   - brinkmann2007
 milestones:
-- year: 1887
-  kind: excavated
-  place: at Sidon
-  text: Found by Osman Hamdi Bey in the royal necropolis of Sidon and taken to Istanbul.
+  - year: 1887
+    kind: excavated
+    place: at Sidon
+    text: Found by Osman Hamdi Bey in the royal necropolis of Sidon and taken to Istanbul.
 _order: 42
 ---
 

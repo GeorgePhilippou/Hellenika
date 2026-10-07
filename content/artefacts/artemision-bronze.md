@@ -34,13 +34,13 @@ sources:
   - stewart1990
   - mattusch1996
 milestones:
-- year: 1926
-  kind: found
-  place: off Cape Artemision
-  text: Sponge divers recover the first pieces from an ancient wreck.
-- year: 1928
-  kind: recovered
-  text: The head and body are raised, and the statue is assembled.
+  - year: 1926
+    kind: found
+    place: off Cape Artemision
+    text: Sponge divers recover the first pieces from an ancient wreck.
+  - year: 1928
+    kind: recovered
+    text: The head and body are raised, and the statue is assembled.
 _order: 56
 ---
 

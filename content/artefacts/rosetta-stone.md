@@ -40,16 +40,16 @@ sources:
   - parkinson1999
   - robinson2002
 milestones:
-- year: 1799
-  kind: found
-  place: near Rosetta (Rashid), Egypt
-  text: Found by French soldiers rebuilding a fort.
-- year: 1801
-  kind: moved
-  text: Taken by the British under the Capitulation of Alexandria.
-- year: 1822
-  kind: deciphered
-  text: Jean-François Champollion uses it to decipher Egyptian hieroglyphs.
+  - year: 1799
+    kind: found
+    place: near Rosetta (Rashid), Egypt
+    text: Found by French soldiers rebuilding a fort.
+  - year: 1801
+    kind: moved
+    text: Taken by the British under the Capitulation of Alexandria.
+  - year: 1822
+    kind: deciphered
+    text: Jean-François Champollion uses it to decipher Egyptian hieroglyphs.
 _order: 51
 ---
 

@@ -42,9 +42,9 @@ sources:
   - duhoux1977
   - robinson2002
 milestones:
-- year: 1908
-  kind: excavated
-  text: Found by Luigi Pernier in a storeroom of the palace at Phaistos, alongside a Linear A tablet.
+  - year: 1908
+    kind: excavated
+    text: Found by Luigi Pernier in a storeroom of the palace at Phaistos, alongside a Linear A tablet.
 _order: 2
 ---
 

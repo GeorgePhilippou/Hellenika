@@ -41,9 +41,9 @@ sources:
   - mylonas1961
   - clinton1992
 milestones:
-- year: 1882
-  kind: excavated
-  text: The Archaeological Society at Athens begins excavating the sanctuary under Demetrios Philios.
+  - year: 1882
+    kind: excavated
+    text: The Archaeological Society at Athens begins excavating the sanctuary under Demetrios Philios.
 _order: 30
 ---
 

@@ -39,10 +39,10 @@ sources:
   - broodbank2000
   - renfrew1972
 milestones:
-- year: 1898
-  date: 1898–99
-  kind: excavated
-  text: Christos Tsountas excavates hundreds of Early Cycladic graves in the cemetery.
+  - year: 1898
+    date: 1898–99
+    kind: excavated
+    text: Christos Tsountas excavates hundreds of Early Cycladic graves in the cemetery.
 _order: 67
 ---
 

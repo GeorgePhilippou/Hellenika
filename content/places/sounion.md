@@ -36,10 +36,10 @@ sources:
   - camp2001
   - dinsmoor1974
 milestones:
-- year: 1897
-  date: 1897–1915
-  kind: excavated
-  text: Valerios Stais excavates the temples of Poseidon and Athena.
+  - year: 1897
+    date: 1897–1915
+    kind: excavated
+    text: Valerios Stais excavates the temples of Poseidon and Athena.
 _order: 34
 ---
 

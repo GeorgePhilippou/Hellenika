@@ -39,16 +39,16 @@ sources:
   - boardman1999
   - watson2006
 milestones:
-- year: 1971
-  kind: found
-  place: at Cerveteri, Italy
-  text: Looted from an Etruscan tomb near Cerveteri.
-- year: 1972
-  kind: acquired
-  text: Bought by the Metropolitan Museum of Art for a then-record $1 million, with a false provenance.
-- year: 2008
-  kind: moved
-  text: Returned to Italy after an investigation into its looting.
+  - year: 1971
+    kind: found
+    place: at Cerveteri, Italy
+    text: Looted from an Etruscan tomb near Cerveteri.
+  - year: 1972
+    kind: acquired
+    text: Bought by the Metropolitan Museum of Art for a then-record $1 million, with a false provenance.
+  - year: 2008
+    kind: moved
+    text: Returned to Italy after an investigation into its looting.
 _order: 27
 ---
 

@@ -41,13 +41,13 @@ sources:
   - boardman1985
   - stewart1990
 milestones:
-- year: 1936
-  kind: found
-  place: at Anavyssos, Attica
-  text: Illegally dug up from a grave mound at Anavyssos, cut into pieces and smuggled to Paris.
-- year: 1937
-  kind: recovered
-  text: Traced to a Paris dealer by Greek authorities, returned and reassembled in Athens with its inscribed base.
+  - year: 1936
+    kind: found
+    place: at Anavyssos, Attica
+    text: Illegally dug up from a grave mound at Anavyssos, cut into pieces and smuggled to Paris.
+  - year: 1937
+    kind: recovered
+    text: Traced to a Paris dealer by Greek authorities, returned and reassembled in Athens with its inscribed base.
 _order: 28
 ---
 

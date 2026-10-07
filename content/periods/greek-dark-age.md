@@ -29,10 +29,6 @@ artefacts:
   - lefkandi-centaur
   - dipylon-oinochoe
 texts:
-  - iliad
-  - odyssey
-  - theogony
-  - works-and-days
 claims:
   - text: Greek literacy in Linear B ceased and was not resumed for roughly three centuries.
     evidence: archaeological

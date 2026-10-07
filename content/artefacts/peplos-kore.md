@@ -41,9 +41,9 @@ sources:
   - brinkmann2007
   - boardman1985
 milestones:
-- year: 1886
-  kind: excavated
-  text: Found on the Acropolis in the debris the Athenians buried after the Persian sack of 480 BC.
+  - year: 1886
+    kind: excavated
+    text: Found on the Acropolis in the debris the Athenians buried after the Persian sack of 480 BC.
 _order: 29
 ---
 

@@ -42,15 +42,15 @@ sources:
   - plutarch-src
   - duff1999
 milestones:
-- year: 1517
-  kind: printed
-  text: First printed in Greek in Florence.
-- year: 1559
-  kind: translated
-  text: Jacques Amyot's French translation makes the Lives a European bestseller.
-- year: 1579
-  kind: translated
-  text: Thomas North's English version, made from Amyot, becomes Shakespeare's source for his Roman plays.
+  - year: 1517
+    kind: printed
+    text: First printed in Greek in Florence.
+  - year: 1559
+    kind: translated
+    text: Jacques Amyot's French translation makes the Lives a European bestseller.
+  - year: 1579
+    kind: translated
+    text: Thomas North's English version, made from Amyot, becomes Shakespeare's source for his Roman plays.
 _order: 18
 ---
 
