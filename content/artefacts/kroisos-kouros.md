@@ -25,9 +25,6 @@ claims:
   - text: Archaic Greek marble sculpture was painted.
     evidence: archaeological
     confidence: established
-  - text: The statue was found broken into pieces, buried intentionally in antiquity, possibly to protect it from later destruction or looting.
-    evidence: archaeological
-    confidence: probable
 relations:
   - id: athens
     rel: from
@@ -54,11 +51,14 @@ _order: 28
 <!-- field: summary -->
 A grave statue of a young man killed in battle, with an inscription asking the passer-by to mourn him.
 
+<!-- field: significance -->
+One of the finest Archaic kouroi, and a rare one that names the person it commemorates: a young man killed in battle.
+
 <!-- field: body -->
-Nearly two metres tall, nude, left foot forward, arms at the sides, with the faint "Archaic smile". The Egyptian derivation of the pose is unmistakable, but the Greek figure is free-standing with no back pillar and is fully modelled in the round.
+A marble statue of a nude young man (a kouros), 1.95 m tall, made around 530–520 BC as a grave marker in Attica. It was dug up illegally at Anavyssos, south of Athens, in 1936 and smuggled to Paris in pieces; Greek authorities recovered it in 1937. It is now in the National Archaeological Museum, Athens, with its inscribed base.
 
-The base carries an epigram: stand and mourn at the marker of Kroisos, dead, whom raging Ares destroyed as he fought in the front rank.
+The figure stands with the left foot forward and arms at his sides, wearing the faint "Archaic smile". The pose comes from Egyptian statues, which Greeks saw at trading posts such as Naukratis, but the Greek figure stands free without a supporting back pillar and is carved fully in the round. Compared with earlier kouroi, its body is softer and more naturally modelled. Traces of paint show that hair, eyes and lips were coloured.
 
-So this is not a god or an idealised type but a specific dead young man, commemorated with a named grief. Kouroi served as both grave markers and dedications, and the same form did both jobs. Traces of paint survive: these statues were coloured, with painted hair, eyes and lips.
+The base carries a verse epitaph: "Stand and mourn at the monument of dead Kroisos, whom raging Ares destroyed one day as he fought in the front ranks." So the statue is not a god or a general type but a memorial to one particular young man, probably from a wealthy Athenian family.
 
-The statue was recovered broken into several large pieces and buried in the ground near Anavyssos in Attica, an arrangement that looks deliberate rather than accidental; one plausible explanation is that later inhabitants buried the damaged monument intentionally, whether out of respect for a grave marker they could no longer maintain intact or simply to keep valuable marble out of reach of anyone who might otherwise reuse or destroy it.
+Kouroi served both as grave markers and as offerings in sanctuaries; within a few decades the type gave way to the more relaxed poses of Classical sculpture.

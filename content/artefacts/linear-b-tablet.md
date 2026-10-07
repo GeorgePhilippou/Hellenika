@@ -28,12 +28,6 @@ claims:
   - text: No literary or narrative texts in Linear B have been found.
     evidence: epigraphic
     confidence: established
-  - text: The largest single archive of Linear B tablets was found at Pylos, with over a thousand recovered from one destruction layer.
-    evidence: archaeological
-    confidence: established
-  - text: Scribal "hands" can be distinguished across tablets, allowing individual palace scribes to be tracked by handwriting.
-    evidence: epigraphic
-    confidence: strong
 relations:
   - id: linear-b
     rel: written in
@@ -66,11 +60,14 @@ _order: 12
 <!-- field: summary -->
 Unfired clay tablets recording palace inventories — accidentally preserved by the fires that destroyed the palaces.
 
+<!-- field: significance -->
+The earliest written Greek, and the only direct record of how a Mycenaean palace ran its economy and its gods.
+
 <!-- field: body -->
-Linear B tablets were never meant to last. They were temporary records, unfired clay expected to be recycled or simply discarded at the end of each accounting year once its information was no longer needed. They survive at all only where a destructive fire accidentally baked them hard, which is why every substantial Mycenaean archive known today is, in effect, a by-product of catastrophe rather than of any deliberate act of preservation.
+Clay tablets inscribed in Linear B, the script of the Mycenaean palaces, dating from about 1400 to 1180 BC. Thousands have been found, above all at Knossos on Crete (from 1900) and Pylos in Messenia (from 1939), with smaller groups from Mycenae, Thebes, Tiryns and elsewhere. Michael Ventris showed in 1952 that they record an early form of Greek. They are held mainly in the National Archaeological Museum, Athens, and the Heraklion Archaeological Museum.
 
-The content is thoroughly administrative rather than literary: sheep counted by flock and named shepherd, wool quotas owed to the palace, bronze issued out to individual smiths by weight, chariot wheels inspected and marked serviceable or not, and rations recorded for groups of women textile workers listed alongside their numbers of dependent boys and girls. There is no literature, no history, and no law recorded on any surviving tablet — only the palace's own internal bookkeeping.
+The tablets were never meant to last. They were unfired clay notes, kept for a season and then reused. They survive only where the fires that destroyed the palaces baked them hard.
 
-What they do give, alongside that paperwork, is the names of gods already worshipped centuries before Classical Greece: Poseidon, who receives more offerings at Pylos than any other deity, along with Zeus, Hera, Athena, Dionysus, and a mysterious "Mistress of the Labyrinth" recorded at Knossos receiving a jar of honey — a figure who may connect distantly to later myths of the labyrinth and the Minotaur. Careful study of individual handwriting across tablets has let scholars distinguish the work of specific scribal "hands," allowing named or numbered individual palace scribes, otherwise entirely anonymous, to be tracked across dozens of separate records by their distinctive habits of forming particular signs.
+Their content is entirely administrative: sheep counted by flock and shepherd, wool owed to the palace, bronze issued to smiths, chariot wheels checked, and rations for women textile workers and their children. There is no literature, history or law. But they also record offerings to gods later worshipped in Classical Greece — Zeus, Hera, Poseidon, Athena, Hermes and Dionysus — and to a "Mistress of the Labyrinth" at Knossos. Scholars can even tell individual scribes apart by their handwriting.
 
-Tablet PY Ta 641 from Pylos, found in the largest single Linear B archive known anywhere, with well over a thousand tablets recovered from that one destruction layer, confirmed Ventris's decipherment beyond reasonable doubt, reading *ti-ri-po-de* — "tripods" — beside drawn pictures of exactly the three-legged pots the word describes.
+One tablet from Pylos, PY Ta 641, confirmed the decipherment: it spells the Greek word for "tripods" next to drawings of three-legged pots.

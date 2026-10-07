@@ -44,6 +44,9 @@ _order: 6
 <!-- field: summary -->
 A 27-centimetre terracotta flask from Palaikastro, its surface filled by octopuses and seabed motifs — an iconic work of Minoan Marine Style.
 
+<!-- field: significance -->
+The best-known example of Minoan Marine Style, the pottery in which sea creatures were made to fill and follow the shape of the vessel.
+
 <!-- field: body -->
 This painted terracotta flask was found at Palaikastro on the eastern coast of Crete and dates to approximately 1500–1450 BC, during the Minoan New Palace period. Now in the Heraklion Archaeological Museum, it stands about 27 centimetres high. Its rounded body and paired handles provide a continuous surface on which the marine composition unfolds.
 

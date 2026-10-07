@@ -28,9 +28,6 @@ claims:
   - text: The mask was modified or forged in the 19th century.
     evidence: debate
     confidence: debated
-  - text: Four other gold masks were recovered from the same grave circle, all stylistically closer to one another than to this one.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: mycenae
     rel: found at
@@ -60,9 +57,14 @@ _order: 11
 <!-- field: summary -->
 A hammered gold funerary mask from Mycenae Grave Circle A — misnamed, misdated, and unforgettable.
 
+<!-- field: significance -->
+The most famous object of the Greek Bronze Age, and the emblem of the gold-rich warrior elite whose burials mark the rise of Mycenae.
+
 <!-- field: body -->
-Schliemann found it in 1876 in Shaft Grave V and, in characteristically theatrical fashion, immediately identified it with Agamemnon, telegraphing the Greek king that he had "gazed upon the face of Agamemnon" himself. The burial is roughly three centuries earlier than any plausible date for the Trojan War, so the identification is almost certainly wrong on chronological grounds alone — and yet the name has stuck so firmly in popular usage that museum labels and general audiences still use it today, treating it more as an evocative nickname than a literal claim.
+A funeral mask of hammered gold, about 25 cm tall, made around 1550–1500 BC. Heinrich Schliemann found it in 1876 lying over the face of a man buried in Shaft Grave V of Grave Circle A, inside the citadel of Mycenae. It is now in the National Archaeological Museum, Athens.
 
-The mask was hammered from a single sheet of gold over a wooden form and then chased with fine surface detail. Unlike the four other masks recovered from the same grave circle, which are stylistically closer to one another, this one has a full beard, a distinct moustache, and closed eyelids while the eyes themselves are indicated as if open beneath them — a striking and genuinely unusual combination that sets it visually apart from its companions.
+The mask was beaten from a single sheet of gold and its details chased into the surface. It shows a man with a narrow face, a full beard and a moustache, and closed eyes with the eyelids drawn over them. Five gold masks came from the shaft graves, and this one looks noticeably different from the rest.
 
-The classicist William Calder and a small number of others have argued over the decades that the mask was tampered with or even partly manufactured in the nineteenth century, pointing to precisely those stylistic differences as evidence of later intervention by Schliemann or an associate. Most specialists reject this conclusion, noting that Schliemann's finds were witnessed, reported and drawn by independent observers before he could plausibly have arranged a forgery of this sophistication, and that the goldworking technique itself is entirely consistent with genuine Bronze Age craftsmanship rather than nineteenth-century workshop practice.
+Schliemann announced that he had found the tombs of Agamemnon and his companions; the famous line that he had "gazed on the face of Agamemnon" is probably a later embellishment. The burials are some three centuries older than any date for a Trojan War, so the identification is certainly wrong, but the name has stuck. The shaft graves, with their gold, weapons and imports, actually record the rise of the first Mycenaean ruling families.
+
+In the 1970s–90s the classicist William Calder and the historian David Traill argued that the mask's unusual features showed it had been altered or faked in the 19th century. Most specialists reject this: the finds were witnessed and drawn at the time, and the technique fits Bronze Age goldwork.

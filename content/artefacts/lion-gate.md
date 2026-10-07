@@ -55,11 +55,12 @@ _order: 14
 <!-- field: summary -->
 Two lionesses flanking a column above the main gate of Mycenae — the oldest monumental sculpture in Europe, still in place.
 
+<!-- field: significance -->
+The oldest monumental sculpture in Europe still standing where it was built, and the emblem of Mycenaean power.
+
 <!-- field: body -->
-The gate uses a post-and-lintel opening with a corbelled relieving triangle above to divert the wall's weight away from the lintel. That triangle is filled with a limestone slab carved with two facing lionesses, forepaws on altars, flanking a Minoan-style column.
+The main entrance to the citadel of Mycenae in the Argolid, built around 1250 BC as part of an extension of the fortification walls. It is still in place.
 
-The heads were made separately, probably in a different stone, and are lost — so the animals now face the visitor headless. Whether they were lions, lionesses, griffins or sphinxes cannot be settled.
+The gate is formed of huge stone blocks: two uprights and a lintel weighing around 20 tonnes. Above the lintel, the masonry leaves a triangular gap to take the weight off it, and this "relieving triangle" is filled with a limestone slab carved in relief. Two lionesses, or perhaps other beasts, stand facing each other with their forepaws on altars, flanking a single column. Their heads, made separately, are lost. Animals guarding a sacred symbol is a convention of Minoan and Near Eastern art, and the column was almost certainly a religious emblem as well as a sign of royal power.
 
-The column between them is almost certainly a religious symbol, and the arrangement — animals heraldically flanking a sacred object — is a Near Eastern and Minoan convention. It is the only monumental relief sculpture from Bronze Age Greece still standing where it was built.
-
-Unlike so much of the Mycenaean world, the gate was never lost to memory: it remained visible above ground throughout antiquity, long after the palace behind it had fallen into ruin, and the traveller Pausanias, writing in the second century AD, described seeing it and attributed the walls of Mycenae to the legendary work of the Cyclopes, a testament to how the sheer scale of Bronze Age masonry impressed even visitors many centuries removed from the civilisation that built it.
+Unlike most of the Mycenaean world, the gate was never buried or forgotten. The traveller Pausanias described it in the 2nd century AD and repeated the belief that Mycenae's massive walls were built by the giant Cyclopes. Kyriakos Pittakis cleared the gateway for the Archaeological Society at Athens in 1841, and in 1876 Heinrich Schliemann excavated just inside it, finding the gold-rich shaft graves of Grave Circle A.

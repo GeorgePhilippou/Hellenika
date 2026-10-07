@@ -28,9 +28,6 @@ claims:
   - text: It constitutes a claim to divine status by Alexander.
     evidence: debate
     confidence: debated
-  - text: The medallions were likely struck as commemorative donatives to reward troops rather than as ordinary circulating currency.
-    evidence: debate
-    confidence: probable
 relations:
   - id: battle-hydaspes
     rel: commemorates
@@ -52,11 +49,14 @@ _order: 44
 <!-- field: summary -->
 A silver decadrachm showing a horseman attacking an elephant — probably the only contemporary image of Alexander in battle.
 
+<!-- field: significance -->
+Probably the only image of Alexander made in his own lifetime that shows him in battle — and possibly claiming the powers of a god.
+
 <!-- field: body -->
-One side shows a rider with a *sarissa* charging an elephant carrying two figures, one of whom turns to throw a spear. The other shows a standing figure in Macedonian dress holding a thunderbolt, crowned by a small Nike.
+A large silver coin, a decadrachm (ten drachmas), struck around 325–323 BC, probably at Babylon. Only a handful are known; several came from a hoard found in Iraq in 1973. The British Museum holds an example.
 
-The scene is generally read as Alexander attacking Porus at the Hydaspes. If so, this is a contemporary depiction, struck within a year or two of the battle — unlike the Alexander Mosaic, which copies a later painting, or the sculptures, which are posthumous.
+One side shows a horseman with a long lance attacking a war elephant carrying two men, one of whom turns to throw a spear. The other shows a standing figure in Macedonian armour holding a thunderbolt, the weapon of Zeus, while a small winged Victory flies in to crown him.
 
-The thunderbolt figure is more provocative: a Macedonian king holding Zeus' attribute, being crowned by Victory. Whether Alexander authorised this, and what he meant by it, sits at the centre of the argument about how far he claimed divinity in his lifetime. Only a handful of examples are known, several from a hoard found in Iraq in 1973.
+The battle scene is usually read as Alexander fighting the Indian king Porus at the Hydaspes river in 326 BC. If so, the coin is a contemporary image of the battle, unlike the Alexander Mosaic or later sculptures. The thunderbolt figure is more striking: a Macedonian king holding Zeus' weapon, crowned by Victory. Whether Alexander approved it, and what it says about his claims to divinity in his lifetime, is debated.
 
-Its unusual weight and rarity suggest it was never meant for ordinary transactions. Most scholars think it was a special commemorative issue, distributed as a lavish gift or donative to reward senior officers and soldiers who fought at the Hydaspes, rather than everyday coinage meant to circulate through the wider Macedonian economy.
+Its size and rarity suggest it was not ordinary money but a special issue, perhaps given as a reward to veterans of the Indian campaign.

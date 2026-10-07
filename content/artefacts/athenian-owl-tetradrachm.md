@@ -27,9 +27,6 @@ claims:
   - text: Emergency plated coinage was issued late in the Peloponnesian War.
     evidence: numismatic
     confidence: strong
-  - text: The coin's obverse Athena head and reverse owl remained essentially unchanged in design for roughly four centuries.
-    evidence: numismatic
-    confidence: established
 relations:
   - id: athens
     rel: issued by
@@ -48,9 +45,14 @@ _order: 36
 <!-- field: summary -->
 Athena on one side, her owl on the other — the ancient Mediterranean's first international reserve currency.
 
+<!-- field: significance -->
+The most trusted coin of the Classical world, and an instrument of Athenian power: the first currency used far beyond its own state.
+
 <!-- field: body -->
-Struck from Laurion silver, the "owls" were minted with such consistent weight and purity that they were accepted far beyond Athenian territory, from Egypt to Bactria. Hoards turn up all over the Near East, and other states imitated them rather than compete.
+A silver coin worth four drachmas, about 17 grams, issued by Athens from around 510 BC until the 1st century BC. Examples survive in collections worldwide and turn up in hoards from Egypt to Afghanistan.
 
-The design was deliberately kept archaic-looking for centuries after Greek art had moved on. Recognisability was the point: a familiar coin is a trusted coin, and changing the design would have invited doubt.
+The front shows the head of Athena in a crested helmet; the back shows her owl, an olive sprig and the letters ΑΘΕ, for "of the Athenians". The coins were struck from silver mined at Laurion in southern Attica, and their reliable weight and purity made them accepted across the Mediterranean and Near East, where they were often imitated. The design was deliberately left old-fashioned for centuries after Greek art had moved on: a familiar coin was a trusted one.
 
-The currency was also imperial policy. Athens required allied states to use Athenian coins, weights and measures, which suppressed local mints and made the Aegean a single monetary zone. When Athens ran out of silver at the end of the Peloponnesian War it issued silver-plated bronze — and Aristophanes' *Frogs* jokes about bad currency driving out good, three centuries before Gresham. The basic design, Athena's head on one face and her owl on the reverse, stayed essentially unchanged for roughly four hundred years, an extraordinary run of stability for any currency, ancient or modern.
+The coins also served Athenian power. In the 5th century BC Athens ordered the members of its Delian League empire to use Athenian coins, weights and measures, suppressing local mints. The tribute paid by allies, minted into owls, helped fund the fleet and the buildings of the Acropolis.
+
+When silver ran short at the end of the Peloponnesian War, Athens issued bronze coins plated with silver. Aristophanes' *Frogs* (405 BC) jokes that the city prefers bad coins to good — an early statement of what is now called Gresham's law.

@@ -56,13 +56,14 @@ _order: 51
 <!-- field: summary -->
 A Ptolemaic decree in hieroglyphic, Demotic and Greek — the key that unlocked ancient Egyptian.
 
+<!-- field: significance -->
+The key to deciphering Egyptian hieroglyphs, and a vivid record of Greek kings ruling Egypt through its native priesthood.
+
 <!-- field: body -->
-The stone records a decree of 196 BC issued by priests at Memphis honouring Ptolemy V, in three scripts: hieroglyphic for the gods, Demotic for daily Egyptian use, and Greek for the ruling administration. That trilingualism is itself the story of Hellenistic Egypt — a Greek dynasty governing an Egyptian population through a bilingual priesthood.
+A slab of granodiorite about 1.1 m tall, inscribed in 196 BC with a decree of the Egyptian priests meeting at Memphis in honour of the young king Ptolemy V. French soldiers found it in 1799 near the town of Rosetta (Rashid) in the Nile Delta; under the terms of the French surrender at Alexandria in 1801 it passed to Britain, and it has been in the British Museum since 1802.
 
-French soldiers found it in 1799 near Rosetta; the British took it under the 1801 Capitulation of Alexandria.
+The same decree is written three times: in hieroglyphs, the sacred script of temples; in Demotic, the everyday Egyptian script; and in Greek, the language of the Ptolemaic kings and their government. That mix is itself a picture of Hellenistic Egypt, where a Macedonian Greek dynasty ruled an Egyptian population with the support of the native priesthood. Copies of the decree were set up in temples across the country; fragments of others have been found.
 
-Because the Greek could be read, the other two could be attacked. Thomas Young established that cartouches spelled royal names phonetically. Jean-François Champollion showed in 1822 that hieroglyphs were neither purely symbolic nor purely alphabetic but a mixed system, and that the underlying language was related to Coptic — which he could read. Three thousand years of Egyptian text became legible.
+Because the Greek could be read, the stone offered a way into the other two scripts. Thomas Young showed that oval cartouches spelled royal names by sound. In 1822 Jean-François Champollion demonstrated that hieroglyphs combine sound signs and meaning signs, and that the language behind them was an earlier form of Coptic, which he knew.
 
-Egypt has requested its return; the British Museum has declined.
-
-The Rosetta Stone was never a singular object even when it was carved: the same priestly decree was ordered set up in multiple temples across Egypt, and fragments of at least one other copy, from Nubayrah, have since come to light, confirming that the Rosetta Stone itself is simply the copy that happened to survive and be found, not a uniquely commissioned inscription.
+Egypt has asked for the stone's return; the British Museum has declined.

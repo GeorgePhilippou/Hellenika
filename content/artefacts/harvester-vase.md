@@ -25,9 +25,6 @@ claims:
   - text: The procession is agricultural rather than military.
     evidence: debate
     confidence: probable
-  - text: Only the upper portion of the original rhyton survives, so the vessel's full original scene and shape can only be partly reconstructed.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: ayia-triada
     rel: found at
@@ -46,11 +43,14 @@ _order: 5
 <!-- field: summary -->
 A carved stone rhyton showing a procession of singing workers — the liveliest crowd scene in Aegean art.
 
+<!-- field: significance -->
+The liveliest crowd scene in Aegean art, and the earliest known image of people singing as they work.
+
 <!-- field: body -->
-Only the upper half survives, carved in relief on black steatite. Twenty-seven men march with winnowing forks or hoes over their shoulders, led by a figure in a scaled cloak. A group of four sing, led by a man shaking a *sistrum* — an Egyptian rattle — with his ribs and open mouth rendered so specifically that he appears to be straining for breath.
+A carved stone ritual vessel (rhyton) of black steatite, made on Crete around 1500–1450 BC. It was found in 1902 by the Italian School of Archaeology at the villa of Hagia Triada, near Phaistos, and is now in the Heraklion Archaeological Museum. Only the upper part survives.
 
-One figure has stumbled and is being jostled by those behind. This is observed behaviour, not formal composition, and it is the earliest depiction of a work-song anywhere.
+A band of relief shows a procession of about 27 men marching with long-handled tools — winnowing forks or hoes — over their shoulders, led by a man in a scaled cloak. In the middle, a group of four sing, led by a man shaking a sistrum, an Egyptian rattle. Their open mouths and straining chests are carved with unusual realism, and one marcher has stumbled and is being jostled by the man behind.
 
-Whether it shows a harvest, a sowing festival or a military-style procession is debated; the tools point to agriculture.
+The tools point to an agricultural festival, perhaps for harvest or sowing, though some read the scene as a military or religious procession. The sistrum is a sign of Minoan contact with Egypt.
 
-What survives is only part of the original object: the vase was a conical rhyton, a ritual pouring vessel, and only its upper section with the carved frieze has come down to us intact, meaning the full original composition, including whatever scene or design continued below the surviving band, can only be inferred rather than known with certainty.
+The vessel is a high point of Minoan stone carving. Its sense of movement, crowding and individual behaviour has no parallel in the more formal art of contemporary Egypt or the Near East.

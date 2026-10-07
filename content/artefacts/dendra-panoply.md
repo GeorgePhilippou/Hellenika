@@ -25,9 +25,6 @@ claims:
   - text: Experimental trials support its practical use in combat.
     evidence: consensus
     confidence: probable
-  - text: Similar, if less complete, bronze armour fragments have been found at other Mycenaean sites, suggesting Dendra's panoply was not unique but simply the best preserved example.
-    evidence: archaeological
-    confidence: probable
 relations:
   - id: dendra
     rel: found at
@@ -48,11 +45,14 @@ _order: 13
 <!-- field: summary -->
 The only complete suit of Bronze Age body armour from the Aegean — fifteen bronze plates and a boar's-tusk helmet.
 
+<!-- field: significance -->
+The only complete suit of Bronze Age armour from the Aegean, and a direct link between the Mycenaean world and objects Homer still remembered.
+
 <!-- field: body -->
-Fifteen hammered bronze plates form a cuirass with shoulder guards, a high neck plate, and hanging plates protecting the thighs, worn over a leather backing. The helmet is made of split boar tusks sewn onto a leather cap — a construction Homer describes in detail in Iliad Book 10, four centuries after it went out of use.
+A suit of bronze body armour with a boar's-tusk helmet, made around 1450–1400 BC. It was found in 1960 by Nikolaos Verdelis and Paul Åström in Chamber Tomb 12 of the Mycenaean cemetery at Dendra, near Mycenae in the Argolid, and is now in the Archaeological Museum of Nafplio.
 
-The whole weighs roughly 18 kg and restricts arm movement considerably, which led to decades of argument that it was purely ceremonial.
+Fifteen hammered bronze plates, worn over a leather lining, form a cuirass with shoulder guards, a high collar and hanging plates protecting the hips and thighs. The helmet is made of split boar's tusks sewn onto a leather cap. Homer describes exactly this kind of helmet in the *Iliad*, centuries after it had gone out of use.
 
-In 2024 researchers put marines through an eleven-hour simulated Late Bronze Age combat protocol in a replica, based on activity patterns drawn from the Iliad. They completed it. The conclusion was that the armour is genuinely usable — best suited to a chariot-borne warrior fighting in bursts.
+The armour weighs about 18 kg and restricts the arms, so it was long thought to be purely ceremonial or suitable only for a chariot fighter. In 2024 researchers had trained volunteers wear a replica through an eleven-hour simulated day of Bronze Age combat; they completed it, suggesting the suit was genuinely usable in battle.
 
-Fragmentary bronze plates of similar type have turned up at other Mycenaean centres, including Thebes, so the Dendra suit is best understood not as a one-off royal curiosity but as the sole complete survival of a broader class of Late Bronze Age Aegean body armour that has otherwise mostly corroded or been lost.
+Fragments of similar bronze plates from other Mycenaean sites show the Dendra suit was not unique, only the one that survived complete. It belongs to the world of chariot-riding warrior elites that ruled the Mycenaean palaces.

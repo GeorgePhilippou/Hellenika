@@ -28,9 +28,6 @@ claims:
   - text: The frieze depicts Philip II and Alexander.
     evidence: debate
     confidence: debated
-  - text: The painting uses a genuinely wide colour palette, including blues and purples, that has helped scholars reconstruct ancient pigment technology.
-    evidence: archaeological
-    confidence: strong
 relations:
   - id: vergina
     rel: part of
@@ -53,11 +50,14 @@ _order: 40
 <!-- field: summary -->
 A painted hunting scene above the door of Tomb II — a rare survival of Greek monumental painting at its height.
 
+<!-- field: significance -->
+The finest surviving example of ancient Greek painting at its peak, a level otherwise known only from descriptions by ancient writers.
+
 <!-- field: body -->
-The frieze runs 5.6 m across the tomb façade, showing ten hunters with horses and dogs pursuing lion, boar and deer through a landscape with bare trees.
+A painted frieze 5.6 m wide across the façade of Tomb II at Vergina (ancient Aigai) in Macedon, made around 336–316 BC. Manolis Andronikos uncovered it in 1977 beneath the Great Tumulus; it remains on the tomb, within the Museum of the Royal Tombs of Aigai.
 
-It is technically remarkable: receding space, foreshortened bodies, cast shadows and modelled depth — the achievements ancient writers praise in Greek painters like Apelles and Zeuxis, whose work is otherwise entirely lost. Almost nothing else survives to show what Greek painting actually looked like at this level.
+Ten hunters on foot and horseback, with dogs, pursue a lion, a boar and deer through a landscape of rocks and bare trees. The painter uses depth, foreshortened bodies, shading and cast shadows — the techniques ancient writers praised in famous painters such as Apelles and Zeuxis, whose works are entirely lost. Analysis has shown a broad range of pigments, including Egyptian blue. Almost nothing else survives to show what Greek painting at this level looked like.
 
-The lion hunt is significant beyond art history. Lion hunting was a Persian royal prerogative, so a Macedonian king depicted hunting lions is claiming a specific kind of kingship. A central bearded figure and a youthful one have been read as Philip and Alexander, which is plausible and unprovable.
+The subject carries a political message. Lion hunting was a pursuit of Persian and Near Eastern kings, so showing Macedonian royals hunting lions claimed a grand, eastern-style kingship. A bearded central rider and a youth on horseback have been identified as Philip II and the young Alexander, which is plausible but cannot be proved.
 
-Analysis of the surviving pigments shows the painter working with a genuinely broad palette, including blues derived from Egyptian blue and purple tones, rather than the limited red-black-white-yellow range often assumed for Greek painting, and the frieze has become an important reference point for reconstructing the technical range available to ancient painters.
+The tomb also held the gold larnax with the cremated bones that may be Philip's.

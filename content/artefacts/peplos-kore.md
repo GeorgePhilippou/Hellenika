@@ -25,9 +25,6 @@ claims:
   - text: The statue represents a goddess rather than a mortal woman.
     evidence: debate
     confidence: probable
-  - text: The Peplos Kore was one of many korai dedicated on the Acropolis by wealthy Athenians as votive offerings, rather than a funerary monument.
-    evidence: consensus
-    confidence: established
 relations:
   - id: athens
     rel: found at
@@ -50,11 +47,14 @@ _order: 29
 <!-- field: summary -->
 A painted marble statue of a young woman from the Acropolis, buried after the Persian sack — and probably a goddess, not a girl.
 
+<!-- field: significance -->
+The best-preserved painted Archaic statue, and the clearest proof that Greek sculpture was brightly coloured, not white.
+
 <!-- field: body -->
-Found in 1886 in the "Persian debris", material the Athenians buried after Xerxes wrecked the Acropolis in 480 BC. Because it was buried immediately, its paint survived unusually well: red and green patterns, painted eyes and lips, and traces of metal attachments.
+A marble statue of a young woman (a kore), 1.2 m tall, made in Athens around 530 BC and dedicated on the Acropolis. It was found in 1886 in the "Persian debris" — the broken statues and buildings the Athenians buried after the Persians sacked the Acropolis in 480 BC. It is now in the Acropolis Museum, Athens.
 
-The name comes from an early misidentification of her garment. She actually wears an *ependytes*, a decorated over-garment associated with divine images, and her left arm — now missing — was extended forward, doweled separately, to hold something.
+Korai were standing female statues that wealthy Athenians dedicated to the gods, and dozens were found in the same debris. This one is named for her garment, once thought to be a peplos, a simple woollen dress. It is now usually identified as an *ependytes*, a decorated overgarment worn by images of goddesses. Her missing left forearm, made separately, held out an object, so she may be a goddess, probably Athena or Artemis, rather than a girl.
 
-Current thinking is that she is a goddess, most likely Athena or Artemis, with attributes now lost. Reconstructions using ultraviolet imaging to recover pigment produce a figure so brightly coloured that many viewers find it hard to accept — which is a useful measure of how much the white-marble idea of Greek art distorts.
+Because she was buried soon after being damaged, much of her paint survived: patterned bands on her dress, coloured hair, eyes and lips, and holes for metal attachments. Reconstructions using ultraviolet light and pigment analysis show a strikingly colourful figure.
 
-She belongs to a much larger family of korai, standing female statues that wealthy Athenian families dedicated on the Acropolis to the gods as votive gifts rather than as grave markers, and dozens of these figures — buried in the same Persian debris — were recovered alongside her, together forming one of the richest surviving groups of archaic Greek sculpture.
+She is a key piece of evidence that Greek marble sculpture was painted, contrary to the white-marble image of antiquity created in later centuries.

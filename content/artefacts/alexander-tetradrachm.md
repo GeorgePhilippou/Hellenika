@@ -24,9 +24,6 @@ claims:
   - text: Hellenistic rulers introduced portraits of living monarchs on coinage.
     evidence: numismatic
     confidence: strong
-  - text: The coinage's wide and long-lasting circulation makes it one of the most useful dating tools for Hellenistic archaeological sites.
-    evidence: numismatic
-    confidence: strong
 relations:
   - id: alexander-the-great
     rel: issued by
@@ -45,11 +42,14 @@ _order: 43
 <!-- field: summary -->
 A single coin design struck from Greece to India, continuing for centuries after Alexander's death.
 
+<!-- field: significance -->
+The first truly international coinage, struck from Greece to India and for centuries after Alexander's death.
+
 <!-- field: body -->
-Herakles wearing the lion skin on the obverse, Zeus enthroned with eagle and sceptre on the reverse. The Herakles head increasingly resembles Alexander himself, which is the point — the Argead kings claimed descent from Herakles, and the ambiguity does useful work.
+A silver coin worth four drachmas issued by Alexander the Great from about 336 BC and copied by cities and kings until around 50 BC. Examples survive worldwide in huge numbers.
 
-Alexander imposed a single standard across the empire, minting from captured Persian bullion at some two dozen mints from Macedon to Babylon. It became the first genuinely international currency, and cities kept striking "Alexanders" for two hundred years after his death because merchants trusted them.
+The front shows the hero Herakles wearing a lion's skin; the back shows Zeus seated on a throne, holding an eagle and a sceptre, with the inscription "of Alexander". The Macedonian kings claimed descent from Herakles, and over time the Herakles head came to look more and more like Alexander himself.
 
-His successors then took the decisive further step: Ptolemy put Alexander's portrait on coins, and soon put his own there. Portraying a living ruler on currency was new in the Greek world, and it became standard practice for every subsequent European monarchy.
+Alexander struck the coins on the Athenian weight standard, at some two dozen mints from Macedon to Babylon, using the vast silver and gold captured from the Persian treasuries. The result was the first currency used across the whole of the former Persian Empire and the Greek world. Because merchants trusted it, cities kept striking "Alexanders" for two centuries after his death.
 
-Because the design was struck in vast quantities across so many mints for so long, and because coin hoards can often be dated by their latest issue, Alexander-type tetradrachms are one of archaeology's most reliable chronological tools for Hellenistic sites: a single well-dated coin in a sealed context can anchor the date of an entire excavation layer.
+His successors went a step further. Ptolemy I put Alexander's own portrait on coins and soon replaced it with his own — the beginning of showing living rulers on money. The coins' wide spread and long life also make them one of archaeologists' most useful tools for dating Hellenistic sites.

@@ -24,9 +24,6 @@ claims:
   - text: Ostracism exiled a man for ten years without loss of property or citizenship.
     evidence: literary
     confidence: strong
-  - text: Some surviving ostraka include crude caricatures or drawings alongside the inscribed name.
-    evidence: archaeological
-    confidence: strong
 relations:
   - id: athens
     rel: found at
@@ -53,9 +50,14 @@ _order: 35
 <!-- field: summary -->
 Broken pottery used as ballots in ostracism votes — democracy's discarded paperwork, recovered by the thousand.
 
+<!-- field: significance -->
+The ballots of Athenian democracy, surviving by the thousand — direct evidence of how ordinary citizens voted, and of early vote-rigging.
+
 <!-- field: body -->
-Once a year the Athenian assembly decided whether to hold an ostracism. If so, citizens scratched a name on a potsherd. If at least 6,000 votes were cast, the man named most often was exiled for ten years — keeping his property and citizenship, and returning afterwards without disgrace. It was a safety valve for factional conflict, not a criminal penalty.
+Broken pieces of pottery used as ballots in ostracism votes in Athens between 487 and about 415 BC. More than 11,000 have been found, chiefly in the American School's excavations of the Agora from 1931 and in a deposit of about 9,000 found in the Kerameikos in 1966–69. They are in the Agora and Kerameikos museums, Athens.
 
-Over 11,000 ostraka have been excavated. They carry the expected names — Themistocles, Aristides, Cimon, Alcibiades — sometimes with added abuse, and occasionally a full explanatory line about why the voter thought the man should go.
+Ostracism was introduced in the reforms of Cleisthenes. Once a year the Assembly decided whether to hold one. If it did, each citizen scratched on a potsherd the name of a man he wanted removed. If at least 6,000 votes were cast, the man named most often was exiled for ten years. He kept his property and citizenship and could return afterwards without disgrace. It was a way of removing a dangerously powerful or divisive politician without a trial.
 
-A cache of 190 sherds naming Themistocles was found in a well, written in only fourteen hands: someone was mass-producing ballots for illiterate or lazy voters. It is the earliest surviving physical evidence of electoral manipulation. Some surviving sherds go beyond a bare name, adding crude drawings or mocking epithets alongside the inscription, small unguarded traces of ordinary Athenian opinion that no literary source preserves in the same raw form.
+The sherds carry the names of the leading men of the age — Themistocles, Aristides, Cimon, Megacles, Pericles' rivals — sometimes with insults or crude drawings added. A cache of 190 ostraka naming Themistocles, found in a well on the Acropolis slope, was written by only fourteen hands: someone was preparing ballots in bulk for others to cast.
+
+The last ostracism, of Hyperbolus around 415 BC, ended the practice.

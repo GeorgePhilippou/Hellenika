@@ -25,9 +25,6 @@ claims:
   - text: Keros functioned as a regional ritual centre.
     evidence: debate
     confidence: probable
-  - text: The harpist figures show careful attention to the instrument's construction, including its resonating soundbox and string tension bar.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: cycladic-figurine
     rel: related to
@@ -50,11 +47,14 @@ _order: 1
 <!-- field: summary -->
 A seated marble figure playing a harp — the earliest depiction of a musician in European art.
 
+<!-- field: significance -->
+The earliest image of a musician in European art, showing that stringed instruments were played in the Aegean almost 5,000 years ago.
+
 <!-- field: body -->
-Around a dozen seated musician figures are known from the Cyclades, harpists and one double-flute player. They are more three-dimensional than the standard reclining figurines, with a genuinely convincing seated posture and a frame harp of a type otherwise unknown from this date.
+A marble figurine of a seated man playing a frame harp, about 22 cm tall, made in the Cyclades around 2800–2300 BC. It was reported in 1884 as found in a grave on the small island of Keros, together with a double-flute player, though the find was not properly recorded. Both are in the National Archaeological Museum, Athens.
 
-They establish that music with stringed instruments existed in the Aegean around 2700 BC. Whether they represent gods, performers, or the dead is unknown.
+About a dozen seated musicians are known from the Cyclades, almost all harpists. They are more fully three-dimensional than the standard folded-arm figurines, with a convincing seated posture on a backed chair. The harp is carved with a distinct soundbox, a curved neck and a crossbar holding the strings, detailed enough for musical historians to reconstruct how such an instrument was built.
 
-Many come from Keros, where the "Special Deposit" contained thousands of deliberately broken figurine fragments — broken elsewhere, then brought to the island. It appears to be the earliest known ritual centre in the Aegean, and possibly in Europe.
+The figures prove that music with stringed instruments existed in the Aegean by the early 3rd millennium BC. Whether they show gods, performers at funerals or the dead themselves is unknown.
 
-The sculptors clearly understood the instrument they were carving, not just the seated pose of the player: the harp figures render a distinct resonating body, a curved neck, and a cross-piece under tension holding the strings taut, details precise enough that organologists have used them to reconstruct how an actual Early Cycladic frame harp of this period would have been built and strung.
+Keros itself has become central to understanding Cycladic religion. Excavations there have found a "Special Deposit" of thousands of broken figurines and vessels, broken elsewhere and brought to the island, suggesting it was a ritual centre for the region — perhaps the earliest such place in the Aegean.

@@ -25,9 +25,6 @@ claims:
   - text: The figure represents Cheiron.
     evidence: debate
     confidence: speculative
-  - text: The figurine predates by roughly two centuries the earliest secure textual references to centaurs in Greek literature.
-    evidence: consensus
-    confidence: established
 relations:
   - id: lefkandi
     rel: found at
@@ -48,11 +45,14 @@ _order: 23
 <!-- field: summary -->
 A terracotta centaur of c. 900 BC — the earliest known image of a mythological hybrid in Greek art, deliberately broken and buried in two graves.
 
+<!-- field: significance -->
+The earliest known image of a Greek mythological creature, made two centuries before any surviving text mentions centaurs.
+
 <!-- field: body -->
-Thirty-six centimetres tall, with a human forequarters and a horse's body, painted with Geometric patterns. It has a deliberate notch cut into one knee.
+A painted terracotta figure of a centaur, 36 cm tall, made in the late 10th century BC, during the so-called Dark Age. It was found in 1969 by the British School at Athens in the Toumba cemetery at Lefkandi on Euboea, and is now in the Archaeological Museum of Eretria.
 
-The head was found in one grave and the body in another. Someone broke it intentionally and divided it between two burials — an act that clearly meant something and about which nothing further can be said.
+The figure has a human chest, arms and head joined to a horse's body, and is painted with geometric patterns. It is hollow and was made on a potter's wheel. One knee carries a deliberate cut. Its head was found in one grave and its body in another nearby: someone had broken it on purpose and divided it between two burials, presumably for reasons connected with the people buried there.
 
-If the knee wound is significant, it may relate to Cheiron, the wise centaur who taught Achilles and was accidentally wounded in the knee by Heracles. That would make this the earliest depiction of a named Greek myth, roughly two centuries before Homer. The connection is attractive and unprovable.
+The knee wound has suggested Cheiron, the wise centaur who taught Achilles and was accidentally wounded by Heracles. If so, this would be the earliest image of a named Greek myth, but the identification cannot be proved.
 
-Whatever it depicts specifically, its date alone is striking: at roughly 900 BC it predates by about two hundred years the earliest Greek written sources that mention centaurs at all, which means the visual imagination behind centaur mythology was already fully formed generations before any surviving text put it into words — a useful reminder that oral storytelling and figurative art can run well ahead of the literary record that happens to survive.
+Either way, the figure shows that the mythical world later described by Homer and Hesiod was already part of Greek imagination around 900 BC. Its quality also adds to the evidence from Lefkandi that the Dark Age was not as poor or isolated as once thought.

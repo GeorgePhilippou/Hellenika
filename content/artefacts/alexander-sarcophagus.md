@@ -25,9 +25,6 @@ claims:
   - text: It was made for Abdalonymos of Sidon.
     evidence: debate
     confidence: probable
-  - text: The sarcophagus is carved in a fully Greek style despite being made for a Phoenician royal client, reflecting rapid cultural adaptation among local elites under Macedonian rule.
-    evidence: consensus
-    confidence: strong
 relations:
   - id: alexander-the-great
     rel: depicts
@@ -49,11 +46,14 @@ _order: 42
 <!-- field: summary -->
 A marble sarcophagus carved with Alexander in battle and hunting — with much of its original paint still visible.
 
+<!-- field: significance -->
+A masterpiece of Greek sculpture made for a Phoenician king, with some of the best-preserved original paint of any ancient marble.
+
 <!-- field: body -->
-Excavated at Sidon in 1887, it is not Alexander's tomb but was made for a local ruler, probably Abdalonymos, whom Alexander installed as king of Sidon.
+A marble sarcophagus about 3 m long, carved by Greek sculptors around 320–310 BC. Osman Hamdi Bey found it in 1887 in the royal cemetery of Sidon, in modern Lebanon, and it is now in the Istanbul Archaeology Museums. It is called the Alexander Sarcophagus because Alexander appears on it, not because he was buried in it.
 
-The long sides show a battle between Greeks and Persians, with Alexander on horseback in a lion-skin helmet, and a lion hunt in which Greeks and Persians hunt together — a striking image of cooperation rather than conquest, appropriate for a Persian-descended ruler who owed his throne to Alexander.
+It was probably made for Abdalonymos, a man Alexander made king of Sidon in 332 BC. One long side shows Greeks and Persians in battle, with Alexander on horseback wearing a lion-skin helmet, probably at Issus. The other shows Greeks and Persians hunting a lion together — an image of partnership fitting for a local ruler who owed his throne to Alexander.
 
-Its real value is colour. Extensive original pigment survives — purple and yellow garments, red blood, painted eyes — and analysis has recovered much of the rest. It is among the best evidence anywhere that Greek marble sculpture was fully polychrome, and that the white classical aesthetic is entirely a product of paint loss.
+The carving is entirely Greek in style, a sign of how quickly local elites in the conquered Near East adopted Greek art as a mark of status. Unusually, much of its original paint survives: purple and yellow clothing, red blood, painted eyes and details. It is some of the best evidence that Greek marble sculpture was fully coloured, and that the white classical look is the result of paint wearing away.
 
-What makes the commission itself notable is how completely its Phoenician patron embraced Greek artistic conventions rather than a local Sidonian or Persian style: every figure, pose and narrative device on the sarcophagus follows Greek sculptural practice closely, a striking sign of how quickly local elites across the conquered Near East adopted Greek visual culture as a marker of prestige once Macedonian rule made such affiliation politically advantageous.
+It was one of the founding objects of the Istanbul Archaeology Museums.

@@ -24,9 +24,6 @@ claims:
   - text: It formed part of a larger group including a chariot and horses.
     evidence: archaeological
     confidence: established
-  - text: The statue is generally treated as one of the finest surviving examples of the Severe Style, the transitional phase between Archaic and Classical Greek sculpture.
-    evidence: consensus
-    confidence: established
 relations:
   - id: delphi
     rel: found at
@@ -49,9 +46,14 @@ _order: 34
 <!-- field: summary -->
 A surviving bronze from a victory monument, buried by a landslide and preserved with its inlaid eyes intact.
 
+<!-- field: significance -->
+One of the finest surviving Greek bronzes, and the classic example of the restrained Severe Style between Archaic and Classical art.
+
 <!-- field: body -->
-Dedicated around 474 BC by Polyzalus of Gela to commemorate a chariot victory, and buried by a rockfall — which is why it survived when almost every other Greek bronze was melted down.
+A life-size bronze statue of a chariot driver, 1.8 m tall, from a victory monument dedicated at Delphi around 474 BC. It was found in 1896 by the French School at Athens during the great excavation of the sanctuary, and is now in the Delphi Archaeological Museum.
 
-It is the driver from a group that included a four-horse chariot, of which only fragments remain. He stands in a long belted tunic, holding the reins, in the moment of the victory lap rather than the race — utterly composed.
+The inscription on its base records a dedication by Polyzalus, a tyrant of Gela in Sicily, to celebrate a chariot victory in the Pythian Games. The driver was part of a group with a four-horse chariot and perhaps a groom, of which only fragments survive. He stands upright in a long belted robe, holding the reins, probably shown on the lap of honour after the race.
 
-The eyes are the striking part: onyx and glass paste with copper lashes, giving a direct gaze that is unsettling to stand in front of. The lips are copper, the headband silver. The drapery falls in near-vertical flutes that make the figure read as a column from a distance. Stylistically it belongs to the brief Severe Style period bridging Archaic stiffness and full Classical naturalism, and its restrained, almost expressionless composure — a victor showing no outward triumph — is often read as a distinctly period value: modesty in success, not showmanship.
+The figure survived because it was buried by a rockfall, perhaps in the earthquake of 373 BC, while nearly all other Greek bronzes were melted down. Its eyes, inlaid with stone and glass and fringed with copper lashes, are intact, as are copper lips and a silver-inlaid headband.
+
+The statue belongs to the Severe Style of about 480–450 BC, between the stiffness of Archaic sculpture and the ease of the Classical. The deep vertical folds of the robe make him look like a fluted column, and his calm face shows victory without display.

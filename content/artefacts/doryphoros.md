@@ -25,9 +25,6 @@ claims:
   - text: The Canon's exact proportional ratios can be reconstructed.
     evidence: debate
     confidence: debated
-  - text: The best surviving marble copy was excavated at the Roman gymnasium complex in Pompeii, indicating its continued use as a training model centuries after it was made.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: argos
     rel: made at
@@ -50,11 +47,14 @@ _order: 32
 <!-- field: summary -->
 Polykleitos' "Spear Bearer" — a statue made to demonstrate a written theory of ideal proportion.
 
+<!-- field: significance -->
+The model of the ideal human body in Classical art, made to demonstrate a written theory of proportion and copied for two thousand years.
+
 <!-- field: body -->
-Polykleitos wrote a treatise called the *Canon* setting out the mathematical relationships that produce a perfect human figure, and made this statue to embody it. The treatise is lost; the statue survives in copies. Together they are the clearest ancient case of theory and demonstration produced as a pair.
+A bronze statue of a young man carrying a spear, made by the sculptor Polykleitos of Argos around 440 BC. The original is lost. It is known from Roman marble copies, the best preserved found at Pompeii in 1797 and now in the National Archaeological Museum, Naples.
 
-Its key device is *chiasmus*: the weight rests on the right leg, so the right hip rises and the right shoulder drops, while the left leg trails and the left arm holds the spear. Tension and relaxation alternate diagonally across the body. This is what makes Classical figures look alive where Archaic kouroi look rigid.
+Polykleitos wrote a treatise, the *Canon*, setting out the mathematical proportions of the perfect human body, and made this statue to put it into practice. The treatise is lost too, but the pairing of written theory and demonstration piece is unique in ancient art.
 
-The system dominated Western figure art for two millennia. Renaissance artists studied Roman copies of it directly, and academic art training was still teaching its proportional rules in the nineteenth century.
+The statue's key feature is contrapposto. The weight rests on the right leg, so the right hip rises and the right shoulder drops; the left leg is relaxed and the left arm once held the spear. Tension and relaxation balance each other diagonally across the body. This is what makes Classical figures look alive and poised where Archaic kouroi look rigid and frontal.
 
-The single best-preserved marble copy was found not in a private collection but in the palaestra, the exercise ground of a gymnasium complex, at Pompeii, a find-spot that fits neatly with the statue's original purpose: young Greek and Roman men training their bodies in gymnasia were literally exercising in the presence of a sculpted ideal of the proportions they were meant to be working toward.
+The Pompeii copy stood in an exercise ground, where young men trained in sight of the ideal they aimed for. Roman sculptors copied the type constantly, Renaissance artists studied it, and its proportions were still taught in art academies in the 19th century.

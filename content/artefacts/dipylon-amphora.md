@@ -3,7 +3,7 @@ id: dipylon-amphora
 name: The Dipylon Amphora
 type: artefact
 subtype: pottery
-tint: darkage
+tint: archaic
 start: -760
 end: -750
 approx: true
@@ -49,11 +49,14 @@ _order: 20
 <!-- field: summary -->
 A 1.55 m Geometric grave marker showing a funeral scene — the return of the human figure to Greek art.
 
+<!-- field: significance -->
+A monument of Geometric Athens and the return of the human figure — and of storytelling — to Greek art after the Dark Age.
+
 <!-- field: body -->
-Made as a grave marker for a woman in the Dipylon cemetery, with a hole in the base so that liquid offerings could reach the burial.
+A painted pottery amphora 1.55 m tall, made in Athens around 760–750 BC as a grave marker for a woman. It came from the Dipylon cemetery in the Kerameikos, Athens, dug up in Ioannis Palaiologos' excavations of 1871–72, and is now in the National Archaeological Museum, Athens. A hole in its base let offerings of liquid reach the grave below.
 
-Most of the surface is meander and zigzag banding. In the handle zone is a *prothesis*: the dead laid out on a bier, mourners on both sides with both arms raised to their heads in the standard gesture of grief, and the shroud shown lifted so the body is visible.
+Most of its surface is covered in bands of meander (key-pattern) and zigzags, the hallmark of the Geometric style. In the panel between the handles is a *prothesis*, the laying out of the dead: the body lies on a bier under a raised shroud, and mourners stand on either side with both hands raised to their heads in the gesture of grief.
 
-The figures are silhouettes reduced to triangles and lines — but they are figures, doing something specific, and this is where narrative re-enters Greek art after four centuries of pure pattern. Within two generations Greek vases are telling stories, and within four they are telling Homer's.
+The figures are reduced to triangles and lines, but they are people doing something specific. After four centuries in which Greek pottery carried only abstract patterns, this marks the return of human figures and scenes to Greek art. Within a few generations, painters would be telling stories from myth and from Homer.
 
-Art historians attribute this vase and several comparably ambitious grave markers to an anonymous workshop known conventionally as the Dipylon Master, whose circle produced the largest and most technically accomplished Geometric vessels known, monumental works that functioned less as everyday pottery than as permanent public sculpture marking the wealthiest Athenian graves of the eighth century BC.
+It is the masterpiece of a painter known as the Dipylon Master, whose workshop made the largest and finest Geometric grave vases. Such vessels stood on the tombs of Athens' wealthiest families as permanent public monuments.

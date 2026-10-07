@@ -25,9 +25,6 @@ claims:
   - text: The depicted throwing action is biomechanically accurate.
     evidence: debate
     confidence: debated
-  - text: The best-known marble copy, the Lancellotti Discobolus, was seized by Nazi Germany from Italy in 1938 and only returned after the Second World War.
-    evidence: consensus
-    confidence: established
 relations:
   - id: classical-greece
     rel: period
@@ -52,11 +49,14 @@ _order: 31
 <!-- field: summary -->
 Myron's discus thrower, caught at the instant of maximum coiled tension — known only through Roman copies.
 
+<!-- field: significance -->
+The most famous athletic statue of antiquity: a solution to the problem of showing violent movement in still sculpture.
+
 <!-- field: body -->
-Myron's bronze original is lost, like nearly all Greek bronzes, which were melted down for their metal. What survives are Roman marble copies, which need visible struts to hold the pose that bronze could support unaided.
+A statue of an athlete throwing the discus, made in bronze by the sculptor Myron around 460–450 BC. The original is lost; it is known from Roman marble copies, the best being the Lancellotti Discobolus, found on the Esquiline in Rome in 1781 and now in the Palazzo Massimo, Rome. Another is in the British Museum.
 
-The figure is frozen at the moment of stillness between backswing and release, with the body forming two intersecting arcs. It solves a specific problem: how to show violent motion in a static object.
+The athlete is caught at the top of his backswing, the moment of stillness just before he unwinds to throw. His body forms two crossing arcs, so the figure holds both tension and balance. His face is calm, in keeping with the Classical ideal that a hero should show composure rather than strain. Sports scientists debate whether the pose is a realistic throwing position.
 
-His face is entirely calm. This is deliberate — Classical convention held that emotional composure was proper to a heroic figure — and it makes the statue read as a study of form rather than of effort. Whether the throwing action shown is biomechanically correct has been argued by sports scientists, who generally conclude it is not quite.
+Like almost all large Greek bronzes, Myron's original was later melted down for its metal. The marble copies need a tree trunk and other supports that the stronger bronze did not.
 
-The statue's modern history has its own drama. The finest surviving copy, known as the Lancellotti Discobolus, was sold to Nazi Germany in 1938 under pressure from Mussolini's government and displayed in Munich as a supposed emblem of Aryan physical ideals, before being returned to Italy after the war — a striking case of an ancient Greek sculpture being pressed into service for a twentieth-century ideology its original makers could not have imagined.
+The statue's later history reflects its fame. In 1938 Mussolini's government sold the Lancellotti copy to Hitler, who displayed it in Munich as an image of the ideal body; it was returned to Italy in 1948.

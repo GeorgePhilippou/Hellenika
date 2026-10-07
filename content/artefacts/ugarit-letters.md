@@ -49,11 +49,14 @@ _order: 19
 <!-- field: summary -->
 Cuneiform tablets recording a city's final weeks — including letters found still in the kiln, never sent.
 
+<!-- field: significance -->
+A rare first-hand record of a city's final days during the Bronze Age collapse, from one of the richest archives of the ancient Near East.
+
 <!-- field: body -->
-King Ammurapi writes to the king of Alashiya that enemy ships have appeared, that his own fleet is stationed off Lycia and his army is in Hatti, and that the country is abandoned to itself. Another letter warns that seven enemy ships have already done great damage.
+Clay tablets inscribed in cuneiform from the archives of Ugarit, a wealthy trading city on the Syrian coast, written around 1190–1185 BC, just before the city was destroyed. Ugarit was found in 1928 and excavated from 1929 by Claude Schaeffer; the tablets are now divided between museums in Damascus, Aleppo and the Louvre.
 
-Some of these tablets were recovered from an oven where they were being baked for dispatch when the city fell. The destruction that ended Ugarit is the reason its final correspondence survives.
+The last letters show a kingdom under attack. King Ammurapi writes to the king of Alashiya (Cyprus) that enemy ships have arrived and burned his towns while his own troops are away in the Hittite lands and his ships are off the coast of Lycia. Another letter warns that seven enemy ships have done great damage. The enemies are not named, but they are often linked to the "Sea Peoples" recorded in Egypt.
 
-Ugarit was also where scribes reduced cuneiform to an alphabet of about thirty signs — one of the earliest alphabets anywhere, and an ancestor of the tradition that eventually produced Phoenician and Greek script.
+Some of these tablets were long said to have been found still in a kiln, baked for dispatch when the city fell; later study has questioned this, but the letters clearly date from the city's final crisis.
 
-The same archives that preserve these desperate final messages also contain a very different body of material: extensive mythological texts, including the Baal Cycle describing the storm-god's battles with rival deities, giving Ugarit a rare double distinction as both a crucial witness to the Bronze Age Collapse's final days and one of the richest surviving sources for Northwest Semitic religion and literature more broadly.
+Ugarit's archives matter far beyond its end. Its scribes developed an alphabet of about thirty cuneiform signs, one of the earliest alphabets anywhere. And its religious texts, including the Baal Cycle about the storm god, are the main source for Canaanite myth before the Hebrew Bible.

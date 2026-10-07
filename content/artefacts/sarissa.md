@@ -27,9 +27,6 @@ claims:
   - text: The sarissa reached lengths of six metres or more.
     evidence: debate
     confidence: probable
-  - text: The weapon's introduction is credited to Philip II's broader reorganisation of the Macedonian army into a professional, drilled standing force.
-    evidence: literary
-    confidence: strong
 relations:
   - id: philip-ii
     rel: introduced by
@@ -50,11 +47,14 @@ _order: 38
 <!-- field: summary -->
 A pike up to six metres long, wielded two-handed — the weapon that made Macedon the dominant military power.
 
+<!-- field: significance -->
+The weapon that made the Macedonian phalanx unbeatable for over a century, from Philip II's conquests to the Roman victory at Pydna.
+
 <!-- field: body -->
-The sarissa was roughly twice the length of a hoplite spear, made of cornel wood in two sections joined by an iron sleeve, with an iron head and a heavy bronze butt-spike that balanced it and could finish a fallen enemy.
+The long pike of the Macedonian infantry, introduced by Philip II after 359 BC and used until the Roman conquest of Macedon in 168 BC. Iron heads, butt-spikes and joining sleeves have been excavated at Vergina and other Macedonian sites.
 
-It weighed around 6 kg and needed both hands, so the shield shrank to a small model strapped to the forearm and neck. That trade-off is the whole system: a phalangite is nearly defenceless individually, and nearly unassailable frontally in formation, where the pikes of the first five ranks project beyond the front.
+The sarissa was made of cornel wood, about 5–6 m long — roughly twice the length of a hoplite spear — probably in two sections joined by an iron sleeve. It had an iron head and a heavy bronze butt-spike that balanced it and could be stuck in the ground. It weighed around 6 kg and needed both hands, so the soldier carried only a small shield strapped to his forearm and shoulder.
 
-It demanded drill, which meant professionals. It also demanded flat ground and an unbroken line, and Rome eventually learned to deny it both. Iron sleeves, heads and butt-spikes have been excavated at Vergina and elsewhere, confirming the length reported in the sources.
+That trade-off defined the Macedonian phalanx. A single pikeman was nearly defenceless, but a formation was almost impossible to attack from the front, because the pikes of the first five ranks projected beyond the front line. Using it needed constant drill, which is why Philip turned the Macedonian army from a seasonal levy into a professional force.
 
-The sarissa was never an isolated piece of kit: Philip II introduced it as part of a wholesale transformation of the Macedonian army from a seasonal levy of farmers into a year-round professional force, drilled constantly in peacetime so that the demanding choreography a sarissa phalanx required in battle became second nature.
+The phalanx needed flat ground and an unbroken line. Combined with cavalry under Philip and Alexander it conquered from Greece to India, but when it lost its supports the more flexible Roman legions defeated it at Cynoscephalae (197 BC) and Pydna (168 BC).

@@ -25,7 +25,7 @@ claims:
   - text: The naval scene is the earliest detailed depiction of a sea battle.
     evidence: consensus
     confidence: strong
-  - text: The Sea Peoples' distinctive feathered or horned headdresses shown in the reliefs have been used to try to identify their individual ethnic origins.
+  - text: The groups' headdresses can be matched to specific ethnic origins.
     evidence: debate
     confidence: debated
 relations:
@@ -48,13 +48,14 @@ _order: 18
 <!-- field: summary -->
 Ramesses III's temple reliefs depicting land and sea battles against the Sea Peoples — the key source for the Bronze Age Collapse.
 
+<!-- field: significance -->
+The main contemporary record of the "Sea Peoples", and key evidence for the collapse of the Bronze Age world around 1200 BC.
+
 <!-- field: body -->
-The naval battle scene is the earliest detailed depiction of a sea fight anywhere. Egyptian ships with archers engage enemy vessels whose sails are furled and oars are absent, trapped against the shore; capsized figures fall into the water.
+Carved sandstone reliefs and inscriptions on the mortuary temple of Pharaoh Ramesses III at Medinet Habu, on the west bank of the Nile at Thebes (Luxor), made around 1175 BC. They are still in place, and were recorded and published by the University of Chicago's Epigraphic Survey from 1924.
 
-The land scene shows enemies travelling with ox-carts carrying women and children — the detail that shifted interpretation from raid to migration.
+They celebrate Ramesses' victory over a coalition of invaders the Egyptians named Peleset, Tjeker, Shekelesh, Denyen and Weshesh — the groups modern scholars call the "Sea Peoples". The naval scene, the earliest detailed picture of a sea battle, shows Egyptian archers trapping enemy ships against the shore, with men falling into the water. The land scene shows the enemy travelling with ox-carts carrying women and children, suggesting a migration of whole peoples rather than a raid. Different groups are shown with distinct feathered or horned headgear.
 
-The accompanying inscription lists peoples destroyed before reaching Egypt: Hatti, Kode, Carchemish, Arzawa, Alashiya. That list matches the archaeological destruction horizon so well that it functions as an independent confirmation of it.
+The inscription claims that before reaching Egypt these peoples destroyed Hatti (the Hittite Empire), Kode, Carchemish, Arzawa and Alashiya (Cyprus). That list matches the destruction layers archaeologists find across Anatolia and the Levant around 1200 BC.
 
-It is royal propaganda, and its numbers and framing should be treated accordingly. The named groups, the ox-carts and the ship types are harder to dismiss.
-
-The reliefs also carefully distinguish different enemy groups by dress and headgear — some wear feathered headdresses, others horned helmets — and scholars have used these details to try to match the groups named in the inscription to specific peoples, though the identifications remain contested and none is fully secure.
+It is royal propaganda, and its numbers and claims of total victory need caution. The Peleset are usually identified with the Philistines, who settled on the coast of Canaan soon after.

@@ -3,7 +3,7 @@ id: dipylon-oinochoe
 name: The Dipylon Oinochoe
 type: artefact
 subtype: inscription
-tint: darkage
+tint: archaic
 start: -740
 end: -740
 approx: true
@@ -24,9 +24,6 @@ claims:
     confidence: strong
   - text: The earliest Greek inscriptions are non-administrative in content.
     evidence: epigraphic
-    confidence: strong
-  - text: The vessel itself is a fairly ordinary jug, its significance resting entirely on the inscription rather than its craftsmanship.
-    evidence: archaeological
     confidence: strong
 relations:
   - id: greek-alphabet
@@ -50,9 +47,14 @@ _order: 21
 <!-- field: summary -->
 A wine jug carrying one of the earliest Greek alphabetic inscriptions — a prize for the best dancer.
 
+<!-- field: significance -->
+One of the earliest examples of the Greek alphabet — used not for accounts, but for a line of verse about a dancing prize.
+
 <!-- field: body -->
-Scratched around the shoulder in early Attic letters running right to left: "whoever of all the dancers now performs most nimbly…", and then the text becomes hard to read, apparently promising this jug as the prize.
+A plain wine jug (oinochoe) of painted pottery, made in Athens around 740 BC. It was found in 1871 in a grave in the Dipylon cemetery of the Kerameikos, Athens, and is now in the National Archaeological Museum, Athens.
 
-It dates to around 740 BC, within a generation of the alphabet's adoption, and was found in a grave in the Dipylon cemetery of Athens, from which it takes its modern name. That the earliest surviving Greek writing is neither an inventory nor a law but a party game is a genuine contrast with Linear B, where every surviving text is administration produced by and for a palace bureaucracy rather than ordinary individuals.
+Around its shoulder, early Attic letters running from right to left were scratched after firing: "whoever of all the dancers now dances most gracefully…". The rest is hard to read, but seems to offer the jug as the prize. The words form a line of hexameter, the metre of epic poetry.
 
-The line also appears to be in verse — a hexameter, the metre of epic poetry — which suggests that from the very start Greeks used their new alphabet to write down the kind of language and material they actually valued, rather than confining it to bookkeeping. The jug itself is otherwise an unremarkable piece of pottery, its entire historical importance resting on the few scratched words around its shoulder rather than any distinction in its shape or decoration.
+The inscription dates to within a generation or so of the Greeks' adoption of the alphabet from the Phoenicians, probably in the early 8th century BC. It is a striking contrast with Linear B, the Mycenaean script of five centuries earlier, which was used only for palace bookkeeping. From the start, Greeks used their new alphabet to record verse, names and play — the things they valued in ordinary social life.
+
+The jug itself is unremarkable; its importance lies entirely in the few words scratched on it. With Nestor's Cup from Pithekoussai, it is among the oldest surviving Greek verse inscriptions.

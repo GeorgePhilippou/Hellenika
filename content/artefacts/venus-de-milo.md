@@ -28,9 +28,6 @@ claims:
   - text: The base was suppressed deliberately to support a Classical attribution.
     evidence: debate
     confidence: debated
-  - text: The statue's asymmetric, twisting pose draws heavily on earlier Classical models even though it was carved centuries later.
-    evidence: consensus
-    confidence: strong
 relations:
   - id: aphrodite
     rel: depicts
@@ -55,11 +52,14 @@ _order: 47
 <!-- field: summary -->
 A Hellenistic Aphrodite found by a farmer on Melos in 1820 — famous partly for what it is missing.
 
+<!-- field: significance -->
+One of the most famous statues in the world, and an example of how later taste reshaped the image of Greek art.
+
 <!-- field: body -->
-Found in 1820 by a farmer named Yorgos Kentrotas in a niche on Melos. The French acquired it and presented it to Louis XVIII, and the Louvre promoted it heavily — partly because it had recently been obliged to return the Medici Venus to Italy after the Napoleonic looting.
+A marble statue of Aphrodite (Venus to the Romans), just over 2 m tall, made around 130–100 BC. A farmer, Yorgos Kentrotas, found it in 1820 in a niche among ancient ruins on the island of Melos. French officers acquired it, it was presented to King Louis XVIII, and he gave it to the Louvre, Paris, where it has been since 1821.
 
-An inscribed base found with it named a sculptor from Antioch on the Maeander, which dated the statue to the Hellenistic period rather than the Classical golden age. The base subsequently disappeared. Whether this was carelessness or a curatorial preference for the better story has never been established, and the suspicion persists.
+The goddess stands with her weight on one leg, her body twisting in a spiral, nude to the hips with drapery slipping down. Both arms are lost and have never been found. The most likely reconstruction has her holding an apple — *mēlon* in Greek, a pun on Melos and a reference to the apple Paris awarded Aphrodite as the most beautiful goddess.
 
-The arms have never been found. The most likely reconstruction has her holding an apple — *melon* in Greek, punning on Melos — a reference to the Judgement of Paris.
+A base found with the statue named its sculptor as [Alex]andros of Antioch on the Maeander, dating it to the Hellenistic period. The base was later lost. The Louvre had just returned the famous Medici Venus to Italy after the Napoleonic wars and promoted its new statue as a work of the Classical golden age; whether the base was lost by chance or set aside to support that story is unresolved.
 
-Part of what made the Hellenistic dating initially so surprising is how consciously the sculptor reached back to earlier models: the spiralling twist of the torso and the deliberately off-balance pose echo fourth-century Classical statuary far more than the more overtly emotional, dynamic style typical of much Hellenistic sculpture, which is exactly why the discovery and then loss of the dated inscribed base mattered so much to how the statue would be perceived.
+Its pose deliberately echoes 4th-century Classical sculpture, which helped the misattribution stick.

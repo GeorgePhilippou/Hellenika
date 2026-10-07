@@ -28,9 +28,6 @@ claims:
   - text: The disc is a modern forgery.
     evidence: debate
     confidence: speculative
-  - text: The disc was discovered in 1908 by the Italian archaeologist Luigi Pernier during excavations at the Minoan palace of Phaistos.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: phaistos
     rel: found at
@@ -51,13 +48,14 @@ _order: 2
 <!-- field: summary -->
 A clay disc stamped with 241 signs in a spiral, made with reusable punches — and completely undeciphered.
 
+<!-- field: significance -->
+The earliest known use of stamped, movable type, and one of the most famous undeciphered texts in the world.
+
 <!-- field: body -->
-Sixteen centimetres across, stamped on both faces with 45 distinct signs — heads with feather crowns, ships, shields, plants — arranged in a spiral and divided by vertical lines into 61 groups.
+A disc of fired clay about 16 cm across, made on Crete around 1700–1600 BC. It was found in 1908 by the Italian archaeologist Luigi Pernier in a storeroom of the Minoan palace at Phaistos, alongside a Linear A tablet, and is now in the Heraklion Archaeological Museum.
 
-The signs were impressed with individual pre-made punches, which makes this movable type roughly three thousand years before Gutenberg, used exactly once as far as we know.
+Both faces carry 241 impressions of 45 different signs — heads with plumed crowns, figures, ships, shields, plants — arranged in a spiral and divided by lines into 61 groups that probably represent words. The signs were not drawn but pressed into the wet clay with individually carved stamps. That makes the disc the earliest known example of movable type, around three thousand years before printing in Europe.
 
-It is unread and probably unreadable. Decipherment needs either a bilingual text or a large corpus for statistical attack; the disc offers neither, and no comparable inscription has ever been found. That singularity has also prompted forgery accusations, though most specialists reject them.
+It cannot be read. Deciphering an unknown script needs either a bilingual text or a large body of inscriptions, and the disc offers neither: no other text in its script has been found. Dozens of proposed decipherments have been published, and none is accepted. Its uniqueness has led some to suspect a forgery, but most specialists reject this, since it was found in a recorded excavation.
 
-Dozens of "solutions" have been published. None commands support.
-
-It was found in 1908 by the Italian archaeologist Luigi Pernier in a basement storeroom of the Minoan palace at Phaistos, alongside a Linear A tablet, in a context that fits the palace's main destruction phase and has generally been treated as evidence against the forgery theory, since it was recovered under controlled excavation rather than surfacing through the antiquities trade.
+Whether its script is Cretan or came from elsewhere in the Aegean or Anatolia is also unknown.

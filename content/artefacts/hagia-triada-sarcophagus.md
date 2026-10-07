@@ -25,9 +25,6 @@ claims:
   - text: The standing figure represents the deceased receiving cult.
     evidence: debate
     confidence: probable
-  - text: The sarcophagus was found near a Minoan palace-like building at Hagia Triada, suggesting it belonged to a person of considerable local importance.
-    evidence: archaeological
-    confidence: strong
 relations:
   - id: ayia-triada
     rel: found at
@@ -48,11 +45,14 @@ _order: 7
 <!-- field: summary -->
 The only painted limestone sarcophagus from Bronze Age Crete, and the fullest surviving image of Aegean funerary ritual.
 
+<!-- field: significance -->
+The fullest picture of Bronze Age Aegean funeral ritual, painted at the moment Minoan and Mycenaean traditions were merging on Crete.
+
 <!-- field: body -->
-On one long side a bull lies bound on a table with its blood running into a vessel, while a woman makes an offering at an altar and a double-flute player accompanies. On the other, women pour liquid into a large *krater* between double axes topped with birds, while three men bring a boat and calves towards a figure standing before a stepped structure — probably the dead man at his tomb.
+A limestone coffin 1.37 m long, coated in plaster and painted on all four sides, made on Crete around 1400–1370 BC. It was found in 1903 by Roberto Paribeni in a tomb near the villa at Hagia Triada, in southern Crete, and is now in the Heraklion Archaeological Museum. It is the only Minoan sarcophagus painted in this way.
 
-It is a Minoan object made under Mycenaean rule, and shows the two traditions merging: Minoan double axes and dress, Mycenaean funerary emphasis and the offering to the dead.
+On one long side, a bull lies trussed on a table with its blood draining into a vessel, while a woman makes an offering at an altar to the music of a double pipe. On the other, women pour liquid into a large bowl set between double axes topped by birds, while men carry a model boat and young animals towards a figure standing before a building — probably the dead man at his tomb, receiving offerings.
 
-Almost everything known about Aegean Bronze Age death ritual, as an image rather than an inference from bones, comes from this one object.
+It was made after the Mycenaean Greeks took control of Knossos, and shows the two cultures combined: Minoan double axes, dress and painting style, with a Mycenaean-style emphasis on honouring the dead. Most of what is known of Aegean funeral ritual from images rather than bones comes from this single object.
 
-It was recovered close to the substantial complex of buildings at Hagia Triada, a site whose grand architecture rivals a small palace, and this proximity to obvious wealth and authority supports the reasonable assumption that whoever the sarcophagus was made for held real local standing, even though the tomb's precise ownership can no longer be established with certainty.
+The richness of the tomb and its closeness to the grand buildings at Hagia Triada suggest it was made for someone of high local rank.

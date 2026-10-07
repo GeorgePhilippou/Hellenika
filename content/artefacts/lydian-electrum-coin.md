@@ -25,9 +25,6 @@ claims:
   - text: The variable composition of electrum limited its reliability as money.
     evidence: consensus
     confidence: strong
-  - text: The idea of coinage spread rapidly from Lydia to the Greek cities of Ionia within a generation or two of its invention.
-    evidence: numismatic
-    confidence: strong
 relations:
   - id: invention-coinage
     rel: example of
@@ -52,11 +49,14 @@ _order: 24
 <!-- field: summary -->
 The earliest standardised coinage: lumps of natural gold-silver alloy stamped with a lion's head.
 
+<!-- field: significance -->
+The first true coins: a Lydian invention that the Greek cities took up within decades and made a symbol of civic identity.
+
 <!-- field: body -->
-Electrum occurs naturally in the Pactolus river at Sardis — the river in which Midas was said to have washed off his golden touch, which is an origin story for a real deposit.
+Coins of electrum, a natural alloy of gold and silver, struck in the kingdom of Lydia in western Asia Minor between about 630 and 560 BC. Some of the earliest well-dated examples were found in 1904–05 in a foundation deposit of the temple of Artemis at Ephesus. Examples are held in the British Museum and many other collections.
 
-The innovation is the stamp. A controlled weight of metal marked by an authority can be accepted by count instead of weighed and assayed at every exchange, which lowers transaction costs dramatically. The earliest stamps are simple striations; the classic type shows a lion's head, the Mermnad royal badge.
+Electrum washed down the Pactolus river at the Lydian capital, Sardis — the river in which King Midas, in myth, washed off his golden touch. The innovation was to cut it into pieces of fixed weight and stamp them with a mark of authority, so they could be counted instead of weighed and tested at every exchange. The earliest marks were simple striations; the best-known coins carry a lion's head, emblem of the Lydian royal house.
 
-Electrum has variable natural composition, so its value is uncertain — a real weakness. Croesus solved it by refining the alloy into separate pure gold and pure silver coinages at a fixed ratio, the first bimetallic system.
+Because natural electrum varies in its gold content, the coins' true value was uncertain. Under King Croesus (c. 560–546 BC), Lydia began striking separate coins of refined gold and silver, the first two-metal currency.
 
-Greek cities adopted coinage within decades, and it became a medium of civic identity as much as exchange. Nearby Ionian Greek cities such as Ephesus and Miletus were among the very first to imitate the Lydian model, striking their own electrum coins with civic badges rather than a royal one, so that the idea of stamped currency crossed from a Near Eastern kingdom into the Greek world almost as soon as it existed.
+The Greek cities of Ionia, such as Miletus and Ephesus, copied the idea almost at once, with their own civic badges. Within a century coinage had spread across the Greek world, and coins became a mark of each city's identity.

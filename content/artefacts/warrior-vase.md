@@ -25,9 +25,6 @@ claims:
   - text: The female figure is making a gesture of farewell or mourning.
     evidence: debate
     confidence: probable
-  - text: The vase's name comes from its most prominent scene, though the house where it was found contained other pottery fragments with similar military imagery.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: mycenae
     rel: found at
@@ -50,11 +47,14 @@ _order: 16
 <!-- field: summary -->
 A krater showing a file of armoured soldiers marching out, with a woman raising her hand behind them.
 
+<!-- field: significance -->
+The best-known image of Mycenaean soldiers, painted as the palace world was collapsing around them.
+
 <!-- field: body -->
-Found by Schliemann at Mycenae in a house within the citadel. Six soldiers march in step with horned helmets, corselets, greaves, round shields and spears with small bags tied below the points — provisions for a journey.
+A painted pottery krater (mixing bowl) about 41 cm high, made around 1200–1150 BC. Heinrich Schliemann found it in 1876 in a house just inside the citadel walls at Mycenae — since called the House of the Warrior Vase — and it is now in the National Archaeological Museum, Athens.
 
-At the left a woman raises one hand in a gesture usually read as farewell or mourning. On the reverse another group of soldiers marches the other way.
+On the main side six soldiers march in step, wearing horned helmets, corselets and greaves and carrying round shields and spears with small bags tied below the points, perhaps rations for the march. At the far left a woman raises her hand, in a gesture usually read as farewell or mourning. On the other side another file of soldiers marches the opposite way.
 
-It dates to the very end of the palace period, when the citadels were being fortified and destroyed. The equipment is markedly different from the elaborate Dendra panoply: lighter, more uniform, closer to later hoplite gear. A society under pressure moving from heroic individual display to standardised infantry equipment is a reasonable reading of the change.
+The vase belongs to the very end of the palace period, when Mycenaean citadels were strengthening their walls and then being destroyed. The soldiers' equipment is lighter and more uniform than the elaborate Dendra armour of two centuries earlier, closer to the gear of later infantry. It suggests a society shifting from individual aristocratic display to standardised troops under pressure.
 
-The krater takes its name from this single scene, but it was not an isolated find: the same house at Mycenae yielded other pottery fragments carrying comparable martial imagery, suggesting the household had a particular association with military life or produced this kind of decorated ware more generally in the anxious final years before the palace's destruction.
+Who the soldiers were marching against, and whether the scene records a real departure, cannot be known; but it captures the anxious last years of Mycenae.

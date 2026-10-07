@@ -56,9 +56,14 @@ _order: 48
 <!-- field: summary -->
 A monumental altar whose 113 m frieze shows gods fighting giants in violent high relief — the defining work of Hellenistic baroque.
 
+<!-- field: significance -->
+The defining monument of Hellenistic "baroque" sculpture, and the centrepiece of one of the world's great museums.
+
 <!-- field: body -->
-The Gigantomachy frieze is over two metres high and runs the full circuit of the podium, with about a hundred figures fighting in a continuous tangle. Bodies break out of the architectural frame; giants' knees rest on the actual steps visitors climb, so the viewer walks into the battle.
+A monumental altar built on the acropolis of Pergamon, in western Asia Minor, by the Attalid kings around 170–159 BC, probably under Eumenes II. Carl Humann excavated it in 1878–86 and shipped the sculptures to Berlin under an agreement with the Ottoman government. It was reconstructed in the Pergamonmuseum, Berlin, which opened in 1930.
 
-The emotional register is the opposite of Classical restraint: faces contorted, muscles strained, a giant's head pulled back by the hair while a dog bites his shoulder. It reads as a coded celebration of Attalid victories over the Galatians — civilisation against chaos, with the Attalids as the gods.
+The altar stood on a high platform with a broad staircase. Around the platform ran a frieze 113 m long and over 2 m high showing the Gigantomachy, the battle of the Olympian gods against the giants. About a hundred figures fight in deep relief: faces twisted in pain, muscles strained, a giant pulled back by his hair as a dog bites into him. Figures spill out of the frame onto the steps, so visitors climb into the battle. A smaller frieze inside tells the story of Telephus, the mythical founder of Pergamon, whom the Attalids claimed as an ancestor.
 
-The German excavation removed it to Berlin in the 1880s under an Ottoman permit, and it is the centrepiece of a museum built around it. Turkey has repeatedly sought its return. A smaller, quieter interior frieze, set inside the altar's colonnade rather than facing outward, tells the life story of Telephus, the mythical founder of Pergamon and, according to the ruling Attalid dynasty's own claimed genealogy, an ancestor of theirs — a much more intimate, narrative counterpart to the violent public spectacle of the Gigantomachy outside.
+The emotional intensity is the opposite of Classical restraint. The battle of gods against monsters was understood as an image of the Attalids' own victories over the Galatians (Celts) — order against chaos, with the kings as the gods.
+
+Turkey has long sought the altar's return.

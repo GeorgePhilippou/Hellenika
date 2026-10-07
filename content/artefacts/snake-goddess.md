@@ -25,9 +25,6 @@ claims:
   - text: The figures represent a snake goddess.
     evidence: debate
     confidence: debated
-  - text: Similar snake-handling imagery appears on Minoan seal stones and in later Greek accounts of Cretan cult practice, suggesting a genuine, longer-lived ritual association between snakes and female religious authority.
-    evidence: consensus
-    confidence: probable
 relations:
   - id: knossos
     rel: found at
@@ -49,11 +46,14 @@ _order: 4
 <!-- field: summary -->
 A faience figurine of a bare-breasted woman holding snakes — the most reproduced Minoan image, and among the least secure.
 
+<!-- field: significance -->
+The most reproduced image of Minoan religion — and one of the least secure, shaped as much by its restorers as by its makers.
+
 <!-- field: body -->
-Found in 1903 in a stone-lined pit in the Knossos "Temple Repositories" among ritual debris, the figurine wears a flounced skirt and open bodice and grips a snake in each raised hand.
+A faience figurine about 34 cm tall, made on Crete around 1650–1550 BC. Arthur Evans found it in 1903 with a second, smaller figure in the stone-lined "Temple Repositories" at Knossos, among broken ritual objects. Both are in the Heraklion Archaeological Museum.
 
-The reconstruction is the problem. The head was missing, and the crown and cat now on top were assembled from unassociated fragments. A second, smaller figure is even more speculatively restored. Whether these are goddesses, priestesses or votaries is unknown — "Snake Goddess" is Evans' interpretation, not a finding.
+The figure wears a long flounced skirt and an open bodice that leaves the breasts bare. Snakes coil around her arms and up to her head. The smaller figure holds a snake in each raised hand.
 
-The type became so commercially successful that a wave of convincing forgeries entered museum collections in the early twentieth century, and several celebrated "Minoan goddesses" elsewhere are now doubted.
+Much of the familiar image is restoration. The smaller figure was missing its head and one arm; the head, the hat and the small cat on top were added from separate fragments or invented. "Snake Goddess" is Evans's interpretation: the figures could be goddesses, priestesses or worshippers. Snakes appear with female figures on other Minoan objects, so some link between snakes and women's religious roles is likely, but its meaning is unknown.
 
-Despite the uncertainty over this particular object's restoration, the broader association between snakes and female religious figures on Crete is not purely a modern invention: comparable imagery recurs on engraved seal stones from the same period, and much later Greek writers still connected Cretan cult practice with snake-handling priestesses, suggesting the underlying religious motif, whatever its precise meaning, had real and lasting roots in Minoan and post-Minoan Cretan religion.
+The figure's fame created a market. In the early 20th century convincing forgeries of Minoan "goddesses" in ivory and gold entered major museum collections, and several famous examples are now regarded as fakes.

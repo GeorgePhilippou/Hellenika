@@ -25,9 +25,6 @@ claims:
   - text: The specific manoeuvre shown was physically performed.
     evidence: debate
     confidence: debated
-  - text: Similar bull-sport imagery appears across Minoan seal stones, bronzes, and pottery, suggesting a widespread and long-lived practice rather than an isolated scene.
-    evidence: archaeological
-    confidence: strong
 relations:
   - id: knossos
     rel: found at
@@ -54,11 +51,14 @@ _order: 3
 <!-- field: summary -->
 Three figures and a charging bull — the defining image of Minoan Crete, and heavily restored.
 
+<!-- field: significance -->
+The defining image of Minoan Crete — and a reminder of how much of that image is modern reconstruction.
+
 <!-- field: body -->
-A dark-skinned figure vaults over the bull's back while two light-skinned figures stand at head and tail. By Egyptian and Aegean convention, dark skin denotes male and light female, so this appears to show men and women performing together.
+A painted plaster wall panel about 80 cm high from the palace at Knossos, made around 1550–1450 BC. Arthur Evans found its fragments in 1901 in the palace's east wing, and the restorer Émile Gilliéron reconstructed the panel. It is now in the Heraklion Archaeological Museum.
 
-Whether the depicted manoeuvre is physically possible has been argued for a century. Bull-vaulting is attested in seals, ivories and Egyptian art, so *something* happened; the frontal grab-and-somersault shown here is disputed by people who have worked with bulls.
+A charging bull fills the panel. One figure vaults over its back, another grips its horns and a third waits behind it, arms outstretched. By the conventions of Aegean and Egyptian art, darker skin marks men and paler skin women, so the scene seems to show both taking part. It probably belonged to a series of bull-leaping panels.
 
-The fresco is largely modern. Only fragments survived, and Émile Gilliéron reconstructed the rest for Evans. The confident, complete image reproduced everywhere is substantially an Edwardian painting on a Bronze Age armature.
+Bull-leaping appears again and again in Minoan art, on seal stones, gold rings and bronzes, so some form of sport or ritual with bulls clearly played a major part in Minoan life. Whether the exact leap shown here — seizing the horns and somersaulting over the back — could actually be performed has been argued for a century.
 
-The underlying subject was not invented for this one wall, however: bull-leaping and bull-related imagery recurs across Minoan material culture, from carved seal stones and gold rings to the famous bull's-head rhyton, indicating that whatever the sport actually involved, it held a genuinely widespread and long-standing place in Minoan ritual or public life rather than being a one-off artistic invention.
+Much of what is seen today is restoration. Only fragments survived, and Gilliéron filled the gaps to produce the complete, confident image reproduced everywhere. It shows the Bronze Age through an early 20th-century lens, as much as it records it.

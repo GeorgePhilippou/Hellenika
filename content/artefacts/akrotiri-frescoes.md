@@ -50,13 +50,14 @@ _order: 10
 <!-- field: summary -->
 Wall paintings preserved by volcanic ash, including a miniature frieze of a fleet passing between two towns.
 
+<!-- field: significance -->
+The best-preserved wall paintings of the Bronze Age Aegean, giving a fuller picture of daily life, ships and ritual than anything surviving on Crete.
+
 <!-- field: body -->
-The Akrotiri frescoes survive because ash buried them where they hung. They give a fuller picture of Aegean life than anything from Crete.
+Wall paintings from the Bronze Age town of Akrotiri on the island of Thera (Santorini), painted around 1650–1600 BC. They were buried in place by ash from the great Theran eruption and have been excavated since 1967, first by Spyridon Marinatos and then by Christos Doumas. They are displayed in the Museum of Prehistoric Thera and the National Archaeological Museum, Athens.
 
-The Flotilla Fresco runs for several metres: ships with cabins and rowers, dolphins, a departure town and an arrival town with people watching from rooftops. It also includes drowned men in the water and warriors with boar's-tusk helmets ashore, which complicated the picture of a peaceful Minoan world.
+Because the ash preserved whole rooms, the paintings can be seen in their original settings. The miniature "Flotilla" frieze, several metres long, shows a fleet of ships with rowers and cabins sailing between coastal towns, watched by people on rooftops, with dolphins in the sea. It also shows drowned men and warriors in boar's-tusk helmets — not the entirely peaceful world once imagined for the Minoans. The "Saffron Gatherers" shows young women picking crocus and offering it to a seated goddess attended by a monkey and a griffin. Other panels show boxing boys, a fisherman carrying his catch, swallows among lilies and antelopes.
 
-The Saffron Gatherers shows women picking crocus stigmas on a rocky hillside and presenting them to a seated figure attended by a griffin and a monkey — one of the few Aegean images that reads clearly as a religious ceremony with defined roles.
+The style is closely related to Minoan painting on Crete, but the scenes show a prosperous island town with its own character.
 
-The Boxing Boys, with one earring and shaved head, and the Fisherman with strings of fish, show individual figures with a naturalism that is unusual for the period.
-
-That these paintings survive at all, still hanging in rooms whose furniture and doorways are also preserved, is itself telling: unlike Pompeii, no human bodies have been found at Akrotiri, which together with signs of hurried tidying and blocked doorways suggests the town's residents had time to flee before the volcano's final, most violent phase buried their homes and, with them, their art.
+No bodies have been found at Akrotiri, which suggests the inhabitants had warning and left before the final eruption.

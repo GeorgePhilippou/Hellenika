@@ -49,11 +49,14 @@ _order: 50
 <!-- field: summary -->
 A Trojan priest and his sons killed by sea serpents — unearthed in 1506, and immediately decisive for Renaissance art.
 
+<!-- field: significance -->
+The ancient sculpture that most shaped Renaissance art, and the starting point of a famous modern debate about what images and words can each express.
+
 <!-- field: body -->
-Laocoön warned the Trojans against the wooden horse and was destroyed with his sons by serpents sent from the sea. The group shows the three of them at the moment of losing.
+A marble group, about 2.1 m tall, showing the Trojan priest Laocoön and his two sons attacked by sea serpents. It is dated between about 50 BC and AD 50 and attributed to three sculptors from Rhodes — Hagesander, Athenodoros and Polydoros — whom Pliny the Elder names as the makers of such a group in the palace of the emperor Titus. It was dug up in a vineyard in Rome in 1506, bought by Pope Julius II, and is now in the Vatican Museums.
 
-It was found in a vineyard in Rome in 1506. Michelangelo was sent to see it within hours and was profoundly affected; its twisting, straining bodies feed directly into his later work and into Baroque sculpture generally.
+In the story, Laocoön warned the Trojans not to bring the wooden horse into their city, and was destroyed with his sons by serpents sent by the gods. The sculpture shows the moment of agony: the father strains against the coils, his body twisting, face contorted, while his sons struggle beside him. Whether it is a Greek original or a Roman-period version of an earlier Hellenistic bronze is debated.
 
-Pliny records a group of this subject by three Rhodian sculptors, and this is probably it or a version of it. The right arm was missing and was restored in the eighteenth century extended heroically upward. In 1906 an archaeologist found a bent marble arm in a Roman builder's yard, argued it belonged, and was proved right — the arm is folded back over the head in a posture of collapse, not defiance. It was correctly reattached in the 1950s.
+Michelangelo saw it on the day it was unearthed, and its straining, twisting bodies fed into his work and into Baroque sculpture. The missing right arm was restored reaching heroically upward; in 1906 the archaeologist Ludwig Pollak found the original arm, bent back towards the head, which was reattached in the 1950s.
 
-Lessing used the sculpture to argue about the limits of visual versus verbal art: it does not scream, because a stone mouth held open forever would be unbearable.
+In 1766 the critic Lessing used the group in his *Laocoön*, an essay on the different limits of painting and poetry.

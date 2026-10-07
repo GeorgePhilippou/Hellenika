@@ -28,9 +28,6 @@ claims:
   - text: The statue commemorates a specific naval victory.
     evidence: debate
     confidence: debated
-  - text: The statue has become one of the most recognisable works in the Louvre, displayed prominently at the top of the Daru staircase since the 1880s.
-    evidence: consensus
-    confidence: established
 relations:
   - id: samothrace
     rel: found at
@@ -54,11 +51,14 @@ _order: 46
 <!-- field: summary -->
 Nike alighting on a warship's prow, wind driving her drapery back — the most dynamic surviving Greek sculpture.
 
+<!-- field: significance -->
+The most dramatic surviving Greek sculpture of movement, and one of the most famous works in the Louvre.
+
 <!-- field: body -->
-Found in fragments in 1863 and assembled from over a hundred pieces. She stands 2.4 m tall on a marble ship's prow, and the whole group originally stood in an upper basin of a fountain, so the prow appeared to sit in moving water.
+A marble statue of Nike, goddess of victory, 2.4 m tall, set on the prow of a marble warship, made around 200–190 BC. The French consul Charles Champoiseau found it in fragments in 1863 at the Sanctuary of the Great Gods on Samothrace, in the northern Aegean. It is now in the Louvre, Paris.
 
-The achievement is the drapery. Wet cloth clings to the left leg and torso; loose cloth streams behind; the wings are pulled back and up. Marble is used to render a moment of arrested motion in air — and the figure is turning as she lands, so the composition changes completely as the viewer moves.
+Nike lands on the ship's prow, wings swept back, her robe pressed against her body by the wind and streaming out behind her. The sculptor renders thin, wet-looking cloth clinging to the legs and torso with extraordinary skill. The figure turns as it lands, so its appearance changes as the viewer moves around it. The monument stood in a fountain basin above the sanctuary's theatre, so the prow seemed to sail through water.
 
-Her head and arms are lost. A right hand was found in 1950 and matched, with two fingers in Vienna. It is open — she was not holding a trumpet or wreath as long assumed, but raising her hand in salute.
+The head and arms are lost. A right hand found on Samothrace in 1950 shows the hand was open, raised in greeting rather than holding a trumpet or wreath. The monument probably celebrated a naval victory, perhaps by Rhodes, but which one is uncertain.
 
-Since the 1880s the statue has stood at the top of the Louvre's grand Daru staircase, deliberately positioned so that visitors encounter her dramatically from below as they ascend, a display choice that has made her, alongside the *Mona Lisa* and the *Venus de Milo*, one of the museum's most photographed and immediately recognisable works.
+Assembled from over a hundred fragments, it has stood since 1884 at the top of the Louvre's Daru staircase.

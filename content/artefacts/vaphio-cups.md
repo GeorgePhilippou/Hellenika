@@ -25,9 +25,6 @@ claims:
   - text: The cups are Minoan rather than Mycenaean products.
     evidence: debate
     confidence: debated
-  - text: The tholos tomb that contained the cups also held other rich grave goods, indicating a burial of considerable local importance.
-    evidence: archaeological
-    confidence: established
 relations:
   - id: mycenaean-civilisation
     rel: found in
@@ -49,11 +46,14 @@ _order: 15
 <!-- field: summary -->
 A pair of gold cups showing bulls being captured — one violently, one gently — from a tholos tomb near Sparta.
 
+<!-- field: significance -->
+Masterpieces of Aegean goldwork, showing how closely Minoan art and Mycenaean wealth were entangled by 1500 BC.
+
 <!-- field: body -->
-Both cups are worked in repoussé from a single sheet with a separate inner lining. On the "violent" cup a bull charges into a net, another tosses two hunters through the air. On the "quiet" cup a bull is led away by a rope with a decoy cow, and others graze.
+A pair of gold cups, each about 8 cm high, made around 1500–1450 BC. They were found in 1889 by Christos Tsountas in an unlooted pit inside a tholos (beehive) tomb at Vapheio, near Sparta, and are now in the National Archaeological Museum, Athens.
 
-The pairing looks deliberate: two approaches to the same problem, force and guile, set side by side.
+Each cup was hammered in relief (repoussé) from a single gold sheet and fitted with a smooth inner lining. Their scenes form a deliberate pair. On one, a bull charges into a net while another tosses two hunters into the air — capture by force. On the other, a bull is lured with a decoy cow and led away with a rope tied to its leg, while others graze — capture by cunning.
 
-Whether one or both are Minoan work, or Mycenaean imitation, has been argued since their discovery in 1889. The style is Minoan; the findspot is a mainland tomb. It is a good illustration of how entangled the two cultures were by 1450 BC.
+The style, with its lively animals and landscape, is Minoan, but the cups were found in a mainland Mycenaean tomb. Whether they were made on Crete and exported, made by Cretan craftsmen working on the mainland, or made by Mycenaean artists copying Minoan style has been debated since their discovery.
 
-The tomb itself, a substantial tholos near Sparta, was furnished with other high-value grave goods alongside the two cups, consistent with the burial of a locally powerful figure who could command access to imported luxury goods of Minoan style or manufacture, whichever side of that debate one ultimately favours.
+The tomb also held other rich offerings, marking the burial of a powerful local ruler in Laconia at a time when mainland elites were acquiring Minoan luxury goods and adopting Minoan art.
