@@ -23,11 +23,11 @@ claims:
   - text: It directly influenced Virgil's treatment of Dido in the Aeneid.
     evidence: consensus
     confidence: strong
+  - text: Apollonius served as head of the Library of Alexandria.
+    evidence: tradition
+    confidence: probable
   - text: Apollonius quarrelled with Callimachus over epic poetry.
     evidence: debate
-    confidence: debated
-  - text: Apollonius reportedly served as head of the Library of Alexandria before retiring, by tradition, to Rhodes.
-    evidence: tradition
     confidence: debated
 relations:
   - id: alexandria
@@ -55,11 +55,14 @@ _order: 22
 <!-- field: summary -->
 Jason's voyage for the Golden Fleece, retold as a Hellenistic epic with a psychologically realistic heroine.
 
+<!-- field: significance -->
+The only Greek epic to survive between Homer and the Roman age, and the first long portrait of a mind in love — the model for Virgil's Dido.
+
 <!-- field: body -->
-Apollonius wrote epic in an age that thought epic was finished. His answer to the problem is to make the hero inadequate: Jason is repeatedly at a loss, frequently rescued by others, and succeeds mainly through Medea.
+An epic in four books by Apollonius of Rhodes, written at Alexandria around 250–240 BC. Apollonius worked at the Ptolemies' court and, by ancient tradition, was head of the Library of Alexandria; his surname may reflect a later move to Rhodes.
 
-Book 3 is the innovation. It follows Medea falling in love — sleepless, arguing with herself, going to her sister and losing her nerve, deciding to help this stranger betray her own father. It is the first extended interior portrait of a person in love in European literature, and Virgil takes it directly for Dido in the *Aeneid*.
+It tells the voyage of Jason and the Argonauts to Colchis, at the far end of the Black Sea, to win the Golden Fleece. Book 1 gathers the heroes and sails, Book 2 takes them through the Clashing Rocks, Book 3 sets Jason his impossible tasks in Colchis, and Book 4 follows the long, roundabout journey home.
 
-The poem also displays Alexandrian scholarship: obscure geography, aetiologies for local customs, learned digressions. Callimachus is said to have disapproved of long poems, and the two are supposed to have quarrelled over it, though that story may be a later invention.
+Apollonius wrote epic in an age that thought Homer could not be matched, and changed its emphasis. His Jason is often at a loss and succeeds largely through others. The real innovation is Book 3, which follows the princess Medea falling in love — sleepless, arguing with herself, deciding to betray her father for a stranger. It is the first extended inner portrait of a person in love in European literature. The poem is also full of Alexandrian learning: rare geography, explanations of local customs and allusions to earlier poets.
 
-Ancient biographical tradition holds that Apollonius himself once headed the great Library of Alexandria, the very institution whose scholarly culture shaped his poem's dense allusiveness, before an unhappy reception of his epic supposedly drove him to retire to Rhodes — the connection commemorated in his customary epithet, "of Rhodes," even though the details of this career are less securely attested than the poem itself.
+Virgil drew directly on Medea for Dido in the *Aeneid*. A later story of a feud between Apollonius and the poet Callimachus may be invented.

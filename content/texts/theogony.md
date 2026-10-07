@@ -5,7 +5,7 @@ altNames:
   - Θεογονία
 type: text
 subtype: epic
-tint: darkage
+tint: archaic
 start: -730
 end: -700
 approx: true
@@ -52,11 +52,14 @@ _order: 2
 <!-- field: summary -->
 The genealogy of the gods from Chaos to the reign of Zeus — Greek religion's closest thing to a systematic cosmogony.
 
+<!-- field: significance -->
+The fullest early account of how the Greeks imagined the origins of the world and the gods, and key evidence for Near Eastern influence on Greek myth.
+
 <!-- field: body -->
-The poem begins with Chaos, then Gaia (Earth), then Eros, and proceeds by generation. Ouranos imprisons his children; Gaia arms Kronos, who castrates him; Kronos swallows his own children; Zeus, hidden at birth, overthrows him. Power passes by violence three times before it stabilises.
+A hexameter poem of about 1,000 lines, composed around 730–700 BC by Hesiod, a farmer-poet from Ascra in Boeotia. It opens unusually in the poet's own voice: the Muses appear to Hesiod as he tends sheep on Mount Helicon and give him the gift of song.
 
-The structure closely parallels the Hittite *Song of Kumarbi* and the Babylonian *Enuma Elish*, which makes it a key piece of evidence for Near Eastern influence on early Greek thought.
+The poem traces the gods by generation. First come Chaos, Gaia (Earth) and Eros; then Ouranos (Sky), who imprisons his children until Gaia arms their son Kronos to castrate him. Kronos swallows his own children to keep power, until Zeus, hidden at birth, overthrows him and the Titans. Power passes by violence three times before Zeus establishes a lasting order. Along the way the poem gives the earliest full accounts of Prometheus stealing fire and of Pandora, the first woman, sent as punishment.
 
-It is also where Prometheus steals fire and Pandora is created as the punishment — in Hesiod's telling, the origin of every trouble that afflicts men, in a poem noticeably hostile to women.
+This succession story closely parallels the Hittite *Song of Kumarbi* and the Babylonian *Enuma Elish*, which also tell of generations of gods overthrown by their sons. The parallels are among the clearest evidence that early Greek myth drew on the older cultures of the Near East.
 
-Unusually for early Greek epic, the poem opens with Hesiod speaking in his own voice, describing how the Muses appeared to him while he was tending sheep on Mount Helicon and gave him a laurel staff along with the gift of song — one of the earliest surviving claims by a Greek poet to a personal, individual experience of divine inspiration, rather than the anonymous, impersonal voice typical of Homeric epic.
+Alongside Homer, the Theogony became the standard reference for Greek gods' family relationships, and it is the main source behind most modern retellings of Greek creation myth.

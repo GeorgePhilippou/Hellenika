@@ -61,11 +61,14 @@ _order: 12
 <!-- field: summary -->
 A dialogue that builds an ideal city in order to answer a question about the individual soul: is it better to be just?
 
+<!-- field: significance -->
+The most influential work of Western political philosophy: the source of the philosopher-king, the theory of Forms and the Allegory of the Cave.
+
 <!-- field: body -->
-The question is posed sharply by Glaucon: given a ring of invisibility, would anyone remain just? To answer, Socrates proposes examining justice writ large, in a city, and then reading the result back onto the soul.
+A dialogue in ten books by Plato, written in Athens around 380–375 BC, with Socrates as the main speaker. It asks whether it is better to be just than unjust, even if injustice could go undetected — the question Glaucon poses with the story of a ring that makes its wearer invisible.
 
-The city that emerges is not attractive. Poetry is censored, including Homer. Rulers lie for the public good. Guardians hold property and reproduction in common, with children taken at birth. Citizens are assigned to classes and told a "noble lie" about the metal in their souls to keep them there. Reading it as a blueprint for a good society, as Karl Popper did, produces an authoritarian text — and the text supplies the material.
+To answer it, Socrates designs an ideal city, on the idea that justice will be easier to see written large in a state than in a single soul. The city is ruled by philosopher-kings, trained for decades and kept from private property and family life. Poetry, including Homer, is censored; rulers may tell a "noble lie" to keep citizens in their classes. Strikingly for its time, it argues that women should receive the same education and hold the same offices as men. The just soul, like the just city, is one in which reason rules over spirit and appetite.
 
-It also contains the Allegory of the Cave, the Divided Line, the theory of Forms, and the first sustained argument in Western philosophy that women should receive the same education and hold the same offices as men.
+The dialogue also contains Plato's theory of Forms and the Allegory of the Cave, in which prisoners mistake shadows on a wall for reality until one is led out into the sunlight. Whether the ideal city is a serious political programme or a thought experiment is debated; critics such as Karl Popper read it as a blueprint for authoritarian rule.
 
-Of all these, the Cave has had by far the widest afterlife: prisoners chained since birth, watching shadows on a wall and mistaking them for reality, until one is dragged out into the light and must learn to see the world, and eventually the sun, directly. It has been read as an allegory of education, of philosophical enlightenment, of political awakening, and of religious conversion, and it remains one of the most frequently invoked images in all of philosophy, far outside the technical argument about justice it was originally built to serve.
+Its oldest surviving copy is a 9th-century Byzantine manuscript in Paris.

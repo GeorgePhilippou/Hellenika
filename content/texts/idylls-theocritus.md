@@ -26,9 +26,6 @@ claims:
   - text: Some poems in the collection are not by Theocritus.
     evidence: literary
     confidence: strong
-  - text: Theocritus wrote in a literary Doric dialect rather than the Koine Greek more commonly used for Hellenistic prose and much contemporary poetry.
-    evidence: linguistic
-    confidence: established
 relations:
   - id: alexandria
     rel: written at
@@ -53,11 +50,14 @@ _order: 23
 <!-- field: summary -->
 Short poems of herdsmen singing in the Sicilian countryside — the invention of pastoral poetry.
 
+<!-- field: significance -->
+The invention of pastoral poetry, the tradition of shepherds singing in an idealised countryside that runs from Virgil to the English Romantics.
+
 <!-- field: body -->
-Theocritus wrote for an urban, educated audience at Alexandria, imagining a rural world of goatherds competing in song under trees. The countryside in his poems is a literary construction, and everyone involved knew it — which is exactly what pastoral has always been.
+About thirty short poems by Theocritus, a poet from Syracuse in Sicily who worked at Alexandria and on Kos around 275–260 BC. Some poems in the collection are by later imitators.
 
-The form runs directly to Virgil's *Eclogues*, then to Renaissance pastoral, Milton's *Lycidas*, Shelley's *Adonais* and the whole tradition of the elegy set among shepherds.
+The best known are pastorals: goatherds and cowherds in the Sicilian countryside compete in song, mourn lost loves and lament the dead herdsman Daphnis. Theocritus wrote them in a stylised literary version of the Doric dialect spoken in Sicily, giving the poems a rustic flavour. But their audience was urban and educated, and the countryside they describe is a knowing literary fiction.
 
-Not all the Idylls are rural. Idyll 15 follows two Syracusan housewives through the crowds of Alexandria to a festival, complaining about their husbands, the traffic and a man who tells them to stop talking. It is one of the liveliest depictions of ordinary urban life anywhere in Greek literature.
+Not all the Idylls are rural. Some are short mythological narratives; others are urban mimes. Idyll 15 follows two Syracusan housewives through the crowded streets of Alexandria to a festival of Adonis at the palace, grumbling about their husbands and the crowds — one of the liveliest scenes of everyday city life in Greek literature. Others praise the poet's royal patron, Ptolemy II.
 
-The literary dialect Theocritus chose reinforces the rustic illusion: rather than writing in the Koine Greek that dominated most Hellenistic prose and a good deal of contemporary poetry, he composed in a stylised literary Doric, evoking the dialect actually spoken in Sicily and other Dorian regions, a deliberate artistic choice that lent his invented pastoral world an extra layer of rustic, regional authenticity even as its content remained a sophisticated urban fiction.
+Virgil's *Eclogues* adapted the form for Latin. From there it ran through Renaissance pastoral, Milton's *Lycidas* and Shelley's *Adonais*, and the whole tradition of elegy set among shepherds.

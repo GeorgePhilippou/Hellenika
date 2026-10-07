@@ -25,15 +25,12 @@ claims:
   - text: It did not win first prize on its original production.
     evidence: literary
     confidence: probable
-  - text: It was written in response to the plague of Athens.
+  - text: Its opening plague reflects the real plague of Athens in the 420s BC.
     evidence: debate
     confidence: debated
   - text: Sigmund Freud named the Oedipus complex after the play, permanently shaping later popular readings of it.
     evidence: consensus
     confidence: established
-  - text: The play opens with Thebes already suffering a plague, a detail some scholars connect to the historical Plague of Athens in the 420s BC.
-    evidence: debate
-    confidence: debated
 relations:
   - id: sophocles
     rel: written by
@@ -64,11 +61,14 @@ _order: 9
 <!-- field: summary -->
 A king investigating a plague discovers that he is himself the cause — the most tightly constructed plot in Greek drama.
 
+<!-- field: significance -->
+Held up by Aristotle as the model tragedy, and the most famous plot in Greek drama: a man who solves every riddle except the one about himself.
+
 <!-- field: body -->
-Thebes is dying of a plague as the play opens, a detail some scholars have connected to Sophocles writing in the shadow of the real, devastating plague that struck Athens in the early years of the Peloponnesian War, though this connection remains speculative rather than confirmed by any direct ancient testimony. The oracle declares that the unpunished killer of the previous king, Laius, is the source of the city's pollution and must be found and expelled. Oedipus takes personal charge of the investigation with total, almost aggressive confidence, and every step he takes toward uncovering the truth is simultaneously a step toward his own destruction.
+A tragedy by Sophocles, first staged in Athens around 429–425 BC. Its opening, with Thebes dying of plague, may echo the plague that struck Athens in 430 BC, though that link is unproven.
 
-The dramatic irony running through the whole play is structural rather than merely decorative: the audience, familiar with the myth already, knows the answer from the very first scene, so every confident, ignorant statement Oedipus makes lands very differently for them than it does for him. He curses the unknown killer without qualification, unknowingly cursing himself. He mocks the blind prophet Teiresias for failing to "see" the truth, not realising that his own sight will prove far less reliable than the old man's blindness.
+The oracle at Delphi declares that the plague will lift only when the killer of the former king, Laius, is found and expelled. King Oedipus, who once saved Thebes by answering the riddle of the Sphinx, leads the investigation himself. Step by step — through the blind prophet Teiresias, his wife Jocasta and a messenger who arrives to reassure him — he discovers that he is the killer, that Laius was his father, and that Jocasta is his mother. Jocasta hangs herself and Oedipus blinds himself.
 
-Aristotle used the play in the *Poetics* as his central model of ideal tragic plot construction, singling out in particular the messenger scene in which news brought specifically to reassure Oedipus that he has nothing to fear turns out to be precisely what destroys him — a moment where *peripeteia*, the reversal of fortune, and *anagnorisis*, the recognition of the truth, arrive together in a single instant, which Aristotle considered the most powerful possible combination available to a tragedian.
+The audience knew the myth, so every confident word Oedipus speaks carries a meaning he cannot see: he curses the unknown killer, and so curses himself. Aristotle's *Poetics* treats the play as the ideal tragedy, above all for the moment when reversal of fortune and recognition of the truth arrive together. Its subject is less forbidden desire than knowledge: Oedipus is destroyed by finding out what he has already done.
 
-Sigmund Freud borrowed the play's central figure for the name of his own psychoanalytic Oedipus complex, a choice that has permanently coloured almost every subsequent popular reading of the play toward questions of hidden desire. The play itself, though, is arguably far more concerned with knowledge than with desire as such: Oedipus is destroyed not by wanting anything forbidden, but simply by finding out what he had already, unknowingly, done.
+The play reportedly did not win first prize. Freud's naming of the "Oedipus complex" after it has shaped popular readings ever since.

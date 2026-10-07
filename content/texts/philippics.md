@@ -54,13 +54,14 @@ _order: 15
 <!-- field: summary -->
 Speeches warning Athens that Philip of Macedon was an existential threat — the finest Greek oratory, and unheeded.
 
+<!-- field: significance -->
+The most admired speeches of Greek oratory, and Athens' clearest warning of the Macedonian conquest that ended its independence.
+
 <!-- field: body -->
-Demosthenes' argument is consistent across a decade: Philip is not a conventional rival who can be managed, but an opponent who campaigns in winter, does not stop for festivals, uses mercenaries and bribery, and will take everything unless resisted now.
+Four speeches delivered to the Athenian Assembly by the orator Demosthenes between 351 and 341 BC, as Philip II of Macedon expanded into northern Greece. A related set, the *Olynthiacs*, urged help for the city of Olynthus, which Philip destroyed in 348 BC.
 
-He is at his sharpest attacking his own citizens' behaviour. Athenians, he says, wander around the marketplace asking each other for news — is Philip dead? is he ill? — as though the outcome depended on rumour rather than on what they do. They vote for expeditions and do not serve in them.
+Demosthenes' argument is consistent across a decade. Philip is not an ordinary rival who can be managed by treaties, but an opponent who campaigns in winter, uses bribery and mercenaries, and will take everything unless resisted now. He attacks the Athenians themselves for complacency: they wander the marketplace asking each other for news of Philip, and vote for expeditions they do not serve in. Athens, he urges, must pay for its wars and fight them with its own citizens.
 
-The speeches failed. Athens acted too late and lost at Chaeronea in 338 BC.
+The warnings largely failed. Athens built an alliance too late, and Philip defeated it at Chaeronea in 338 BC, ending the independence of the Greek city-states. Whether the published texts match what was actually said is uncertain.
 
-The name became generic: Cicero called his attacks on Mark Antony *Philippics*, and was killed for them. As rhetoric they were studied as models for two thousand years.
-
-The Philippics did not stand alone in Demosthenes' campaign against Macedon: in a closely related set of speeches, the Olynthiacs, he urged Athens to send urgent military help to the northern city of Olynthus before Philip could destroy it, a plea that again went largely unheeded and was followed, as Demosthenes had warned, by Olynthus's capture and destruction.
+As models of persuasion the speeches were studied for two thousand years. Cicero named his own attacks on Mark Antony *Philippics*, and the word still means a bitter denunciation.

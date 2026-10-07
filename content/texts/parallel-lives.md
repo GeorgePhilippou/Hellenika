@@ -26,9 +26,6 @@ claims:
   - text: It was a major influence on Renaissance and Enlightenment political thought.
     evidence: consensus
     confidence: established
-  - text: Not every life survives as part of a matched pair; a small number, including that of Artaxerxes, stand alone without a paired Roman or Greek counterpart.
-    evidence: literary
-    confidence: established
 relations:
   - id: life-of-alexander
     rel: includes
@@ -57,11 +54,14 @@ _order: 18
 <!-- field: summary -->
 Fifty biographies pairing a Greek with a Roman, comparing their characters — the main channel through which antiquity reached Renaissance Europe.
 
+<!-- field: significance -->
+The main channel through which Renaissance and early modern Europe came to know the great figures of Greece and Rome.
+
 <!-- field: body -->
-Each pair is followed by a short comparison: Alexander with Caesar, Demosthenes with Cicero, Theseus with Romulus. The point is moral rather than historical — Plutarch wants readers to examine their own conduct against these examples, and says so.
+A collection of biographies by Plutarch of Chaeronea, a Greek writing under the Roman Empire around AD 100–120. Forty-eight lives survive, most of them in pairs that set a Greek beside a Roman: Theseus and Romulus, Lycurgus and Numa, Alexander and Caesar, Demosthenes and Cicero. Many pairs end with a short comparison.
 
-Because he wrote in the Roman imperial period with access to libraries now lost, he is often our only source for particular events and for whole lost works.
+Plutarch's aim is moral, not historical. He wants readers to measure their own conduct against these examples of virtue and vice, and chooses anecdotes that reveal character. The pairing also made a point to his own time: Greek history could stand as an equal beside Rome's.
 
-His influence on later Europe is hard to overstate. Shakespeare's *Julius Caesar*, *Antony and Cleopatra* and *Coriolanus* follow North's Plutarch closely, sometimes verbatim. Montaigne, Rousseau and the leaders of the French and American revolutions all read him as a manual of public virtue.
+Because he had access to libraries now lost, Plutarch is often the only source for particular events, people and earlier works. For figures such as Lycurgus, Solon and Pericles his Lives are among the fullest ancient accounts, though historians read them critically, as moral portraits written centuries after the fact.
 
-Not every biography fits the paired structure implied by the collection's name: a handful of lives, such as that of the Persian king Artaxerxes, survive as standalone accounts without a matching Greek or Roman counterpart, suggesting either that Plutarch never finished pairing them or that some were composed separately from the main comparative project.
+Translated into French by Jacques Amyot (1559) and into English by Thomas North (1579), the Lives were read across Europe. Shakespeare took the plots of *Julius Caesar*, *Antony and Cleopatra* and *Coriolanus* from North, sometimes almost word for word, and revolutionaries in France and America read Plutarch as a handbook of public virtue.

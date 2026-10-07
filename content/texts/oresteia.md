@@ -56,11 +56,14 @@ _order: 8
 <!-- field: summary -->
 Three plays tracing a cycle of blood vengeance to its end in the first court of law.
 
+<!-- field: significance -->
+The only complete Greek tragic trilogy to survive, and drama's founding story of justice passing from private revenge to public law.
+
 <!-- field: body -->
-*Agamemnon*: the king returns home victorious from Troy after ten years away and is murdered in his own bath by his wife Clytemnestra, who has waited the entire decade for her chance and has her own deeply felt reasons for it — chiefly that Agamemnon had sacrificed their daughter Iphigenia years earlier to secure a favourable wind for the Greek fleet's departure to Troy in the first place.
+A trilogy of tragedies by Aeschylus, staged at the festival of Dionysus in Athens in 458 BC, where it won first prize. A fourth, comic satyr play, *Proteus*, completed the set but is lost.
 
-*The Libation Bearers*: their son Orestes returns home from exile years later and, acting on the god Apollo's explicit instruction, kills his own mother in retaliation for his father's murder, and is immediately afterward pursued and tormented by the Furies, ancient chthonic goddesses of vengeance who exist specifically to punish the shedding of kindred blood.
+In *Agamemnon*, the king returns from Troy and is murdered in his bath by his wife Clytemnestra, avenging their daughter Iphigenia, whom he sacrificed to win a wind for the fleet. In *The Libation Bearers*, their son Orestes returns from exile and, on Apollo's orders, kills his mother, and is driven mad by the Furies, goddesses who punish the shedding of kindred blood. In *The Eumenides*, Orestes is tried at Athens before a jury of citizens with Athena presiding. The vote is tied; Athena acquits him, and persuades the Furies to accept a new home in Athens as honoured guardians, the "Kindly Ones".
 
-*The Eumenides*: Orestes is finally tried at Athens before a jury of ordinary citizens, with the goddess Athena herself presiding over the proceedings. The jury's vote comes out exactly tied; Athena casts the deciding vote for acquittal. The Furies, initially enraged at being denied their traditional prerogative of vengeance, are then carefully persuaded by Athena to accept an entirely new role instead, as honoured guardians of justice and prosperity permanently settled within the city of Athens itself, renamed the Eumenides, the "kindly ones."
+The trilogy dramatises the end of an endless chain of killing, replaced by a court whose verdict all sides accept. The court is the Areopagus, which had just been stripped of most of its political powers in the reforms of 462 BC, so the play spoke directly to a live and divisive question in the city.
 
-The trilogy as a whole dramatises a fundamental transition: from a world of private, self-perpetuating blood vengeance, in which every killing demands another killing in an endless chain, to a world of public law, in which a single formal verdict is accepted by all sides as genuinely ending the matter. It was originally staged as one of four connected plays; a final satyr play, *Proteus*, completed the full tetralogy submitted for competition but has not survived in any form. The trilogy was produced shortly after the Athenian Areopagus court had itself been controversially stripped of much of its former political power in a recent, contested reform, meaning the argument for a stable, trusted court of law resolving deep social conflict was a genuinely live and contested political question for its original audience, not merely an abstract mythological point.
+It survives in the Medicean manuscript in Florence, and has been restaged and adapted constantly since the Renaissance.

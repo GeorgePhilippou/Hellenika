@@ -61,11 +61,14 @@ _order: 5
 <!-- field: summary -->
 The surviving remains of nine books of lyric poetry — the most celebrated love poetry of antiquity, in pieces.
 
+<!-- field: significance -->
+The most celebrated love poetry of the ancient world, and the first great body of verse in a personal, lyric voice by a woman.
+
 <!-- field: body -->
-Of an estimated 10,000 lines, roughly 650 survive. Only the *Hymn to Aphrodite* is essentially complete: a prayer in which the goddess arrives smiling and asks, with visible amusement, who Sappho wants this time.
+The poems of Sappho of Lesbos, composed around 610–570 BC in her local Aeolic dialect for singing to the lyre. Ancient scholars gathered them into nine books — perhaps 10,000 lines. About 650 survive, mostly in fragments.
 
-Fragment 31 describes the physical experience of watching a beloved talk to someone else — the tongue breaking, fire under the skin, a ringing in the ears, "greener than grass". It has been imitated for 2,600 years and is still the standard against which such poems are measured.
+Only the *Hymn to Aphrodite* is essentially complete: a prayer in which the goddess comes down smiling and asks, with some amusement, who Sappho has fallen for this time. Fragment 31 describes watching a beloved woman talk and laugh with a man — the tongue breaks, fire runs under the skin, ears ring — and has been imitated from Catullus onward. Other fragments speak of weddings, family, memory and the women of her circle.
 
-Most of what we have comes from two sources: quotations by later grammarians, and papyrus scraps excavated from Egyptian rubbish dumps at Oxyrhynchus, some recovered from mummy cartonnage. New fragments were published as recently as 2014, though one group's provenance has since been seriously questioned.
+The poems were lost not mainly through deliberate destruction but because Aeolic dialect fell out of the school curriculum, and texts that stopped being copied disappeared. What survives comes from quotations by later ancient writers and from papyrus scraps recovered from the rubbish dumps of Oxyrhynchus in Egypt.
 
-The loss is not primarily Christian censorship, as often claimed. Aeolic dialect fell out of the school curriculum, and works that stopped being copied simply stopped existing.
+New texts are still appearing: the "Tithonus poem" was completed in 2004, and the "Brothers Poem" published in 2014, though questions have since been raised about how that papyrus was acquired.

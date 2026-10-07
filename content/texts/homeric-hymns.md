@@ -57,11 +57,14 @@ _order: 4
 <!-- field: summary -->
 Thirty-three hexameter hymns to individual gods — preludes to epic recitation, and the fullest early narratives of several myths.
 
+<!-- field: significance -->
+The fullest early tellings of several central myths, including Demeter and Persephone, the charter story of the Eleusinian Mysteries.
+
 <!-- field: body -->
-They are called Homeric because they use Homer's metre and dialect, not because he wrote them. Most were probably performed as preludes before longer epic recitations.
+A collection of 33 hexameter poems addressed to individual gods, composed by different, anonymous poets mostly between about 700 and 500 BC. They are called "Homeric" because they use Homer's metre and dialect, not because Homer wrote them. Most were probably sung as preludes before longer recitations of epic.
 
-The long ones are substantial poems. The *Hymn to Demeter* is the primary source for the Eleusinian myth: Persephone taken by Hades, Demeter's search and grief, the failed harvest, and the pomegranate seeds that bind her to return each year. It is effectively the charter myth of the Mysteries.
+The four long hymns are substantial narrative poems. The *Hymn to Demeter* tells how Hades carried off Persephone, how her mother's grief made the crops fail, and how the pomegranate seeds Persephone ate bound her to return to the underworld each year; it is the founding myth of the Mysteries at Eleusis. The *Hymn to Apollo* tells of the god's birth on Delos and his founding of the oracle at Delphi. The *Hymn to Hermes* is a comedy in which the newborn god steals Apollo's cattle, invents the lyre and talks his way out of trouble. The *Hymn to Aphrodite* tells of the goddess's affair with the mortal Anchises, father of Aeneas.
 
-The *Hymn to Hermes* is a comedy: the god steals Apollo's cattle hours after being born, drives them backwards to confuse the tracks, invents the lyre from a tortoise shell, and then talks his way out of trouble by giving Apollo the instrument.
+Because they were composed over two centuries and in different places, the hymns are valuable evidence for how particular cults and sanctuaries presented their gods in the Archaic period.
 
-The collection is not a single composition but an accumulation made over centuries: the longer hymns to Demeter, Apollo, Hermes, and Aphrodite are generally dated to the seventh or sixth century BC, while some of the shorter ones may have been composed as late as the sixth or fifth century, meaning the "Homeric" label groups together works separated by a couple of hundred years of oral and literary tradition.
+The collection survives only in late medieval manuscripts; the Hymn to Demeter was known from a single copy found in Moscow in 1777.

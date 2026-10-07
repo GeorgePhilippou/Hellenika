@@ -61,13 +61,14 @@ _order: 13
 <!-- field: summary -->
 The founding work of literary criticism, which analyses tragedy as a mechanism and asks what it does to an audience.
 
+<!-- field: significance -->
+The founding work of literary criticism, whose vocabulary of plot, reversal, recognition and catharsis is still the starting point for discussing drama.
+
 <!-- field: body -->
-Aristotle treats poetry as a craft with parts that can be examined. Tragedy imitates a serious action, through plot, character, thought, diction, song and spectacle, and its plot is the most important part — character exists for the sake of the action, not the reverse.
+A short treatise by Aristotle, probably written as lecture notes in Athens around 335–323 BC. It survives incomplete: a second book, on comedy, is lost.
 
-He introduces *hamartia* (the error that brings a good man down, not a moral flaw), *peripeteia* (reversal), *anagnorisis* (recognition) and *catharsis* — the purging or clarification of pity and fear, which he never fully explains and which has been argued over for 2,300 years.
+Aristotle treats poetry as a craft that can be analysed. Tragedy imitates a serious action through six parts — plot, character, thought, diction, song and spectacle — and plot matters most, since character exists for the sake of the action, not the reverse. He names the key moments of a tragic plot: *peripeteia*, the reversal of fortune; *anagnorisis*, recognition of the truth; and *hamartia*, the error that brings down a good person. Tragedy, he says, achieves *catharsis* of pity and fear, a word he never defines and which critics have argued over ever since. His constant example of excellence is Sophocles' *Oedipus Rex*.
 
-He also says poetry is more philosophical than history, because history records what happened while poetry shows what would happen — the universal rather than the particular.
+He also argues that poetry is more philosophical than history, because history tells what happened while poetry shows what would happen — the universal rather than the particular. The treatise was in part an answer to Plato, who had banished poets from his ideal city.
 
-The second book, on comedy, is lost. Its absence is the premise of Umberto Eco's *The Name of the Rose*.
-
-Throughout the surviving text Aristotle returns repeatedly to a single play, Sophocles' *Oedipus Rex*, as his benchmark of excellence: its plot combines recognition and reversal in the same moment, follows logically from what came before, and turns entirely on the protagonist's own past actions rather than chance, making it for Aristotle close to a perfect demonstration of everything a well-constructed tragedy should do.
+Transmitted through Arabic as well as Greek and printed in 1508, it shaped Renaissance and neoclassical drama, and its lost book on comedy is the premise of Umberto Eco's *The Name of the Rose*.

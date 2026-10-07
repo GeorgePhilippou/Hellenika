@@ -52,11 +52,14 @@ _order: 11
 <!-- field: summary -->
 A foreign woman, abandoned by the husband she made a king, takes a revenge that destroys her own children.
 
+<!-- field: significance -->
+The most disturbing of Greek tragedies, and the sharpest ancient statement of a wife's and a foreigner's powerlessness.
+
 <!-- field: body -->
-Medea helped Jason steal the Golden Fleece, betrayed her father, killed her brother, and killed his enemy for him. He now sets her aside to marry a Corinthian princess, and expects gratitude for the connection.
+A tragedy by Euripides, first staged in Athens in 431 BC, the year the Peloponnesian War began. It placed third of three in the competition.
 
-Her speech to the women of Corinth on the position of wives — bought with a dowry into a stranger's house, judged for a choice they cannot inspect beforehand, and told they live safe at home while men fight — is the most direct statement on the subject in Greek literature. She would rather stand three times in battle, she says, than bear one child.
+Medea, a princess from Colchis on the Black Sea, helped Jason win the Golden Fleece, betraying her father and killing her brother to do it. Now living with him in Corinth, she learns that Jason is setting her aside to marry the king's daughter, and that she and their two sons are to be exiled. Medea poisons the princess and her father with a gift of a robe and crown, then kills her own children to destroy Jason completely. She escapes in a chariot sent by her grandfather, the Sun. She is neither punished nor repentant; the play ends with Jason ruined below her.
 
-Then she poisons the princess and her father, and kills her own two sons, and escapes in a chariot sent by her grandfather the Sun. Euripides gives her no punishment and no repentance. The play ends with Jason destroyed and Medea in the air above him.
+Its most famous speech has Medea tell the women of Corinth what marriage means for a wife: bought with a dowry into a stranger's house, unable to leave, and told she lives safely at home while men face danger in war. She would rather stand in battle three times, she says, than give birth once. Whether Euripides invented the child-murder or took it from an earlier version is debated.
 
-It placed third of three.
+The play has become a touchstone in modern theatre for questions of gender, exile and revenge.

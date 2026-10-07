@@ -51,11 +51,14 @@ _order: 17
 <!-- field: summary -->
 A biography paired with Julius Caesar, explicitly interested in character rather than military narrative.
 
+<!-- field: significance -->
+The source of most of the famous stories about Alexander, from Bucephalus to the Gordian knot, and the portrait of his character that later ages inherited.
+
 <!-- field: body -->
-Plutarch states his method at the outset: he is writing lives, not histories, and a small thing — a phrase, a joke — often reveals character better than a battle with thousands dead.
+A biography of Alexander the Great by Plutarch of Chaeronea, written around AD 100–120 as part of his *Parallel Lives*, where it is paired with the life of Julius Caesar. Plutarch wrote more than four centuries after Alexander's death, drawing on many sources now lost.
 
-So he gives us the young Alexander taming Bucephalus by noticing the horse is frightened of its own shadow; the Gordian knot; the letter to Aristotle complaining that publishing his teachings has robbed Alexander of his advantage; the drunken killing of Cleitus and the days of remorse afterwards.
+He states his method at the start: he is writing lives, not histories, and a small thing — a phrase or a joke — often reveals character better than a battle in which thousands die. So the Life follows Alexander from his birth and education under Aristotle through his campaigns, but lingers on telling episodes: the boy taming the horse Bucephalus by turning it away from its own shadow; the cutting of the Gordian knot; the visit to the oracle of Ammon at Siwa; the drunken killing of his friend Cleitus and the remorse that followed; the final illness at Babylon.
 
-The method has real costs. Plutarch is writing 400 years later, moralising, and does not always distinguish anecdote from evidence. But he preserves material from lost sources, and his psychological interest in his subjects gives a portrait Arrian does not attempt.
+Plutarch moralises and does not always separate anecdote from evidence, so historians use him alongside Arrian's more military account. But he preserves material found nowhere else, and his interest in character gives a portrait Arrian does not attempt.
 
-He wrote fifty *Parallel Lives*, pairing a Greek and a Roman, and the collection shaped how Europe imagined antiquity — Shakespeare took the plots of three plays almost directly from North's translation.
+Through Thomas North's English translation of 1579, Plutarch's Lives became a source for Shakespeare and a primer of ancient character for European readers.

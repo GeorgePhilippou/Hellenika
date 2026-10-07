@@ -26,9 +26,6 @@ claims:
   - text: Its chronology and internal consistency are unreliable.
     evidence: consensus
     confidence: strong
-  - text: Diodorus organised his universal history around a year-by-year annalistic framework, tying Greek, Roman and Near Eastern events to a shared timeline.
-    evidence: literary
-    confidence: established
 relations:
   - id: wars-of-diadochi
     rel: main source for
@@ -53,11 +50,14 @@ _order: 19
 <!-- field: summary -->
 A universal history from mythical times to Caesar, valuable chiefly because it copies sources that no longer exist.
 
+<!-- field: significance -->
+Not a great history, but an indispensable one: for long stretches, especially the wars after Alexander, it is the only continuous narrative that survives.
+
 <!-- field: body -->
-Diodorus is not a distinguished historian. He compiles rather than analyses, contradicts himself between books because he is following different sources, and his chronology is unreliable.
+A universal history in 40 books, compiled in Greek by Diodorus of Sicily between about 60 and 30 BC. It runs from the mythical past to Julius Caesar's conquest of Gaul. Books 1–5 and 11–20 survive whole; the rest are known from fragments and Byzantine excerpts.
 
-He is nonetheless indispensable. Books 11–20 cover 480–302 BC continuously, and for the wars of the Diadochi he is the main narrative we have, drawing on Hieronymus of Cardia — a participant whose own work is lost. His account of Philip II depends on Ephorus and Theopompus, also lost.
+Diodorus arranged events year by year, weaving Greek, Near Eastern, Sicilian and Roman history into one timeline — an ambitious attempt to treat the whole known world's past as a single story. The early books cover Egypt, Mesopotamia, India and Greek myth; Books 11–20 give a continuous narrative of 480–302 BC, from Xerxes' invasion through Philip II and Alexander to the wars of Alexander's successors.
 
-This is the normal condition of ancient history: the good writers vanish and the compilers survive, so the evidence often reaches us through someone who did not fully understand it. Reading Diodorus means reading through him to the better source underneath.
+As a historian he is a compiler rather than an analyst. He follows one source at a time, so he can contradict himself between books, and his dates are often wrong. His value lies in what he copied: for the wars of the Diadochi he follows Hieronymus of Cardia, a participant whose own history is lost, and for Philip II he draws on Ephorus and Theopompus, also lost. Reading Diodorus means reading through him to those better sources.
 
-His organising principle was itself ambitious: rather than treating Greek, Near Eastern and Roman history as separate strands, Diodorus arranged his narrative annalistically, year by year, weaving events from different regions into a single continuous chronological frame — an attempt at genuinely universal history that, whatever its execution flaws, reflects a real Hellenistic-era ambition to see the whole known world's past as one connected story rather than a set of disconnected local traditions.
+This is a common pattern in ancient history: the best writers vanish, and the compilations that copied them survive.

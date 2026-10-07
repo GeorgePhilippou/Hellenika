@@ -68,11 +68,14 @@ _order: 24
 <!-- field: summary -->
 The Hebrew scriptures translated into Greek at Alexandria — the first major translation of a sacred text in history.
 
+<!-- field: significance -->
+The first great translation of a sacred text: it made Jewish scripture readable across the Greek-speaking world and became the Old Testament of the early Church.
+
 <!-- field: body -->
-Alexandria's Jewish community was large and increasingly Greek-speaking, and needed the scriptures in a language it could read. The Torah was translated first, in the third century BC, and the rest followed over roughly 150 years.
+The Greek translation of the Hebrew scriptures, made by Jewish scholars at Alexandria between about 280 and 130 BC. The Torah was translated first, in the 3rd century BC, and the other books followed over the next 150 years, in markedly different translation styles.
 
-The name comes from a legend recorded in the Letter of Aristeas: seventy-two scholars worked separately and produced identical texts. The legend is doing theological work — it certifies the translation as divinely guided — and the actual process was clearly gradual and uneven, with different books showing markedly different translation styles.
+Alexandria had a large Jewish community that increasingly spoke Greek, and it needed its scriptures in a language it could read. The *Letter of Aristeas*, written in the 2nd century BC, tells a grander story: King Ptolemy II asked for a copy of the Jewish law for the Library of Alexandria, and 72 scholars sent from Jerusalem produced it in 72 days — the source of the name "Septuagint", from the Latin for seventy. Later versions of the legend claimed the scholars worked separately and produced identical texts, a story meant to certify the translation as divinely guided.
 
-Its consequences were enormous. It made Jewish scripture readable across the Hellenistic world, and it is the version quoted by the New Testament writers, so its Greek vocabulary shaped Christian theology. Where the Hebrew *almah* (young woman) was rendered as *parthenos* (virgin) in Isaiah, the translation choice acquired doctrinal weight it could not have carried in the original.
+Its influence was enormous. It made Jewish scripture available across the Hellenistic world, and the writers of the New Testament usually quote it rather than the Hebrew. Its word choices shaped Christian theology: where Isaiah's Hebrew speaks of a "young woman" (*almah*), the Greek has *parthenos*, "virgin".
 
-The Letter of Aristeas frames the project as an official Ptolemaic undertaking, claiming King Ptolemy II Philadelphus personally requested the translation so that a copy of the Jewish law could be added to the great Library of Alexandria's collection, and sent gifts and scholars to Jerusalem to secure it — a flattering origin story that, whatever its factual basis, reflects how closely Alexandrian Jewish intellectual life was bound up with the Ptolemaic court's own cultural ambitions.
+It remains the Old Testament of the Greek Orthodox Church. Its oldest near-complete copies are the 4th-century AD Codex Vaticanus and Codex Sinaiticus.

@@ -56,11 +56,14 @@ _order: 16
 <!-- field: summary -->
 The most reliable surviving account of Alexander's campaigns, written four centuries later from participants' memoirs.
 
+<!-- field: significance -->
+The most reliable surviving narrative of Alexander's campaigns, and the main window onto the lost eyewitness accounts of his officers.
+
 <!-- field: body -->
-Arrian was a Roman-era Greek administrator and soldier who chose his sources deliberately: Ptolemy, who was there and became a king and therefore, Arrian reasons, had less reason to lie; and Aristobulus, an engineer on the campaign. Both works are lost, so Arrian is our access to them.
+A history of Alexander the Great's campaigns in seven books, written in Greek around AD 145–160 by Arrian of Nicomedia, a Greek from Asia Minor who held high office in the Roman Empire, including the governorship of Cappadocia. The title, "the march up-country", deliberately echoes Xenophon's *Anabasis*.
 
-His military detail is credible in a way the other accounts are not — he had commanded troops and understood formations, supply and terrain. Where his sources disagree he says so.
+Arrian built his account on two eyewitnesses: Ptolemy, Alexander's general and later king of Egypt, and Aristobulus, an engineer on the expedition. Both works are lost, so Arrian is our access to them. He follows the campaign from Alexander's accession in 336 BC through the battles of the Granicus, Issus and Gaugamela, the march into Central Asia and India, the return through the Gedrosian desert and the king's death at Babylon in 323 BC.
 
-He is not neutral. He admires Alexander and treats the murder of Cleitus and the execution of Parmenion as lapses in an otherwise great man rather than as evidence about his character. But he flags what he cannot verify, and marks the difference between what is reported and what he believes — which is more than Curtius or Diodorus do.
+Arrian had commanded troops himself, and his descriptions of formations, sieges and terrain are the most credible of any ancient Alexander historian. Where his sources disagree he says so, and he separates what is reported from what he believes. He is not neutral: he admires Alexander and treats the killing of Cleitus and the execution of Parmenion as lapses rather than as evidence of character.
 
-Arrian paired the *Anabasis* with a separate companion work, the *Indica*, written in a different dialect and describing India itself along with the voyage of Alexander's admiral Nearchus, who sailed the fleet back from the mouth of the Indus to the Persian Gulf — a valuable independent source for both Indian ethnography as the Greeks understood it and the practical challenges of ancient long-distance naval logistics.
+A companion work, the *Indica*, describes India and the voyage of Alexander's admiral Nearchus from the Indus to the Persian Gulf.

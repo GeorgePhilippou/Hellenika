@@ -5,7 +5,7 @@ altNames:
   - Ἔργα καὶ Ἡμέραι
 type: text
 subtype: didactic
-tint: darkage
+tint: archaic
 start: -720
 end: -690
 approx: true
@@ -28,9 +28,6 @@ claims:
   - text: It is the earliest surviving Greek poem with an identified personal narrator.
     evidence: consensus
     confidence: strong
-  - text: The poem also includes the earliest surviving reference to a "Days" section listing which days of the month are favourable or unfavourable for specific activities.
-    evidence: literary
-    confidence: established
 relations:
   - id: hesiod
     rel: composed by
@@ -56,13 +53,14 @@ _order: 3
 <!-- field: summary -->
 A farming almanac addressed to the poet's dishonest brother — and the first personal voice in European literature.
 
+<!-- field: significance -->
+The best early source for ordinary farming life in Greece, and the first poem in European literature spoken in a named poet's own voice.
+
 <!-- field: body -->
-Hesiod addresses his brother Perses, who bribed the local "gift-devouring kings" to take more than his share of their inheritance. What follows is advice, complaint and moral argument in roughly equal measure.
+A hexameter poem of about 830 lines, composed around 700 BC by Hesiod of Ascra in Boeotia, author of the Theogony. It is addressed to his brother Perses, who had bribed the local "gift-devouring" lords to take more than his share of their father's farm.
 
-The practical content is genuine: when to plough, when to harvest, how to build a plough and a wagon, which days are lucky. It is our best source for how an ordinary Greek farm actually worked.
+The poem mixes moral argument with practical advice. It urges honest work and justice, telling the myth of Prometheus and Pandora and the myth of the Five Ages — gold, silver, bronze, heroes and iron — each worse than the last, down to Hesiod's own harsh present. It then becomes a farmer's calendar: when to plough, sow and harvest by the rising of the stars, how to build a plough, when it is safe to sail. It ends with the "Days", a list of which days of the month are lucky or unlucky for each task.
 
-Interleaved is the myth of the Five Ages — gold, silver, bronze, heroes, iron — declining to Hesiod's own miserable present. It is the earliest surviving European statement that the past was better, and it has never gone out of fashion.
+Unlike Homer, Hesiod speaks as himself. He names his village, describes his father's move from Asia Minor, and complains about the weather and his neighbours. That personal voice, and the picture of small-scale farming under local aristocrats, make the poem a unique window on rural life in the early Archaic period.
 
-What makes it new is the *I*. Homer never appears in his poems. Hesiod names himself, names his village, describes his father's failed emigration, and grumbles about the weather.
-
-The poem closes with the section that gives it half its title: a calendar of the month's days, each marked as favourable, unfavourable or mixed for particular undertakings, from starting a wine jar to cutting timber to a child's birth. It is the earliest surviving Greek example of this kind of practical, superstition-laced almanac, a genre that would persist in various forms throughout later Greek and Roman culture.
+Virgil's *Georgics* took it as its model, and its Five Ages became Western culture's classic image of decline from a golden age.

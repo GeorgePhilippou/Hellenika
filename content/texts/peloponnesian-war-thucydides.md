@@ -29,9 +29,6 @@ claims:
   - text: His account is free of Athenian bias.
     evidence: debate
     confidence: debated
-  - text: Thucydides used his own twenty-year exile to gather testimony from both the Athenian and Spartan sides of the conflict.
-    evidence: literary
-    confidence: strong
 relations:
   - id: thucydides
     rel: written by
@@ -66,11 +63,14 @@ _order: 7
 <!-- field: summary -->
 The war between Athens and Sparta, analysed without gods, omens or consolation — the founding work of critical history.
 
+<!-- field: significance -->
+The founding work of critical, evidence-based history, and still the main source for the war that ended Athens' empire.
+
 <!-- field: body -->
-Thucydides announces his method in pointed contrast to Herodotus: he has deliberately excluded the marvellous and the mythical, cross-checked competing eyewitness accounts against one another wherever possible, and openly accepts that this careful, sceptical approach makes the resulting work considerably less pleasant and entertaining to listen to than Herodotus's livelier storytelling. He intends it instead, in his own well-known phrase, as "a possession for all time" — a permanent analytical resource rather than a one-off performance piece. He was able to pursue this even-handed method in large part because his own twenty-year exile, following his failure to save Amphipolis, gave him the freedom and the personal connections to gather testimony from both the Athenian and the Spartan sides of the war rather than relying solely on Athenian sources.
+A prose history in eight books by the Athenian Thucydides, written from the outbreak of the war between Athens and Sparta in 431 BC until about 400 BC. Thucydides was himself an Athenian general; exiled in 424 BC after failing to save Amphipolis, he spent twenty years gathering testimony from both sides.
 
-Its most quoted passages are structural analyses of political behaviour that read as strikingly modern in their cynicism. The Melian Dialogue strips diplomacy down to its bare mechanism — the strong do what they have the power to do and the weak accept what they have to accept — in an exchange that ends with Athens executing every adult man on the small, neutral island of Melos and enslaving the rest. The account of civil war (stasis) at Corcyra describes, in chilling detail, how the accepted meanings of ordinary words themselves shift under the pressure of factional violence, so that reckless aggression comes to be praised as courage and moderate restraint is reinterpreted as cowardice or disloyalty.
+He sets out his method in deliberate contrast to Herodotus: no myths or marvels, eyewitness accounts checked against each other, and a work meant not to entertain but to be "a possession for all time". He explains events through human motives and power, never the gods. The war's real cause, he argues, was the growth of Athenian power and the fear it caused in Sparta.
 
-The speeches scattered throughout the work are the central and most debated methodological problem for modern readers. Thucydides admits candidly that he could not possibly remember the exact words used in every speech he reports, and instead gives what he judged the situation and speaker most plausibly required — which effectively makes each speech a piece of Thucydides's own political analysis placed convincingly in the mouth of a historical participant, blurring the line between historical record and interpretive reconstruction in a way historians still argue over today.
+Its best-known passages are analyses of power and its effects: Pericles' Funeral Oration for the Athenian dead; the plague of 430 BC, which Thucydides caught and survived; the civil war at Corcyra, where words changed meaning under factional violence; and the Melian Dialogue, in which Athenian envoys tell a small neutral island that "the strong do what they can and the weak suffer what they must". The speeches are his own reconstructions of what each situation required, a practice historians still debate.
 
-It stops abruptly mid-sentence in the events of 411 BC, seven years before the war it describes actually ended.
+The work breaks off mid-sentence in 411 BC, seven years before the war ended; Xenophon's *Hellenica* continues the story.

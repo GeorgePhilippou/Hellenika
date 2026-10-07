@@ -53,13 +53,14 @@ _order: 14
 <!-- field: summary -->
 An investigation of how to live well, arguing that virtue is a skill acquired by practice rather than a rule to be learned.
 
+<!-- field: significance -->
+The founding text of virtue ethics, and for centuries the most studied work of moral philosophy in Europe and the Islamic world.
+
 <!-- field: body -->
-Aristotle starts from the fact that everyone agrees the goal is *eudaimonia* — flourishing, faring well — and disagrees entirely about what it consists of. His answer is activity of the soul in accordance with virtue, over a complete life.
+A treatise in ten books by Aristotle, based on his lectures at the Lyceum in Athens around 340–322 BC. Its name probably refers to his son Nicomachus, traditionally said to have edited it.
 
-Virtue is a disposition lying between excess and deficiency, relative to the person and the situation: courage between recklessness and cowardice, generosity between waste and meanness. It cannot be reduced to rules, because the right response depends on circumstances, and it is acquired by habituation — we become just by doing just acts, as we become builders by building.
+It asks how to live well. Everyone agrees, Aristotle says, that the goal is *eudaimonia* — flourishing — but not on what that is. His answer is a life of activity in accordance with virtue, over a complete lifetime. A virtue is a settled disposition lying in a mean between excess and deficiency, relative to the person and the situation: courage between recklessness and cowardice, generosity between waste and meanness. It cannot be reduced to rules, and it is learned by practice: we become just by doing just acts, as we become builders by building.
 
-He devotes two full books to friendship, more than to any other single topic, distinguishing friendships of utility, pleasure and character, and arguing that only the last is complete.
+The work also analyses responsibility, weakness of will and practical wisdom, and gives two whole books to friendship, distinguishing friendships of usefulness, of pleasure and of good character. It ends by ranking the contemplative life of the philosopher highest of all.
 
-The work founded virtue ethics, which after two centuries of rule-based moral philosophy has become a major live position again.
-
-Its title itself preserves a small mystery: ancient tradition connects the name to Aristotle's son, Nicomachus, who is variously said to have edited the lecture notes into their final form or to have been the dedicatee of the work, though the sources disagree on the details, and it remains uncertain exactly what role, if any, the younger Nicomachus actually played in shaping the text that bears his name.
+Translated into Latin in the 13th century, it became central to medieval moral philosophy through Thomas Aquinas. Since the mid-20th century, virtue ethics built on it has again become a major position in philosophy.

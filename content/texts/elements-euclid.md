@@ -60,11 +60,14 @@ _order: 21
 <!-- field: summary -->
 Thirteen books deriving all of Greek geometry from five postulates — the most successful textbook ever written.
 
+<!-- field: significance -->
+The most successful textbook ever written: for over two thousand years, the model of how to prove something from first principles.
+
 <!-- field: body -->
-The *Elements* is not primarily a collection of results; it is a demonstration of method. Twenty-three definitions, five postulates and five common notions are laid out, and everything that follows is proved from them, with each proposition depending only on what has already been established.
+A mathematical work in thirteen books, written in Greek by Euclid at Alexandria around 300 BC, early in the reign of Ptolemy I. Little is known of Euclid himself.
 
-Book I ends with the Pythagorean theorem. Book IX proves that there are infinitely many primes — assume a finite list, multiply them all together and add one, and the result is either prime or has a prime factor not on the list. Book X treats irrational magnitudes; Book XIII constructs the five Platonic solids and proves there are no others.
+The *Elements* gathers and organises the geometry and number theory of earlier Greek mathematicians into a single system. It begins with 23 definitions, five postulates and five common notions, and proves everything else from them, each step depending only on what has already been shown. Book I ends with Pythagoras' theorem; Book IX proves that there are infinitely many prime numbers; Book X deals with irrational magnitudes; Book XIII constructs the five regular solids and proves there are no others.
 
-It was a standard school text into the twentieth century, and Lincoln reportedly read it to learn what it meant to demonstrate something.
+Its originality lies less in new results than in method: the idea that a whole body of knowledge can be derived by strict logic from a few stated assumptions. The fifth postulate, about parallel lines, was less obvious than the others, and two thousand years of attempts to prove it failed. In the 19th century Lobachevsky, Bolyai and Riemann showed that rejecting it produces consistent alternative geometries, one of which general relativity later required.
 
-The fifth postulate, about parallels, is conspicuously less obvious than the others. Two thousand years of attempts to derive it from the rest failed, and in the nineteenth century Lobachevsky, Bolyai and Riemann showed why: deny it and you get consistent alternative geometries — the ones general relativity turned out to need.
+Translated into Arabic and Latin and first printed in 1482, it remained a standard school text into the 20th century.

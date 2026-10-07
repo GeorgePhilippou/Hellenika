@@ -60,13 +60,14 @@ _order: 20
 <!-- field: summary -->
 An analysis of how Rome conquered the Mediterranean in fifty-three years, by a Greek who watched it from inside.
 
+<!-- field: significance -->
+The fullest ancient analysis of how Rome came to rule the Mediterranean, by a Greek who saw it happen; its theory of the mixed constitution influenced modern republics.
+
 <!-- field: body -->
-Polybius asks a single question: how, and by what kind of constitution, did Rome bring almost the whole inhabited world under its rule in less than fifty-three years?
+A history in 40 books by Polybius of Megalopolis, written in Greek around 160–130 BC. Books 1–5 survive complete; the rest are known from long excerpts. Polybius was a leading Achaean politician who, after Rome's victory at Pydna in 168 BC, was deported to Italy as one of a thousand hostages. In Rome he became a close friend of Scipio Aemilianus, and later witnessed the destruction of Carthage and Corinth in 146 BC.
 
-His answer is institutional. Book 6 analyses the Roman constitution as a mixture of monarchy (consuls), aristocracy (senate) and democracy (assemblies), each checking the others so that the cycle of constitutional decay is slowed. This analysis reached Montesquieu and, through him, the framers of the American constitution.
+His question is how, and through what kind of constitution, Rome brought almost the whole known world under its rule in less than 53 years, from 220 to 167 BC. He narrates the Second Punic War with Hannibal and Rome's wars against Macedon and the Seleucids, including the classic comparison of the flexible Roman legion with the Macedonian phalanx.
 
-He also gives the classic technical comparison of legion and phalanx, and insists that history must be written by people with practical political and military experience — he had both, and had been deported to Rome as a hostage after his side lost.
+Book 6 gives his answer: Rome's constitution mixes monarchy (the consuls), aristocracy (the Senate) and democracy (the popular assemblies), each checking the others, which slows the cycle of decline that destroys simpler constitutions. Polybius also insists that historians need practical political and military experience, must visit the places they describe and question participants.
 
-He demands that historians travel to the places they describe and interrogate participants, and attacks those who write from libraries.
-
-His unusual vantage point came from personal misfortune: after Rome's victory at Pydna in 168 BC, Polybius was among a thousand prominent Achaeans deported to Italy as political hostages, and he spent roughly seventeen years there, during which he formed a close friendship with the Roman general Scipio Aemilianus, giving him direct access to the Roman political and military elite whose rise he set out to explain.
+His idea of a balanced constitution passed through Montesquieu to the framers of the United States Constitution.
