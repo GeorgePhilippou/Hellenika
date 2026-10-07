@@ -7,7 +7,7 @@ type: deity
 subtype: olympian
 tint: archaic
 start: -1200
-end: -390
+end: 392
 coords:
   - 34.71
   - 32.75

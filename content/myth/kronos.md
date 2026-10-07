@@ -8,7 +8,7 @@ type: deity
 subtype: titan
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 domain: Titan kingship, succession, the lost Golden Age
 claims:

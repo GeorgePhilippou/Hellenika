@@ -7,7 +7,7 @@ type: myth
 subtype: primordial woman
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 legendary: true
 claims:

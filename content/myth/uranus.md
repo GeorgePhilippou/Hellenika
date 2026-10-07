@@ -8,7 +8,7 @@ type: deity
 subtype: primordial deity
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 domain: The sky, primordial sovereignty
 claims:

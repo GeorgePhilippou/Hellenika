@@ -8,7 +8,7 @@ type: site
 subtype: sanctuary
 tint: archaic
 start: -800
-end: -390
+end: 393
 coords:
   - 38.482
   - 22.501

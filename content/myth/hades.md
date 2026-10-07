@@ -9,7 +9,7 @@ type: deity
 subtype: chthonic god
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 coords:
   - 38.041

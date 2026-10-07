@@ -10,7 +10,7 @@
 import { el, $, $$, esc, fmtYear, groupBy } from '../util.js';
 import { icon, TYPE_ICON } from '../icons.js';
 import * as db from '../db.js';
-import { periods } from '../../data/periods.js';
+import { periods, primaryPeriodAt } from '../../data/periods.js';
 import { go, entityHref } from '../router.js';
 import * as store from '../store.js';
 import { createGraph } from '../components/graph.js';
@@ -117,15 +117,19 @@ const HOME_REL = /^(ruled|king of|queen of|born at|birthplace of)/i;
  * entity.
  */
 function siteRelations(e) {
-  const all = e.relations
-    .map((r) => ({ ...r, entity: db.get(r.id) }))
+  const all = db.neighbours(e.id)
     .filter((r) => r.entity && (
       r.entity.type === 'site' || r.entity.type === 'city'
       || (r.entity.type === 'myth' && r.entity.subtype === 'place')
     ));
   const home = all.filter((r) => HOME_REL.test(r.rel));
+  // Among the rest, the place the entry's own map pin is on comes first
+  // -- the Odyssey is pinned on Ithaca, not on the alphabetically first
+  // of its fourteen settings (Aeaea).
+  const pinnedHere = (r) => e.coords && r.entity.coords
+    && Math.abs(r.entity.coords[0] - e.coords[0]) < 0.3 && Math.abs(r.entity.coords[1] - e.coords[1]) < 0.3;
   const rest = all.filter((r) => !HOME_REL.test(r.rel));
-  return [...home, ...rest];
+  return [...home, ...rest.filter(pinnedHere), ...rest.filter((r) => !pinnedHere(r))];
 }
 
 /** The single best location reference -- for panels that already show
@@ -179,8 +183,49 @@ function locationCaption(e, siteRel) {
   return '';
 }
 
+const periodLink = (p) => `<a href="#/timeline/${p.id}">${esc(p.name)}</a>`;
+
+/**
+ * The Facts panel's Period row, worked out from the entry's own dates.
+ * It used to be read off `tint` (the entry's colour), which put the
+ * Iliad (c. 750 BC), Homer and Leonidas in periods that had already
+ * ended, and called Athens (1400-30 BC) simply "Classical Greece". The
+ * authored tint still wins whenever the dates actually fall inside it.
+ */
+function periodFact(e) {
+  const tinted = periods.find((p) => p.tint === e.tint);
+  if (e.start == null || e.modern || e.legendary || e.type === 'myth' || e.type === 'deity') {
+    return tinted ? periodLink(tinted) : null;
+  }
+  const FIRST = periods[0].start, LAST = Math.max(...periods.map((p) => p.end));
+  const a = Math.max(e.start, FIRST), b = Math.min(e.end ?? e.start, LAST);
+  // Entirely after the atlas closes: a later work about an earlier age
+  // (Plutarch's Life of Alexander, AD 100).
+  if (a > b && e.start > LAST) return tinted ? `After 30 BC · about ${periodLink(tinted)}` : null;
+  // Entirely before it opens (Neolithic Choirokoitia).
+  if (a > b) return `Before ${esc(fmtYear(FIRST))}`;
+  // The authored period, whenever the dates sit mostly inside it or
+  // within a generation of its edge (Marathon, 490 BC, is conventionally
+  // the opening of the Classical story; Alexander defines his own era).
+  const mid = (a + b) / 2;
+  const GRACE = 25;
+  const overlap = tinted ? Math.min(b, tinted.end) - Math.max(a, tinted.start) : -1;
+  if (tinted && (overlap >= (b - a) * 2 / 3
+    || (mid >= tinted.start - GRACE && mid <= tinted.end + GRACE && b - a <= 200))) {
+    return periodLink(tinted);
+  }
+  // Long-lived places span many periods; name the first and the last
+  // (nudged inside the range so a shared boundary year picks the later
+  // period at the start and the earlier one at the end).
+  if (b - a > 200) {
+    const first = primaryPeriodAt(a + 1), last = primaryPeriodAt(b - 1);
+    if (first && last && first !== last) return `${periodLink(first)} – ${periodLink(last)}`;
+  }
+  const dated = primaryPeriodAt(mid);
+  return dated ? periodLink(dated) : tinted ? periodLink(tinted) : null;
+}
+
 function sidebarHTML(e, sections) {
-  const period = periods.find((p) => p.tint === e.tint);
   const siteRel = !e.region ? siteRelation(e) : null;
   return `
     <aside class="entity-side">
@@ -208,8 +253,8 @@ function sidebarHTML(e, sections) {
           ['Signs', e.signs ? esc(e.signs) : null],
           ['Combatants', e.combatants ? esc(e.combatants.join(' vs ')) : null],
           ['Outcome', e.outcome ? esc(e.outcome) : null],
-          ['Period', period ? `<a href="#/timeline/${period.id}">${esc(period.name)}</a>` : null],
-          ['Connections', `${e.relations.length}`],
+          ['Period', periodFact(e)],
+          ['Connections', `${db.neighbours(e.id).length}`],
         ])}
       </div>
 
@@ -268,7 +313,7 @@ function relationsSection(e) {
 
   return section('related', 'Connections', `
     <p class="small muted" style="margin-bottom:var(--s-4)">
-      ${e.relations.length} connections. Follow any of them — this is how the dataset is meant to be read.
+      ${db.neighbours(e.id).length} connections. Follow any of them — this is how the dataset is meant to be read.
     </p>
     <div class="graph-wrap" style="margin-bottom:var(--s-3)">
       <canvas class="graph-canvas" id="graph-canvas"></canvas>
@@ -276,8 +321,8 @@ function relationsSection(e) {
     </div>
     <details class="block">
       <summary>Read all connections</summary>
-      <ul>${e.relations.map((r) => `<li>${esc(r.rel)}:
-        <a href="${entityHref(r.id)}">${esc(db.get(r.id).name)}</a></li>`).join('')}</ul>
+      <ul>${db.neighbours(e.id).map((r) => `<li>${esc(r.rel)}:
+        <a href="${entityHref(r.id)}">${esc(r.entity.name)}</a></li>`).join('')}</ul>
     </details>
     ${tintLegend([e, ...neighbourEntities], periods)}`);
 }
@@ -300,24 +345,72 @@ function sourcesSection(e) {
     </p>`);
 }
 
-// Hub entities (major periods, Athens, Alexander, ...) can have 20-60+
-// dated neighbours -- past this many, a flat date-ordered list stops
-// being something a reader can "look through" and just becomes a wall.
-const CHRONOLOGY_VISIBLE = 12;
+// How many timeline items to show either side of the entry itself
+// before the rest folds away -- hub pages (Athens, Archaic Greece) can
+// have 60-80 dated neighbours.
+const CHRONOLOGY_BEFORE = 5;
+const CHRONOLOGY_AFTER = 6;
+
+// Long-lived places, periods and polities frame an entry rather than
+// happen around it. Sorted in with everything else by their start date,
+// Athens (1400 BC) opened Pericles' chronology and Babylon (1894 BC)
+// sat a millennium and a half before Alexander's death there.
+const CONTEXT_TYPES = new Set(['period', 'city', 'site', 'region', 'empire', 'kingdom', 'writing', 'language']);
+const span = (x) => (x.end ?? x.start) - x.start;
+
+/**
+ * Splits an entry's connections into the four things a reader needs to
+ * place it: a timeline with the entry itself in it, the longer-lived
+ * setting it belongs to, the myth it draws on (undatable, so never put
+ * on the same axis as history), and the modern rediscovery of it.
+ */
+function chronologyGroups(e) {
+  const timeline = [], setting = [], myth = [], modern = [];
+  for (const n of db.neighbours(e.id)) {
+    const x = n.entity;
+    if (x.modern) modern.push(n);
+    else if (x.type === 'myth' || x.type === 'deity' || x.legendary) myth.push(n);
+    else if (x.start == null) continue;
+    else if (CONTEXT_TYPES.has(x.type) && span(x) > Math.max(150, 2 * span(e))) setting.push(n);
+    else timeline.push(n);
+  }
+  const byStart = (a, b) => a.entity.start - b.entity.start;
+  timeline.sort(byStart);
+  setting.sort(byStart);
+  modern.sort(byStart);
+  myth.sort((a, b) => a.entity.sortName.localeCompare(b.entity.sortName));
+
+  // The entry itself goes in as the anchor everything else is read
+  // against -- previously the Odyssey's own chronology never said when
+  // the Odyssey was composed.
+  // A city or site that lasted a millennium *is* the whole timeline; an
+  // anchor at its founding date would just push everything into "later".
+  const dated = e.start != null && !e.modern && !e.legendary && e.type !== 'myth' && e.type !== 'deity'
+    && span(e) <= 250;
+  let anchor = -1;
+  if (dated && timeline.length) {
+    anchor = timeline.findIndex((n) => n.entity.start > e.start);
+    if (anchor === -1) anchor = timeline.length;
+    timeline.splice(anchor, 0, { self: true, entity: e, rel: '' });
+  }
+  return { timeline, anchor, setting, myth, modern };
+}
+
+function hasChronology(e) {
+  const g = chronologyGroups(e);
+  return g.timeline.length >= 2 || g.setting.length || g.myth.length || g.modern.length;
+}
 
 function chronologySection(e) {
-  // Build a chronology from dated neighbours — no hand-authoring required.
-  // Keeps n.rel (previously discarded) -- without it, an entry like
-  // Achilles showing up on Troy's page reads as a non-sequitur, since
-  // nothing on screen explains it's there because he's "myth of" Troy
-  // rather than some arbitrary pick.
-  const items = db.neighbours(e.id)
-    .filter((n) => n.entity.start != null && !n.entity.modern)
-    .sort((a, b) => a.entity.start - b.entity.start);
-  if (items.length < 3) return '';
+  const { timeline, anchor, setting, myth, modern } = chronologyGroups(e);
+  if (!(timeline.length >= 2 || setting.length || myth.length || modern.length)) return '';
 
-  const stopHTML = ({ entity: x, rel }) => `
-    <div class="stop" style="padding-bottom:var(--s-6)">
+  const stopHTML = ({ entity: x, rel, self }) => self ? `
+    <div class="stop is-self">
+      <div class="stop-n num">${esc(entityDate(x))}</div>
+      <h3 style="font-size:1.02rem">${esc(x.name)} <span class="stop-self-tag">this entry</span></h3>
+    </div>` : `
+    <div class="stop">
       <div class="stop-n num">${esc(entityDate(x))}</div>
       <h3 style="font-size:1.02rem">
         <a href="${entityHref(x.id)}">${esc(x.name)}</a>
@@ -325,24 +418,56 @@ function chronologySection(e) {
       </h3>
       <p class="note small">${esc(x.summary)}</p>
     </div>`;
+  const stops = (items) => `<div class="stops" style="--tint:${db.tintVar(e.tint)}">${items.map(stopHTML).join('')}</div>`;
 
-  const shown = items.slice(0, CHRONOLOGY_VISIBLE);
-  const rest = items.slice(CHRONOLOGY_VISIBLE);
+  // A window around the entry, with what lies further back or further
+  // on folded away on the side it belongs to.
+  let timelineHTML = '';
+  if (timeline.length >= 2) {
+    const centre = anchor === -1 ? 0 : anchor;
+    let from = Math.max(0, centre - CHRONOLOGY_BEFORE);
+    let to = Math.min(timeline.length, centre + CHRONOLOGY_AFTER + 1);
+    if (anchor === -1) { from = 0; to = Math.min(timeline.length, CHRONOLOGY_BEFORE + CHRONOLOGY_AFTER + 1); }
+    const earlier = timeline.slice(0, from), shown = timeline.slice(from, to), later = timeline.slice(to);
+    timelineHTML = `
+      <div class="chron-group">
+        <h3 class="eyebrow">Timeline</h3>
+        <p class="small muted chron-intro">
+          ${anchor === -1 ? 'Connected people, events and works in date order.'
+            : `Where ${esc(e.name)} falls among the people, events and works connected to it.`}
+        </p>
+        ${earlier.length ? `
+        <details class="chronology-more">
+          <summary class="small muted">Show ${earlier.length} earlier</summary>
+          <div style="margin:var(--s-6) 0">${stops(earlier)}</div>
+        </details>` : ''}
+        ${stops(shown)}
+        ${later.length ? `
+        <details class="chronology-more">
+          <summary class="small muted">Show ${later.length} later</summary>
+          <div style="margin-top:var(--s-6)">${stops(later)}</div>
+        </details>` : ''}
+      </div>`;
+  }
+
+  const row = ({ entity: x, rel }, { date = true } = {}) => `
+    <li>
+      <a href="${entityHref(x.id)}">${esc(x.name)}</a>
+      <span class="stop-rel">${esc(rel)}</span>
+      ${date && x.start != null ? `<span class="chron-row-date num">${esc(entityDate(x))}</span>` : ''}
+    </li>`;
+  const group = (title, intro, items, opts) => items.length ? `
+    <div class="chron-group">
+      <h3 class="eyebrow">${title}</h3>
+      <p class="small muted chron-intro">${intro}</p>
+      <ul class="chron-list">${items.map((n) => row(n, opts)).join('')}</ul>
+    </div>` : '';
 
   return section('chronology', 'Chronology', `
-    <p class="small muted" style="margin-bottom:var(--s-5)">
-      Connected entities in date order — the immediate historical neighbourhood.
-    </p>
-    <div class="stops" style="--tint:${db.tintVar(e.tint)}">
-      ${shown.map(stopHTML).join('')}
-    </div>
-    ${rest.length ? `
-    <details class="chronology-more">
-      <summary class="small muted">Show ${rest.length} more</summary>
-      <div class="stops" style="--tint:${db.tintVar(e.tint)};margin-top:var(--s-6)">
-        ${rest.map(stopHTML).join('')}
-      </div>
-    </details>` : ''}`);
+    ${timelineHTML}
+    ${group('Setting', 'The longer-lived periods, places and powers this belongs to.', setting)}
+    ${group('In myth and cult', 'Figures, gods and places of the mythological tradition. These have no historical date, so they are kept off the timeline.', myth, { date: false })}
+    ${group('Rediscovery', 'The modern excavators, decipherers and events through which it is known today.', modern)}`);
 }
 
 /* ============================================================
@@ -359,7 +484,7 @@ function historyPage(e) {
     { id: 'overview', label: 'Overview' },
     { id: 'related', label: 'Connections' },
     e.claims.length && { id: 'evidence', label: 'Evidence' },
-    { id: 'chronology', label: 'Chronology' },
+    hasChronology(e) && { id: 'chronology', label: 'Chronology' },
     e.sources.length && { id: 'sources', label: 'Sources' },
   ].filter(Boolean);
 

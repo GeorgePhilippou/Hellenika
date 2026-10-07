@@ -8,7 +8,7 @@ type: deity
 subtype: olympian
 tint: mycenaean
 start: -1400
-end: -390
+end: 392
 coords:
   - 37.65
   - 24.025

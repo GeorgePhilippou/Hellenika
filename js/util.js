@@ -58,6 +58,8 @@ export function fmtRange(a, b, approx = false) {
   if (a == null) return `until ${fmtYear(b)}`;
   if (b == null) return `from ${fmtYear(a)}`;
   const pre = approx ? 'c. ' : '';
+  // A one-year event ("490 BC"), not a range that starts and ends on it.
+  if (Math.round(a) === Math.round(b)) return fmtYear(a, { approx });
   // Same era → drop the era marker from the first number.
   if (a < 0 && b <= 0) return `${pre}${Math.abs(Math.round(a))}–${Math.abs(Math.round(b)) || 1} BC`;
   if (a > 0 && b > 0) return `${pre}AD ${Math.round(a)}–${Math.round(b)}`;

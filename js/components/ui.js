@@ -14,7 +14,7 @@ export function entityDate(e) {
   if (e.type === 'deity') return 'Deity · see sources for attestation';
   if (e.type === 'myth' || e.legendary) return 'Mythological tradition';
   if (e.start == null) return '';
-  if (e.modern) return `${e.start}–${e.end ?? ''}`;
+  if (e.modern) return e.start === e.end ? `${e.start}` : `${e.start}–${e.end ?? ''}`;
   const range = fmtRange(e.start, e.end, e.approx);
   if (e.floruit) return `fl. ${range}`;
   return range;

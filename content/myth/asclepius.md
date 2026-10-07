@@ -7,7 +7,7 @@ type: deity
 subtype: healing god
 tint: classical
 start: -600
-end: -390
+end: 392
 coords:
   - 37.596
   - 23.079

@@ -7,7 +7,7 @@ type: myth
 subtype: titan and culture hero
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 claims:
   - text: Hesiod makes Prometheus responsible for the sacrificial division between gods and humans.

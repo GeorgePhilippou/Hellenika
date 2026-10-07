@@ -523,10 +523,24 @@ export function mapPointsAt(year) {
 }
 
 /** Immediate neighbours in the relationship graph. */
+const GENERIC_REL = /^related to\b/;
+
 export function neighbours(id) {
   const e = get(id);
   if (!e) return [];
-  return e.relations
+  // One entry per connected entity. Content often links the same pair
+  // twice ("attributed to" + "composed by" Homer, "protagonist" + "related
+  // to" Odysseus), and the inverse pass adds a third; listing each of
+  // those separately put the same name two or three times in a row on
+  // 316 of 455 pages. Keep the most informative label: authored over
+  // derived, anything specific over a bare "related to".
+  const rank = (r) => (r.derived ? 2 : 0) + (GENERIC_REL.test(r.rel) ? 1 : 0);
+  const best = new Map();
+  for (const r of e.relations) {
+    const prev = best.get(r.id);
+    if (!prev || rank(r) < rank(prev)) best.set(r.id, r);
+  }
+  return [...best.values()]
     .map((r) => ({ ...r, entity: get(r.id) }))
     .filter((r) => r.entity);
 }

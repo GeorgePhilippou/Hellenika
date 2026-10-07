@@ -7,7 +7,7 @@ type: deity
 subtype: titan
 tint: minoan
 start: -700
-end: -390
+end: 392
 approx: true
 coords:
   - 35.24

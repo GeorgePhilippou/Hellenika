@@ -131,7 +131,7 @@ export async function renderHome() {
           <h3 style="font-size:1.5rem;margin-bottom:var(--s-3)">${esc(featured.name)}</h3>
           <p class="prose" style="max-width:70ch">${esc(featured.summary)}</p>
           <p class="small muted" style="margin-top:var(--s-4)">
-            ${featured.claims.length} evidence-tagged claims · ${featured.relations.length} connections
+            ${featured.claims.length} evidence-tagged claims · ${db.neighbours(featured.id).length} connections
           </p>
         </div>
         <div class="start-card-media" data-hero-img-id="${esc(featured.id)}">

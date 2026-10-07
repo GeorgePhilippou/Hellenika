@@ -2081,3 +2081,22 @@ button.mt-step:focus-visible { outline: 2px solid var(--accent); outline-offset:
   border-top: 1px solid var(--border);
 }
 .foot-credit { margin-inline: auto; color: var(--text-2); }
+
+/* Chronology groups: the timeline (with the entry itself as its anchor),
+   then the setting, myth and rediscovery lists it used to mix together. */
+.chron-group + .chron-group { margin-top: var(--s-10); }
+.chron-group > .eyebrow { margin-bottom: var(--s-2); }
+.chron-intro { margin-bottom: var(--s-5); max-width: 62ch; }
+.stop.is-self::before { background: var(--tint); }
+.stop.is-self h3 { color: var(--text); }
+.stop-self-tag {
+  display: inline-block; margin-left: var(--s-2); padding: 1px var(--s-2);
+  border-radius: var(--r-sm, 4px); vertical-align: middle;
+  font-family: var(--font-ui); font-size: var(--fs-xxs); font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--tint); background: color-mix(in srgb, var(--tint) 14%, transparent);
+}
+.chron-list { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: var(--s-8); }
+.chron-list li { break-inside: avoid; padding: var(--s-2) 0; border-bottom: 1px solid var(--border); }
+.chron-list .stop-rel { margin-left: var(--s-1); }
+.chron-row-date { display: block; font-size: var(--fs-xxs); color: var(--text-3); }

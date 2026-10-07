@@ -7,7 +7,7 @@ type: myth
 subtype: primordial being
 tint: archaic
 start: -700
-end: -390
+end: 392
 approx: true
 claims:
   - text: Hesiod begins his cosmogony with Chaos as the first named condition or being.
