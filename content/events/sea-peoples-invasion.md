@@ -49,10 +49,10 @@ Coalitions of displaced peoples attacked Egypt and the Levant by land and sea du
 The attacks most closely linked with the collapse of the Late Bronze Age world around 1200 BC.
 
 <!-- field: body -->
-Between about 1200 and 1150 BC, coalitions of peoples from the Aegean and Anatolia attacked Egypt and the coasts of the eastern Mediterranean.
+Between about 1200 and 1150 BC, coalitions of peoples from the Aegean and Anatolia attacked Egypt and the coasts of the eastern Mediterranean, at the time when the great states of the Late Bronze Age were collapsing.
 
-Egyptian inscriptions under Merneptah and Ramesses III name groups — Peleset, Tjeker, Shekelesh, Denyen, Weshesh, Sherden — attacking in combination. The Medinet Habu reliefs show them travelling with families in ox-carts, which reads as migration rather than a raid.
+Egyptian inscriptions of the pharaohs Merneptah (around 1208 BC) and Ramesses III (around 1177 BC) name the attackers: Peleset, Tjeker, Shekelesh, Denyen, Weshesh, Sherden and others, fighting together. Ramesses III's reliefs at Medinet Habu show them defeated on land and at sea, and show families travelling in ox-carts, which suggests a migration rather than a raid. His inscription says these peoples had already destroyed the Hittite Empire, Carchemish, Arzawa and Alashiya (Cyprus) — places where archaeologists do find destruction layers at this time.
 
-Ramesses III's text says these groups had already destroyed Hatti, Carchemish, Arzawa and Alashiya — matching the archaeological destruction horizon closely.
+The name "Sea Peoples" is modern; no ancient text uses it as a single label. Historians now see them less as the cause of the Bronze Age collapse than as part of it: populations uprooted by drought, famine, earthquakes and the failure of states, who then spread the disruption further.
 
-The term "Sea Peoples" is a modern coinage; no ancient source uses it as a collective name. Current thinking treats them less as a cause of the collapse than as a symptom: populations set in motion by drought and state failure, who then accelerated the failure elsewhere. One named group, the Peleset, is widely thought by scholars to be connected to the Philistines who subsequently settled the southern Levantine coast, meaning this single Egyptian inscription may record the arrival of a people whose name survives, via a long chain of transmission, in the modern word "Palestine" itself.
+Some of the groups can be traced afterwards. The Peleset are generally identified with the Philistines, who settled on the southern coast of Canaan, bringing Aegean-style pottery, and whose name survives in "Palestine". The Sherden and Shekelesh may be linked with Sardinia and Sicily.

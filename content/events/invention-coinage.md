@@ -50,8 +50,10 @@ The invention of coined money, which the Greek cities quickly made their own.
 <!-- field: body -->
 In the late 7th century BC, in the kingdom of Lydia in western Asia Minor, the first true coins were struck.
 
-The first coins were lumps of electrum — a natural gold-silver alloy from the Pactolus river — of controlled weight, stamped with a design guaranteeing them. The stamp converts metal into money by removing the need to weigh and assay at every transaction.
+They were small lumps of electrum, a natural alloy of gold and silver washed down the Pactolus river near the capital, Sardis. Each was of a fixed weight and stamped with a design, at first on one face only, the back carrying the rough mark of the punch. The stamp guaranteed the coin, so it could be counted rather than weighed and tested at every exchange — the step that turned metal into money. The best-known early type shows a lion's head, the badge of the Lydian kings. Some of the earliest well-dated examples were found in a foundation deposit of the temple of Artemis at Ephesus.
 
-Croesus later separated the alloy into pure gold and silver coinages, creating the first bimetallic system with a fixed exchange rate.
+Because electrum's gold content varies, King Croesus (c. 560–546 BC) introduced separate coins of refined gold and silver, the first two-metal system.
 
-Greek cities adopted coinage rapidly and made it identity: the Athenian owl, the Aeginetan turtle, the Corinthian pegasus. Athens' silver owls, backed by Laurion, became the first international reserve currency, accepted from Egypt to the Black Sea. Coin hoards are now among the most precise dating tools in archaeology. The very earliest coins were struck on only one face, showing a design on the front while the back carries only the rough, irregular mark left by the punch used to drive the design into the blank — a reminder of just how experimental the whole technology still was at its outset.
+The Greek cities of Ionia copied the idea at once, and within a century it had spread across the Greek world. Coins became a badge of each city's identity: the turtle of Aegina, the colt of Corinth, the owl of Athens. Athens' silver owls, minted from the mines of Laurion, were trusted from Egypt to the Black Sea.
+
+Today coin hoards are among archaeologists' most precise dating tools.

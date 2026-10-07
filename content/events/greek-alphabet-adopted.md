@@ -3,7 +3,7 @@ id: greek-alphabet-adopted
 name: Adoption of the Greek alphabet
 type: event
 subtype: innovation
-tint: darkage
+tint: archaic
 start: -800
 end: -750
 approx: true
@@ -53,10 +53,10 @@ Greeks adapted the Phoenician consonantal script and repurposed unused signs as 
 The creation of the first full alphabet, with vowels — the ancestor of the Latin and Cyrillic scripts and the basis of Greek literature.
 
 <!-- field: body -->
-Some time in the early 8th century BC, probably through trading contacts in the eastern Mediterranean, Greeks adopted the Phoenician script.
+Some time in the early 8th century BC, probably through trading contacts in the eastern Mediterranean, Greeks adopted the Phoenician script and turned it into the first full alphabet. Linear B, the earlier Mycenaean script, had been forgotten for four centuries.
 
-Phoenician script wrote consonants only, which works for Semitic languages built on consonantal roots. Greek needs vowels: without them, common words become ambiguous.
+Phoenician writing recorded only consonants, which suited Semitic languages built on consonant roots. Greek needs vowels to be read clearly. The Greeks took Phoenician signs for consonants that Greek did not have — *aleph*, *he*, *yod*, *ayin* — and used them for vowels: alpha, epsilon, iota, omicron. They also added new letters. The result could write any Greek word unambiguously and could be learned quickly, unlike the scripts of the palace scribes.
 
-The Greek solution was elegant. Phoenician had consonants Greek did not use — the glottal stop *aleph*, the pharyngeal *ayin*, *he*, *yod*. Greeks took those signs and assigned them to vowels: alpha, omicron, epsilon, iota. One notational change made the script able to represent any word in the language unambiguously, and made literacy learnable in weeks rather than years.
+The most likely place of transfer was a mixed trading settlement where Greeks and Phoenicians lived side by side, such as Al Mina in Syria, or Crete, Rhodes or Cyprus. Local variants of the alphabet soon developed in different Greek regions; the Euboean version passed to the Etruscans and then to the Romans, becoming the Latin alphabet.
 
-The earliest inscriptions — the Dipylon oinochoe from Athens and "Nestor's Cup" from Pithekoussai, both around 740 BC — are not administrative. One is a dancing prize and the other a joke about a drinking cup, written in verse. Greek writing enters the record as play. The most likely transmission route runs through direct, sustained contact between Greek traders or mercenaries and Phoenician communities at mixed trading settlements such as Al Mina on the Syrian coast, where the two peoples lived and worked in close enough proximity for the practical skill of writing to pass from one group to the other.
+The earliest Greek inscriptions, from around 740–720 BC, are not accounts. The Dipylon Oinochoe from Athens offers a jug as a prize for the best dancer, and Nestor's Cup from Pithekoussai carries a joking verse about drinking. From the start, the alphabet recorded poetry and everyday life — and soon the Homeric epics themselves.
