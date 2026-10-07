@@ -1,276 +1,412 @@
 /* ============================================================
    Hellenika — Timeline view
-   The interactive canvas, a selected-year context panel, and an
-   expandable panel for whichever period is open.
+
+   A vertical "rail map" of the Greek world. Read top to bottom:
+   every period is a coloured rail running alongside the spine for
+   exactly as long as it lasted, so overlaps (Minoan beside
+   Mycenaean, Classical beside Macedon) show as parallel rails; every
+   dated event, battle, text and artefact is a stop on its period's
+   rail. Time is compressed, not drawn to scale -- three thousand
+   years on a linear axis left the Classical and Hellenistic ages,
+   where most of the record lies, in the last sixth of the width --
+   and every long gap says how many years it skips.
+
+   Replaces the earlier horizontal canvas (components/timeline-canvas.js,
+   kept for reference). Period detail opens in a side drawer.
    ============================================================ */
 
 import { el, $, $$, esc, fmtYear, clamp, throttle } from '../util.js';
 import { icon, TYPE_ICON } from '../icons.js';
 import * as store from '../store.js';
 import * as db from '../db.js';
-import { periods } from '../../data/periods.js';
-import { worldPeriods, worldEvents } from '../../data/world.js';
-import { createTimeline } from '../components/timeline-canvas.js';
-import { hydrateImages, peek, ensureLoaded } from '../components/images.js';
+import { periods, primaryPeriodAt } from '../../data/periods.js';
+import { worldEvents } from '../../data/world.js';
+import { hydrateImages } from '../components/images.js';
 import { go, entityHref } from '../router.js';
 import {
-  entityCard, entityPill, claimsList, paragraphs, sectionHead,
+  entityCard, entityPill, claimsList, paragraphs,
   entityDate, emptyState, block,
 } from '../components/ui.js';
 
-/* Historical markers use attested records. Mythological stories remain
+/* Historical stops use attested records. Mythological stories remain
    available in the mythology section without invented historical dates. */
-const MARKER_TYPES = ['event', 'battle', 'war', 'artefact', 'text'];
+const FILTERS = [
+  { key: 'event', label: 'Events', types: ['event'] },
+  { key: 'battle', label: 'Battles & wars', types: ['battle', 'war'] },
+  { key: 'text', label: 'Texts', types: ['text'] },
+  { key: 'artefact', label: 'Artefacts', types: ['artefact'] },
+  { key: 'world', label: 'Elsewhere in the world', types: [] },
+];
+const DEFAULT_ON = new Set(['event', 'battle', 'text', 'artefact']);
+
+const LANE_W = 16;        // px between parallel rails
+const GAP_LABEL_MIN = 120; // years: a skipped stretch this long gets a label
+
+/* ---------- Static model: periods, lanes, stops ---------- */
+
+const byStart = [...periods].sort((a, b) => a.start - b.start || b.end - a.end);
+
+// Greedy lane assignment: a period takes the first lane whose previous
+// occupant has ended. Gives three lanes for the whole sweep.
+const laneOf = new Map();
+{
+  const laneEnds = [];
+  for (const p of byStart) {
+    let lane = laneEnds.findIndex((end) => end <= p.start);
+    if (lane === -1) lane = laneEnds.length;
+    laneEnds[lane] = p.end;
+    laneOf.set(p.id, lane);
+  }
+}
+const LANES = Math.max(...laneOf.values()) + 1;
+
+/** The period a stop belongs on: its own authored period when its date
+ * falls within it (strictly -- a stop must sit on a rail that is there),
+ * otherwise the narrowest period active at that date. */
+function periodFor(e) {
+  const tinted = periods.find((p) => p.tint === e.tint);
+  if (tinted && e.start >= tinted.start && e.start < tinted.end) return tinted;
+  return primaryPeriodAt(e.start) || tinted || byStart[0];
+}
+
+// Anything that began before the atlas opens (the Melos obsidian trade,
+// 11,000 BC) is placed at the threshold, keeping its true date on its
+// label, rather than opening the page with an eight-millennium gap.
+const FIRST_YEAR = byStart[0].start;
+const STOPS = db.ofType('event', 'battle', 'war', 'artefact', 'text')
+  .filter((e) => e.start != null && db.isHistorical(e))
+  .map((e) => ({ kind: 'stop', year: Math.max(e.start, FIRST_YEAR - 1), entity: e,
+    period: periodFor({ ...e, start: Math.max(e.start, FIRST_YEAR) }) }));
+
+// Short names for the period ribbon.
+const SHORT = {
+  'early-bronze-age': 'Early Bronze', 'minoan-civilisation': 'Minoan', 'mycenaean-civilisation': 'Mycenaean',
+  'bronze-age-collapse': 'Collapse', 'greek-dark-age': 'Dark Age', 'archaic-greece': 'Archaic',
+  'classical-greece': 'Classical', 'rise-of-macedon': 'Macedon', 'alexander-empire': 'Alexander',
+  'hellenistic-period': 'Hellenistic', 'roman-conquest': 'Roman',
+};
+
+const WORLD = worldEvents.map((w) => ({ kind: 'world', year: w.year, data: w }));
+
+/** Rows in strict date order, with chapter rows where periods begin. */
+function buildRows(on) {
+  const types = new Set(FILTERS.filter((f) => on.has(f.key)).flatMap((f) => f.types));
+  const rows = [
+    ...byStart.map((p) => ({ kind: 'start', year: p.start, period: p })),
+    ...byStart.map((p) => ({ kind: 'end', year: p.end, period: p })),
+    ...STOPS.filter((s) => types.has(s.entity.type)),
+    ...(on.has('world') ? WORLD : []),
+  ];
+  const order = { start: 0, world: 1, stop: 2, end: 3 };
+  rows.sort((a, b) => a.year - b.year || order[a.kind] - order[b.kind]
+    || (a.entity?.end ?? a.year) - (b.entity?.end ?? b.year));
+  // Several periods end together at 30 BC; one closing row says so.
+  return rows.filter((r, i) => !(r.kind === 'end' && rows.slice(i + 1).some((x) => x.kind === 'end' && x.year === r.year)))
+    .map((r) => (r.kind === 'end'
+      ? { ...r, ending: byStart.filter((p) => p.end === r.year) }
+      : r));
+}
+
+/* ---------- Rendering ---------- */
+
+const yearsLabel = (n) => n >= 1000 ? `${(n / 1000).toFixed(n % 1000 ? 1 : 0)} thousand years`
+  : `${n >= 200 ? Math.round(n / 50) * 50 : n >= 50 ? Math.round(n / 10) * 10 : n} years`;
+
+function rowHTML(r, prevYear) {
+  const gap = prevYear == null ? 0 : r.year - prevYear;
+  // Spacing grows with the logarithm of the years skipped, so a decade
+  // reads as close and a millennium as far without either one taking
+  // over the page.
+  const space = gap <= 0 ? 0 : Math.round(clamp(Math.log2(gap + 1) * 7, 6, 64));
+  const gapRow = gap >= GAP_LABEL_MIN
+    ? `<li class="chron-gap" aria-hidden="true"><span>≈ ${esc(yearsLabel(gap))}</span></li>` : '';
+  const style = `style="margin-top:${space}px"`;
+
+  if (r.kind === 'start') {
+    const p = r.period;
+    return `${gapRow}<li class="chron-row chron-chapter" data-year="${r.year}" data-lane="${laneOf.get(p.id)}"
+        data-cap="start" data-period="${p.id}" id="chron-${p.id}" style="--tint:var(--p-${p.tint});margin-top:${space}px">
+      <div class="chron-date num">${esc(fmtYear(p.start))}</div>
+      <div class="chron-node" aria-hidden="true"></div>
+      <div class="chron-card">
+        <p class="chron-kicker">Period begins · ${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}</p>
+        <h2 class="chron-chapter-title">${esc(p.name)}</h2>
+        <p class="chron-chapter-sum">${esc(p.summary)}</p>
+        <button class="btn btn-sm chron-open" data-open="${p.id}">${icon('period', { size: 15 })} Explore this period</button>
+      </div>
+    </li>`;
+  }
+  if (r.kind === 'end') {
+    const names = r.ending.map((p) => p.name);
+    return `${gapRow}<li class="chron-row chron-end" ${style} data-year="${r.year}" data-cap="end"
+        data-periods="${r.ending.map((p) => p.id).join(' ')}" data-lane="${laneOf.get(r.ending[0].id)}">
+      <div class="chron-date num">${esc(fmtYear(r.year))}</div>
+      <div class="chron-node" aria-hidden="true"></div>
+      <div class="chron-card"><p class="chron-end-text">End of ${esc(names.join(' · '))}</p></div>
+    </li>`;
+  }
+  if (r.kind === 'world') {
+    const w = r.data;
+    return `${gapRow}<li class="chron-row chron-world" ${style} data-year="${r.year}" data-lane="world">
+      <div class="chron-date num">${esc(fmtYear(w.year))}</div>
+      <div class="chron-node" aria-hidden="true"></div>
+      <div class="chron-card">
+        <p class="chron-world-label">Elsewhere</p>
+        <h3 class="chron-title">${esc(w.name)}</h3>
+        ${w.note ? `<p class="chron-sum">${esc(w.note)}</p>` : ''}
+      </div>
+    </li>`;
+  }
+  const e = r.entity, p = r.period;
+  return `${gapRow}<li class="chron-row chron-stop" data-year="${r.year}" data-lane="${laneOf.get(p.id)}"
+      style="--tint:var(--p-${p.tint});margin-top:${space}px">
+    <div class="chron-date num">${esc(entityDate(e))}</div>
+    <div class="chron-node" aria-hidden="true"></div>
+    <a class="chron-card" href="${entityHref(e.id)}">
+      <div class="chron-thumb" data-img-id="${esc(e.id)}">${icon(TYPE_ICON[e.type] || 'sparkle', { size: 22 })}</div>
+      <div class="chron-text">
+        <p class="chron-type">${esc(e.typeLabel)}</p>
+        <h3 class="chron-title">${esc(e.name)}</h3>
+        <p class="chron-sum">${esc(e.significance || e.summary)}</p>
+      </div>
+    </a>
+  </li>`;
+}
 
 export async function renderTimeline(params) {
-  const root = el('div', { class: 'view' });
+  const root = el('div', { class: 'view chron-view' });
   const openId = params?.id || null;
 
   root.innerHTML = `
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">3200 BC — 30 BC</p>
-          <h1>The Timeline</h1>
-          <p class="sub">Drag to travel. Scroll to zoom. Click a date to inspect it, a band to open a period, or a dot to open an event.</p>
-        </div>
-        <div class="row">
-          <button class="btn btn-sm" id="tl-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
-          <button class="btn btn-sm" id="tl-zoom-in" aria-label="Zoom in">${icon('plus', { size: 15 })}</button>
-          <button class="btn btn-sm" id="tl-reset">${icon('reset', { size: 15 })} Full range</button>
-          <button class="btn btn-sm" id="tl-fullscreen">${icon('expand', { size: 15 })} Full screen</button>
-        </div>
-      </div>
+    <div class="wrap chron-wrap">
+      <header class="chron-hero">
+        <p class="eyebrow">3200 BC — 30 BC</p>
+        <h1>The Timeline</h1>
+        <p class="sub">Three thousand years of the Greek world, read from top to bottom. Each coloured rail is a period,
+          running for as long as it lasted; each stop on it is something that happened. Long stretches are compressed —
+          the markers between them say how much time has passed.</p>
+      </header>
 
-      <div class="tl-shell">
-        <div class="tl-canvas-wrap">
-          <canvas class="tl-canvas" id="tl-canvas"></canvas>
-          <div class="tl-tip" id="tl-tip"></div>
-          <div class="tl-hint">drag · scroll to zoom · click to inspect</div>
-          <div class="tl-fs-bar">
-            <button class="btn btn-sm" id="tl-fs-zoom-out" aria-label="Zoom out">${icon('minus', { size: 15 })}</button>
-            <button class="btn btn-sm" id="tl-fs-zoom-in" aria-label="Zoom in">${icon('plus', { size: 15 })}</button>
-            <button class="btn btn-sm" id="tl-fs-reset">${icon('reset', { size: 15 })} Full range</button>
-            <button class="btn btn-sm" id="tl-fs-exit">${icon('collapse', { size: 15 })} Exit full screen</button>
+      <div class="chron-bar">
+        <div class="chron-now">
+          <span class="chron-now-year num" id="chron-now-year">3200 BC</span>
+          <span class="chron-now-era" id="chron-now-era"></span>
+        </div>
+        <nav class="chron-ribbon" aria-label="Jump to a period">
+          ${byStart.map((p) => `
+            <button class="chron-seg" data-jump="${p.id}" style="--tint:var(--p-${p.tint})" title="${esc(p.name)} · ${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}">
+              <span>${esc(SHORT[p.id] || p.name)}</span>
+            </button>`).join('')}
+        </nav>
+        <div class="chron-tools">
+          <div class="chron-filters" role="group" aria-label="Show">
+            ${FILTERS.map((f) => `<button class="chip chron-filter" data-filter="${f.key}" aria-pressed="${DEFAULT_ON.has(f.key)}">${esc(f.label)}</button>`).join('')}
           </div>
+          <a class="btn btn-sm" id="chron-map" href="#/map">${icon('map', { size: 15 })} <span>This year on the map</span></a>
         </div>
-
-        <div id="tl-snapshot"></div>
-        <div id="tl-panel"></div>
       </div>
-    </div>`;
 
-  // The canvas needs to be in the document before it can be measured.
+      <div class="chron-body" style="--lanes:${LANES}">
+        <svg class="chron-rails" aria-hidden="true"></svg>
+        <ol class="chron-track" id="chron-list"></ol>
+      </div>
+    </div>
+
+    <div class="chron-scrim" id="chron-scrim" hidden></div>
+    <aside class="chron-drawer" id="chron-drawer" aria-label="Period details" hidden>
+      <button class="btn btn-sm chron-drawer-close" id="chron-close" aria-label="Close">${icon('collapse', { size: 15 })} Close</button>
+      <div id="chron-drawer-body"></div>
+    </aside>`;
+
   root.__mount = () => mount(root, openId);
   return root;
 }
 
 function mount(root, openId) {
-  const canvas = $('#tl-canvas', root);
-  const tip = $('#tl-tip', root);
-  const panel = $('#tl-panel', root);
-  const snapshot = $('#tl-snapshot', root);
-  if (!canvas) return;
+  const list = $('#chron-list', root);
+  const svg = $('.chron-rails', root);
+  const body = $('.chron-body', root);
+  const nowYear = $('#chron-now-year', root);
+  const nowEra = $('#chron-now-era', root);
+  const drawer = $('#chron-drawer', root);
+  const scrim = $('#chron-scrim', root);
+  if (!list) return;
+  // The view animates in with a transform, which would make a fixed
+  // drawer position against the view instead of the window; host the
+  // drawer and its scrim on <body> while the timeline is open.
+  const portal = el('div', { class: 'chron-portal' });
+  portal.append(scrim, drawer);
+  document.body.append(portal);
 
-  // Bumped on every hover change so a slow image fetch from an earlier
-  // hover can't paint itself into the tooltip after the pointer has
-  // already moved on to something else.
-  let hoverToken = 0;
+  const on = new Set(DEFAULT_ON);
+  let rowEls = [];
 
-  /* ---------- Markers ---------- */
-  const markers = db.ofType(...MARKER_TYPES)
-    .filter((e) => e.start != null && db.isHistorical(e))
-    .map((e) => ({ year: e.start, entity: e }));
-
-  const tl = createTimeline(canvas, {
-    periods,
-    markers,
-    worldPeriods,
-    worldEvents,
-    onPeriodClick: (p) => openPeriod(p.id),
-    onMarkerClick: (e) => go(`/e/${e.id}`),
-    onYearSelect: (year) => {
-      store.togglePlay(false);
-      store.setYear(year);
-    },
-    onHover: (h, pos) => {
-      hoverToken++;
-      if (!h) { tip.classList.remove('on'); return; }
-      const d = h.data;
-      let bodyHTML;
-      if (h.kind === 'period') {
-        bodyHTML = `<div class="t">${esc(d.name)}</div>
-           <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
-           <div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>`;
-      } else if (h.kind === 'world-period') {
-        bodyHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
-           <div class="d">${esc(fmtYear(d.start))} – ${esc(fmtYear(d.end))}</div>
-           <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
-      } else if (h.kind === 'world-marker') {
-        bodyHTML = `<div class="t">${esc(d.name)} <span class="small muted">· World</span></div>
-           <div class="d">${esc(fmtYear(d.year))}${d.n > 1 ? ` · +${d.n - 1} more nearby` : ''}</div>
-           <div class="d" style="margin-top:6px">${esc(d.note || '')}</div>`;
-      } else {
-        bodyHTML = `<div class="t">${esc(d.name)}</div>
-           <div class="d">${esc(entityDate(d))} · ${esc(d.typeLabel)}</div>
-           ${d.summary ? `<div class="d" style="margin-top:6px">${esc(d.summary.slice(0, 110))}…</div>` : ''}`;
-      }
-
-      tip.innerHTML = `<div class="tl-tip-media" data-tip-media></div><div class="tl-tip-body">${bodyHTML}</div>`;
-      tip.classList.add('on');
-      // Keep the tooltip inside the canvas.
-      const w = 280;
-      tip.style.left = `${clamp(pos.x + 14, 8, canvas.clientWidth - w - 8)}px`;
-      tip.style.top = `${clamp(pos.y + 14, 8, canvas.clientHeight - 200)}px`;
-
-      // Image loads async (it's fetched from Wikipedia, not bundled) — paint
-      // it in if already cached from an earlier hover, otherwise fetch and
-      // fill it in only if the pointer is still over this same thing.
-      const token = hoverToken;
-      const paint = (img) => {
-        if (hoverToken !== token || !img?.src) return;
-        const el2 = tip.querySelector('[data-tip-media]');
-        if (el2) el2.innerHTML = `<img src="${img.src}" alt="" loading="lazy" decoding="async">`;
-      };
-      const cached = peek(d);
-      if (cached !== undefined) paint(cached);
-      else ensureLoaded([d]).then(() => paint(peek(d)));
-    },
-  });
-
-  /* ---------- Selected-year context ---------- */
-  const paintSnapshot = throttle((y) => renderSnapshot(snapshot, y), 120);
-  const unbindYear = store.bind('year', paintSnapshot);
-
-  /* ---------- Toolbar ---------- */
-  $('#tl-zoom-in', root).addEventListener('click', () => tl.zoomIn());
-  $('#tl-zoom-out', root).addEventListener('click', () => tl.zoomOut());
-  $('#tl-reset', root).addEventListener('click', () => tl.reset());
-
-  /* ---------- Full screen ----------
-     Only the canvas itself goes fullscreen, not the whole shell -- the
-     information panels below it don't shrink in a column flex layout,
-     so fullscreening the shell squeezed the canvas down to nothing.
-     The zoom/reset/exit controls are duplicated as an overlay
-     bar inside the canvas wrap (shown only while fullscreen), since the
-     page's own toolbar lives outside it and isn't rendered while
-     fullscreen is active. */
-  const canvasWrap = root.querySelector('.tl-canvas-wrap');
-  const fsBtn = $('#tl-fullscreen', root);
-  const paintFsBtn = () => {
-    const on = document.fullscreenElement === canvasWrap;
-    fsBtn.innerHTML = on
-      ? `${icon('collapse', { size: 15 })} Exit full screen`
-      : `${icon('expand', { size: 15 })} Full screen`;
-  };
-  const enterFullscreen = () => canvasWrap.requestFullscreen?.().catch(() => {});
-  const exitFullscreen = () => document.exitFullscreen?.().catch(() => {});
-  fsBtn.addEventListener('click', () => {
-    if (document.fullscreenElement === canvasWrap) exitFullscreen();
-    // Some embedding contexts (e.g. an iframe without allow="fullscreen")
-    // reject this outright -- fail quietly rather than an unhandled rejection.
-    else enterFullscreen();
-  });
-  document.addEventListener('fullscreenchange', paintFsBtn);
-
-  $('#tl-fs-zoom-in', root).addEventListener('click', () => tl.zoomIn());
-  $('#tl-fs-zoom-out', root).addEventListener('click', () => tl.zoomOut());
-  $('#tl-fs-reset', root).addEventListener('click', () => tl.reset());
-  $('#tl-fs-exit', root).addEventListener('click', exitFullscreen);
-
-  /* ---------- Period panel ---------- */
-  function openPeriod(id) {
-    const p = periods.find((x) => x.id === id);
-    if (!p) return;
-    tl.focusPeriod(p);
-    store.setYear(Math.round((p.start + p.end) / 2));
-    panel.innerHTML = periodPanelHTML(p);
-    wirePeriodPanel(panel, p);
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    history.replaceState(null, '', `#/timeline/${p.id}`);
+  /* ---------- List ---------- */
+  function renderList() {
+    const rows = buildRows(on);
+    let prev = null;
+    list.innerHTML = rows.map((r) => { const h = rowHTML(r, prev); prev = r.year; return h; }).join('');
+    rowEls = $$('.chron-row', list);
+    observeImages();
+    requestAnimationFrame(drawRails);
   }
 
-  if (openId) openPeriod(openId);
-  else panel.innerHTML = periodIndexHTML();
+  /* ---------- Rails (SVG over the rail column) ---------- */
+  function drawRails() {
+    const bodyBox = body.getBoundingClientRect();
+    const railCol = $('.chron-node', list)?.getBoundingClientRect();
+    if (!railCol) return;
+    const x0 = railCol.left - bodyBox.left;
+    const xOf = (lane) => x0 + (lane === 'world' ? LANES : Number(lane)) * LANE_W + LANE_W / 2;
+    const yOf = (row) => {
+      const n = $('.chron-node', row).getBoundingClientRect();
+      return n.top - bodyBox.top + n.height / 2;
+    };
+    const h = body.scrollHeight;
+    svg.setAttribute('width', bodyBox.width);
+    svg.setAttribute('height', h);
+    svg.setAttribute('viewBox', `0 0 ${bodyBox.width} ${h}`);
 
-  panel.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-period]');
-    if (b) { e.preventDefault(); openPeriod(b.dataset.period); }
+    const starts = new Map(), ends = new Map();
+    for (const r of rowEls) {
+      if (r.dataset.cap === 'start') starts.set(r.dataset.period, yOf(r));
+      if (r.dataset.cap === 'end') for (const id of r.dataset.periods.split(' ')) ends.set(id, yOf(r));
+    }
+    let out = '';
+    // Faint guide for "elsewhere" when shown.
+    if (on.has('world')) {
+      out += `<line class="rail-world" x1="${xOf('world')}" x2="${xOf('world')}" y1="0" y2="${h}"/>`;
+    }
+    for (const p of byStart) {
+      const y1 = starts.get(p.id), y2 = ends.get(p.id);
+      if (y1 == null || y2 == null) continue;
+      const x = xOf(laneOf.get(p.id));
+      out += `<line class="rail" style="stroke:var(--p-${p.tint})" x1="${x}" x2="${x}" y1="${y1}" y2="${y2}"/>`;
+    }
+    for (const r of rowEls) {
+      const lane = r.classList.contains('chron-end') ? null : r.dataset.lane;
+      if (lane == null) continue;
+      const cls = r.classList.contains('chron-chapter') ? 'stn stn-chapter'
+        : r.classList.contains('chron-world') ? 'stn stn-world' : 'stn';
+      const tint = r.style.getPropertyValue('--tint') || 'var(--text-3)';
+      out += `<circle class="${cls}" cx="${xOf(lane)}" cy="${yOf(r)}" r="${cls.includes('chapter') ? 8 : cls.includes('world') ? 4 : 5.5}" style="--c:${tint}"/>`;
+    }
+    for (const r of rowEls) if (r.dataset.cap === 'end') {
+      for (const id of r.dataset.periods.split(' ')) {
+        const p = periods.find((x) => x.id === id);
+        out += `<rect class="stn-end" x="${xOf(laneOf.get(id)) - 6}" y="${yOf(r) - 1.5}" width="12" height="3" rx="1.5" style="fill:var(--p-${p.tint})"/>`;
+      }
+    }
+    svg.innerHTML = out;
+    updateNow();
+  }
+
+  /* ---------- Images, as rows come into view ---------- */
+  let imgObserver = null;
+  function observeImages() {
+    imgObserver?.disconnect();
+    imgObserver = new IntersectionObserver((entries) => {
+      const seen = entries.filter((en) => en.isIntersecting).map((en) => en.target);
+      if (!seen.length) return;
+      seen.forEach((t) => imgObserver.unobserve(t));
+      // hydrateImages scans a subtree; hand it just the newly visible thumbs.
+      hydrateImages({ querySelectorAll: (sel) => (sel === '[data-img-id]' ? seen : []) }, db.get);
+    }, { rootMargin: '600px 0px' });
+    $$('.chron-thumb', list).forEach((n) => imgObserver.observe(n));
+  }
+
+  /* ---------- "Now" readout + ribbon ---------- */
+  const barH = () => ($('.chron-bar', root)?.getBoundingClientRect().bottom || 120) + 24;
+  let currentYear = byStart[0].start;
+  function updateNow() {
+    const line = barH();
+    let row = rowEls[0];
+    for (const r of rowEls) {
+      if (r.getBoundingClientRect().top <= line) row = r; else break;
+    }
+    if (!row) return;
+    currentYear = Math.max(Number(row.dataset.year), FIRST_YEAR);
+    nowYear.textContent = fmtYear(currentYear);
+    const active = byStart.filter((p) => currentYear >= p.start && currentYear < p.end
+      || (p.end === -30 && currentYear === -30));
+    nowEra.innerHTML = active.map((p) => `<span style="--tint:var(--p-${p.tint})"><i></i>${esc(p.name)}</span>`).join('');
+    $$('.chron-seg', root).forEach((b) => b.classList.toggle('on', active.some((p) => p.id === b.dataset.jump)));
+  }
+  const onScroll = throttle(updateNow, 80);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  const onResize = throttle(drawRails, 150);
+  window.addEventListener('resize', onResize);
+
+  $('#chron-map', root).addEventListener('click', (ev) => {
+    ev.preventDefault();
+    store.togglePlay(false);
+    store.setYear(currentYear);
+    go('/map');
   });
 
-  // Clean up when the view is replaced.
+  /* ---------- Navigation ---------- */
+  const scrollToPeriod = (id, behavior = 'smooth') => {
+    const row = $(`#chron-${id}`, list);
+    if (!row) return;
+    const y = row.getBoundingClientRect().top + window.scrollY - barH() + 12;
+    window.scrollTo({ top: y, behavior });
+  };
+  $$('.chron-seg', root).forEach((b) => b.addEventListener('click', () => scrollToPeriod(b.dataset.jump)));
+
+  /* ---------- Filters ---------- */
+  $$('.chron-filter', root).forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.filter;
+    if (on.has(k)) on.delete(k); else on.add(k);
+    b.setAttribute('aria-pressed', String(on.has(k)));
+    renderList();
+  }));
+
+  /* ---------- Period drawer ---------- */
+  function openPeriod(id, { scroll = false } = {}) {
+    const p = periods.find((x) => x.id === id);
+    if (!p) return;
+    const host = $('#chron-drawer-body', portal);
+    host.innerHTML = periodPanelHTML(p);
+    wirePeriodPanel(host, p);
+    drawer.hidden = false; scrim.hidden = false;
+    requestAnimationFrame(() => portal.classList.add('drawer-open'));
+    drawer.scrollTop = 0;
+    history.replaceState(null, '', `#/timeline/${p.id}`);
+    if (scroll) scrollToPeriod(p.id, 'auto');
+  }
+  function closeDrawer() {
+    portal.classList.remove('drawer-open');
+    setTimeout(() => { drawer.hidden = true; scrim.hidden = true; }, 220);
+    history.replaceState(null, '', '#/timeline');
+  }
+  list.addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-open]');
+    if (b) openPeriod(b.dataset.open);
+  });
+  $('#chron-close', portal).addEventListener('click', closeDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  const onKey = (ev) => { if (ev.key === 'Escape' && !drawer.hidden) closeDrawer(); };
+  document.addEventListener('keydown', onKey);
+
+  renderList();
+  // Fonts and thumbnails shift row heights after first paint.
+  const ro = new ResizeObserver(throttle(drawRails, 120));
+  ro.observe(list);
+  // After first layout (and any browser scroll restoration on reload).
+  if (openId) setTimeout(() => openPeriod(openId, { scroll: true }), 250);
+
+  /* ---------- Cleanup ---------- */
   const observer = new MutationObserver(() => {
-    if (!document.contains(canvas)) {
-      unbindYear(); tl.destroy();
-      store.togglePlay(false);
-      document.removeEventListener('fullscreenchange', paintFsBtn);
+    if (!document.contains(list)) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      document.removeEventListener('keydown', onKey);
+      imgObserver?.disconnect(); ro.disconnect();
+      portal.remove();
       observer.disconnect();
     }
   });
   observer.observe(document.getElementById('main'), { childList: true });
-}
-
-/* ============================================================
-   "What existed in this year" strip
-   ============================================================ */
-function renderSnapshot(host, year) {
-  const active = db.entitiesAt(year);
-  const pick = (types, n) =>
-    active.filter((e) => types.includes(e.type)).slice(0, n);
-
-  const groups = [
-    ['Periods', pick(['period'], 4)],
-    ['Powers', pick(['empire', 'kingdom'], 4)],
-    ['People', pick(['person'], 6)],
-    ['Places', pick(['city', 'site'], 6)],
-    ['Writing', pick(['writing', 'language'], 3)],
-  ].filter(([, list]) => list.length);
-
-  if (!groups.length) {
-    host.innerHTML = '';
-    return;
-  }
-
-  host.innerHTML = `
-    <div class="panel panel-sunk">
-      <div class="row" style="margin-bottom:var(--s-4);justify-content:space-between">
-        <div class="row">
-          <h2 style="font-size:1.05rem">In ${esc(fmtYear(year))}</h2>
-          <span class="small muted">${active.length} entities active</span>
-        </div>
-        <a class="btn btn-sm" href="#/map" title="See ${esc(fmtYear(year))} on the map">
-          ${icon('map', { size: 15 })} View on map
-        </a>
-      </div>
-      <div class="stack">
-        ${groups.map(([label, list]) => `
-          <div class="rel-group">
-            <h3>${esc(label)}</h3>
-            <div class="rel-list">${list.map((e) => entityPill(e)).join('')}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-}
-
-/* ============================================================
-   Period index (shown before a period is opened)
-   ============================================================ */
-function periodIndexHTML() {
-  return `
-    <div class="panel">
-      ${sectionHead('Eleven periods', 'Click any band above, or start here. Overlaps are real — Minoan and Mycenaean civilisation coexisted for three centuries.')}
-      <div class="grid grid-auto-sm">
-        ${periods.map((p) => `
-          <button class="card ecard" data-period="${p.id}" style="--tint:var(--p-${p.tint});text-align:left">
-            <div class="ecard-glyph">${icon('period', { size: 34 })}</div>
-            <div class="ecard-body">
-              <div class="ecard-title">${esc(p.name)}</div>
-              <div class="ecard-meta num">${esc(fmtYear(p.start))} – ${esc(fmtYear(p.end))}</div>
-              <p class="ecard-sum">${esc(p.summary)}</p>
-            </div>
-          </button>`).join('')}
-      </div>
-    </div>`;
 }
 
 /* ============================================================
