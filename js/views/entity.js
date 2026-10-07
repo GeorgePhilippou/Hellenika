@@ -259,7 +259,10 @@ function periodFact(e) {
 function glanceHTML(e) {
   if (e.type === 'myth' || e.type === 'deity') return '';
   const find = e.milestones.find((m) => ['found', 'excavated', 'recovered'].includes(m.kind));
-  const findSite = db.neighbours(e.id).find((n) => /^(found at|from)$/.test(n.rel));
+  // A "from" link is only a findspot when there is a find to speak of --
+  // the Parthenon frieze is "from" Athens but was never "found" there.
+  const ns = db.neighbours(e.id);
+  const findSite = ns.find((n) => n.rel === 'found at') || (find ? ns.find((n) => n.rel === 'from') : null);
   const copy = e.milestones.find((m) => ['papyrus', 'manuscript'].includes(m.kind));
   const link = (n) => `<a href="${entityHref(n.id)}">${esc(n.entity.name)}</a>`;
   const items = [periodFact(e)];
