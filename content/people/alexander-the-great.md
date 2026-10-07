@@ -15,7 +15,7 @@ coords:
 region: Macedon; Asia
 secondaryImage:
   wikipediaTitle: Siwa Oasis
-  caption: "The Siwa Oasis, deep in the Libyan desert, where Alexander made a gruelling detour in 331 BC to consult the Oracle of Zeus-Ammon -- and came away, by his own later account, told that he was the god's son."
+  caption: The Siwa Oasis, deep in the Libyan desert, where Alexander made a gruelling detour in 331 BC to consult the Oracle of Zeus-Ammon -- and came away, by his own later account, told that he was the god's son.
 claims:
   - text: Alexander defeated the Achaemenid Empire in campaigns between 334 and 330 BC.
     evidence: literary
@@ -32,24 +32,12 @@ claims:
   - text: He was poisoned.
     evidence: debate
     confidence: debated
-  - text: He died of malaria, typhoid or complications of alcohol and untreated wounds.
-    evidence: debate
-    confidence: debated
   - text: He believed himself divine, or the son of Zeus-Ammon.
     evidence: debate
     confidence: debated
-  - text: According to tradition, Alexander cut the Gordian Knot with his sword rather than untying it, fulfilling a local prophecy that whoever loosed it would rule Asia.
-    evidence: literary
-    confidence: strong
-  - text: At the Oracle of Ammon at Siwa in Egypt, Alexander was reportedly greeted as the son of the god, an episode he used afterward to present himself as semi-divine.
-    evidence: literary
-    confidence: strong
   - text: His attempt to introduce the Persian court gesture of proskynesis provoked open resistance from his Macedonian companions and was abandoned.
     evidence: literary
     confidence: strong
-  - text: At Opis in 324 BC his veteran soldiers mutinied against being sidelined in favour of Persian troops, forcing Alexander to back down and stage a public reconciliation banquet.
-    evidence: literary
-    confidence: established
 relations:
   - id: philip-ii
     rel: son of
@@ -94,22 +82,12 @@ King of Macedon who destroyed the Achaemenid Empire in a decade of campaigning, 
 Redrew the political map from the Adriatic to the Punjab and made Greek the language of government and learning across the Near East for a thousand years.
 
 <!-- field: body -->
-Alexander's education was as deliberate an investment as any his father made. Philip II hired Aristotle himself to tutor the boy from around thirteen. Whatever else the lessons in logic, ethics and natural science gave him, Alexander kept an annotated copy of the *Iliad*, supposedly a gift from Aristotle, with him on campaign for the rest of his life, and slept with it under his pillow beside a dagger. The other formative story is the taming of Bucephalus, a horse thought too wild for anyone to ride. The twelve-year-old Alexander noticed that it was startled by its own shadow and turned it to face the sun. Later writers treated the anecdote as proof that the qualities of a conqueror were visible in childhood.
+Alexander III of Macedon was born at Pella in 356 BC, the son of Philip II and Olympias of Epirus. From about the age of thirteen he was taught by Aristotle, and he kept a copy of the *Iliad* with him on campaign, seeing himself as a new Achilles. At eighteen he commanded the cavalry at Chaeronea.
 
-He became king at twenty in 336 BC, immediately after his father's assassination, in circumstances murky enough that ancient and modern historians alike have wondered how much he or his mother Olympias knew in advance. He moved fast to secure the throne and had rival claimants killed. He moved as fast to suppress the revolts in Greece that broke out at the news of Philip's death, making an example of Thebes by destroying the city and enslaving its surviving people. According to tradition he spared only the house of the poet Pindar.
+He became king at twenty when Philip was assassinated in 336 BC. He quickly secured the throne, killing rivals, and crushed a Greek revolt by destroying Thebes. In 334 BC he crossed into Asia with about 40,000 men to carry out Philip's planned war on Persia. He defeated the Persian governors at the Granicus, and King Darius III himself at Issus in 333 BC. He took Tyre after a seven-month siege, was accepted as pharaoh in Egypt, where he founded Alexandria and visited the oracle of Ammon at Siwa, and in 331 BC won the decisive battle of Gaugamela. Babylon, Susa and Persepolis fell, and Persepolis was burned.
 
-In 334 BC he crossed into Asia with a combined Macedonian and allied Greek force. He won three set-piece battles against the Persian Empire in succession: the Granicus, Issus, and finally Gaugamela in 331 BC, where Darius III's much larger army broke and its king fled the field for the last time. Along the way, Alexander took the island fortress of Tyre only by building a causeway out to it under constant bombardment, was crowned pharaoh in Egypt without a fight, and burned the Persian ceremonial capital of Persepolis. Ancient sources disagree on whether that was calculated reprisal for the Persian sack of Athens a century and a half earlier, or a drunken accident that got out of hand.
+He pushed on through Central Asia, marrying the Bactrian noblewoman Roxana, and into India, where he defeated King Porus at the Hydaspes in 326 BC. At the Hyphasis his exhausted army refused to go further. The return march through the Gedrosian desert cost thousands of lives.
 
-At Gordion, in Phrygia, Alexander is said to have found a wagon whose yoke was fastened by an impossibly complex knot with no visible end, which local prophecy said only the future ruler of Asia could undo. Instead of working out how to untie it, he cut it through with his sword. The story is almost certainly embellished or invented, but it stuck because it captured something real about how he preferred to solve problems.
+Alexander kept Persian officials, adopted Persian court dress and ceremony, and in 324 BC held mass weddings at Susa between his officers and Persian noblewomen. This provoked Macedonian resistance — to the Persian bow of *proskynesis*, and in a mutiny at Opis — and his temper turned violent: he killed his friend Cleitus in a drunken quarrel and had Parmenion executed.
 
-A similar instinct for self-presentation shows in his detour in 331 BC to consult the Oracle of Zeus-Ammon at the remote Siwa oasis in Egypt's western desert. The journey was exhausting, and he made it so that the oracle's answer, whatever it was, could be reported home as confirmation that he was the god's own son. Alexander leaned on that claim increasingly as his campaigns went on, and later Hellenistic kings imitated it in their own royal cults.
-
-The campaign did not end at Persepolis. Alexander pushed on through Bactria and Sogdiana, over the Hindu Kush and down into the Punjab. There he defeated the Indian king Porus and his war elephants at the Hydaspes in 326 BC, in a battle fought in monsoon rain that made the ground treacherous for cavalry and infantry alike. At the Hyphasis shortly afterwards his army refused to go any further east. The men were exhausted by years of continuous campaigning and unwilling to face whatever larger kingdoms supposedly lay beyond the Ganges. Alexander reportedly sulked in his tent for three days before accepting the mutiny and turning back. The return march through the Gedrosian desert, undertaken partly to outdo a legendary crossing by the Persian queen Semiramis, killed thousands of soldiers and camp followers through heat and thirst. It was arguably the costliest stretch of the expedition in ordinary lives.
-
-Alexander was never simply a Greek conqueror imposing Macedonian rule wholesale. He kept Persian administrators in the satrapies he took, adopted elements of Persian royal dress and court ceremonial, and married first the Bactrian noblewoman Roxana and later a daughter of Darius III. It was part of a deliberate policy of fusing Macedonian and Persian elites, which climaxed in 324 BC with mass weddings at Susa between his officers and Persian noblewomen.
-
-The policy provoked real resistance. His attempt to require *proskynesis*, a Persian gesture of prostration that his own companions regarded as fit only for worshipping a god, met open Macedonian refusal and was quietly dropped. At Opis later that year his veterans mutinied outright when he moved to discharge them and replace them with Persian recruits, and a public reconciliation banquet was needed before the crisis passed. His temper had turned lethal well before. In 328 BC he killed his friend and former commander Cleitus with a spear in a drunken argument at a banquet. He also had Parmenion, one of his father's most trusted lieutenants, executed on suspicion of conspiracy after Parmenion's son had already been condemned.
-
-Alexander died in Babylon in June 323 BC, after an illness of about eleven days. The fevers are described in enough clinical detail that modern physicians have argued over the diagnosis ever since. Poison, malaria, typhoid, and complications of old wounds and heavy drinking have all had serious advocates, as have rarer proposals such as Guillain-Barré syndrome. No explanation commands consensus.
-
-He was thirty-two and left no adult heir. When his marshals reportedly asked on his deathbed who should inherit the empire, he is said to have answered only "to the strongest", an answer, true or invented, that turned out to be exactly what happened. The empire began fragmenting within days and was fought over for decades by his former generals in the wars of the Diadochi. But the political and cultural map those wars settled into was Alexander's most durable legacy. It consisted of Greek-speaking kingdoms from Egypt to Central Asia, with Greek established as the common administrative and intellectual language of the eastern Mediterranean and Near East for the next thousand years. It was built in barely a decade of campaigning and outlasted the empire that produced it by many centuries.
+He died at Babylon in June 323 BC, aged 32, after a fever lasting about eleven days; poison and disease have both been proposed. He left no adult heir, and his generals fought over the empire for forty years. Their kingdoms spread Greek language and culture from Egypt to Central Asia, the beginning of the Hellenistic age.
