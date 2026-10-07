@@ -5,7 +5,7 @@ altNames:
   - Ἰλιάς
 type: text
 subtype: epic
-tint: darkage
+tint: archaic
 start: -750
 end: -700
 approx: true

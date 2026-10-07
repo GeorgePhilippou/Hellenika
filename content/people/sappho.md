@@ -54,8 +54,10 @@ The most celebrated lyric poet of antiquity, whose songs of desire and loss surv
 Turned Greek poetry from public narrative to interior feeling. Plato reportedly called her the tenth Muse.
 
 <!-- field: body -->
-Sappho composed monodic lyric for performance with the lyre, in a metre now named Sapphic after her. Of nine ancient books, one nearly complete poem survives — the Hymn to Aphrodite — plus several hundred fragments, many recovered from Egyptian papyrus rubbish heaps at Oxyrhynchus. New fragments were still being published in 2014.
+Sappho (c. 630–570 BC) was a lyric poet from the island of Lesbos, off the coast of Asia Minor, probably from Eresos or Mytilene. Little is securely known of her life: she had brothers, including Charaxus, and probably a daughter, Cleis, and an ancient chronicle says she spent a period in exile in Sicily.
 
-Her poems address women by name with unmistakable erotic intensity, which is the origin of the words *sapphic* and *lesbian*. Ancient biographical traditions about her — the leap from the Leucadian cliff for love of the ferryman Phaon — are late fiction.
+She composed songs for a single voice with the lyre, in her local Aeolic dialect, including the stanza form now called Sapphic. Many address women by name with intense erotic feeling — the origin of the words "sapphic" and "lesbian" — and others concern weddings, family, memory and the gods. Ancient scholars collected them in nine books. Plato is said to have called her the tenth Muse.
 
-Her corpus is still, remarkably, growing. In 2014 a previously unknown papyrus surfaced containing what is now called the "Brothers Poem," a substantially complete composition about Sappho's brothers that had not been read by anyone in roughly two thousand years, an important addition to the surviving text. However, the acquisition history subsequently came under serious scrutiny. The Society for Classical Studies notes serious doubts about provenance and the 2021 retraction of a chapter presenting that history. Problems of provenance must be distinguished from arguments about whether the text itself is authentic.
+Most of her work is lost. Only the *Hymn to Aphrodite* survives almost complete; the rest comes in fragments quoted by later writers or recovered from papyrus scraps found at Oxyrhynchus in Egypt. New texts are still emerging, such as the "Brothers Poem" published in 2014, though the papyrus's provenance has since been seriously questioned.
+
+Later ancient biographies invented much of her life, including the story that she leapt from a cliff for love of a ferryman named Phaon. Her poems, which turned Greek poetry towards personal feeling, have been read and imitated from Catullus to the present.

@@ -50,8 +50,10 @@ Author of the Elements, the most influential textbook ever written and the model
 Established the axiomatic method: a handful of definitions and postulates, from which everything else is proved.
 
 <!-- field: body -->
-Almost nothing is known about Euclid's life. The *Elements* organises the mathematics of his predecessors into thirteen books proceeding from five postulates. It was used as a school text into the twentieth century — only the Bible has been printed in more editions.
+Euclid (active c. 300 BC) was a Greek mathematician who worked at Alexandria, probably in the reign of Ptolemy I. Almost nothing is known of his life.
 
-Book IX contains the proof that there are infinitely many primes, still a model of elegant argument. The fifth postulate, about parallel lines, is noticeably less self-evident than the others; attempts to derive it from the rest failed for two millennia, and in the nineteenth century Lobachevsky, Bolyai and Riemann showed why — dropping it produces consistent non-Euclidean geometries, which turned out to describe physical spacetime.
+His *Elements*, in thirteen books, gathers the geometry and number theory of earlier Greek mathematicians into one system, deriving everything from a few definitions, postulates and common notions. It includes Pythagoras' theorem, the proof that there are infinitely many prime numbers, the method still called the Euclidean algorithm for finding the greatest common divisor of two numbers, a theory of irrational magnitudes and the construction of the five regular solids. It was used as a school textbook into the 20th century, and has been printed in more editions than almost any book except the Bible.
 
-Asked by Ptolemy for a shorter route to geometry, he is said to have replied that there is no royal road. Beyond the geometry for which it is best remembered, the *Elements* also devotes several books to number theory, including the Euclidean algorithm for finding the greatest common divisor of two numbers, still taught and used in computer science today, and to a geometric form of algebra that expresses relationships between quantities as relationships between areas and lines rather than symbolic equations.
+Its fifth postulate, about parallel lines, was less obvious than the others, and two thousand years of attempts to prove it failed. In the 19th century Lobachevsky, Bolyai and Riemann showed that rejecting it produces consistent non-Euclidean geometries, one of which Einstein's general relativity later required.
+
+Euclid also wrote works on optics, astronomy and data, some of which survive. A later story says that when Ptolemy asked for an easier way to learn geometry, Euclid replied that there is "no royal road".

@@ -5,7 +5,7 @@ altNames:
   - Ὀδύσσεια
 type: text
 subtype: epic
-tint: darkage
+tint: archaic
 start: -725
 end: -675
 approx: true

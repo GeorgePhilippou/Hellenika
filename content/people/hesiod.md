@@ -5,7 +5,7 @@ altNames:
   - Ἡσίοδος
 type: person
 subtype: poet
-tint: darkage
+tint: archaic
 start: -750
 end: -650
 approx: true
