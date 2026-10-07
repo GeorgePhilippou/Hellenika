@@ -53,6 +53,9 @@ _order: 60
 <!-- field: summary -->
 Four wars over seven decades in which Rome dismantled the kingdom Philip II and Alexander had built, ending in direct provincial rule.
 
+<!-- field: significance -->
+The wars in which Rome conquered the kingdom of Alexander and became master of Greece.
+
 <!-- field: body -->
 The first war (214–205 BC) grew directly out of Philip V's alliance with Hannibal against Rome during the Second Punic War, a decision that made Macedon an enemy of Rome while Rome itself was still fully consumed by the crisis of Hannibal's invasion of Italy; fought mostly through allies and proxies with minimal direct Roman involvement, it ended in an inconclusive peace that changed little on the ground. The second war (200–196 BC) was far more decisive: Flamininus defeated Philip V outright at Cynoscephalae and then proclaimed the freedom of the Greek cities at the Isthmian Games, ending Macedonian hegemony over Greece while still leaving the Macedonian kingdom itself intact, if considerably weakened, under close Roman oversight.
 

@@ -47,7 +47,12 @@ _order: 33
 <!-- field: summary -->
 Socrates was tried before 500 Athenian jurors for impiety and corrupting the young, convicted, and executed.
 
+<!-- field: significance -->
+The trial in which democratic Athens condemned its most famous philosopher, and the founding moment of Western philosophy's account of itself.
+
 <!-- field: body -->
+In 399 BC the philosopher Socrates was tried in Athens before a jury of 500 citizens.
+
 The charges were introducing new gods and corrupting the youth. The political background is unavoidable: Athens had lost the war, suffered the Thirty Tyrants, and several of Socrates' associates — Critias, Charmides, Alcibiades — had been prominent in the oligarchy or its betrayals. An amnesty barred prosecuting them for it, but not this.
 
 Plato's *Apology* has Socrates refuse to plead for mercy, compare himself to a gadfly stinging a sluggish horse, and propose free meals at public expense as his counter-penalty. He was convicted by around 280 to 220; more jurors voted for death than for conviction, suggesting the counter-proposal cost him.

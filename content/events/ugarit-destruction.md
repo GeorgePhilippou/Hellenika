@@ -39,7 +39,12 @@ _order: 12
 <!-- field: summary -->
 The Syrian port of Ugarit was destroyed around 1185 BC, its final letters still in the kiln.
 
+<!-- field: significance -->
+A vivid case study of the Bronze Age collapse, documented in the city's own last letters.
+
 <!-- field: body -->
+Ugarit, a wealthy port on the coast of northern Syria, was destroyed around 1185 BC.
+
 Ugarit was a wealthy cosmopolitan port whose archives are written in at least eight languages, and whose scribes developed a cuneiform alphabet of thirty signs.
 
 The last letters found there are extraordinary. The king writes that enemy ships have appeared, that his own fleet is away in Lycia and his troops in Hatti, and that the country is undefended. Another asks the king of Alashiya for help. Some were found still in the kiln where they were being baked, never sent.

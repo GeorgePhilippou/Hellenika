@@ -43,7 +43,12 @@ _order: 65
 <!-- field: summary -->
 Sparta defeated a coalition led by Argos and Athens at Mantinea in 418 BC, restoring its military reputation after the surrender at Sphacteria.
 
+<!-- field: significance -->
+The largest land battle of the Peloponnesian War, which restored Sparta's reputation and broke the Argive alliance.
+
 <!-- field: body -->
+Fought in 418 BC at Mantinea in Arcadia, in the central Peloponnese, between Sparta and a coalition of Argos, Mantinea and Athens.
+
 The years after the Peace of Nicias (421 BC) were an uneasy, incomplete truce rather than real peace, and Argos assembled a coalition with Athens and Mantinea to challenge Spartan dominance of the Peloponnese while Sparta still seemed weakened by Sphacteria. The armies met at Mantinea in what Thucydides calls the largest gathering of Greek hoplites in a great many years.
 
 Sparta's disciplined manoeuvring under King Agis II won the day, in the last major set-piece hoplite battle of the war's central phase. The defeat broke up the anti-Spartan coalition and restored confidence in Spartan arms after the shock of Sphacteria three years earlier — a psychological recovery at least as significant as the battle's immediate territorial consequences, which were modest.

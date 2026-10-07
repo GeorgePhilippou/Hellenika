@@ -45,7 +45,12 @@ _order: 48
 <!-- field: summary -->
 The largest battle of the Diadochi wars, where Seleucus' 400 elephants decided the fate of Alexander's empire.
 
+<!-- field: significance -->
+The battle that ended any chance of reuniting Alexander's empire and fixed the shape of the Hellenistic kingdoms.
+
 <!-- field: body -->
+Fought in 301 BC at Ipsus in Phrygia, central Asia Minor, between Antigonus I and his son Demetrius on one side and the allied kings Seleucus, Lysimachus and Cassander on the other.
+
 Antigonus the One-Eyed came closest to reuniting Alexander's empire, which is why the others allied against him. At Ipsus in Phrygia perhaps 150,000 men met.
 
 Demetrius drove off the opposing cavalry and pursued too far. Seleucus then interposed his 400 war elephants — obtained from Chandragupta Maurya in exchange for eastern territory — as a screen between Demetrius and the battlefield. Horses will not approach elephants, and Demetrius could not get back.

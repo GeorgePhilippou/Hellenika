@@ -44,7 +44,12 @@ _order: 7
 <!-- field: summary -->
 After c. 1450 BC the Knossos archives are kept in Linear B — an adaptation of Minoan Linear A used to write Greek.
 
+<!-- field: significance -->
+The clearest evidence that Mycenaean Greeks had taken control of Knossos and Minoan Crete.
+
 <!-- field: body -->
+After around 1450 BC, the palace administration at Knossos on Crete began keeping its records in Linear B, an early form of Greek, instead of the Minoan Linear A.
+
 The tablets record flocks, textile production, chariot components, land, workers, and offerings to gods including Poseidon and a "Mistress of the Labyrinth". They are administrative records covering roughly a single cycle, not literature or a royal chronicle. Unfired clay was a temporary medium; the archive survived only because destruction fire accidentally baked it hard.
 
 That the language is Greek is decisive: Greek-speakers were administering Crete from Knossos after the destruction of most other Cretan palace centres. Linear B was adapted from Linear A and fits Greek awkwardly, omitting final consonants and collapsing several sounds into the same signs. Its decipherment pushed the attested history of Greek back some five centuries beyond Homer while exposing the economic routines behind palace power.

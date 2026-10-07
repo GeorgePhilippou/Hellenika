@@ -43,7 +43,12 @@ _order: 66
 <!-- field: summary -->
 Epaminondas won again at Mantinea in 362 BC using the tactics that had broken Sparta at Leuctra — and died in the moment of victory, taking Theban hegemony down with him.
 
+<!-- field: significance -->
+The battle that ended the brief Theban supremacy in Greece, leaving no city strong enough to resist Macedon.
+
 <!-- field: body -->
+Fought in 362 BC at Mantinea in Arcadia, in the central Peloponnese, between Thebes under Epaminondas and a coalition including Sparta and Athens.
+
 Nine years after Leuctra, Epaminondas faced a coalition of Sparta, Athens and others determined to check continued Theban dominance of Greece. He repeated the tactic that had won at Leuctra, massing an unusually deep strike force on one wing while holding the rest of the line back, and broke the opposing formation just as decisively.
 
 He was struck down, probably by a spear, at the height of the breakthrough. Ancient accounts describe him asking, as he lay dying, whether his shield was safe and whether the Thebans had won, and being satisfied enough by the answers to allow himself to die — a story polished by later tradition into something close to a set-piece, whether or not every detail is literal.

@@ -52,7 +52,12 @@ _order: 43
 <!-- field: summary -->
 Alexander destroyed the main Persian army on 1 October 331 BC, effectively ending the Achaemenid Empire.
 
+<!-- field: significance -->
+The decisive battle of Alexander's war with Persia: after it, the Achaemenid Empire was his.
+
 <!-- field: body -->
+Fought on 1 October 331 BC at Gaugamela, on the plain east of the Tigris near modern Mosul, between Alexander the Great and Darius III.
+
 Darius, having learned some hard lessons from Issus, chose a wide open plain this time and had it deliberately levelled so his scythed chariots and superior cavalry numbers could actually be brought to bear, and assembled contingents drawn from across the length of the empire, including Bactrians, Scythians and, for the first time in a battle against Macedon, fifteen war elephants — an animal Alexander's army had never yet faced in combat and one whose psychological effect on unfamiliar troops and horses could matter as much as its practical battlefield use.
 
 Alexander advanced obliquely toward the Persian right, deliberately drawing the Persian line further and further sideways to avoid being outflanked himself. When that stretching finally opened a gap in the Persian centre-left, he wheeled the Companion cavalry into a wedge and drove it directly at Darius's own position, exploiting the same weakness that had already broken the Persian king's nerve once before at Issus.

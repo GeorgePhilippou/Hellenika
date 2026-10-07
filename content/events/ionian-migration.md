@@ -44,7 +44,12 @@ _order: 13
 <!-- field: summary -->
 Greek-speaking populations settled the western coast of Anatolia, founding the cities of Ionia.
 
+<!-- field: significance -->
+The movement that created Ionia, the Greek coast of Asia Minor where Greek philosophy and science would begin.
+
 <!-- field: body -->
+Between about 1050 and 900 BC, after the collapse of the Mycenaean palaces, Greek-speaking settlers established themselves on the central west coast of Asia Minor and its islands.
+
 Greek tradition held that refugees from the mainland, led from Athens, settled the Anatolian coast after the collapse. Archaeology confirms Greek material culture appearing at Miletus, Ephesus, Colophon and elsewhere from around 1050 BC — though at Miletus there had already been Mycenaean presence.
 
 The dialect map supports the tradition: Ionic in the centre, Aeolic to the north, Doric to the south, matching the claimed origins of the settlers.

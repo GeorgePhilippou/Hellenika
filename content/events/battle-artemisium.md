@@ -51,7 +51,12 @@ _order: 72
 <!-- field: summary -->
 A three-day naval battle off Euboea in 480 BC that held the Persian fleet while Leonidas made his stand at Thermopylae.
 
+<!-- field: significance -->
+The naval half of the Greek defence of 480 BC, which gave the allied fleet its first experience of fighting the Persians before Salamis.
+
 <!-- field: body -->
+Fought over three days in August 480 BC off Cape Artemisium, the northern tip of Euboea, between the Greek allied fleet and the navy of Xerxes.
+
 While Leonidas held the pass of Thermopylae, the Greek fleet gathered at Artemisium, on the northern tip of Euboea, to prevent the Persian ships from sailing down the channel behind the army. Herodotus gives 271 triremes, more than half of them Athenian, under the nominal command of the Spartan Eurybiades. The Athenian Themistocles is credited with keeping a nervous alliance in place, and, in a story Herodotus tells with some malice, with taking bribes to do so.
 
 The Persian fleet had already lost heavily. A gale off Magnesia is said to have wrecked hundreds of ships before it arrived, and Herodotus reports a second storm that destroyed a squadron sent round the outside of Euboea to cut off the Greeks. The fighting itself lasted three days. On the first, the Greeks captured a few ships. On the second, they destroyed a Cilician squadron. On the third, the Persians attacked in force in a battle where losses were about even, but the Greek fleet was hurt worse in proportion to its size.

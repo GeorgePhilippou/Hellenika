@@ -44,6 +44,9 @@ _order: 19
 <!-- field: summary -->
 Solon cancelled debts, abolished debt-slavery and opened office by wealth rather than birth, defusing a crisis at Athens.
 
+<!-- field: significance -->
+The reforms that ended debt slavery in Athens and broke the link between birth and political power.
+
 <!-- field: body -->
 Athens in 594 BC faced revolt: farmers were falling into debt-bondage and being sold abroad. Solon was given extraordinary powers to legislate.
 

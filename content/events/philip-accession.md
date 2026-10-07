@@ -38,7 +38,12 @@ _order: 35
 <!-- field: summary -->
 Philip took control of a Macedon that had just lost its king and 4,000 men, and began the reforms that would make it dominant.
 
+<!-- field: significance -->
+The beginning of Macedon's rise from a weak kingdom to the master of Greece.
+
 <!-- field: body -->
+In 359 BC Philip II became ruler of Macedon, at first perhaps as regent for his infant nephew, after his brother King Perdiccas III was killed in battle.
+
 Perdiccas III was killed by the Illyrians with 4,000 Macedonians. Macedon faced simultaneous threats from Illyrians, Paeonians, Thracians and two rival claimants backed by Athens. Philip initially acted as guardian for the young Amyntas IV before taking the kingship himself, a transition whose precise constitutional form is obscured by later sources.
 
 Philip bought off some enemies, defeated others, and rebuilt the army around the sarissa, deeper infantry formations and coordinated cavalry. He took Amphipolis and the Pangaeum gold mines, which gave him roughly 1,000 talents a year — more than Athens' entire imperial revenue at its height.

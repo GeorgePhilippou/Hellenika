@@ -46,7 +46,12 @@ _order: 38
 <!-- field: summary -->
 Philip was murdered at his daughter's wedding in 336 BC by his bodyguard Pausanias, on the eve of the Persian invasion.
 
+<!-- field: significance -->
+The murder that put the 20-year-old Alexander on the throne of Macedon on the eve of the invasion of Persia.
+
 <!-- field: body -->
+Philip II of Macedon was assassinated in 336 BC in the theatre at Aigai, the old Macedonian capital, during his daughter's wedding celebrations.
+
 The wedding at Aegae was a spectacle: Philip walked into the theatre without guards, deliberately, between statues of the twelve gods and a thirteenth of himself. Pausanias of Orestis, one of his own bodyguards, stabbed him and ran for horses waiting outside. He tripped and was killed on the spot.
 
 The ancient explanation is personal: Pausanias had been assaulted by associates of Attalus and Philip had failed to give him justice. That the assassin was killed immediately, and that horses were waiting, has always invited suspicion of a wider plot.

@@ -38,7 +38,12 @@ _order: 61
 <!-- field: summary -->
 A Greek fleet destroyed the beached Persian navy at Mycale in 479 BC, on the same day tradition places the victory at Plataea, ending Persian sea power in the Aegean.
 
+<!-- field: significance -->
+The victory that freed the Greek cities of Ionia and turned the Persian Wars from defence into counter-attack.
+
 <!-- field: body -->
+Fought in August 479 BC at Mycale, on the coast of Asia Minor opposite Samos, between the Greek allied fleet and the Persian navy and its land forces.
+
 After Salamis, the remaining Persian fleet had drawn up on the beach at Mycale, opposite Samos, under the protection of a land garrison, judging open battle at sea against the Greeks too risky. The Greek fleet, initially reluctant, was persuaded by Samian envoys and Ionian Greek exiles to cross and attack anyway.
 
 The Greeks landed and stormed the fortified camp; the Persian force, largely composed of demoralised Ionian Greek conscripts who reportedly withdrew from the fighting or actively turned on their Persian officers once the issue was in doubt, collapsed. Herodotus places the battle on the very day of Plataea, a coincidence many modern historians treat as a literary flourish rather than fact, though the two victories certainly fell close together.

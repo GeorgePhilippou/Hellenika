@@ -44,7 +44,12 @@ _order: 5
 <!-- field: summary -->
 Six deep shaft graves at Mycenae, used c. 1650–1500 BC, held the richest burials yet found in Bronze Age Europe.
 
+<!-- field: significance -->
+The richest burials of Bronze Age Europe, marking the rise of the first Mycenaean ruling families.
+
 <!-- field: body -->
+Between about 1650 and 1500 BC the ruling families of Mycenae buried their dead in deep shaft graves, in two grave circles.
+
 Grave Circle A held nineteen bodies with around 15 kg of gold: five funerary masks, gold breastplates, diadems, hundreds of gold discs sewn onto clothing, bronze daggers inlaid with gold and silver hunting scenes, amber from the Baltic, and ostrich eggs from Africa.
 
 The wealth is a puzzle. It appears suddenly, in a society with no preceding tradition of such display. Proposals include Mycenaean mercenaries returning enriched from Egyptian service — the daggers show Nilotic scenes — and control of trade routes.

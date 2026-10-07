@@ -45,7 +45,12 @@ _order: 1
 <!-- field: summary -->
 The distinctive folded-arm marble figurines of the Cyclades were produced in quantity for burial.
 
+<!-- field: significance -->
+The high point of Early Cycladic culture, whose marble figurines are among the most recognisable objects of the Aegean Bronze Age.
+
 <!-- field: body -->
+Between about 2800 and 2300 BC, in the Early Bronze Age, the islanders of the Cyclades produced marble figurines in large numbers, mainly for burials.
+
 Carved from local white marble with abrasives — no metal tools were needed — the figurines range from a few centimetres to nearly life size. They were painted: traces of blue and red survive, and "ghosts" of weathered paint show eyes, hair and facial markings on faces we now perceive as blank.
 
 Most cannot stand; the feet point downwards, so they were made to lie down, consistent with burial. Their spare geometry influenced Brancusi, Modigliani and Moore.

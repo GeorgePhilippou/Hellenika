@@ -40,7 +40,12 @@ _order: 2
 <!-- field: summary -->
 The monumental administrative building at Lerna burned around 2200 BC, part of a wider disruption across mainland Greece.
 
+<!-- field: significance -->
+Part of a wave of destructions that ended the prosperous Early Bronze Age culture of mainland Greece.
+
 <!-- field: body -->
+Around 2200 BC the House of the Tiles at Lerna, in the Argolid, was destroyed by fire.
+
 The fire that ended the House of the Tiles is one node in a pattern: many Early Helladic II settlements in the Argolid and beyond were destroyed or abandoned within a few generations around 2200 BC.
 
 Explanations have cycled through invasion by incoming Indo-European speakers, internal conflict, and — currently most favoured — the 4.2 kiloyear climate event, a severe aridification episode documented across the Near East and implicated in the collapse of the Akkadian Empire and Egypt's Old Kingdom at almost the same time.

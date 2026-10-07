@@ -53,7 +53,12 @@ _order: 52
 <!-- field: summary -->
 The Roman legion defeated the Macedonian phalanx for the first time, on broken ground in Thessaly.
 
+<!-- field: significance -->
+The first clear defeat of the Macedonian phalanx by the Roman legion, which made Rome the arbiter of Greece.
+
 <!-- field: body -->
+Fought in 197 BC in the hills of Cynoscephalae ("Dog's Heads") in Thessaly, between the Roman army of Titus Quinctius Flamininus and Philip V of Macedon.
+
 Neither commander had planned to fight that day: the two armies, marching along the same ridge under thick fog, collided unexpectedly on rough, broken hills nicknamed the "Dog's Heads" for their shape. Philip's right wing managed to form up properly on favourable higher ground and pushed the Roman left back downhill in good order. His left wing, however, was still strung out in marching column on uneven terrain when Roman forces caught it before it could deploy into fighting formation at all.
 
 An unnamed Roman military tribune, showing initiative Polybius clearly admired, then took roughly twenty maniples away from the already-victorious Roman right wing and marched them directly into the exposed rear of Philip's own successful wing. A phalanx, its long pikes braced forward and its men packed shoulder to shoulder, has essentially no ability to turn and face a sudden threat from behind; it was destroyed where it stood, still facing the wrong way.

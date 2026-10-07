@@ -41,7 +41,12 @@ _order: 41
 <!-- field: summary -->
 Alexander took the island city of Tyre after seven months by building a causeway to it from the mainland.
 
+<!-- field: significance -->
+Alexander's greatest siege, which removed the last Persian naval base in the eastern Mediterranean.
+
 <!-- field: body -->
+Alexander besieged Tyre, the leading Phoenician city on the coast of modern Lebanon, for seven months in 332 BC.
+
 Tyre stood on an island 800 m offshore behind walls rising from the sea, and refused Alexander entry. He could not leave a Persian naval base behind him, so he built a mole out to the island — quarrying the abandoned mainland city for stone.
 
 The Tyrians burned his siege towers with a fireship, dropped rocks to foul the approaches, and dropped heated sand on attackers, which got inside armour. Alexander eventually assembled a fleet from Sidon and Cyprus, blockaded both harbours, and mounted siege engines on lashed ships.

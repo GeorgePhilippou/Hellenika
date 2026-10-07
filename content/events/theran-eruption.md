@@ -49,7 +49,12 @@ _order: 4
 <!-- field: summary -->
 One of the largest volcanic eruptions of the last ten thousand years destroyed the island of Thera and buried the town of Akrotiri.
 
+<!-- field: significance -->
+One of the largest volcanic eruptions in human history, which buried Akrotiri and affected the whole eastern Mediterranean.
+
 <!-- field: body -->
+The volcano of Thera (Santorini), in the southern Cyclades, erupted in the 17th or 16th century BC, probably around 1610 BC.
+
 The eruption ejected an estimated 60 cubic kilometres of material, collapsing the centre of the island into a caldera 12 km across. Ash fell across the eastern Mediterranean and has been identified in cores from the Nile delta to the Black Sea, making it a chronological marker for the whole region.
 
 Tsunamis struck northern Crete; deposits containing marine shells, pottery and animal bone have been found inland at Palaikastro.

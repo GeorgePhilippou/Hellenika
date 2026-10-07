@@ -47,7 +47,12 @@ _order: 58
 <!-- field: summary -->
 Michael Ventris showed in 1952 that Linear B recorded Greek, opening five centuries of previously mute history.
 
+<!-- field: significance -->
+The decipherment that pushed written Greek back by five centuries and opened the Mycenaean world to history.
+
 <!-- field: body -->
+In 1952 the English architect Michael Ventris showed that Linear B, the script of the Mycenaean palaces, wrote an early form of Greek.
+
 Ventris built a grid organising the syllabic signs by shared consonant and vowel without assuming any sound values, working purely from distributional patterns in the texts.
 
 He noticed sign-groups appearing only on Knossos tablets, likely place names, and tested Cretan toponyms against them. Amnisos, Knossos and Tulissos produced consistent values that then worked across other words.

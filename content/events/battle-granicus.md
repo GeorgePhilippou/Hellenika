@@ -46,7 +46,12 @@ _order: 39
 <!-- field: summary -->
 Alexander's first victory in Asia, won by charging across a river against the Persian satrapal army.
 
+<!-- field: significance -->
+Alexander's first victory in Asia, which opened Asia Minor to his conquest.
+
 <!-- field: body -->
+Fought in May 334 BC at the Granicus river in north-western Asia Minor, between Alexander and the armies of the local Persian governors.
+
 The Persian satraps drew up on the far bank of the Granicus with cavalry along the top and Greek mercenary infantry behind. Parmenion advised waiting for dawn. Alexander attacked immediately, leading the Companions across the river at an angle.
 
 The fighting around him was desperate — a Persian axe split his helmet, and Cleitus the Black cut off the arm of the man about to finish him. Alexander would later kill Cleitus in a drunken quarrel.

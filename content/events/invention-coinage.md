@@ -44,7 +44,12 @@ _order: 18
 <!-- field: summary -->
 Lydia produced the first standardised stamped coins in electrum in the late seventh century BC; Greek cities adopted the idea within a generation.
 
+<!-- field: significance -->
+The invention of coined money, which the Greek cities quickly made their own.
+
 <!-- field: body -->
+In the late 7th century BC, in the kingdom of Lydia in western Asia Minor, the first true coins were struck.
+
 The first coins were lumps of electrum — a natural gold-silver alloy from the Pactolus river — of controlled weight, stamped with a design guaranteeing them. The stamp converts metal into money by removing the need to weigh and assay at every transaction.
 
 Croesus later separated the alloy into pure gold and silver coinages, creating the first bimetallic system with a fixed exchange rate.

@@ -48,7 +48,12 @@ _order: 40
 <!-- field: summary -->
 Alexander defeated Darius III in person on a narrow coastal plain, capturing the Persian royal family.
 
+<!-- field: significance -->
+Alexander's first defeat of Darius in person, which opened the Levant and Egypt to his conquest.
+
 <!-- field: body -->
+Fought in November 333 BC on the narrow coastal plain at Issus, near modern Iskenderun in south-eastern Turkey, between Alexander and Darius III.
+
 Darius manoeuvred his army behind Alexander's advancing forces and cut the Macedonian supply lines back to Anatolia — a genuinely sound strategic move that nonetheless placed his own much larger army on a narrow coastal strip between mountains and sea, ground far too constrained for his numerical advantage to matter.
 
 Alexander led the Companion cavalry in an oblique charge across the Pinarus riverbed directly toward Darius's own position and chariot, gambling everything on a fast strike at the enemy king personally. The Macedonian phalanx struggled badly crossing the same riverbed further along the line against disciplined Greek mercenaries fighting for Persia, taking heavy losses in that sector, but once Darius broke and fled the field rather than risk capture, the entire Persian line lost cohesion and collapsed behind him.

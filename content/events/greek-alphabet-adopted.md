@@ -49,7 +49,12 @@ _order: 15
 <!-- field: summary -->
 Greeks adapted the Phoenician consonantal script and repurposed unused signs as vowels — creating the first full alphabet.
 
+<!-- field: significance -->
+The creation of the first full alphabet, with vowels — the ancestor of the Latin and Cyrillic scripts and the basis of Greek literature.
+
 <!-- field: body -->
+Some time in the early 8th century BC, probably through trading contacts in the eastern Mediterranean, Greeks adopted the Phoenician script.
+
 Phoenician script wrote consonants only, which works for Semitic languages built on consonantal roots. Greek needs vowels: without them, common words become ambiguous.
 
 The Greek solution was elegant. Phoenician had consonants Greek did not use — the glottal stop *aleph*, the pharyngeal *ayin*, *he*, *yod*. Greeks took those signs and assigned them to vowels: alpha, omicron, epsilon, iota. One notational change made the script able to represent any word in the language unambiguously, and made literacy learnable in weeks rather than years.

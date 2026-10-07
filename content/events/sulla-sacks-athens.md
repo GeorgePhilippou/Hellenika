@@ -43,7 +43,12 @@ _order: 55
 <!-- field: summary -->
 Sulla stormed Athens in 86 BC after it sided with Mithridates, causing damage the city never fully recovered from.
 
+<!-- field: significance -->
+The violent end of Athens' last attempt at independence, and a turning point in the city's ancient history.
+
 <!-- field: body -->
+In 86 BC the Roman general Sulla captured and sacked Athens during the First Mithridatic War.
+
 Athens joined Mithridates of Pontus against Rome, having suffered under Roman tax farmers. Sulla besieged the city through the winter, and the population starved — sources report people eating boiled shoe leather.
 
 He stormed it on 1 March 86 BC. The killing in the Kerameikos was severe enough that Plutarch reports blood running through the gate. Sulla stopped the massacre, saying he spared the many for the sake of the few — a reference to Athens' past rather than its present.

@@ -44,7 +44,12 @@ _order: 21
 <!-- field: summary -->
 Athens was reorganised into ten artificial tribes drawn from across Attica, creating the structure of democracy.
 
+<!-- field: significance -->
+The founding of Athenian democracy: the institutions that gave political power to the whole citizen body.
+
 <!-- field: body -->
+In 508/7 BC the Athenian aristocrat Cleisthenes reorganised the city's citizen body and institutions.
+
 The reforms followed almost immediately on the expulsion of the tyrant Hippias and a short, sharp factional struggle between Cleisthenes and a rival aristocrat, Isagoras, who briefly gained the upper hand with Spartan military backing before Cleisthenes, having appealed directly to the ordinary Athenian populace for support, prevailed and pushed his new constitution through.
 
 Cleisthenes divided Attica into three regions — city, coast, inland — split each into ten *trittyes*, and built each new tribe from exactly one trittys drawn from each of the three regions. A tribe therefore had no real geographical coherence and no single aristocratic patron capable of dominating it, which deliberately destroyed the regional power bases that had driven roughly a century of destabilising factional conflict among Athens's leading families.

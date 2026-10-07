@@ -46,7 +46,12 @@ _order: 32
 <!-- field: summary -->
 Lysander destroyed the Athenian fleet on the beach in 405 BC, ending the Peloponnesian War within months.
 
+<!-- field: significance -->
+The defeat that lost Athens the Peloponnesian War: with its last fleet gone, the city was starved into surrender within months.
+
 <!-- field: body -->
+Fought in 405 BC at Aegospotami ("Goat Rivers") on the European shore of the Hellespont, between the Spartan fleet under Lysander and the last fleet of Athens.
+
 The Athenian fleet was beached on an open shore in the Hellespont with no proper base, and its crews dispersed daily to find food. Lysander watched this for four days. On the fifth he attacked while the ships were empty and captured almost the entire fleet — around 170 ships — with barely a fight.
 
 Alcibiades, living nearby in exile, had ridden down to warn the Athenian commanders that their position was indefensible. They told him to go away.

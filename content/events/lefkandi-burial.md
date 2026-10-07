@@ -40,7 +40,12 @@ _order: 14
 <!-- field: summary -->
 A monumental building erected over a rich double burial with four sacrificed horses, around 1000 BC.
 
+<!-- field: significance -->
+The find that overturned the idea of an empty, impoverished Dark Age in Greece.
+
 <!-- field: body -->
+Around 1000–950 BC at Lefkandi, on the island of Euboea, a man and a woman were buried with great wealth beneath a monumental building.
+
 The Toumba building at Lefkandi was 50 m long with an external colonnade — three centuries before any comparable Greek structure — and was deliberately demolished and buried under a mound soon after construction.
 
 Beneath it: a cremated man in a Cypriot bronze amphora with an iron sword; an inhumed woman with gold hair-coils, a gold pectoral and a Babylonian pendant already 700 years old when buried; and a shaft with four horses.

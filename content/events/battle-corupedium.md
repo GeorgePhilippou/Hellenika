@@ -38,7 +38,12 @@ _order: 68
 <!-- field: summary -->
 Seleucus killed his old comrade-in-arms Lysimachus at Corupedium in 281 BC, ending the last rivalry among Alexander's original successors.
 
+<!-- field: significance -->
+The last battle between Alexander's own generals, after which only Ptolemy's, Seleucus' and Antigonus' heirs ruled his empire.
+
 <!-- field: body -->
+Fought in 281 BC at Corupedium in Lydia, western Asia Minor, between the aged kings Seleucus I and Lysimachus.
+
 Lysimachus and Seleucus had fought on the same side at Ipsus twenty years earlier, but rivalry over Asia Minor and a poisonous family dispute inside Lysimachus's own court — his execution of his son Agathocles on the accusation of his wife Arsinoe had driven many of his own supporters toward Seleucus — brought the two old men to battle at Corupedium in Lydia.
 
 Seleucus won decisively, and Lysimachus was killed in the fighting — the last of Alexander's original bodyguards and generals to die, some four decades after Alexander himself. For a brief moment, Seleucus stood as the sole survivor of that generation, master of nearly the whole of Alexander's former empire outside Egypt.

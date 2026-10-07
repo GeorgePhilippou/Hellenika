@@ -49,7 +49,12 @@ _order: 45
 <!-- field: summary -->
 Alexander's hardest-fought victory, against Porus and his war elephants in monsoon rain on the Jhelum river.
 
+<!-- field: significance -->
+Alexander's hardest battle and his last great victory, fought at the eastern limit of his conquests.
+
 <!-- field: body -->
+Fought in May 326 BC on the Hydaspes (Jhelum) river in the Punjab, between Alexander and the Indian king Porus.
+
 The river was swollen with monsoon rain and Porus held the far bank with around 200 war elephants, animals horses will not willingly approach, which made a conventional cavalry crossing directly opposite the Indian position essentially impossible. Alexander instead spent weeks staging noisy, repeated night movements up and down the riverbank until Porus's scouts stopped bothering to react to each one, and then, once that vigilance had genuinely relaxed, crossed the river for real some 27 km upstream under cover of a violent storm that further concealed his movement.
 
 The battle that followed was among the most brutal of his career. Rather than break formation and risk being trampled, the Macedonian phalanx opened deliberate lanes to let charging elephants pass harmlessly through the ranks, then turned to attack the animals' vulnerable handlers and trunks with missiles and close-quarters weapons; wounded, panicking elephants trampled soldiers on both sides indiscriminately as the battle disintegrated into chaos around them. Alexander used his cavalry on one flank to draw the Indian horse away from Porus's main position, then wheeled a second detachment around to strike the same Indian cavalry from the rear once it had committed.

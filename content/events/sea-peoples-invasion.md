@@ -45,7 +45,12 @@ _order: 10
 <!-- field: summary -->
 Coalitions of displaced peoples attacked Egypt and the Levant by land and sea during the Bronze Age Collapse.
 
+<!-- field: significance -->
+The attacks most closely linked with the collapse of the Late Bronze Age world around 1200 BC.
+
 <!-- field: body -->
+Between about 1200 and 1150 BC, coalitions of peoples from the Aegean and Anatolia attacked Egypt and the coasts of the eastern Mediterranean.
+
 Egyptian inscriptions under Merneptah and Ramesses III name groups — Peleset, Tjeker, Shekelesh, Denyen, Weshesh, Sherden — attacking in combination. The Medinet Habu reliefs show them travelling with families in ox-carts, which reads as migration rather than a raid.
 
 Ramesses III's text says these groups had already destroyed Hatti, Carchemish, Arzawa and Alashiya — matching the archaeological destruction horizon closely.

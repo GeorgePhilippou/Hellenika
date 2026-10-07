@@ -43,7 +43,12 @@ _order: 67
 <!-- field: summary -->
 Athens won its last major naval victory of the war at Arginusae in 406 BC, then executed the victorious generals in a legally dubious mass trial over the storm-hampered rescue that followed.
 
+<!-- field: significance -->
+Athens' last great naval victory — remembered less for the battle than for the city's execution of its own winning generals.
+
 <!-- field: body -->
+Fought in 406 BC off the Arginusae islands, between Lesbos and the coast of Asia Minor, between Athens and Sparta.
+
 Facing a Spartan fleet with Athens' own survival at stake, an emergency Athenian force — including newly freed slaves rowing alongside citizens — won a clear victory near the Arginusae islands, off the Anatolian coast. It should have been an unqualified triumph, arguably the last real chance to recover from the war's long decline.
 
 A storm broke immediately afterward, preventing the generals from recovering the crews of disabled ships and the bodies of the dead — a failure that was, in the circumstances, arguably unavoidable, but which the Athenian assembly treated as a capital offence. In a legally irregular move, the assembly voted to try all the generals together rather than individually as the law required; Socrates, serving that year on the presiding council (prytany), was the sole member to refuse to put the illegal motion to a vote, at real personal risk. He was overruled, and six generals were executed.

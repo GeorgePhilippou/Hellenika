@@ -44,7 +44,12 @@ _order: 3
 <!-- field: summary -->
 Around 1900 BC large multi-functional complexes appear at Knossos, Phaistos, Malia and Zakros — the first states in Europe.
 
+<!-- field: significance -->
+The appearance of the first states in Europe, with palaces, writing and organised economies.
+
 <!-- field: body -->
+Around 1900 BC the first palaces were built on Crete, at Knossos, Phaistos and Malia, and somewhat later at Zakros.
+
 The First Palace period marks a step change: centralised storage on an industrial scale, craft workshops, and administration recorded in Cretan Hieroglyphic and then Linear A. Storage capacity at Knossos alone ran to hundreds of thousands of litres.
 
 Why this happened on Crete and not the mainland is debated. Crete escaped the destructions of c. 2200 BC, sits at the crossing point of Egyptian, Levantine and Aegean routes, and produced surplus oil and wine that reward central storage and redistribution.

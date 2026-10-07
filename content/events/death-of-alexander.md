@@ -47,7 +47,12 @@ _order: 46
 <!-- field: summary -->
 Alexander died at Babylon in June 323 BC aged 32, leaving no viable heir and an empire that fragmented immediately.
 
+<!-- field: significance -->
+The end of Alexander's reign and the beginning of the Hellenistic age, as his generals fought over his empire.
+
 <!-- field: body -->
+Alexander the Great died at Babylon on 10 or 11 June 323 BC, aged 32.
+
 He fell ill after a prolonged banquet and declined over eleven days with fever, becoming unable to speak. Soldiers filed past his bed; he could only move his eyes. He died on 10 or 11 June 323 BC.
 
 His wife Roxana was pregnant; his half-brother Arrhidaeus had a cognitive disability. Asked who should succeed, he reportedly said "to the strongest" — which is what happened, over forty years of wars among his generals. Both his son and his half-brother were eventually murdered.

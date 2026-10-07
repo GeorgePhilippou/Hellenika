@@ -50,7 +50,12 @@ _order: 73
 <!-- field: summary -->
 The Sicilian Greeks' victory over Carthage in 480 BC, by tradition on the same day as Salamis.
 
+<!-- field: significance -->
+The victory that kept Carthage out of most of Greek Sicily for seventy years and made Syracuse a great power.
+
 <!-- field: body -->
+Fought in 480 BC at Himera on the north coast of Sicily, between the Greek tyrants Gelon of Syracuse and Theron of Akragas and a Carthaginian army under Hamilcar.
+
 In 480 BC, while Xerxes invaded Greece, a Carthaginian expedition landed in northern Sicily. Herodotus says Carthage had been asked to attack by Terillus, the dispossessed tyrant of Himera. Diodorus gives a huge army and a fleet that came under Hamilcar's command. Gelon, tyrant of Syracuse, marched to the aid of Himera, joined by Theron of Akragas.
 
 The battle followed a stratagem, in Diodorus's account: Gelon intercepted a letter from allies of Carthage announcing when cavalry would arrive, sent his own horsemen in their place, and struck as they entered the Carthaginian camp. Hamilcar was killed; a Carthaginian version, reported by Herodotus, says he threw himself into a sacrificial fire after his army began to lose. The Greeks burned many of the ships and took many prisoners, and Syracusan forces afterwards controlled the coast.

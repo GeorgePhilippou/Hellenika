@@ -43,7 +43,12 @@ _order: 42
 <!-- field: summary -->
 Alexander laid out a new city on the Egyptian coast that became the intellectual capital of the ancient world.
 
+<!-- field: significance -->
+The foundation of the city that became the capital of Ptolemaic Egypt and the intellectual centre of the Greek world.
+
 <!-- field: body -->
+Alexander founded Alexandria in 331 BC on the Mediterranean coast of Egypt, at the western edge of the Nile Delta.
+
 Alexander chose a site on a limestone ridge between the sea and Lake Mareotis, with the island of Pharos providing a natural double harbour and freshwater access inland. It was an outstanding choice of site, and the city has been continuously important for 2,300 years.
 
 The story goes that, lacking chalk, the surveyors marked the street plan with barley meal, and birds descended and ate it — read by the seers as a sign that the city would feed the world.

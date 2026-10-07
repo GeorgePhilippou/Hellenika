@@ -37,6 +37,9 @@ _order: 11
 <!-- field: summary -->
 The Hittite capital was burned and abandoned around 1190 BC, ending one of the great powers of the Late Bronze Age.
 
+<!-- field: significance -->
+The fall of the Hittite Empire, one of the great powers of the Late Bronze Age and a key event of the Bronze Age collapse.
+
 <!-- field: body -->
 Hattusa in central Anatolia had been the seat of an empire that fought Egypt to a draw at Kadesh. Around 1190 BC it burned and was abandoned.
 

@@ -43,7 +43,12 @@ _order: 54
 <!-- field: summary -->
 Rome destroyed Corinth in 146 BC, killing or enslaving its population as a warning to the rest of Greece.
 
+<!-- field: significance -->
+The end of Greek independence: after 146 BC Greece was under direct Roman control.
+
 <!-- field: body -->
+In 146 BC the Roman general Lucius Mummius captured and destroyed Corinth, the leading city of the Achaean League.
+
 The Achaean League, provoked into a hopeless war by escalating Roman demands that it effectively dismantle itself as an independent political union, fought and lost quickly and decisively. The Roman general Lucius Mummius took Corinth, killed the adult male population, sold the surviving women and children into slavery, systematically looted the city's famous art collections, and burned what remained to the ground.
 
 This was calculated Roman policy rather than an isolated atrocity: Rome destroyed Carthage in North Africa in the very same year, 146 BC, in an unrelated but strikingly parallel campaign. Taken together, the two destructions are often treated by later historians as the moment Rome definitively established itself as the unrivalled dominant power across the entire Mediterranean world, with both an old Greek commercial rival and an old Punic one eliminated within months of each other. The message to the rest of the Greek world in particular was unmistakable: continued resistance to Roman demands would not be met with a merely proportionate response.

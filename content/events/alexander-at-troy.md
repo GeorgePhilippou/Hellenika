@@ -34,6 +34,9 @@ _order: 71
 <!-- field: summary -->
 Alexander opens his Persian campaign by crossing into Asia and performing rites at Troy, casting the invasion as a second Trojan War.
 
+<!-- field: significance -->
+Alexander's first act in Asia, framing the conquest of Persia as a new Trojan War with himself as the new Achilles.
+
 <!-- field: body -->
 In spring 334 BC, Alexander ferried his invasion force across the Hellespont from Sestos to Abydos while the fleet made an unopposed crossing nearby. He is said to have thrown a spear into Asian soil from his ship and been first to land in full armour, staking a symbolic claim to the continent he had come to conquer.
 

@@ -41,7 +41,12 @@ _order: 69
 <!-- field: summary -->
 Demetrius Poliorcetes besieged Rhodes for a year with the largest siege engines the Greek world had seen, and failed to take it.
 
+<!-- field: significance -->
+A failed siege that made Rhodes' name — and paid for the Colossus.
+
 <!-- field: body -->
+In 305–304 BC Demetrius Poliorcetes, son of Antigonus I, besieged the island city of Rhodes.
+
 Rhodes had stayed on good terms with Ptolemy of Egypt, its main trading partner, and refused Antigonus's demand to join the war against him. Demetrius arrived to force the issue with a fleet and army built around siege technology on an unprecedented scale, above all the Helepolis — an armoured, multi-storey siege tower reportedly requiring thousands of men to move, packed with catapults and ballistae.
 
 Rhodes withstood a year of assault, sabotaging engines, holding key defensive points and receiving occasional relief supplies past the blockade. Neither side could force a decision, and a negotiated peace left Rhodes formally independent while acknowledging a friendly relationship with Antigonus — a result close enough to victory for the Rhodians that they kept celebrating it for centuries.

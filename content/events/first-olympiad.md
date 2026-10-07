@@ -41,7 +41,12 @@ _order: 16
 <!-- field: summary -->
 The traditional date of the first Olympic Games, which became the anchor of Greek chronology.
 
+<!-- field: significance -->
+The fixed point from which Greeks counted time, and the symbolic start of the Archaic period.
+
 <!-- field: body -->
+By tradition the first Olympic Games were held at Olympia in Elis in 776 BC.
+
 Greek historians dated events by counting four-year Olympiads from 776 BC, the year the runner Koroibos of Elis was said to have won the *stadion*. It gave the Greek world its first shared chronological framework — essential for a civilisation of hundreds of independent states with their own calendars and magistrate-year dating.
 
 Archaeology at Olympia shows dedications increasing sharply in the eighth century, consistent with a festival growing in importance around then, though it cannot confirm a specific year.

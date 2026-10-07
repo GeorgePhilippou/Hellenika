@@ -47,7 +47,12 @@ _order: 30
 <!-- field: summary -->
 An epidemic in the overcrowded wartime city killed perhaps a quarter of the Athenian population, including Pericles.
 
+<!-- field: significance -->
+A catastrophe that killed Pericles and perhaps a quarter of Athens' people, and changed the course of the Peloponnesian War.
+
 <!-- field: body -->
+An epidemic struck Athens in 430 BC, the second year of the Peloponnesian War, and returned in 429 and 427–426 BC.
+
 The epidemic struck a city already swollen well beyond its normal population, since Pericles's wartime strategy had deliberately brought the entire rural population of Attica inside Athens's fortified Long Walls to shelter from Spartan invasion, packing refugees into makeshift housing and temporary shelters with none of the sanitation a smaller, ordinary population could rely on — conditions modern historians generally agree made the disease's spread dramatically worse than it might otherwise have been.
 
 Thucydides himself caught the disease, survived it, and described its progress with unusually clinical detachment: fever, inflamed eyes, bleeding from the mouth and throat, pustules covering the body, unquenchable thirst, and death typically arriving on the seventh or eighth day for those who did not recover. He explains that he wrote the description in such careful detail specifically so that the disease could be recognised again if it ever returned — an explicitly scientific motive, unusual for the period, that treats his own eyewitness suffering as useful data rather than simply personal testimony.

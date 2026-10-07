@@ -42,7 +42,12 @@ _order: 62
 <!-- field: summary -->
 Cimon destroyed a Persian fleet and then its supporting army on the same day at the mouth of the Eurymedon, around 466 BC.
 
+<!-- field: significance -->
+The victory that drove Persian power from the Aegean and confirmed Athens as leader of the Delian League.
+
 <!-- field: body -->
+Fought around 466 BC at the mouth of the Eurymedon river in Pamphylia, southern Asia Minor, between the Delian League under the Athenian Cimon and a Persian fleet and army.
+
 Cimon caught the Persian fleet at anchor off the Pamphylian coast and destroyed or captured it before it could properly deploy, then, learning that Persian reinforcements had landed troops nearby, landed his own marines the same day and routed them too — an unusual double victory that ancient writers treated as an exceptional feat even by Athenian standards.
 
 The scale of the win, whatever the exact numbers Plutarch and other later sources report, removed Persia as an active naval threat in the Aegean for a generation, letting the Delian League's members refocus its enormous common treasury toward Athens' own ends rather than continuous campaigning. The spoils are traditionally linked to a wave of Athenian public building in the years that followed, foreshadowing the far larger building program Pericles would launch after the mid-century peace with Persia.

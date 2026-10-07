@@ -37,7 +37,12 @@ _order: 0
 <!-- field: summary -->
 Volcanic glass from the island of Melos was shipped across the Aegean from the Mesolithic onwards — the earliest evidence of seafaring in the region.
 
+<!-- field: significance -->
+The earliest evidence of seafaring in the Mediterranean, thousands of years before farming reached Greece.
+
 <!-- field: body -->
+From around 11,000 BC, obsidian — volcanic glass used for sharp blades — was carried from the island of Melos across the Aegean.
+
 Obsidian from Melos was found in the Franchthi Cave in the Argolid in layers dating to around 11,000 BC. Melos is an island and was never connected to the mainland, so someone crossed open water to get it — the earliest hard evidence for sea travel anywhere in the Mediterranean.
 
 Obsidian gives a cutting edge sharper than surgical steel and can be chemically fingerprinted to its source volcano, so its distribution maps ancient exchange with unusual precision. A distribution map cannot tell us whether specialist sailors, direct visitors or repeated hand-to-hand exchanges carried each piece. Melian obsidian nevertheless turns up across the Aegean for eight thousand years.

@@ -44,7 +44,12 @@ _order: 6
 <!-- field: summary -->
 Almost every Minoan centre on Crete was destroyed within a short period; only Knossos continued, thereafter administered in Greek.
 
+<!-- field: significance -->
+The end of the Minoan palace civilisation on Crete and the beginning of Mycenaean Greek rule there.
+
 <!-- field: body -->
+Around 1450 BC most of the palaces and towns of Minoan Crete were destroyed, many by fire.
+
 Zakros, Phaistos, Malia, Gournia and Ayia Triada were all destroyed or abandoned around 1450 BC, many with evidence of burning. Knossos survived and its administration continued — now writing Linear B, in Greek.
 
 The simplest reading is Mycenaean conquest: a mainland takeover of the island, with Knossos retained as the administrative centre. Supporting evidence includes warrior burials with mainland-style weapons appearing on Crete and the shift in script and language.

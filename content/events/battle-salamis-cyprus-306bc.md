@@ -50,7 +50,12 @@ _order: 49
 <!-- field: summary -->
 Demetrius Poliorcetes destroyed a Ptolemaic fleet off Cyprus — a victory that pushed the Successors to start calling themselves kings.
 
+<!-- field: significance -->
+A naval victory that led Antigonus and Demetrius to take the title of king — and the other Successors to follow, formally ending the fiction of Alexander's united empire.
+
 <!-- field: body -->
+Fought in 306 BC off Salamis on the east coast of Cyprus, between Demetrius Poliorcetes and the fleet of Ptolemy I.
+
 Demetrius landed on Cyprus, defeated Ptolemy's brother Menelaus in an initial naval engagement, and besieged the city of Salamis. Ptolemy himself sailed to relieve it with a fleet of roughly 140 ships. Rather than let that relief force land reinforcements safely, Demetrius met it in open water outside the harbour and won overwhelmingly — ancient accounts report most of the Ptolemaic fleet either sunk or captured outright, along with several thousand soldiers taken prisoner. Ptolemy himself escaped back to Egypt; Menelaus, left with no hope of rescue, surrendered both the city and the whole island.
 
 Within weeks of the news reaching him, Antigonus I had himself and his son Demetrius formally proclaimed *basileus* — king — becoming the first of Alexander's former generals to claim the title outright rather than continue governing merely as regents for Alexander's heirs, all of whom were by that point dead. Ptolemy, Seleucus, Lysimachus and Cassander each followed suit within about a year, unwilling to be the only major successor left without the title. The lingering pretence of a single restored Argead empire under a legitimate heir ended there for good; what followed from this point on were openly rival, self-declared Hellenistic kingdoms competing on equal terms. Buoyed by his victory, Demetrius went on the following year to besiege the island of Rhodes in a campaign so enormous and ultimately so unsuccessful that "siege of Rhodes" became a byword in later Greek usage for a vast, expensive undertaking that still ends in failure.

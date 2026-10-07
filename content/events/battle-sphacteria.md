@@ -48,7 +48,12 @@ _order: 63
 <!-- field: summary -->
 An Athenian force trapped a Spartan garrison on Sphacteria in 425 BC and forced roughly 120 Spartan citizens to surrender — an unprecedented shock to Sparta's military prestige.
 
+<!-- field: significance -->
+The first time Spartan citizen soldiers surrendered in large numbers, a shock that shook Sparta's reputation and handed Athens its best bargaining position of the war.
+
 <!-- field: body -->
+Fought in 425 BC on the island of Sphacteria, at the entrance to the Bay of Navarino near Pylos in Messenia, between Athens and Sparta.
+
 A largely improvised Athenian landing at Pylos, right on the Spartan mainland's own coast, left a Spartan garrison stranded on the small offshore island of Sphacteria once the Athenian fleet arrived and cut off any possibility of rescue or retreat. The subsequent siege dragged on far longer than expected in difficult terrain, until Cleon — an Athenian politician known chiefly for aggressive rhetoric rather than any military reputation, who had rashly promised the assembly a swift result largely to embarrass his political rivals — was sent out jointly with the far more experienced general Demosthenes and, against most contemporary expectations, actually delivered on his promise: the Spartan position was stormed and its survivors forced to surrender.
 
 The surrender itself was the real historical shock, more than the tactical result. Spartan citizen-soldiers were culturally expected to die in place rather than yield under any circumstances, and the roughly 120 Spartiates taken prisoner represented a genuinely significant fraction of Sparta's entire full-citizen fighting body at a time when that population was already in long-term demographic decline and could not easily absorb such a loss. Held hostage at Athens under close guard, the prisoners gave Athens real strategic leverage for years afterward: Sparta avoided its usual annual invasions of Attica for fear of what retaliation might be visited on the captured men. The Athenian victory monument commemorating the wider campaign is generally identified by scholars with the Nike of Paionios, a soaring marble figure of Victory dedicated at Olympia and still counted among the finest surviving works of Classical Greek sculpture.

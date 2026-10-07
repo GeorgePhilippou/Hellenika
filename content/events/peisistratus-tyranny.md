@@ -44,7 +44,12 @@ _order: 20
 <!-- field: summary -->
 Peisistratus and his sons ruled Athens for half a century, expanding festivals and public works before being expelled.
 
+<!-- field: significance -->
+A tyranny that strengthened Athens' institutions, festivals and public works, preparing the ground for democracy.
+
 <!-- field: body -->
+Peisistratus and his sons ruled Athens, with interruptions, from 561 to 510 BC.
+
 Peisistratus took power three times, ruling securely from 546 BC. His regime was not straightforwardly repressive: he kept Solon's laws, sent judges into the countryside to reduce dependence on local aristocrats, funded public works and water supply, expanded the Panathenaia, and gave the City Dionysia its dramatic competitions.
 
 His sons Hippias and Hipparchus succeeded him. Hipparchus was assassinated in 514 BC by Harmodius and Aristogeiton — over a personal quarrel, though Athens later remembered them as democratic martyrs and put up the first political statues in Greek history. Hippias grew harsh and was expelled in 510 BC with Spartan help. He later guided the Persians to Marathon.

@@ -57,7 +57,12 @@ _order: 26
 <!-- field: summary -->
 The largest hoplite battle ever fought ended the Persian invasion of Greece in 479 BC.
 
+<!-- field: significance -->
+The battle that ended the Persian invasion of Greece for good.
+
 <!-- field: body -->
+Fought in August 479 BC near Plataea in southern Boeotia, between the Greek allies under the Spartan regent Pausanias and the Persian army of Mardonius.
+
 Some 40,000 Greek hoplites drawn from across the anti-Persian alliance, under the overall command of the Spartan regent Pausanias, faced the army Mardonius had kept in Greece after Xerxes withdrew following Salamis. After days of tense manoeuvring over access to water supplies and foraging routes, a confused Greek night withdrawal to better ground left the allied line badly dispersed, and Mardonius, mistaking the disorder for a general retreat, attacked before the Greeks had fully reorganised.
 
 The Spartans and the Tegeans fighting alongside them held firm under sustained Persian archery, then closed to hand-to-hand combat. In that close fighting the Persian infantry, lacking comparable armour and the long hoplite spear, was broken decisively; Mardonius himself was killed in the fighting, and with his death the Persian army's cohesion collapsed entirely. Pausanias, the victorious commander, later fell from grace amid accusations that he had begun secret, treasonous dealings with Persia, was recalled to Sparta, and ultimately died besieged in a temple, starved out by his own countrymen — a strikingly grim postscript to the greatest command of his career.

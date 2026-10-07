@@ -46,7 +46,12 @@ _order: 56
 <!-- field: summary -->
 Octavian's fleet defeated Antony and Cleopatra on 2 September 31 BC, effectively ending the Hellenistic age.
 
+<!-- field: significance -->
+The battle that ended the last great Hellenistic kingdom and left Octavian — soon Augustus — master of the Roman world.
+
 <!-- field: body -->
+Fought on 2 September 31 BC off the promontory of Actium, at the mouth of the Ambracian Gulf in north-western Greece, between the fleet of Octavian, commanded by Agrippa, and that of Mark Antony and Cleopatra VII.
+
 Antony and Cleopatra were blockaded in the Ambracian Gulf with a fleet weakened by malaria and desertion; Antony had already burned ships he could not crew.
 
 He attempted a breakout. Mid-battle Cleopatra's squadron of sixty ships raised sail and ran south. Antony transferred to a lighter ship and followed, leaving his fleet and his army — which surrendered a week later.

@@ -44,7 +44,12 @@ _order: 44
 <!-- field: summary -->
 Alexander burned the Achaemenid ceremonial capital in 330 BC — whether as policy or on a drunken impulse is disputed.
 
+<!-- field: significance -->
+The symbolic end of the Achaemenid Persian Empire, and a lasting puzzle about Alexander's aims.
+
 <!-- field: body -->
+Alexander burned the palaces of Persepolis, the ceremonial capital of the Persian kings in south-western Iran, in spring 330 BC.
+
 Alexander took Persepolis in early 330 BC and its treasury, reportedly 120,000 talents, more than any state in the Greek world had ever held.
 
 Months later the palace complex burned. Arrian, following Ptolemy, presents it as a deliberate act of vengeance for Xerxes' burning of Athens, and records Parmenion arguing against destroying what was now Alexander's own property. Diodorus, Curtius and Plutarch describe a drunken feast at which the Athenian courtesan Thais urged that a woman's hand should avenge the Acropolis, and Alexander threw the first torch.

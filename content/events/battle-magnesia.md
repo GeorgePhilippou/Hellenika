@@ -41,7 +41,12 @@ _order: 70
 <!-- field: summary -->
 Rome broke Antiochus III's Seleucid army at Magnesia in 190 BC, ending Seleucid power west of the Taurus mountains for good.
 
+<!-- field: significance -->
+The defeat that drove the Seleucid Empire out of Asia Minor and made Rome the dominant power in the eastern Mediterranean.
+
 <!-- field: body -->
+Fought in 190 BC near Magnesia-by-Sipylus in Lydia, western Asia Minor, between Rome under Lucius Cornelius Scipio and the Seleucid king Antiochus III.
+
 Antiochus III, fresh from campaigns that had earned him the title "the Great" by restoring much of the Seleucid Empire's eastern territory, overreached by intervening in Greece and clashing directly with Rome. Driven out of Greece itself at Thermopylae in 191 BC, he assembled a large army — including scythed chariots and war elephants — to meet the Romans in Anatolia the following year.
 
 At Magnesia, Roman legions and their Pergamene allies broke the Seleucid line despite being significantly outnumbered; the elephants and chariots, meant to overawe the Romans, reportedly caused as much disruption to their own side as to the enemy once panicked. The Roman commander, Lucius Cornelius Scipio, campaigned with his more famous brother Scipio Africanus, the victor over Hannibal, serving alongside him as a legate — a detail ancient sources treat as adding extra weight to the victory.

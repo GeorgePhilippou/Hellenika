@@ -39,7 +39,12 @@ _order: 51
 <!-- field: summary -->
 Using shadow angles at two Egyptian cities, Eratosthenes calculated the Earth's circumference to within a few percent.
 
+<!-- field: significance -->
+One of the great achievements of ancient science: the first reasoned measurement of the size of the Earth.
+
 <!-- field: body -->
+Around 240 BC Eratosthenes of Cyrene, head of the Library of Alexandria, calculated the circumference of the Earth.
+
 The method requires only a stick, a well and a measured distance. At Syene the sun was directly overhead at noon on the summer solstice — no shadow in a deep well. At Alexandria, roughly due north, a vertical gnomon cast a shadow of about 7.2° at the same moment.
 
 If the Earth is a sphere and the sun's rays are effectively parallel, that 7.2° is 1/50th of a full circle, so the distance between the cities is 1/50th of the circumference. Multiplying by 50 gave about 250,000 stades.

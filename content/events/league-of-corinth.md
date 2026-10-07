@@ -43,7 +43,12 @@ _order: 37
 <!-- field: summary -->
 Philip organised the Greek states into a federal league under his leadership, with a mandate to invade Persia.
 
+<!-- field: significance -->
+The union that gave Macedon formal leadership of Greece and a mandate for Alexander's invasion of Persia.
+
 <!-- field: body -->
+In 337 BC, after his victory at Chaeronea, Philip II of Macedon called the Greek states to Corinth and organised them into a league.
+
 Formed in 337 BC, the League guaranteed members' constitutions, banned constitutional change by force, prohibited internal warfare, and elected Philip *hegemon* of a joint campaign against Persia. Sparta alone refused to join, and was left alone.
 
 The legal form was a voluntary alliance of free states. The practical reality included Macedonian garrisons at Corinth, Thebes and Chalcis, and a ban on precisely the political changes that might threaten Macedonian influence.

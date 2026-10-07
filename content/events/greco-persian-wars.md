@@ -63,6 +63,9 @@ _order: 59
 <!-- field: summary -->
 Two Persian invasions of Greece, repelled at Marathon and then at Thermopylae, Salamis and Plataea, that reshaped the Aegean world for a century.
 
+<!-- field: significance -->
+The wars that preserved Greek independence and launched the Athenian empire and the Classical age.
+
 <!-- field: body -->
 The wars opened with the Ionian Revolt of 499–494 BC, a failed uprising by Greek cities on the Anatolian coast against Persian rule, in which Athens' brief involvement gave Darius I a pretext for direct action against the mainland. His 490 BC expedition was stopped at Marathon; a decade later his son Xerxes returned with a vastly larger force, winning at Thermopylae and burning Athens before losing the fleet at Salamis and, the following year, the army at Plataea, with the simultaneous naval victory at Mycale finishing Persian sea power in the Aegean.
 

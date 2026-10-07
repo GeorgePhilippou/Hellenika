@@ -55,7 +55,12 @@ _order: 36
 <!-- field: summary -->
 Philip II defeated the Athenian-Theban alliance in 338 BC, ending the independence of the Greek city-states.
 
+<!-- field: significance -->
+The battle that ended the independence of the Greek city-states and made Macedon master of Greece.
+
 <!-- field: body -->
+Fought in August 338 BC at Chaeronea in western Boeotia, between Philip II of Macedon and an alliance led by Athens and Thebes.
+
 Around 30,000 Macedonians faced a roughly similar number of allied Greeks, an army assembled largely through the tireless diplomatic and oratorical campaigning of the Athenian statesman Demosthenes, who had spent years warning Athens of the danger Philip posed and finally succeeded in bringing Athens and Thebes together into a single alliance against him. Philip commanded the Macedonian right in person, while his eighteen-year-old son Alexander led the Companion cavalry on the left.
 
 Philip drew the Athenian line forward with a controlled, deliberate withdrawal — a manoeuvre demanding the kind of discipline only a genuinely professional standing army could execute reliably under pressure — and as the Athenians advanced, shouting that they would drive him back to Macedon, the allied line stretched thin and a gap opened between the Athenian and Theban contingents. Alexander charged the Companion cavalry straight into that gap.

@@ -54,7 +54,12 @@ _order: 53
 <!-- field: summary -->
 Rome destroyed the Macedonian army in under an hour, abolishing the kingdom of Alexander's successors.
 
+<!-- field: significance -->
+The battle that ended the kingdom of Macedon and showed the Roman legion's superiority over the phalanx.
+
 <!-- field: body -->
+Fought on 22 June 168 BC near Pydna, on the coast of southern Macedonia, between the Roman consul Lucius Aemilius Paullus and King Perseus of Macedon.
+
 The night before the battle, a lunar eclipse alarmed the Roman camp, since such omens were widely read as portents of disaster; the tribune Gaius Sulpicius Gallus, having predicted the eclipse in advance from astronomical calculation, was able to reassure the troops that it was a natural, foreseeable event rather than a sign of doom, steadying morale before the fighting began.
 
 The phalanx advanced the next day and initially drove the Roman legions back — Aemilius Paullus later said the sight of that pike wall coming on was the most frightening thing he had ever seen in his life, a rare admission of fear from a victorious Roman commander. But the ground at Pydna was uneven, broken by a stream and scattered obstacles, and as the phalanx pushed forward across it, its line lost the tight, unbroken continuity a phalanx depends on entirely for its effectiveness. Paullus ordered his more flexible maniples into the gaps that opened. Once inside the reach of the pikes, legionaries fighting with the short *gladius* had an overwhelming advantage over men holding an unwieldy six-metre pole in both hands, unable to turn, draw a sidearm, or defend themselves at close quarters.
