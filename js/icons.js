@@ -104,7 +104,7 @@ export const TYPE_ICON = {
   battle: 'battle', war: 'war', event: 'event', artefact: 'artefact',
   text: 'text', myth: 'myth', deity: 'deity', civilisation: 'civilisation',
   writing: 'writing', empire: 'empire', kingdom: 'empire', museum: 'museum',
-  language: 'language', dynasty: 'dynasty', concept: 'sparkle',
+  language: 'language', dynasty: 'dynasty', concept: 'sparkle', theme: 'civilisation',
 };
 
 export const EVIDENCE_ICON = {

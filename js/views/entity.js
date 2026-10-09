@@ -421,7 +421,7 @@ const CHRONOLOGY_AFTER = 6;
 // happen around it. Sorted in with everything else by their start date,
 // Athens (1400 BC) opened Pericles' chronology and Babylon (1894 BC)
 // sat a millennium and a half before Alexander's death there.
-const CONTEXT_TYPES = new Set(['period', 'city', 'site', 'region', 'empire', 'kingdom', 'writing', 'language']);
+const CONTEXT_TYPES = new Set(['period', 'theme', 'city', 'site', 'region', 'empire', 'kingdom', 'writing', 'language']);
 const span = (x) => (x.end ?? x.start) - x.start;
 
 /**

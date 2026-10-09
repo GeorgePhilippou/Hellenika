@@ -30,6 +30,7 @@ const SOURCES_OF_TRUTH = [periods, people, places, events, artefacts, texts, myt
 /* ---------- Type metadata ---------- */
 export const TYPE_META = {
   period:       { label: 'Period',        plural: 'Periods',        order: 1 },
+  theme:        { label: 'Theme',         plural: 'Themes',         order: 1.5 },
   civilisation: { label: 'Civilisation',  plural: 'Civilisations',  order: 2 },
   person:       { label: 'Person',        plural: 'People',         order: 3 },
   city:         { label: 'City',          plural: 'Cities',         order: 4 },
