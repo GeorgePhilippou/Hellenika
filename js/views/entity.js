@@ -220,7 +220,9 @@ const periodLink = (p) => `<a href="#/timeline/${p.id}">${esc(p.name)}</a>`;
  */
 function periodFact(e) {
   const tinted = periods.find((p) => p.tint === e.tint);
-  if (e.start == null || e.modern || e.legendary || e.type === 'myth' || e.type === 'deity') {
+  // Modern scholars and events are coloured by the age they concern.
+  if (e.modern) return tinted ? `Modern · about ${periodLink(tinted)}` : 'Modern';
+  if (e.start == null || e.legendary || e.type === 'myth' || e.type === 'deity') {
     return tinted ? periodLink(tinted) : null;
   }
   const FIRST = periods[0].start, LAST = Math.max(...periods.map((p) => p.end));
