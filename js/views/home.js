@@ -28,7 +28,7 @@ const HERO_OBJECTS = [
 
 const FEATURES = [
   { href: '#/timeline', icon: 'timeline', tint: 'classical', title: 'Travel through time',
-    body: 'A draggable, zoomable timeline from 3200 BC to 30 BC. Eleven colour-coded periods that overlap because history did.' },
+    body: 'A timeline from the first farmers of 7000 BC to 30 BC. Twelve colour-coded periods that overlap because history did.' },
   { href: '#/map', icon: 'map', tint: 'minoan', title: 'Watch the map change',
     body: 'Political control, cities, colonies and campaign routes, animated as you move the year.' },
   { href: '#/explore', icon: 'compass', tint: 'archaic', title: 'Explore every entity',
@@ -102,7 +102,7 @@ export async function renderHome() {
           </div>
         </div>
         <p class="xs muted" style="margin-top:var(--s-3)">
-          Eleven periods, 3200 BC to 30 BC — hover or tap any point for its dates.
+          Twelve periods, 7000 BC to 30 BC — hover or tap any point for its dates.
         </p>
         </div>
       </div>

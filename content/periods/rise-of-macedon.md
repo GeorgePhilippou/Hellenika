@@ -64,7 +64,7 @@ sources:
   - worthington2008
   - hammond1994
   - diodorus-src
-_order: 7
+_order: 8
 ---
 
 <!-- field: summary -->

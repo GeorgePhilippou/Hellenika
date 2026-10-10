@@ -80,7 +80,7 @@ const STOPS = db.ofType('event', 'battle', 'war', 'artefact', 'text')
 
 // Short names for the period ribbon.
 const SHORT = {
-  'early-bronze-age': 'Early Bronze', 'minoan-civilisation': 'Minoan', 'mycenaean-civilisation': 'Mycenaean',
+  'neolithic-greece': 'Neolithic', 'early-bronze-age': 'Early Bronze', 'minoan-civilisation': 'Minoan', 'mycenaean-civilisation': 'Mycenaean',
   'bronze-age-collapse': 'Collapse', 'greek-dark-age': 'Dark Age', 'archaic-greece': 'Archaic',
   'classical-greece': 'Classical', 'rise-of-macedon': 'Macedon', 'alexander-empire': 'Alexander',
   'hellenistic-period': 'Hellenistic', 'roman-conquest': 'Roman',
@@ -180,9 +180,9 @@ export async function renderTimeline(params) {
   root.innerHTML = `
     <div class="wrap chron-wrap">
       <header class="chron-hero">
-        <p class="eyebrow">3200 BC — 30 BC</p>
+        <p class="eyebrow">7000 BC — 30 BC</p>
         <h1>The Timeline</h1>
-        <p class="sub">Three thousand years of the Greek world, read from top to bottom. Each coloured rail is a period,
+        <p class="sub">Seven thousand years of the Greek world, from the first farmers to the fall of Egypt, read from top to bottom. Each coloured rail is a period,
           running for as long as it lasted; each stop on it is something that happened. Long stretches are compressed —
           the markers between them say how much time has passed.</p>
       </header>

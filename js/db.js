@@ -89,7 +89,7 @@ export const CONFIDENCE_ORDER = ['established', 'strong', 'probable', 'debated',
 
 /* ---------- Period tint resolution ---------- */
 export const TINTS = [
-  'earlybronze', 'minoan', 'mycenaean', 'collapse', 'darkage',
+  'neolithic', 'earlybronze', 'minoan', 'mycenaean', 'collapse', 'darkage',
   'archaic', 'classical', 'macedon', 'alexander', 'hellenistic', 'roman',
 ];
 export const tintVar = (tint) => `var(--p-${TINTS.includes(tint) ? tint : 'classical'})`;

@@ -52,6 +52,7 @@
   --link:         var(--aegean-600);
 
   /* ---- Period colours (used by timeline, map, chips) ---- */
+  --p-neolithic:    #7f7a55;
   --p-earlybronze:  #9a8c78;
   --p-minoan:       #2b7ea1;
   --p-mycenaean:    #b9862a;
@@ -188,6 +189,7 @@
   --p-macedon:     #6f9a7e;
   --p-darkage:     #77808d;
   --p-collapse:    #8b7a72;
+  --p-neolithic:   #a9a47c;
   --p-earlybronze: #b3a692;
 
   --p-world-egypt:     #c9a262;

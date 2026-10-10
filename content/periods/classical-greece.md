@@ -125,7 +125,7 @@ sources:
   - herodotus-src
   - hornblower2011
   - osborne2009
-_order: 6
+_order: 7
 ---
 
 <!-- field: summary -->

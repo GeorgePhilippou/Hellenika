@@ -281,8 +281,10 @@ function gameTimeline(body) {
       <p class="small muted" style="text-align:center">Click the track where you think this belongs.</p>
       <div class="place-track" id="track">
         ${periods.map((p) => {
-          const l = ((p.start - TIME_MIN) / (TIME_MAX - TIME_MIN)) * 100;
-          const w = ((p.end - p.start) / (TIME_MAX - TIME_MIN)) * 100;
+          const s = Math.max(p.start, TIME_MIN);
+          if (p.end <= s) return '';
+          const l = ((s - TIME_MIN) / (TIME_MAX - TIME_MIN)) * 100;
+          const w = ((p.end - s) / (TIME_MAX - TIME_MIN)) * 100;
           return `<i class="band" style="left:${l}%;width:${w}%;background:var(--p-${p.tint})"></i>`;
         }).join('')}
         <div class="axis"><span>3200 BC</span><span>1600 BC</span><span>30 BC</span></div>

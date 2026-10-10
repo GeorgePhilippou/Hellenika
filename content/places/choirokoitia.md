@@ -5,7 +5,7 @@ altNames:
   - Khirokitia
 type: site
 subtype: settlement
-tint: earlybronze
+tint: neolithic
 start: -7000
 end: -4000
 approx: true

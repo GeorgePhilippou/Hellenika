@@ -82,7 +82,7 @@ sources:
   - plutarch-src
   - bosworth1988
   - cartledge2004
-_order: 8
+_order: 9
 ---
 
 <!-- field: summary -->
