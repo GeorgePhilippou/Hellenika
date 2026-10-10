@@ -83,7 +83,7 @@ const SHORT = {
   'neolithic-greece': 'Neolithic', 'early-bronze-age': 'Early Bronze', 'minoan-civilisation': 'Minoan', 'mycenaean-civilisation': 'Mycenaean',
   'bronze-age-collapse': 'Collapse', 'greek-dark-age': 'Dark Age', 'archaic-greece': 'Archaic',
   'classical-greece': 'Classical', 'rise-of-macedon': 'Macedon', 'alexander-empire': 'Alexander',
-  'hellenistic-period': 'Hellenistic', 'roman-conquest': 'Roman',
+  'hellenistic-period': 'Hellenistic', 'ptolemaic-egypt': 'Ptolemaic', 'roman-conquest': 'Roman',
 };
 
 const WORLD = worldEvents.map((w) => ({ kind: 'world', year: w.year, data: w }));

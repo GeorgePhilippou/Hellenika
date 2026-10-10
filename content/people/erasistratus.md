@@ -5,7 +5,7 @@ altNames:
   - Ἐρασίστρατος
 type: person
 subtype: physician
-tint: hellenistic
+tint: ptolemaic
 start: -304
 end: -250
 approx: true

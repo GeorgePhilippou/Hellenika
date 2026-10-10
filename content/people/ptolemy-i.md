@@ -5,7 +5,7 @@ altNames:
   - Πτολεμαῖος Σωτήρ
 type: person
 subtype: king
-tint: hellenistic
+tint: ptolemaic
 start: -367
 end: -282
 approx: true

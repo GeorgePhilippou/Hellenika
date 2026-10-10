@@ -5,7 +5,7 @@ altNames:
   - Ἡρόφιλος
 type: person
 subtype: physician
-tint: hellenistic
+tint: ptolemaic
 start: -335
 end: -280
 approx: true

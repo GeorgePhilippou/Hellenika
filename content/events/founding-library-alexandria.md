@@ -3,7 +3,7 @@ id: founding-library-alexandria
 name: Founding of the Library of Alexandria
 type: event
 subtype: foundation
-tint: hellenistic
+tint: ptolemaic
 start: -295
 end: -283
 approx: true

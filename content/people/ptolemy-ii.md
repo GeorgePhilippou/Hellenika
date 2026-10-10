@@ -5,7 +5,7 @@ altNames:
   - Πτολεμαῖος Φιλάδελφος
 type: person
 subtype: king of Egypt
-tint: hellenistic
+tint: ptolemaic
 start: -309
 end: -246
 region: Alexandria

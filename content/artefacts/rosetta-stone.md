@@ -3,7 +3,7 @@ id: rosetta-stone
 name: The Rosetta Stone
 type: artefact
 subtype: inscription
-tint: hellenistic
+tint: ptolemaic
 start: -196
 end: -196
 coords:

@@ -63,6 +63,7 @@
   --p-macedon:      #4f7a5e;
   --p-alexander:    #8a3243;
   --p-hellenistic:  #3f8f8a;
+  --p-ptolemaic:    #3d5a9e;
   --p-roman:        #7a4b8f;
 
   /* ---- World-context colours (timeline "rest of the world" band) ----
@@ -183,6 +184,7 @@
   --p-mycenaean:   #d8a93f;
   --p-classical:   #dd7f55;
   --p-hellenistic: #56b0aa;
+  --p-ptolemaic:   #7491d6;
   --p-archaic:     #9b8bcb;
   --p-alexander:   #b5566a;
   --p-roman:       #a06fb5;

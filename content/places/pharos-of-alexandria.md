@@ -6,7 +6,7 @@ altNames:
   - Φάρος
 type: site
 subtype: lighthouse
-tint: hellenistic
+tint: ptolemaic
 start: -280
 end: 1323
 approx: true

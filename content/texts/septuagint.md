@@ -5,7 +5,7 @@ altNames:
   - LXX
 type: text
 subtype: translation
-tint: hellenistic
+tint: ptolemaic
 start: -280
 end: -130
 approx: true

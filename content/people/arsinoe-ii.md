@@ -5,7 +5,7 @@ altNames:
   - Ἀρσινόη
 type: person
 subtype: queen
-tint: hellenistic
+tint: ptolemaic
 start: -316
 end: -270
 approx: true

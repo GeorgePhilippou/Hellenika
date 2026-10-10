@@ -3,7 +3,7 @@ id: cleopatra-tetradrachm
 name: Cleopatra tetradrachm
 type: artefact
 subtype: coin
-tint: roman
+tint: ptolemaic
 start: -51
 end: -30
 coords:

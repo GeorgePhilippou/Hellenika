@@ -5,7 +5,7 @@ altNames:
   - Κλεοπάτρα Φιλοπάτωρ
 type: person
 subtype: queen
-tint: roman
+tint: ptolemaic
 start: -69
 end: -30
 coords:

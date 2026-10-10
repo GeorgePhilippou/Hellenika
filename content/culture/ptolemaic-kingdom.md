@@ -2,7 +2,7 @@
 id: ptolemaic-kingdom
 name: The Ptolemaic Kingdom
 type: kingdom
-tint: hellenistic
+tint: ptolemaic
 start: -305
 end: -30
 coords:

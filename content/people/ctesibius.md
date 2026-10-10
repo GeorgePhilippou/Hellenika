@@ -5,7 +5,7 @@ altNames:
   - Κτησίβιος
 type: person
 subtype: engineer
-tint: hellenistic
+tint: ptolemaic
 start: -285
 end: -222
 approx: true

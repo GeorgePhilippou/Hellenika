@@ -5,7 +5,7 @@ altNames:
   - Ἀλεξάνδρεια
 type: city
 subtype: capital
-tint: hellenistic
+tint: ptolemaic
 start: -331
 end: -30
 coords:
