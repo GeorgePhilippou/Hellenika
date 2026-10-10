@@ -7,4 +7,4 @@ _order: 15
 ---
 
 <!-- field: note -->
-The Republic formally ends — three years before this dataset's own close.
+The Republic formally ends; Greece becomes the province of Achaea the same year.

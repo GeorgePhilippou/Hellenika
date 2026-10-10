@@ -3,7 +3,7 @@ id: parallel-lives
 name: Parallel Lives
 type: text
 subtype: biography
-tint: roman
+tint: imperial
 start: 100
 end: 120
 approx: true
@@ -29,7 +29,7 @@ claims:
 relations:
   - id: life-of-alexander
     rel: includes
-  - id: roman-conquest
+  - id: roman-greece
     rel: period
   - id: solon
     rel: includes life of

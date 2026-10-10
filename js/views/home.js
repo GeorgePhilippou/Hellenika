@@ -28,7 +28,7 @@ const HERO_OBJECTS = [
 
 const FEATURES = [
   { href: '#/timeline', icon: 'timeline', tint: 'classical', title: 'Travel through time',
-    body: 'A timeline from the first farmers of 7000 BC to 30 BC. Twelve colour-coded periods that overlap because history did.' },
+    body: 'A timeline from the first farmers of 7000 BC to the fall of Constantinople in AD 1453. Fifteen colour-coded periods that overlap because history did.' },
   { href: '#/map', icon: 'map', tint: 'minoan', title: 'Watch the map change',
     body: 'Political control, cities, colonies and campaign routes, animated as you move the year.' },
   { href: '#/explore', icon: 'compass', tint: 'archaic', title: 'Explore every entity',
@@ -56,7 +56,7 @@ export async function renderHome() {
       <div class="wrap">
         <div class="hero-title-row">
           <div class="hero-title-col">
-            <p class="eyebrow">3200 BC — 30 BC · ${s.entities} connected entities</p>
+            <p class="eyebrow">7000 BC — AD 1453 · ${s.entities} connected entities</p>
             <h1>Explore <span class="hero-accent">Ancient Greece</span> and the world it shaped.</h1>
             <p class="lede">
               <span lang="grc">Ἑλληνικά</span> is an open, evidence-led guide to the ancient Greek world.
@@ -102,7 +102,7 @@ export async function renderHome() {
           </div>
         </div>
         <p class="xs muted" style="margin-top:var(--s-3)">
-          Twelve periods, 7000 BC to 30 BC — hover or tap any point for its dates.
+          Fifteen periods, 7000 BC to AD 1453 — hover or tap any point for its dates.
         </p>
         </div>
       </div>

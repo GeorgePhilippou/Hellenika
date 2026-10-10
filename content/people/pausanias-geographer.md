@@ -6,7 +6,7 @@ altNames:
   - Pausanias the traveller
 type: person
 subtype: travel writer
-tint: roman
+tint: imperial
 start: 110
 end: 180
 approx: true

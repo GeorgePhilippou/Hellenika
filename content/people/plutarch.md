@@ -5,7 +5,7 @@ altNames:
   - Πλούταρχος
 type: person
 subtype: biographer
-tint: roman
+tint: imperial
 start: 46
 end: 120
 approx: true

@@ -5,7 +5,7 @@ altNames:
   - Lucius Flavius Arrianus
 type: person
 subtype: historian
-tint: roman
+tint: imperial
 start: 86
 end: 160
 approx: true

@@ -73,6 +73,7 @@ function periodFor(e) {
 // 11,000 BC) is placed at the threshold, keeping its true date on its
 // label, rather than opening the page with an eight-millennium gap.
 const FIRST_YEAR = byStart[0].start;
+const LAST_YEAR = Math.max(...periods.map((p) => p.end));
 const STOPS = db.ofType('event', 'battle', 'war', 'artefact', 'text')
   .filter((e) => e.start != null && db.isHistorical(e))
   .map((e) => ({ kind: 'stop', year: Math.max(e.start, FIRST_YEAR - 1), entity: e,
@@ -83,7 +84,7 @@ const SHORT = {
   'neolithic-greece': 'Neolithic', 'early-bronze-age': 'Early Bronze', 'minoan-civilisation': 'Minoan', 'mycenaean-civilisation': 'Mycenaean',
   'bronze-age-collapse': 'Collapse', 'greek-dark-age': 'Dark Age', 'archaic-greece': 'Archaic',
   'classical-greece': 'Classical', 'rise-of-macedon': 'Macedon', 'alexander-empire': 'Alexander',
-  'hellenistic-period': 'Hellenistic', 'ptolemaic-egypt': 'Ptolemaic', 'roman-conquest': 'Roman',
+  'hellenistic-period': 'Hellenistic', 'ptolemaic-egypt': 'Ptolemaic', 'roman-conquest': 'Roman', 'roman-greece': 'Roman Greece', 'byzantine-empire': 'Byzantine',
 };
 
 const WORLD = worldEvents.map((w) => ({ kind: 'world', year: w.year, data: w }));
@@ -100,7 +101,7 @@ function buildRows(on) {
   const order = { start: 0, world: 1, stop: 2, end: 3 };
   rows.sort((a, b) => a.year - b.year || order[a.kind] - order[b.kind]
     || (a.entity?.end ?? a.year) - (b.entity?.end ?? b.year));
-  // Several periods end together at 30 BC; one closing row says so.
+  // Several periods can end together (30 BC); one closing row says so.
   return rows.filter((r, i) => !(r.kind === 'end' && rows.slice(i + 1).some((x) => x.kind === 'end' && x.year === r.year)))
     .map((r) => (r.kind === 'end'
       ? { ...r, ending: byStart.filter((p) => p.end === r.year) }
@@ -180,9 +181,9 @@ export async function renderTimeline(params) {
   root.innerHTML = `
     <div class="wrap chron-wrap">
       <header class="chron-hero">
-        <p class="eyebrow">7000 BC — 30 BC</p>
+        <p class="eyebrow">7000 BC — AD 1453</p>
         <h1>The Timeline</h1>
-        <p class="sub">Seven thousand years of the Greek world, from the first farmers to the fall of Egypt, read from top to bottom. Each coloured rail is a period,
+        <p class="sub">Eight and a half thousand years of the Greek world, from the first farmers to the fall of Constantinople, read from top to bottom. Each coloured rail is a period,
           running for as long as it lasted; each stop on it is something that happened. Long stretches are compressed —
           the markers between them say how much time has passed.</p>
       </header>
@@ -328,7 +329,7 @@ function mount(root, openId) {
     currentYear = Math.max(Number(row.dataset.year), FIRST_YEAR);
     nowYear.textContent = fmtYear(currentYear);
     const active = byStart.filter((p) => currentYear >= p.start && currentYear < p.end
-      || (p.end === -30 && currentYear === -30));
+      || (p.end === LAST_YEAR && currentYear === LAST_YEAR));
     nowEra.innerHTML = active.map((p) => `<span style="--tint:var(--p-${p.tint})"><i></i>${esc(p.name)}</span>`).join('');
     $$('.chron-seg', root).forEach((b) => b.classList.toggle('on', active.some((p) => p.id === b.dataset.jump)));
   }

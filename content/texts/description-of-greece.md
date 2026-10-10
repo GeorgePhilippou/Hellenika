@@ -5,7 +5,7 @@ altNames:
   - Ἑλλάδος Περιήγησις
 type: text
 subtype: travel writing
-tint: roman
+tint: imperial
 start: 155
 end: 180
 approx: true

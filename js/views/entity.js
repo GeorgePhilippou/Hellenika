@@ -227,7 +227,7 @@ function periodFact(e) {
   const a = Math.max(e.start, FIRST), b = Math.min(e.end ?? e.start, LAST);
   // Entirely after the atlas closes: a later work about an earlier age
   // (Plutarch's Life of Alexander, AD 100).
-  if (a > b && e.start > LAST) return tinted ? `After 30 BC · about ${periodLink(tinted)}` : null;
+  if (a > b && e.start > LAST) return tinted ? `After ${esc(fmtYear(LAST))} · about ${periodLink(tinted)}` : null;
   // Entirely before it opens (Neolithic Choirokoitia).
   if (a > b) return `Before ${esc(fmtYear(FIRST))}`;
   // The authored period, whenever the dates sit mostly inside it or

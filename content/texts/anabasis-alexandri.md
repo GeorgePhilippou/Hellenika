@@ -3,7 +3,7 @@ id: anabasis-alexandri
 name: Anabasis of Alexander
 type: text
 subtype: history
-tint: alexander
+tint: imperial
 start: 145
 end: 160
 approx: true

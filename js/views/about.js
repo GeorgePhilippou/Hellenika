@@ -21,7 +21,7 @@ export async function renderAbout() {
           Method, scope and honest limits
         </h1>
         <p class="lede">
-          <span lang="grc">Ἑλληνικά</span> is an interactive atlas of the Ancient Greek world from 3200 BC to 30 BC.
+          <span lang="grc">Ἑλληνικά</span> is an interactive atlas of the Greek world from the first farmers of about 7000 BC to the fall of Constantinople in AD 1453, centred on the Bronze Age to Cleopatra (3200–30 BC).
           It is built on one conviction: that the interesting part of history is not the list
           of facts but the structure — how people, places, objects and events connect, and how
           firmly we actually know any of it.

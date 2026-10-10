@@ -3,7 +3,7 @@ id: life-of-alexander
 name: Life of Alexander
 type: text
 subtype: biography
-tint: alexander
+tint: imperial
 start: 100
 end: 120
 approx: true

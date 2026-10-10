@@ -65,6 +65,8 @@
   --p-hellenistic:  #3f8f8a;
   --p-ptolemaic:    #3d5a9e;
   --p-roman:        #7a4b8f;
+  --p-imperial:     #9b5d2e;
+  --p-byzantine:    #7a2d62;
 
   /* ---- World-context colours (timeline "rest of the world" band) ----
      Deliberately muted/neutral relative to the vivid Greek palette
@@ -188,6 +190,8 @@
   --p-archaic:     #9b8bcb;
   --p-alexander:   #b5566a;
   --p-roman:       #a06fb5;
+  --p-imperial:    #c98a55;
+  --p-byzantine:   #b5639a;
   --p-macedon:     #6f9a7e;
   --p-darkage:     #77808d;
   --p-collapse:    #8b7a72;
