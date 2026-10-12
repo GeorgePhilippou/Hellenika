@@ -162,7 +162,7 @@
   background: var(--border); transform: translateY(-0.5px);
 }
 .mt-step {
-  position: relative; flex: 1; min-width: 0;
+  position: relative; flex: 1 0 92px;
   color: inherit;
 }
 .mt-step:hover { text-decoration: none; }
@@ -188,14 +188,32 @@
 .mt-step:hover .mt-name { color: var(--accent-text); }
 .mt-date { font-size: var(--fs-xxs); color: var(--text-3); white-space: nowrap; }
 
+/* Each period keeps at least 92px so labels never collide. Wide screens
+   spread them out to fill the row; narrower ones (tablets, phones) scroll
+   sideways, with a soft fade on whichever edge has more to reveal. */
+.mt-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding: 0 var(--s-4) var(--s-2); margin: 0 calc(var(--s-4) * -1);
+  scrollbar-width: none;
+}
+.mt-scroll::-webkit-scrollbar { display: none; }
+.hero-text .mt-scroll.can-scroll-r {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent);
+          mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent);
+}
+.hero-text .mt-scroll.can-scroll-l {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 56px), transparent);
+          mask-image: linear-gradient(to left, #000 calc(100% - 56px), transparent);
+}
+.hero-text .mt-scroll.can-scroll-l.can-scroll-r {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 56px, #000 calc(100% - 56px), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 56px, #000 calc(100% - 56px), transparent);
+}
+
 /* Below ~700px, 11 labelled points can't fit un-cramped in the viewport
    width — rather than let neighbouring labels collide, the strip scrolls
    horizontally at a width where each point has real breathing room. */
 @media (max-width: 700px) {
-  .mt-scroll {
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
-    margin: 0 calc(var(--s-4) * -1); padding: 0 var(--s-4) var(--s-2);
-  }
   .mini-timeline { height: 108px; min-width: 920px; }
   .mt-step { flex: 0 0 84px; }
   .mt-date { font-size: 9px; }

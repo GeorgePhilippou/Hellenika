@@ -163,5 +163,19 @@ export async function renderHome() {
       </p>
     </section>`;
 
+  // The period strip scrolls sideways when its labels can't all fit without
+  // colliding; flag which edges have more content so CSS can fade them.
+  const strip = root.querySelector('.hero-text .mt-scroll');
+  if (strip) {
+    const sync = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      strip.classList.toggle('can-scroll-l', strip.scrollLeft > 4);
+      strip.classList.toggle('can-scroll-r', strip.scrollLeft < max - 4);
+    };
+    strip.addEventListener('scroll', sync, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(strip);
+    sync();
+  }
+
   return root;
 }
