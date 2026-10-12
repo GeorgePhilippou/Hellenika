@@ -332,6 +332,13 @@ function mount(root, openId) {
       || (p.end === LAST_YEAR && currentYear === LAST_YEAR));
     nowEra.innerHTML = active.map((p) => `<span style="--tint:var(--p-${p.tint})"><i></i>${esc(p.name)}</span>`).join('');
     $$('.chron-seg', root).forEach((b) => b.classList.toggle('on', active.some((p) => p.id === b.dataset.jump)));
+    // Keep the highlighted period visible in the (sideways-scrolling) ribbon.
+    const first = root.querySelector('.chron-seg.on');
+    const rib = first && first.parentElement;
+    if (rib && rib.scrollWidth > rib.clientWidth) {
+      const target = first.offsetLeft - (rib.clientWidth - first.offsetWidth) / 2;
+      rib.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
   }
   const onScroll = throttle(updateNow, 80);
   window.addEventListener('scroll', onScroll, { passive: true });

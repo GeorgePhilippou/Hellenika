@@ -2154,15 +2154,22 @@ button.mt-step:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .chron-now-era span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .chron-now-era i { width: 8px; height: 8px; border-radius: 50%; background: var(--tint); }
 
-.chron-ribbon { display: flex; gap: 3px; min-width: 0; }
+/* Full period names, never truncated: the ribbon scrolls sideways when the
+   names don't all fit, and follows the period currently in view. */
+.chron-ribbon {
+  position: relative;
+  display: flex; gap: 3px; min-width: 0;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.chron-ribbon::-webkit-scrollbar { display: none; }
 .chron-seg {
-  flex: 1 1 0; min-width: 0; height: 30px; padding: 0 6px;
+  position: relative; flex: 1 0 auto; min-width: 0; height: 30px; padding: 0 10px;
   border: 0; border-radius: 6px; cursor: pointer;
   background: color-mix(in srgb, var(--tint) 18%, var(--surface-2));
   color: var(--text-2); font: 600 var(--fs-xxs)/1 var(--font-ui); letter-spacing: .01em;
   transition: background var(--t-fast, .15s), color var(--t-fast, .15s), transform var(--t-fast, .15s);
 }
-.chron-seg span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chron-seg span { display: block; white-space: nowrap; }
 .chron-seg:hover { background: color-mix(in srgb, var(--tint) 34%, var(--surface-2)); color: var(--text); }
 .chron-seg.on { background: var(--tint); color: #fff; }
 .chron-seg:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; }
