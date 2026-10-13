@@ -1592,7 +1592,7 @@
     radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--p-archaic) 20%, transparent), transparent 27%),
     radial-gradient(circle at 55% 100%, color-mix(in srgb, var(--p-mycenaean) 10%, transparent), transparent 34%);
 }
-.myth-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
+.myth-intro h1 { margin-block: var(--s-2) var(--s-6); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
 .myth-intro .lede { max-width: 64ch; }
 .myth-intro-image {
   position: relative; min-width: 0; margin: 0;
@@ -1791,7 +1791,7 @@
     radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--p-classical) 22%, transparent), transparent 28%),
     radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--p-hellenistic) 10%, transparent), transparent 34%);
 }
-.phil-intro h1 { margin-block: var(--s-2) var(--s-4); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
+.phil-intro h1 { margin-block: var(--s-2) var(--s-6); font-size: clamp(3rem, 8vw, 6.4rem); line-height: .92; }
 .phil-intro .lede { max-width: 64ch; }
 .phil-trio { position: relative; height: 400px; }
 @media (min-width: 1280px) { .phil-trio { transform: translateX(56px); } }
@@ -2286,7 +2286,7 @@ button.mt-step:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .chron-drawer .period-panel { margin: 0; }
 
 @media (max-width: 760px) {
-  .chron-bar { grid-template-columns: 1fr; }
+  .chron-bar { grid-template-columns: minmax(0, 1fr); }
   .chron-seg { height: 12px; padding: 0; }
   .chron-seg span { display: none; }
   .chron-tools #chron-map span { display: none; }
@@ -2311,4 +2311,11 @@ button.mt-step:focus-visible { outline: 2px solid var(--accent); outline-offset:
   .chron-filter { white-space: nowrap; flex: none; padding-block: 4px; }
   .chron-tools #chron-map { flex: none; }
   .chron-hero { padding-top: var(--s-6); }
+}
+
+/* Map header + mode switch must not push the page wider than a phone. */
+@media (max-width: 760px) {
+  .section-head .row { flex-wrap: wrap; min-width: 0; max-width: 100%; }
+  #map-mode-switch { display: flex; max-width: 100%; }
+  #map-mode-switch button { flex: 1 1 0; min-width: 0; padding-inline: 8px; }
 }
