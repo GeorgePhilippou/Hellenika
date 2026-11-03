@@ -11,7 +11,7 @@ import { sourceList } from '../../data/sources.js';
 import { entityHref } from '../router.js';
 import { sectionHead, emptyState } from '../components/ui.js';
 
-export async function renderSources() {
+export async function renderSources(_params, query = {}) {
   const root = el('div', { class: 'view' });
   const usage = db.sourceUsage();
   const stats = db.claimStats();
@@ -89,17 +89,18 @@ export async function renderSources() {
       <div id="src-list"></div>
     </div>`;
 
-  root.__mount = () => mount(root, rows);
+  root.__mount = () => mount(root, rows, query.s || null);
   return root;
 }
 
-function mount(root, rows) {
+function mount(root, rows, focusId) {
   const list = $('#src-list', root);
   const input = $('#src-q', root);
   let kind = 'all', q = '';
+  let focus = focusId && rows.some((r) => r.id === focusId) ? focusId : null;
 
   function apply() {
-    let out = rows;
+    let out = focus ? rows.filter((r) => r.id === focus) : rows;
     if (kind !== 'all') out = out.filter((r) => r.kind === kind);
     if (q.trim()) {
       const f = fold(q);
@@ -109,17 +110,21 @@ function mount(root, rows) {
     out = sortBy(out, (r) => (r.kind === 'ancient' ? 0 : 1), (r) => -r.uses, (r) => fold(r.author));
 
     if (!out.length) { list.innerHTML = emptyState('No sources match that filter.'); return; }
+    const banner = focus ? `<p class="small muted" style="margin-bottom:var(--s-4)">Showing one cited work.
+      <button class="btn btn-sm btn-ghost" id="src-all">Show all sources</button></p>` : '';
 
     const groups = [
       ['Ancient primary sources', out.filter((r) => r.kind === 'ancient')],
       ['Modern scholarship', out.filter((r) => r.kind === 'modern')],
     ].filter(([, g]) => g.length);
 
-    list.innerHTML = groups.map(([label, g]) => `
+    list.innerHTML = banner + groups.map(([label, g]) => `
       <section style="margin-bottom:var(--s-12)">
         ${sectionHead(label, `${g.length} works`)}
         ${g.map(sourceRow).join('')}
       </section>`).join('');
+
+    $('#src-all', list)?.addEventListener('click', () => { focus = null; apply(); });
 
     // Expand the "cited by" lists lazily — the DOM stays small until asked.
     $$('[data-src]', list).forEach((btn) => {
@@ -148,6 +153,7 @@ function mount(root, rows) {
         <div class="a">${esc(s.author)}${s.year ? ` <span class="muted">(${s.year})</span>` : ''}</div>
         <div class="t">${s.url && /^https?:\/\//.test(s.url) ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>` : esc(s.title)}</div>
         ${s.note ? `<div class="n">${esc(s.note)}</div>` : ''}
+        ${s.doi || s.access ? `<div class="n">${s.doi ? `<a href="https://doi.org/${esc(s.doi)}" target="_blank" rel="noopener noreferrer">doi:${esc(s.doi)}</a>` : ''}${s.doi && s.access ? ' · ' : ''}${s.access ? esc({ open: 'open access', paywalled: 'paywalled', print: 'print only' }[s.access] || s.access) : ''}</div>` : ''}
         <div class="u row" style="gap:var(--s-3)">
           <span>${s.uses} ${s.uses === 1 ? 'entity cites this' : 'entities cite this'}</span>
           ${s.uses ? `<button class="btn btn-sm btn-ghost" data-src="${esc(s.id)}" data-n="${s.uses}">Cited by ${s.uses}</button>

@@ -158,6 +158,16 @@ function normalise(raw) {
     // evidence & references
     claims: raw.claims || [],
     sources: raw.sources || [],
+    // Depth fields (see docs/editorial-content-standard.md). All optional.
+    // standard: 'full' opts an entry in to the strict citation rules.
+    standard: raw.standard || null,
+    occupied: raw.occupied || null,           // { text } free-form occupation span, e.g. "c. 7000-1200 BC"
+    fieldwork: raw.fieldwork || [],           // [{ who, years, note? }]
+    heldIn: raw.heldIn || [],                 // [string] institutions holding the main finds
+    excavationStatus: raw.excavationStatus || null,
+    identification: raw.identification || [], // [{ question, positions: [{ view, by, cite? }] }]
+    chronologyNotes: raw.chronologyNotes || [], // [{ text, cite? }] where scholars date things differently
+    visiting: raw.visiting || null,
     external: raw.external || [],
     // relations (outgoing, as authored)
     relations: (raw.relations || []).filter((r) => r && r.id),
@@ -623,6 +633,9 @@ export function claimStats() {
 }
 
 /* ---------- Sources ---------- */
+/** Body text before the first `## ` section heading (the whole body if none). */
+export const bodyIntro = (e) => String(e.body || '').split(/^## +/m)[0].trim();
+
 export const getSource = (id) => sources[id] || null;
 
 /** Which entities cite a given source. */

@@ -7,7 +7,7 @@
 import { esc, fmtRange, fmtYear, truncate } from '../util.js';
 import { icon, TYPE_ICON, EVIDENCE_ICON } from '../icons.js';
 import { entityHref } from '../router.js';
-import { tintVar, TYPE_META, CONFIDENCE_META, EVIDENCE_META, CONFIDENCE_ORDER, AUTOLINK } from '../db.js';
+import { tintVar, TYPE_META, CONFIDENCE_META, EVIDENCE_META, CONFIDENCE_ORDER, AUTOLINK, getSource } from '../db.js';
 
 /** Human date label for an entity, honouring approx / floruit / modern. */
 export function entityDate(e) {
@@ -77,10 +77,25 @@ export function evidenceBadge(ev) {
 
 /* ---------- Evidence ---------- */
 
+/** Short citation label: "Evans 1921, p. 12". Falls back to the id. */
+export function citeLabel(cite) {
+  const s = getSource(cite.src);
+  if (!s) return cite.src;
+  const surname = String(s.author || '').replace(/\s*\([^)]*\)/g, '').split(/\s*(?:&|,| and )\s*/)[0].trim().split(/\s+/).pop();
+  return `${surname}${s.year ? ` ${s.year}` : ''}${cite.loc ? `, ${cite.loc}` : ''}`;
+}
+
+export function citesHTML(cites) {
+  if (!cites?.length) return '';
+  return `<span class="cites" aria-label="Cited in">${cites.map((c) =>
+    `<a class="cite" href="#/sources?s=${encodeURIComponent(c.src)}" title="${esc(getSource(c.src)?.title || c.src)}">${esc(citeLabel(c))}</a>`
+  ).join('')}</span>`;
+}
+
 export function claimRow(c) {
   return `
     <div class="claim">
-      <p class="claim-text">${esc(c.text)}</p>
+      <p class="claim-text">${esc(c.text)}${citesHTML(c.cite)}</p>
       <div class="claim-meta">
         ${evidenceBadge(c.evidence)}
         ${confidenceBadge(c.confidence)}
@@ -190,6 +205,27 @@ export function paragraphs(text, seen = null) {
       return `<p>${seen ? linkEntities(body, seen) : body}</p>`;
     })
     .join('');
+}
+
+/**
+ * Split a body on `## Heading` lines into an intro and named sections.
+ * Entries that use no headings come back as a single intro, so every
+ * existing page renders exactly as before.
+ */
+export function splitBody(text) {
+  const out = { intro: '', sections: [] };
+  if (!text) return out;
+  const parts = String(text).split(/^## +(.+)$/m);
+  out.intro = parts[0].trim();
+  for (let i = 1; i < parts.length; i += 2) {
+    const heading = parts[i].trim();
+    out.sections.push({
+      id: heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''),
+      heading,
+      text: (parts[i + 1] || '').trim(),
+    });
+  }
+  return out;
 }
 
 /**

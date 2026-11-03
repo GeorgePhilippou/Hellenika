@@ -3,6 +3,7 @@ id: huebner2019
 author: "Sabine R. Huebner"
 title: "Papyri and the Social World of the New Testament"
 kind: modern
+year: 2019
 url: https://assets.cambridge.org/97811084/55701/excerpt/9781108455701_excerpt.pdf
 _order: 290
 ---

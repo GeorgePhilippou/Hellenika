@@ -17,7 +17,7 @@ import { createGraph } from '../components/graph.js';
 import { createMap } from '../components/map-canvas.js';
 import {
   entityDate, entityCard, claimsList, confidenceKey, confidenceBadge,
-  paragraphs, block, proseSeen, factList, emptyState, typeChip, tintLegend, inlineFigure,
+  paragraphs, splitBody, citesHTML, block, proseSeen, factList, emptyState, typeChip, tintLegend, inlineFigure,
 } from '../components/ui.js';
 import { TYPE_META, MILESTONE_KINDS } from '../db.js';
 
@@ -311,6 +311,11 @@ function sidebarHTML(e, sections) {
           ...milestoneFacts(e),
           locationFact(e, siteRel),
           ['Coordinates', e.coords ? `<span class="num small">${e.coords[0].toFixed(3)}, ${e.coords[1].toFixed(3)}</span>` : null],
+          ['Also called', e.altNames?.length && e.type !== 'person' ? esc(e.altNames.join(', ')) : null],
+          ['Occupied', e.occupied?.text ? esc(e.occupied.text) : null],
+          ['Fieldwork', e.fieldwork.length ? e.fieldwork.map((f) => `${esc(f.who)}${f.years ? ` <span class="muted">(${esc(f.years)})</span>` : ''}`).join('<br>') : null],
+          ['Finds held in', e.heldIn.length ? esc(e.heldIn.join(', ')) : null],
+          ['Excavation', e.excavationStatus ? esc(e.excavationStatus) : null],
           ['Author', e.author ? esc(e.author) : null],
           ['Language', e.language ? esc(e.language) : null],
           ['Survival', e.survival ? esc(e.survival) : null],
@@ -403,6 +408,8 @@ function sourcesSection(e) {
 
   const list = (arr) => `<ul style="margin:0;padding-left:1.1em">${arr.map(({ s }) =>
     `<li><strong>${esc(s.author)}</strong>${s.year ? ` (${s.year})` : ''}, <em>${s.url && /^https?:\/\//.test(s.url) ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>` : esc(s.title)}</em>${
+      s.doi ? ` <a class="xs" href="https://doi.org/${esc(s.doi)}" target="_blank" rel="noopener noreferrer">doi:${esc(s.doi)}</a>` : ''}${
+      s.access ? ` <span class="xs muted">· ${esc({ open: 'open access', paywalled: 'paywalled', print: 'print only' }[s.access] || s.access)}</span>` : ''}${
       s.note ? `<br><span class="xs muted">${esc(s.note)}</span>` : ''}</li>`).join('')}</ul>`;
 
   return section('sources', 'Sources', `
@@ -584,14 +591,38 @@ function chronologySection(e) {
    Historical entity page
    ============================================================ */
 
+/** Named `## ` sections of the body, as full page sections. */
+function bodySectionBlocks(parts, seen) {
+  return parts.sections.map((p) => section(`b-${p.id}`, p.heading,
+    `<div class="prose" style="max-width:68ch">${paragraphs(p.text, seen)}</div>`)).join('');
+}
+
+/** Rival identifications and dating disagreements, stated side by side. */
+function debatesSection(e) {
+  if (!e.identification.length && !e.chronologyNotes.length) return '';
+  const cite = (c) => citesHTML(c);
+  const ident = e.identification.map((q) => `
+    <div class="block"><h3>${esc(q.question)}</h3>
+      <ul>${q.positions.map((p) => `<li>${esc(p.view)}${p.by ? ` <span class="muted">— ${esc(p.by)}</span>` : ''}${cite(p.cite)}</li>`).join('')}</ul>
+    </div>`).join('');
+  const chron = e.chronologyNotes.length ? `
+    <div class="block"><h3>Where scholars date it differently</h3>
+      <ul>${e.chronologyNotes.map((n) => `<li>${esc(n.text)}${cite(n.cite)}</li>`).join('')}</ul>
+    </div>` : '';
+  return section('debates', 'Debates and open questions', ident + chron);
+}
+
 function historyPage(e) {
   // One set for the whole page -- see the same seeding in mythPage().
   const seen = proseSeen(e);
+  const parts = splitBody(e.body);
   // No 'Significance' section or Contents entry: the hero's "Why it
   // matters" box carries that text in full, and a section repeating it
   // verbatim was the whole problem.
   const sections = [
     { id: 'overview', label: 'Overview' },
+    ...parts.sections.map((p) => ({ id: `b-${p.id}`, label: p.heading })),
+    (e.identification.length || e.chronologyNotes.length) && { id: 'debates', label: 'Debates' },
     { id: 'related', label: 'Connections' },
     e.claims.length && { id: 'evidence', label: 'Evidence' },
     hasChronology(e) && { id: 'chronology', label: 'Chronology' },
@@ -611,13 +642,15 @@ function historyPage(e) {
         <div class="entity-main">
           ${section('overview', 'Overview', `
             <div class="prose" style="max-width:68ch">
-              ${e.body ? paragraphs(e.body, seen) : `<p>${esc(e.summary)}</p>`}
+              ${parts.intro ? paragraphs(parts.intro, seen) : (e.body ? '' : `<p>${esc(e.summary)}</p>`)}
             </div>
             ${inlineFigure(e.secondaryImage)}
             ${extras.map(([k, v]) => block(k, v, seen)).join('')}
             ${e.boundaryNote ? `<div class="register-note" style="margin-top:var(--s-5)">
               ${icon('info', { size: 17 })}<div><strong>On the dates.</strong> ${esc(e.boundaryNote)}</div></div>` : ''}
           `)}
+          ${bodySectionBlocks(parts, seen)}
+          ${debatesSection(e)}
 
           ${relationsSection(e)}
           ${evidenceSection(e)}

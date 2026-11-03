@@ -6,6 +6,7 @@ import {
   getSource,
   MISSING_RELATIONS,
 } from '../js/db.js';
+import { sourceList } from '../data/sources.js';
 
 const MIN = {
   narrativeWords: 90,
@@ -41,7 +42,18 @@ function narrativeWords(entity) {
   ].reduce((total, value) => total + words(value), 0);
 }
 
+// Stricter bar for entries that declare `standard: full` in their frontmatter.
+// These are the in-depth pages (see docs/editorial-content-standard.md): every
+// strong claim is traceable to a named work and, where possible, a location in it.
+const FULL = { claims: 8, sources: 5, bodySections: 5, citedShare: 1 };
+const STRONG = new Set(['established', 'strong']);
+const ACCESS = new Set(['open', 'paywalled', 'print']);
+
 const errors = [];
+let cited = 0;
+let strong = 0;
+let strongCited = 0;
+const fullEntries = [];
 const typeStats = new Map();
 
 for (const entity of ALL) {
@@ -74,6 +86,20 @@ for (const entity of ALL) {
   }
 
   for (const [index, claim] of entity.claims.entries()) {
+    const at = `${entity.id}: claim ${index + 1}`;
+    const isStrong = STRONG.has(claim.confidence);
+    if (isStrong) strong += 1;
+    if (claim.cite !== undefined && !Array.isArray(claim.cite)) {
+      errors.push(`${at} cite must be a list of { src, loc } objects`);
+    }
+    const cites = Array.isArray(claim.cite) ? claim.cite : [];
+    if (cites.length) { cited += 1; if (isStrong) strongCited += 1; }
+    for (const c of cites) {
+      if (!c || typeof c.src !== 'string') { errors.push(`${at} has a cite without a src`); continue; }
+      if (!getSource(c.src)) errors.push(`${at} cites unknown source "${c.src}"`);
+      else if (!entity.sources.includes(c.src)) errors.push(`${at} cites "${c.src}", which is not in the entry's sources list`);
+      if (c.loc !== undefined && !String(c.loc).trim()) errors.push(`${at} cite for "${c.src}" has an empty loc`);
+    }
     if (!EVIDENCE_META[claim.evidence]) {
       errors.push(`${entity.id}: claim ${index + 1} has unknown evidence "${claim.evidence}"`);
     }
@@ -92,6 +118,25 @@ for (const entity of ALL) {
     }
   }
 
+  if (entity.standard === 'full') {
+    fullEntries.push(entity.id);
+    const at = `${entity.id} (standard: full)`;
+    const sections = (entity.body.match(/^## .+$/gm) || []).length;
+    if (entity.claims.length < FULL.claims) errors.push(`${at}: claims ${entity.claims.length}/${FULL.claims}`);
+    if (entity.sources.length < FULL.sources) errors.push(`${at}: sources ${entity.sources.length}/${FULL.sources}`);
+    if (sections < FULL.bodySections) errors.push(`${at}: body sections ${sections}/${FULL.bodySections}`);
+    for (const [index, claim] of entity.claims.entries()) {
+      if (STRONG.has(claim.confidence) && !(Array.isArray(claim.cite) && claim.cite.length)) {
+        errors.push(`${at}: ${claim.confidence} claim ${index + 1} has no cite ("${claim.text.slice(0, 50)}...")`);
+      }
+    }
+    for (const q of entity.identification) {
+      if (!q.question || !Array.isArray(q.positions) || q.positions.length < 2) {
+        errors.push(`${at}: identification needs a question and at least two positions`);
+      }
+    }
+  }
+
   const stats = typeStats.get(entity.type) || {
     count: 0,
     narrativeWords: 0,
@@ -103,6 +148,18 @@ for (const entity of ALL) {
   stats.claims += entity.claims.length;
   stats.sources += entity.sources.length;
   typeStats.set(entity.type, stats);
+}
+
+// Source records: every source needs author, year and title; optional
+// locators must be well formed so citations stay checkable.
+for (const src of sourceList) {
+  const at = `source ${src.id}`;
+  if (!src.author) errors.push(`${at}: missing author`);
+  if (!src.title) errors.push(`${at}: missing title`);
+  if (src.kind === 'modern' && !Number.isFinite(src.year) && !src.undated) errors.push(`${at}: modern work needs a numeric year (or undated: true for a web page with no stated date)`);
+  if (src.doi && !/^10\.\d{4,9}\/\S+$/.test(src.doi)) errors.push(`${at}: malformed doi "${src.doi}"`);
+  if (src.url && !/^https?:\/\//.test(src.url)) errors.push(`${at}: url must be http(s)`);
+  if (src.access && !ACCESS.has(src.access)) errors.push(`${at}: access must be open, paywalled or print`);
 }
 
 console.log(`Content validation: ${ALL.length} entries`);
@@ -119,6 +176,13 @@ for (const [type, stats] of typeStats) {
     + `${average(stats.claims)} claims · ${average(stats.sources)} sources`,
   );
 }
+
+const totalClaims = ALL.reduce((n, e) => n + e.claims.length, 0);
+console.log(
+  `Citations: ${cited}/${totalClaims} claims carry a cite; `
+  + `${strongCited}/${strong} established/strong claims cited. `
+  + `${fullEntries.length} entr${fullEntries.length === 1 ? 'y' : 'ies'} at standard "full"${fullEntries.length ? `: ${fullEntries.join(', ')}` : ''}.`,
+);
 
 if (errors.length) {
   console.error(`\nContent validation failed with ${errors.length} issue(s):`);

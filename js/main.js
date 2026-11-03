@@ -18,6 +18,7 @@ import { renderEntity } from './views/entity.js';
 import { renderCollections, renderCollection } from './views/collections.js';
 import { renderSources } from './views/sources.js';
 import { renderAbout } from './views/about.js';
+import { renderStandards, renderAiPolicy, renderCorrections } from './views/trust.js';
 import { hydrateImages } from './components/images.js';
 import { initLightbox, closeLightbox } from './components/lightbox.js';
 
@@ -248,6 +249,9 @@ route('/learn/quiz/:id', () => go('/'));
 route('/learn/game/:id', () => go('/'));
 route('/sources', mount(renderSources));
 route('/about', mount(renderAbout));
+route('/about/standards', mount(renderStandards));
+route('/about/ai-policy', mount(renderAiPolicy));
+route('/about/corrections', mount(renderCorrections));
 
 setNotFound(async (path) => {
   main.innerHTML = `

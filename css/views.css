@@ -1293,6 +1293,13 @@
 }
 .claim:hover { border-color: var(--border-strong); box-shadow: var(--sh-1); }
 .claim-text { font-size: var(--fs-sm); line-height: 1.55; }
+.cites { display: inline-flex; flex-wrap: wrap; gap: var(--s-1) var(--s-2); margin-left: var(--s-2); vertical-align: baseline; }
+.cite {
+  font-size: var(--fs-xs); color: var(--text-3); white-space: nowrap;
+  border-bottom: 1px dotted var(--border-strong); text-decoration: none;
+}
+.cite:hover { color: var(--accent-text); border-bottom-color: var(--accent); text-decoration: none; }
+.cite::before { content: "["; } .cite::after { content: "]"; }
 .claim-meta { display: flex; align-items: center; gap: var(--s-3); grid-column: 1 / -1; }
 @media (min-width: 620px) {
   .claim { grid-template-columns: 1fr max-content; }

@@ -1166,7 +1166,7 @@ function mount(root, initialMode, focusEntity) {
         </div>
         <div class="journey-card-section">
           <h4>${isAlexander ? 'Campaign stage' : 'The episode'}</h4>
-          ${prose(s.entity.myth || s.entity.body || s.entity.summary)}
+          ${prose(s.entity.myth || db.bodyIntro(s.entity) || s.entity.summary)}
         </div>
         <div class="journey-card-section">
           <h4>${isAlexander ? 'How the campaign connects' : 'How this stop connects'}</h4>
@@ -1211,7 +1211,7 @@ function mount(root, initialMode, focusEntity) {
         return `${clipped.slice(0, boundary > max * .7 ? boundary : max).trim()}…`;
       };
       const description = shorten(
-        s.connection || s.entity.summary || s.entity.body || s.note,
+        s.connection || s.entity.summary || db.bodyIntro(s.entity) || s.note,
       );
       return `
           <div class="map-fs-journey-heading">

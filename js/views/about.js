@@ -207,7 +207,10 @@ export async function renderAbout() {
               This is a synthesis of published scholarship written to be useful, and it will
               contain errors. The evidence tags are the mechanism for catching them: if a claim
               is marked <em>established</em> and you know it is contested, that is a bug in the
-              data rather than a difference of opinion.
+              data rather than a difference of opinion. The full rules are on the
+              <a href="#/about/standards">editorial standards</a>,
+              <a href="#/about/ai-policy">AI policy</a> and
+              <a href="#/about/corrections">corrections</a> pages.
             </p>
           </div>
           <div class="callout" style="margin-top:var(--s-6)">
